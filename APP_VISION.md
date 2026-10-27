@@ -6,21 +6,31 @@
 
 ---
 
-## 0. Current state (updated 2026-10-26)
+## 0. Current state (updated 2026-10-26, end of session)
 
-**Confirmed by the owner in Anki:** everything built so far, including (2026-10-26) bokeh parallax, the 4-switch Night look, header/page seam, on-screen windows, the new window sizes (main `EXTRA_HEIGHT` 210; grid pop-ups 900×890 centred and level with the main window's bottom), heatmap-coloured Kanji / Grammar grid glow, rain glare streaks removed, 50 % effects volume, and busy notes in place of Anki's progress bar.
+**Session 2026-10-26 (second), all committed and pushed.** Git now holds the detail: `git log` on https://github.com/BenAstromo/kotodama (private, branch `main`).
 
-**Built, not yet seen in Anki (owner's next restart):** Settings is one scrolling page (no tabs; the field mappings group is now "Vocab — which fields hold your words?", with Kanji and Grammar sources under it; the rows' ✕ buttons are visible now, `_remove_button`); the custom word-list upload is gone and the Kotodama JLPT lists are always used (§7); "bundled lists" renamed to "the Kotodama JLPT lists" everywhere user-facing (§8). Settings → Sound effects → "Mini widget sounds" (`mini_widget_sound`, default on; `effects.mini_sound_on`) silences only the deck-list widget's flicker sound. Nothing in the mini widget can be dragged any more (`-webkit-user-drag: none`, `draggable="false"` on the link and rank picture), so a slipped click no longer drops it on Anki ("Unsupported file type"). The rank "?" window has the main window's night look (`theme.apply`, stars, rain, see-through dark badge tiles, faint separators `_INFO_SEP_CSS`).
+**Confirmed by the owner in Anki:** everything up to this session, plus the N5–N1 building sign (seen in Anki with 5 px steel; the thinner 3 px steel and seams were approved from an offscreen render).
 
-**Git (2026-10-26):** the add-on folder is a git repo, pushed to the **private** GitHub repo https://github.com/BenAstromo/kotodama (branch `main`). `.gitignore` keeps out `user_files/`, `meta.json`, `server/.wrangler/` and caches. Commit / push only when the owner asks. Before making it public: the release checklist (§11), and decide whether `server/wrangler.toml`'s D1 `database_id` should stay in it.
+**Built this session, not all seen in Anki yet (owner's next restart):**
+- Settings is one scrolling page (no tabs): deck, "Vocab — which fields hold your words?", Kanji, Grammar, suspended cards, then widget / Amaterasu / sound / animations / Night look. Rows' ✕ buttons fixed (`_remove_button`: Anki's padding had squeezed them out).
+- Custom word-list uploads removed: always the Kotodama JLPT lists (§7). User-facing text says "the Kotodama JLPT lists", never "bundled lists" (§8).
+- Settings → Sound effects → "Mini widget sounds" (`mini_widget_sound`, default on) silences only the deck-list widget.
+- Mini widget can't be dragged (a slipped click used to drop it on Anki: "Unsupported file type").
+- Rank "?" window has the main window's night look (theme, stars, rain, dark see-through badge tiles).
+- N5–N1 sign (owner's pick, mock-ups A + C): one steel box, each level a lit panel with its own neon outline and soft backlight (`SIGN_BACKLIT` 0.22); 3 px steel round the box and 3 px seams (`SIGN_STEEL`, `SIGN_GAP`; the panels are taller so the bars keep their 10 px gaps); steel brackets to the edge of a dark building (`_Facade`, `FACADE_ALPHA` 0.45, sits above the light spill so the bloom shows on it dimmed; no windows, no bounce light: both tried and rejected). Amaterasu mode: no building, box or brackets; the gold panels float.
 
-**Accuracy state:** grammar fresh recall 91 % (tuning stopped: fresh samples don't move); precision A 99 % / N3 94 % / N2 98 % / N1 97 %; `tools/grammar_cases.json` 4,859 rulings, 0 failures. Tatoeba has almost no unreviewed N1 left (a future N1 check needs the owner's own sentences, `user_files/parse_cache.json`).
+**Git:** commit / push only when the owner asks. `.gitignore` keeps out `user_files/`, `meta.json`, `server/.wrangler/` and caches. Before making the repo public: the release checklist (§11), and decide whether `server/wrangler.toml`'s D1 `database_id` stays.
+
+**Accuracy state:** grammar fresh recall 91 % (tuning stopped); precision A 99 % / N3 94 % / N2 98 % / N1 97 %; `tools/grammar_cases.json` 4,859 rulings, 0 failures. A future N1 check needs the owner's own sentences (`user_files/parse_cache.json`).
 
 **Open (owner's call unless noted):**
-- **Word Addition Project** (suggested next; resume when the owner names it): 589 candidates in the frequency top 3,900 with no JLPT entry; rules in `tools/missing_words/confidence_rules.py` → add 453 (N5 5, N4 40, N3 119, N2 190, N1 99), skip 136. Owner reviews on the phone: private Artifact https://claude.ai/artifact/NHt9rMw2icW5aSLuNxSLuq, round-2 edits in ArtifactData collection `review`, doc `round2` (may not exist = accepted as is). Then add the words in `tools/build_jlpt.py` with flag `ours`, rebuild, run the evals; then the #3,901–6,000 batch (`wa_candidates.json`, db doc `review/round3`). Details: grep HISTORY for "Word Addition Project". Afterwards rebuild `freq_extra.txt` (needs the LUW zip, §6).
+- **Word Addition Project** (suggested next): 589 candidates in the frequency top 3,900 with no JLPT entry → rules in `tools/missing_words/confidence_rules.py` add 453 (N5 5, N4 40, N3 119, N2 190, N1 99), skip 136. Phone review Artifact https://claude.ai/artifact/NHt9rMw2icW5aSLuNxSLuq: round 1 = ArtifactData `review/choices` (52 owner decisions); `review/round2` was saved 2026-10-26 with no changes (= accepted as is; confirm with the owner). Next: add the words in `tools/build_jlpt.py` with flag `ours`, rebuild, run the evals; then the #3,901–6,000 batch (`wa_candidates.json`, db doc `review/round3`); afterwards rebuild `freq_extra.txt` (needs the LUW zip, §6). Details: grep HISTORY for "Word Addition Project".
+- **Gamification round:** ideas offered 2026-10-26, none picked yet: milestone seals (判子) on bars, level clears (完), rare-word finds, kanji families, grammar "seen in the wild" (from the owner's own sentences), weekly ink on the History chart (no streaks), hidden titles on the share image, Nakama nudges. Recommended first: seals + "seen in the wild". Mock-ups before building (§8).
 - Rank pictures (only Amaterasu is animated); testing on other PCs; release prep (GitHub page, screenshots, version bump, "Supported Kotodama" line, §11).
-- Owner decisions pending: rank/belt colour legibility screenshots; History chart marking-day step; #6 duplicate-card finder; a gamification round.
+- Owner decisions pending: rank/belt colour legibility screenshots; History chart marking-day step; #6 duplicate-card finder.
 - Known small issue: renaming a mapped field keeps a stale field index until a note changes or Anki restarts (`tools/dev/maintenance_log.md`).
+- Dev note: `%TEMP%\qtv\Scripts\python.exe` keeps vanishing; `py -m venv --upgrade qtv` (from `%TEMP%`) restores it.
 
 ---
 

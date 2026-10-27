@@ -1983,11 +1983,26 @@ TITLE_LEFT_GOLD = [("言霊", 22, True, "#f5c518", "#fff8c5"), ("ことだま", 
 TITLE_RIGHT_GOLD = [("JLPT 進捗", 18, False, "#f5c518", "#fff8c5")]
 
 
+# The N5–N1 signs as one long box on the side of a building (owner
+# 2026-10-26, mock-ups A + C: each panel its own neon outline, softly lit from
+# behind in its colour). The building is only its edge, poking in from the
+# card's left side, no windows. In Amaterasu mode there's no building, box or
+# brackets: just the five glowing panels, floating.
+FACE_W = 8              # px of building face inside the sign column (wall coords)
+SIGN_X, SIGN_PW = 16, 34   # the sign box's left edge and width (wall coords)
+SIGN_STEEL = 3          # steel showing round the box's lit panels (owner 2026-10-26: one piece)
+SIGN_GAP = 3            # the seam between two levels' panels
+ROW_GAP = 10            # the gap between the bars (the card's spacing), kept as it was
+SIGN_BACKLIT = 0.22     # each panel's colour glow from behind (0–1)
+FACADE_ALPHA = 0.45     # owner 2026-10-26; how much of the tubes' bloom the dark building blocks (0–1)
+STEEL, STEEL_DARK = "#3a3a40", "#222226"
+
+
 class LevelSign(QWidget):
-    """A JLPT level's label as a vertical neon plate bolted to the building's
-    wall (owner 2026-10-22, mock-up A): "N" over "5" in tube lettering on a
-    dark plate with a lit outline, on two brackets; it flickers on like the
-    bars. The wall itself is _SignWall, behind the rows."""
+    """A JLPT level's panel in the building's long neon sign (owner
+    2026-10-26; was a separate plate, 2026-10-22): "N" over "5" in tube
+    lettering; it flickers on like the bars. The box, the brackets and the
+    building are _SignWall's, behind the rows."""
 
     W = 56
     _neon_tube = True
@@ -1996,7 +2011,9 @@ class LevelSign(QWidget):
         super().__init__(parent)
         self._level = level
         self._gold = False
-        self.setFixedSize(self.W, 72)
+        # taller than its bar by the gap the seam doesn't use, so the panels
+        # nearly touch while the bars keep their spacing
+        self.setFixedSize(self.W, 72 + ROW_GAP - SIGN_GAP)
         _neon_register(self)
 
     def set_gold(self, on: bool):
@@ -2004,7 +2021,10 @@ class LevelSign(QWidget):
         self.update()
 
     def _plate(self) -> QRectF:
-        return QRectF(16, 6, 30, self.height() - 12)
+        """This level's lit panel: its whole row, with SIGN_STEEL of the box
+        showing at each side; the SIGN_GAP between rows is the seam between
+        panels (owner 2026-10-26: one piece, thin steel, a thin seam)."""
+        return QRectF(SIGN_X + SIGN_STEEL, 0.5, SIGN_PW - 2 * SIGN_STEEL, self.height() - 1)
 
     def paintEvent(self, event):
         c = QColor(rank_data.MAX_RANK_FILL_COLOR if self._gold else LEVEL_FG[self._level])
@@ -2014,21 +2034,22 @@ class LevelSign(QWidget):
         p = QPainter(self)
         p.setRenderHint(QPainter.RenderHint.Antialiasing)
         p.setPen(Qt.PenStyle.NoPen)
-        p.setBrush(QColor("#3a3a3a"))
-        for y in (plate.top() + 9, plate.bottom() - 9):          # brackets to the wall
-            p.drawRect(QRectF(6, y - 1, plate.left() - 6, 2.5))
-        p.setOpacity(light)                                      # its glow on the wall
-        for s, a in ((9, 14), (5, 26), (2, 46)):
+        p.setBrush(QColor("#0d0b08" if self._gold else "#0e0e10"))   # the panel's dark face
+        p.drawRoundedRect(plate, 3, 3)
+        wash = QColor(c)                                         # backlit, like acrylic (mock-ups A + C)
+        wash.setAlphaF(SIGN_BACKLIT * (0.25 + 0.75 * light))
+        p.setBrush(wash)
+        p.drawRoundedRect(plate, 3, 3)
+        for width, a in ((5, 30), (3, 60)):                      # the panel's own neon outline
             cc = QColor(c)
-            cc.setAlpha(a)
-            p.setBrush(cc)
-            p.drawRoundedRect(plate.adjusted(-s, -s, s, s), 4 + s, 4 + s)
-        p.setOpacity(1.0)
-        p.setBrush(QColor("#101010"))
+            cc.setAlpha(int(a * light))
+            p.setPen(QPen(cc, width))
+            p.setBrush(Qt.BrushStyle.NoBrush)
+            p.drawRoundedRect(plate, 3, 3)
         edge = QColor(c.lighter(115))
         edge.setAlphaF(NEON_OFF_FILL + (1 - NEON_OFF_FILL) * light)
-        p.setPen(QPen(edge, 1.6))
-        p.drawRoundedRect(plate, 4, 4)
+        p.setPen(QPen(edge, 1.4))
+        p.drawRoundedRect(plate, 3, 3)
         # the tube lettering, N over the number
         f = QFont()
         f.setPixelSize(16)
@@ -2050,14 +2071,92 @@ class LevelSign(QWidget):
         p.end()
 
 
-class _SignWall(QWidget):
-    """The strip of building wall the level signs (LevelSign) are bolted to,
-    behind their rows, one piece from N5 to N1."""
+class _Facade(QWidget):
+    """The building's edge behind the level signs, a narrow strip from the
+    card's left edge to the sign's brackets (owner 2026-10-26): a dark wall
+    with a ledge on top; no windows and no light from the sign on it (both
+    tried, removed). It sits just above the tubes' light spill (_SpillLayer)
+    as near-black at FACADE_ALPHA, so the bloom shows on it, dimmer than on
+    the open wall: a dark building catching some of the light (owner
+    2026-10-26). A child of the card (_SignWall places it and hides it in
+    Amaterasu mode)."""
+
+    def __init__(self, parent):
+        super().__init__(parent)
+        self.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents)
 
     def paintEvent(self, event):
         p = QPainter(self)
-        p.fillRect(QRect(0, 0, 6, self.height()), QColor("#1a1a1a"))
-        p.fillRect(QRect(5, 0, 1, self.height()), QColor("#262626"))
+        w, h = self.width(), self.height()
+        p.setOpacity(FACADE_ALPHA)
+        p.fillRect(QRect(0, 0, w, h), QColor("#050506"))
+        p.fillRect(QRect(w - 1, 0, 1, h), QColor("#222227"))          # the building's corner
+        p.fillRect(QRect(0, 0, w, 3), QColor("#232328"))              # the ledge on top
+        p.end()
+
+
+class _SignWall(QWidget):
+    """Behind the N5–N1 rows: the long sign box (frame and dividers; each
+    panel's lettering is its LevelSign's) on brackets, and the building's
+    face (_Facade) reaching left to the card's edge (owner 2026-10-26)."""
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self._facade = None
+        self._gold = False
+
+    def set_gold(self, on: bool):
+        self._gold = bool(on)
+        if self._facade is not None:
+            self._facade.setVisible(not self._gold)  # Amaterasu: no building, the panels float
+        self.update()
+
+    def _place_facade(self):
+        card = self.parentWidget()
+        if card is None:
+            return
+        if self._facade is None:
+            self._facade = _Facade(card)
+            self._facade.setVisible(not self._gold)
+        self._facade.setGeometry(1, self.y() - 8, self.x() + FACE_W - 1, self.height() + 8)
+        self._facade.stackUnder(self)                # above the light spill, under the sign
+
+    def moveEvent(self, event):
+        super().moveEvent(event)
+        self._place_facade()
+
+    def resizeEvent(self, event):
+        super().resizeEvent(event)
+        self._place_facade()
+
+    def _panels(self):
+        """Each LevelSign's rows, top to bottom, in this widget's coordinates."""
+        out = []
+        for s in self.findChildren(LevelSign):
+            top = s.mapTo(self, QPoint(0, 0)).y()
+            out.append((top, top + s.height()))
+        return sorted(out)
+
+    def paintEvent(self, event):
+        panels = self._panels()
+        if not panels:
+            return
+        if self._gold:
+            return                                   # Amaterasu: no box or brackets, the panels float
+        p = QPainter(self)
+        p.setRenderHint(QPainter.RenderHint.Antialiasing)
+        top, bottom = panels[0][0] - SIGN_STEEL, panels[-1][1] + SIGN_STEEL
+        box = QRectF(SIGN_X, top, SIGN_PW, bottom - top)
+        p.setPen(Qt.PenStyle.NoPen)
+        p.setBrush(QColor(STEEL))                                    # brackets to the building
+        ys = [top + 10] + [(a[1] + b[0]) / 2 for a, b in zip(panels, panels[1:])] + [bottom - 10]
+        for y in ys:
+            p.drawRect(QRectF(FACE_W, y - 1.5, SIGN_X - FACE_W, 3))
+        # the steel box: the lit panels (LevelSign) cover all but SIGN_STEEL
+        # round each of them, the same on every side
+        p.setBrush(QColor(STEEL_DARK))
+        p.setPen(QPen(QColor(STEEL), 1.2))
+        p.drawRoundedRect(box.adjusted(0.6, 0.6, -0.6, -0.6), 5, 5)
         p.end()
 
 
@@ -6345,9 +6444,10 @@ class OverviewTab(QWidget):
         self._level_signs = []
         # The N5–N1 labels are neon signs on a strip of wall (owner 2026-10-22)
         wall = _SignWall()
+        self._sign_wall = wall
         wall_l = QVBoxLayout(wall)
-        wall_l.setContentsMargins(0, 0, 0, 0)
-        wall_l.setSpacing(outer.spacing())
+        wall_l.setContentsMargins(0, SIGN_STEEL, 0, 0)     # room for the box's top edge
+        wall_l.setSpacing(SIGN_GAP)                         # the rows are taller instead (LevelSign)
         for lvl in LEVELS:
             d     = self._results[lvl]
             known = len(d["known_words"])
@@ -6826,6 +6926,8 @@ class OverviewTab(QWidget):
         # Frequency Check tier labels ("N5 / 800" …), which may not exist yet.
         for sign in getattr(self, "_level_signs", []):
             sign.set_gold(gold)
+        if getattr(self, "_sign_wall", None) is not None:
+            self._sign_wall.set_gold(gold)
         labels = [(lvl, lbl, LEVEL_FG[lvl], 16) for lvl, lbl in self._level_labels]
         labels += [(text, lbl, FREQ_FG, 12) for text, lbl in getattr(self, "_freq_labels", [])]
         for text, lbl, normal_color, size in labels:
