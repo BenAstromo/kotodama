@@ -19,6 +19,7 @@
 - Mini widget can't be dragged (a slipped click used to drop it on Anki: "Unsupported file type").
 - Rank "?" window has the main window's night look (theme, stars, rain, dark see-through badge tiles).
 - N5–N1 sign (owner's pick, mock-ups A + C): one steel box, each level a lit panel with its own neon outline and soft backlight (`SIGN_BACKLIT` 0.22); 3 px steel round the box and 3 px seams (`SIGN_STEEL`, `SIGN_GAP`; the panels are taller so the bars keep their 10 px gaps); steel brackets to the edge of a dark building (`_Facade`, `FACADE_ALPHA` 0.45, sits above the light spill so the bloom shows on it dimmed; no windows, no bounce light: both tried and rejected). Amaterasu mode: no building, box or brackets; the gold panels float.
+- **Belt label (2026-10-27, owner checked in Anki):** the badge's "BLUE BELT" line is a flat cloth belt (`_BeltStrip`): belt colour, stitching rows, white or black text, so it reads on every rank colour (coloured text vanished, e.g. purple on 天皇). Two fixed lengths: every plain belt, and the degree belts (room for ten gold bars, one per degree). Amaterasu's first black belt is just "Black" (no "First-Degree"); names and bars start at Second-Degree. Rejected after mock-ups: knot / ribbon / frayed ends, and a tied 3-D loop with the name inside. The share image still uses coloured belt text.
 
 **Git:** commit / push only when the owner asks. `.gitignore` keeps out `user_files/`, `meta.json`, `server/.wrangler/` and caches. Before making the repo public: the release checklist (§11), and decide whether `server/wrangler.toml`'s D1 `database_id` stays.
 
@@ -28,7 +29,7 @@
 - **Word Addition Project** (suggested next): 589 candidates in the frequency top 3,900 with no JLPT entry → rules in `tools/missing_words/confidence_rules.py` add 453 (N5 5, N4 40, N3 119, N2 190, N1 99), skip 136. Phone review Artifact https://claude.ai/artifact/NHt9rMw2icW5aSLuNxSLuq: round 1 = ArtifactData `review/choices` (52 owner decisions); `review/round2` was saved 2026-10-26 with no changes (= accepted as is; confirm with the owner). Next: add the words in `tools/build_jlpt.py` with flag `ours`, rebuild, run the evals; then the #3,901–6,000 batch (`wa_candidates.json`, db doc `review/round3`); afterwards rebuild `freq_extra.txt` (needs the LUW zip, §6). Details: grep HISTORY for "Word Addition Project".
 - **Gamification round:** ideas offered 2026-10-26, none picked yet: milestone seals (判子) on bars, level clears (完), rare-word finds, kanji families, grammar "seen in the wild" (from the owner's own sentences), weekly ink on the History chart (no streaks), hidden titles on the share image, Nakama nudges. Recommended first: seals + "seen in the wild". Mock-ups before building (§8).
 - Rank pictures (only Amaterasu is animated); testing on other PCs; release prep (GitHub page, screenshots, version bump, "Supported Kotodama" line, §11).
-- Owner decisions pending: rank/belt colour legibility screenshots; History chart marking-day step; #6 duplicate-card finder.
+- Owner decisions pending: History chart marking-day step; #6 duplicate-card finder.
 - Known small issue: renaming a mapped field keeps a stale field index until a note changes or Anki restarts (`tools/dev/maintenance_log.md`).
 - Dev note: `%TEMP%\qtv\Scripts\python.exe` keeps vanishing; `py -m venv --upgrade qtv` (from `%TEMP%`) restores it.
 

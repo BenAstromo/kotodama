@@ -270,8 +270,9 @@ def get_rank_info(count: int) -> dict:
       belt_index       - 0–7 within the current rank
       belt_name        - raw belt name, e.g. "Blue" or "Black" (no degree)
       belt_display_name - what the UI should show: same as belt_name except
-                         for Amaterasu Black Belt, where it becomes
-                         "First-Degree Black" .. "Tenth-Degree Black"
+                         for Amaterasu Black Belt from the second degree:
+                         "Second-Degree Black" .. "Tenth-Degree Black" (the
+                         first degree is just "Black", owner 2026-10-27)
       is_amaterasu_black - True only for the 10 Amaterasu Black Belt degrees
       degree_index     - 0–9 within Amaterasu Black Belt, else None
       degree_ordinal   - "First".."Tenth", else None
@@ -340,10 +341,6 @@ def get_rank_info(count: int) -> dict:
             next_belt_idx      = next_global_belt % BELTS_PER_RANK
             next_rank_idx      = next_global_belt // BELTS_PER_RANK
             next_belt_name     = BELTS[next_belt_idx]
-            # Entering Amaterasu Black Belt for the first time means landing
-            # on First-Degree, not a plain "Black" belt.
-            if next_global_belt == N_BELTS - 1:
-                next_belt_name = "First-Degree Black"
             if next_rank_idx != rank_idx and next_rank_idx < N_RANKS:
                 next_rank_name = MAIN_RANKS[next_rank_idx]
 
@@ -352,8 +349,9 @@ def get_rank_info(count: int) -> dict:
     rank_colors = RANK_COLORS[rank_en]
 
     # Display name for the belt label: plain "Black" everywhere except
-    # Amaterasu, where it becomes "First-Degree Black" .. "Tenth-Degree Black".
-    if is_amaterasu_black:
+    # Amaterasu, where it becomes "Second-Degree Black" .. "Tenth-Degree Black".
+    # A first-degree black belt is a black belt (owner 2026-10-27): plain "Black".
+    if is_amaterasu_black and degree_index > 0:
         belt_display_name = f"{degree_ordinal}-Degree Black"
     else:
         belt_display_name = belt_name

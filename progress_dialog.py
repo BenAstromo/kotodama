@@ -2934,6 +2934,91 @@ class _RankKanji(QWidget):
         p.end()
 
 
+BELT_STRIP_H = 24   # px, the cloth belt behind "BLUE BELT"
+
+
+class _BeltStrip(QWidget):
+    """The badge's belt line as an actual belt (owner 2026-10-26): a cloth
+    band in the belt's colour, rows of stitching along its edges and square
+    cut ends, the name in plain white or black on it. Coloured text on the
+    rank's colour (purple on orange, black on dark red) vanished. Degree
+    black belts (Amaterasu, second degree on) carry gold bars at the end,
+    one per degree.
+    Two fixed lengths (owner): every plain belt as long as the longest
+    name, every degree belt as long as the longest degree name plus room
+    for ten bars, so the belt doesn't change size from belt to belt.
+    The name is a child QLabel so divine_text still translates it."""
+
+    _PAD = 26
+    _BARS_W = 10 * 5 + 8     # ten degree bars and a gap
+    _lengths: dict = {}      # degree belt? → width, measured once
+
+    def __init__(self, text: str, color: str, degree: int = 0, gold: bool = False, parent=None):
+        super().__init__(parent)
+        self._cloth = QColor(color)
+        self._degree = degree
+        self._light = _luma(self._cloth) > 0.55
+        ink = "#f5c518" if gold else ("#1a1a1a" if self._light else "#ffffff")
+        self.label = QLabel(text, self)
+        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        # size in the style sheet: theme.py's QDialog#kotodama font-size beats setFont
+        self.label.setStyleSheet(f"color: {ink}; background: transparent; font-size: 9pt;"
+                                 " font-weight: bold; letter-spacing: 1px;")
+        if gold:
+            self.label.setProperty("jlpt_keep_color", True)
+        w = self._length(bool(degree))
+        bars = self._BARS_W if degree else 0
+        self.setFixedSize(w, BELT_STRIP_H)
+        # the name centred in the cloth left of the bars
+        self.label.setGeometry(self._PAD, 0, w - 2 * self._PAD - bars, BELT_STRIP_H)
+
+    def _length(self, degree: bool) -> int:
+        if degree not in self._lengths:
+            names = ([f"{o.upper()}-DEGREE BLACK BELT" for o in rank_data.DEGREE_ORDINALS[1:]]
+                     if degree else [f"{b.upper()} BELT" for b in rank_data.BELTS])
+            probe = QLabel(styleSheet=self.label.styleSheet())
+            tw = 0
+            for n in names:
+                probe.setText(n)
+                tw = max(tw, probe.sizeHint().width())
+            probe.deleteLater()
+            _BeltStrip._lengths[degree] = tw + 2 * self._PAD + (self._BARS_W if degree else 0)
+        return self._lengths[degree]
+
+    def paintEvent(self, e):
+        p = QPainter(self)
+        p.setRenderHint(QPainter.RenderHint.Antialiasing)
+        r = QRectF(self.rect()).adjusted(0.5, 0.5, -0.5, -1.5)
+        # a soft drop shadow lifts it off the badge
+        p.setPen(Qt.PenStyle.NoPen)
+        p.setBrush(QColor(0, 0, 0, 90))
+        p.drawRoundedRect(r.translated(0, 1.5), 2, 2)
+        # cloth: lighter on top, darker below, as if folded round a waist
+        c = self._cloth
+        g = QLinearGradient(0, r.top(), 0, r.bottom())
+        g.setColorAt(0, c.lighter(118))
+        g.setColorAt(0.5, c)
+        g.setColorAt(1, c.darker(135))
+        p.setBrush(QBrush(g))
+        edge = c.darker(170) if self._light or _luma(c) > 0.2 else QColor(90, 90, 90)
+        p.setPen(QPen(edge, 1))
+        p.drawRoundedRect(r, 2, 2)
+        # stitching: two rows along each edge, the full length
+        st = QColor(0, 0, 0, 55) if self._light else QColor(255, 255, 255, 38)
+        p.setPen(QPen(st, 1))
+        for y in (r.top() + 3, r.top() + 5.5, r.bottom() - 5.5, r.bottom() - 3):
+            p.drawLine(QPointF(r.left() + 2, y), QPointF(r.right() - 2, y))
+        # degree bars (black belts in Amaterasu): gold, at the right end
+        if self._degree:
+            p.setPen(Qt.PenStyle.NoPen)
+            p.setBrush(QColor("#d4a017"))
+            x = r.right() - 6
+            for _ in range(self._degree):
+                p.drawRect(QRectF(x - 3, r.top() + 1, 3, r.height() - 2))
+                x -= 5
+        p.end()
+
+
 class RankBadge(QWidget):
     """
     Badge showing belt + rank identity, with a gradient background that
@@ -3035,26 +3120,13 @@ class RankBadge(QWidget):
         color_b = info["rank_color_b"]   # accent / glow
         rank_idx = info["rank_index"]    # 0–9
 
-        belt_color = info["belt_color"]
-        label_color = "#e0e0e0" if info["belt_name"] == "White" else belt_color
-
-        belt_lbl = QLabel(f"{info['belt_display_name'].upper()} BELT")
-        belt_font = QFont()
-        belt_font.setBold(True)
-        belt_font.setPointSize(11)
-        belt_lbl.setFont(belt_font)
-        belt_lbl.setStyleSheet(
-            f"color: {label_color}; letter-spacing: 1px; background: transparent;"
-        )
-        belt_lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        is_black_belt = info["belt_name"] == "Black"
-        shadow_color  = QColor(255, 255, 255, 200) if is_black_belt else QColor(0, 0, 0, 220)
-        belt_shadow = QGraphicsDropShadowEffect(belt_lbl)
-        belt_shadow.setBlurRadius(8 if is_black_belt else 6)
-        belt_shadow.setOffset(0 if is_black_belt else 1, 0 if is_black_belt else 1)
-        belt_shadow.setColor(shadow_color)
-        belt_lbl.setGraphicsEffect(belt_shadow)
-        layout.addWidget(belt_lbl)
+        # bars from the second degree on; the first is a plain black belt
+        degree = (info.get("degree_index") or 0) + 1 if info.get("is_amaterasu_black") else 0
+        degree = degree if degree >= 2 else 0
+        belt = _BeltStrip(f"{info['belt_display_name'].upper()} BELT", info["belt_color"],
+                          degree, gold=bool(info.get("is_max_amaterasu")))
+        layout.addWidget(belt, 0, Qt.AlignmentFlag.AlignHCenter)
+        layout.addSpacing(2)
 
         # On a White belt the badge background uses the rank's light accent
         # color (e.g. Amaterasu's near-white gold #fff8c5), making white or
@@ -3120,20 +3192,6 @@ class RankBadge(QWidget):
             en_shadow.setOffset(0, 0)
             en_shadow.setBlurRadius(8)
             en_shadow.setColor(QColor(255, 250, 215, 230))
-            if is_white_belt:      # light-grey "WHITE BELT" vanished too
-                belt_lbl.setStyleSheet("color: #555555; letter-spacing: 1px; background: transparent;")
-                belt_shadow.setOffset(0, 0)
-                belt_shadow.setBlurRadius(8)
-                belt_shadow.setColor(QColor(255, 255, 255, 230))
-        if info.get("is_max_amaterasu"):
-            # The belt line and subtitle sat gold-on-gold: dark gold with a
-            # light glow, like 天照 (divine_text leaves their colour alone).
-            for lbl, eff in ((belt_lbl, belt_shadow), (en_lbl, en_shadow)):
-                lbl.setStyleSheet("color: #6b4a00; background: transparent;")
-                lbl.setProperty("jlpt_keep_color", True)
-                eff.setOffset(0, 0)
-                eff.setBlurRadius(10)
-                eff.setColor(QColor(255, 250, 215, 230))
         if info.get("is_max_amaterasu"):
             # Gold mode is all Japanese: 天照 above already says it (owner:
             # no Japanese + English duplicates).
