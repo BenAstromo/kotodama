@@ -72,8 +72,51 @@ def state() -> dict:
             _state = {}
         _state.setdefault("friends", [])
         _state.setdefault("cache", {})
+    if not _checked["col"]:
+        _check_collection()
         adopt_collection()
     return _state
+
+
+# ── whose membership this is (owner 2026-10-27) ──────────────────────────────
+# A membership belongs to one collection. An add-on folder copied to a friend
+# (user_files included) or a second Anki profile on this computer (one add-on
+# folder for all) brought another person's code and key along: their uploads
+# replaced that person's card ("BenAstromo" showing a friend's 344 words).
+# So the membership records its collection (its creation time, the same on
+# every computer that syncs it) and a different collection doesn't use it.
+
+_checked = {"col": False}
+
+
+def _fingerprint() -> str | None:
+    col = _col()
+    try:
+        return str(col.crt) if col is not None else None
+    except Exception:
+        return None
+
+
+def _check_collection():
+    """Once the collection is open: stamp this membership with it (older
+    ones have no stamp), or drop one that belongs to another collection,
+    remembering its code so the collection's copy of it isn't taken either."""
+    global _state
+    fp = _fingerprint()
+    if fp is None:
+        return
+    _checked["col"] = True
+    s = _state
+    if not (s.get("id") or (s.get("parked") or {}).get("id")):
+        return
+    if s.get("col") is None:
+        s["col"] = fp
+        save()
+    elif s["col"] != fp:
+        foreign = [x for x in (s.get("id"), (s.get("parked") or {}).get("id")) if x]
+        _state = {"friends": [], "cache": {},
+                  "foreign": list(dict.fromkeys(list(s.get("foreign") or []) + foreign))}
+        save()
 
 
 def save():
@@ -107,7 +150,7 @@ def _identity(s: dict) -> dict | None:
     else:
         return None
     return {"id": ident, "key": key, "active": active, "name": s.get("name") or "",
-            "friends": list(s.get("friends") or [])}
+            "friends": list(s.get("friends") or []), "col": s.get("col") or _fingerprint()}
 
 
 def _mirror(s: dict):
@@ -138,6 +181,20 @@ def adopt_collection() -> bool:
     except Exception:
         return False
     if not isinstance(v, dict) or not clean_code(v.get("id") or "") or not v.get("key"):
+        return False
+    fp = _fingerprint()
+    if v["id"] in (s.get("foreign") or ()) or (v.get("col") and fp and v["col"] != fp):
+        # Someone else's membership that reached this collection (mirrored
+        # from a copied add-on folder): never take it, and clear it.
+        try:
+            col.remove_config(COL_KEY)
+        except Exception:
+            pass
+        return False
+    if not fp or v.get("col") != fp:
+        # Unstamped (written before 2026-10-27): it can't show whose it is.
+        # Your own computer stamps it on its next start and the sync brings
+        # the stamped copy here.
         return False
     if v.get("active"):
         s["id"], s["key"] = v["id"], v["key"]
@@ -338,6 +395,7 @@ def join(name: str, done):
             return
         s.pop("parked", None)
         s["id"], s["key"], s["name"] = res["id"], res["key"], name
+        s["col"] = _fingerprint()
         s["sent"] = _signature(name, snap)
         save()
         done(True, None)
@@ -397,8 +455,20 @@ def fetch_friends(done):
                 s["cache"][c] = got[c]
             else:
                 s["cache"].setdefault(c, {"id": c})["missing"] = True
+        # Your card on the server isn't what you last sent (someone else's
+        # upload with your key replaced it): send yours again. Once a day:
+        # two computers with one key would otherwise take turns forever.
+        own = got.get(s.get("id"))
+        today = datetime.date.today().isoformat()
+        resend = bool(own and s.get("sent") and s.get("resent") != today
+                      and _signature(own.get("name"), own.get("data")) != s["sent"])
+        if resend:
+            s.pop("sent", None)
+            s["resent"] = today
         save()
         done(None)
+        if resend:
+            upload_if_changed()
     _in_background(work, finished)
 
 
