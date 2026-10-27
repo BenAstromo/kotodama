@@ -6,20 +6,15 @@
 
 ---
 
-## 0. Current state (updated 2026-10-26, end of session)
+## 0. Current state (updated 2026-10-27, end of session)
 
-**Session 2026-10-26 (second), all committed and pushed.** Git now holds the detail: `git log` on https://github.com/BenAstromo/kotodama (private, branch `main`).
+**Session 2026-10-27, all committed and pushed** (`0572862`). Git holds the detail: `git log` on https://github.com/BenAstromo/kotodama (private, branch `main`).
 
-**Confirmed by the owner in Anki:** everything up to this session, plus the N5–N1 building sign (seen in Anki with 5 px steel; the thinner 3 px steel and seams were approved from an offscreen render).
+**Confirmed by the owner in Anki:** everything up to and including this session. That covers last session's work too: one-page Settings, no custom word-list uploads ("the Kotodama JLPT lists", §8), "Mini widget sounds", the undraggable mini widget, the rank "?" window's night look and the N5–N1 building sign (`SIGN_*`, `_Facade`; no windows or bounce light, both rejected).
 
-**Built this session, not all seen in Anki yet (owner's next restart):**
-- Settings is one scrolling page (no tabs): deck, "Vocab — which fields hold your words?", Kanji, Grammar, suspended cards, then widget / Amaterasu / sound / animations / Night look. Rows' ✕ buttons fixed (`_remove_button`: Anki's padding had squeezed them out).
-- Custom word-list uploads removed: always the Kotodama JLPT lists (§7). User-facing text says "the Kotodama JLPT lists", never "bundled lists" (§8).
-- Settings → Sound effects → "Mini widget sounds" (`mini_widget_sound`, default on) silences only the deck-list widget.
-- Mini widget can't be dragged (a slipped click used to drop it on Anki: "Unsupported file type").
-- Rank "?" window has the main window's night look (theme, stars, rain, dark see-through badge tiles).
-- N5–N1 sign (owner's pick, mock-ups A + C): one steel box, each level a lit panel with its own neon outline and soft backlight (`SIGN_BACKLIT` 0.22); 3 px steel round the box and 3 px seams (`SIGN_STEEL`, `SIGN_GAP`; the panels are taller so the bars keep their 10 px gaps); steel brackets to the edge of a dark building (`_Facade`, `FACADE_ALPHA` 0.45, sits above the light spill so the bloom shows on it dimmed; no windows, no bounce light: both tried and rejected). Amaterasu mode: no building, box or brackets; the gold panels float.
-- **Belt label (2026-10-27, owner checked in Anki):** the badge's "BLUE BELT" line is a flat cloth belt (`_BeltStrip`): belt colour, stitching rows, white or black text, so it reads on every rank colour (coloured text vanished, e.g. purple on 天皇). Two fixed lengths: every plain belt, and the degree belts (room for ten gold bars, one per degree). Amaterasu's first black belt is just "Black" (no "First-Degree"); names and bars start at Second-Degree. Rejected after mock-ups: knot / ribbon / frayed ends, and a tied 3-D loop with the name inside. The share image still uses coloured belt text.
+**This session:**
+- **Belt label:** the badge's "BLUE BELT" line is a flat cloth belt (`_BeltStrip` in progress_dialog.py): belt colour, stitching rows, white or black text, so it reads on every rank colour (coloured text vanished, e.g. purple on 天皇). Two fixed lengths: plain belts, and degree belts (room for ten gold bars, one per degree). Amaterasu's first black belt is just "Black" (rank_data.py); names and bars start at Second-Degree. Rejected after mock-ups: knot / ribbon / frayed ends, a tied 3-D loop with the name inside. The share image keeps its coloured belt text (owner: fine as is).
+- **Add-on list name:** Anki shows `meta.json`'s `"name"`, else the folder name. The owner's copy (installed by folder copy) got `"name"` from manifest.json; `.ankiaddon` / AnkiWeb installs fill it in themselves. Never rename the `jlpt_progress` folder: it is the package id (manifest `"package"`, migrate.py, dev imports).
 
 **Git:** commit / push only when the owner asks. `.gitignore` keeps out `user_files/`, `meta.json`, `server/.wrangler/` and caches. Before making the repo public: the release checklist (§11), and decide whether `server/wrangler.toml`'s D1 `database_id` stays.
 
