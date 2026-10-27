@@ -1,0 +1,994 @@
+[
+ {
+  "n": 1,
+  "text": "行きませんか？",
+  "detected": [
+   "masen-ka",
+   "ka-question"
+  ]
+ },
+ {
+  "n": 2,
+  "text": "彼らが帰ったらすぐに君に電話をかけてあげましょう。",
+  "detected": [
+   "mashou",
+   "te-ageru",
+   "o",
+   "tara",
+   "ga-subject",
+   "ni-indirect-object"
+  ]
+ },
+ {
+  "n": 3,
+  "text": "その法案に反対です。",
+  "detected": [
+   "desu",
+   "kono-sono-ano-dono"
+  ]
+ },
+ {
+  "n": 4,
+  "text": "道路からその障害物が取り除いてあった。",
+  "detected": [
+   "te-aru",
+   "kono-sono-ano-dono",
+   "ta",
+   "ga-subject",
+   "kara-from"
+  ]
+ },
+ {
+  "n": 5,
+  "text": "動物の世話をする事は貴重な体験です。",
+  "detected": [
+   "desu",
+   "na-na-adjective",
+   "o",
+   "wa",
+   "no"
+  ]
+ },
+ {
+  "n": 6,
+  "text": "アフリカで飢えに苦しんでいる人々に、早急な援助が必要である。",
+  "detected": [
+   "te-iru",
+   "na-na-adjective",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 7,
+  "text": "私はたった５ドルしか持っていなかった。",
+  "detected": [
+   "te-iru",
+   "ta",
+   "shika-nai",
+   "wa",
+   "nai"
+  ]
+ },
+ {
+  "n": 8,
+  "text": "トムは弁護士を探してるんだ。",
+  "detected": [
+   "n-desu-no-desu",
+   "o",
+   "wa",
+   "te-iru"
+  ]
+ },
+ {
+  "n": 9,
+  "text": "今日は一日中歩き回ってたから、もう足が棒だよ。",
+  "detected": [
+   "te-iru",
+   "kara-reason",
+   "ga-subject",
+   "da",
+   "wa",
+   "ta",
+   "yo",
+   "chuu-juu"
+  ]
+ },
+ {
+  "n": 10,
+  "text": "彼は時々仕事で東京へいく。",
+  "detected": [
+   "wa",
+   "e"
+  ]
+ },
+ {
+  "n": 11,
+  "text": "歯医者さんの話によれば、虫歯は必ずしも甘い物のせいではないようだ。",
+  "detected": [
+   "de-wa-arimasen-ja-nai",
+   "you-da",
+   "ni-yoru-to-ni-yoreba",
+   "sei-de",
+   "da",
+   "no",
+   "wa"
+  ]
+ },
+ {
+  "n": 12,
+  "text": "彼女はあっさり自分の間違いを認める必要はなかったのに。",
+  "detected": [
+   "o",
+   "noni-although",
+   "nai",
+   "wa",
+   "ta",
+   "no"
+  ]
+ },
+ {
+  "n": 13,
+  "text": "彼らは、橋本を総理大臣に選んだ。",
+  "detected": [
+   "ta",
+   "o",
+   "wa"
+  ]
+ },
+ {
+  "n": 14,
+  "text": "私は家に着くやいなや寝た。",
+  "detected": [
+   "ta",
+   "wa",
+   "ni-destination"
+  ]
+ },
+ {
+  "n": 15,
+  "text": "大まかに言って、犬は猫より忠実だ。",
+  "detected": [
+   "da",
+   "te",
+   "yori",
+   "wa"
+  ]
+ },
+ {
+  "n": 16,
+  "text": "ブラッシングすると毛羽立ちやすいので、注意が必要です。",
+  "detected": [
+   "yasui-nikui",
+   "desu",
+   "ga-subject",
+   "node"
+  ]
+ },
+ {
+  "n": 17,
+  "text": "水泳は全然ダメなんだ。",
+  "detected": [
+   "n-desu-no-desu",
+   "wa"
+  ]
+ },
+ {
+  "n": 18,
+  "text": "大変忙しいので新しい仕事は引き受けられない。",
+  "detected": [
+   "wa",
+   "nai",
+   "eru-rareru-potential",
+   "node"
+  ]
+ },
+ {
+  "n": 19,
+  "text": "その問題を次の会合に提出して下さい。",
+  "detected": [
+   "te-kudasai",
+   "o",
+   "no",
+   "kono-sono-ano-dono"
+  ]
+ },
+ {
+  "n": 20,
+  "text": "たまには何も考えず、のんびり過ごす時間を作るのも大事だと思う。",
+  "detected": [
+   "to-omou",
+   "da",
+   "o",
+   "wa"
+  ]
+ },
+ {
+  "n": 21,
+  "text": "彼は明日東京へ出発します。",
+  "detected": [
+   "masu",
+   "wa",
+   "e"
+  ]
+ },
+ {
+  "n": 22,
+  "text": "そこに羽の生えたばかりの小鳥がありました。",
+  "detected": [
+   "mashita",
+   "ga-aru-ga-iru",
+   "ta-bakari",
+   "ta",
+   "no",
+   "ga-subject",
+   "koko-soko-asoko-doko"
+  ]
+ },
+ {
+  "n": 23,
+  "text": "今週は忙しい？",
+  "detected": [
+   "wa"
+  ]
+ },
+ {
+  "n": 24,
+  "text": "将来はロンドンに行くことを希望します。",
+  "detected": [
+   "no-koto-nominalizer",
+   "masu",
+   "o",
+   "wa",
+   "ni-destination"
+  ]
+ },
+ {
+  "n": 25,
+  "text": "論文は去年のより長かったが、数人の学生はなんとかし上げた。",
+  "detected": [
+   "wa",
+   "ga-but",
+   "ta",
+   "no",
+   "ku-nai-katta-ku-nakatta"
+  ]
+ },
+ {
+  "n": 26,
+  "text": "彼の提案は考慮する価値がある。",
+  "detected": [
+   "ga-aru-ga-iru",
+   "no",
+   "wa",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 27,
+  "text": "彼の作文には間違いがない。",
+  "detected": [
+   "ni-location",
+   "nai",
+   "wa",
+   "no",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 28,
+  "text": "機会を与えてくださればやれます。",
+  "detected": [
+   "te-kudasaru-te-itadaku",
+   "masu",
+   "sonkeigo",
+   "o",
+   "ba"
+  ]
+ },
+ {
+  "n": 29,
+  "text": "相当な収穫を期待してもよいと思った。",
+  "detected": [
+   "to-omou",
+   "na-na-adjective",
+   "ta",
+   "o"
+  ]
+ },
+ {
+  "n": 30,
+  "text": "彼女は政府機関に勤めているのでしょう？",
+  "detected": [
+   "te-iru",
+   "deshou",
+   "n-desu-no-desu",
+   "ni-location",
+   "wa"
+  ]
+ },
+ {
+  "n": 31,
+  "text": "質問が２つあります。",
+  "detected": [
+   "masu"
+  ]
+ },
+ {
+  "n": 32,
+  "text": "サングラスは日光から目を守ってくれる。",
+  "detected": [
+   "te-kureru",
+   "o",
+   "wa",
+   "kara-from"
+  ]
+ },
+ {
+  "n": 33,
+  "text": "あなたを見るとお兄さんを思い出します。",
+  "detected": [
+   "masu",
+   "o",
+   "to"
+  ]
+ },
+ {
+  "n": 34,
+  "text": "値段が安いのはうれしい驚きだった。",
+  "detected": [
+   "wa",
+   "no-koto-nominalizer",
+   "ga-subject",
+   "ta"
+  ]
+ },
+ {
+  "n": 35,
+  "text": "これは私の好みにぴったりです。",
+  "detected": [
+   "desu",
+   "wa",
+   "no",
+   "kore-sore-are-dore"
+  ]
+ },
+ {
+  "n": 36,
+  "text": "男兄弟が３人いるんだ。",
+  "detected": [
+   "n-desu-no-desu"
+  ]
+ },
+ {
+  "n": 37,
+  "text": "サインペンで書かれた名前は掠れていて、シールは剥がれかけている。",
+  "detected": [
+   "te-iru",
+   "kakeru",
+   "te",
+   "de-place",
+   "reru-rareru-passive",
+   "wa",
+   "ta"
+  ]
+ },
+ {
+  "n": 38,
+  "text": "女の子って、どうしてこうも服にこだわるんだ？",
+  "detected": [
+   "tte",
+   "n-desu-no-desu"
+  ]
+ },
+ {
+  "n": 39,
+  "text": "気を付けて！向こうにいる男は銃を持っているよ。",
+  "detected": [
+   "te-iru",
+   "wa",
+   "o",
+   "ni-location",
+   "yo"
+  ]
+ },
+ {
+  "n": 40,
+  "text": "いい考えを思いついた。",
+  "detected": [
+   "ta",
+   "o"
+  ]
+ },
+ {
+  "n": 41,
+  "text": "春はルーシーが一番好きな季節だ。",
+  "detected": [
+   "na-na-adjective",
+   "da",
+   "wa",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 42,
+  "text": "もし二人の人が常に同じ意見を持っていたら、そのうちの一人は必要ない。",
+  "detected": [
+   "te-iru",
+   "o",
+   "nai",
+   "tara",
+   "wa",
+   "no",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 43,
+  "text": "スミスはすみませんと答えました。",
+  "detected": [
+   "mashita",
+   "ta",
+   "wa"
+  ]
+ },
+ {
+  "n": 44,
+  "text": "この市を案内していただけませんか。",
+  "detected": [
+   "te-kuremasen-ka-te-itadakemasen-ka",
+   "kono-sono-ano-dono",
+   "ka-question",
+   "eru-rareru-potential",
+   "o",
+   "kenjougo"
+  ]
+ },
+ {
+  "n": 45,
+  "text": "彼の成功には明確な見通しが非常に役立った。",
+  "detected": [
+   "na-na-adjective",
+   "wa",
+   "ta",
+   "no",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 46,
+  "text": "なるべく早くご返事いただければ幸いです。",
+  "detected": [
+   "desu",
+   "ba",
+   "kenjougo"
+  ]
+ },
+ {
+  "n": 47,
+  "text": "なんと美しい日の出なのだろう。",
+  "detected": [
+   "darou"
+  ]
+ },
+ {
+  "n": 48,
+  "text": "もっと本気さがほしい。",
+  "detected": [
+   "ga-hoshii",
+   "sa"
+  ]
+ },
+ {
+  "n": 49,
+  "text": "もし仮に外国に住むことになれば、イギリスに住むだろう。",
+  "detected": [
+   "koto-ni-naru",
+   "darou",
+   "ba",
+   "ni-location"
+  ]
+ },
+ {
+  "n": 50,
+  "text": "この動詞は普通、3人称でのみ使われます。",
+  "detected": [
+   "masu",
+   "reru-rareru-passive",
+   "wa",
+   "kono-sono-ano-dono"
+  ]
+ },
+ {
+  "n": 51,
+  "text": "どこを訪れる予定ですか。",
+  "detected": [
+   "yotei",
+   "desu",
+   "o",
+   "koko-soko-asoko-doko",
+   "ka-question"
+  ]
+ },
+ {
+  "n": 52,
+  "text": "もっと頑張ればよかったんだよ。",
+  "detected": [
+   "ba-yokatta",
+   "ta",
+   "ba",
+   "n-desu-no-desu",
+   "yo"
+  ]
+ },
+ {
+  "n": 53,
+  "text": "この部屋はあまり日光が当たらない。",
+  "detected": [
+   "amari-nai",
+   "nai",
+   "wa",
+   "kono-sono-ano-dono",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 54,
+  "text": "その鳥は羽を震わせた。",
+  "detected": [
+   "ta",
+   "o",
+   "wa",
+   "kono-sono-ano-dono"
+  ]
+ },
+ {
+  "n": 55,
+  "text": "どうぞドアをしめてください。",
+  "detected": [
+   "te-kudasai",
+   "o"
+  ]
+ },
+ {
+  "n": 56,
+  "text": "トムがいたいのなら、僕は反対しないよ。",
+  "detected": [
+   "ga-aru-ga-iru",
+   "tai",
+   "nai",
+   "wa",
+   "nara",
+   "yo",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 57,
+  "text": "我々のクラブは国際的な組織に加入した。",
+  "detected": [
+   "na-na-adjective",
+   "teki",
+   "wa",
+   "ta",
+   "no"
+  ]
+ },
+ {
+  "n": 58,
+  "text": "自由の女神の右腕の長さは12.8mである。",
+  "detected": [
+   "sa",
+   "no",
+   "wa"
+  ]
+ },
+ {
+  "n": 59,
+  "text": "財政赤字の削減が政府の大きな関心事である。",
+  "detected": [
+   "no",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 60,
+  "text": "ビールは俺の燃料だから。",
+  "detected": [
+   "no",
+   "wa",
+   "kara-reason"
+  ]
+ },
+ {
+  "n": 61,
+  "text": "あすスミスさんのお宅に伺うことになっている。",
+  "detected": [
+   "koto-ni-natte-iru",
+   "no",
+   "kenjougo",
+   "ni-destination"
+  ]
+ },
+ {
+  "n": 62,
+  "text": "自分の名前が呼ばれるのを聞いた。",
+  "detected": [
+   "no-koto-nominalizer",
+   "o",
+   "reru-rareru-passive",
+   "ta",
+   "no",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 63,
+  "text": "君は真剣に勉強すれば試験に合格する期待がもてる。",
+  "detected": [
+   "ba",
+   "wa"
+  ]
+ },
+ {
+  "n": 64,
+  "text": "やり残しがもしあるなら、やってしまいなさい。",
+  "detected": [
+   "te-shimau-chau",
+   "nasai",
+   "nara"
+  ]
+ },
+ {
+  "n": 65,
+  "text": "どうも時計の調子が悪いんだ。",
+  "detected": [
+   "n-desu-no-desu",
+   "no",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 66,
+  "text": "財布をなくしてしまった。",
+  "detected": [
+   "te-shimau-chau",
+   "ta",
+   "o"
+  ]
+ },
+ {
+  "n": 67,
+  "text": "彼は辞令を受けるように結局説得された。",
+  "detected": [
+   "you-ni-iu-you-ni-tanomu",
+   "o",
+   "reru-rareru-passive",
+   "wa",
+   "ta"
+  ]
+ },
+ {
+  "n": 68,
+  "text": "そのやり方についてどうすべきかを話し合う必要がある。",
+  "detected": [
+   "ga-aru-ga-iru",
+   "ni-tsuite",
+   "au",
+   "kata",
+   "kono-sono-ano-dono",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 69,
+  "text": "私は子供のころは元気だった。",
+  "detected": [
+   "ta",
+   "no",
+   "wa"
+  ]
+ },
+ {
+  "n": 70,
+  "text": "長距離を歩いて彼には非常に食欲がでた。",
+  "detected": [
+   "te",
+   "o",
+   "wa",
+   "ta",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 71,
+  "text": "トムは毎朝8時に起きる。",
+  "detected": [
+   "wa",
+   "ni-time"
+  ]
+ },
+ {
+  "n": 72,
+  "text": "なんで驚くんだよ？",
+  "detected": [
+   "n-desu-no-desu",
+   "yo"
+  ]
+ },
+ {
+  "n": 73,
+  "text": "そのニュースは私たちを驚かせた。",
+  "detected": [
+   "ta",
+   "o",
+   "wa",
+   "kono-sono-ano-dono"
+  ]
+ },
+ {
+  "n": 74,
+  "text": "好きな人と一緒にいると、時間が経つのがあっという間に感じる。",
+  "detected": [
+   "ga-aru-ga-iru",
+   "to-iu-named",
+   "no-koto-nominalizer",
+   "na-na-adjective",
+   "ga-subject",
+   "to",
+   "to-with"
+  ]
+ },
+ {
+  "n": 75,
+  "text": "彼は立候補することを公式に発表した。",
+  "detected": [
+   "ta",
+   "o",
+   "no-koto-nominalizer",
+   "wa"
+  ]
+ },
+ {
+  "n": 76,
+  "text": "どちらが勝ってもおかしくない。両チームとも実力はほぼ互角だからね。",
+  "detected": [
+   "ku-nai-katta-ku-nakatta",
+   "ne",
+   "kara-reason",
+   "mo",
+   "wa",
+   "ga-subject",
+   "te-mo-de-mo"
+  ]
+ },
+ {
+  "n": 77,
+  "text": "彼は非常に不注意な少年なので、よく誤りをする。",
+  "detected": [
+   "o",
+   "wa",
+   "node"
+  ]
+ },
+ {
+  "n": 78,
+  "text": "俊夫くんはとても上手に英語を話すことが出来る。",
+  "detected": [
+   "o"
+  ]
+ },
+ {
+  "n": 79,
+  "text": "こんなでかい苺見たの初めて。",
+  "detected": [
+   "ta"
+  ]
+ },
+ {
+  "n": 80,
+  "text": "好きなだけ桃を取りなさい。",
+  "detected": [
+   "nasai",
+   "o",
+   "dake"
+  ]
+ },
+ {
+  "n": 81,
+  "text": "これはなんと悲しい話だろう。",
+  "detected": [
+   "darou",
+   "wa",
+   "kore-sore-are-dore"
+  ]
+ },
+ {
+  "n": 82,
+  "text": "思ったより給料が少なかった。",
+  "detected": [
+   "ta",
+   "yori",
+   "ga-subject",
+   "ku-nai-katta-ku-nakatta"
+  ]
+ },
+ {
+  "n": 83,
+  "text": "トムは重傷だったんですか？",
+  "detected": [
+   "n-desu-no-desu",
+   "ta",
+   "wa",
+   "ka-question"
+  ]
+ },
+ {
+  "n": 84,
+  "text": "トムはパイを少しもらった。",
+  "detected": [
+   "ageru-kureru-morau",
+   "ta",
+   "o",
+   "wa"
+  ]
+ },
+ {
+  "n": 85,
+  "text": "その機械は休みなく動く。",
+  "detected": [
+   "nai",
+   "wa",
+   "kono-sono-ano-dono"
+  ]
+ },
+ {
+  "n": 86,
+  "text": "彼女に金を貸すくらいなら海に捨てるほうがましだ。",
+  "detected": [
+   "kurai-nara-gurai-nara",
+   "da",
+   "o",
+   "ni-indirect-object"
+  ]
+ },
+ {
+  "n": 87,
+  "text": "フランス企業の競争力は低下の一途を辿っている。",
+  "detected": [
+   "te-iru",
+   "o",
+   "no",
+   "wa"
+  ]
+ },
+ {
+  "n": 88,
+  "text": "あいつら、ここに居るの？",
+  "detected": [
+   "n-desu-no-desu",
+   "ni-location",
+   "koko-soko-asoko-doko"
+  ]
+ },
+ {
+  "n": 89,
+  "text": "誰にも聞かれないように彼はつま先でそっと歩いた。",
+  "detected": [
+   "you-ni",
+   "nai",
+   "mo",
+   "reru-rareru-passive",
+   "wa",
+   "ta"
+  ]
+ },
+ {
+  "n": 90,
+  "text": "彼らの不平を聞いて、私の心は怒りに満ちた。",
+  "detected": [
+   "te",
+   "o",
+   "wa",
+   "ta",
+   "no"
+  ]
+ },
+ {
+  "n": 91,
+  "text": "その交通事故で２人が死んだ。",
+  "detected": [
+   "ta",
+   "ga-subject",
+   "kono-sono-ano-dono"
+  ]
+ },
+ {
+  "n": 92,
+  "text": "彼は私の提案に同意した。",
+  "detected": [
+   "ta",
+   "no",
+   "wa"
+  ]
+ },
+ {
+  "n": 93,
+  "text": "彼は立とうとしました。",
+  "detected": [
+   "mashita",
+   "you-to-suru",
+   "ou-you",
+   "wa",
+   "ta"
+  ]
+ },
+ {
+  "n": 94,
+  "text": "彼女は年のわりには若く見える。",
+  "detected": [
+   "wari-ni-wari-ni-wa",
+   "no",
+   "wa"
+  ]
+ },
+ {
+  "n": 95,
+  "text": "彼は勉強する前にテレビを見ます。",
+  "detected": [
+   "mae-ni",
+   "masu",
+   "o",
+   "wa"
+  ]
+ },
+ {
+  "n": 96,
+  "text": "私はジョーのグループに加わりたいです。",
+  "detected": [
+   "tai",
+   "desu",
+   "no",
+   "wa"
+  ]
+ },
+ {
+  "n": 97,
+  "text": "遅くまで付き合わせてごめんね。君と話してると楽しくて。",
+  "detected": [
+   "ne",
+   "te-iru",
+   "kute-de",
+   "to-with"
+  ]
+ },
+ {
+  "n": 98,
+  "text": "得意顔の新しい父親として、私は最初の子供に本をたくさん与えた。",
+  "detected": [
+   "to-shite",
+   "ta",
+   "o",
+   "no",
+   "wa"
+  ]
+ },
+ {
+  "n": 99,
+  "text": "彼らは土地を侵入者に明け渡した。",
+  "detected": [
+   "ta",
+   "o",
+   "wa"
+  ]
+ },
+ {
+  "n": 100,
+  "text": "彼女は歯を抜いてもらった。",
+  "detected": [
+   "te-morau",
+   "ta",
+   "o",
+   "wa"
+  ]
+ }
+]

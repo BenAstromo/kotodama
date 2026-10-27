@@ -1,0 +1,6160 @@
+[
+ {
+  "n": 1,
+  "set": "A",
+  "sid": 1204007,
+  "gid": "ni-indirect-object",
+  "level": "N5",
+  "pattern": "〜に（indirect object）",
+  "meaning": "to (the person who receives or is the target of an action)",
+  "text": "夕食までに家に帰ってこなかったこと、お父さんに謝らなくちゃいけないよ。",
+  "spans": [
+   [
+    22,
+    23
+   ]
+  ],
+  "marked": "夕食までに家に帰ってこなかったこと、お父さん【に】謝らなくちゃいけないよ。",
+  "split": "夕食 まで に 家 に 帰って こなかった こと 、 お父さん に 謝らなくちゃ いけない よ 。"
+ },
+ {
+  "n": 2,
+  "set": "A",
+  "sid": 122318,
+  "gid": "te-iru",
+  "level": "N5",
+  "pattern": "〜ている",
+  "meaning": "be doing (ongoing action); be in a state (result of a change); do regularly",
+  "text": "日本国民は戦争を放棄している。",
+  "spans": [
+   [
+    11,
+    14
+   ]
+  ],
+  "marked": "日本国民は戦争を放棄し【ている】。",
+  "split": "日本 国民 は 戦争 を 放棄している 。"
+ },
+ {
+  "n": 3,
+  "set": "A",
+  "sid": 3402700,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "結局わたしは彼女を説得し、キャンプへ行った。",
+  "spans": [
+   [
+    5,
+    6
+   ]
+  ],
+  "marked": "結局わたし【は】彼女を説得し、キャンプへ行った。",
+  "split": "結局 わたし は 彼女 を 説得し 、 キャンプ へ 行った 。"
+ },
+ {
+  "n": 4,
+  "set": "A",
+  "sid": 209140,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "その少年はお金をポケットの中へ突っ込んだ。",
+  "spans": [
+   [
+    4,
+    5
+   ]
+  ],
+  "marked": "その少年【は】お金をポケットの中へ突っ込んだ。",
+  "split": "その 少年 は お金 を ポケット の 中 へ 突っ込んだ 。"
+ },
+ {
+  "n": 5,
+  "set": "A",
+  "sid": 8593171,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "あんなダンス、トムはどこで覚えたの？",
+  "spans": [
+   [
+    9,
+    10
+   ]
+  ],
+  "marked": "あんなダンス、トム【は】どこで覚えたの？",
+  "split": "あんな ダンス 、 トム は どこ で 覚えた の ？"
+ },
+ {
+  "n": 6,
+  "set": "A",
+  "sid": 11648598,
+  "gid": "masu",
+  "level": "N5",
+  "pattern": "〜ます",
+  "meaning": "polite non-past verb ending (do; will do)",
+  "text": "くれぐれもご自愛くださいませ。",
+  "spans": [
+   [
+    12,
+    14
+   ]
+  ],
+  "marked": "くれぐれもご自愛ください【ませ】。",
+  "split": "くれぐれも ご 自 愛 ください ませ 。"
+ },
+ {
+  "n": 7,
+  "set": "A",
+  "sid": 9936367,
+  "gid": "ta",
+  "level": "N5",
+  "pattern": "〜た",
+  "meaning": "did (plain past of verbs)",
+  "text": "雪はとけました。",
+  "spans": [
+   [
+    2,
+    7
+   ]
+  ],
+  "marked": "雪は【とけました】。",
+  "split": "雪 は とけました 。"
+ },
+ {
+  "n": 8,
+  "set": "A",
+  "sid": 193073,
+  "gid": "mo",
+  "level": "N5",
+  "pattern": "〜も",
+  "meaning": "also; too; (with a negative) not ... either; neither ... nor",
+  "text": "やっと楽しい職業を選べば、仕事も苦になりません。",
+  "spans": [
+   [
+    15,
+    16
+   ]
+  ],
+  "marked": "やっと楽しい職業を選べば、仕事【も】苦になりません。",
+  "split": "やっと 楽しい 職業 を 選べば 、 仕事 も 苦 に なりません 。"
+ },
+ {
+  "n": 9,
+  "set": "A",
+  "sid": 10206301,
+  "gid": "no",
+  "level": "N5",
+  "pattern": "〜の（possessive）",
+  "meaning": "'s; of (possession, belonging or description)",
+  "text": "彼の家は街外れにあります。",
+  "spans": [
+   [
+    1,
+    2
+   ]
+  ],
+  "marked": "彼【の】家は街外れにあります。",
+  "split": "彼 の 家 は 街 外れ に あります 。"
+ },
+ {
+  "n": 10,
+  "set": "A",
+  "sid": 227848,
+  "gid": "yo",
+  "level": "N5",
+  "pattern": "〜よ",
+  "meaning": "you know; I tell you (giving new information or emphasis)",
+  "text": "おい、君の野球ボールがうちの窓ガラスを割ったよ。",
+  "spans": [
+   [
+    22,
+    23
+   ]
+  ],
+  "marked": "おい、君の野球ボールがうちの窓ガラスを割った【よ】。",
+  "split": "おい 、 君 の 野球 ボール が うち の 窓 ガラス を 割った よ 。"
+ },
+ {
+  "n": 11,
+  "set": "A",
+  "sid": 105625,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "彼は私より利口だ。",
+  "spans": [
+   [
+    1,
+    2
+   ]
+  ],
+  "marked": "彼【は】私より利口だ。",
+  "split": "彼 は 私 より 利口 だ 。"
+ },
+ {
+  "n": 12,
+  "set": "A",
+  "sid": 82660,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "法律は守らなければならない。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "法律【は】守らなければならない。",
+  "split": "法律 は 守らなければ ならない 。"
+ },
+ {
+  "n": 13,
+  "set": "A",
+  "sid": 86801,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "彼女は返事に困った。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "彼女【は】返事に困った。",
+  "split": "彼女 は 返事 に 困った 。"
+ },
+ {
+  "n": 14,
+  "set": "A",
+  "sid": 148299,
+  "gid": "reru-rareru-passive",
+  "level": "N4",
+  "pattern": "〜れる / 〜られる（passive）",
+  "meaning": "be done (by someone); passive voice",
+  "text": "囚人は釈放された。",
+  "spans": [
+   [
+    3,
+    8
+   ]
+  ],
+  "marked": "囚人は【釈放された】。",
+  "split": "囚人 は 釈放された 。"
+ },
+ {
+  "n": 15,
+  "set": "A",
+  "sid": 12982198,
+  "gid": "to-and",
+  "level": "N5",
+  "pattern": "〜と（and）",
+  "meaning": "and (joining nouns in a complete list)",
+  "text": "冬はボストンとシカゴとどちらが寒いですか？",
+  "spans": [
+   [
+    10,
+    11
+   ]
+  ],
+  "marked": "冬はボストンとシカゴ【と】どちらが寒いですか？",
+  "split": "冬 は ボストン と シカゴ と どちら が 寒い です か ？"
+ },
+ {
+  "n": 16,
+  "set": "A",
+  "sid": 9069225,
+  "gid": "ageru-kureru-morau",
+  "level": "N4",
+  "pattern": "あげる / くれる / もらう",
+  "meaning": "give (to someone else); give (to me or my group); receive",
+  "text": "メアリーはクリスマスにモルモットをもらったんだよ。",
+  "spans": [
+   [
+    17,
+    20
+   ]
+  ],
+  "marked": "メアリーはクリスマスにモルモットを【もらっ】たんだよ。",
+  "split": "メアリー は クリスマス に モルモット を もらった んだ よ 。"
+ },
+ {
+  "n": 17,
+  "set": "A",
+  "sid": 10115640,
+  "gid": "mashita",
+  "level": "N5",
+  "pattern": "〜ました",
+  "meaning": "did (polite past)",
+  "text": "本をこちらに送ってもらえるように、トムにお願いしました。",
+  "spans": [
+   [
+    24,
+    27
+   ]
+  ],
+  "marked": "本をこちらに送ってもらえるように、トムにお願いし【ました】。",
+  "split": "本 を こちら に 送って もらえる ように 、 トム に お願いしました 。"
+ },
+ {
+  "n": 18,
+  "set": "A",
+  "sid": 11244482,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "ここには今朝８時に着いたよ。",
+  "spans": [
+   [
+    3,
+    4
+   ]
+  ],
+  "marked": "ここに【は】今朝８時に着いたよ。",
+  "split": "ここ に は 今朝 ８ 時 に 着いた よ 。"
+ },
+ {
+  "n": 19,
+  "set": "A",
+  "sid": 221838,
+  "gid": "kono-sono-ano-dono",
+  "level": "N5",
+  "pattern": "この / その / あの / どの",
+  "meaning": "this; that (near you); that ... over there; which (before a noun)",
+  "text": "この仕事では経験がものを言う。",
+  "spans": [
+   [
+    0,
+    2
+   ]
+  ],
+  "marked": "【この】仕事では経験がものを言う。",
+  "split": "この 仕事 では 経験 が もの を 言う 。"
+ },
+ {
+  "n": 20,
+  "set": "A",
+  "sid": 779001,
+  "gid": "to",
+  "level": "N4",
+  "pattern": "〜と（conditional）",
+  "meaning": "when; if; whenever (natural or automatic result)",
+  "text": "真っ直ぐ行くと、お店がありますよ。",
+  "spans": [
+   [
+    6,
+    7
+   ]
+  ],
+  "marked": "真っ直ぐ行く【と】、お店がありますよ。",
+  "split": "真っ直ぐ 行く と 、 お店 が あります よ 。"
+ },
+ {
+  "n": 21,
+  "set": "A",
+  "sid": 216074,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "ジミーの絵は他人のものと違っていました。",
+  "spans": [
+   [
+    5,
+    6
+   ]
+  ],
+  "marked": "ジミーの絵【は】他人のものと違っていました。",
+  "split": "ジミー の 絵 は 他人 の もの と 違っていました 。"
+ },
+ {
+  "n": 22,
+  "set": "A",
+  "sid": 8468338,
+  "gid": "masu",
+  "level": "N5",
+  "pattern": "〜ます",
+  "meaning": "polite non-past verb ending (do; will do)",
+  "text": "その店には色んな代物があります。",
+  "spans": [
+   [
+    11,
+    15
+   ]
+  ],
+  "marked": "その店には色んな代物が【あります】。",
+  "split": "その 店 に は 色 ん な 代物 が あります 。"
+ },
+ {
+  "n": 23,
+  "set": "A",
+  "sid": 10070784,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "それをやめて、仕事に戻って。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "それ【を】やめて、仕事に戻って。",
+  "split": "それ を やめて 、 仕事 に 戻って 。"
+ },
+ {
+  "n": 24,
+  "set": "A",
+  "sid": 106088,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "彼は私に金をくれと言った。",
+  "spans": [
+   [
+    5,
+    6
+   ]
+  ],
+  "marked": "彼は私に金【を】くれと言った。",
+  "split": "彼 は 私 に 金 を くれ と 言った 。"
+ },
+ {
+  "n": 25,
+  "set": "A",
+  "sid": 10227914,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "明日は学校をお休みした方がいいですね。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "明日【は】学校をお休みした方がいいですね。",
+  "split": "明日 は 学校 を お休み した 方 が いい です ね 。"
+ },
+ {
+  "n": 26,
+  "set": "A",
+  "sid": 122501,
+  "gid": "ga-subject",
+  "level": "N5",
+  "pattern": "〜が（subject）",
+  "meaning": "marks the subject; points out new or focused information",
+  "text": "日本はハイテク産業の競争力がある。",
+  "spans": [
+   [
+    13,
+    14
+   ]
+  ],
+  "marked": "日本はハイテク産業の競争力【が】ある。",
+  "split": "日本 は ハイテク 産業 の 競争 力 が ある 。"
+ },
+ {
+  "n": 27,
+  "set": "A",
+  "sid": 1614600,
+  "gid": "tai",
+  "level": "N5",
+  "pattern": "〜たい",
+  "meaning": "want to (do)",
+  "text": "３月に私と一緒に２週間メキシコに行きたい人はいますか？",
+  "spans": [
+   [
+    16,
+    20
+   ]
+  ],
+  "marked": "３月に私と一緒に２週間メキシコに【行きたい】人はいますか？",
+  "split": "３ 月 に 私 と 一緒 に ２ 週間 メキシコ に 行きたい 人 は います か ？"
+ },
+ {
+  "n": 28,
+  "set": "A",
+  "sid": 211301,
+  "gid": "hodo",
+  "level": "N3",
+  "pattern": "〜ほど",
+  "meaning": "to the extent that; so ... that",
+  "text": "その景色は言葉では表現できないほどだった。",
+  "spans": [
+   [
+    15,
+    17
+   ]
+  ],
+  "marked": "その景色は言葉では表現できない【ほど】だった。",
+  "split": "その 景色 は 言葉 では 表現 できない ほど だった 。"
+ },
+ {
+  "n": 29,
+  "set": "A",
+  "sid": 10557481,
+  "gid": "zu-ni",
+  "level": "N3",
+  "pattern": "〜ずに",
+  "meaning": "without doing",
+  "text": "英語に訳さずに、スペイン語で理解しようとしてみて。",
+  "spans": [
+   [
+    3,
+    6
+   ]
+  ],
+  "marked": "英語に【訳さず】に、スペイン語で理解しようとしてみて。",
+  "split": "英語 に 訳さず に 、 スペイン 語 で 理解しよう と して みて 。"
+ },
+ {
+  "n": 30,
+  "set": "A",
+  "sid": 229779,
+  "gid": "ni-location",
+  "level": "N5",
+  "pattern": "〜に（place of existence）",
+  "meaning": "in; at; on (where someone or something is)",
+  "text": "ある貿易会社に勤めています。",
+  "spans": [
+   [
+    6,
+    7
+   ]
+  ],
+  "marked": "ある貿易会社【に】勤めています。",
+  "split": "ある 貿易 会社 に 勤めています 。"
+ },
+ {
+  "n": 31,
+  "set": "A",
+  "sid": 4291524,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "ディズニー好きを公言している女は，多くの場合精神を病んでいる。",
+  "spans": [
+   [
+    7,
+    8
+   ],
+   [
+    24,
+    25
+   ]
+  ],
+  "marked": "ディズニー好き【を】公言している女は，多くの場合精神【を】病んでいる。",
+  "split": "ディズニー 好き を 公言している 女 は ， 多く の 場合 精神 を 病んでいる 。"
+ },
+ {
+  "n": 32,
+  "set": "A",
+  "sid": 98062,
+  "gid": "no",
+  "level": "N5",
+  "pattern": "〜の（possessive）",
+  "meaning": "'s; of (possession, belonging or description)",
+  "text": "彼らはサムのためにパーティーをひらくんだよ。",
+  "spans": [
+   [
+    5,
+    6
+   ]
+  ],
+  "marked": "彼らはサム【の】ためにパーティーをひらくんだよ。",
+  "split": "彼ら は サム の ため に パーティー を ひらく んだ よ 。"
+ },
+ {
+  "n": 33,
+  "set": "A",
+  "sid": 152856,
+  "gid": "nai",
+  "level": "N5",
+  "pattern": "〜ない",
+  "meaning": "do not; will not (plain negative of verbs)",
+  "text": "私は母の手伝いをしなければならない。",
+  "spans": [
+   [
+    8,
+    13
+   ],
+   [
+    13,
+    17
+   ]
+  ],
+  "marked": "私は母の手伝いを【しなければ】【ならない】。",
+  "split": "私 は 母 の 手伝い を しなければ ならない 。"
+ },
+ {
+  "n": 34,
+  "set": "A",
+  "sid": 11851908,
+  "gid": "ta",
+  "level": "N5",
+  "pattern": "〜た",
+  "meaning": "did (plain past of verbs)",
+  "text": "本読んだよ。すごく面白かった。",
+  "spans": [
+   [
+    1,
+    4
+   ],
+   [
+    9,
+    14
+   ]
+  ],
+  "marked": "本【読んだ】よ。すごく【面白かった】。",
+  "split": "本 読んだ よ 。 すごく 面白かった 。"
+ },
+ {
+  "n": 35,
+  "set": "A",
+  "sid": 161695,
+  "gid": "ga-subject",
+  "level": "N5",
+  "pattern": "〜が（subject）",
+  "meaning": "marks the subject; points out new or focused information",
+  "text": "私はあなたの計画がうまくいかないのではないかと思う。",
+  "spans": [
+   [
+    8,
+    9
+   ]
+  ],
+  "marked": "私はあなたの計画【が】うまくいかないのではないかと思う。",
+  "split": "私 は あなた の 計画 が うまく いかない の ではない か と 思う 。"
+ },
+ {
+  "n": 36,
+  "set": "A",
+  "sid": 1553787,
+  "gid": "to-with",
+  "level": "N5",
+  "pattern": "〜と（with）",
+  "meaning": "with; together with (a partner in an action)",
+  "text": "あなたとご家族にお会いできることを楽しみにしています。",
+  "spans": [
+   [
+    3,
+    4
+   ]
+  ],
+  "marked": "あなた【と】ご家族にお会いできることを楽しみにしています。",
+  "split": "あなた と ご 家族 に お 会い できる こと を 楽しみ に しています 。"
+ },
+ {
+  "n": 37,
+  "set": "A",
+  "sid": 88767,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "彼女は銃を一発うった。",
+  "spans": [
+   [
+    4,
+    5
+   ]
+  ],
+  "marked": "彼女は銃【を】一発うった。",
+  "split": "彼女 は 銃 を 一 発 う っ た 。"
+ },
+ {
+  "n": 38,
+  "set": "A",
+  "sid": 9229770,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "「南瓜は、何玉欲しい？」「３玉、お願いします」",
+  "spans": [
+   [
+    3,
+    4
+   ]
+  ],
+  "marked": "「南瓜【は】、何玉欲しい？」「３玉、お願いします」",
+  "split": "「 南瓜 は 、 何 玉 欲しい ？ 」 「 ３ 玉 、 お願いします 」"
+ },
+ {
+  "n": 39,
+  "set": "A",
+  "sid": 98463,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "彼らの生活様式は私たちの生活様式とは違う。",
+  "spans": [
+   [
+    7,
+    8
+   ],
+   [
+    17,
+    18
+   ]
+  ],
+  "marked": "彼らの生活様式【は】私たちの生活様式と【は】違う。",
+  "split": "彼ら の 生活 様式 は 私たち の 生活 様式 と は 違う 。"
+ },
+ {
+  "n": 40,
+  "set": "A",
+  "sid": 3564245,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "「今日はどうだった？」「お客さんが多くてめっちゃ忙しかった」",
+  "spans": [
+   [
+    3,
+    4
+   ]
+  ],
+  "marked": "「今日【は】どうだった？」「お客さんが多くてめっちゃ忙しかった」",
+  "split": "「 今日 は どう だった ？ 」 「 お客さん が 多くて め っ ちゃ 忙しかった 」"
+ },
+ {
+  "n": 41,
+  "set": "A",
+  "sid": 109851,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "彼は一目見て彼女に恋をした。",
+  "spans": [
+   [
+    10,
+    11
+   ]
+  ],
+  "marked": "彼は一目見て彼女に恋【を】した。",
+  "split": "彼 は 一目 見て 彼女 に 恋 を した 。"
+ },
+ {
+  "n": 42,
+  "set": "A",
+  "sid": 11001502,
+  "gid": "te-iru",
+  "level": "N5",
+  "pattern": "〜ている",
+  "meaning": "be doing (ongoing action); be in a state (result of a change); do regularly",
+  "text": "毎日筋トレやろうと思ってるけど続かない。",
+  "spans": [
+   [
+    9,
+    13
+   ]
+  ],
+  "marked": "毎日筋トレやろうと【思ってる】けど続かない。",
+  "split": "毎日 筋トレ やろう と 思ってる けど 続かない 。"
+ },
+ {
+  "n": 43,
+  "set": "A",
+  "sid": 112312,
+  "gid": "ta",
+  "level": "N5",
+  "pattern": "〜た",
+  "meaning": "did (plain past of verbs)",
+  "text": "彼はその役目を引き受けましたか。",
+  "spans": [
+   [
+    7,
+    14
+   ]
+  ],
+  "marked": "彼はその役目を【引き受けました】か。",
+  "split": "彼 は その 役目 を 引き受けました か 。"
+ },
+ {
+  "n": 44,
+  "set": "A",
+  "sid": 13070477,
+  "gid": "te-iru",
+  "level": "N5",
+  "pattern": "〜ている",
+  "meaning": "be doing (ongoing action); be in a state (result of a change); do regularly",
+  "text": "背中に違和感を感じて鏡を見たら、シャツのタグが裏返っていた。",
+  "spans": [
+   [
+    26,
+    29
+   ]
+  ],
+  "marked": "背中に違和感を感じて鏡を見たら、シャツのタグが裏返っ【ていた】。",
+  "split": "背中 に 違和感 を 感じて 鏡 を 見たら 、 シャツ の タグ が 裏 返っていた 。"
+ },
+ {
+  "n": 45,
+  "set": "A",
+  "sid": 82782,
+  "gid": "darou",
+  "level": "N4",
+  "pattern": "〜だろう",
+  "meaning": "probably; I suppose (plain form of でしょう)",
+  "text": "母親は息子が無事ついたということを聞くまでは安心しないだろう。",
+  "spans": [
+   [
+    27,
+    30
+   ]
+  ],
+  "marked": "母親は息子が無事ついたということを聞くまでは安心しない【だろう】。",
+  "split": "母親 は 息子 が 無事 ついた と いう こと を 聞く まで は 安心しない だろう 。"
+ },
+ {
+  "n": 46,
+  "set": "A",
+  "sid": 137622,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "大学を卒業した後、彼女は教師になった。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "大学【を】卒業した後、彼女は教師になった。",
+  "split": "大学 を 卒業した 後 、 彼女 は 教師 に なった 。"
+ },
+ {
+  "n": 47,
+  "set": "A",
+  "sid": 179422,
+  "gid": "no",
+  "level": "N5",
+  "pattern": "〜の（possessive）",
+  "meaning": "'s; of (possession, belonging or description)",
+  "text": "空は私たちの頭上にある。",
+  "spans": [
+   [
+    5,
+    6
+   ]
+  ],
+  "marked": "空は私たち【の】頭上にある。",
+  "split": "空 は 私たち の 頭上 に ある 。"
+ },
+ {
+  "n": 48,
+  "set": "A",
+  "sid": 179183,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "君がここにいる限り、僕はのこる。",
+  "spans": [
+   [
+    11,
+    12
+   ]
+  ],
+  "marked": "君がここにいる限り、僕【は】のこる。",
+  "split": "君 が ここ に いる 限り 、 僕 は のこる 。"
+ },
+ {
+  "n": 49,
+  "set": "A",
+  "sid": 141717,
+  "gid": "seru-saseru",
+  "level": "N4",
+  "pattern": "〜せる / 〜させる",
+  "meaning": "make someone do; let someone do (causative)",
+  "text": "先生は、私達に部屋を掃除させた。",
+  "spans": [
+   [
+    12,
+    15
+   ]
+  ],
+  "marked": "先生は、私達に部屋を掃除【させた】。",
+  "split": "先生 は 、 私達 に 部屋 を 掃除させた 。"
+ },
+ {
+  "n": 50,
+  "set": "A",
+  "sid": 148434,
+  "gid": "ku-naru-ni-naru",
+  "level": "N5",
+  "pattern": "〜くなる / 〜になる",
+  "meaning": "become; get; turn",
+  "text": "首になるのがこわいから、雇用主にあえて逆らおうとする人はだれもいない。",
+  "spans": [
+   [
+    1,
+    4
+   ]
+  ],
+  "marked": "首【になる】のがこわいから、雇用主にあえて逆らおうとする人はだれもいない。",
+  "split": "首 に なる の が こわい から 、 雇用 主に あえて 逆らおう と する 人 は だれ も いない 。"
+ },
+ {
+  "n": 51,
+  "set": "A",
+  "sid": 146134,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "乗組員はその船を放棄した。",
+  "spans": [
+   [
+    7,
+    8
+   ]
+  ],
+  "marked": "乗組員はその船【を】放棄した。",
+  "split": "乗 組員 は その 船 を 放棄した 。"
+ },
+ {
+  "n": 52,
+  "set": "A",
+  "sid": 9840798,
+  "gid": "yo",
+  "level": "N5",
+  "pattern": "〜よ",
+  "meaning": "you know; I tell you (giving new information or emphasis)",
+  "text": "何もかも君のおかげだよ。",
+  "spans": [
+   [
+    10,
+    11
+   ]
+  ],
+  "marked": "何もかも君のおかげだ【よ】。",
+  "split": "何も か も 君 の おかげ だ よ 。"
+ },
+ {
+  "n": 53,
+  "set": "A",
+  "sid": 167229,
+  "gid": "ga-subject",
+  "level": "N5",
+  "pattern": "〜が（subject）",
+  "meaning": "marks the subject; points out new or focused information",
+  "text": "私たちが新鮮な空気を必要とするように、魚はきれいな水を必要とする。",
+  "spans": [
+   [
+    3,
+    4
+   ]
+  ],
+  "marked": "私たち【が】新鮮な空気を必要とするように、魚はきれいな水を必要とする。",
+  "split": "私たち が 新鮮 な 空気 を 必要 と する ように 、 魚 は きれい な 水 を 必要 と する 。"
+ },
+ {
+  "n": 54,
+  "set": "A",
+  "sid": 8533932,
+  "gid": "ka-question",
+  "level": "N5",
+  "pattern": "〜か（question）",
+  "meaning": "(question marker) turns a sentence into a question",
+  "text": "お腹空いていますか？",
+  "spans": [
+   [
+    8,
+    9
+   ]
+  ],
+  "marked": "お腹空いています【か】？",
+  "split": "お腹 空いています か ？"
+ },
+ {
+  "n": 55,
+  "set": "A",
+  "sid": 226707,
+  "gid": "te-kuru",
+  "level": "N4",
+  "pattern": "〜てくる",
+  "meaning": "do something and come back; come doing; (change) up to now; start to",
+  "text": "お父さんは夜中の１２時前にはめったに帰ってこない。",
+  "spans": [
+   [
+    20,
+    23
+   ]
+  ],
+  "marked": "お父さんは夜中の１２時前にはめったに帰っ【てこな】い。",
+  "split": "お父さん は 夜中 の １ ２ 時 前 に は めった に 帰って こない 。"
+ },
+ {
+  "n": 56,
+  "set": "A",
+  "sid": 95487,
+  "gid": "ga-subject",
+  "level": "N5",
+  "pattern": "〜が（subject）",
+  "meaning": "marks the subject; points out new or focused information",
+  "text": "彼女が外国に行くのは止められない。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "彼女【が】外国に行くのは止められない。",
+  "split": "彼女 が 外国 に 行く の は 止められない 。"
+ },
+ {
+  "n": 57,
+  "set": "A",
+  "sid": 204822,
+  "gid": "ga-but",
+  "level": "N5",
+  "pattern": "〜が（but）",
+  "meaning": "but; although",
+  "text": "それは名案だが実行が難しい。",
+  "spans": [
+   [
+    5,
+    7
+   ]
+  ],
+  "marked": "それは名案【だが】実行が難しい。",
+  "split": "それ は 名 案 だが 実行 が 難しい 。"
+ },
+ {
+  "n": 58,
+  "set": "A",
+  "sid": 13511232,
+  "gid": "te",
+  "level": "N5",
+  "pattern": "〜て",
+  "meaning": "and; and then (linking actions in order)",
+  "text": "別れを告げて、歩き出した。",
+  "spans": [
+   [
+    3,
+    6
+   ]
+  ],
+  "marked": "別れを【告げて】、歩き出した。",
+  "split": "別れ を 告げて 、 歩き出した 。"
+ },
+ {
+  "n": 59,
+  "set": "A",
+  "sid": 1992046,
+  "gid": "te-iru",
+  "level": "N5",
+  "pattern": "〜ている",
+  "meaning": "be doing (ongoing action); be in a state (result of a change); do regularly",
+  "text": "来年もし働いていたら、すぐに長期休暇使えるようになったら日本に行く！",
+  "spans": [
+   [
+    6,
+    9
+   ]
+  ],
+  "marked": "来年もし働い【ていた】ら、すぐに長期休暇使えるようになったら日本に行く！",
+  "split": "来年 もし 働いていたら 、 すぐに 長期 休暇 使える ように なったら 日本 に 行く ！"
+ },
+ {
+  "n": 60,
+  "set": "A",
+  "sid": 100884,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "彼は彼女の生き方がうらやましかった。",
+  "spans": [
+   [
+    1,
+    2
+   ]
+  ],
+  "marked": "彼【は】彼女の生き方がうらやましかった。",
+  "split": "彼 は 彼女 の 生き方 が うらやましかった 。"
+ },
+ {
+  "n": 61,
+  "set": "A",
+  "sid": 11351761,
+  "gid": "n-desu-no-desu",
+  "level": "N4",
+  "pattern": "〜んです / 〜のです",
+  "meaning": "it's that ...; (explaining or asking for an explanation)",
+  "text": "もっと早くできないのか？",
+  "spans": [
+   [
+    9,
+    10
+   ]
+  ],
+  "marked": "もっと早くできない【の】か？",
+  "split": "もっと 早く できない の か ？"
+ },
+ {
+  "n": 62,
+  "set": "A",
+  "sid": 178318,
+  "gid": "no",
+  "level": "N5",
+  "pattern": "〜の（possessive）",
+  "meaning": "'s; of (possession, belonging or description)",
+  "text": "自分の考えをはっきり言いなさい。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "自分【の】考えをはっきり言いなさい。",
+  "split": "自分 の 考え を はっきり 言いなさい 。"
+ },
+ {
+  "n": 63,
+  "set": "A",
+  "sid": 224547,
+  "gid": "koko-soko-asoko-doko",
+  "level": "N5",
+  "pattern": "ここ / そこ / あそこ / どこ",
+  "meaning": "here; there (near you); over there; where",
+  "text": "ここで少し休もう。",
+  "spans": [
+   [
+    0,
+    2
+   ]
+  ],
+  "marked": "【ここ】で少し休もう。",
+  "split": "ここ で 少し 休もう 。"
+ },
+ {
+  "n": 64,
+  "set": "A",
+  "sid": 145395,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "新しい資料をお送りください。",
+  "spans": [
+   [
+    5,
+    6
+   ]
+  ],
+  "marked": "新しい資料【を】お送りください。",
+  "split": "新しい 資料 を お 送り ください 。"
+ },
+ {
+  "n": 65,
+  "set": "A",
+  "sid": 13066371,
+  "gid": "na-na-adjective",
+  "level": "N5",
+  "pattern": "〜な（na-adjective）",
+  "meaning": "na-adjectives: take な before a noun and です or だ at the end of a sentence",
+  "text": "IT業界は、グローバルな競争が激しい。",
+  "spans": [
+   [
+    11,
+    12
+   ]
+  ],
+  "marked": "IT業界は、グローバル【な】競争が激しい。",
+  "split": "IT 業界 は 、 グローバル な 競争 が 激しい 。"
+ },
+ {
+  "n": 66,
+  "set": "A",
+  "sid": 9852798,
+  "gid": "te-iru",
+  "level": "N5",
+  "pattern": "〜ている",
+  "meaning": "be doing (ongoing action); be in a state (result of a change); do regularly",
+  "text": "飛行機のファーストクラスにはアルコールの無料サービスが含まれている。",
+  "spans": [
+   [
+    30,
+    33
+   ]
+  ],
+  "marked": "飛行機のファーストクラスにはアルコールの無料サービスが含まれ【ている】。",
+  "split": "飛行機 の ファースト クラス に は アルコール の 無料 サービス が 含まれている 。"
+ },
+ {
+  "n": 67,
+  "set": "A",
+  "sid": 100241,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "彼は福祉事務所で働いている。",
+  "spans": [
+   [
+    1,
+    2
+   ]
+  ],
+  "marked": "彼【は】福祉事務所で働いている。",
+  "split": "彼 は 福祉 事務 所で 働いている 。"
+ },
+ {
+  "n": 68,
+  "set": "A",
+  "sid": 151935,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "私達の太陽より大きな星はたくさんある。",
+  "spans": [
+   [
+    11,
+    12
+   ]
+  ],
+  "marked": "私達の太陽より大きな星【は】たくさんある。",
+  "split": "私達 の 太陽 より 大きな 星 は たくさん ある 。"
+ },
+ {
+  "n": 69,
+  "set": "A",
+  "sid": 227132,
+  "gid": "to-and",
+  "level": "N5",
+  "pattern": "〜と（and）",
+  "meaning": "and (joining nouns in a complete list)",
+  "text": "お祭りの日と試験の日が重なっている。",
+  "spans": [
+   [
+    5,
+    6
+   ]
+  ],
+  "marked": "お祭りの日【と】試験の日が重なっている。",
+  "split": "お祭り の 日 と 試験 の 日 が 重なっている 。"
+ },
+ {
+  "n": 70,
+  "set": "A",
+  "sid": 230928,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "あの時彼が私の忠告に従っていたら、今は金持ちだろうに。",
+  "spans": [
+   [
+    18,
+    19
+   ]
+  ],
+  "marked": "あの時彼が私の忠告に従っていたら、今【は】金持ちだろうに。",
+  "split": "あの 時 彼 が 私 の 忠告 に 従っていたら 、 今 は 金持ち だろう に 。"
+ },
+ {
+  "n": 71,
+  "set": "A",
+  "sid": 184337,
+  "gid": "no",
+  "level": "N5",
+  "pattern": "〜の（possessive）",
+  "meaning": "'s; of (possession, belonging or description)",
+  "text": "学者が必ずしも良識のある人とはいえない。",
+  "spans": [
+   [
+    9,
+    10
+   ]
+  ],
+  "marked": "学者が必ずしも良識【の】ある人とはいえない。",
+  "split": "学者 が 必ずしも 良識 の ある 人 と は いえない 。"
+ },
+ {
+  "n": 72,
+  "set": "A",
+  "sid": 207382,
+  "gid": "no",
+  "level": "N5",
+  "pattern": "〜の（possessive）",
+  "meaning": "'s; of (possession, belonging or description)",
+  "text": "その二人の若い女の子は幸せそうに微笑んだ。",
+  "spans": [
+   [
+    4,
+    5
+   ]
+  ],
+  "marked": "その二人【の】若い女の子は幸せそうに微笑んだ。",
+  "split": "その 二人 の 若い 女の子 は 幸せ そう に 微笑んだ 。"
+ },
+ {
+  "n": 73,
+  "set": "A",
+  "sid": 204551,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "それを他の言葉に言い換えなさい。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "それ【を】他の言葉に言い換えなさい。",
+  "split": "それ を 他 の 言葉 に 言い換えなさい 。"
+ },
+ {
+  "n": 74,
+  "set": "A",
+  "sid": 165126,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "私たちは毎週末にきまってスケートに行ったものです。",
+  "spans": [
+   [
+    3,
+    4
+   ]
+  ],
+  "marked": "私たち【は】毎週末にきまってスケートに行ったものです。",
+  "split": "私たち は 毎週 末 に きまって スケート に 行った もの です 。"
+ },
+ {
+  "n": 75,
+  "set": "A",
+  "sid": 110710,
+  "gid": "te-iru",
+  "level": "N5",
+  "pattern": "〜ている",
+  "meaning": "be doing (ongoing action); be in a state (result of a change); do regularly",
+  "text": "彼はまるで病気であったかのような顔をしている。",
+  "spans": [
+   [
+    19,
+    22
+   ]
+  ],
+  "marked": "彼はまるで病気であったかのような顔をし【ている】。",
+  "split": "彼 は まるで 病気 で あった か の ような 顔 を している 。"
+ },
+ {
+  "n": 76,
+  "set": "A",
+  "sid": 189838,
+  "gid": "ta",
+  "level": "N5",
+  "pattern": "〜た",
+  "meaning": "did (plain past of verbs)",
+  "text": "雨がひどいので日を変えて訪ねることにした。",
+  "spans": [
+   [
+    18,
+    20
+   ]
+  ],
+  "marked": "雨がひどいので日を変えて訪ねることに【した】。",
+  "split": "雨 が ひどい ので 日 を 変えて 訪ねる こと に した 。"
+ },
+ {
+  "n": 77,
+  "set": "A",
+  "sid": 170944,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "佐藤さんは息子の尻をたたいて勉強させた。",
+  "spans": [
+   [
+    9,
+    10
+   ]
+  ],
+  "marked": "佐藤さんは息子の尻【を】たたいて勉強させた。",
+  "split": "佐 藤 さん は 息子 の 尻 を たたいて 勉強させた 。"
+ },
+ {
+  "n": 78,
+  "set": "A",
+  "sid": 1244732,
+  "gid": "te",
+  "level": "N5",
+  "pattern": "〜て",
+  "meaning": "and; and then (linking actions in order)",
+  "text": "何時になく疲れが早く出て、私は、とある岩角に腰を下ろしました。",
+  "spans": [
+   [
+    10,
+    12
+   ]
+  ],
+  "marked": "何時になく疲れが早く【出て】、私は、とある岩角に腰を下ろしました。",
+  "split": "何時 に なく 疲れ が 早く 出て 、 私 は 、 と ある 岩 角 に 腰 を 下ろしました 。"
+ },
+ {
+  "n": 79,
+  "set": "A",
+  "sid": 108359,
+  "gid": "ku-naru-ni-naru",
+  "level": "N5",
+  "pattern": "〜くなる / 〜になる",
+  "meaning": "become; get; turn",
+  "text": "彼は恐怖のとりこになっていた。",
+  "spans": [
+   [
+    8,
+    11
+   ]
+  ],
+  "marked": "彼は恐怖のとりこ【になっ】ていた。",
+  "split": "彼 は 恐怖 の とりこ に なっていた 。"
+ },
+ {
+  "n": 80,
+  "set": "A",
+  "sid": 12146756,
+  "gid": "desu",
+  "level": "N5",
+  "pattern": "〜です",
+  "meaning": "is; am; are (polite copula)",
+  "text": "これは、我が家秘伝のタレです。",
+  "spans": [
+   [
+    12,
+    14
+   ]
+  ],
+  "marked": "これは、我が家秘伝のタレ【です】。",
+  "split": "これ は 、 我が家 秘伝 の タレ です 。"
+ },
+ {
+  "n": 81,
+  "set": "A",
+  "sid": 2506802,
+  "gid": "te-iru",
+  "level": "N5",
+  "pattern": "〜ている",
+  "meaning": "be doing (ongoing action); be in a state (result of a change); do regularly",
+  "text": "アブミ骨は内耳の前庭窓に接している。",
+  "spans": [
+   [
+    14,
+    17
+   ]
+  ],
+  "marked": "アブミ骨は内耳の前庭窓に接し【ている】。",
+  "split": "アブミ 骨 は 内 耳 の 前庭 窓 に 接している 。"
+ },
+ {
+  "n": 82,
+  "set": "A",
+  "sid": 10723740,
+  "gid": "kono-sono-ano-dono",
+  "level": "N5",
+  "pattern": "この / その / あの / どの",
+  "meaning": "this; that (near you); that ... over there; which (before a noun)",
+  "text": "この小屋は丸太で造られてるんだ。",
+  "spans": [
+   [
+    0,
+    2
+   ]
+  ],
+  "marked": "【この】小屋は丸太で造られてるんだ。",
+  "split": "この 小屋 は 丸太 で 造られてる んだ 。"
+ },
+ {
+  "n": 83,
+  "set": "A",
+  "sid": 525302,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "大統領は奴隷制度を廃止した。",
+  "spans": [
+   [
+    3,
+    4
+   ]
+  ],
+  "marked": "大統領【は】奴隷制度を廃止した。",
+  "split": "大統領 は 奴隷 制度 を 廃止した 。"
+ },
+ {
+  "n": 84,
+  "set": "A",
+  "sid": 1614167,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "愛を語ることとは愛を交わすことである。",
+  "spans": [
+   [
+    1,
+    2
+   ],
+   [
+    9,
+    10
+   ]
+  ],
+  "marked": "愛【を】語ることとは愛【を】交わすことである。",
+  "split": "愛 を 語る こと と は 愛 を 交わす こと で ある 。"
+ },
+ {
+  "n": 85,
+  "set": "A",
+  "sid": 199581,
+  "gid": "kore-sore-are-dore",
+  "level": "N5",
+  "pattern": "これ / それ / あれ / どれ",
+  "meaning": "this one; that one (near you); that one (over there); which one",
+  "text": "どんなことでそれが必要ですか。",
+  "spans": [
+   [
+    6,
+    8
+   ]
+  ],
+  "marked": "どんなことで【それ】が必要ですか。",
+  "split": "どんな こと で それ が 必要 です か 。"
+ },
+ {
+  "n": 86,
+  "set": "A",
+  "sid": 1700312,
+  "gid": "e",
+  "level": "N5",
+  "pattern": "〜へ",
+  "meaning": "to; toward (the direction of movement)",
+  "text": "工事が通りへの進路を塞いだ。",
+  "spans": [
+   [
+    5,
+    6
+   ]
+  ],
+  "marked": "工事が通り【へ】の進路を塞いだ。",
+  "split": "工事 が 通り へ の 進路 を 塞いだ 。"
+ },
+ {
+  "n": 87,
+  "set": "A",
+  "sid": 388324,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "保険の料金は使用目的（仕事かレジャーか）によって異なります。",
+  "spans": [
+   [
+    5,
+    6
+   ]
+  ],
+  "marked": "保険の料金【は】使用目的（仕事かレジャーか）によって異なります。",
+  "split": "保険 の 料金 は 使用 目的 （ 仕事 か レジャー か ） に よって 異なります 。"
+ },
+ {
+  "n": 88,
+  "set": "A",
+  "sid": 108199,
+  "gid": "da",
+  "level": "N5",
+  "pattern": "〜だ",
+  "meaning": "is; am; are (plain copula)",
+  "text": "彼は金持ちだが一生懸命働いている。",
+  "spans": [
+   [
+    5,
+    7
+   ]
+  ],
+  "marked": "彼は金持ち【だが】一生懸命働いている。",
+  "split": "彼 は 金持ち だが 一生懸命 働いている 。"
+ },
+ {
+  "n": 89,
+  "set": "A",
+  "sid": 997353,
+  "gid": "no",
+  "level": "N5",
+  "pattern": "〜の（possessive）",
+  "meaning": "'s; of (possession, belonging or description)",
+  "text": "あなたの脈は正常です。",
+  "spans": [
+   [
+    3,
+    4
+   ]
+  ],
+  "marked": "あなた【の】脈は正常です。",
+  "split": "あなた の 脈 は 正常 です 。"
+ },
+ {
+  "n": 90,
+  "set": "A",
+  "sid": 163262,
+  "gid": "desu",
+  "level": "N5",
+  "pattern": "〜です",
+  "meaning": "is; am; are (polite copula)",
+  "text": "私の新しい靴は革製です。",
+  "spans": [
+   [
+    9,
+    11
+   ]
+  ],
+  "marked": "私の新しい靴は革製【です】。",
+  "split": "私 の 新しい 靴 は 革 製 です 。"
+ },
+ {
+  "n": 91,
+  "set": "A",
+  "sid": 146815,
+  "gid": "ka-question",
+  "level": "N5",
+  "pattern": "〜か（question）",
+  "meaning": "(question marker) turns a sentence into a question",
+  "text": "少し休んだらどうですか。",
+  "spans": [
+   [
+    10,
+    11
+   ]
+  ],
+  "marked": "少し休んだらどうです【か】。",
+  "split": "少し 休んだら どう です か 。"
+ },
+ {
+  "n": 92,
+  "set": "A",
+  "sid": 231375,
+  "gid": "nai",
+  "level": "N5",
+  "pattern": "〜ない",
+  "meaning": "do not; will not (plain negative of verbs)",
+  "text": "あのアパートではペットの飼育が許されていない。",
+  "spans": [
+   [
+    15,
+    22
+   ]
+  ],
+  "marked": "あのアパートではペットの飼育が【許されていない】。",
+  "split": "あの アパート では ペット の 飼育 が 許されていない 。"
+ },
+ {
+  "n": 93,
+  "set": "A",
+  "sid": 82918,
+  "gid": "ta",
+  "level": "N5",
+  "pattern": "〜た",
+  "meaning": "did (plain past of verbs)",
+  "text": "母は出かける前に化粧をした。",
+  "spans": [
+   [
+    11,
+    13
+   ]
+  ],
+  "marked": "母は出かける前に化粧を【した】。",
+  "split": "母 は 出かける 前 に 化粧 を した 。"
+ },
+ {
+  "n": 94,
+  "set": "A",
+  "sid": 10655989,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "時が経つのはとても早いですね。",
+  "spans": [
+   [
+    5,
+    6
+   ]
+  ],
+  "marked": "時が経つの【は】とても早いですね。",
+  "split": "時 が 経つ の は とても 早い です ね 。"
+ },
+ {
+  "n": 95,
+  "set": "A",
+  "sid": 235920,
+  "gid": "eru-rareru-potential",
+  "level": "N4",
+  "pattern": "〜える / 〜られる（potential）",
+  "meaning": "can; be able to (potential form)",
+  "text": "１８歳以上の人は車を運転できる。",
+  "spans": [
+   [
+    12,
+    15
+   ]
+  ],
+  "marked": "１８歳以上の人は車を運転【できる】。",
+  "split": "１ ８ 歳 以上 の 人 は 車 を 運転 できる 。"
+ },
+ {
+  "n": 96,
+  "set": "A",
+  "sid": 12411399,
+  "gid": "ka-embedded-question",
+  "level": "N4",
+  "pattern": "〜か（embedded question）",
+  "meaning": "embedded question (what, where, who, etc.)",
+  "text": "トムがどんな反応をするか見てみよう。",
+  "spans": [
+   [
+    11,
+    12
+   ]
+  ],
+  "marked": "トムがどんな反応をする【か】見てみよう。",
+  "split": "トム が どんな 反応 を する か 見て みよう 。"
+ },
+ {
+  "n": 97,
+  "set": "A",
+  "sid": 11488278,
+  "gid": "te-iru",
+  "level": "N5",
+  "pattern": "〜ている",
+  "meaning": "be doing (ongoing action); be in a state (result of a change); do regularly",
+  "text": "トムとメアリーが肩を並べて歩いていた。",
+  "spans": [
+   [
+    15,
+    18
+   ]
+  ],
+  "marked": "トムとメアリーが肩を並べて歩い【ていた】。",
+  "split": "トム と メアリー が 肩 を 並べて 歩いていた 。"
+ },
+ {
+  "n": 98,
+  "set": "A",
+  "sid": 176670,
+  "gid": "da",
+  "level": "N5",
+  "pattern": "〜だ",
+  "meaning": "is; am; are (plain copula)",
+  "text": "軍隊の規律は文字通り厳しいものだ。",
+  "spans": [
+   [
+    15,
+    16
+   ]
+  ],
+  "marked": "軍隊の規律は文字通り厳しいもの【だ】。",
+  "split": "軍隊 の 規律 は 文字通り 厳しい もの だ 。"
+ },
+ {
+  "n": 99,
+  "set": "A",
+  "sid": 10996902,
+  "gid": "ga-subject",
+  "level": "N5",
+  "pattern": "〜が（subject）",
+  "meaning": "marks the subject; points out new or focused information",
+  "text": "変なメールが届いていた。",
+  "spans": [
+   [
+    5,
+    6
+   ]
+  ],
+  "marked": "変なメール【が】届いていた。",
+  "split": "変 な メール が 届いていた 。"
+ },
+ {
+  "n": 100,
+  "set": "A",
+  "sid": 867841,
+  "gid": "mashita",
+  "level": "N5",
+  "pattern": "〜ました",
+  "meaning": "did (polite past)",
+  "text": "僕はバイク盗難防止装置を買いました。",
+  "spans": [
+   [
+    14,
+    17
+   ]
+  ],
+  "marked": "僕はバイク盗難防止装置を買い【ました】。",
+  "split": "僕 は バイク 盗難 防止 装置 を 買いました 。"
+ },
+ {
+  "n": 101,
+  "set": "A",
+  "sid": 9517680,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "君は僕より体重は多くないよ。",
+  "spans": [
+   [
+    1,
+    2
+   ],
+   [
+    7,
+    8
+   ]
+  ],
+  "marked": "君【は】僕より体重【は】多くないよ。",
+  "split": "君 は 僕 より 体重 は 多くない よ 。"
+ },
+ {
+  "n": 102,
+  "set": "A",
+  "sid": 10185217,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "トムは何をやるにしても、上手にこなすよ。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "トム【は】何をやるにしても、上手にこなすよ。",
+  "split": "トム は 何 を やる に し ても 、 上手 にこ なす よ 。"
+ },
+ {
+  "n": 103,
+  "set": "A",
+  "sid": 204487,
+  "gid": "ga-subject",
+  "level": "N5",
+  "pattern": "〜が（subject）",
+  "meaning": "marks the subject; points out new or focused information",
+  "text": "それ以来ずっととてもよい天気が続いています。",
+  "spans": [
+   [
+    14,
+    15
+   ]
+  ],
+  "marked": "それ以来ずっととてもよい天気【が】続いています。",
+  "split": "それ 以来 ずっと とても よい 天気 が 続いています 。"
+ },
+ {
+  "n": 104,
+  "set": "A",
+  "sid": 347872,
+  "gid": "ba",
+  "level": "N4",
+  "pattern": "〜ば",
+  "meaning": "if",
+  "text": "それこそが、アメリカと言う国の素晴らしさです。アメリカは変われるという、まさにそれこそが。私たちのこの連邦は、まだまださらに完璧に近づくことができる。私たちがこれまで達成してきたことを見れば、これから先さらに何ができるか、何をしなくてはならないかについて、希望を抱くことができるのです。",
+  "spans": [
+   [
+    92,
+    95
+   ]
+  ],
+  "marked": "それこそが、アメリカと言う国の素晴らしさです。アメリカは変われるという、まさにそれこそが。私たちのこの連邦は、まだまださらに完璧に近づくことができる。私たちがこれまで達成してきたことを【見れば】、これから先さらに何ができるか、何をしなくてはならないかについて、希望を抱くことができるのです。",
+  "split": "それ こそ が 、 アメリカ と 言う 国 の 素晴らしさ です 。 アメリカ は 変われる と いう 、 まさに それ こそ が 。 私たち の この 連邦 は 、 まだまだ さらに 完璧 に 近づく こと が できる 。 私たち が これ まで 達成して きた こと を 見れば 、 これから 先 さらに 何 が できる か 、 何 を しなくて は ならない か に ついて 、 希望 を 抱く こと が できる のです 。"
+ },
+ {
+  "n": 105,
+  "set": "A",
+  "sid": 216679,
+  "gid": "ga-subject",
+  "level": "N5",
+  "pattern": "〜が（subject）",
+  "meaning": "marks the subject; points out new or focused information",
+  "text": "さらに悪いことに雨が降り始めた。",
+  "spans": [
+   [
+    9,
+    10
+   ]
+  ],
+  "marked": "さらに悪いことに雨【が】降り始めた。",
+  "split": "さらに 悪い こと に 雨 が 降り 始めた 。"
+ },
+ {
+  "n": 106,
+  "set": "A",
+  "sid": 3105602,
+  "gid": "te-iru",
+  "level": "N5",
+  "pattern": "〜ている",
+  "meaning": "be doing (ongoing action); be in a state (result of a change); do regularly",
+  "text": "なんで笑ってるの？",
+  "spans": [
+   [
+    3,
+    7
+   ]
+  ],
+  "marked": "なんで【笑ってる】の？",
+  "split": "なんで 笑ってる の ？"
+ },
+ {
+  "n": 107,
+  "set": "A",
+  "sid": 12418170,
+  "gid": "nai",
+  "level": "N5",
+  "pattern": "〜ない",
+  "meaning": "do not; will not (plain negative of verbs)",
+  "text": "一緒にしないでください。",
+  "spans": [
+   [
+    3,
+    6
+   ]
+  ],
+  "marked": "一緒に【しない】でください。",
+  "split": "一緒 に しない で ください 。"
+ },
+ {
+  "n": 108,
+  "set": "A",
+  "sid": 5143,
+  "gid": "no-koto-nominalizer",
+  "level": "N4",
+  "pattern": "〜の / 〜こと（nominalizer）",
+  "meaning": "the act of doing (turns a verb phrase into a noun)",
+  "text": "何かが理解できないのはその中身を知らないからである。",
+  "spans": [
+   [
+    9,
+    10
+   ]
+  ],
+  "marked": "何かが理解できない【の】はその中身を知らないからである。",
+  "split": "何か が 理解 できない の は その 中身 を 知らない から で ある 。"
+ },
+ {
+  "n": 109,
+  "set": "A",
+  "sid": 153135,
+  "gid": "darou",
+  "level": "N4",
+  "pattern": "〜だろう",
+  "meaning": "probably; I suppose (plain form of でしょう)",
+  "text": "私は疲れている。だから少し休んだほうがよいだろう。",
+  "spans": [
+   [
+    21,
+    24
+   ]
+  ],
+  "marked": "私は疲れている。だから少し休んだほうがよい【だろう】。",
+  "split": "私 は 疲れている 。 だから 少し 休んだ ほう が よい だろう 。"
+ },
+ {
+  "n": 110,
+  "set": "A",
+  "sid": 1222208,
+  "gid": "masu",
+  "level": "N5",
+  "pattern": "〜ます",
+  "meaning": "polite non-past verb ending (do; will do)",
+  "text": "僕は抗生剤にアレルギーがあります。",
+  "spans": [
+   [
+    12,
+    16
+   ]
+  ],
+  "marked": "僕は抗生剤にアレルギーが【あります】。",
+  "split": "僕 は 抗生 剤 に アレルギー が あります 。"
+ },
+ {
+  "n": 111,
+  "set": "A",
+  "sid": 3357992,
+  "gid": "ni-location",
+  "level": "N5",
+  "pattern": "〜に（place of existence）",
+  "meaning": "in; at; on (where someone or something is)",
+  "text": "私は集合住宅に住んでいます。",
+  "spans": [
+   [
+    6,
+    7
+   ]
+  ],
+  "marked": "私は集合住宅【に】住んでいます。",
+  "split": "私 は 集合 住宅 に 住んでいます 。"
+ },
+ {
+  "n": 112,
+  "set": "A",
+  "sid": 10617570,
+  "gid": "tai",
+  "level": "N5",
+  "pattern": "〜たい",
+  "meaning": "want to (do)",
+  "text": "邦画が見たいな。",
+  "spans": [
+   [
+    3,
+    6
+   ]
+  ],
+  "marked": "邦画が【見たい】な。",
+  "split": "邦 画 が 見たい な 。"
+ },
+ {
+  "n": 113,
+  "set": "A",
+  "sid": 98692,
+  "gid": "ga-subject",
+  "level": "N5",
+  "pattern": "〜が（subject）",
+  "meaning": "marks the subject; points out new or focused information",
+  "text": "彼らが私に言った事と、彼の話は一致しない。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "彼ら【が】私に言った事と、彼の話は一致しない。",
+  "split": "彼ら が 私 に 言った 事 と 、 彼 の 話 は 一致しない 。"
+ },
+ {
+  "n": 114,
+  "set": "A",
+  "sid": 195808,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "マーテイン・ルーサー・キング・ジュニアは暗殺者の凶弾で命を落としたのである。",
+  "spans": [
+   [
+    19,
+    20
+   ]
+  ],
+  "marked": "マーテイン・ルーサー・キング・ジュニア【は】暗殺者の凶弾で命を落としたのである。",
+  "split": "マーテイン ・ ルーサー ・ キング ・ ジュニア は 暗殺 者 の 凶 弾 で 命 を 落とした ので ある 。"
+ },
+ {
+  "n": 115,
+  "set": "A",
+  "sid": 2481333,
+  "gid": "na-na-adjective",
+  "level": "N5",
+  "pattern": "〜な（na-adjective）",
+  "meaning": "na-adjectives: take な before a noun and です or だ at the end of a sentence",
+  "text": "この言葉の厳密な意味を説明してもらえますか？",
+  "spans": [
+   [
+    7,
+    8
+   ]
+  ],
+  "marked": "この言葉の厳密【な】意味を説明してもらえますか？",
+  "split": "この 言葉 の 厳密 な 意味 を 説明して もらえます か ？"
+ },
+ {
+  "n": 116,
+  "set": "A",
+  "sid": 201122,
+  "gid": "ka-embedded-question",
+  "level": "N4",
+  "pattern": "〜か（embedded question）",
+  "meaning": "embedded question (what, where, who, etc.)",
+  "text": "どうやるか教えて。",
+  "spans": [
+   [
+    4,
+    5
+   ]
+  ],
+  "marked": "どうやる【か】教えて。",
+  "split": "どう やる か 教えて 。"
+ },
+ {
+  "n": 117,
+  "set": "A",
+  "sid": 216705,
+  "gid": "te-kudasai",
+  "level": "N5",
+  "pattern": "〜てください",
+  "meaning": "please (do)",
+  "text": "さようなら、有意義に過ごしてください。",
+  "spans": [
+   [
+    13,
+    18
+   ]
+  ],
+  "marked": "さようなら、有意義に過ごし【てください】。",
+  "split": "さようなら 、 有意 義 に 過ごして ください 。"
+ },
+ {
+  "n": 118,
+  "set": "A",
+  "sid": 11027794,
+  "gid": "ga-subject",
+  "level": "N5",
+  "pattern": "〜が（subject）",
+  "meaning": "marks the subject; points out new or focused information",
+  "text": "どこからこの匂いがするんだろ？",
+  "spans": [
+   [
+    8,
+    9
+   ]
+  ],
+  "marked": "どこからこの匂い【が】するんだろ？",
+  "split": "どこ から この 匂い が する んだ ろ ？"
+ },
+ {
+  "n": 119,
+  "set": "A",
+  "sid": 2472587,
+  "gid": "ga-aru-ga-iru",
+  "level": "N5",
+  "pattern": "〜がある / 〜がいる",
+  "meaning": "there is; there are; have (ある for things, いる for people and animals)",
+  "text": "トムには持って生まれた才能がある。",
+  "spans": [
+   [
+    13,
+    16
+   ]
+  ],
+  "marked": "トムには持って生まれた才能【がある】。",
+  "split": "トム に は 持って 生まれた 才能 が ある 。"
+ },
+ {
+  "n": 120,
+  "set": "A",
+  "sid": 170501,
+  "gid": "ta",
+  "level": "N5",
+  "pattern": "〜た",
+  "meaning": "did (plain past of verbs)",
+  "text": "最初２人はぎこちなかったけど、話して行くうちに２人は意気投合した。",
+  "spans": [
+   [
+    5,
+    12
+   ],
+   [
+    28,
+    32
+   ]
+  ],
+  "marked": "最初２人は【ぎこちなかった】けど、話して行くうちに２人は意気【投合した】。",
+  "split": "最初 ２ 人 は ぎこちなかった けど 、 話して 行く うち に ２ 人 は 意気 投合した 。"
+ },
+ {
+  "n": 121,
+  "set": "A",
+  "sid": 231808,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "あなたは数学の成績がよい。",
+  "spans": [
+   [
+    3,
+    4
+   ]
+  ],
+  "marked": "あなた【は】数学の成績がよい。",
+  "split": "あなた は 数学 の 成績 が よい 。"
+ },
+ {
+  "n": 122,
+  "set": "A",
+  "sid": 164507,
+  "gid": "te",
+  "level": "N5",
+  "pattern": "〜て",
+  "meaning": "and; and then (linking actions in order)",
+  "text": "私には父がまだ生きていると思えてならない。",
+  "spans": [
+   [
+    13,
+    16
+   ]
+  ],
+  "marked": "私には父がまだ生きていると【思えて】ならない。",
+  "split": "私 に は 父 が まだ 生きている と 思えて ならない 。"
+ },
+ {
+  "n": 123,
+  "set": "A",
+  "sid": 8569418,
+  "gid": "yo",
+  "level": "N5",
+  "pattern": "〜よ",
+  "meaning": "you know; I tell you (giving new information or emphasis)",
+  "text": "毎日君に似た人に会うよ。",
+  "spans": [
+   [
+    10,
+    11
+   ]
+  ],
+  "marked": "毎日君に似た人に会う【よ】。",
+  "split": "毎日 君 に 似た 人 に 会う よ 。"
+ },
+ {
+  "n": 124,
+  "set": "A",
+  "sid": 205434,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "それはとても難しいテストだったので、私たちは最後まで終える時間がなかった。",
+  "spans": [
+   [
+    2,
+    3
+   ],
+   [
+    21,
+    22
+   ]
+  ],
+  "marked": "それ【は】とても難しいテストだったので、私たち【は】最後まで終える時間がなかった。",
+  "split": "それ は とても 難しい テスト だった ので 、 私たち は 最後 まで 終える 時間 が なかった 。"
+ },
+ {
+  "n": 125,
+  "set": "A",
+  "sid": 11885399,
+  "gid": "da",
+  "level": "N5",
+  "pattern": "〜だ",
+  "meaning": "is; am; are (plain copula)",
+  "text": "トムは一流大学出だ。",
+  "spans": [
+   [
+    8,
+    9
+   ]
+  ],
+  "marked": "トムは一流大学出【だ】。",
+  "split": "トム は 一流 大学 出 だ 。"
+ },
+ {
+  "n": 126,
+  "set": "A",
+  "sid": 204728,
+  "gid": "reru-rareru-passive",
+  "level": "N4",
+  "pattern": "〜れる / 〜られる（passive）",
+  "meaning": "be done (by someone); passive voice",
+  "text": "それらはいろいろな大きさに作られている。",
+  "spans": [
+   [
+    13,
+    19
+   ]
+  ],
+  "marked": "それらはいろいろな大きさに【作られている】。",
+  "split": "それ ら は いろいろ な 大きさ に 作られている 。"
+ },
+ {
+  "n": 127,
+  "set": "A",
+  "sid": 3455855,
+  "gid": "ka-question",
+  "level": "N5",
+  "pattern": "〜か（question）",
+  "meaning": "(question marker) turns a sentence into a question",
+  "text": "歳はいくつですか。",
+  "spans": [
+   [
+    7,
+    8
+   ]
+  ],
+  "marked": "歳はいくつです【か】。",
+  "split": "歳 は いくつ です か 。"
+ },
+ {
+  "n": 128,
+  "set": "A",
+  "sid": 13987113,
+  "gid": "tai",
+  "level": "N5",
+  "pattern": "〜たい",
+  "meaning": "want to (do)",
+  "text": "トムには沢山買いたいものがあります。",
+  "spans": [
+   [
+    6,
+    10
+   ]
+  ],
+  "marked": "トムには沢山【買いたい】ものがあります。",
+  "split": "トム に は 沢山 買いたい もの が あります 。"
+ },
+ {
+  "n": 129,
+  "set": "A",
+  "sid": 107309,
+  "gid": "ta",
+  "level": "N5",
+  "pattern": "〜た",
+  "meaning": "did (plain past of verbs)",
+  "text": "彼は降参のしるしとして両手を挙げた。",
+  "spans": [
+   [
+    14,
+    17
+   ]
+  ],
+  "marked": "彼は降参のしるしとして両手を【挙げた】。",
+  "split": "彼 は 降参 の し る し と して 両手 を 挙げた 。"
+ },
+ {
+  "n": 130,
+  "set": "A",
+  "sid": 10642169,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "これは手に負えなくなってきたぞ。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "これ【は】手に負えなくなってきたぞ。",
+  "split": "これ は 手 に 負え なくなって きた ぞ 。"
+ },
+ {
+  "n": 131,
+  "set": "A",
+  "sid": 211202,
+  "gid": "kono-sono-ano-dono",
+  "level": "N5",
+  "pattern": "この / その / あの / どの",
+  "meaning": "this; that (near you); that ... over there; which (before a noun)",
+  "text": "その警官はいなくなった少年を捜した。",
+  "spans": [
+   [
+    0,
+    2
+   ]
+  ],
+  "marked": "【その】警官はいなくなった少年を捜した。",
+  "split": "その 警官 はい なくなった 少年 を 捜した 。"
+ },
+ {
+  "n": 132,
+  "set": "A",
+  "sid": 11114781,
+  "gid": "kono-sono-ano-dono",
+  "level": "N5",
+  "pattern": "この / その / あの / どの",
+  "meaning": "this; that (near you); that ... over there; which (before a noun)",
+  "text": "好きっていったら、その靴くれるの？",
+  "spans": [
+   [
+    9,
+    11
+   ]
+  ],
+  "marked": "好きっていったら、【その】靴くれるの？",
+  "split": "好き って いったら 、 その 靴 くれる の ？"
+ },
+ {
+  "n": 133,
+  "set": "A",
+  "sid": 122722,
+  "gid": "ni-location",
+  "level": "N5",
+  "pattern": "〜に（place of existence）",
+  "meaning": "in; at; on (where someone or something is)",
+  "text": "日本にはたくさんの温泉がある。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "日本【に】はたくさんの温泉がある。",
+  "split": "日本 に は たくさん の 温泉 が ある 。"
+ },
+ {
+  "n": 134,
+  "set": "A",
+  "sid": 160028,
+  "gid": "eru-rareru-potential",
+  "level": "N4",
+  "pattern": "〜える / 〜られる（potential）",
+  "meaning": "can; be able to (potential form)",
+  "text": "私はその少女を雇うつもりです。なぜならフランス語を話せるからです。",
+  "spans": [
+   [
+    25,
+    28
+   ]
+  ],
+  "marked": "私はその少女を雇うつもりです。なぜならフランス語を【話せる】からです。",
+  "split": "私 は その 少女 を 雇う つもり です 。 なぜなら フランス 語 を 話せる から です 。"
+ },
+ {
+  "n": 135,
+  "set": "A",
+  "sid": 213980,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "セントラルパークはどちらへ行くのですか。",
+  "spans": [
+   [
+    8,
+    9
+   ]
+  ],
+  "marked": "セントラルパーク【は】どちらへ行くのですか。",
+  "split": "セントラルパーク は どちら へ 行く のです か 。"
+ },
+ {
+  "n": 136,
+  "set": "A",
+  "sid": 85123,
+  "gid": "no",
+  "level": "N5",
+  "pattern": "〜の（possessive）",
+  "meaning": "'s; of (possession, belonging or description)",
+  "text": "不活発な子供は空想の世界に閉じこもる傾向がずっと高い。",
+  "spans": [
+   [
+    9,
+    10
+   ]
+  ],
+  "marked": "不活発な子供は空想【の】世界に閉じこもる傾向がずっと高い。",
+  "split": "不 活発 な 子供 は 空想 の 世界 に 閉じこもる 傾向 が ずっと 高い 。"
+ },
+ {
+  "n": 137,
+  "set": "A",
+  "sid": 9843746,
+  "gid": "de-wa-arimasen-ja-nai",
+  "level": "N5",
+  "pattern": "〜ではありません / 〜じゃない",
+  "meaning": "is not; am not; are not",
+  "text": "この生地はドレス向きじゃないよ。",
+  "spans": [
+   [
+    10,
+    14
+   ]
+  ],
+  "marked": "この生地はドレス向き【じゃない】よ。",
+  "split": "この 生地 は ドレス 向き じゃない よ 。"
+ },
+ {
+  "n": 138,
+  "set": "A",
+  "sid": 142669,
+  "gid": "nasai",
+  "level": "N4",
+  "pattern": "〜なさい",
+  "meaning": "do (instruction from a parent, teacher, etc.)",
+  "text": "精一杯やってみなさい。",
+  "spans": [
+   [
+    7,
+    10
+   ]
+  ],
+  "marked": "精一杯やってみ【なさい】。",
+  "split": "精 一杯 やって みなさい 。"
+ },
+ {
+  "n": 139,
+  "set": "A",
+  "sid": 83064,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "母はそのニュースを聞いて驚いた。",
+  "spans": [
+   [
+    1,
+    2
+   ]
+  ],
+  "marked": "母【は】そのニュースを聞いて驚いた。",
+  "split": "母 は その ニュース を 聞いて 驚いた 。"
+ },
+ {
+  "n": 140,
+  "set": "A",
+  "sid": 9712367,
+  "gid": "ga-subject",
+  "level": "N5",
+  "pattern": "〜が（subject）",
+  "meaning": "marks the subject; points out new or focused information",
+  "text": "トムとメアリーは２人とも柿が好きなんだ。",
+  "spans": [
+   [
+    13,
+    14
+   ]
+  ],
+  "marked": "トムとメアリーは２人とも柿【が】好きなんだ。",
+  "split": "トム と メアリー は ２ 人 と も 柿 が 好き な んだ 。"
+ },
+ {
+  "n": 141,
+  "set": "A",
+  "sid": 13060787,
+  "gid": "no-koto-nominalizer",
+  "level": "N4",
+  "pattern": "〜の / 〜こと（nominalizer）",
+  "meaning": "the act of doing (turns a verb phrase into a noun)",
+  "text": "ベッドの中で、好きな音楽を聴いたり、本を読んだりするのは至福の時間だ。",
+  "spans": [
+   [
+    26,
+    27
+   ]
+  ],
+  "marked": "ベッドの中で、好きな音楽を聴いたり、本を読んだりする【の】は至福の時間だ。",
+  "split": "ベッド の 中 で 、 好き な 音楽 を 聴いた り 、 本 を 読んだ り する の は 至福 の 時間 だ 。"
+ },
+ {
+  "n": 142,
+  "set": "A",
+  "sid": 110972,
+  "gid": "ta",
+  "level": "N5",
+  "pattern": "〜た",
+  "meaning": "did (plain past of verbs)",
+  "text": "彼はほかにいくつかの話も聞いていた。",
+  "spans": [
+   [
+    12,
+    17
+   ]
+  ],
+  "marked": "彼はほかにいくつかの話も【聞いていた】。",
+  "split": "彼 は ほか に いくつ か の 話 も 聞いていた 。"
+ },
+ {
+  "n": 143,
+  "set": "A",
+  "sid": 9049842,
+  "gid": "masu",
+  "level": "N5",
+  "pattern": "〜ます",
+  "meaning": "polite non-past verb ending (do; will do)",
+  "text": "速達でお願いします。",
+  "spans": [
+   [
+    3,
+    9
+   ]
+  ],
+  "marked": "速達で【お願いします】。",
+  "split": "速達 で お願いします 。"
+ },
+ {
+  "n": 144,
+  "set": "A",
+  "sid": 3875290,
+  "gid": "ka-question",
+  "level": "N5",
+  "pattern": "〜か（question）",
+  "meaning": "(question marker) turns a sentence into a question",
+  "text": "私の新しい髪形が好きですか。",
+  "spans": [
+   [
+    12,
+    13
+   ]
+  ],
+  "marked": "私の新しい髪形が好きです【か】。",
+  "split": "私 の 新しい 髪形 が 好き です か 。"
+ },
+ {
+  "n": 145,
+  "set": "A",
+  "sid": 2656832,
+  "gid": "ba",
+  "level": "N4",
+  "pattern": "〜ば",
+  "meaning": "if",
+  "text": "私は食べなければいけない。",
+  "spans": [
+   [
+    2,
+    8
+   ]
+  ],
+  "marked": "私は【食べなければ】いけない。",
+  "split": "私 は 食べなければ いけない 。"
+ },
+ {
+  "n": 146,
+  "set": "A",
+  "sid": 158447,
+  "gid": "ta-koto-ga-aru",
+  "level": "N5",
+  "pattern": "〜たことがある",
+  "meaning": "have (ever) done; have the experience of doing",
+  "text": "私は一度その映画を見たことがありましたのでテレビを消しました。",
+  "spans": [
+   [
+    10,
+    16
+   ]
+  ],
+  "marked": "私は一度その映画を見【たことがあり】ましたのでテレビを消しました。",
+  "split": "私 は 一度 その 映画 を 見た こと が ありました ので テレビ を 消しました 。"
+ },
+ {
+  "n": 147,
+  "set": "A",
+  "sid": 163000,
+  "gid": "hodo-nai",
+  "level": "N4",
+  "pattern": "〜ほど〜ない",
+  "meaning": "not as ... as",
+  "text": "私の弟は、二郎さんほど背が高くありません。",
+  "spans": [
+   [
+    9,
+    19
+   ]
+  ],
+  "marked": "私の弟は、二郎さん【ほど背が高くありませ】ん。",
+  "split": "私 の 弟 は 、 二 郎 さん ほど 背 が 高く ありません 。"
+ },
+ {
+  "n": 148,
+  "set": "A",
+  "sid": 228767,
+  "gid": "masu",
+  "level": "N5",
+  "pattern": "〜ます",
+  "meaning": "polite non-past verb ending (do; will do)",
+  "text": "いつもお世話になっていますから、一旦緩急あれば、すぐさま馳せ参じます。",
+  "spans": [
+   [
+    7,
+    13
+   ]
+  ],
+  "marked": "いつもお世話に【なっています】から、一旦緩急あれば、すぐさま馳せ参じます。",
+  "split": "いつも お世話 に なっています から 、 一旦 緩 急 あれば 、 すぐ さ ま 馳せ 参 じ ます 。"
+ },
+ {
+  "n": 149,
+  "set": "A",
+  "sid": 2185619,
+  "gid": "no",
+  "level": "N5",
+  "pattern": "〜の（possessive）",
+  "meaning": "'s; of (possession, belonging or description)",
+  "text": "最後に絵画のギャラリーに行ったのはいつですか。",
+  "spans": [
+   [
+    5,
+    6
+   ]
+  ],
+  "marked": "最後に絵画【の】ギャラリーに行ったのはいつですか。",
+  "split": "最後 に 絵画 の ギャラリー に 行った の は いつ です か 。"
+ },
+ {
+  "n": 150,
+  "set": "A",
+  "sid": 78266,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "流しの横にお皿を積んでおいてくだされば、後で私が洗います。",
+  "spans": [
+   [
+    7,
+    8
+   ]
+  ],
+  "marked": "流しの横にお皿【を】積んでおいてくだされば、後で私が洗います。",
+  "split": "流し の 横 に お皿 を 積んで おいて くだされば 、 後 で 私 が 洗います 。"
+ },
+ {
+  "n": 151,
+  "set": "A",
+  "sid": 96677,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "彼らは船で世界一周をした。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "彼ら【は】船で世界一周をした。",
+  "split": "彼ら は 船 で 世界 一 周 を した 。"
+ },
+ {
+  "n": 152,
+  "set": "A",
+  "sid": 80496,
+  "gid": "koto-ni-natte-iru",
+  "level": "N3",
+  "pattern": "〜ことになっている",
+  "meaning": "it has been arranged that; it's the rule that; be supposed to",
+  "text": "明日の晩五人のお客を迎えることになっている。",
+  "spans": [
+   [
+    13,
+    21
+   ]
+  ],
+  "marked": "明日の晩五人のお客を迎える【ことになっている】。",
+  "split": "明日 の 晩 五人 の お 客 を 迎える こと になっている 。"
+ },
+ {
+  "n": 153,
+  "set": "A",
+  "sid": 237177,
+  "gid": "mashita",
+  "level": "N5",
+  "pattern": "〜ました",
+  "meaning": "did (polite past)",
+  "text": "「いつも、そしていつまでも？」と小さい黒いウサギはききました。",
+  "spans": [
+   [
+    27,
+    30
+   ]
+  ],
+  "marked": "「いつも、そしていつまでも？」と小さい黒いウサギはきき【ました】。",
+  "split": "「 いつも 、 そして いつまでも ？ 」 と 小さい 黒い ウサギ は ききました 。"
+ },
+ {
+  "n": 154,
+  "set": "A",
+  "sid": 9993013,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "トムは今、泳いでるんだよね？",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "トム【は】今、泳いでるんだよね？",
+  "split": "トム は 今 、 泳いでる んだ よ ね ？"
+ },
+ {
+  "n": 155,
+  "set": "A",
+  "sid": 161265,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "私はおよそ５０ドル払った。",
+  "spans": [
+   [
+    1,
+    2
+   ]
+  ],
+  "marked": "私【は】およそ５０ドル払った。",
+  "split": "私 は およそ ５ ０ ドル 払った 。"
+ },
+ {
+  "n": 156,
+  "set": "A",
+  "sid": 164644,
+  "gid": "ni-location",
+  "level": "N5",
+  "pattern": "〜に（place of existence）",
+  "meaning": "in; at; on (where someone or something is)",
+  "text": "私にはロサンゼルスに住んでいる叔母さんがいる。",
+  "spans": [
+   [
+    9,
+    10
+   ]
+  ],
+  "marked": "私にはロサンゼルス【に】住んでいる叔母さんがいる。",
+  "split": "私 に は ロサンゼルス に 住んでいる 叔母さん が いる 。"
+ },
+ {
+  "n": 157,
+  "set": "A",
+  "sid": 11015443,
+  "gid": "te-iru",
+  "level": "N5",
+  "pattern": "〜ている",
+  "meaning": "be doing (ongoing action); be in a state (result of a change); do regularly",
+  "text": "なんでフリーにさせてるんだ。",
+  "spans": [
+   [
+    7,
+    11
+   ]
+  ],
+  "marked": "なんでフリーに【させてる】んだ。",
+  "split": "なんで フリー に させてる んだ 。"
+ },
+ {
+  "n": 158,
+  "set": "A",
+  "sid": 170469,
+  "gid": "no",
+  "level": "N5",
+  "pattern": "〜の（possessive）",
+  "meaning": "'s; of (possession, belonging or description)",
+  "text": "最初のころを思い出す。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "最初【の】ころを思い出す。",
+  "split": "最初 の ころ を 思い出す 。"
+ },
+ {
+  "n": 159,
+  "set": "A",
+  "sid": 154771,
+  "gid": "ta",
+  "level": "N5",
+  "pattern": "〜た",
+  "meaning": "did (plain past of verbs)",
+  "text": "私は難なく父を説得して留学の許可をもらった。",
+  "spans": [
+   [
+    17,
+    21
+   ]
+  ],
+  "marked": "私は難なく父を説得して留学の許可を【もらった】。",
+  "split": "私 は 難なく 父 を 説得して 留学 の 許可 を もらった 。"
+ },
+ {
+  "n": 160,
+  "set": "A",
+  "sid": 99129,
+  "gid": "e",
+  "level": "N5",
+  "pattern": "〜へ",
+  "meaning": "to; toward (the direction of movement)",
+  "text": "彼は来月ニューヨークへ行きます。",
+  "spans": [
+   [
+    10,
+    11
+   ]
+  ],
+  "marked": "彼は来月ニューヨーク【へ】行きます。",
+  "split": "彼 は 来月 ニューヨーク へ 行きます 。"
+ },
+ {
+  "n": 161,
+  "set": "A",
+  "sid": 79173,
+  "gid": "no",
+  "level": "N5",
+  "pattern": "〜の（possessive）",
+  "meaning": "'s; of (possession, belonging or description)",
+  "text": "郵便局はその茶色の建物です。",
+  "spans": [
+   [
+    8,
+    9
+   ]
+  ],
+  "marked": "郵便局はその茶色【の】建物です。",
+  "split": "郵便局 は その 茶色 の 建物 です 。"
+ },
+ {
+  "n": 162,
+  "set": "A",
+  "sid": 11724598,
+  "gid": "n-desu-no-desu",
+  "level": "N4",
+  "pattern": "〜んです / 〜のです",
+  "meaning": "it's that ...; (explaining or asking for an explanation)",
+  "text": "「お宅のお坊ちゃまって、今年就職したの？それとも院に行ったの？」「就職したよ」",
+  "spans": [
+   [
+    18,
+    19
+   ],
+   [
+    29,
+    30
+   ]
+  ],
+  "marked": "「お宅のお坊ちゃまって、今年就職した【の】？それとも院に行った【の】？」「就職したよ」",
+  "split": "「 お宅 の お 坊 ちゃ ま って 、 今年 就職した の ？ それとも 院 に 行った の ？ 」 「 就職した よ 」"
+ },
+ {
+  "n": 163,
+  "set": "A",
+  "sid": 8967039,
+  "gid": "da",
+  "level": "N5",
+  "pattern": "〜だ",
+  "meaning": "is; am; are (plain copula)",
+  "text": "トムが言うには、フランス語は話せないそうだよ。",
+  "spans": [
+   [
+    20,
+    21
+   ]
+  ],
+  "marked": "トムが言うには、フランス語は話せないそう【だ】よ。",
+  "split": "トム が 言う に は 、 フランス 語 は 話せない そう だ よ 。"
+ },
+ {
+  "n": 164,
+  "set": "A",
+  "sid": 7429301,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "彼らは電話した。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "彼ら【は】電話した。",
+  "split": "彼ら は 電話した 。"
+ },
+ {
+  "n": 165,
+  "set": "A",
+  "sid": 170065,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "昨日になって初めてその事実を知った。",
+  "spans": [
+   [
+    13,
+    14
+   ]
+  ],
+  "marked": "昨日になって初めてその事実【を】知った。",
+  "split": "昨日 に なって 初めて その 事実 を 知った 。"
+ },
+ {
+  "n": 166,
+  "set": "A",
+  "sid": 115430,
+  "gid": "ta",
+  "level": "N5",
+  "pattern": "〜た",
+  "meaning": "did (plain past of verbs)",
+  "text": "彼は、中国語をしっていたので、私たちは計画を円滑に実行できた。",
+  "spans": [
+   [
+    7,
+    12
+   ],
+   [
+    27,
+    30
+   ]
+  ],
+  "marked": "彼は、中国語を【しっていた】ので、私たちは計画を円滑に実行【できた】。",
+  "split": "彼 は 、 中 国語 を しっていた ので 、 私たち は 計画 を 円滑 に 実行 できた 。"
+ },
+ {
+  "n": 167,
+  "set": "A",
+  "sid": 156810,
+  "gid": "kono-sono-ano-dono",
+  "level": "N5",
+  "pattern": "この / その / あの / どの",
+  "meaning": "this; that (near you); that ... over there; which (before a noun)",
+  "text": "私は昨日その川へ魚釣りに行った。",
+  "spans": [
+   [
+    4,
+    6
+   ]
+  ],
+  "marked": "私は昨日【その】川へ魚釣りに行った。",
+  "split": "私 は 昨日 その 川 へ 魚釣り に 行った 。"
+ },
+ {
+  "n": 168,
+  "set": "A",
+  "sid": 179155,
+  "gid": "koko-soko-asoko-doko",
+  "level": "N5",
+  "pattern": "ここ / そこ / あそこ / どこ",
+  "meaning": "here; there (near you); over there; where",
+  "text": "君がそこに立っていては仕事ができない。",
+  "spans": [
+   [
+    2,
+    4
+   ]
+  ],
+  "marked": "君が【そこ】に立っていては仕事ができない。",
+  "split": "君 が そこ に 立っていて は 仕事 が できない 。"
+ },
+ {
+  "n": 169,
+  "set": "A",
+  "sid": 5003,
+  "gid": "no-koto-nominalizer",
+  "level": "N4",
+  "pattern": "〜の / 〜こと（nominalizer）",
+  "meaning": "the act of doing (turns a verb phrase into a noun)",
+  "text": "それをあなたに説明することは私には無理です。",
+  "spans": [
+   [
+    11,
+    13
+   ]
+  ],
+  "marked": "それをあなたに説明する【こと】は私には無理です。",
+  "split": "それ を あなた に 説明する こと は 私 に は 無理 です 。"
+ },
+ {
+  "n": 170,
+  "set": "A",
+  "sid": 994759,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "ストは国の経済をさまたげた。",
+  "spans": [
+   [
+    7,
+    8
+   ]
+  ],
+  "marked": "ストは国の経済【を】さまたげた。",
+  "split": "スト は 国 の 経済 を さ またげた 。"
+ },
+ {
+  "n": 171,
+  "set": "A",
+  "sid": 10906906,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "彼らは正しいことのために立ち向かった。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "彼ら【は】正しいことのために立ち向かった。",
+  "split": "彼ら は 正しい こと の ため に 立ち向かった 。"
+ },
+ {
+  "n": 172,
+  "set": "A",
+  "sid": 11904168,
+  "gid": "ta",
+  "level": "N5",
+  "pattern": "〜た",
+  "meaning": "did (plain past of verbs)",
+  "text": "ママがお昼を作ってくれたの。",
+  "spans": [
+   [
+    9,
+    12
+   ]
+  ],
+  "marked": "ママがお昼を作って【くれた】の。",
+  "split": "ママ が お昼 を 作って くれた の 。"
+ },
+ {
+  "n": 173,
+  "set": "A",
+  "sid": 193683,
+  "gid": "ga-aru-ga-iru",
+  "level": "N5",
+  "pattern": "〜がある / 〜がいる",
+  "meaning": "there is; there are; have (ある for things, いる for people and animals)",
+  "text": "もし誤りがあれば訂正しなさい。",
+  "spans": [
+   [
+    4,
+    7
+   ]
+  ],
+  "marked": "もし誤り【があれ】ば訂正しなさい。",
+  "split": "もし 誤り が あれば 訂正しなさい 。"
+ },
+ {
+  "n": 174,
+  "set": "A",
+  "sid": 12148164,
+  "gid": "eru-rareru-potential",
+  "level": "N4",
+  "pattern": "〜える / 〜られる（potential）",
+  "meaning": "can; be able to (potential form)",
+  "text": "自転車に乗れますか？",
+  "spans": [
+   [
+    4,
+    8
+   ]
+  ],
+  "marked": "自転車に【乗れます】か？",
+  "split": "自転車 に 乗れます か ？"
+ },
+ {
+  "n": 175,
+  "set": "A",
+  "sid": 185220,
+  "gid": "ta",
+  "level": "N5",
+  "pattern": "〜た",
+  "meaning": "did (plain past of verbs)",
+  "text": "会場は聴衆でいっぱいだった。",
+  "spans": [
+   [
+    10,
+    13
+   ]
+  ],
+  "marked": "会場は聴衆でいっぱい【だった】。",
+  "split": "会場 は 聴衆 で いっぱい だった 。"
+ },
+ {
+  "n": 176,
+  "set": "A",
+  "sid": 8692354,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "私を探してたの？",
+  "spans": [
+   [
+    1,
+    2
+   ]
+  ],
+  "marked": "私【を】探してたの？",
+  "split": "私 を 探してた の ？"
+ },
+ {
+  "n": 177,
+  "set": "A",
+  "sid": 13176076,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "クラスの文集に載る文章を、一生懸命書いた。",
+  "spans": [
+   [
+    11,
+    12
+   ]
+  ],
+  "marked": "クラスの文集に載る文章【を】、一生懸命書いた。",
+  "split": "クラス の 文集 に 載る 文章 を 、 一生懸命 書いた 。"
+ },
+ {
+  "n": 178,
+  "set": "A",
+  "sid": 204939,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "それは彼が自ら選んだ職業である。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "それ【は】彼が自ら選んだ職業である。",
+  "split": "それ は 彼 が 自ら 選んだ 職業 で ある 。"
+ },
+ {
+  "n": 179,
+  "set": "A",
+  "sid": 229907,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "ある意味では、丁寧語は気さくな雰囲気を壊す。",
+  "spans": [
+   [
+    18,
+    19
+   ]
+  ],
+  "marked": "ある意味では、丁寧語は気さくな雰囲気【を】壊す。",
+  "split": "ある 意味 では 、 丁寧 語 は 気さく な 雰囲気 を 壊す 。"
+ },
+ {
+  "n": 180,
+  "set": "A",
+  "sid": 13066451,
+  "gid": "o",
+  "level": "N5",
+  "pattern": "〜を",
+  "meaning": "marks the direct object of a verb; marks a place moved through or left",
+  "text": "英語のディベート大会に参加して、英語での議論を楽しんでいる。",
+  "spans": [
+   [
+    22,
+    23
+   ]
+  ],
+  "marked": "英語のディベート大会に参加して、英語での議論【を】楽しんでいる。",
+  "split": "英語 の ディベート 大会 に 参加して 、 英語 で の 議論 を 楽しんでいる 。"
+ },
+ {
+  "n": 181,
+  "set": "A",
+  "sid": 8734939,
+  "gid": "desu",
+  "level": "N5",
+  "pattern": "〜です",
+  "meaning": "is; am; are (polite copula)",
+  "text": "しばらくの間、ここに私のスーツケースを置いといてもいいですか？",
+  "spans": [
+   [
+    27,
+    29
+   ]
+  ],
+  "marked": "しばらくの間、ここに私のスーツケースを置いといてもいい【です】か？",
+  "split": "しばらく の 間 、 ここ に 私 の スーツケース を 置いといて も いい です か ？"
+ },
+ {
+  "n": 182,
+  "set": "A",
+  "sid": 3367138,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "15のとき、君はどんな子だった？",
+  "spans": [
+   [
+    7,
+    8
+   ]
+  ],
+  "marked": "15のとき、君【は】どんな子だった？",
+  "split": "1 5 の とき 、 君 は どんな 子 だった ？"
+ },
+ {
+  "n": 183,
+  "set": "A",
+  "sid": 5065376,
+  "gid": "n-desu-no-desu",
+  "level": "N4",
+  "pattern": "〜んです / 〜のです",
+  "meaning": "it's that ...; (explaining or asking for an explanation)",
+  "text": "君の名前は？僕は「パウロ」っていうんだ。",
+  "spans": [
+   [
+    17,
+    19
+   ]
+  ],
+  "marked": "君の名前は？僕は「パウロ」っていう【んだ】。",
+  "split": "君 の 名前 は ？ 僕 は 「 パウロ 」 って いう んだ 。"
+ },
+ {
+  "n": 184,
+  "set": "A",
+  "sid": 191025,
+  "gid": "ni-location",
+  "level": "N5",
+  "pattern": "〜に（place of existence）",
+  "meaning": "in; at; on (where someone or something is)",
+  "text": "椅子の下にあります。",
+  "spans": [
+   [
+    4,
+    5
+   ]
+  ],
+  "marked": "椅子の下【に】あります。",
+  "split": "椅子 の 下 に あります 。"
+ },
+ {
+  "n": 185,
+  "set": "A",
+  "sid": 153892,
+  "gid": "no",
+  "level": "N5",
+  "pattern": "〜の（possessive）",
+  "meaning": "'s; of (possession, belonging or description)",
+  "text": "私は彼の手が震えているのに気がついた。",
+  "spans": [
+   [
+    3,
+    4
+   ]
+  ],
+  "marked": "私は彼【の】手が震えているのに気がついた。",
+  "split": "私 は 彼 の 手 が 震えている のに 気 が ついた 。"
+ },
+ {
+  "n": 186,
+  "set": "A",
+  "sid": 10899627,
+  "gid": "mashita",
+  "level": "N5",
+  "pattern": "〜ました",
+  "meaning": "did (polite past)",
+  "text": "昨日は、勉強しました。",
+  "spans": [
+   [
+    7,
+    10
+   ]
+  ],
+  "marked": "昨日は、勉強し【ました】。",
+  "split": "昨日 は 、 勉強しました 。"
+ },
+ {
+  "n": 187,
+  "set": "A",
+  "sid": 2140041,
+  "gid": "nani-ka-dare-ka-doko-ka",
+  "level": "N5",
+  "pattern": "何か / 誰か / どこか",
+  "meaning": "something; someone; somewhere",
+  "text": "「部屋に誰かいますか？」「いえ、誰もいませんよ」",
+  "spans": [
+   [
+    4,
+    6
+   ]
+  ],
+  "marked": "「部屋に【誰か】いますか？」「いえ、誰もいませんよ」",
+  "split": "「 部屋 に 誰か います か ？ 」 「 いえ 、 誰 も いません よ 」"
+ },
+ {
+  "n": 188,
+  "set": "A",
+  "sid": 108440,
+  "gid": "no",
+  "level": "N5",
+  "pattern": "〜の（possessive）",
+  "meaning": "'s; of (possession, belonging or description)",
+  "text": "彼は給食を食べに行くという趣旨のメモを残した。",
+  "spans": [
+   [
+    15,
+    16
+   ]
+  ],
+  "marked": "彼は給食を食べに行くという趣旨【の】メモを残した。",
+  "split": "彼 は 給食 を 食べ に 行く と いう 趣旨 の メモ を 残した 。"
+ },
+ {
+  "n": 189,
+  "set": "A",
+  "sid": 87047,
+  "gid": "reru-rareru-passive",
+  "level": "N4",
+  "pattern": "〜れる / 〜られる（passive）",
+  "meaning": "be done (by someone); passive voice",
+  "text": "彼女は病院に運ばれているところだった。",
+  "spans": [
+   [
+    6,
+    12
+   ]
+  ],
+  "marked": "彼女は病院に【運ばれている】ところだった。",
+  "split": "彼女 は 病院 に 運ばれている ところ だった 。"
+ },
+ {
+  "n": 190,
+  "set": "A",
+  "sid": 106979,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "彼は再三再四それをやってみた。",
+  "spans": [
+   [
+    1,
+    2
+   ]
+  ],
+  "marked": "彼【は】再三再四それをやってみた。",
+  "split": "彼 は 再三 再 四 それ を やって みた 。"
+ },
+ {
+  "n": 191,
+  "set": "A",
+  "sid": 182548,
+  "gid": "yo",
+  "level": "N5",
+  "pattern": "〜よ",
+  "meaning": "you know; I tell you (giving new information or emphasis)",
+  "text": "急がなくてもいいよ。",
+  "spans": [
+   [
+    8,
+    9
+   ]
+  ],
+  "marked": "急がなくてもいい【よ】。",
+  "split": "急がなく ても いい よ 。"
+ },
+ {
+  "n": 192,
+  "set": "A",
+  "sid": 160106,
+  "gid": "kono-sono-ano-dono",
+  "level": "N5",
+  "pattern": "この / その / あの / どの",
+  "meaning": "this; that (near you); that ... over there; which (before a noun)",
+  "text": "私はその事故で右足を損傷した。",
+  "spans": [
+   [
+    2,
+    4
+   ]
+  ],
+  "marked": "私は【その】事故で右足を損傷した。",
+  "split": "私 は その 事故 で 右足 を 損傷した 。"
+ },
+ {
+  "n": 193,
+  "set": "A",
+  "sid": 10465603,
+  "gid": "te-iru",
+  "level": "N5",
+  "pattern": "〜ている",
+  "meaning": "be doing (ongoing action); be in a state (result of a change); do regularly",
+  "text": "トムが寮に入ってるの知らなかったわ。",
+  "spans": [
+   [
+    5,
+    9
+   ]
+  ],
+  "marked": "トムが寮に【入ってる】の知らなかったわ。",
+  "split": "トム が 寮 に 入ってる の 知らなかった わ 。"
+ },
+ {
+  "n": 194,
+  "set": "A",
+  "sid": 186069,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "我々はその議案に反対投票をした。",
+  "spans": [
+   [
+    2,
+    3
+   ]
+  ],
+  "marked": "我々【は】その議案に反対投票をした。",
+  "split": "我々 は その 議案 に 反対 投票 を した 。"
+ },
+ {
+  "n": 195,
+  "set": "A",
+  "sid": 184103,
+  "gid": "wa",
+  "level": "N5",
+  "pattern": "〜は",
+  "meaning": "as for; marks the topic of the sentence",
+  "text": "滑り出しが好調なら事は半ば成就したのに等しい。",
+  "spans": [
+   [
+    10,
+    11
+   ]
+  ],
+  "marked": "滑り出しが好調なら事【は】半ば成就したのに等しい。",
+  "split": "滑り 出し が 好調 なら 事 は 半ば 成就した のに 等しい 。"
+ },
+ {
+  "n": 196,
+  "set": "A",
+  "sid": 153771,
+  "gid": "wake-ni-wa-ikanai",
+  "level": "N3",
+  "pattern": "〜わけにはいかない",
+  "meaning": "can't afford to; can't very well; must not (for social or moral reasons)",
+  "text": "私は彼の要望に応じるわけにはいかない。",
+  "spans": [
+   [
+    10,
+    18
+   ]
+  ],
+  "marked": "私は彼の要望に応じる【わけにはいかない】。",
+  "split": "私 は 彼 の 要望 に 応じる わけ に は いかない 。"
+ },
+ {
+  "n": 197,
+  "set": "A",
+  "sid": 8504201,
+  "gid": "sou-da-appearance",
+  "level": "N4",
+  "pattern": "〜そうだ（appearance）",
+  "meaning": "looks like; seems; looks about to",
+  "text": "彼女は嬉しそうに笑っている。",
+  "spans": [
+   [
+    3,
+    7
+   ],
+   [
+    5,
+    8
+   ]
+  ],
+  "marked": "彼女は【嬉しそう】に笑っている。",
+  "split": "彼女 は 嬉しそう に 笑っている 。"
+ },
+ {
+  "n": 198,
+  "set": "A",
+  "sid": 1023536,
+  "gid": "masu",
+  "level": "N5",
+  "pattern": "〜ます",
+  "meaning": "polite non-past verb ending (do; will do)",
+  "text": "彼をカリフォルニアに派遣します。",
+  "spans": [
+   [
+    10,
+    15
+   ]
+  ],
+  "marked": "彼をカリフォルニアに【派遣します】。",
+  "split": "彼 を カリフォルニア に 派遣します 。"
+ },
+ {
+  "n": 199,
+  "set": "A",
+  "sid": 1483556,
+  "gid": "nai",
+  "level": "N5",
+  "pattern": "〜ない",
+  "meaning": "do not; will not (plain negative of verbs)",
+  "text": "トムさんは晩御飯はいらないそうです。",
+  "spans": [
+   [
+    9,
+    13
+   ]
+  ],
+  "marked": "トムさんは晩御飯は【いらない】そうです。",
+  "split": "トム さん は 晩御飯 は いらない そう です 。"
+ },
+ {
+  "n": 200,
+  "set": "A",
+  "sid": 217078,
+  "gid": "ta",
+  "level": "N5",
+  "pattern": "〜た",
+  "meaning": "did (plain past of verbs)",
+  "text": "ご存知のように、私たちは大雨のせいで遅れたのです。",
+  "spans": [
+   [
+    18,
+    21
+   ]
+  ],
+  "marked": "ご存知のように、私たちは大雨のせいで【遅れた】のです。",
+  "split": "ご存知 の ように 、 私たち は 大雨 の せい で 遅れた のです 。"
+ },
+ {
+  "n": 201,
+  "set": "B",
+  "sid": 82585,
+  "gid": "zu-ni",
+  "level": "N3",
+  "pattern": "〜ずに",
+  "meaning": "without doing",
+  "text": "忘れずにその手紙を投稿しなさい。",
+  "spans": [
+   [
+    0,
+    3
+   ]
+  ],
+  "marked": "【忘れず】にその手紙を投稿しなさい。",
+  "split": "忘れず に その 手紙 を 投稿しなさい 。"
+ },
+ {
+  "n": 202,
+  "set": "B",
+  "sid": 11045468,
+  "gid": "gachi",
+  "level": "N3",
+  "pattern": "〜がち",
+  "meaning": "tend to; be prone to; often",
+  "text": "低価格にありがちな薄っぺらなサウンドとは無縁。",
+  "spans": [
+   [
+    6,
+    8
+   ]
+  ],
+  "marked": "低価格にあり【がち】な薄っぺらなサウンドとは無縁。",
+  "split": "低 価格 に あり が ち な 薄 っ ぺ ら な サウンド と は 無縁 。"
+ },
+ {
+  "n": 203,
+  "set": "B",
+  "sid": 165924,
+  "gid": "wake-ni-wa-ikanai",
+  "level": "N3",
+  "pattern": "〜わけにはいかない",
+  "meaning": "can't afford to; can't very well; must not (for social or moral reasons)",
+  "text": "私たちは泣かないわけにはいかなかった。",
+  "spans": [
+   [
+    8,
+    16
+   ]
+  ],
+  "marked": "私たちは泣かない【わけにはいかなか】った。",
+  "split": "私たち は 泣かない わけ に は いかなかった 。"
+ },
+ {
+  "n": 204,
+  "set": "B",
+  "sid": 221886,
+  "gid": "ni-chigai-nai",
+  "level": "N3",
+  "pattern": "〜に違いない",
+  "meaning": "must be; surely; no doubt",
+  "text": "この作文の英語はうますぎる。彼女がそれを書いたに違いない。",
+  "spans": [
+   [
+    23,
+    28
+   ]
+  ],
+  "marked": "この作文の英語はうますぎる。彼女がそれを書いた【に違いない】。",
+  "split": "この 作文 の 英語 は うますぎる 。 彼女 が それ を 書いた に 違いない 。"
+ },
+ {
+  "n": 205,
+  "set": "B",
+  "sid": 9641000,
+  "gid": "you-to-suru",
+  "level": "N3",
+  "pattern": "〜ようとする",
+  "meaning": "try to; attempt to; be about to",
+  "text": "彼女ね、私の彼氏を奪い取ろうとしたの。",
+  "spans": [
+   [
+    9,
+    14
+   ]
+  ],
+  "marked": "彼女ね、私の彼氏を【奪い取ろう】としたの。",
+  "split": "彼女 ね 、 私 の 彼氏 を 奪い取ろう と した の 。"
+ },
+ {
+  "n": 206,
+  "set": "B",
+  "sid": 146573,
+  "gid": "hodo",
+  "level": "N3",
+  "pattern": "〜ほど",
+  "meaning": "to the extent that; so ... that",
+  "text": "少年はパズルが解けるほど賢かった。",
+  "spans": [
+   [
+    10,
+    12
+   ]
+  ],
+  "marked": "少年はパズルが解ける【ほど】賢かった。",
+  "split": "少年 は パズル が 解ける ほど 賢かった 。"
+ },
+ {
+  "n": 207,
+  "set": "B",
+  "sid": 176315,
+  "gid": "you-ni-iu-you-ni-tanomu",
+  "level": "N3",
+  "pattern": "〜ように言う / 〜ように頼む",
+  "meaning": "tell someone to do; ask someone to do (reported command or request)",
+  "text": "警官は彼らに止まるように命じた。",
+  "spans": [
+   [
+    9,
+    12
+   ]
+  ],
+  "marked": "警官は彼らに止まる【ように】命じた。",
+  "split": "警官 は 彼ら に 止まる ように 命じた 。"
+ },
+ {
+  "n": 208,
+  "set": "B",
+  "sid": 173620,
+  "gid": "teki",
+  "level": "N3",
+  "pattern": "〜的",
+  "meaning": "-ic; -al; in terms of",
+  "text": "広子は魅力的な顔立ちをしている。",
+  "spans": [
+   [
+    3,
+    6
+   ]
+  ],
+  "marked": "広子は【魅力的】な顔立ちをしている。",
+  "split": "広 子 は 魅力的 な 顔立ち を している 。"
+ },
+ {
+  "n": 209,
+  "set": "B",
+  "sid": 8430687,
+  "gid": "wake-de-wa-nai",
+  "level": "N3",
+  "pattern": "〜わけではない",
+  "meaning": "it doesn't mean that; it's not that; not necessarily",
+  "text": "メアリーはケーキを食べたくないわけではなかったが、太るのが嫌で食べなかった。",
+  "spans": [
+   [
+    15,
+    21
+   ]
+  ],
+  "marked": "メアリーはケーキを食べたくない【わけではなか】ったが、太るのが嫌で食べなかった。",
+  "split": "メアリー は ケーキ を 食べたくない わけ では なかった が 、 太る の が 嫌 で 食べなかった 。"
+ },
+ {
+  "n": 210,
+  "set": "B",
+  "sid": 9923356,
+  "gid": "ni-taishite",
+  "level": "N3",
+  "pattern": "〜に対して",
+  "meaning": "toward; against; in contrast to",
+  "text": "アンチケモナーらはインターネット上で誇らしげにケモナーらに対して異を唱えた。",
+  "spans": [
+   [
+    28,
+    31
+   ],
+   [
+    28,
+    32
+   ]
+  ],
+  "marked": "アンチケモナーらはインターネット上で誇らしげにケモナーら【に対し】て異を唱えた。",
+  "split": "アンチケモナー ら は インターネット 上 で 誇 ら し げ に ケモナー ら に 対して 異 を 唱えた 。"
+ },
+ {
+  "n": 211,
+  "set": "B",
+  "sid": 11784938,
+  "gid": "ni-yotte-ni-yoru",
+  "level": "N3",
+  "pattern": "〜によって / 〜による",
+  "meaning": "by (agent); by means of; due to; depending on",
+  "text": "場合によるでしょ。",
+  "spans": [
+   [
+    2,
+    5
+   ]
+  ],
+  "marked": "場合【による】でしょ。",
+  "split": "場合 に よる でしょ 。"
+ },
+ {
+  "n": 212,
+  "set": "B",
+  "sid": 217370,
+  "gid": "beki-da-beki-de-wa-nai",
+  "level": "N3",
+  "pattern": "〜べきだ / 〜べきではない",
+  "meaning": "should; ought to / should not",
+  "text": "こんな規制は廃止すべきです。",
+  "spans": [
+   [
+    9,
+    13
+   ]
+  ],
+  "marked": "こんな規制は廃止す【べきです】。",
+  "split": "こんな 規制 は 廃止 すべき です 。"
+ },
+ {
+  "n": 213,
+  "set": "B",
+  "sid": 90413,
+  "gid": "ni-taishite",
+  "level": "N3",
+  "pattern": "〜に対して",
+  "meaning": "toward; against; in contrast to",
+  "text": "彼女は金に対して異常なほど欲望を持っていた。",
+  "spans": [
+   [
+    4,
+    7
+   ],
+   [
+    4,
+    8
+   ]
+  ],
+  "marked": "彼女は金【に対し】て異常なほど欲望を持っていた。",
+  "split": "彼女 は 金 に 対して 異常 な ほど 欲望 を 持っていた 。"
+ },
+ {
+  "n": 214,
+  "set": "B",
+  "sid": 1139096,
+  "gid": "you-ni-iu-you-ni-tanomu",
+  "level": "N3",
+  "pattern": "〜ように言う / 〜ように頼む",
+  "meaning": "tell someone to do; ask someone to do (reported command or request)",
+  "text": "彼は私に、もっとゆっくり話すように言った。",
+  "spans": [
+   [
+    14,
+    19
+   ]
+  ],
+  "marked": "彼は私に、もっとゆっくり話す【ように言っ】た。",
+  "split": "彼 は 私 に 、 もっと ゆっくり 話す ように 言った 。"
+ },
+ {
+  "n": 215,
+  "set": "B",
+  "sid": 1529495,
+  "gid": "beki-da-beki-de-wa-nai",
+  "level": "N3",
+  "pattern": "〜べきだ / 〜べきではない",
+  "meaning": "should; ought to / should not",
+  "text": "母の言葉に従っておくべきだった。",
+  "spans": [
+   [
+    10,
+    13
+   ]
+  ],
+  "marked": "母の言葉に従っておく【べきだ】った。",
+  "split": "母 の 言葉 に 従っておく べき だった 。"
+ },
+ {
+  "n": 216,
+  "set": "B",
+  "sid": 211276,
+  "gid": "mo-ba-mo",
+  "level": "N3",
+  "pattern": "〜も〜ば〜も",
+  "meaning": "both ... and ...; not only ... but also",
+  "text": "その計画に賛成の者もいれば反対の者もいる。",
+  "spans": [
+   [
+    9,
+    18
+   ]
+  ],
+  "marked": "その計画に賛成の者【もいれば反対の者も】いる。",
+  "split": "その 計画 に 賛成 の 者 も いれば 反対 の 者 も いる 。"
+ },
+ {
+  "n": 217,
+  "set": "B",
+  "sid": 189025,
+  "gid": "ni-totte",
+  "level": "N3",
+  "pattern": "〜にとって",
+  "meaning": "for; to (from the standpoint of)",
+  "text": "英語を話す事は私にとってはとても難しいです。",
+  "spans": [
+   [
+    8,
+    12
+   ]
+  ],
+  "marked": "英語を話す事は私【にとって】はとても難しいです。",
+  "split": "英語 を 話す 事 は 私 に とって は とても 難しい です 。"
+ },
+ {
+  "n": 218,
+  "set": "B",
+  "sid": 11742892,
+  "gid": "wake-ni-wa-ikanai",
+  "level": "N3",
+  "pattern": "〜わけにはいかない",
+  "meaning": "can't afford to; can't very well; must not (for social or moral reasons)",
+  "text": "私達は異なった文化圏の人々と接触を持たないわけにはいかない。",
+  "spans": [
+   [
+    21,
+    29
+   ]
+  ],
+  "marked": "私達は異なった文化圏の人々と接触を持たない【わけにはいかない】。",
+  "split": "私達 は 異なった 文化 圏 の 人々 と 接触 を 持たない わけ に は いかない 。"
+ },
+ {
+  "n": 219,
+  "set": "B",
+  "sid": 10112052,
+  "gid": "tte",
+  "level": "N3",
+  "pattern": "〜って",
+  "meaning": "(casual quotation) says that; I heard; as for; what is",
+  "text": "避雷針って何？",
+  "spans": [
+   [
+    3,
+    5
+   ]
+  ],
+  "marked": "避雷針【って】何？",
+  "split": "避 雷 針 って 何 ？"
+ },
+ {
+  "n": 220,
+  "set": "B",
+  "sid": 1827988,
+  "gid": "ni-yotte-ni-yoru",
+  "level": "N3",
+  "pattern": "〜によって / 〜による",
+  "meaning": "by (agent); by means of; due to; depending on",
+  "text": "ハリケーンの種類は風速によって決まります。",
+  "spans": [
+   [
+    11,
+    14
+   ],
+   [
+    11,
+    15
+   ]
+  ],
+  "marked": "ハリケーンの種類は風速【によっ】て決まります。",
+  "split": "ハリケーン の 種類 は 風速 に よって 決まります 。"
+ },
+ {
+  "n": 221,
+  "set": "B",
+  "sid": 115550,
+  "gid": "to-shite",
+  "level": "N3",
+  "pattern": "〜として",
+  "meaning": "as; in the role or capacity of",
+  "text": "彼は、結婚するためにイランに帰るかもしれないと言いながらも、日本から帰った後の彼の計画は依然としてめどが立っていない。",
+  "spans": [
+   [
+    46,
+    49
+   ]
+  ],
+  "marked": "彼は、結婚するためにイランに帰るかもしれないと言いながらも、日本から帰った後の彼の計画は依然【として】めどが立っていない。",
+  "split": "彼 は 、 結婚する ため に イラン に 帰る かもしれない と 言い ながら も 、 日本 から 帰った 後 の 彼 の 計画 は 依然 と して めど が 立っていない 。"
+ },
+ {
+  "n": 222,
+  "set": "B",
+  "sid": 8739922,
+  "gid": "tte",
+  "level": "N3",
+  "pattern": "〜って",
+  "meaning": "(casual quotation) says that; I heard; as for; what is",
+  "text": "金曜の夜って、忙しい？",
+  "spans": [
+   [
+    4,
+    6
+   ]
+  ],
+  "marked": "金曜の夜【って】、忙しい？",
+  "split": "金曜 の 夜 って 、 忙しい ？"
+ },
+ {
+  "n": 223,
+  "set": "B",
+  "sid": 231689,
+  "gid": "beki-da-beki-de-wa-nai",
+  "level": "N3",
+  "pattern": "〜べきだ / 〜べきではない",
+  "meaning": "should; ought to / should not",
+  "text": "あなたは忍耐力を身につけるべきだ。",
+  "spans": [
+   [
+    13,
+    16
+   ]
+  ],
+  "marked": "あなたは忍耐力を身につける【べきだ】。",
+  "split": "あなた は 忍耐 力 を 身 に つける べき だ 。"
+ },
+ {
+  "n": 224,
+  "set": "B",
+  "sid": 196881,
+  "gid": "ki-ga-suru",
+  "level": "N3",
+  "pattern": "〜気がする",
+  "meaning": "have a feeling that; feel like",
+  "text": "風呂がぬるくて入った気がしなかった。",
+  "spans": [
+   [
+    10,
+    13
+   ]
+  ],
+  "marked": "風呂がぬるくて入った【気がし】なかった。",
+  "split": "風呂 が ぬるくて 入った 気 が しなかった 。"
+ },
+ {
+  "n": 225,
+  "set": "B",
+  "sid": 169639,
+  "gid": "mama",
+  "level": "N3",
+  "pattern": "〜まま",
+  "meaning": "as it is; unchanged; while still (in a state)",
+  "text": "昨夜ベッドで本を読んでたら、電気をつけたまま寝てしまった。",
+  "spans": [
+   [
+    20,
+    22
+   ]
+  ],
+  "marked": "昨夜ベッドで本を読んでたら、電気をつけた【まま】寝てしまった。",
+  "split": "昨夜 ベッド で 本 を 読んでたら 、 電気 を つけた まま 寝て しまった 。"
+ },
+ {
+  "n": 226,
+  "set": "B",
+  "sid": 186370,
+  "gid": "dake-de-naku",
+  "level": "N3",
+  "pattern": "〜だけでなく",
+  "meaning": "not only ... but also",
+  "text": "我々が真理を知るのは、理知によるだけではなく、また心情によって知るのである。",
+  "spans": [
+   [
+    16,
+    22
+   ]
+  ],
+  "marked": "我々が真理を知るのは、理知による【だけではなく】、また心情によって知るのである。",
+  "split": "我々 が 真理 を 知る の は 、 理 知 に よる だけ では なく 、 また 心情 に よって 知る ので ある 。"
+ },
+ {
+  "n": 227,
+  "set": "B",
+  "sid": 11391136,
+  "gid": "sei-de",
+  "level": "N3",
+  "pattern": "〜せいで",
+  "meaning": "because of; due to (bad result, blame)",
+  "text": "その靴のせいでまめができちゃった。",
+  "spans": [
+   [
+    4,
+    7
+   ]
+  ],
+  "marked": "その靴の【せいで】まめができちゃった。",
+  "split": "その 靴 の せい で まめ が できちゃった 。"
+ },
+ {
+  "n": 228,
+  "set": "B",
+  "sid": 10932456,
+  "gid": "you-na-you-ni-like",
+  "level": "N3",
+  "pattern": "〜ような / 〜ように（like）",
+  "meaning": "like; as; such as",
+  "text": "名が汚れるようなことをするのはよしてくれ。",
+  "spans": [
+   [
+    5,
+    8
+   ]
+  ],
+  "marked": "名が汚れる【ような】ことをするのはよしてくれ。",
+  "split": "名 が 汚れる ような こと を する の は よして くれ 。"
+ },
+ {
+  "n": 229,
+  "set": "B",
+  "sid": 1643630,
+  "gid": "tte",
+  "level": "N3",
+  "pattern": "〜って",
+  "meaning": "(casual quotation) says that; I heard; as for; what is",
+  "text": "よくわからんな。濡れ衣ってどゆこと？",
+  "spans": [
+   [
+    11,
+    13
+   ]
+  ],
+  "marked": "よくわからんな。濡れ衣【って】どゆこと？",
+  "split": "よく わ から ん な 。 濡れ 衣 って ど ゆ こと ？"
+ },
+ {
+  "n": 230,
+  "set": "B",
+  "sid": 161420,
+  "gid": "tatte-datte",
+  "level": "N3",
+  "pattern": "〜たって / 〜だって",
+  "meaning": "even if; no matter (casual)",
+  "text": "私はいつだって彼のような人は信じない。",
+  "spans": [
+   [
+    4,
+    7
+   ]
+  ],
+  "marked": "私はいつ【だって】彼のような人は信じない。",
+  "split": "私 は いつ だって 彼 の ような 人 は 信じない 。"
+ },
+ {
+  "n": 231,
+  "set": "B",
+  "sid": 101380,
+  "gid": "koso",
+  "level": "N3",
+  "pattern": "〜こそ",
+  "meaning": "precisely; it is ... that; (strong emphasis)",
+  "text": "彼は年こそ若いが十分その仕事をやっていける。",
+  "spans": [
+   [
+    3,
+    5
+   ]
+  ],
+  "marked": "彼は年【こそ】若いが十分その仕事をやっていける。",
+  "split": "彼 は 年 こそ 若い が 十分 その 仕事 を やって いける 。"
+ },
+ {
+  "n": 232,
+  "set": "B",
+  "sid": 113091,
+  "gid": "ni-chigai-nai",
+  "level": "N3",
+  "pattern": "〜に違いない",
+  "meaning": "must be; surely; no doubt",
+  "text": "彼はその駅に到着したに違いない。",
+  "spans": [
+   [
+    10,
+    15
+   ]
+  ],
+  "marked": "彼はその駅に到着した【に違いない】。",
+  "split": "彼 は その 駅 に 到着した に 違いない 。"
+ },
+ {
+  "n": 233,
+  "set": "B",
+  "sid": 5070652,
+  "gid": "teki",
+  "level": "N3",
+  "pattern": "〜的",
+  "meaning": "-ic; -al; in terms of",
+  "text": "これは合理的だ。",
+  "spans": [
+   [
+    3,
+    6
+   ]
+  ],
+  "marked": "これは【合理的】だ。",
+  "split": "これ は 合理的 だ 。"
+ },
+ {
+  "n": 234,
+  "set": "B",
+  "sid": 127304,
+  "gid": "mama",
+  "level": "N3",
+  "pattern": "〜まま",
+  "meaning": "as it is; unchanged; while still (in a state)",
+  "text": "暖かい日には手足を伸ばしたり、仰向けになって足を宙に上げたまま寝ることもある。",
+  "spans": [
+   [
+    29,
+    31
+   ]
+  ],
+  "marked": "暖かい日には手足を伸ばしたり、仰向けになって足を宙に上げた【まま】寝ることもある。",
+  "split": "暖かい 日 に は 手足 を 伸ばし たり 、 仰向け に なって 足 を 宙 に 上げた まま 寝る こと も ある 。"
+ },
+ {
+  "n": 235,
+  "set": "B",
+  "sid": 109539,
+  "gid": "beki-da-beki-de-wa-nai",
+  "level": "N3",
+  "pattern": "〜べきだ / 〜べきではない",
+  "meaning": "should; ought to / should not",
+  "text": "彼は奥さんを大事にすべきだ。",
+  "spans": [
+   [
+    10,
+    13
+   ]
+  ],
+  "marked": "彼は奥さんを大事にす【べきだ】。",
+  "split": "彼 は 奥さん を 大事 に すべき だ 。"
+ },
+ {
+  "n": 236,
+  "set": "B",
+  "sid": 163696,
+  "gid": "toori-ni-doori-ni",
+  "level": "N3",
+  "pattern": "〜とおりに / 〜どおりに",
+  "meaning": "as; in the way that; exactly as",
+  "text": "私の言ったとおりにそれをしなさい。",
+  "spans": [
+   [
+    4,
+    8
+   ],
+   [
+    5,
+    9
+   ]
+  ],
+  "marked": "私の言っ【たとおり】にそれをしなさい。",
+  "split": "私 の 言った と おり に それ を しなさい 。"
+ },
+ {
+  "n": 237,
+  "set": "B",
+  "sid": 11924188,
+  "gid": "marude-you-da",
+  "level": "N3",
+  "pattern": "まるで〜ようだ",
+  "meaning": "just like; as if",
+  "text": "彼女はまるで天使のようでした。",
+  "spans": [
+   [
+    3,
+    13
+   ]
+  ],
+  "marked": "彼女は【まるで天使のようでし】た。",
+  "split": "彼女 は まるで 天使 の よう でした 。"
+ },
+ {
+  "n": 238,
+  "set": "B",
+  "sid": 206837,
+  "gid": "teki",
+  "level": "N3",
+  "pattern": "〜的",
+  "meaning": "-ic; -al; in terms of",
+  "text": "その壁は部分的につたで覆われている。",
+  "spans": [
+   [
+    4,
+    7
+   ]
+  ],
+  "marked": "その壁は【部分的】につたで覆われている。",
+  "split": "その 壁 は 部分的 に つた で 覆われている 。"
+ },
+ {
+  "n": 239,
+  "set": "B",
+  "sid": 127057,
+  "gid": "ni-taishite",
+  "level": "N3",
+  "pattern": "〜に対して",
+  "meaning": "toward; against; in contrast to",
+  "text": "知事は被害者に対して援助を提供することを決めた。",
+  "spans": [
+   [
+    6,
+    9
+   ],
+   [
+    6,
+    10
+   ]
+  ],
+  "marked": "知事は被害者【に対し】て援助を提供することを決めた。",
+  "split": "知事 は 被害者 に 対して 援助 を 提供する こと を 決めた 。"
+ },
+ {
+  "n": 240,
+  "set": "B",
+  "sid": 214947,
+  "gid": "ni-tsuite",
+  "level": "N3",
+  "pattern": "〜について",
+  "meaning": "about; concerning; regarding",
+  "text": "すぐにその件について調べてみましょう。",
+  "spans": [
+   [
+    6,
+    10
+   ]
+  ],
+  "marked": "すぐにその件【について】調べてみましょう。",
+  "split": "すぐに その 件 に ついて 調べて みましょう 。"
+ },
+ {
+  "n": 241,
+  "set": "B",
+  "sid": 1553139,
+  "gid": "ni-tsuite",
+  "level": "N3",
+  "pattern": "〜について",
+  "meaning": "about; concerning; regarding",
+  "text": "彼女について話したくない。",
+  "spans": [
+   [
+    2,
+    6
+   ]
+  ],
+  "marked": "彼女【について】話したくない。",
+  "split": "彼女 に ついて 話したくない 。"
+ },
+ {
+  "n": 242,
+  "set": "B",
+  "sid": 203663,
+  "gid": "ni-tsuite",
+  "level": "N3",
+  "pattern": "〜について",
+  "meaning": "about; concerning; regarding",
+  "text": "ただ、光についてあかしするために来たのである。",
+  "spans": [
+   [
+    4,
+    8
+   ]
+  ],
+  "marked": "ただ、光【について】あかしするために来たのである。",
+  "split": "ただ 、 光 に ついて あ か し する ため に 来た ので ある 。"
+ },
+ {
+  "n": 243,
+  "set": "B",
+  "sid": 230450,
+  "gid": "ni-totte",
+  "level": "N3",
+  "pattern": "〜にとって",
+  "meaning": "for; to (from the standpoint of)",
+  "text": "あの本を私のためにとっておいて下さい。",
+  "spans": [
+   [
+    8,
+    12
+   ]
+  ],
+  "marked": "あの本を私のため【にとって】おいて下さい。",
+  "split": "あの 本 を 私 の ため に とっておいて 下さい 。"
+ },
+ {
+  "n": 244,
+  "set": "B",
+  "sid": 108691,
+  "gid": "sae",
+  "level": "N3",
+  "pattern": "〜さえ",
+  "meaning": "even",
+  "text": "彼は顔を振り向けさえしなかった。",
+  "spans": [
+   [
+    8,
+    10
+   ]
+  ],
+  "marked": "彼は顔を振り向け【さえ】しなかった。",
+  "split": "彼 は 顔 を 振り向け さえ しなかった 。"
+ },
+ {
+  "n": 245,
+  "set": "B",
+  "sid": 5566413,
+  "gid": "nanka-nante",
+  "level": "N3",
+  "pattern": "〜なんか / 〜なんて",
+  "meaning": "things like; the likes of (dismissive or humble); how ...! (surprise)",
+  "text": "トムは、まだシングルなんて信じられない。",
+  "spans": [
+   [
+    10,
+    13
+   ]
+  ],
+  "marked": "トムは、まだシングル【なんて】信じられない。",
+  "split": "トム は 、 まだ シングル なんて 信じられない 。"
+ },
+ {
+  "n": 246,
+  "set": "B",
+  "sid": 203570,
+  "gid": "to-shite-mo",
+  "level": "N3",
+  "pattern": "〜としても",
+  "meaning": "even if; even supposing",
+  "text": "たとえ、太陽が西から昇ったとしても、彼女は決心を変えないだろう。",
+  "spans": [
+   [
+    13,
+    17
+   ]
+  ],
+  "marked": "たとえ、太陽が西から昇った【としても】、彼女は決心を変えないだろう。",
+  "split": "たとえ 、 太陽 が 西 から 昇った と し ても 、 彼女 は 決心 を 変えない だろう 。"
+ },
+ {
+  "n": 247,
+  "set": "B",
+  "sid": 93700,
+  "gid": "mono-da",
+  "level": "N3",
+  "pattern": "〜ものだ",
+  "meaning": "it's natural that; one should; used to (nostalgia); how ...! (deep feeling)",
+  "text": "彼女は、土曜日の午後はよくテニスをしたものです。",
+  "spans": [
+   [
+    19,
+    23
+   ]
+  ],
+  "marked": "彼女は、土曜日の午後はよくテニスをした【ものです】。",
+  "split": "彼女 は 、 土曜日 の 午後 は よく テニス を した もの です 。"
+ },
+ {
+  "n": 248,
+  "set": "B",
+  "sid": 83650,
+  "gid": "ba-hodo",
+  "level": "N3",
+  "pattern": "〜ば〜ほど",
+  "meaning": "the more ... the more",
+  "text": "文明が進めば進むほど人間は自然にあこがれる。",
+  "spans": [
+   [
+    5,
+    10
+   ]
+  ],
+  "marked": "文明が進め【ば進むほど】人間は自然にあこがれる。",
+  "split": "文明 が 進めば 進む ほど 人間 は 自然 に あ こがれる 。"
+ },
+ {
+  "n": 249,
+  "set": "B",
+  "sid": 10107041,
+  "gid": "tte",
+  "level": "N3",
+  "pattern": "〜って",
+  "meaning": "(casual quotation) says that; I heard; as for; what is",
+  "text": "彼のことマイクって呼んでるわよ。",
+  "spans": [
+   [
+    7,
+    9
+   ]
+  ],
+  "marked": "彼のことマイク【って】呼んでるわよ。",
+  "split": "彼 の こと マイク って 呼んでる わ よ 。"
+ },
+ {
+  "n": 250,
+  "set": "B",
+  "sid": 195484,
+  "gid": "ni-tsuite",
+  "level": "N3",
+  "pattern": "〜について",
+  "meaning": "about; concerning; regarding",
+  "text": "まだテスト結果については何も報告がないので、みんな待っているところです。",
+  "spans": [
+   [
+    7,
+    11
+   ]
+  ],
+  "marked": "まだテスト結果【について】は何も報告がないので、みんな待っているところです。",
+  "split": "まだ テスト 結果 に ついて は 何も 報告 が ない ので 、 みんな 待っている ところ です 。"
+ },
+ {
+  "n": 251,
+  "set": "B",
+  "sid": 99582,
+  "gid": "ni-mukete",
+  "level": "N2",
+  "pattern": "〜に向けて",
+  "meaning": "toward; aimed at; in preparation for; addressed to",
+  "text": "彼は明日中国に向けて出発する。",
+  "spans": [
+   [
+    6,
+    9
+   ],
+   [
+    6,
+    10
+   ]
+  ],
+  "marked": "彼は明日中国【に向け】て出発する。",
+  "split": "彼 は 明日 中 国 に 向けて 出発する 。"
+ },
+ {
+  "n": 252,
+  "set": "B",
+  "sid": 109429,
+  "gid": "ka-no-you-da",
+  "level": "N2",
+  "pattern": "〜かのようだ",
+  "meaning": "as if; as though (when it isn't really so)",
+  "text": "彼は何でも知っているかのように話す。",
+  "spans": [
+   [
+    10,
+    15
+   ]
+  ],
+  "marked": "彼は何でも知っている【かのように】話す。",
+  "split": "彼 は 何でも 知っている か の ように 話す 。"
+ },
+ {
+  "n": 253,
+  "set": "B",
+  "sid": 180053,
+  "gid": "koto-ni-wa",
+  "level": "N2",
+  "pattern": "〜ことに（は）",
+  "meaning": "(emotion)-ly; what is (surprising, sad, etc.) is that",
+  "text": "驚いたことに、彼は私の申し出を断った。",
+  "spans": [
+   [
+    3,
+    6
+   ]
+  ],
+  "marked": "驚いた【ことに】、彼は私の申し出を断った。",
+  "split": "驚いた こと に 、 彼 は 私 の 申し出 を 断った 。"
+ },
+ {
+  "n": 254,
+  "set": "B",
+  "sid": 644109,
+  "gid": "ni-mukete",
+  "level": "N2",
+  "pattern": "〜に向けて",
+  "meaning": "toward; aimed at; in preparation for; addressed to",
+  "text": "話を元にもどしますと。昨日レポートを東京に向けて送り出しました。",
+  "spans": [
+   [
+    20,
+    23
+   ],
+   [
+    20,
+    24
+   ]
+  ],
+  "marked": "話を元にもどしますと。昨日レポートを東京【に向け】て送り出しました。",
+  "split": "話 を 元 に も ど します と 。 昨日 レポート を 東 京 に 向けて 送り出しました 。"
+ },
+ {
+  "n": 255,
+  "set": "B",
+  "sid": 3081122,
+  "gid": "ni-sotte",
+  "level": "N2",
+  "pattern": "〜に沿って",
+  "meaning": "along; in line with; following",
+  "text": "海岸線に沿って航海せよ。",
+  "spans": [
+   [
+    3,
+    6
+   ],
+   [
+    3,
+    7
+   ]
+  ],
+  "marked": "海岸線【に沿っ】て航海せよ。",
+  "split": "海岸 線 に 沿って 航海せよ 。"
+ },
+ {
+  "n": 256,
+  "set": "B",
+  "sid": 224021,
+  "gid": "te-irai",
+  "level": "N2",
+  "pattern": "〜て以来",
+  "meaning": "ever since",
+  "text": "このあたりは私がここにきて以来建て込んできた。",
+  "spans": [
+   [
+    12,
+    15
+   ]
+  ],
+  "marked": "このあたりは私がここにき【て以来】建て込んできた。",
+  "split": "この あたり は 私 が ここ に きて 以来 建て 込んで きた 。"
+ },
+ {
+  "n": 257,
+  "set": "B",
+  "sid": 9106961,
+  "gid": "ni-mukete",
+  "level": "N2",
+  "pattern": "〜に向けて",
+  "meaning": "toward; aimed at; in preparation for; addressed to",
+  "text": "彼はドイツからアルジェリアに向けて旅行しました。",
+  "spans": [
+   [
+    13,
+    16
+   ],
+   [
+    13,
+    17
+   ]
+  ],
+  "marked": "彼はドイツからアルジェリア【に向け】て旅行しました。",
+  "split": "彼 は ドイツ から アルジェリア に 向けて 旅行しました 。"
+ },
+ {
+  "n": 258,
+  "set": "B",
+  "sid": 11970312,
+  "gid": "kurai-nara-gurai-nara",
+  "level": "N2",
+  "pattern": "〜くらいなら / 〜ぐらいなら",
+  "meaning": "rather than; if it comes to (doing that), I'd rather",
+  "text": "諦めるぐらいなら死んだ方がましだ。",
+  "spans": [
+   [
+    3,
+    8
+   ]
+  ],
+  "marked": "諦める【ぐらいなら】死んだ方がましだ。",
+  "split": "諦める ぐらい なら 死んだ 方 が まし だ 。"
+ },
+ {
+  "n": 259,
+  "set": "B",
+  "sid": 214222,
+  "gid": "to-itte-mo",
+  "level": "N2",
+  "pattern": "〜といっても",
+  "meaning": "although I say; even though (it's called)",
+  "text": "スミス夫人はテレビ狂といってもいいくらいです。",
+  "spans": [
+   [
+    10,
+    15
+   ]
+  ],
+  "marked": "スミス夫人はテレビ狂【といっても】いいくらいです。",
+  "split": "スミス 夫人 は テレビ 狂 と いって も いい くらい です 。"
+ },
+ {
+  "n": 260,
+  "set": "B",
+  "sid": 13066026,
+  "gid": "o-tsuujite-o-tooshite",
+  "level": "N2",
+  "pattern": "〜を通じて / 〜を通して",
+  "meaning": "through; via; by way of; throughout (a period)",
+  "text": "私たちは、国際交流を通じて、異文化理解を深めることを目指している。",
+  "spans": [
+   [
+    9,
+    13
+   ]
+  ],
+  "marked": "私たちは、国際交流【を通じて】、異文化理解を深めることを目指している。",
+  "split": "私たち は 、 国際 交流 を 通じて 、 異 文化 理解 を 深める こと を 目指している 。"
+ },
+ {
+  "n": 261,
+  "set": "B",
+  "sid": 11555222,
+  "gid": "ka-no-you-da",
+  "level": "N2",
+  "pattern": "〜かのようだ",
+  "meaning": "as if; as though (when it isn't really so)",
+  "text": "爆撃にでもあったかのような部屋ね。",
+  "spans": [
+   [
+    8,
+    13
+   ]
+  ],
+  "marked": "爆撃にでもあった【かのような】部屋ね。",
+  "split": "爆撃 に でも あった か の ような 部屋 ね 。"
+ },
+ {
+  "n": 262,
+  "set": "B",
+  "sid": 220542,
+  "gid": "ni-oite-ni-okeru",
+  "level": "N2",
+  "pattern": "〜において / 〜における",
+  "meaning": "in; at; in the field of (formal)",
+  "text": "この町における犯罪の発生率は高い。",
+  "spans": [
+   [
+    3,
+    7
+   ]
+  ],
+  "marked": "この町【における】犯罪の発生率は高い。",
+  "split": "この 町 に おける 犯罪 の 発生 率 は 高い 。"
+ },
+ {
+  "n": 263,
+  "set": "B",
+  "sid": 163908,
+  "gid": "tsutsu-aru",
+  "level": "N2",
+  "pattern": "〜つつある",
+  "meaning": "be in the process of; be gradually (changing)",
+  "text": "私の咳はひどくなりつつあります。",
+  "spans": [
+   [
+    9,
+    13
+   ]
+  ],
+  "marked": "私の咳はひどくなり【つつあり】ます。",
+  "split": "私 の 咳 は ひどく なり つつ あります 。"
+ },
+ {
+  "n": 264,
+  "set": "B",
+  "sid": 3450165,
+  "gid": "ge",
+  "level": "N2",
+  "pattern": "〜げ",
+  "meaning": "seeming; looking (as if); with an air of",
+  "text": "トムは満足げに笑みを浮かべた。",
+  "spans": [
+   [
+    3,
+    6
+   ]
+  ],
+  "marked": "トムは【満足げ】に笑みを浮かべた。",
+  "split": "トム は 満足 げ に 笑み を 浮かべた 。"
+ },
+ {
+  "n": 265,
+  "set": "B",
+  "sid": 13055905,
+  "gid": "ppanashi",
+  "level": "N2",
+  "pattern": "〜っぱなし",
+  "meaning": "leaving (something) as is; keep (doing) without a break",
+  "text": "この映画、最初から最後までハラハラしっぱなしだった。",
+  "spans": [
+   [
+    18,
+    22
+   ]
+  ],
+  "marked": "この映画、最初から最後までハラハラし【っぱなし】だった。",
+  "split": "この 映画 、 最初 から 最後 まで ハラハラし っぱなし だった 。"
+ },
+ {
+  "n": 266,
+  "set": "B",
+  "sid": 94330,
+  "gid": "ppanashi",
+  "level": "N2",
+  "pattern": "〜っぱなし",
+  "meaning": "leaving (something) as is; keep (doing) without a break",
+  "text": "彼女の手はうごきっぱなしだ。",
+  "spans": [
+   [
+    8,
+    12
+   ]
+  ],
+  "marked": "彼女の手はうごき【っぱなし】だ。",
+  "split": "彼女 の 手 は う ご き っぱなし だ 。"
+ },
+ {
+  "n": 267,
+  "set": "B",
+  "sid": 121804,
+  "gid": "to-wa-kagiranai",
+  "level": "N2",
+  "pattern": "〜とは限らない",
+  "meaning": "not necessarily; not always",
+  "text": "年上の者がいつも年下の者より物知りだとは限らない。",
+  "spans": [
+   [
+    18,
+    24
+   ]
+  ],
+  "marked": "年上の者がいつも年下の者より物知りだ【とは限らない】。",
+  "split": "年上 の 者 が いつも 年下 の 者 より 物知り だ と は 限らない 。"
+ },
+ {
+  "n": 268,
+  "set": "B",
+  "sid": 221221,
+  "gid": "kurai-nara-gurai-nara",
+  "level": "N2",
+  "pattern": "〜くらいなら / 〜ぐらいなら",
+  "meaning": "rather than; if it comes to (doing that), I'd rather",
+  "text": "この暑い中を外出するくらいなら家にいた方がよい。",
+  "spans": [
+   [
+    10,
+    15
+   ]
+  ],
+  "marked": "この暑い中を外出する【くらいなら】家にいた方がよい。",
+  "split": "この 暑い 中 を 外出する くらい なら 家 に いた 方 が よい 。"
+ },
+ {
+  "n": 269,
+  "set": "B",
+  "sid": 125619,
+  "gid": "sai-ni",
+  "level": "N2",
+  "pattern": "〜際（に）",
+  "meaning": "when; at the time of; on the occasion of",
+  "text": "通りを横切る際には、注意しなければならない。",
+  "spans": [
+   [
+    6,
+    8
+   ]
+  ],
+  "marked": "通りを横切る【際に】は、注意しなければならない。",
+  "split": "通り を 横切る 際 に は 、 注意しなければ ならない 。"
+ },
+ {
+  "n": 270,
+  "set": "B",
+  "sid": 173621,
+  "gid": "kiri",
+  "level": "N2",
+  "pattern": "〜きり",
+  "meaning": "since (and nothing after); only; just",
+  "text": "広子は全く一人きりでそこに座っていた。",
+  "spans": [
+   [
+    5,
+    9
+   ]
+  ],
+  "marked": "広子は全く【一人きり】でそこに座っていた。",
+  "split": "広 子 は 全く 一人 きり で そこ に 座っていた 。"
+ },
+ {
+  "n": 271,
+  "set": "B",
+  "sid": 174997,
+  "gid": "koto-ni-wa",
+  "level": "N2",
+  "pattern": "〜ことに（は）",
+  "meaning": "(emotion)-ly; what is (surprising, sad, etc.) is that",
+  "text": "原子力を軍事上の目的に使用することに、われわれは絶対に賛成してはならない。",
+  "spans": [
+   [
+    15,
+    18
+   ]
+  ],
+  "marked": "原子力を軍事上の目的に使用する【ことに】、われわれは絶対に賛成してはならない。",
+  "split": "原子 力 を 軍事 上 の 目的 に 使用する こと に 、 われわれ は 絶対 に 賛成して は ならない 。"
+ },
+ {
+  "n": 272,
+  "set": "B",
+  "sid": 75389,
+  "gid": "ni-oite-ni-okeru",
+  "level": "N2",
+  "pattern": "〜において / 〜における",
+  "meaning": "in; at; in the field of (formal)",
+  "text": "中国語においては「テンス」を表す場合には上述のように「助詞」か「時を表す語」または文脈によるものが多い。",
+  "spans": [
+   [
+    3,
+    7
+   ]
+  ],
+  "marked": "中国語【において】は「テンス」を表す場合には上述のように「助詞」か「時を表す語」または文脈によるものが多い。",
+  "split": "中 国語 に おいて は 「 テンス 」 を 表す 場合 に は 上述 の ように 「 助詞 」 か 「 時 を 表す 語 」 または 文脈 に よる もの が 多い 。"
+ },
+ {
+  "n": 273,
+  "set": "B",
+  "sid": 178288,
+  "gid": "o-nozoite",
+  "level": "N2",
+  "pattern": "〜を除いて",
+  "meaning": "except; excluding; apart from",
+  "text": "君の作文は２、３の誤りを除けば完璧だ。",
+  "spans": [
+   [
+    11,
+    14
+   ]
+  ],
+  "marked": "君の作文は２、３の誤り【を除け】ば完璧だ。",
+  "split": "君 の 作文 は ２ 、 ３ の 誤り を 除けば 完璧 だ 。"
+ },
+ {
+  "n": 274,
+  "set": "B",
+  "sid": 220401,
+  "gid": "ni-oite-ni-okeru",
+  "level": "N2",
+  "pattern": "〜において / 〜における",
+  "meaning": "in; at; in the field of (formal)",
+  "text": "この点においてはあなたには同意できません。",
+  "spans": [
+   [
+    3,
+    7
+   ]
+  ],
+  "marked": "この点【において】はあなたには同意できません。",
+  "split": "この 点 に おいて は あなた に は 同意 できません 。"
+ },
+ {
+  "n": 275,
+  "set": "B",
+  "sid": 198908,
+  "gid": "to-wa-kagiranai",
+  "level": "N2",
+  "pattern": "〜とは限らない",
+  "meaning": "not necessarily; not always",
+  "text": "なんでも自分の思い通りにいくとは限らないんだよ。",
+  "spans": [
+   [
+    14,
+    20
+   ]
+  ],
+  "marked": "なんでも自分の思い通りにいく【とは限らない】んだよ。",
+  "split": "なんでも 自分 の 思い 通り に いく と は 限らない んだ よ 。"
+ },
+ {
+  "n": 276,
+  "set": "B",
+  "sid": 82329,
+  "gid": "kaneru",
+  "level": "N2",
+  "pattern": "〜かねる",
+  "meaning": "cannot; be unable to (polite refusal); find it hard to",
+  "text": "僕たちは大学へ行くべきか否かを決めかねている。",
+  "spans": [
+   [
+    17,
+    20
+   ]
+  ],
+  "marked": "僕たちは大学へ行くべきか否かを決め【かねて】いる。",
+  "split": "僕たち は 大学 へ 行く べき か 否 か を 決め かねている 。"
+ },
+ {
+  "n": 277,
+  "set": "B",
+  "sid": 228768,
+  "gid": "to-wa-kagiranai",
+  "level": "N2",
+  "pattern": "〜とは限らない",
+  "meaning": "not necessarily; not always",
+  "text": "いつもうまくいくとは限りませんよ。",
+  "spans": [
+   [
+    8,
+    14
+   ]
+  ],
+  "marked": "いつもうまくいく【とは限りませ】んよ。",
+  "split": "いつも うまく いく と は 限りません よ 。"
+ },
+ {
+  "n": 278,
+  "set": "B",
+  "sid": 1579002,
+  "gid": "nagara-mo",
+  "level": "N2",
+  "pattern": "〜ながら（も）",
+  "meaning": "although; despite; while (contrary to expectation)",
+  "text": "残念ながら、今日は暇がない。",
+  "spans": [
+   [
+    2,
+    5
+   ]
+  ],
+  "marked": "残念【ながら】、今日は暇がない。",
+  "split": "残念 ながら 、 今日 は 暇 が ない 。"
+ },
+ {
+  "n": 279,
+  "set": "B",
+  "sid": 203264,
+  "gid": "dokoro-ka",
+  "level": "N2",
+  "pattern": "〜どころか",
+  "meaning": "far from; let alone; on the contrary",
+  "text": "ためになるどころか、その雨は収穫にひどい害を与えた。",
+  "spans": [
+   [
+    5,
+    9
+   ]
+  ],
+  "marked": "ためになる【どころか】、その雨は収穫にひどい害を与えた。",
+  "split": "ため に なる どころ か 、 その 雨 は 収穫 に ひどい 害 を 与えた 。"
+ },
+ {
+  "n": 280,
+  "set": "B",
+  "sid": 8210831,
+  "gid": "ta-tokoro",
+  "level": "N2",
+  "pattern": "〜たところ",
+  "meaning": "when (I) did ..., (I found that); upon doing",
+  "text": "「本当にゴミでいっぱいなんだ」と言われ、部屋のドアを開けたところ、そこはまさに異世界だった。",
+  "spans": [
+   [
+    28,
+    32
+   ]
+  ],
+  "marked": "「本当にゴミでいっぱいなんだ」と言われ、部屋のドアを開け【たところ】、そこはまさに異世界だった。",
+  "split": "「 本当 に ゴミ で いっぱい な んだ 」 と 言われ 、 部屋 の ドア を 開けた ところ 、 そこ は まさに 異 世界 だった 。"
+ },
+ {
+  "n": 281,
+  "set": "B",
+  "sid": 11038972,
+  "gid": "koto-ni-wa",
+  "level": "N2",
+  "pattern": "〜ことに（は）",
+  "meaning": "(emotion)-ly; what is (surprising, sad, etc.) is that",
+  "text": "ありがたいことに、隣は友人だった。",
+  "spans": [
+   [
+    5,
+    8
+   ]
+  ],
+  "marked": "ありがたい【ことに】、隣は友人だった。",
+  "split": "ありがたい こと に 、 隣 は 友人 だった 。"
+ },
+ {
+  "n": 282,
+  "set": "B",
+  "sid": 220764,
+  "gid": "te-irai",
+  "level": "N2",
+  "pattern": "〜て以来",
+  "meaning": "ever since",
+  "text": "この前あなたにお会いして以来、かなり進歩されたようですね。",
+  "spans": [
+   [
+    11,
+    14
+   ]
+  ],
+  "marked": "この前あなたにお会いし【て以来】、かなり進歩されたようですね。",
+  "split": "この 前 あなた に お 会い して 以来 、 かなり 進歩された よう です ね 。"
+ },
+ {
+  "n": 283,
+  "set": "B",
+  "sid": 5142,
+  "gid": "ni-suginai",
+  "level": "N2",
+  "pattern": "〜に過ぎない",
+  "meaning": "merely; nothing more than; only",
+  "text": "ほとんどの科学的進歩は当然のことについての発見に過ぎない。",
+  "spans": [
+   [
+    23,
+    28
+   ]
+  ],
+  "marked": "ほとんどの科学的進歩は当然のことについての発見【に過ぎない】。",
+  "split": "ほとんど の 科学的 進歩 は 当然 の こと に ついて の 発見 に 過ぎない 。"
+ },
+ {
+  "n": 284,
+  "set": "B",
+  "sid": 182768,
+  "gid": "ni-mo-kakawarazu",
+  "level": "N2",
+  "pattern": "〜にもかかわらず",
+  "meaning": "despite; in spite of; although",
+  "text": "逆境にもかかわらず、その発明の才に富む男は世界的名声を手に入れた。",
+  "spans": [
+   [
+    2,
+    9
+   ]
+  ],
+  "marked": "逆境【にもかかわらず】、その発明の才に富む男は世界的名声を手に入れた。",
+  "split": "逆 境 にもかかわらず 、 その 発明 の 才 に 富む 男 は 世界的 名声 を 手 に 入れた 。"
+ },
+ {
+  "n": 285,
+  "set": "B",
+  "sid": 10643614,
+  "gid": "ka-no-you-da",
+  "level": "N2",
+  "pattern": "〜かのようだ",
+  "meaning": "as if; as though (when it isn't really so)",
+  "text": "トムって、何でも知ってるかのような口振りだな。",
+  "spans": [
+   [
+    12,
+    17
+   ]
+  ],
+  "marked": "トムって、何でも知ってる【かのような】口振りだな。",
+  "split": "トム って 、 何でも 知ってる か の ような 口振り だ な 。"
+ },
+ {
+  "n": 286,
+  "set": "B",
+  "sid": 209568,
+  "gid": "ni-mo-kakawarazu",
+  "level": "N2",
+  "pattern": "〜にもかかわらず",
+  "meaning": "despite; in spite of; although",
+  "text": "その車は五千ドルもしたが、それにもかかわらず、まともに走らなかった。",
+  "spans": [
+   [
+    15,
+    22
+   ]
+  ],
+  "marked": "その車は五千ドルもしたが、それ【にもかかわらず】、まともに走らなかった。",
+  "split": "その 車 は 五 千 ドル も した が 、 それ にもかかわらず 、 ま ともに 走らなかった 。"
+ },
+ {
+  "n": 287,
+  "set": "B",
+  "sid": 198229,
+  "gid": "o-nozoite",
+  "level": "N2",
+  "pattern": "〜を除いて",
+  "meaning": "except; excluding; apart from",
+  "text": "バスが時に通ることを除いては全く静かだった。",
+  "spans": [
+   [
+    9,
+    13
+   ]
+  ],
+  "marked": "バスが時に通ること【を除いて】は全く静かだった。",
+  "split": "バス が 時 に 通る こと を 除いて は 全く 静か だった 。"
+ },
+ {
+  "n": 288,
+  "set": "B",
+  "sid": 111761,
+  "gid": "ppanashi",
+  "level": "N2",
+  "pattern": "〜っぱなし",
+  "meaning": "leaving (something) as is; keep (doing) without a break",
+  "text": "彼はドアを開けっぱなしにした。",
+  "spans": [
+   [
+    7,
+    11
+   ]
+  ],
+  "marked": "彼はドアを開け【っぱなし】にした。",
+  "split": "彼 は ドア を 開け っぱなし に した 。"
+ },
+ {
+  "n": 289,
+  "set": "B",
+  "sid": 230592,
+  "gid": "kanenai",
+  "level": "N2",
+  "pattern": "〜かねない",
+  "meaning": "could well; might (lead to something bad)",
+  "text": "あの男は裏切りもしかねない。",
+  "spans": [
+   [
+    9,
+    13
+   ]
+  ],
+  "marked": "あの男は裏切りもし【かねない】。",
+  "split": "あの 男 は 裏切り もし かねない 。"
+ },
+ {
+  "n": 290,
+  "set": "B",
+  "sid": 110730,
+  "gid": "ka-no-you-da",
+  "level": "N2",
+  "pattern": "〜かのようだ",
+  "meaning": "as if; as though (when it isn't really so)",
+  "text": "彼はまるで何でも知っているかのような口ぶりだ。",
+  "spans": [
+   [
+    13,
+    18
+   ]
+  ],
+  "marked": "彼はまるで何でも知っている【かのような】口ぶりだ。",
+  "split": "彼 は まるで 何でも 知っている か の ような 口ぶり だ 。"
+ },
+ {
+  "n": 291,
+  "set": "B",
+  "sid": 180103,
+  "gid": "sai-ni",
+  "level": "N2",
+  "pattern": "〜際（に）",
+  "meaning": "when; at the time of; on the occasion of",
+  "text": "狂気の状態の際に、善悪を区別させようとしても無駄である。",
+  "spans": [
+   [
+    6,
+    8
+   ]
+  ],
+  "marked": "狂気の状態の【際に】、善悪を区別させようとしても無駄である。",
+  "split": "狂気 の 状態 の 際 に 、 善悪 を 区別させよう と し ても 無駄 で ある 。"
+ },
+ {
+  "n": 292,
+  "set": "B",
+  "sid": 186286,
+  "gid": "tsutsu-aru",
+  "level": "N2",
+  "pattern": "〜つつある",
+  "meaning": "be in the process of; be gradually (changing)",
+  "text": "我々の計画は具体化しつつある。",
+  "spans": [
+   [
+    10,
+    14
+   ]
+  ],
+  "marked": "我々の計画は具体化し【つつある】。",
+  "split": "我々 の 計画 は 具体 化し つつ ある 。"
+ },
+ {
+  "n": 293,
+  "set": "B",
+  "sid": 214543,
+  "gid": "no-moto-de-no-moto-ni",
+  "level": "N2",
+  "pattern": "〜のもとで / 〜のもとに",
+  "meaning": "under (guidance, influence, a rule); with",
+  "text": "スピーチコンテストは文部省後援のもとに開催された。",
+  "spans": [
+   [
+    15,
+    19
+   ]
+  ],
+  "marked": "スピーチコンテストは文部省後援【のもとに】開催された。",
+  "split": "スピーチ コンテスト は 文部 省 後援 の も と に 開催された 。"
+ },
+ {
+  "n": 294,
+  "set": "B",
+  "sid": 567363,
+  "gid": "ni-oite-ni-okeru",
+  "level": "N2",
+  "pattern": "〜において / 〜における",
+  "meaning": "in; at; in the field of (formal)",
+  "text": "それは科学において大発見の一つであった。",
+  "spans": [
+   [
+    5,
+    9
+   ]
+  ],
+  "marked": "それは科学【において】大発見の一つであった。",
+  "split": "それ は 科学 に おいて 大 発見 の 一つ で あった 。"
+ },
+ {
+  "n": 295,
+  "set": "B",
+  "sid": 747064,
+  "gid": "ni-oite-ni-okeru",
+  "level": "N2",
+  "pattern": "〜において / 〜における",
+  "meaning": "in; at; in the field of (formal)",
+  "text": "今日、私は現代社会におけるスポーツの重要性に関して話すつもりです。",
+  "spans": [
+   [
+    9,
+    13
+   ]
+  ],
+  "marked": "今日、私は現代社会【における】スポーツの重要性に関して話すつもりです。",
+  "split": "今日 、 私 は 現代 社会 に おける スポーツ の 重要性 に 関して 話す つもり です 。"
+ },
+ {
+  "n": 296,
+  "set": "B",
+  "sid": 108368,
+  "gid": "mai",
+  "level": "N2",
+  "pattern": "〜まい",
+  "meaning": "will not (resolve); probably won't (conjecture)",
+  "text": "彼は恐らく僕らに悪ふざけをしていたわけではあるまい。",
+  "spans": [
+   [
+    23,
+    25
+   ]
+  ],
+  "marked": "彼は恐らく僕らに悪ふざけをしていたわけではある【まい】。",
+  "split": "彼 は 恐らく 僕ら に 悪 ふざけ を していた わけ では ある ま い 。"
+ },
+ {
+  "n": 297,
+  "set": "B",
+  "sid": 9884701,
+  "gid": "ka-no-you-da",
+  "level": "N2",
+  "pattern": "〜かのようだ",
+  "meaning": "as if; as though (when it isn't really so)",
+  "text": "トムは何事もなかったかのように戻ってきた。",
+  "spans": [
+   [
+    10,
+    15
+   ]
+  ],
+  "marked": "トムは何事もなかった【かのように】戻ってきた。",
+  "split": "トム は 何事 も なかった か の ように 戻って きた 。"
+ },
+ {
+  "n": 298,
+  "set": "B",
+  "sid": 231863,
+  "gid": "ni-oujite",
+  "level": "N2",
+  "pattern": "〜に応じて",
+  "meaning": "according to; depending on; in response to",
+  "text": "あなたは収入に応じて生活しなければならない。",
+  "spans": [
+   [
+    6,
+    10
+   ]
+  ],
+  "marked": "あなたは収入【に応じて】生活しなければならない。",
+  "split": "あなた は 収入 に 応じて 生活しなければ ならない 。"
+ },
+ {
+  "n": 299,
+  "set": "B",
+  "sid": 119581,
+  "gid": "ni-oite-ni-okeru",
+  "level": "N2",
+  "pattern": "〜において / 〜における",
+  "meaning": "in; at; in the field of (formal)",
+  "text": "彼は日本のみならず、世界においても有名な物理学者である。",
+  "spans": [
+   [
+    12,
+    16
+   ]
+  ],
+  "marked": "彼は日本のみならず、世界【において】も有名な物理学者である。",
+  "split": "彼 は 日本 のみ ならず 、 世界 に おいて も 有名 な 物理 学者 で ある 。"
+ },
+ {
+  "n": 300,
+  "set": "B",
+  "sid": 203946,
+  "gid": "zaru-o-enai",
+  "level": "N2",
+  "pattern": "〜ざるを得ない",
+  "meaning": "have no choice but to; cannot help but",
+  "text": "たいていの場合私たちは彼らの要求に屈せざるを得なかった。",
+  "spans": [
+   [
+    19,
+    25
+   ]
+  ],
+  "marked": "たいていの場合私たちは彼らの要求に屈せ【ざるを得なか】った。",
+  "split": "たいてい の 場合 私たち は 彼ら の 要求 に 屈 せ ざる を 得なかった 。"
+ },
+ {
+  "n": 301,
+  "set": "B",
+  "sid": 199111,
+  "gid": "you-ga-you-to",
+  "level": "N1",
+  "pattern": "〜(よ)うが / 〜(よ)うと",
+  "meaning": "no matter (what, how); even if",
+  "text": "なにが起きようとも私は決心を変えない。",
+  "spans": [
+   [
+    5,
+    8
+   ]
+  ],
+  "marked": "なにが起き【ようと】も私は決心を変えない。",
+  "split": "なに が 起きよう と も 私 は 決心 を 変えない 。"
+ },
+ {
+  "n": 302,
+  "set": "B",
+  "sid": 1056564,
+  "gid": "ni-itaru-ni-itatte-ni-itatte-wa",
+  "level": "N1",
+  "pattern": "〜に至る / 〜に至って / 〜に至っては",
+  "meaning": "reach; lead to; only when it came to; as for (the most extreme case)",
+  "text": "どうやってあなたはこのお金すべてを持つに至ったんですか？",
+  "spans": [
+   [
+    19,
+    22
+   ]
+  ],
+  "marked": "どうやってあなたはこのお金すべてを持つ【に至っ】たんですか？",
+  "split": "どう やって あなた は この お金 すべて を 持つ に 至った んです か ？"
+ },
+ {
+  "n": 303,
+  "set": "B",
+  "sid": 8659812,
+  "gid": "ya-ina-ya",
+  "level": "N1",
+  "pattern": "〜や否や",
+  "meaning": "as soon as; the moment; no sooner ... than",
+  "text": "トムは目覚まし時計が鳴るや否や、ベッドから飛び起きた。",
+  "spans": [
+   [
+    12,
+    15
+   ]
+  ],
+  "marked": "トムは目覚まし時計が鳴る【や否や】、ベッドから飛び起きた。",
+  "split": "トム は 目覚まし 時計 が 鳴る や 否 や 、 ベッド から 飛び起きた 。"
+ },
+ {
+  "n": 304,
+  "set": "B",
+  "sid": 231028,
+  "gid": "nari-ni-nari-no",
+  "level": "N1",
+  "pattern": "〜なりに / 〜なりの",
+  "meaning": "in one's own way; as far as (one's limits) allow",
+  "text": "あの国では、私は外国人だったのでそれなりに扱われた。",
+  "spans": [
+   [
+    18,
+    21
+   ]
+  ],
+  "marked": "あの国では、私は外国人だったのでそれ【なりに】扱われた。",
+  "split": "あの 国 では 、 私 は 外国人 だった ので それ なり に 扱われた 。"
+ },
+ {
+  "n": 305,
+  "set": "B",
+  "sid": 212827,
+  "gid": "n-bakari",
+  "level": "N1",
+  "pattern": "〜んばかり",
+  "meaning": "as if about to; almost (to the point of)",
+  "text": "そのニュースは胸が張りさけんばかりだった。",
+  "spans": [
+   [
+    13,
+    17
+   ]
+  ],
+  "marked": "そのニュースは胸が張りさけ【んばかり】だった。",
+  "split": "その ニュース は 胸 が 張り さ け ん ばかり だった 。"
+ },
+ {
+  "n": 306,
+  "set": "B",
+  "sid": 8560452,
+  "gid": "you-ga-you-to",
+  "level": "N1",
+  "pattern": "〜(よ)うが / 〜(よ)うと",
+  "meaning": "no matter (what, how); even if",
+  "text": "そのねずみはどんなに痛い思いをしようと、サボテンを食べ続けた。",
+  "spans": [
+   [
+    16,
+    19
+   ]
+  ],
+  "marked": "そのねずみはどんなに痛い思いをし【ようと】、サボテンを食べ続けた。",
+  "split": "その ねずみ は どんなに 痛い 思い を しよう と 、 サボテン を 食べ 続けた 。"
+ },
+ {
+  "n": 307,
+  "set": "B",
+  "sid": 3447494,
+  "gid": "sura",
+  "level": "N1",
+  "pattern": "〜すら",
+  "meaning": "even; not even (an extreme example)",
+  "text": "彼は英語ですら解さない。ましてドイツ語など分かるはずがない。",
+  "spans": [
+   [
+    5,
+    7
+   ]
+  ],
+  "marked": "彼は英語で【すら】解さない。ましてドイツ語など分かるはずがない。",
+  "split": "彼 は 英語 で すら 解さない 。 まして ドイツ 語 など 分かる はず が ない 。"
+ },
+ {
+  "n": 308,
+  "set": "B",
+  "sid": 120281,
+  "gid": "you-ga-mai-ga-you-to-mai-to",
+  "level": "N1",
+  "pattern": "〜(よ)うが〜まいが / 〜(よ)うと〜まいと",
+  "meaning": "whether or not; regardless of whether",
+  "text": "彼が私の意見に同意しようとしまいと私はその仕事をするつもりだ。",
+  "spans": [
+   [
+    10,
+    17
+   ],
+   [
+    11,
+    17
+   ]
+  ],
+  "marked": "彼が私の意見に同意し【ようとしまいと】私はその仕事をするつもりだ。",
+  "split": "彼 が 私 の 意見 に 同意しよう と しまい と 私 は その 仕事 を する つもり だ 。"
+ },
+ {
+  "n": 309,
+  "set": "B",
+  "sid": 138123,
+  "gid": "you-ga-you-to",
+  "level": "N1",
+  "pattern": "〜(よ)うが / 〜(よ)うと",
+  "meaning": "no matter (what, how); even if",
+  "text": "太陽はどんなに麗しく輝いていようとも沈まなくてはならない。",
+  "spans": [
+   [
+    14,
+    17
+   ]
+  ],
+  "marked": "太陽はどんなに麗しく輝いてい【ようと】も沈まなくてはならない。",
+  "split": "太陽 は どんなに 麗しく 輝いていよう と も 沈まなくて は ならない 。"
+ },
+ {
+  "n": 310,
+  "set": "B",
+  "sid": 119382,
+  "gid": "you-ga-mai-ga-you-to-mai-to",
+  "level": "N1",
+  "pattern": "〜(よ)うが〜まいが / 〜(よ)うと〜まいと",
+  "meaning": "whether or not; regardless of whether",
+  "text": "彼が来ようが来まいが重要ではない。",
+  "spans": [
+   [
+    3,
+    10
+   ],
+   [
+    4,
+    10
+   ]
+  ],
+  "marked": "彼が来【ようが来まいが】重要ではない。",
+  "split": "彼 が 来よう が 来 ま い が 重要 ではない 。"
+ },
+ {
+  "n": 311,
+  "set": "B",
+  "sid": 188139,
+  "gid": "you-ga-you-to",
+  "level": "N1",
+  "pattern": "〜(よ)うが / 〜(よ)うと",
+  "meaning": "no matter (what, how); even if",
+  "text": "何がおきようと私はあなたの味方です。",
+  "spans": [
+   [
+    4,
+    7
+   ]
+  ],
+  "marked": "何がおき【ようと】私はあなたの味方です。",
+  "split": "何 が おきよう と 私 は あなた の 味方 です 。"
+ },
+ {
+  "n": 312,
+  "set": "B",
+  "sid": 105042,
+  "gid": "sura",
+  "level": "N1",
+  "pattern": "〜すら",
+  "meaning": "even; not even (an extreme example)",
+  "text": "彼は自分の家族すら取りしきれないのに、まして一国を治めるなんて！",
+  "spans": [
+   [
+    7,
+    9
+   ]
+  ],
+  "marked": "彼は自分の家族【すら】取りしきれないのに、まして一国を治めるなんて！",
+  "split": "彼 は 自分 の 家族 すら 取りしきれない のに 、 まして 一 国 を 治める なんて ！"
+ },
+ {
+  "n": 313,
+  "set": "B",
+  "sid": 11056021,
+  "gid": "n-bakari",
+  "level": "N1",
+  "pattern": "〜んばかり",
+  "meaning": "as if about to; almost (to the point of)",
+  "text": "このチームのファンは、全てを捧げたと言わんばかりに熱狂的な人たちが多い。",
+  "spans": [
+   [
+    20,
+    24
+   ],
+   [
+    21,
+    25
+   ]
+  ],
+  "marked": "このチームのファンは、全てを捧げたと言わ【んばかり】に熱狂的な人たちが多い。",
+  "split": "この チーム の ファン は 、 全て を 捧げた と 言 わ ん ばかり に 熱狂的 な 人たち が 多い 。"
+ },
+ {
+  "n": 314,
+  "set": "B",
+  "sid": 11140721,
+  "gid": "sura",
+  "level": "N1",
+  "pattern": "〜すら",
+  "meaning": "even; not even (an extreme example)",
+  "text": "お前が俺と一緒に来るか、あいつに聞いてみたんだけど、あの野郎、返事すらしなかった。",
+  "spans": [
+   [
+    33,
+    35
+   ]
+  ],
+  "marked": "お前が俺と一緒に来るか、あいつに聞いてみたんだけど、あの野郎、返事【すら】しなかった。",
+  "split": "お前 が 俺 と 一緒 に 来る か 、 あいつ に 聞いて みた んだ けど 、 あの 野郎 、 返事 すら しなかった 。"
+ },
+ {
+  "n": 315,
+  "set": "B",
+  "sid": 115687,
+  "gid": "sura",
+  "level": "N1",
+  "pattern": "〜すら",
+  "meaning": "even; not even (an extreme example)",
+  "text": "彼は、オペラはもちろんのこと、童謡すら歌えない。",
+  "spans": [
+   [
+    17,
+    19
+   ]
+  ],
+  "marked": "彼は、オペラはもちろんのこと、童謡【すら】歌えない。",
+  "split": "彼 は 、 オペラ は もちろん の こと 、 童謡 すら 歌えない 。"
+ },
+ {
+  "n": 316,
+  "set": "B",
+  "sid": 146385,
+  "gid": "made-mo-nai",
+  "level": "N1",
+  "pattern": "〜までもない",
+  "meaning": "needless to; there's no need to (go as far as)",
+  "text": "焼き魚は好きではありません、ましてや生魚は言うまでもありません。",
+  "spans": [
+   [
+    23,
+    30
+   ]
+  ],
+  "marked": "焼き魚は好きではありません、ましてや生魚は言う【までもありませ】ん。",
+  "split": "焼き 魚 は 好き では ありません 、 まして や 生 魚 は 言う まで も ありません 。"
+ },
+ {
+  "n": 317,
+  "set": "B",
+  "sid": 104790,
+  "gid": "sura",
+  "level": "N1",
+  "pattern": "〜すら",
+  "meaning": "even; not even (an extreme example)",
+  "text": "彼は自分自身の名前すら書けない。",
+  "spans": [
+   [
+    9,
+    11
+   ]
+  ],
+  "marked": "彼は自分自身の名前【すら】書けない。",
+  "split": "彼 は 自分自身 の 名前 すら 書けない 。"
+ },
+ {
+  "n": 318,
+  "set": "B",
+  "sid": 82923,
+  "gid": "made-mo-nai",
+  "level": "N1",
+  "pattern": "〜までもない",
+  "meaning": "needless to; there's no need to (go as far as)",
+  "text": "母は蛇はいうまでもなく、毛虫も嫌いでした。",
+  "spans": [
+   [
+    6,
+    11
+   ]
+  ],
+  "marked": "母は蛇はいう【までもなく】、毛虫も嫌いでした。",
+  "split": "母 は 蛇 は いう まで も なく 、 毛 虫 も 嫌い でした 。"
+ },
+ {
+  "n": 319,
+  "set": "B",
+  "sid": 199495,
+  "gid": "you-ga-you-to",
+  "level": "N1",
+  "pattern": "〜(よ)うが / 〜(よ)うと",
+  "meaning": "no matter (what, how); even if",
+  "text": "どんなに疲れていようが、私は働かねばならない。",
+  "spans": [
+   [
+    8,
+    11
+   ]
+  ],
+  "marked": "どんなに疲れてい【ようが】、私は働かねばならない。",
+  "split": "どんなに 疲れていよう が 、 私 は 働 かね ば ならない 。"
+ },
+ {
+  "n": 320,
+  "set": "B",
+  "sid": 10032210,
+  "gid": "nari-ni-nari-no",
+  "level": "N1",
+  "pattern": "〜なりに / 〜なりの",
+  "meaning": "in one's own way; as far as (one's limits) allow",
+  "text": "その件に関しては、自分なりの考えがあります。",
+  "spans": [
+   [
+    11,
+    14
+   ]
+  ],
+  "marked": "その件に関しては、自分【なりの】考えがあります。",
+  "split": "その 件 に 関して は 、 自分 なり の 考え が あります 。"
+ },
+ {
+  "n": 321,
+  "set": "B",
+  "sid": 224469,
+  "gid": "made-mo-nai",
+  "level": "N1",
+  "pattern": "〜までもない",
+  "meaning": "needless to; there's no need to (go as far as)",
+  "text": "ここには、結果の不正確さは言うまでもなく、方法論上の問題が数多く存在している。",
+  "spans": [
+   [
+    15,
+    20
+   ]
+  ],
+  "marked": "ここには、結果の不正確さは言う【までもなく】、方法論上の問題が数多く存在している。",
+  "split": "ここ に は 、 結果 の 不正 確 さ は 言う まで も なく 、 方法 論 上 の 問題 が 数多く 存在している 。"
+ },
+ {
+  "n": 322,
+  "set": "B",
+  "sid": 167868,
+  "gid": "you-ga-you-to",
+  "level": "N1",
+  "pattern": "〜(よ)うが / 〜(よ)うと",
+  "meaning": "no matter (what, how); even if",
+  "text": "私が何をしようと誰も私を気にも止めなかった。",
+  "spans": [
+   [
+    5,
+    8
+   ]
+  ],
+  "marked": "私が何をし【ようと】誰も私を気にも止めなかった。",
+  "split": "私 が 何 を しよう と 誰 も 私 を 気 に も 止めなかった 。"
+ },
+ {
+  "n": 323,
+  "set": "B",
+  "sid": 119280,
+  "gid": "sura",
+  "level": "N1",
+  "pattern": "〜すら",
+  "meaning": "even; not even (an extreme example)",
+  "text": "彼ですらそれが上手にできるなら、我々ならなおさらだ。",
+  "spans": [
+   [
+    2,
+    4
+   ]
+  ],
+  "marked": "彼で【すら】それが上手にできるなら、我々ならなおさらだ。",
+  "split": "彼 で すら それ が 上手 に できる なら 、 我々 なら なおさら だ 。"
+ },
+ {
+  "n": 324,
+  "set": "B",
+  "sid": 10219243,
+  "gid": "nari-ni-nari-no",
+  "level": "N1",
+  "pattern": "〜なりに / 〜なりの",
+  "meaning": "in one's own way; as far as (one's limits) allow",
+  "text": "子供が嘘をつくのには、それなりの理由があります。",
+  "spans": [
+   [
+    13,
+    16
+   ]
+  ],
+  "marked": "子供が嘘をつくのには、それ【なりの】理由があります。",
+  "split": "子供 が 嘘 を つく のに は 、 それ なり の 理由 が あります 。"
+ },
+ {
+  "n": 325,
+  "set": "B",
+  "sid": 102206,
+  "gid": "kare-kare",
+  "level": "N1",
+  "pattern": "〜かれ〜かれ",
+  "meaning": "whether A or B; A or B alike (fixed pairs)",
+  "text": "彼は遅かれ早かれそのことを後悔するだろう。",
+  "spans": [
+   [
+    3,
+    8
+   ]
+  ],
+  "marked": "彼は遅【かれ早かれ】そのことを後悔するだろう。",
+  "split": "彼 は 遅 か れ 早 か れ その こと を 後悔する だろう 。"
+ },
+ {
+  "n": 326,
+  "set": "B",
+  "sid": 126769,
+  "gid": "kare-kare",
+  "level": "N1",
+  "pattern": "〜かれ〜かれ",
+  "meaning": "whether A or B; A or B alike (fixed pairs)",
+  "text": "遅かれ早かれ、新しいテレビを買わなければならないでしょう、今の私たちのテレビはとても古い型ですから。",
+  "spans": [
+   [
+    1,
+    6
+   ]
+  ],
+  "marked": "遅【かれ早かれ】、新しいテレビを買わなければならないでしょう、今の私たちのテレビはとても古い型ですから。",
+  "split": "遅 か れ 早 か れ 、 新しい テレビ を 買わなければ ならない でしょう 、 今 の 私たち の テレビ は とても 古い 型 ですから 。"
+ },
+ {
+  "n": 327,
+  "set": "B",
+  "sid": 147187,
+  "gid": "you-ga-you-to",
+  "level": "N1",
+  "pattern": "〜(よ)うが / 〜(よ)うと",
+  "meaning": "no matter (what, how); even if",
+  "text": "勝とうが負けようが、正々堂々と戦わねばならぬ。",
+  "spans": [
+   [
+    6,
+    9
+   ]
+  ],
+  "marked": "勝とうが負け【ようが】、正々堂々と戦わねばならぬ。",
+  "split": "勝とう が 負けよう が 、 正 々 堂々 と 戦 わ ね ば なら ぬ 。"
+ },
+ {
+  "n": 328,
+  "set": "B",
+  "sid": 11041742,
+  "gid": "you-ga-you-to",
+  "level": "N1",
+  "pattern": "〜(よ)うが / 〜(よ)うと",
+  "meaning": "no matter (what, how); even if",
+  "text": "誰に何を言われようと、私の気持ちは揺るぎません。",
+  "spans": [
+   [
+    7,
+    10
+   ]
+  ],
+  "marked": "誰に何を言われ【ようと】、私の気持ちは揺るぎません。",
+  "split": "誰 に 何 を 言われよう と 、 私 の 気持ち は 揺るぎません 。"
+ },
+ {
+  "n": 329,
+  "set": "B",
+  "sid": 8467988,
+  "gid": "nari-ni-nari-no",
+  "level": "N1",
+  "pattern": "〜なりに / 〜なりの",
+  "meaning": "in one's own way; as far as (one's limits) allow",
+  "text": "彼なりのカッコ良さがある。",
+  "spans": [
+   [
+    1,
+    4
+   ]
+  ],
+  "marked": "彼【なりの】カッコ良さがある。",
+  "split": "彼 なり の カッコ 良さ が ある 。"
+ },
+ {
+  "n": 330,
+  "set": "B",
+  "sid": 11001607,
+  "gid": "nari-ni-nari-no",
+  "level": "N1",
+  "pattern": "〜なりに / 〜なりの",
+  "meaning": "in one's own way; as far as (one's limits) allow",
+  "text": "給料それなりにもらってないと余裕なんて出来やしない。",
+  "spans": [
+   [
+    4,
+    7
+   ]
+  ],
+  "marked": "給料それ【なりに】もらってないと余裕なんて出来やしない。",
+  "split": "給料 それ なり に もらってない と 余裕 なんて 出来 や しない 。"
+ },
+ {
+  "n": 331,
+  "set": "B",
+  "sid": 11001304,
+  "gid": "sura",
+  "level": "N1",
+  "pattern": "〜すら",
+  "meaning": "even; not even (an extreme example)",
+  "text": "感情的で、もう理屈ですらない。",
+  "spans": [
+   [
+    10,
+    12
+   ]
+  ],
+  "marked": "感情的で、もう理屈で【すら】ない。",
+  "split": "感情的 で 、 もう 理屈 で すら ない 。"
+ },
+ {
+  "n": 332,
+  "set": "B",
+  "sid": 10325649,
+  "gid": "made-mo-nai",
+  "level": "N1",
+  "pattern": "〜までもない",
+  "meaning": "needless to; there's no need to (go as far as)",
+  "text": "言うまでもありませんが、それは滅多にないことでした。",
+  "spans": [
+   [
+    2,
+    9
+   ]
+  ],
+  "marked": "言う【までもありませ】んが、それは滅多にないことでした。",
+  "split": "言う まで も ありません が 、 それ は 滅多に ない こと でした 。"
+ },
+ {
+  "n": 333,
+  "set": "B",
+  "sid": 10588015,
+  "gid": "sura",
+  "level": "N1",
+  "pattern": "〜すら",
+  "meaning": "even; not even (an extreme example)",
+  "text": "かつては部活中に炎天下の中、生徒をろくに休ませず、水分補給すら禁じた愚かな教師がいた。",
+  "spans": [
+   [
+    29,
+    31
+   ]
+  ],
+  "marked": "かつては部活中に炎天下の中、生徒をろくに休ませず、水分補給【すら】禁じた愚かな教師がいた。",
+  "split": "かつて は 部活 中 に 炎天 下 の 中 、 生徒 を ろくに 休ませず 、 水分 補給 すら 禁じた 愚か な 教師 が いた 。"
+ },
+ {
+  "n": 334,
+  "set": "B",
+  "sid": 182527,
+  "gid": "sura",
+  "level": "N1",
+  "pattern": "〜すら",
+  "meaning": "even; not even (an extreme example)",
+  "text": "東京という都市のGDPは一兆円以上あり、「国別」ランキングですら11位になる。",
+  "spans": [
+   [
+    30,
+    32
+   ]
+  ],
+  "marked": "東京という都市のGDPは一兆円以上あり、「国別」ランキングで【すら】11位になる。",
+  "split": "東 京 と いう 都市 の GDP は 一 兆 円 以上 あり 、 「 国別 」 ランキング で すら 1 1 位 に なる 。"
+ },
+ {
+  "n": 335,
+  "set": "B",
+  "sid": 174773,
+  "gid": "made-mo-nai",
+  "level": "N1",
+  "pattern": "〜までもない",
+  "meaning": "needless to; there's no need to (go as far as)",
+  "text": "言うまでもなく、戦争の恐ろしさは伝えられなければならない。",
+  "spans": [
+   [
+    2,
+    7
+   ]
+  ],
+  "marked": "言う【までもなく】、戦争の恐ろしさは伝えられなければならない。",
+  "split": "言う まで も なく 、 戦争 の 恐ろしさ は 伝えられなければ ならない 。"
+ },
+ {
+  "n": 336,
+  "set": "B",
+  "sid": 230379,
+  "gid": "n-bakari",
+  "level": "N1",
+  "pattern": "〜んばかり",
+  "meaning": "as if about to; almost (to the point of)",
+  "text": "あふれんばかりの美しい陽射しであった。",
+  "spans": [
+   [
+    3,
+    7
+   ]
+  ],
+  "marked": "あふれ【んばかり】の美しい陽射しであった。",
+  "split": "あふれ ん ばかり の 美しい 陽射し で あった 。"
+ },
+ {
+  "n": 337,
+  "set": "B",
+  "sid": 208546,
+  "gid": "made-mo-nai",
+  "level": "N1",
+  "pattern": "〜までもない",
+  "meaning": "needless to; there's no need to (go as far as)",
+  "text": "その先生は、英語は言うまでもなく、立派なフランス語を話す。",
+  "spans": [
+   [
+    11,
+    16
+   ]
+  ],
+  "marked": "その先生は、英語は言う【までもなく】、立派なフランス語を話す。",
+  "split": "その 先生 は 、 英語 は 言う まで も なく 、 立派 な フランス 語 を 話す 。"
+ }
+]

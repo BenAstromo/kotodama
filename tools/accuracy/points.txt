@@ -1,0 +1,526 @@
+wa	N5	〜は	searched
+ga-subject	N5	〜が（subject）	searched
+o	N5	〜を	searched
+ni-time	N5	〜に（time）	searched
+ni-destination	N5	〜に（destination）	searched
+ni-location	N5	〜に（place of existence）	searched
+ni-indirect-object	N5	〜に（indirect object）	searched
+ni-frequency	N5	〜に（frequency）	searched
+e	N5	〜へ	searched
+de-place	N5	〜で（place of action）	searched
+de-means	N5	〜で（means）	searched
+to-and	N5	〜と（and）	searched
+to-with	N5	〜と（with）	searched
+ya	N5	〜や	searched
+ka-or	N5	〜か（or）	searched
+mo	N5	〜も	searched
+no	N5	〜の（possessive）	searched
+kara-from	N5	〜から（from）	searched
+made	N5	〜まで（until）	searched
+ka-question	N5	〜か（question）	searched
+ne	N5	〜ね	searched
+yo	N5	〜よ	searched
+yori	N5	〜より	searched
+no-hou-ga-yori	N5	〜の方が〜より	searched
+to-to-dochira-ga	N5	〜と〜とどちらが	searched
+no-naka-de-ga-ichiban	N5	〜の中で〜が一番	searched
+desu	N5	〜です	searched
+da	N5	〜だ	searched
+de-wa-arimasen-ja-nai	N5	〜ではありません / 〜じゃない	searched
+deshita	N5	〜でした	searched
+masu	N5	〜ます	searched
+masen	N5	〜ません	searched
+mashita	N5	〜ました	searched
+masen-deshita	N5	〜ませんでした	searched
+nai	N5	〜ない	searched
+ta	N5	〜た	searched
+mashou	N5	〜ましょう	searched
+mashou-ka	N5	〜ましょうか	searched
+masen-ka	N5	〜ませんか	searched
+tai	N5	〜たい	searched
+ga-hoshii	N5	〜がほしい	searched
+o-kudasai	N5	〜をください	searched
+te-kudasai	N5	〜てください	searched
+naide-kudasai	N5	〜ないでください	searched
+te-mo-ii	N5	〜てもいい	searched
+te-wa-ikenai	N5	〜てはいけない	searched
+nakereba-naranai-nakute-wa-ikenai	N5	〜なければならない / 〜なくてはいけない	searched
+nakute-mo-ii	N5	〜なくてもいい	searched
+te-iru	N5	〜ている	searched
+te	N5	〜て	searched
+te-kara	N5	〜てから	searched
+tari-tari-suru	N5	〜たり〜たりする	searched
+ta-koto-ga-aru	N5	〜たことがある	searched
+mae-ni	N5	〜前に	searched
+ato-de	N5	〜後で	searched
+nagara	N5	〜ながら（while）	searched
+ni-iku	N5	〜に行く	searched
+ga-suki-ga-kirai	N5	〜が好き / 〜が嫌い	searched
+ga-jouzu-ga-heta	N5	〜が上手 / 〜が下手	searched
+ga-aru-ga-iru	N5	〜がある / 〜がいる	searched
+kara-reason	N5	〜から（reason）	searched
+ga-but	N5	〜が（but）	searched
+deshou	N5	〜でしょう	searched
+ku-naru-ni-naru	N5	〜くなる / 〜になる	searched
+ni-suru	N5	〜にする（decide）	searched
+mada-te-inai	N5	まだ〜ていない	searched
+mou-ta	N5	もう〜た	searched
+amari-nai	N5	あまり〜ない	searched
+zenzen-nai	N5	全然〜ない	searched
+dake	N5	〜だけ	searched
+kurai-gurai	N5	〜くらい / 〜ぐらい（approximately）	searched
+goro	N5	〜ごろ	searched
+nani-mo-nai-dare-mo-nai	N5	何も〜ない / 誰も〜ない	searched
+nani-ka-dare-ka-doko-ka	N5	何か / 誰か / どこか	searched
+kore-sore-are-dore	N5	これ / それ / あれ / どれ	searched
+kono-sono-ano-dono	N5	この / その / あの / どの	searched
+koko-soko-asoko-doko	N5	ここ / そこ / あそこ / どこ	searched
+ku-nai-katta-ku-nakatta	N5	〜くない / 〜かった / 〜くなかった	searched
+na-na-adjective	N5	〜な（na-adjective）	searched
+kute-de	N5	〜くて / 〜で	searched
+to-iu-named	N5	〜という（named）	searched
+ageru-kureru-morau	N4	あげる / くれる / もらう	searched
+te-ageru	N4	〜てあげる	searched
+te-kureru	N4	〜てくれる	searched
+te-morau	N4	〜てもらう	searched
+te-kudasaru-te-itadaku	N4	〜てくださる / 〜ていただく	searched
+te-iku	N4	〜ていく	searched
+te-kuru	N4	〜てくる	searched
+te-shimau-chau	N4	〜てしまう / 〜ちゃう	searched
+te-oku	N4	〜ておく	searched
+te-miru	N4	〜てみる	searched
+te-aru	N4	〜てある	searched
+toki	N4	〜とき	searched
+aida-aida-ni	N4	〜間 / 〜間に	searched
+sou-da-appearance	N4	〜そうだ（appearance）	searched
+sou-da-hearsay	N4	〜そうだ（hearsay）	searched
+rashii	N4	〜らしい（hearsay/conjecture）	searched
+you-da	N4	〜ようだ	searched
+mitai	N4	〜みたい	searched
+sugiru	N4	〜すぎる	searched
+kata	N4	〜方	searched
+chuu-juu	N4	〜中	searched
+tsumori	N4	〜つもり	searched
+yotei	N4	〜予定	searched
+koto-ni-suru	N4	〜ことにする	searched
+koto-ni-naru	N4	〜ことになる	searched
+koto-ga-dekiru	N4	〜ことができる	searched
+eru-rareru-potential	N4	〜える / 〜られる（potential）	searched
+reru-rareru-passive	N4	〜れる / 〜られる（passive）	searched
+seru-saseru	N4	〜せる / 〜させる	searched
+serareru-saserareru	N4	〜せられる / 〜させられる	searched
+ou-you	N4	〜おう / 〜よう	searched
+you-to-omou	N4	〜(よ)うと思う	searched
+e-ro	N4	〜え / 〜ろ	searched
+na-prohibition	N4	〜な（prohibition）	searched
+nasai	N4	〜なさい	searched
+ba	N4	〜ば	searched
+tara	N4	〜たら	searched
+nara	N4	〜なら	searched
+to	N4	〜と（conditional）	searched
+te-mo-de-mo	N4	〜ても / 〜でも	searched
+noni-although	N4	〜のに（although）	searched
+noni-purpose	N4	〜のに（purpose）	searched
+node	N4	〜ので	searched
+te-reason	N4	〜て（reason）	NOT SEARCHED
+shi	N4	〜し	searched
+kedo-keredomo	N4	〜けど / 〜けれども	searched
+tame-ni	N4	〜ために	searched
+you-ni	N4	〜ように（purpose）	searched
+you-ni-suru	N4	〜ようにする	searched
+you-ni-naru	N4	〜ようになる	searched
+te-hoshii	N4	〜てほしい	searched
+tagaru	N4	〜たがる	searched
+garu	N4	〜がる	searched
+kamo-shirenai	N4	〜かもしれない	searched
+darou	N4	〜だろう	searched
+hazu-da	N4	〜はずだ	searched
+hazu-ga-nai	N4	〜はずがない	searched
+n-desu-no-desu	N4	〜んです / 〜のです	searched
+ka-dou-ka	N4	〜かどうか	searched
+ka-embedded-question	N4	〜か（embedded question）	searched
+to-omou	N4	〜と思う	searched
+to-iu-say	N4	〜と言う	searched
+shika-nai	N4	〜しか〜ない	searched
+bakari	N4	〜ばかり	searched
+ta-bakari	N4	〜たばかり	searched
+tokoro-da	N4	〜ところだ	searched
+yasui-nikui	N4	〜やすい / 〜にくい	searched
+hajimeru-owaru-tsuzukeru	N4	〜始める / 〜終わる / 〜続ける	searched
+dasu	N4	〜出す	searched
+hodo-nai	N4	〜ほど〜ない	searched
+nakanaka-nai	N4	なかなか〜ない	searched
+zutsu	N4	〜ずつ	searched
+mo-emphasis	N4	〜も（emphasis）	searched
+made-ni	N4	〜までに	searched
+koto-ga-aru	N4	〜ことがある	searched
+nai-to-ikenai-nakucha	N4	〜ないといけない / 〜なくちゃ	searched
+sasete-kudasai	N4	〜させてください	searched
+sonkeigo	N4	尊敬語	searched
+kenjougo	N4	謙譲語	searched
+o-ni-naru	N4	お〜になる	searched
+o-suru	N4	お〜する	searched
+de-gozaimasu	N4	〜でございます	searched
+te-mo-kamawanai	N4	〜ても構わない	searched
+no-koto-nominalizer	N4	〜の / 〜こと（nominalizer）	searched
+ba-yokatta	N4	〜ばよかった	searched
+tara-dou	N4	〜たらどう	searched
+hou-ga-ii	N4	〜ほうがいい	searched
+toka-toka	N4	〜とか〜とか	searched
+nado	N4	〜など	searched
+de-mo-suggestion	N4	〜でも（suggestion）	searched
+sa	N4	〜さ	searched
+me	N4	〜目	searched
+oki-ni	N4	〜おきに	searched
+ku-suru-ni-suru	N4	〜くする / 〜にする（make）	searched
+ga-suru	N4	〜がする	searched
+kana-kashira	N4	〜かな / 〜かしら	searched
+te-kuremasen-ka-te-itadakemasen-ka	N4	〜てくれませんか / 〜ていただけませんか	searched
+naide	N4	〜ないで	searched
+wake-da	N3	〜わけだ	searched
+wake-de-wa-nai	N3	〜わけではない	searched
+wake-ga-nai	N3	〜わけがない	searched
+wake-ni-wa-ikanai	N3	〜わけにはいかない	searched
+mono-da	N3	〜ものだ	searched
+mono-de-wa-nai	N3	〜ものではない	searched
+mono-mon	N3	〜もの / 〜もん	NOT SEARCHED
+mono-dakara-mono-de	N3	〜ものだから / 〜もので	searched
+koto-da	N3	〜ことだ	searched
+koto-wa-nai	N3	〜ことはない	searched
+koto-ni-shite-iru	N3	〜ことにしている	searched
+koto-ni-natte-iru	N3	〜ことになっている	searched
+koto-instruction	N3	〜こと（instruction）	NOT SEARCHED
+you-ni-iu-you-ni-tanomu	N3	〜ように言う / 〜ように頼む	searched
+you-to-suru	N3	〜ようとする	searched
+sou-ni-nai-sou-mo-nai	N3	〜そうにない / 〜そうもない	searched
+ippou-da	N3	〜一方だ	searched
+ippou-de	N3	〜一方で	searched
+ni-taishite	N3	〜に対して	searched
+ni-tsuite	N3	〜について	searched
+ni-yotte-ni-yoru	N3	〜によって / 〜による	searched
+ni-yoru-to-ni-yoreba	N3	〜によると / 〜によれば	searched
+bakari-de-naku	N3	〜ばかりでなく	searched
+dake-de-naku	N3	〜だけでなく	searched
+mo-ba-mo	N3	〜も〜ば〜も	searched
+rashii-typical-of	N3	〜らしい（typical of）	searched
+ppoi	N3	〜っぽい	searched
+teki	N3	〜的	searched
+you-na-you-ni-like	N3	〜ような / 〜ように（like）	searched
+marude-you-da	N3	まるで〜ようだ	searched
+ni-chigai-nai	N3	〜に違いない	searched
+ni-kimatte-iru	N3	〜に決まっている	searched
+ki-ga-suru	N3	〜気がする	searched
+zu-ni	N3	〜ずに	searched
+mama	N3	〜まま	searched
+uchi-ni	N3	〜うちに	searched
+tokoro-ni-tokoro-e-tokoro-o	N3	〜ところに / 〜ところへ / 〜ところを	searched
+ba-hodo	N3	〜ば〜ほど	searched
+hodo	N3	〜ほど	searched
+kurai-gurai-extent	N3	〜くらい / 〜ぐらい（extent）	searched
+sae	N3	〜さえ	searched
+sae-ba	N3	〜さえ〜ば	searched
+koso	N3	〜こそ	searched
+to-shite	N3	〜として	searched
+ni-totte	N3	〜にとって	searched
+ni-shite-wa	N3	〜にしては	searched
+ni-shite-mo	N3	〜にしても	searched
+ni-kanshite-ni-kansuru	N3	〜に関して / 〜に関する	searched
+ni-kurabete	N3	〜に比べて	searched
+ni-kawatte	N3	〜に代わって	searched
+kawari-ni	N3	〜代わりに	searched
+ni-shitagatte	N3	〜に従って	searched
+ni-tsurete	N3	〜につれて	searched
+to-tomo-ni	N3	〜とともに	searched
+tabi-ni	N3	〜たびに	searched
+goto-ni	N3	〜ごとに	searched
+saichuu-ni	N3	〜最中に	searched
+tsuide-ni	N3	〜ついでに	searched
+okage-de	N3	〜おかげで	searched
+sei-de	N3	〜せいで	searched
+ta-totan-ta-totan-ni	N3	〜たとたん / 〜たとたんに	searched
+tara-ta	N3	〜たら〜た	searched
+tatte-datte	N3	〜たって / 〜だって	searched
+nai-koto-wa-nai	N3	〜ないことはない	searched
+te-shou-ga-nai-te-shikata-ga-nai	N3	〜てしょうがない / 〜てしかたがない	searched
+te-tamaranai	N3	〜てたまらない	searched
+te-hajimete	N3	〜てはじめて	searched
+te-bakari-iru	N3	〜てばかりいる	searched
+ba-ii	N3	〜ばいい	searched
+baai-wa	N3	〜場合（は）	searched
+to-sureba-to-shitara	N3	〜とすれば / 〜としたら	searched
+to-shite-mo	N3	〜としても	searched
+toka-hearsay	N3	〜とか（hearsay）	NOT SEARCHED
+tte	N3	〜って	searched
+to-iu-koto-da	N3	〜ということだ	searched
+to-iu-no-wa	N3	〜というのは	searched
+to-iu-yori	N3	〜というより	searched
+wari-ni-wari-ni-wa	N3	〜わりに / 〜わりには	searched
+kuse-ni	N3	〜くせに	searched
+kara-ni-kakete	N3	〜から〜にかけて	searched
+buri	N3	〜ぶり	NOT SEARCHED
+kke	N3	〜っけ	NOT SEARCHED
+masu-you-ni	N3	〜ますように	searched
+furi-o-suru	N3	〜ふりをする	searched
+muki-muke	N3	〜向き / 〜向け	searched
+gachi	N3	〜がち	NOT SEARCHED
+gimi	N3	〜気味	searched
+darake	N3	〜だらけ	searched
+kiru-kirenai	N3	〜切る / 〜切れない	searched
+kakeru	N3	〜かける	searched
+au	N3	〜合う	searched
+naosu	N3	〜直す	searched
+zurai	N3	〜づらい	searched
+beki-da-beki-de-wa-nai	N3	〜べきだ / 〜べきではない	searched
+hodo-wa-nai	N3	〜ほど〜はない	searched
+shika-nai-no-choice	N3	〜しかない	searched
+made-even	N3	〜まで（even）	NOT SEARCHED
+tokoro-datta	N3	〜ところだった	searched
+kara-to-itte	N3	〜からといって	searched
+toori-ni-doori-ni	N3	〜とおりに / 〜どおりに	searched
+nanka-nante	N3	〜なんか / 〜なんて	searched
+ni-saishite	N2	〜に際して	searched
+ni-tomonatte	N2	〜に伴って	searched
+ni-oujite	N2	〜に応じて	searched
+ni-hanshite	N2	〜に反して	searched
+ni-motozuite	N2	〜に基づいて	searched
+ni-watatte	N2	〜にわたって	searched
+ni-sotte	N2	〜に沿って	searched
+ni-kuwaete	N2	〜に加えて	searched
+o-megutte	N2	〜をめぐって	searched
+o-tsuujite-o-tooshite	N2	〜を通じて / 〜を通して	searched
+o-kikkake-ni	N2	〜をきっかけに	searched
+o-nozoite	N2	〜を除いて	searched
+ka-no-you-da	N2	〜かのようだ	searched
+kanenai	N2	〜かねない	searched
+kaneru	N2	〜かねる	searched
+zu-ni-wa-irarenai	N2	〜ずにはいられない	searched
+zaru-o-enai	N2	〜ざるを得ない	searched
+te-wa-irarenai	N2	〜てはいられない	searched
+mono-ka	N2	〜ものか	searched
+mono-no	N2	〜ものの	searched
+mono-nara	N2	〜ものなら	searched
+kurai-nara-gurai-nara	N2	〜くらいなら / 〜ぐらいなら	searched
+mono-ga-aru	N2	〜ものがある	searched
+koto-ka	N2	〜ことか	searched
+koto-ni-wa	N2	〜ことに（は）	searched
+koto-dakara	N2	〜ことだから	searched
+koto-naku	N2	〜ことなく	searched
+koto-kara	N2	〜ことから	searched
+nai-koto-ni-wa	N2	〜ないことには	searched
+koto-wa-ga	N2	〜ことは〜が	searched
+ageku	N2	〜あげく	searched
+amari-ni	N2	〜あまり（に）	searched
+ue-ni	N2	〜上（に）	searched
+ue-de	N2	〜上で	searched
+ijou-wa	N2	〜以上（は）	searched
+kara-ni-wa	N2	〜からには	searched
+kara-koso	N2	〜からこそ	searched
+kara-shite	N2	〜からして	searched
+kara-suru-to-kara-sureba	N2	〜からすると / 〜からすれば	searched
+kara-miru-to-kara-mireba	N2	〜から見ると / 〜から見れば	searched
+kara-iu-to-kara-itte	N2	〜からいうと / 〜からいって	searched
+sai-ni	N2	〜際（に）	searched
+shidai	N2	〜次第	searched
+shidai-da-shidai-de	N2	〜次第だ / 〜次第で	searched
+sue-ni	N2	〜末（に）	searched
+ta-tokoro-de	N2	〜たところで	searched
+ta-tokoro	N2	〜たところ	searched
+bakari-ka	N2	〜ばかりか	searched
+bakari-ni	N2	〜ばかりに	searched
+bakari-da	N2	〜ばかりだ	searched
+wa-mochiron-wa-motoyori	N2	〜はもちろん / 〜はもとより	searched
+wa-tomokaku	N2	〜はともかく	searched
+wa-sateoki	N2	〜はさておき	searched
+hanmen	N2	〜反面 / 〜半面	searched
+nagara-mo	N2	〜ながら（も）	searched
+tsutsu-tsutsu-mo	N2	〜つつ / 〜つつも	searched
+tsutsu-aru	N2	〜つつある	searched
+ppanashi	N2	〜っぱなし	searched
+nuku	N2	〜抜く	searched
+uru-enai	N2	〜得る / 〜得ない	searched
+gatai	N2	〜がたい	searched
+you-ga-nai	N2	〜ようがない	searched
+you-de-wa	N2	〜ようでは	searched
+te-naranai	N2	〜てならない	searched
+te-koso	N2	〜てこそ	searched
+te-kara-de-nai-to	N2	〜てからでないと	searched
+te-irai	N2	〜て以来	searched
+ni-suginai	N2	〜に過ぎない	searched
+ni-kagiru	N2	〜に限る	searched
+ni-kagirazu	N2	〜に限らず	searched
+ni-kagitte	N2	〜に限って	searched
+ni-kagiri	N2	〜に限り	searched
+kagiri	N2	〜かぎり	searched
+nai-kagiri	N2	〜ないかぎり	searched
+ni-kakete-wa	N2	〜にかけては	searched
+ni-kotaete	N2	〜にこたえて	searched
+ni-sakidatte	N2	〜に先立って	searched
+ni-shiro-ni-seyo	N2	〜にしろ / 〜にせよ	searched
+ni-sureba-ni-shitara	N2	〜にすれば / 〜にしたら	searched
+ni-soui-nai	N2	〜に相違ない	searched
+ni-koshita-koto-wa-nai	N2	〜に越したことはない	searched
+ni-hoka-naranai	N2	〜にほかならない	searched
+ni-mo-kakawarazu	N2	〜にもかかわらず	searched
+ni-atatte	N2	〜にあたって	searched
+ni-oite-ni-okeru	N2	〜において / 〜における	searched
+ni-kakawarazu	N2	〜にかかわらず	searched
+ni-kakawaru	N2	〜にかかわる	searched
+ni-tsuki	N2	〜につき	searched
+ni-mukete	N2	〜に向けて	searched
+no-moto-de-no-moto-ni	N2	〜のもとで / 〜のもとに	searched
+nuki-de-nuki-ni	N2	〜抜きで / 〜抜きに	searched
+o-komete	N2	〜をこめて	searched
+o-chuushin-ni	N2	〜を中心に	searched
+o-moto-ni	N2	〜をもとに	searched
+o-towazu	N2	〜を問わず	searched
+o-hajime	N2	〜をはじめ	searched
+o-to-shite	N2	〜を〜として	NOT SEARCHED
+ka-to-iu-to	N2	〜かというと	searched
+ka-to-omottara-ka-to-omou-to	N2	〜かと思ったら / 〜かと思うと	searched
+ka-nai-ka-no-uchi-ni	N2	〜か〜ないかのうちに	searched
+kiri	N2	〜きり	NOT SEARCHED
+ge	N2	〜げ	NOT SEARCHED
+kko-nai	N2	〜っこない	searched
+dokoro-ka	N2	〜どころか	searched
+dokoro-de-wa-nai	N2	〜どころではない	searched
+to-wa-kagiranai	N2	〜とは限らない	searched
+to-iu-mono-da	N2	〜というものだ	searched
+to-iu-mono-de-wa-nai	N2	〜というものではない	searched
+to-itte-mo	N2	〜といっても	searched
+to-ieba-to-iu-to	N2	〜といえば / 〜というと	searched
+hoka-nai	N2	〜ほかない	searched
+mai	N2	〜まい	NOT SEARCHED
+you-de-wa-nai-ka	N2	〜（よ）うではないか	searched
+mo-kamawazu	N2	〜もかまわず	searched
+jou	N2	〜上	NOT SEARCHED
+osore-ga-aru	N2	〜おそれがある	searched
+sei-ka	N2	〜せいか	searched
+dake-atte-dake-ni	N2	〜だけあって / 〜だけに	searched
+dake-no-koto-wa-aru	N2	〜だけのことはある	searched
+tatoe-te-mo	N2	たとえ〜ても	searched
+yara-yara	N2	〜やら〜やら	searched
+zu-ni-sumu-naide-sumu	N2	〜ずに済む / 〜ないで済む	searched
+you-ni-yotte-wa	N2	〜ようによっては	searched
+gatera	N1	〜がてら	searched
+katawara	N1	〜かたわら	searched
+ga-hayai-ka	N1	〜が早いか	searched
+sura	N1	〜すら	searched
+zukume	N1	〜ずくめ	searched
+tara-saigo-ga-saigo	N1	〜たら最後 / 〜が最後	searched
+te-kara-to-iu-mono	N1	〜てからというもの	searched
+te-yamanai	N1	〜てやまない	searched
+to-aimatte	N1	〜と相まって	searched
+tomo-naru-to-tomo-nareba	N1	〜ともなると / 〜ともなれば	searched
+nara-de-wa	N1	〜ならでは	searched
+beku	N1	〜べく	NOT SEARCHED
+you-mono-nara	N1	〜(よ)うものなら	searched
+ni-itaru-ni-itatte-ni-itatte-wa	N1	〜に至る / 〜に至って / 〜に至っては	searched
+o-kinjienai	N1	〜を禁じ得ない	searched
+o-yogi-naku-sareru	N1	〜を余儀なくされる	searched
+atte-no	N1	〜あっての	searched
+ikan-de-ikan-ni-yorazu	N1	〜いかんで / 〜いかんによらず	searched
+you-ga-you-to	N1	〜(よ)うが / 〜(よ)うと	searched
+you-ga-mai-ga-you-to-mai-to	N1	〜(よ)うが〜まいが / 〜(よ)うと〜まいと	searched
+you-ni-mo-nai	N1	〜(よ)うにも〜ない	searched
+kagiri-da	N1	〜かぎりだ	searched
+katagata	N1	〜かたがた	searched
+ka-to-omoikiya	N1	〜かと思いきや	searched
+kirai-ga-aru	N1	〜きらいがある	searched
+kiwamaru-kiwamari-nai	N1	〜極まる / 〜極まりない	searched
+no-kiwami	N1	〜の極み	searched
+gotoki-gotoku	N1	〜ごとき / 〜ごとく	searched
+koto-tote	N1	〜こととて	searched
+koto-nashi-ni	N1	〜ことなしに	searched
+shimatsu-da	N1	〜始末だ	searched
+zu-jimai	N1	〜ずじまい	searched
+zu-ni-wa-okanai-nai-de-wa-okanai	N1	〜ずにはおかない / 〜ないではおかない	searched
+zu-ni-wa-sumanai-nai-de-wa-sumanai	N1	〜ずにはすまない / 〜ないではすまない	searched
+soba-kara	N1	〜そばから	searched
+tari-tomo	N1	〜たりとも	searched
+dani	N1	〜だに	NOT SEARCHED
+taru	N1	〜たる	NOT SEARCHED
+tsu-tsu	N1	〜つ〜つ	NOT SEARCHED
+de-are-de-are-de-are	N1	〜であれ / 〜であれ〜であれ	searched
+te-shikaru-beki-da	N1	〜てしかるべきだ	searched
+de-wa-aru-mai-shi	N1	〜ではあるまいし	searched
+temae	N1	〜手前	NOT SEARCHED
+te-mo-sashitsukae-nai	N1	〜てもさしつかえない	searched
+to-atte	N1	〜とあって	searched
+to-areba	N1	〜とあれば	searched
+to-ii-to-ii	N1	〜といい〜といい	searched
+to-itta-tokoro-da	N1	〜といったところだ	searched
+to-iedomo	N1	〜といえども	searched
+to-ittara-nai	N1	〜といったらない	searched
+to-kitara	N1	〜ときたら	searched
+to-shita-tokoro-de-ni-shita-tokoro-de	N1	〜としたところで / 〜にしたところで	searched
+to-wa	N1	〜とは	NOT SEARCHED
+to-bakari-ni	N1	〜とばかりに	searched
+to-mo-naku-to-mo-nashi-ni	N1	〜ともなく / 〜ともなしに	NOT SEARCHED
+nai-made-mo	N1	〜ないまでも	searched
+nai-mono-de-mo-nai	N1	〜ないものでもない	searched
+nagara-ni-nagara-no	N1	〜ながらに / 〜ながらの	searched
+nakushite-wa	N1	〜なくして(は)	NOT SEARCHED
+nashi-ni-wa	N1	〜なしに(は)	NOT SEARCHED
+nara-iza-shirazu-wa-iza-shirazu	N1	〜ならいざしらず / 〜はいざしらず	searched
+nara-mada-shimo	N1	〜ならまだしも	searched
+nari	N1	〜なり	NOT SEARCHED
+nari-nari	N1	〜なり〜なり	searched
+nari-ni-nari-no	N1	〜なりに / 〜なりの	searched
+ni-wa-ataranai	N1	〜には当たらない	searched
+ni-atte	N1	〜にあって	searched
+ni-kataku-nai	N1	〜に難くない	searched
+ni-shite	N1	〜にして	NOT SEARCHED
+ni-sokushite	N1	〜に即して	searched
+ni-taeru-ni-taenai	N1	〜に堪える / 〜に堪えない	searched
+ni-taru	N1	〜に足る	searched
+ni-todomarazu	N1	〜にとどまらず	searched
+ni-hikikae	N1	〜にひきかえ	searched
+ni-mo-mashite	N1	〜にもまして	searched
+no-itari	N1	〜の至り	searched
+nomi-narazu	N1	〜のみならず	searched
+wa-oroka	N1	〜はおろか	searched
+ba-koso	N1	〜ばこそ	searched
+ba-sore-made-da	N1	〜ばそれまでだ	searched
+bekarazu-bekarazaru	N1	〜べからず / 〜べからざる	searched
+beku-mo-nai	N1	〜べくもない	searched
+majiki	N1	〜まじき	searched
+made-mo-nai	N1	〜までもない	searched
+made-da-made-no-koto-da	N1	〜までだ / 〜までのことだ	searched
+mamire	N1	〜まみれ	searched
+meku	N1	〜めく	NOT SEARCHED
+mo-saru-koto-nagara	N1	〜もさることながら	searched
+mono-o	N1	〜ものを	NOT SEARCHED
+ya-ina-ya	N1	〜や否や	searched
+yue-ni	N1	〜ゆえ(に)	searched
+o-oite	N1	〜をおいて	searched
+o-kawakiri-ni	N1	〜を皮切りに	searched
+o-ki-ni	N1	〜を機に	searched
+o-kagiri-ni	N1	〜を限りに	searched
+o-motte	N1	〜をもって	NOT SEARCHED
+o-mono-tomo-sezu	N1	〜をものともせず	searched
+o-yoso-ni	N1	〜をよそに	searched
+n-ga-tame-ni	N1	〜んがため(に)	searched
+n-bakari	N1	〜んばかり	searched
+ue-wa	N1	〜うえは	searched
+tada-nomi	N1	ただ〜のみ	searched
+dano-dano	N1	〜だの〜だの	searched
+te-habakaranai	N1	〜てはばからない	searched
+tomo-arou	N1	〜ともあろう	searched
+ni-kakotsukete	N1	〜にかこつけて	searched
+ni-iwasereba	N1	〜に言わせれば	searched
+ni-kamakete	N1	〜にかまけて	searched
+kai-mo-naku	N1	〜かいもなく	searched
+kitte-no	N1	〜きっての	searched
+zu-tomo	N1	〜ずとも	searched
+to-wa-ie	N1	〜とはいえ	searched
+beku-shite	N1	〜べくして	searched
+jimiru-jimita	N1	〜じみる / 〜じみた	searched
+gurumi	N1	〜ぐるみ	searched
+ni-mo-hodo-ga-aru	N1	〜にもほどがある	searched
+o-ii-koto-ni	N1	〜をいいことに	searched
+ni-nottotte	N1	〜に則って	searched
+kare-kare	N1	〜かれ〜かれ	searched
+koto-kono-ue-nai	N1	〜ことこの上ない	searched
+to-mieru-to-miete	N1	〜とみえる / 〜とみえて	searched
+o-fumaete	N1	〜を踏まえて	searched
+nai-to-mo-kagiranai	N1	〜ないとも限らない	searched

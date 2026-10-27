@@ -1,0 +1,816 @@
+{
+ "1": {
+  "gold": [
+   "ni-destination",
+   "ga-subject",
+   "masu"
+  ]
+ },
+ "2": {
+  "gold": [
+   "ni-time",
+   "no",
+   "ni-location",
+   "wa",
+   "da"
+  ]
+ },
+ "3": {
+  "gold": [
+   "mo",
+   "da",
+   "to-omou",
+   "node",
+   "te-kudasai",
+   "ne"
+  ]
+ },
+ "4": {
+  "gold": [
+   "wa",
+   "na-na-adjective",
+   "desu"
+  ]
+ },
+ "5": {
+  "gold": [
+   "wa",
+   "de-place",
+   "reru-rareru-passive",
+   "te-iru",
+   "masu"
+  ]
+ },
+ "6": {
+  "gold": [
+   "kono-sono-ano-dono",
+   "eru-rareru-potential",
+   "te-iru",
+   "ne",
+   "da"
+  ]
+ },
+ "7": {
+  "gold": [
+   "kore-sore-are-dore",
+   "wa",
+   "o",
+   "ku-suru-ni-suru",
+   "ou-you",
+   "you-to-suru",
+   "ku-naru-ni-naru",
+   "da"
+  ]
+ },
+ "8": {
+  "gold": [
+   "wa",
+   "kono-sono-ano-dono",
+   "o",
+   "te-shimau-chau",
+   "te-reason",
+   "da"
+  ]
+ },
+ "9": {
+  "gold": [
+   "o-suru",
+   "eru-rareru-potential",
+   "masen",
+   "nani-ka-dare-ka-doko-ka",
+   "no",
+   "ni-indirect-object",
+   "te-kudasai"
+  ]
+ },
+ "10": {
+  "gold": [
+   "o",
+   "te-iru",
+   "tara",
+   "to-omou"
+  ]
+ },
+ "11": {
+  "gold": [
+   "wa",
+   "o",
+   "ta"
+  ]
+ },
+ "12": {
+  "gold": [
+   "wa",
+   "ta"
+  ]
+ },
+ "13": {
+  "gold": [
+   "ga-subject",
+   "ku-nai-katta-ku-nakatta",
+   "ta",
+   "dake",
+   "yo"
+  ]
+ },
+ "14": {
+  "gold": [
+   "o",
+   "te-kuru",
+   "ta"
+  ]
+ },
+ "15": {
+  "gold": [
+   "no",
+   "o",
+   "te-iru"
+  ]
+ },
+ "16": {
+  "gold": [
+   "wa"
+  ]
+ },
+ "17": {
+  "gold": [
+   "wa",
+   "ga-suki-ga-kirai",
+   "da"
+  ]
+ },
+ "18": {
+  "gold": [
+   "to-and",
+   "tte",
+   "te-iru",
+   "n-desu-no-desu"
+  ]
+ },
+ "19": {
+  "gold": [
+   "kono-sono-ano-dono",
+   "wa",
+   "hajimeru-owaru-tsuzukeru",
+   "ta-bakari",
+   "desu"
+  ]
+ },
+ "20": {
+  "gold": [
+   "sugiru",
+   "te-shimau-chau",
+   "ta"
+  ]
+ },
+ "21": {
+  "gold": [
+   "wa",
+   "te-mo-de-mo",
+   "te-iru",
+   "beki-da-beki-de-wa-nai"
+  ]
+ },
+ "22": {
+  "gold": [
+   "no",
+   "wa",
+   "te-iru"
+  ]
+ },
+ "23": {
+  "gold": [
+   "no",
+   "wa",
+   "n-desu-no-desu",
+   "yo"
+  ]
+ },
+ "24": {
+  "gold": [
+   "tte"
+  ],
+  "fp": [
+   "te-aru"
+  ]
+ },
+ "25": {
+  "gold": [
+   "wa",
+   "no",
+   "ni-destination",
+   "te-iru"
+  ]
+ },
+ "26": {
+  "gold": [
+   "wa",
+   "ga-subject",
+   "no",
+   "no-koto-nominalizer",
+   "o",
+   "te-iru"
+  ]
+ },
+ "27": {
+  "gold": [
+   "tte",
+   "made",
+   "tsumori",
+   "kana-kashira"
+  ]
+ },
+ "28": {
+  "gold": [
+   "ga-subject",
+   "no",
+   "darou"
+  ]
+ },
+ "29": {
+  "gold": [
+   "o",
+   "ge",
+   "ta",
+   "wa"
+  ]
+ },
+ "30": {
+  "gold": [
+   "wa",
+   "kono-sono-ano-dono",
+   "o",
+   "ku-suru-ni-suru",
+   "ta"
+  ]
+ },
+ "31": {
+  "gold": [
+   "ni-indirect-object",
+   "to",
+   "no",
+   "o",
+   "masu"
+  ]
+ },
+ "32": {
+  "gold": [
+   "desu"
+  ]
+ },
+ "33": {
+  "gold": [
+   "ga-subject",
+   "o",
+   "no",
+   "ku-suru-ni-suru",
+   "te-kureru",
+   "ta"
+  ]
+ },
+ "34": {
+  "gold": [
+   "wa",
+   "nai",
+   "ta",
+   "kono-sono-ano-dono",
+   "ni-destination",
+   "eru-rareru-potential",
+   "n-desu-no-desu",
+   "ga-but",
+   "ni-location",
+   "koto-ni-suru"
+  ]
+ },
+ "35": {
+  "gold": [
+   "wa",
+   "da"
+  ]
+ },
+ "36": {
+  "gold": [
+   "ga-subject",
+   "n-desu-no-desu"
+  ]
+ },
+ "37": {
+  "gold": [
+   "wa",
+   "o",
+   "te-iru",
+   "ta",
+   "kedo-keredomo",
+   "nakereba-naranai-nakute-wa-ikenai",
+   "nai",
+   "n-desu-no-desu"
+  ]
+ },
+ "38": {
+  "gold": [
+   "ni-destination",
+   "kara-reason"
+  ]
+ },
+ "39": {
+  "gold": [
+   "kono-sono-ano-dono",
+   "wa",
+   "ou-you",
+   "to-omou",
+   "ta"
+  ]
+ },
+ "40": {
+  "gold": [
+   "no",
+   "o",
+   "you-na-you-ni-like",
+   "teki",
+   "wa",
+   "nai",
+   "ta"
+  ]
+ },
+ "41": {
+  "gold": [
+   "nani-mo-nai-dare-mo-nai",
+   "nai",
+   "ta",
+   "n-desu-no-desu"
+  ]
+ },
+ "42": {
+  "gold": [
+   "wa",
+   "o",
+   "ta"
+  ]
+ },
+ "43": {
+  "gold": [
+   "kono-sono-ano-dono",
+   "wa"
+  ]
+ },
+ "44": {
+  "gold": [
+   "wa",
+   "kore-sore-are-dore",
+   "made",
+   "o",
+   "ta-koto-ga-aru",
+   "nai",
+   "ta"
+  ]
+ },
+ "45": {
+  "gold": [
+   "wa",
+   "kono-sono-ano-dono",
+   "serareru-saserareru",
+   "ta"
+  ]
+ },
+ "46": {
+  "gold": [
+   "wa",
+   "no",
+   "da"
+  ]
+ },
+ "47": {
+  "gold": [
+   "wa",
+   "no",
+   "o",
+   "masu"
+  ]
+ },
+ "48": {
+  "gold": [
+   "kara-from",
+   "o",
+   "ta",
+   "yo"
+  ]
+ },
+ "49": {
+  "gold": [
+   "ka-embedded-question",
+   "ga-subject",
+   "desu"
+  ]
+ },
+ "50": {
+  "gold": [
+   "wa",
+   "kurai-gurai-extent",
+   "eru-rareru-potential"
+  ]
+ },
+ "51": {
+  "gold": [
+   "e"
+  ]
+ },
+ "52": {
+  "gold": [
+   "wa",
+   "reru-rareru-passive",
+   "te-iru"
+  ]
+ },
+ "53": {
+  "gold": [
+   "kara-from",
+   "o",
+   "no-koto-nominalizer",
+   "wa",
+   "ku-nai-katta-ku-nakatta"
+  ]
+ },
+ "54": {
+  "gold": [
+   "wa",
+   "ta"
+  ]
+ },
+ "55": {
+  "gold": [
+   "wa",
+   "kono-sono-ano-dono",
+   "o",
+   "ta"
+  ]
+ },
+ "56": {
+  "gold": [
+   "wa",
+   "mo",
+   "o",
+   "sugiru",
+   "da",
+   "yo"
+  ]
+ },
+ "57": {
+  "gold": [
+   "wa",
+   "ni-location",
+   "te-iru",
+   "rashii"
+  ]
+ },
+ "58": {
+  "gold": [
+   "wa",
+   "de-wa-arimasen-ja-nai"
+  ]
+ },
+ "59": {
+  "gold": [
+   "no",
+   "de-place",
+   "o",
+   "tai",
+   "n-desu-no-desu"
+  ]
+ },
+ "60": {
+  "gold": [
+   "no-koto-nominalizer",
+   "wa",
+   "no",
+   "da",
+   "to-omou",
+   "masu"
+  ],
+  "fp": [
+   "you-da"
+  ]
+ },
+ "61": {
+  "gold": [
+   "wa",
+   "no",
+   "ga-subject",
+   "na-na-adjective",
+   "o",
+   "ta"
+  ]
+ },
+ "62": {
+  "gold": [
+   "wa",
+   "ku-naru-ni-naru",
+   "tte",
+   "te-iru",
+   "ta",
+   "yo"
+  ]
+ },
+ "63": {
+  "gold": [
+   "no",
+   "wa",
+   "mada-te-inai",
+   "o",
+   "nai"
+  ]
+ },
+ "64": {
+  "gold": [
+   "wa",
+   "no",
+   "o",
+   "te-iru",
+   "ta",
+   "mono-mon"
+  ]
+ },
+ "65": {
+  "gold": [
+   "ka-question"
+  ]
+ },
+ "66": {
+  "gold": [
+   "te-iru",
+   "yo",
+   "mo"
+  ]
+ },
+ "67": {
+  "gold": [
+   "o",
+   "you-ga-you-to",
+   "kore-sore-are-dore",
+   "wa",
+   "shidai-da-shidai-de",
+   "da"
+  ]
+ },
+ "68": {
+  "gold": [
+   "no",
+   "wa",
+   "o"
+  ]
+ },
+ "69": {
+  "gold": [
+   "no",
+   "ga-suki-ga-kirai",
+   "da"
+  ]
+ },
+ "70": {
+  "gold": [
+   "no",
+   "o"
+  ]
+ },
+ "71": {
+  "gold": [
+   "mae-ni",
+   "no-koto-nominalizer",
+   "wa",
+   "nai",
+   "ne"
+  ]
+ },
+ "72": {
+  "gold": [
+   "kono-sono-ano-dono",
+   "wa",
+   "ni-time"
+  ]
+ },
+ "73": {
+  "gold": [
+   "ga-subject",
+   "da",
+   "yo"
+  ]
+ },
+ "74": {
+  "gold": [
+   "no-koto-nominalizer",
+   "o",
+   "ou-you"
+  ]
+ },
+ "75": {
+  "gold": [
+   "no",
+   "wa",
+   "nai-to-ikenai-nakucha",
+   "da",
+   "yo"
+  ]
+ },
+ "76": {
+  "gold": [
+   "no",
+   "ni-location",
+   "ga-subject",
+   "te-iru"
+  ],
+  "fp": [
+   "ni-yotte-ni-yoru"
+  ]
+ },
+ "77": {
+  "gold": [
+   "kono-sono-ano-dono",
+   "wa",
+   "te-iru"
+  ]
+ },
+ "78": {
+  "gold": [
+   "kono-sono-ano-dono",
+   "wa",
+   "te-iru",
+   "nai",
+   "n-desu-no-desu"
+  ]
+ },
+ "79": {
+  "gold": [
+   "ga-subject",
+   "wa",
+   "mo",
+   "n-bakari",
+   "ta"
+  ]
+ },
+ "80": {
+  "gold": [
+   "kono-sono-ano-dono",
+   "wa"
+  ]
+ },
+ "81": {
+  "gold": [
+   "no",
+   "nai",
+   "you-ni",
+   "ne"
+  ]
+ },
+ "82": {
+  "gold": [
+   "wa",
+   "da"
+  ]
+ },
+ "83": {
+  "gold": [
+   "wa",
+   "desu"
+  ]
+ },
+ "84": {
+  "gold": [
+   "no"
+  ]
+ },
+ "85": {
+  "gold": []
+ },
+ "86": {
+  "gold": [
+   "chuu-juu",
+   "no",
+   "ga-subject",
+   "reru-rareru-passive",
+   "te-iru",
+   "ta",
+   "to-iu-koto-da"
+  ],
+  "fp": [
+   "to-iu-say"
+  ]
+ },
+ "87": {
+  "gold": [
+   "ni-location",
+   "ga-subject",
+   "te-iru",
+   "masu"
+  ]
+ },
+ "88": {
+  "gold": [
+   "kore-sore-are-dore",
+   "wa",
+   "kono-sono-ano-dono",
+   "hodo-nai"
+  ]
+ },
+ "89": {
+  "gold": [
+   "o",
+   "o-suru",
+   "eru-rareru-potential",
+   "masu",
+   "ka-question"
+  ]
+ },
+ "90": {
+  "gold": [
+   "wa",
+   "ni-destination",
+   "ta",
+   "yo"
+  ]
+ },
+ "91": {
+  "gold": [
+   "no",
+   "ga-subject",
+   "mashita"
+  ]
+ },
+ "92": {
+  "gold": [
+   "wa",
+   "ga-subject",
+   "ka-dou-ka",
+   "da"
+  ]
+ },
+ "93": {
+  "gold": [
+   "nani-ka-dare-ka-doko-ka",
+   "ga-subject",
+   "o",
+   "te-iku",
+   "no-koto-nominalizer",
+   "mashita",
+   "ka-question"
+  ]
+ },
+ "94": {
+  "gold": [
+   "wa",
+   "tame-ni",
+   "kono-sono-ano-dono",
+   "o",
+   "ta"
+  ]
+ },
+ "95": {
+  "gold": [
+   "no",
+   "chuu-juu",
+   "de-place",
+   "te-iru"
+  ]
+ },
+ "96": {
+  "gold": [
+   "o",
+   "tai",
+   "n-desu-no-desu"
+  ]
+ },
+ "97": {
+  "gold": [
+   "wa",
+   "no",
+   "o",
+   "ga-subject",
+   "ga-aru-ga-iru"
+  ]
+ },
+ "98": {
+  "gold": [
+   "wa",
+   "toki",
+   "ni-time",
+   "te-iru",
+   "mashita"
+  ]
+ },
+ "99": {
+  "gold": [
+   "wa",
+   "ni-indirect-object",
+   "koko-soko-asoko-doko",
+   "e",
+   "e-ro",
+   "ta"
+  ]
+ },
+ "100": {
+  "gold": [
+   "wa",
+   "ga-subject",
+   "ka-embedded-question",
+   "te-iru"
+  ]
+ }
+}

@@ -1,0 +1,364 @@
+<html><body style='background:#2a2a2a;margin:0;height:400px;position:relative'>
+    <style>
+      #jlpt-mini-widget {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 220px;
+        margin: 8px 12px;
+        padding: 10px 12px;
+        background: rgba(20,20,20,0.55);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 8px;
+        font-family: inherit;
+        pointer-events: auto;
+        cursor: pointer;
+        box-sizing: border-box;
+        z-index: 10;
+        text-decoration: none;
+        display: block;
+        /* Anki wraps the deck list in <center>, whose -webkit-center
+           alignment centres every block inside (it centred the rank bar's
+           fill). The belt bar centres itself with margin: auto. */
+        text-align: left;
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }
+      #jlpt-mini-widget:hover {
+        background: rgba(35,35,35,0.7);
+        border-color: rgba(255,255,255,0.18);
+      }
+      .jlpt-mini-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 4px;
+      }
+      .jlpt-mini-row:last-child {
+        margin-bottom: 0;
+      }
+      .jlpt-mini-label {
+        width: 24px;
+        font-size: 11px;
+        font-weight: bold;
+        text-align: center;
+        flex-shrink: 0;
+      }
+      .jlpt-mini-track {
+        position: relative;
+        flex: 1;
+        height: 14px;
+        border-radius: 4px;
+        background: #1e1e1e;
+        overflow: visible;
+        margin-left: 6px;
+      }
+      .jlpt-mini-fill {
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        border-radius: 4px;
+        min-width: 0;
+        transition: width 0.2s ease;
+      }
+      .jlpt-mini-goal {
+        margin: 6px 0 2px;
+      }
+      .jlpt-mini-goal-text {
+        font-size: 11px;
+        font-weight: 600;
+        margin-bottom: 3px;
+      }
+      .jlpt-mini-goal-track {
+        height: 4px;
+        border-radius: 2px;
+        background: #1e1e1e;
+        position: relative;
+      }
+      .jlpt-mini-goal-fill {
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        border-radius: 2px;
+      }
+      .jlpt-mini-rank {
+        margin-top: 8px;
+        padding-top: 6px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+      .jlpt-mini-rank-art {
+        /* Mini RankBadge: background, border and glow set inline per rank */
+        margin-top: 10px;
+        padding: 6px 8px 8px;
+        border-radius: 8px;
+      }
+      .jlpt-mini-rank-art .jlpt-mini-rank-text {
+        color: #fff;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+      }
+      .jlpt-mini-rank-art .jlpt-mini-rank-count {
+        color: #eee;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+      }
+      .jlpt-mini-art {
+        display: block;
+        width: 100%;
+        height: auto;
+        margin: 0 auto 6px;
+        border-radius: 5px;
+      }
+      video.jlpt-mini-art {
+        aspect-ratio: 3 / 2;      /* sized before the video loads */
+        object-fit: cover;
+        pointer-events: none;
+      }
+      /* Amaterasu: a breathing divine glow on the badge and her picture */
+      .jlpt-divine {
+        animation: jlpt-divine-glow 3.2s ease-in-out infinite;
+      }
+      .jlpt-divine .jlpt-mini-art {
+        animation: jlpt-divine-art 3.2s ease-in-out infinite;
+      }
+      .jlpt-divine-art-wrap {
+        position: relative;
+      }
+      /* Ray fan centred on her bun (49.4% / 19% of the picture), turning
+         slowly, fading out with distance; drawn behind her picture but over
+         the N5–N1 bars above, so it breaks out of the badge. */
+      .jlpt-divine-art-wrap::before {
+        content: "";
+        position: absolute;
+        left: 49.4%; top: 19%;
+        width: 460px; height: 460px;
+        margin: -230px 0 0 -230px;
+        background: repeating-conic-gradient(from 0deg,
+                      rgba(255,255,255,0.75) 0deg 4deg, rgba(255,246,200,0.25) 4deg 7deg,
+                      rgba(255,255,255,0) 7deg 15deg);
+        -webkit-mask-image: radial-gradient(circle, #000 0%, rgba(0,0,0,0.7) 22%,
+                                            rgba(0,0,0,0.25) 40%, transparent 62%);
+        animation: jlpt-rays 48s linear infinite, jlpt-rays-breathe 3.2s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .jlpt-divine-art-wrap .jlpt-mini-art {
+        position: relative;
+        z-index: 1;
+        border-radius: 0;
+        animation: none;
+        /* feathered edges: she floats in the light */
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%),
+                            linear-gradient(to bottom, transparent 0%, #000 12%, #000 78%, transparent 100%);
+        -webkit-mask-composite: source-in;
+        mask-composite: intersect;
+      }
+      .jlpt-divine .jlpt-mini-rank-row, .jlpt-divine .jlpt-mini-small-track {
+        position: relative;
+        z-index: 1;
+      }
+      @keyframes jlpt-rays {
+        to { transform: rotate(360deg); }
+      }
+      @keyframes jlpt-rays-breathe {
+        0%, 100% { opacity: 0.65; }
+        50%      { opacity: 1; }
+      }
+      .jlpt-divine .jlpt-mini-rank-text, .jlpt-divine .jlpt-mini-rank-count {
+        color: #6b4a00;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+      }
+      .jlpt-divine .jlpt-mini-rank-text b {
+        color: #5a3c00;
+      }
+      .jlpt-divine .jlpt-mini-small-track {
+        background: #f3dc8a;
+        box-shadow: inset 0 1px 2px rgba(120,80,0,0.35);
+      }
+      @keyframes jlpt-divine-glow {
+        0%, 100% { box-shadow: 0 0 8px 2px #ffffff, 0 0 22px 8px rgba(255,248,197,0.95),
+                               0 0 44px 16px rgba(245,197,24,0.75), 0 0 80px 30px rgba(245,197,24,0.35); }
+        50%      { box-shadow: 0 0 12px 4px #ffffff, 0 0 32px 12px rgba(255,248,197,1),
+                               0 0 64px 24px rgba(245,197,24,0.9), 0 0 120px 46px rgba(245,197,24,0.5); }
+      }
+      @keyframes jlpt-divine-art {
+        0%, 100% { box-shadow: 0 0 8px 2px rgba(255,255,255,0.9), 0 0 18px 6px rgba(255,248,197,0.8); }
+        50%      { box-shadow: 0 0 14px 4px #ffffff, 0 0 30px 10px rgba(255,248,197,1); }
+      }
+      .jlpt-dust {
+        position: absolute; inset: 0;
+        pointer-events: none;
+        overflow: visible;
+        z-index: 3;
+      }
+      .jlpt-dust span {
+        position: absolute;
+        bottom: -6px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #ffffff 0%, #fff3c4 35%, rgba(255,215,90,0.35) 65%,
+                                    rgba(255,200,60,0) 100%);
+        animation-name: jlpt-dust-rise, jlpt-dust-twinkle;
+        animation-timing-function: linear, ease-in-out;
+        animation-iteration-count: infinite, infinite;
+      }
+      @keyframes jlpt-dust-rise {
+        0%   { bottom: -6px; transform: translateX(0); opacity: 0; }
+        10%  { opacity: 1; }
+        50%  { transform: translateX(var(--sway)); }
+        90%  { opacity: 0.9; }
+        100% { bottom: 100%; transform: translateX(0); opacity: 0; }
+      }
+      @keyframes jlpt-dust-twinkle {
+        0%, 100% { filter: brightness(0.8); }
+        50%      { filter: brightness(1.4); }
+      }
+      #jlpt-mini-widget.jlpt-divine-aura {
+        border-color: rgba(255,248,197,0.7);
+        box-shadow: 0 0 18px 4px rgba(245,197,24,0.45), inset 0 0 18px rgba(245,197,24,0.18);
+      }
+      .jlpt-mini-rank-row {
+        display: flex;
+        align-items: baseline;
+        font-size: 10px;
+      }
+      .jlpt-mini-rank-text {
+        flex: 1;
+        min-width: 0;
+        color: #ddd;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .jlpt-mini-rank-count {
+        flex-shrink: 0;
+        margin-left: 6px;
+        color: #999;
+      }
+      .jlpt-mini-small-track {
+        height: 6px;
+        margin-top: 5px;
+        /* Full widget width (owner preferred this over lining up with the
+           N5–N1 tracks). */
+        border-radius: 3px;
+        background: #1e1e1e;
+      }
+      .jlpt-mini-small-fill {
+        height: 100%;
+        border-radius: 3px;
+      }
+      .jlpt-mini-small-fill.centred {
+        margin: 0 auto;   /* grows outwards both ways */
+      }
+      .jlpt-mini-rankup {
+        margin-bottom: 8px;
+        padding: 5px 8px;
+        border-radius: 6px;
+        border: 1px solid #f5c518;
+        background: rgba(245,197,24,0.12);
+        color: #fff3c4;
+        font-size: 10px;
+        animation: jlpt-rankup-pulse 1.4s ease-in-out 4;
+      }
+      .jlpt-mini-rankup-x {
+        float: right;
+        margin-left: 6px;
+        color: #c9b26a;
+        cursor: pointer;
+      }
+      .jlpt-mini-rankup-x:hover {
+        color: #ffffff;
+      }
+      .jlpt-mini-rankup b {
+        color: #f5c518;
+      }
+      @keyframes jlpt-rankup-pulse {
+        0%, 100% { box-shadow: 0 0 2px 0 rgba(245,197,24,0.3); }
+        50%      { box-shadow: 0 0 12px 3px rgba(245,197,24,0.8); }
+      }
+      .jlpt-mini-text {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 9px;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 0 1px 1px rgba(0,0,0,0.8);
+        white-space: nowrap;
+        pointer-events: none;
+      }
+      
+    </style>
+    <a id="jlpt-mini-widget" href="#"
+       onclick="pycmd('jlpt_open_progress'); return false;"
+       title="Open Kotodama">
+      
+    <div class="jlpt-mini-row">
+      <span class="jlpt-mini-label" style="color:#4caf50;">N5</span>
+      <div class="jlpt-mini-track">
+        <div class="jlpt-mini-fill" style="
+              width:85.71%;
+              background: linear-gradient(180deg, #4caf50 0%, #1b5e20 100%);
+              box-shadow: 0 0 18px 9px #4caf500e, 0 0 16px 8px #4caf5025, 0 0 14px 7px #4caf5042, 0 0 12px 6px #4caf5064, 0 0 8px 4px #4caf5088, 0 0 8px 4px #4caf50b0, 0 0 4px 2px #4caf50db;
+              
+        "></div>
+        <span class="jlpt-mini-text">85.7% (600 / 700)</span>
+      </div>
+    </div>
+    
+    <div class="jlpt-mini-row">
+      <span class="jlpt-mini-label" style="color:#8bc34a;">N4</span>
+      <div class="jlpt-mini-track">
+        <div class="jlpt-mini-fill" style="
+              width:61.54%;
+              background: linear-gradient(180deg, #8bc34a 0%, #33691e 100%);
+              box-shadow: 0 0 14px 7px #8bc34a0f, 0 0 12px 6px #8bc34a28, 0 0 10px 5px #8bc34a47, 0 0 8px 4px #8bc34a6b, 0 0 6px 3px #8bc34a92, 0 0 4px 2px #8bc34abd;
+              
+        "></div>
+        <span class="jlpt-mini-text">61.5% (400 / 650)</span>
+      </div>
+    </div>
+    
+    <div class="jlpt-mini-row">
+      <span class="jlpt-mini-label" style="color:#ff9800;">N3</span>
+      <div class="jlpt-mini-track">
+        <div class="jlpt-mini-fill" style="
+              width:19.31%;
+              background: linear-gradient(180deg, #ff9800 0%, #e65100 100%);
+              box-shadow: 0 0 8px 4px #ff980010, 0 0 6px 3px #ff98002c, 0 0 4px 2px #ff98004e, 0 0 2px 1px #ff980076;
+              
+        "></div>
+        <span class="jlpt-mini-text">19.3% (309 / 1,600)</span>
+      </div>
+    </div>
+    
+    <div class="jlpt-mini-row">
+      <span class="jlpt-mini-label" style="color:#f44336;">N2</span>
+      <div class="jlpt-mini-track">
+        <div class="jlpt-mini-fill" style="
+              width:0.00%;
+              background: linear-gradient(180deg, #f44336 0%, #b71c1c 100%);
+              box-shadow: none;
+              
+        "></div>
+        <span class="jlpt-mini-text">0.0% (0 / 1,800)</span>
+      </div>
+    </div>
+    
+    <div class="jlpt-mini-row">
+      <span class="jlpt-mini-label" style="color:#9c27b0;">N1</span>
+      <div class="jlpt-mini-track">
+        <div class="jlpt-mini-fill" style="
+              width:0.00%;
+              background: linear-gradient(180deg, #9c27b0 0%, #4a148c 100%);
+              box-shadow: none;
+              
+        "></div>
+        <span class="jlpt-mini-text">0.0% (0 / 3,000)</span>
+      </div>
+    </div>
+    
+    <div class="jlpt-mini-goal" title="JLPT N3 goal: new words learned today / today's share">
+      <div class="jlpt-mini-goal-text" style="color:#cfcfcf;">Today: 0 / 49 words</div>
+      <div class="jlpt-mini-goal-track"><div class="jlpt-mini-goal-fill"
+           style="width:0.0%; background:#ff9800; box-shadow: 0 0 6px #ff980088;"></div></div>
+    </div>
+    
+      
+    </a>
+    </body></html>

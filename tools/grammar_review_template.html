@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grammar Detection Review</title>
+<style>
+:root {
+  --bg: #f6f5f2; --card: #ffffff; --ink: #1d1c1a; --muted: #6b6862; --line: #e3e0da;
+  --mark: #ffe08a; --flag: #fdecec; --flag-ink: #b3261e; --accent: #2f5d8a;
+  --n1: #9c27b0; --n2: #f44336; --n3: #ff9800; --n4: #8bc34a; --n5: #4caf50;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161514; --card: #201f1d; --ink: #ecebe8; --muted: #a29f98; --line: #34322e;
+    --mark: #6b5310; --flag: #3a1f1d; --flag-ink: #ff8a80; --accent: #8ab4e0;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink);
+  font: 15px/1.55 system-ui, "Segoe UI", "Yu Gothic UI", "Meiryo", sans-serif; }
+header { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line);
+  padding: 12px 16px; }
+header h1 { font-size: 18px; margin: 0 0 2px; }
+header p { margin: 0 0 8px; color: var(--muted); font-size: 13px; }
+.bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+button, .chip { font: inherit; font-size: 13px; border: 1px solid var(--line); background: var(--card); color: var(--ink);
+  border-radius: 6px; padding: 4px 10px; cursor: pointer; }
+.chip.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+button.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+label.tog { font-size: 13px; color: var(--muted); display: inline-flex; gap: 4px; align-items: center; }
+#count { font-size: 13px; font-weight: 600; color: var(--flag-ink); }
+main { max-width: 980px; margin: 0 auto; padding: 16px; }
+.pt { background: var(--card); border: 1px solid var(--line); border-radius: 10px; margin: 0 0 14px; overflow: hidden; }
+.pt.wrong { border-color: var(--flag-ink); }
+.ph { padding: 10px 14px; border-bottom: 1px solid var(--line); display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.lvl { color: #fff; font-weight: 700; font-size: 12px; border-radius: 4px; padding: 1px 6px; }
+.pat { font-size: 17px; font-weight: 600; }
+.mean { color: var(--muted); font-size: 13px; flex: 1 1 200px; }
+.cnt { color: var(--muted); font-size: 12px; white-space: nowrap; }
+.form { padding: 0 14px 6px; color: var(--muted); font-size: 12px; }
+.ptools { display: flex; gap: 12px; align-items: center; padding: 6px 14px; flex-wrap: wrap; font-size: 13px; }
+.ptools input[type=text] { flex: 1 1 220px; font: inherit; font-size: 13px; padding: 3px 8px; border: 1px solid var(--line);
+  border-radius: 6px; background: var(--bg); color: var(--ink); }
+ul { list-style: none; margin: 0; padding: 0; }
+li { display: grid; grid-template-columns: 22px 62px 1fr; gap: 8px; padding: 6px 14px; border-top: 1px solid var(--line); align-items: start; }
+li.flagged { background: var(--flag); }
+li input { margin-top: 5px; }
+.st { font-size: 11px; color: var(--muted); padding-top: 3px; }
+.st.m { color: var(--n5); } .st.y { color: var(--n4); }
+.jp { font-size: 16px; word-break: break-all; }
+.jp mark { background: var(--mark); color: inherit; border-radius: 3px; padding: 0 1px; }
+.split { display: none; font-size: 12px; color: var(--muted); margin-top: 2px; }
+body.showsplit .split { display: block; }
+.more { padding: 6px 14px 10px; }
+#out { width: 100%; height: 160px; margin-top: 8px; display: none; font: 12px/1.4 monospace; background: var(--card); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 6px; padding: 8px; }
+@media (max-width: 600px) { li { grid-template-columns: 22px 1fr; } .st { display: none; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Grammar detection review</h1>
+  <p>{{SUMMARY}}. Tick every sentence where the highlighted grammar point is <b>not</b> what the sentence uses. Ticks are saved in this browser. When done, press <b>Copy flagged</b>, or just tell Claude you're done.</p>
+  <div class="bar">
+    <span id="levels"></span>
+    <label class="tog"><input type="checkbox" id="learnedOnly" checked> learned cards only</label>
+    <label class="tog"><input type="checkbox" id="showSplit"> show parser split</label>
+    <span id="count"></span>
+    <button class="primary" id="copy">Copy flagged</button>
+  </div>
+  <textarea id="out" readonly></textarea>
+</header>
+<main id="list"></main>
+<script>
+const DATA = /*DATA*/null;
+const KEY = "{{KEY}}";
+const CORPUS = /*CORPUS*/false;
+let st = { flags: {}, wrong: {}, notes: {} };
+try { st = Object.assign(st, JSON.parse(localStorage.getItem(KEY) || "{}")); } catch (e) {}
+function save() { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} updateCount(); }
+const LV = { N1: "var(--n1)", N2: "var(--n2)", N3: "var(--n3)", N4: "var(--n4)", N5: "var(--n5)" };
+const STN = ["New", "Learning", "Young", "Mature"];
+let level = "N1", learnedOnly = !CORPUS;
+if (CORPUS) document.getElementById("learnedOnly").parentElement.style.display = "none";
+const PAGE = 15;
+
+function esc(s) { return s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+function marked(t, spans) {
+  let out = "", pos = 0;
+  const merged = [];
+  for (const [a, b] of spans) {
+    if (merged.length && a <= merged[merged.length - 1][1]) merged[merged.length - 1][1] = Math.max(merged[merged.length - 1][1], b);
+    else merged.push([a, b]);
+  }
+  for (const [a, b] of merged) { out += esc(t.slice(pos, a)) + "<mark>" + esc(t.slice(a, b)) + "</mark>"; pos = b; }
+  return out + esc(t.slice(pos));
+}
+function key(gid, nid) { return gid + "|" + nid; }
+
+function renderLevels() {
+  const el = document.getElementById("levels");
+  el.innerHTML = "";
+  for (const l of ["N1", "N2", "N3", "N4", "N5", "All"]) {
+    const n = DATA.filter(p => (l === "All" || p.lvl === l) && (!learnedOnly || p.learned)).length;
+    const b = document.createElement("button");
+    b.className = "chip" + (l === level ? " on" : "");
+    b.textContent = `${l} (${n})`;
+    b.onclick = () => { level = l; renderLevels(); render(); };
+    el.appendChild(b); el.append(" ");
+  }
+}
+
+function sentenceLi(p, s) {
+  const li = document.createElement("li");
+  const k = key(p.id, s.nid);
+  if (st.flags[k]) li.className = "flagged";
+  const cb = document.createElement("input");
+  cb.type = "checkbox"; cb.checked = !!st.flags[k]; cb.title = "Wrong detection";
+  cb.onchange = () => { if (cb.checked) st.flags[k] = 1; else delete st.flags[k]; li.className = cb.checked ? "flagged" : ""; save(); };
+  const sv = document.createElement("span");
+  sv.className = "st" + (s.st === 3 ? " m" : s.st === 2 ? " y" : "");
+  sv.textContent = s.st == null ? "" : STN[s.st];
+  const d = document.createElement("div");
+  d.innerHTML = `<div class="jp">${marked(s.t, s.s)}</div><div class="split">${esc(s.sp)}</div>`;
+  li.append(cb, sv, d);
+  return li;
+}
+
+function render() {
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+  for (const p of DATA) {
+    if (level !== "All" && p.lvl !== level) continue;
+    const sents = learnedOnly ? p.sents.filter(s => s.st >= 2) : p.sents;
+    if (!sents.length) continue;
+    const box = document.createElement("section");
+    box.className = "pt" + (st.wrong[p.id] ? " wrong" : "");
+    box.innerHTML = `<div class="ph"><span class="lvl" style="background:${LV[p.lvl]}">${p.lvl}</span>
+      <span class="pat">${esc(p.pat)}</span><span class="mean">${esc(p.mean)}</span>
+      <span class="cnt">${CORPUS ? `${p.hits.toLocaleString()} hits in Tatoeba · ${p.sents.length} shown` : `${p.learned} learned · ${p.sents.length} sentences`}</span></div>
+      ${p.form ? `<div class="form">${esc(p.form)}</div>` : ""}`;
+    const tools = document.createElement("div");
+    tools.className = "ptools";
+    const wl = document.createElement("label"); wl.className = "tog";
+    const w = document.createElement("input"); w.type = "checkbox"; w.checked = !!st.wrong[p.id];
+    w.onchange = () => { if (w.checked) st.wrong[p.id] = 1; else delete st.wrong[p.id]; box.className = "pt" + (w.checked ? " wrong" : ""); save(); };
+    wl.append(w, " never right: stop detecting this point");
+    const note = document.createElement("input");
+    note.type = "text"; note.placeholder = "Note (optional): what is it really?"; note.value = st.notes[p.id] || "";
+    note.oninput = () => { if (note.value.trim()) st.notes[p.id] = note.value; else delete st.notes[p.id]; save(); };
+    tools.append(wl, note);
+    box.appendChild(tools);
+    const ul = document.createElement("ul");
+    sents.slice(0, PAGE).forEach(s => ul.appendChild(sentenceLi(p, s)));
+    box.appendChild(ul);
+    if (sents.length > PAGE) {
+      const more = document.createElement("div"); more.className = "more";
+      const b = document.createElement("button");
+      b.textContent = `Show all ${sents.length}`;
+      b.onclick = () => { sents.slice(PAGE).forEach(s => ul.appendChild(sentenceLi(p, s))); more.remove(); };
+      more.appendChild(b); box.appendChild(more);
+    }
+    list.appendChild(box);
+  }
+}
+
+function flaggedText() {
+  const lines = [];
+  for (const p of DATA) {
+    const bad = p.sents.filter(s => st.flags[key(p.id, s.nid)]);
+    if (!bad.length && !st.wrong[p.id] && !st.notes[p.id]) continue;
+    lines.push(`${p.id}  ${p.lvl} ${p.pat}${st.wrong[p.id] ? "  [NEVER RIGHT]" : ""}${st.notes[p.id] ? "  note: " + st.notes[p.id] : ""}`);
+    for (const s of bad) lines.push(`  x ${s.t}  [${s.nid}]`);
+  }
+  return lines.join("\n");
+}
+function updateCount() {
+  const n = Object.keys(st.flags).length, w = Object.keys(st.wrong).length;
+  document.getElementById("count").textContent = n || w ? `${n} flagged sentence${n === 1 ? "" : "s"}${w ? ` · ${w} point${w === 1 ? "" : "s"} never right` : ""}` : "";
+}
+document.getElementById("copy").onclick = async () => {
+  const out = document.getElementById("out");
+  out.value = flaggedText() || "(nothing flagged)";
+  out.style.display = "block"; out.select();
+  try { await navigator.clipboard.writeText(out.value); } catch (e) { document.execCommand && document.execCommand("copy"); }
+};
+document.getElementById("learnedOnly").onchange = e => { learnedOnly = e.target.checked; renderLevels(); render(); };
+document.getElementById("showSplit").onchange = e => document.body.classList.toggle("showsplit", e.target.checked);
+window.reviewFlags = flaggedText;
+renderLevels(); render(); updateCount();
+</script>
+</body>
+</html>

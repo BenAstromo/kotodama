@@ -1,0 +1,402 @@
+{
+ "1": {
+  "ok": true,
+  "note": ""
+ },
+ "2": {
+  "ok": false,
+  "note": "憎しみに近いものだった: もの a thing"
+ },
+ "3": {
+  "ok": true,
+  "note": ""
+ },
+ "4": {
+  "ok": true,
+  "note": ""
+ },
+ "5": {
+  "ok": true,
+  "note": ""
+ },
+ "6": {
+  "ok": true,
+  "note": ""
+ },
+ "7": {
+  "ok": true,
+  "note": ""
+ },
+ "8": {
+  "ok": true,
+  "note": ""
+ },
+ "9": {
+  "ok": true,
+  "note": ""
+ },
+ "10": {
+  "ok": true,
+  "note": ""
+ },
+ "11": {
+  "ok": true,
+  "note": ""
+ },
+ "12": {
+  "ok": true,
+  "note": ""
+ },
+ "13": {
+  "ok": true,
+  "note": ""
+ },
+ "14": {
+  "ok": true,
+  "note": ""
+ },
+ "15": {
+  "ok": true,
+  "note": ""
+ },
+ "16": {
+  "ok": true,
+  "note": ""
+ },
+ "17": {
+  "ok": true,
+  "note": ""
+ },
+ "18": {
+  "ok": true,
+  "note": ""
+ },
+ "19": {
+  "ok": true,
+  "note": ""
+ },
+ "20": {
+  "ok": true,
+  "note": ""
+ },
+ "21": {
+  "ok": true,
+  "note": ""
+ },
+ "22": {
+  "ok": true,
+  "note": ""
+ },
+ "23": {
+  "ok": true,
+  "note": ""
+ },
+ "24": {
+  "ok": true,
+  "note": ""
+ },
+ "25": {
+  "ok": true,
+  "note": ""
+ },
+ "26": {
+  "ok": true,
+  "note": ""
+ },
+ "27": {
+  "ok": true,
+  "note": ""
+ },
+ "28": {
+  "ok": true,
+  "note": ""
+ },
+ "29": {
+  "ok": false,
+  "note": "彼のせいにしても: せいにする + ても"
+ },
+ "30": {
+  "ok": true,
+  "note": ""
+ },
+ "31": {
+  "ok": true,
+  "note": ""
+ },
+ "32": {
+  "ok": true,
+  "note": ""
+ },
+ "33": {
+  "ok": true,
+  "note": ""
+ },
+ "34": {
+  "ok": true,
+  "note": ""
+ },
+ "35": {
+  "ok": true,
+  "note": ""
+ },
+ "36": {
+  "ok": true,
+  "note": ""
+ },
+ "37": {
+  "ok": true,
+  "note": ""
+ },
+ "38": {
+  "ok": true,
+  "note": ""
+ },
+ "39": {
+  "ok": true,
+  "note": ""
+ },
+ "40": {
+  "ok": true,
+  "note": ""
+ },
+ "41": {
+  "ok": true,
+  "note": ""
+ },
+ "42": {
+  "ok": true,
+  "note": ""
+ },
+ "43": {
+  "ok": true,
+  "note": ""
+ },
+ "44": {
+  "ok": false,
+  "note": "暗黙のうちに: idiom (tacitly)"
+ },
+ "45": {
+  "ok": true,
+  "note": ""
+ },
+ "46": {
+  "ok": true,
+  "note": ""
+ },
+ "47": {
+  "ok": true,
+  "note": ""
+ },
+ "48": {
+  "ok": true,
+  "note": ""
+ },
+ "49": {
+  "ok": true,
+  "note": ""
+ },
+ "50": {
+  "ok": true,
+  "note": ""
+ },
+ "51": {
+  "ok": true,
+  "note": ""
+ },
+ "52": {
+  "ok": true,
+  "note": ""
+ },
+ "53": {
+  "ok": true,
+  "note": ""
+ },
+ "54": {
+  "ok": true,
+  "note": ""
+ },
+ "55": {
+  "ok": true,
+  "note": ""
+ },
+ "56": {
+  "ok": true,
+  "note": ""
+ },
+ "57": {
+  "ok": true,
+  "note": ""
+ },
+ "58": {
+  "ok": true,
+  "note": ""
+ },
+ "59": {
+  "ok": true,
+  "note": ""
+ },
+ "60": {
+  "ok": true,
+  "note": ""
+ },
+ "61": {
+  "ok": true,
+  "note": ""
+ },
+ "62": {
+  "ok": true,
+  "note": ""
+ },
+ "63": {
+  "ok": true,
+  "note": ""
+ },
+ "64": {
+  "ok": true,
+  "note": ""
+ },
+ "65": {
+  "ok": true,
+  "note": ""
+ },
+ "66": {
+  "ok": true,
+  "note": ""
+ },
+ "67": {
+  "ok": true,
+  "note": ""
+ },
+ "68": {
+  "ok": true,
+  "note": ""
+ },
+ "69": {
+  "ok": true,
+  "note": ""
+ },
+ "70": {
+  "ok": true,
+  "note": ""
+ },
+ "71": {
+  "ok": true,
+  "note": ""
+ },
+ "72": {
+  "ok": true,
+  "note": ""
+ },
+ "73": {
+  "ok": true,
+  "note": ""
+ },
+ "74": {
+  "ok": true,
+  "note": ""
+ },
+ "75": {
+  "ok": true,
+  "note": ""
+ },
+ "76": {
+  "ok": true,
+  "note": ""
+ },
+ "77": {
+  "ok": true,
+  "note": ""
+ },
+ "78": {
+  "ok": true,
+  "note": ""
+ },
+ "79": {
+  "ok": true,
+  "note": ""
+ },
+ "80": {
+  "ok": true,
+  "note": ""
+ },
+ "81": {
+  "ok": true,
+  "note": ""
+ },
+ "82": {
+  "ok": true,
+  "note": ""
+ },
+ "83": {
+  "ok": true,
+  "note": ""
+ },
+ "84": {
+  "ok": true,
+  "note": ""
+ },
+ "85": {
+  "ok": true,
+  "note": ""
+ },
+ "86": {
+  "ok": true,
+  "note": ""
+ },
+ "87": {
+  "ok": true,
+  "note": ""
+ },
+ "88": {
+  "ok": true,
+  "note": ""
+ },
+ "89": {
+  "ok": true,
+  "note": ""
+ },
+ "90": {
+  "ok": true,
+  "note": ""
+ },
+ "91": {
+  "ok": true,
+  "note": ""
+ },
+ "92": {
+  "ok": true,
+  "note": ""
+ },
+ "93": {
+  "ok": true,
+  "note": ""
+ },
+ "94": {
+  "ok": true,
+  "note": ""
+ },
+ "95": {
+  "ok": true,
+  "note": ""
+ },
+ "96": {
+  "ok": false,
+  "note": "まことに = 誠に (fixed)"
+ },
+ "97": {
+  "ok": true,
+  "note": ""
+ },
+ "98": {
+  "ok": true,
+  "note": ""
+ },
+ "99": {
+  "ok": true,
+  "note": ""
+ },
+ "100": {
+  "ok": true,
+  "note": ""
+ }
+}

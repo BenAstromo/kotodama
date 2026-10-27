@@ -1,0 +1,1350 @@
+1. [A] [N4] reru-rareru-passive — 〜れる / 〜られる（passive） — be done (by someone); passive voice
+   近所の人たちは家の売却を余儀【なくされた】。
+   split: 近所 の 人たち は 家 の 売却 を 余儀 なくされた 。
+2. [A] [N5] nai — 〜ない — do not; will not (plain negative of verbs)
+   いい加減部屋を片付けて【くれない】と、足の踏み場も【ない】じゃないか。
+   split: いい加減 部屋 を 片付けて くれない と 、 足 の 踏み 場 も ない じゃない か 。
+3. [A] [N5] ni-indirect-object — 〜に（indirect object） — to (the person who receives or is the target of an action)
+   私は毎日彼女【に】電話する。
+   split: 私 は 毎日 彼女 に 電話する 。
+4. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   その試合に【は】国籍のいかんを問わず誰でも参加出来る。
+   split: その 試合 に は 国籍 の いか ん を 問わず 誰 でも 参加 出来る 。
+5. [A] [N5] kara-from — 〜から（from） — from (a starting point in time or place)
+   私は３ヶ月ぐらい前【から】彼に会っていない。
+   split: 私 は ３ ヶ月 ぐらい 前 から 彼 に 会っていない 。
+6. [A] [N5] te-iru — 〜ている — be doing (ongoing action); be in a state (result of a change); do regularly
+   安全性が改善されない限り、２０１０年までにジェット旅客機は週に１度の割合で空から落ちる事態になっ【ている】可能性があると、ボーイング社の分析は予測している。
+   split: 安全性 が 改善されない 限り 、 ２ ０ １ ０ 年 まで に ジェット 旅客 機 は 週 に １度 の 割合 で 空 から 落ちる 事態 に なっている 可能性 が ある と 、 ボーイング 社 の 分析 は 予測している 。
+7. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   彼【は】家にもどった。
+   split: 彼 は 家 に も ど っ た 。
+8. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   首相は国民の支持【を】失った。
+   split: 首相 は 国民 の 支持 を 失った 。
+9. [A] [N3] ni-kanshite-ni-kansuru — 〜に関して / 〜に関する — regarding; concerning; related to
+   それで、過去の知識が、その知識【に関する】だいたい適切と思われる想定と混ざり合って、五感によって提供される情報を増大させるために利用されるのである。
+   split: それで 、 過去 の 知識 が 、 その 知識 に 関する だいたい 適切 と 思われる 想定 と 混ざり 合って 、 五感 に よって 提供される 情報 を 増大させる ため に 利用される ので ある 。
+10. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   医者は患者の胸に聴診器【を】当てた。
+   split: 医者 は 患者 の 胸 に 聴診器 を 当てた 。
+11. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   トム【は】、自分の意見を曲げません。
+   split: トム は 、 自分 の 意見 を 曲げません 。
+12. [A] [N5] desu — 〜です — is; am; are (polite copula)
+   夕べドアを開けっ放しにしたのは君【です】か。
+   split: 夕べ ドア を 開け っ 放し に した の は 君 です か 。
+13. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   シェパードと同居中に、フォスター【は】その格付け表を見た。
+   split: シェパード と 同居 中 に 、 フォスター は その 格付け 表 を 見た 。
+14. [A] [N5] ni-destination — 〜に（destination） — to; into (the destination of movement)
+   学校【に】行く途中でジョンはメアリーに会った。
+   split: 学校 に 行く 途中 で ジョン は メアリー に 会った 。
+15. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   他人の事に【は】口出ししないように言ってくれ。
+   split: 他人 の 事 に は 口出ししない ように 言って くれ 。
+16. [A] [N5] nai — 〜ない — do not; will not (plain negative of verbs)
+   シート・ベルトを締めて席を【離れない】でください。
+   split: シート ・ ベルト を 締めて 席 を 離れない で ください 。
+17. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   トム【は】メアリーが言ったことを信じなかった。
+   split: トム は メアリー が 言った こと を 信じなかった 。
+18. [A] [N5] koko-soko-asoko-doko — ここ / そこ / あそこ / どこ — here; there (near you); over there; where
+   しかしこの方位磁石は【どこ】にありますか。
+   split: しかし この方 位 磁石 は どこ に あります か 。
+19. [A] [N5] koko-soko-asoko-doko — ここ / そこ / あそこ / どこ — here; there (near you); over there; where
+   私の手袋【どこ】？
+   split: 私 の 手袋 どこ ？
+20. [A] [N5] ga-subject — 〜が（subject） — marks the subject; points out new or focused information
+   お腹【が】空いているのですか。
+   split: お腹 が 空いている のです か 。
+21. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   ポルトガル語【の】辞書をこの本屋で見つけることができませんでした。
+   split: ポルトガル 語 の 辞書 を この 本屋 で 見つける こと が できませんでした 。
+22. [A] [N5] ga-subject — 〜が（subject） — marks the subject; points out new or focused information
+   私【が】学校に着くか着かぬうちにベル【が】なった。
+   split: 私 が 学校 に 着く か 着 か ぬ うち に ベル が なった 。
+23. [A] [N5] nai — 〜ない — do not; will not (plain negative of verbs)
+   君はもっと【勉強しなければ】【ならない】。
+   split: 君 は もっと 勉強しなければ ならない 。
+24. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   議会【は】休会になりました。
+   split: 議会 は 休 会 に なりました 。
+25. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   彼の理論を理解出来る人【は】少ない。
+   split: 彼 の 理論 を 理解 出来る 人 は 少ない 。
+26. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   今度【の】事件で彼を見直した。
+   split: 今度 の 事件 で 彼 を 見直した 。
+27. [A] [N5] kono-sono-ano-dono — この / その / あの / どの — this; that (near you); that ... over there; which (before a noun)
+   あなた方は【どの】ようにしてお互いに知り合ったのですか。
+   split: あなた 方 は どの ように して お互い に 知り合った のです か 。
+28. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   私【は】将来両親の面倒を見ます。
+   split: 私 は 将来 両親 の 面倒 を 見ます 。
+29. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   私【は】ノートがほしい。
+   split: 私 は ノート が ほしい 。
+30. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   それ【は】高い木の影法師にすぎなかった。
+   split: それ は 高い 木 の 影 法師 に すぎなかった 。
+31. [A] [N5] ku-naru-ni-naru — 〜くなる / 〜になる — become; get; turn
+   今月の終わりまでには、この町で働く人の数は１０００以上【になっ】ているだろう。
+   split: 今月 の 終わり まで に は 、 この 町 で 働く 人 の 数 は １ ０ ０ ０ 以上 に なっている だろう 。
+32. [A] [N5] yo — 〜よ — you know; I tell you (giving new information or emphasis)
+   トムはいつも夕食後に散歩に行くの【よ】。
+   split: トム は いつも 夕 食後 に 散歩 に 行く の よ 。
+33. [A] [N5] desu — 〜です — is; am; are (polite copula)
+   彼はその家具を買うことができるほど金持ち【です】。
+   split: 彼 は その 家具 を 買う こと が できる ほど 金持ち です 。
+34. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   彼女【は】胃がんで死んだ。
+   split: 彼女 は 胃がん で 死んだ 。
+35. [A] [N5] ku-naru-ni-naru — 〜くなる / 〜になる — become; get; turn
+   トムは忙し【くなっ】た。
+   split: トム は 忙しく なった 。
+36. [A] [N5] te-iru — 〜ている — be doing (ongoing action); be in a state (result of a change); do regularly
+   どうしてシーツが【濡れてる】の？
+   split: どうして シーツ が 濡れてる の ？
+37. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   彼女はすべて【の】服をスーツケースに丸め込んだ。
+   split: 彼女 は すべて の 服 を スーツケース に 丸め 込んだ 。
+38. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   これ【は】格好のよい花瓶だ。
+   split: これ は 格好 の よい 花瓶 だ 。
+39. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   私には私の道【を】行かせて下さい。
+   split: 私 に は 私 の 道 を 行かせて 下さい 。
+40. [A] [N5] desu — 〜です — is; am; are (polite copula)
+   彼女はタイピスト【です】。
+   split: 彼女 は タイピスト です 。
+41. [A] [N5] mo — 〜も — also; too; (with a negative) not ... either; neither ... nor
+   海が好きな人【も】いれば、山が好きな人【も】いる。
+   split: 海 が 好き な 人 も いれば 、 山 が 好き な 人 も いる 。
+42. [A] [N5] yo — 〜よ — you know; I tell you (giving new information or emphasis)
+   冗談だ【よ】ね？
+   split: 冗談 だ よ ね ？
+43. [A] [N5] kono-sono-ano-dono — この / その / あの / どの — this; that (near you); that ... over there; which (before a noun)
+   【その】チームは誰がコーチをしているのですか。
+   split: その チーム は 誰 が コーチ を している のです か 。
+44. [A] [N5] ta — 〜た — did (plain past of verbs)
+   トムは店員の名札をチラッと【見た】。
+   split: トム は 店員 の 名札 を チラッ と 見た 。
+45. [A] [N5] ga-subject — 〜が（subject） — marks the subject; points out new or focused information
+   あの白い建物【が】地震でこわれた。
+   split: あの 白い 建物 が 地震 でこ わ れ た 。
+46. [A] [N5] ta — 〜た — did (plain past of verbs)
+   教授は物思いにふけっているように【見えた】。
+   split: 教授 は 物思い に ふけ って いる ように 見えた 。
+47. [A] [N5] de-place — 〜で（place of action） — at; in (the place where an action happens)
+   違う駅【で】降りちゃったんだよ。
+   split: 違う 駅 で 降りちゃった んだ よ 。
+48. [A] [N2] ni-kuwaete — 〜に加えて — in addition to; on top of
+   豪邸【に加えて】、彼はベントレーを持っているのです。
+   split: 豪 邸 に 加えて 、 彼 は ベントレー を 持っている のです 。
+49. [A] [N5] yo — 〜よ — you know; I tell you (giving new information or emphasis)
+   たぶんガールフレンドがたくさんいるの【よ】。
+   split: たぶん ガールフレンド が たくさん いる の よ 。
+50. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   どうしても自分【の】思い通りにしたがるね。
+   split: どうしても 自分 の 思い 通り に した がる ね 。
+51. [A] [N5] ga-subject — 〜が（subject） — marks the subject; points out new or focused information
+   全く君【が】言うとおりだ。
+   split: 全く 君 が 言う と おり だ 。
+52. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   私たち【は】豊かな生活水準を当然のことと思っています。
+   split: 私たち は 豊か な 生活 水準 を 当然 の こと と 思っています 。
+53. [A] [N5] de-place — 〜で（place of action） — at; in (the place where an action happens)
+   ウィキペディア【で】いつかバイアグラを検索するなんて思ってもみなかったわ。
+   split: ウィキペディア で いつか バイアグラ を 検索する なんて 思って もみ なかった わ 。
+54. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   昨夜、変な夢【を】見ました。
+   split: 昨夜 、 変 な 夢 を 見ました 。
+55. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   その少年【は】親切にも私たちを案内してくれた。
+   split: その 少年 は 親切 に も 私たち を 案内して くれた 。
+56. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   私は彼に会わないように身【を】隠した。
+   split: 私 は 彼 に 会わない ように 身 を 隠した 。
+57. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   夏【の】スコットランドはどんなふうですか。
+   split: 夏 の スコットランド は どんな ふう です か 。
+58. [A] [N5] deshita — 〜でした — was; were (polite past copula)
+   おじいさんのお名前は何【でした】？
+   split: おじいさん の お 名前 は 何 でした ？
+59. [A] [N4] hajimeru-owaru-tsuzukeru — 〜始める / 〜終わる / 〜続ける — start doing; finish doing; keep doing
+   いつから付き合い【始めた】の？
+   split: いつ から 付き合い 始めた の ？
+60. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   概してひょう【は】夏に降る。
+   split: 概して ひょう は 夏 に 降る 。
+61. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   ひたすらに法隆寺へと憧れる私【の】心を乗せて、乗合自動車は凸凹【の】道をかなり快く走った。
+   split: ひたすら に 法 隆 寺 へ と 憧れる 私 の 心 を 乗せて 、 乗合 自動車 は 凸凹 の 道 を かなり 快く 走った 。
+62. [A] [N5] te-kudasai — 〜てください — please (do)
+   二度としないって約束し【てください】。
+   split: 二度 と しない って 約束して ください 。
+63. [A] [N5] ta — 〜た — did (plain past of verbs)
+   セクシャルハラスメントはいまや社会問題と【なった】。
+   split: セクシャル ハラスメント はい ま や 社会 問題 と なった 。
+64. [A] [N5] ku-naru-ni-naru — 〜くなる / 〜になる — become; get; turn
+   私は申し込みに応じる気【になっ】ている。
+   split: 私 は 申し込み に 応じる 気 に なっている 。
+65. [A] [N5] kono-sono-ano-dono — この / その / あの / どの — this; that (near you); that ... over there; which (before a noun)
+   私は非常に早く起きたので【その】列車に間に合った。
+   split: 私 は 非常に 早く 起きた ので その 列車 に 間に合った 。
+66. [A] [N5] te — 〜て — and; and then (linking actions in order)
+   私は【喜んで】あなたを手伝います。
+   split: 私 は 喜んで あなた を 手伝います 。
+67. [A] [N5] ni-indirect-object — 〜に（indirect object） — to (the person who receives or is the target of an action)
+   誰か他の人【に】聞かなければいけないということだよ。
+   split: 誰か 他 の 人 に 聞かなければ いけない と いう こと だ よ 。
+68. [A] [N5] te-iru — 〜ている — be doing (ongoing action); be in a state (result of a change); do regularly
+   彼女は飲ん【でいた】ようだった。
+   split: 彼女 は 飲んでいた よう だった 。
+69. [A] [N5] kore-sore-are-dore — これ / それ / あれ / どれ — this one; that one (near you); that one (over there); which one
+   「阿婆擦れ」とかいてあるが【それ】はヤリマンのことでしょう。
+   split: 「 阿 婆 擦れ 」 と かいて ある が それ は ヤリマン の こと でしょう 。
+70. [A] [N5] te-iru — 〜ている — be doing (ongoing action); be in a state (result of a change); do regularly
+   私たちは会合は短時間で終わると思っ【ていた】が、実際にはほぼ３時間も続いた。
+   split: 私たち は 会合 は 短 時間 で 終わる と 思っていた が 、 実際 に は ほぼ ３ 時間 も 続いた 。
+71. [A] [N5] ta — 〜た — did (plain past of verbs)
+   踊る気には【なれなかった】んだ。
+   split: 踊る 気 に は なれなかった んだ 。
+72. [A] [N5] yo — 〜よ — you know; I tell you (giving new information or emphasis)
+   彼女、厚化粧なんだ【よ】。
+   split: 彼女 、 厚 化粧 な んだ よ 。
+73. [A] [N3] teki — 〜的 — -ic; -al; in terms of
+   彼女が【建設的】な構想を持つ。
+   split: 彼女 が 建設的 な 構想 を 持つ 。
+74. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   トムはサッカー【の】アメリカ＝ドイツ戦を見るために仕事を休んだ。
+   split: トム は サッカー の アメリカ ＝ ドイツ 戦 を 見る ため に 仕事 を 休んだ 。
+75. [A] [N5] kore-sore-are-dore — これ / それ / あれ / どれ — this one; that one (near you); that one (over there); which one
+   【これ】は僕の辞書だよ。
+   split: これ は 僕 の 辞書 だ よ 。
+76. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   ここではフルーツ【を】栽培しています。
+   split: ここ では フルーツ を 栽培しています 。
+77. [A] [N5] yo — 〜よ — you know; I tell you (giving new information or emphasis)
+   私をあなたの意志に従わせようしてもだめです【よ】。
+   split: 私 を あなた の 意志 に 従わせよう し ても だめ です よ 。
+78. [A] [N4] n-desu-no-desu — 〜んです / 〜のです — it's that ...; (explaining or asking for an explanation)
+   妻は肺炎を患ってる【んです】。
+   split: 妻 は 肺炎 を 患ってる んです 。
+79. [A] [N5] mashita — 〜ました — did (polite past)
+   ある日ある少女が私をたずねてき【ました】。
+   split: ある 日 ある 少女 が 私 を た ず ね て きました 。
+80. [A] [N5] ni-location — 〜に（place of existence） — in; at; on (where someone or something is)
+   その事故の責任は私【に】あります。
+   split: その 事故 の 責任 は 私 に あります 。
+81. [A] [N4] te-kuru — 〜てくる — do something and come back; come doing; (change) up to now; start to
+   俺に見せ【てくれ】。
+   split: 俺 に 見せて くれ 。
+82. [A] [N4] kedo-keredomo — 〜けど / 〜けれども — but; although; (soft lead-in)
+   悲しかった【けれど】、彼女はにっこり笑って彼にさようならを言った。
+   split: 悲しかった けれど 、 彼女 は にっこり 笑って 彼 に さようなら を 言った 。
+83. [A] [N5] de-means — 〜で（means） — by; with; in (means, tool, method or language)
+   トムとメアリーはお互いにフランス語【で】話す。
+   split: トム と メアリー は お互い に フランス 語 で 話す 。
+84. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   彼【は】泳げるようになった。
+   split: 彼 は 泳げる ように なった 。
+85. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   忘れないようにそれ【を】書き留めておきなさい。
+   split: 忘れない ように それ を 書き留めておきなさい 。
+86. [A] [N5] masu — 〜ます — polite non-past verb ending (do; will do)
+   あの花はよい香りが【します】。
+   split: あの 花 は よい 香り が します 。
+87. [A] [N4] o-suru — お〜する — (humble) I do (for someone respected)
+   彼女は「【お会いし】たかったわ」と言うなり泣き出してしまった。
+   split: 彼女 は 「 お 会い したかった わ 」 と 言 うなり 泣き 出して しまった 。
+88. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   私【の】妹は航空会社に就職して、飛行機【の】乗務員になりました。
+   split: 私 の 妹 は 航空 会社 に 就職して 、 飛行機 の 乗務 員 に なりました 。
+89. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   塩は食べ物【を】腐らせず長持ちさせるのに役立つ。
+   split: 塩 は 食べ物 を 腐らせず 長持ちさせる のに 役立つ 。
+90. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   彼女は一生懸命この商品【の】説明をした。
+   split: 彼女 は 一生懸命 この 商品 の 説明 を した 。
+91. [A] [N5] ka-question — 〜か（question） — (question marker) turns a sentence into a question
+   何名様です【か】。
+   split: 何 名 様 です か 。
+92. [A] [N5] ta — 〜た — did (plain past of verbs)
+   その銃は暴発【した】。
+   split: その 銃 は 暴 発 した 。
+93. [A] [N4] no-koto-nominalizer — 〜の / 〜こと（nominalizer） — the act of doing (turns a verb phrase into a noun)
+   彼は私の述べた【こと】が正しいと証言してくれた。
+   split: 彼 は 私 の 述べた こと が 正しい と 証言して くれた 。
+94. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   私たちはニュートンが万有引力【の】法則を発見したと習った。
+   split: 私たち は ニュートン が 万 有 引力 の 法則 を 発見した と 習った 。
+95. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   その年の日本のＯＤＡの最大の受け手【は】中国だった。
+   split: その 年 の 日本 の ＯＤＡ の 最大 の 受け手 は 中 国 だった 。
+96. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   彼女【は】次に何をしたらいいのか分からなくなりました。
+   split: 彼女 は 次 に 何 を したら いい の か 分からなく なりました 。
+97. [A] [N5] ta — 〜た — did (plain past of verbs)
+   「なんで傘持って【こなかった】の？」「だって朝あんなに【晴れてた】じゃん」
+   split: 「 なんで 傘 持って こなかった の ？ 」 「 だって 朝 あんなに 晴れてた じゃん 」
+98. [A] [N5] ta — 〜た — did (plain past of verbs)
+   ベルは電話を【発明した】。
+   split: ベル は 電話 を 発明した 。
+99. [A] [N5] masu — 〜ます — polite non-past verb ending (do; will do)
+   私の夢はかない【ます】。
+   split: 私 の 夢 はかない ます 。
+100. [A] [N5] ta — 〜た — did (plain past of verbs)
+   なにか私にできることが【ありました】らお知らせ下さい。
+   split: な に か 私 に できる こと が ありました ら お 知らせ 下さい 。
+101. [A] [N5] ku-naru-ni-naru — 〜くなる / 〜になる — become; get; turn
+   彼は日夜働いて過労【になっ】た。
+   split: 彼 は 日夜 働いて 過労 に なった 。
+102. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   私【は】決して失望しない。
+   split: 私 は 決して 失望しない 。
+103. [A] [N3] tte — 〜って — (casual quotation) says that; I heard; as for; what is
+   トム【って】ロマンチックだよね？
+   split: トム って ロマンチック だ よ ね ？
+104. [A] [N4] n-desu-no-desu — 〜んです / 〜のです — it's that ...; (explaining or asking for an explanation)
+   あまり高くない２人部屋を予約したい【のです】が。
+   split: あまり 高くない ２人 部屋 を 予約したい のです が 。
+105. [A] [N5] nai — 〜ない — do not; will not (plain negative of verbs)
+   ネイティブで【ない】話し手もまた、話し手である。
+   split: ネイティブ で ない 話し手 も また 、 話し手 で ある 。
+106. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   私【は】この仕事を５時までに終えてもらいたい。
+   split: 私 は この 仕事 を ５ 時 まで に 終えて もらいたい 。
+107. [A] [N4] reru-rareru-passive — 〜れる / 〜られる（passive） — be done (by someone); passive voice
+   生い立ちを知らない人にネイティブみたいに聞こえるよって【言われたら】、それはおそらく、あなたの喋り方のどこかが、ネイティブじゃないと感じさせたってことだよ。つまりね、ネイティブのようには聞こえないということなんだよ。
+   split: 生い立ち を 知らない 人 に ネイティブ みたい に 聞こえる よって 言われたら 、 それ は おそらく 、 あなた の 喋り 方 の どこか が 、 ネイティブ じゃない と 感じさせた って こと だ よ 。 つまり ね 、 ネイティブ の ように は 聞こえない と いう こと な んだ よ 。
+108. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   彼の飛行機の到着時間【を】知っていますか。
+   split: 彼 の 飛行機 の 到着 時間 を 知っています か 。
+109. [A] [N5] ga-aru-ga-iru — 〜がある / 〜がいる — there is; there are; have (ある for things, いる for people and animals)
+   その花には蜜蜂【がいっ】ぱいたかっている。
+   split: その 花 に は 蜜 蜂 が いっぱい たかっている 。
+110. [A] [N4] ageru-kureru-morau — あげる / くれる / もらう — give (to someone else); give (to me or my group); receive
+   彼はたくさんの月給を【もらっ】ている。
+   split: 彼 は たくさん の 月給 を もらっている 。
+111. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   彼【は】息子達に、自分の死後もお互いに助け合うようにといった。
+   split: 彼 は 息子 達 に 、 自分 の 死後 も お互い に 助け合う ように と いった 。
+112. [A] [N5] ta — 〜た — did (plain past of verbs)
+   メアリーを階段から【突き落とした】のはトムです。
+   split: メアリー を 階段 から 突き落とした の は トム です 。
+113. [A] [N4] to-omou — 〜と思う — I think that
+   トムはカナダ人だ【と思っ】ていました。
+   split: トム は カナダ 人 だ と 思っていました 。
+114. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   もし私があなたなら、奨学金【の】申し込みをするのですが。
+   split: もし 私 が あなた なら 、 奨学金 の 申し込み を する のです が 。
+115. [A] [N5] nai — 〜ない — do not; will not (plain negative of verbs)
+   健康法の一つに、発音【できない】原材料を含む食品は一切口に【しない】、というものがあるらしい。
+   split: 健康 法 の 一つ に 、 発音 できない 原 材料 を 含む 食品 は 一 切口 に しない 、 と いう もの が ある ら しい 。
+116. [A] [N5] ta — 〜た — did (plain past of verbs)
+   【完成した】本のコピーを１部送っていただくという条件で、私どものソフトウエアを収録することを許可します。
+   split: 完成した 本 の コピー を １部 送って いただく と いう 条件 で 、 私 ど もの ソフト ウエア を 収録する こと を 許可します 。
+117. [A] [N5] ku-naru-ni-naru — 〜くなる / 〜になる — become; get; turn
+   天気悪【くなる】みたいだから傘忘れないようにね。
+   split: 天気 悪く なる みたい だから 傘 忘れない ように ね 。
+118. [A] [N4] n-desu-no-desu — 〜んです / 〜のです — it's that ...; (explaining or asking for an explanation)
+   人間はね、相手が狐だと解ると、手袋を売ってくれない【んだ】よ、それどころか、掴まえて檻の中へ入れちゃう【んだ】よ、人間ってほんとに恐いものな【んだ】よ。
+   split: 人間 は ね 、 相手 が 狐 だ と 解る と 、 手袋 を 売って くれない んだ よ 、 それ ど ころ か 、 掴まえて 檻 の 中 へ 入れちゃう んだ よ 、 人間 って ほ ん と に 恐い もの な んだ よ 。
+119. [A] [N5] ta — 〜た — did (plain past of verbs)
+   事態はよくなるだろうと私は【思った】が、実際のところは悪くなっている。
+   split: 事態 は よく なる だろう と 私 は 思った が 、 実際 の ところ は 悪く なっている 。
+120. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   私たちの高校【では】新しい教授法を採用することにした。
+   split: 私たち の 高校 では 新しい 教授 法 を 採用する こと に した 。
+121. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   真夜中の電話には、びっくりさせられたり不愉快な思い【を】させられる。
+   split: 真 夜中 の 電話 に は 、 びっくりさせられ たり 不 愉快 な 思い を させられる 。
+122. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   オレンジジュース【を】飲んだら気分がさわやかになった。
+   split: オレンジ ジュース を 飲んだら 気分 が さわやか に なった 。
+123. [A] [N4] te-kudasaru-te-itadaku — 〜てくださる / 〜ていただく — (honorific) someone kindly does for me; (humble) I receive the favor of someone doing
+   わざわざホテルまで迎えに来【ていただく】には及びません。
+   split: わざわざ ホテル まで 迎え に 来て いただく に は 及びません 。
+124. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   海は各種【の】資源を与えてくれる。
+   split: 海 は 各種 の 資源 を 与えて くれる 。
+125. [A] [N5] ne — 〜ね — isn't it?; right? (seeking agreement or sharing a feeling)
+   このロープは強いです【ね】。
+   split: この ロープ は 強い です ね 。
+126. [A] [N4] to — 〜と（conditional） — when; if; whenever (natural or automatic result)
+   気難しい人は、からかう【と】すぐ腹を立てる。
+   split: 気難しい 人 は 、 からかう と すぐ 腹 を 立てる 。
+127. [A] [N5] masu — 〜ます — polite non-past verb ending (do; will do)
+   改装のため閉店【致します】。
+   split: 改装 の ため 閉店 致します 。
+128. [A] [N4] n-desu-no-desu — 〜んです / 〜のです — it's that ...; (explaining or asking for an explanation)
+   トムの奥様ね、突然病気になられた【の】。
+   split: トム の 奥様 ね 、 突然 病気 に なられた の 。
+129. [A] [N5] ta — 〜た — did (plain past of verbs)
+   彼は庭の木を１本切り【倒した】。
+   split: 彼 は 庭 の 木 を １ 本 切り 倒した 。
+130. [A] [N5] yo — 〜よ — you know; I tell you (giving new information or emphasis)
+   トムだってチームの一員だ【よ】。
+   split: トム だって チーム の 一員 だ よ 。
+131. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   子供はたばこ【を】吸うの【を】禁じられている。
+   split: 子供 は たばこ を 吸う の を 禁じられている 。
+132. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   彼の自転車【は】青い。
+   split: 彼 の 自転車 は 青い 。
+133. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   マサシとタカコ【は】、どこで休暇を過ごすかでおたがいけんかをしていた。
+   split: マサシ と タカコ は 、 どこ で 休暇 を 過ごす か で お た が いけ ん か を していた 。
+134. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   国民は彼【の】権利を奪った。
+   split: 国民 は 彼 の 権利 を 奪った 。
+135. [A] [N3] tte — 〜って — (casual quotation) says that; I heard; as for; what is
+   トムの子供【って】、幾つなの？
+   split: トム の 子供 って 、 幾つ な の ？
+136. [A] [N5] to-with — 〜と（with） — with; together with (a partner in an action)
+   トムがしようと言っていたことについて、彼【と】話す必要がある。
+   split: トム が しよう と 言っていた こと に ついて 、 彼 と 話す 必要 が ある 。
+137. [A] [N5] nai — 〜ない — do not; will not (plain negative of verbs)
+   彼は試験を【受けない】でその学校に入学を認められた。
+   split: 彼 は 試験 を 受けない で その 学校 に 入学 を 認められた 。
+138. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   バスを運転してる男性【は】私の親友です。
+   split: バス を 運転してる 男性 は 私 の 親友 です 。
+139. [A] [N5] ta — 〜た — did (plain past of verbs)
+   父が僕の古い時計を修理して【くれた】。
+   split: 父 が 僕 の 古い 時計 を 修理して くれた 。
+140. [A] [N5] te-iru — 〜ている — be doing (ongoing action); be in a state (result of a change); do regularly
+   あの少年は走っ【ていま】す。
+   split: あの 少年 は 走っています 。
+141. [A] [N5] ta — 〜た — did (plain past of verbs)
+   彼らは彼を長いこと外で【待たせた】。
+   split: 彼ら は 彼 を 長い こと 外 で 待たせた 。
+142. [A] [N5] ni-indirect-object — 〜に（indirect object） — to (the person who receives or is the target of an action)
+   これが昨日あなた【に】話した辞書の一つです。
+   split: これ が 昨日 あなた に 話した 辞書 の 一つ です 。
+143. [A] [N5] koko-soko-asoko-doko — ここ / そこ / あそこ / どこ — here; there (near you); over there; where
+   彼女と【ここ】に残ってほしい。
+   split: 彼女 と ここ に 残って ほしい 。
+144. [A] [N5] ta — 〜た — did (plain past of verbs)
+   トムは自分がケモナーであることを両親にカミングアウト【した】。
+   split: トム は 自分 が ケモナー で ある こと を 両親 に カミングアウト した 。
+145. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   自分の才能に合った望み【を】持て。
+   split: 自分 の 才能 に 合った 望み を 持て 。
+146. [A] [N4] no-koto-nominalizer — 〜の / 〜こと（nominalizer） — the act of doing (turns a verb phrase into a noun)
+   彼女と一緒に行けなかった【の】は残念だ。
+   split: 彼女 と 一緒 に 行けなかった の は 残念 だ 。
+147. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   今は車【の】時代だと言っても過言ではない。
+   split: 今 は 車 の 時代 だ と 言って も 過言 ではない 。
+148. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   トム【は】赤ちゃんなんだ。
+   split: トム は 赤ちゃん な んだ 。
+149. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   ケーキ【を】作るときには、卵、バター、砂糖【を】使わなければいけない。
+   split: ケーキ を 作る とき に は 、 卵 、 バター 、 砂糖 を 使わなければ いけない 。
+150. [A] [N5] ta — 〜た — did (plain past of verbs)
+   ランプが木の枝から【吊り下げられた】。
+   split: ランプ が 木 の 枝 から 吊り下げられた 。
+151. [A] [N5] ga-subject — 〜が（subject） — marks the subject; points out new or focused information
+   蛇【が】嫌いだった。
+   split: 蛇 が 嫌い だった 。
+152. [A] [N5] ta — 〜た — did (plain past of verbs)
+   彼女のお父さんは、彼女に何でも【話させた】。
+   split: 彼女 の お父さん は 、 彼女 に 何でも 話させた 。
+153. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   今まで君は何【を】していたのですか。
+   split: 今 まで 君 は 何 を していた のです か 。
+154. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   トムは月曜日【の】朝に逮捕された。
+   split: トム は 月曜日 の 朝 に 逮捕された 。
+155. [A] [N3] teki — 〜的 — -ic; -al; in terms of
+   田舎の生活は都会の生活より【健康的】だ。
+   split: 田舎 の 生活 は 都会 の 生活 より 健康的 だ 。
+156. [A] [N5] yo — 〜よ — you know; I tell you (giving new information or emphasis)
+   彼は電車に乗り遅れたかもしれない【よ】。
+   split: 彼 は 電車 に 乗り 遅れた かもしれない よ 。
+157. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   あいにく私【は】彼の演説に間に合わなかった。
+   split: あいにく 私 は 彼 の 演説 に 間に合わなかった 。
+158. [A] [N5] te-iru — 〜ている — be doing (ongoing action); be in a state (result of a change); do regularly
+   何の番組【見てる】の？
+   split: 何の 番組 見てる の ？
+159. [A] [N5] desu — 〜です — is; am; are (polite copula)
+   彼女が書いたことはある意味では本当【です】。
+   split: 彼女 が 書いた こと は ある 意味 では 本当 です 。
+160. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   オーストラリア【の】首都はどこですか？
+   split: オーストラリア の 首都 は どこ です か ？
+161. [A] [N2] amari-ni — 〜あまり（に） — so much that; out of excessive; because of too much
+   トムは痛みの【あまり】悲鳴を上げた。
+   split: トム は 痛み の あまり 悲鳴 を 上げた 。
+162. [A] [N3] tara-ta — 〜たら〜た — when I did A, (I found that) B; upon doing, I discovered
+   彼が駅へ着い【たら汽車は出た】後だった。
+   split: 彼 が 駅 へ 着いたら 汽車 は 出た 後 だった 。
+163. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   結婚生活がうまく行っていない方【は】結婚式の時におごそかに神の前に誓った、夫婦の誓約を思い出してみましょう。
+   split: 結婚 生活 が うまく 行っていない 方 は 結婚式 の 時 に お ご そ か に 神 の 前 に 誓った 、 夫婦 の 誓約 を 思い出して み ましょう 。
+164. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   あのトムの本【を】ちょっと見せてください。
+   split: あの トム の 本 を ちょっと 見せて ください 。
+165. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   今日【は】美術館に行くんだ。
+   split: 今日 は 美術館 に 行く んだ 。
+166. [A] [N5] kono-sono-ano-dono — この / その / あの / どの — this; that (near you); that ... over there; which (before a noun)
+   あらまあ、馬子にも衣装とは【この】ことだねぇ。スーツ着ると結構格好いいじゃん。
+   split: あら まあ 、 馬子 に も 衣装 と は この こと だ ね ぇ 。 スーツ 着る と 結構 格好 いい じゃん 。
+167. [A] [N3] you-na-you-ni-like — 〜ような / 〜ように（like） — like; as; such as
+   あの映画を見ると何かしらインドへ行った【ような】気がします。
+   split: あの 映画 を 見る と 何か し ら インド へ 行った ような 気 が します 。
+168. [A] [N5] kore-sore-are-dore — これ / それ / あれ / どれ — this one; that one (near you); that one (over there); which one
+   【それ】は彼女の手紙の返事だ。
+   split: それ は 彼女 の 手紙 の 返事 だ 。
+169. [A] [N4] tsumori — 〜つもり — intend to; plan to
+   私はその会に出席する【つもり】だ。
+   split: 私 は その 会 に 出席する つもり だ 。
+170. [A] [N5] ga-subject — 〜が（subject） — marks the subject; points out new or focused information
+   ここは公共交通機関の便【が】悪いのよ。
+   split: ここ は 公共 交通機関 の 便 が 悪い の よ 。
+171. [A] [N5] kono-sono-ano-dono — この / その / あの / どの — this; that (near you); that ... over there; which (before a noun)
+   【あの】本屋でたまたま【その】本を見つけた。
+   split: あの 本屋 で たまたま その 本 を 見つけた 。
+172. [A] [N5] kore-sore-are-dore — これ / それ / あれ / どれ — this one; that one (near you); that one (over there); which one
+   【それ】の使い道がないんだよ。
+   split: それ の 使い道 が ない んだ よ 。
+173. [A] [N3] you-to-suru — 〜ようとする — try to; attempt to; be about to
+   彼が私を【だまそう】とした時、彼を叩いてやりたい気がした。
+   split: 彼 が 私 を だまそう と した 時 、 彼 を 叩いて やりたい 気 が した 。
+174. [A] [N5] ga-suki-ga-kirai — 〜が好き / 〜が嫌い — like; dislike
+   私はコーヒー【が大嫌い】です。
+   split: 私 は コーヒー が 大嫌い です 。
+175. [A] [N5] ga-subject — 〜が（subject） — marks the subject; points out new or focused information
+   異臭を放つ煙【が】すき間から入り込んでくる。
+   split: 異臭 を 放つ 煙 が すき間 から 入り込んで くる 。
+176. [A] [N5] ku-naru-ni-naru — 〜くなる / 〜になる — become; get; turn
+   彼女は２年で医者【になる】だろう。
+   split: 彼女 は ２ 年 で 医者 に なる だろう 。
+177. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   フランス語を話すの【は】止めなさい。
+   split: フランス 語 を 話す の は 止めなさい 。
+178. [A] [N4] seru-saseru — 〜せる / 〜させる — make someone do; let someone do (causative)
+   私は彼を２度とここへ来【させな】い。
+   split: 私 は 彼 を ２ 度 と ここ へ 来させない 。
+179. [A] [N5] ni-indirect-object — 〜に（indirect object） — to (the person who receives or is the target of an action)
+   その件については常に私【に】知らせるようにしてください。
+   split: その 件 に ついて は 常に 私 に 知らせる ように して ください 。
+180. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   あなたに私の人生の歴史【を】話してあげよう。
+   split: あなた に 私 の 人生 の 歴史 を 話して あげよう 。
+181. [A] [N5] masen — 〜ません — do not; will not (polite negative)
+   赤ちゃんを一人にしておいてはいけ【ません】。
+   split: 赤ちゃん を 一人 に しておいて は いけません 。
+182. [A] [N4] n-desu-no-desu — 〜んです / 〜のです — it's that ...; (explaining or asking for an explanation)
+   バラはね、メアリーのお気に入りの花な【んだ】よ。
+   split: バラ は ね 、 メアリー の お 気に入り の 花 な んだ よ 。
+183. [A] [N5] desu — 〜です — is; am; are (polite copula)
+   フランス語が好き【です】。
+   split: フランス 語 が 好き です 。
+184. [A] [N5] te-iru — 〜ている — be doing (ongoing action); be in a state (result of a change); do regularly
+   私は太っ【ている】。
+   split: 私 は 太っている 。
+185. [A] [N3] ni-tsuite — 〜について — about; concerning; regarding
+   他の生徒【について】ゆくために一生懸命に勉強しなければならない。
+   split: 他 の 生徒 に ついて ゆ く ため に 一生懸命 に 勉強しなければ ならない 。
+186. [A] [N5] te-iru — 〜ている — be doing (ongoing action); be in a state (result of a change); do regularly
+   Ｗｏｏｄｙ　Ｐａｎｅｌの市価が８０＄だということは知っ【ていま】す。
+   split: Ｗｏｏｄｙ Ｐａｎｅｌ の 市 価 が ８ ０ ＄ だ と いう こと は 知っています 。
+187. [A] [N5] kono-sono-ano-dono — この / その / あの / どの — this; that (near you); that ... over there; which (before a noun)
+   【この】箱にはりんごが入っている。
+   split: この 箱 に は りんご が 入っている 。
+188. [A] [N5] nai — 〜ない — do not; will not (plain negative of verbs)
+   僕は酒も煙草も【やらない】んだ。
+   split: 僕 は 酒 も 煙草 も やらない んだ 。
+189. [A] [N4] node — 〜ので — because; since
+   このヒーターは故障しているような【ので】、彼に修理してもらう予定だ。
+   split: この ヒーター は 故障している ような ので 、 彼 に 修理して もらう 予定 だ 。
+190. [A] [N5] mo — 〜も — also; too; (with a negative) not ... either; neither ... nor
+   情勢は政府の力ではどうに【も】ならなくなった。
+   split: 情勢 は 政府 の 力 では どう に も なら なくなった 。
+191. [A] [N5] ta — 〜た — did (plain past of verbs)
+   やらずに後悔するよりやって【後悔した】ほうがいい。
+   split: やらず に 後悔する より やって 後悔した ほう が いい 。
+192. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   それらの作品に【は】優劣をつけがたい。
+   split: それ ら の 作品 に は 優劣 を つけ が たい 。
+193. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   私【は】無理に白状させられた。
+   split: 私 は 無理 に 白状させられた 。
+194. [A] [N5] ta — 〜た — did (plain past of verbs)
+   トムは迷彩柄のジャケットを【着ていた】。
+   split: トム は 迷 彩 柄 の ジャケット を 着ていた 。
+195. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   言い換えれば、彼女はそのプロポーズ【を】断りたいのだ。
+   split: 言い換えれば 、 彼女 は その プロポーズ を 断りたい のだ 。
+196. [A] [N3] you-to-suru — 〜ようとする — try to; attempt to; be about to
+   彼は逃げ【ようと】必死だった。
+   split: 彼 は 逃げよう と 必死 だった 。
+197. [A] [N5] mo — 〜も — also; too; (with a negative) not ... either; neither ... nor
+   君【も】仲間に入りませんか。
+   split: 君 も 仲間 に 入りません か 。
+198. [A] [N5] ga-subject — 〜が（subject） — marks the subject; points out new or focused information
+   この会社は誰【が】引き継ぐと思う？
+   split: この 会社 は 誰 が 引き継ぐ と 思う ？
+199. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   市長【は】市民にどう行動すべきかを指示した。
+   split: 市長 は 市民 に どう 行動 すべ き か を 指示した 。
+200. [A] [N5] ta — 〜た — did (plain past of verbs)
+   すぐれた材料で【作られた】家具は、売れ行きがよい。
+   split: すぐ れ た 材料 で 作られた 家具 は 、 売れ行き が よい 。
+201. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   本当にトム【は】大丈夫なの？
+   split: 本当 に トム は 大丈夫 な の ？
+202. [A] [N5] nai — 〜ない — do not; will not (plain negative of verbs)
+   それはいくらするか見当が【つかない】。
+   split: それ は いくら する か 見当 が つかない 。
+203. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   これに【は】とても賛成できません。
+   split: これ に は とても 賛成 できません 。
+204. [A] [N5] deshita — 〜でした — was; were (polite past copula)
+   バッハとヘンデルは同時代人【でした】。
+   split: バッハ と ヘンデル は 同 時代 人 でした 。
+205. [A] [N5] kono-sono-ano-dono — この / その / あの / どの — this; that (near you); that ... over there; which (before a noun)
+   【この】冬は寒くなりそうだ。
+   split: この 冬 は 寒く なり そう だ 。
+206. [A] [N5] desu — 〜です — is; am; are (polite copula)
+   パスワードは、英字と数字を含めた8～36文字の半角英数字記号で設定可能【です】。
+   split: パスワード は 、 英字 と 数字 を 含めた 8 ～ 3 6 文字 の 半角 英 数字 記号 で 設定 可能 です 。
+207. [A] [N4] tame-ni — 〜ために — in order to; for (the sake of); because of
+   地球を救う【ために】は、私達全員が何かをしなくてはならない。
+   split: 地球 を 救う ため に は 、 私 達 全員 が 何か を しなくて は ならない 。
+208. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   二十五ページ【の】地図を見なさい。
+   split: 二十 五 ページ の 地図 を 見なさい 。
+209. [A] [N5] te-iru — 〜ている — be doing (ongoing action); be in a state (result of a change); do regularly
+   麻雀のやり方を【知ってる】？
+   split: 麻雀 の やり方 を 知ってる ？
+210. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   すばらしい夕日を見ることができるので、バリ島に行く価値【は】ある。
+   split: すばらしい 夕日 を 見る こと が できる ので 、 バリ 島 に 行く 価値 は ある 。
+211. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   私【は】彼女と１時間話をした。
+   split: 私 は 彼女 と １ 時間 話 を した 。
+212. [A] [N4] node — 〜ので — because; since
+   疲れがたまっていた【ので】、思い切って午後は何もしないでゆっくり過ごした。
+   split: 疲れ が たまっていた ので 、 思い切って 午後 は 何も しない で ゆっくり 過ごした 。
+213. [A] [N4] nara — 〜なら — if (it's the case that); if you're talking about
+   ガルフポートで一番のフライドチキン【なら】、「おばあちゃんの台所」に行かなきゃ。
+   split: ガルフポート で 一番 の フライド チキン なら 、 「 お ばあ ちゃん の 台所 」 に 行かなき ゃ 。
+214. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   鍵【を】なくしちゃったら、ドアに鍵【を】かけられないよな。
+   split: 鍵 を なくしちゃったら 、 ドア に 鍵 を かけられない よ な 。
+215. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   私達は残っていたわずかな抵抗組織【を】全て制圧した。
+   split: 私達 は 残っていた わずか な 抵抗 組織 を 全て 制圧した 。
+216. [A] [N5] ta — 〜た — did (plain past of verbs)
+   彼は私たちにかなり多くの迷惑を【かけた】。
+   split: 彼 は 私たち に かなり 多く の 迷惑 を かけた 。
+217. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   昨夜、約８万人【の】観衆がスタジアムをうずめた。
+   split: 昨夜 、 約 ８ 万人 の 観衆 が スタジアム を う ず め た 。
+218. [A] [N5] nai — 〜ない — do not; will not (plain negative of verbs)
+   ロミオは自分の名前すら【書けない】んだ。
+   split: ロミオ は 自分 の 名前 すら 書けない んだ 。
+219. [A] [N5] desu — 〜です — is; am; are (polite copula)
+   私は明日彼のところを訪れるつもり【です】。
+   split: 私 は 明日 彼 の ところ を 訪れる つもり です 。
+220. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   税金【を】払ったら実生活の始まりだ。
+   split: 税金 を 払ったら 実 生活 の 始まり だ 。
+221. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   彼ら【は】いつも学校をサボっています。
+   split: 彼ら は いつも 学校 を サボっています 。
+222. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   彼【は】ご飯を丼で食べたよ。
+   split: 彼 は ご飯 を 丼 で 食べた よ 。
+223. [A] [N5] da — 〜だ — is; am; are (plain copula)
+   私たちが８時以降に外出するのは危険【だ】。
+   split: 私たち が ８ 時 以降 に 外出する の は 危険 だ 。
+224. [A] [N4] reru-rareru-passive — 〜れる / 〜られる（passive） — be done (by someone); passive voice
+   毒物に【やられています】ね。
+   split: 毒物 に やられています ね 。
+225. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   彼女は彼からの便り【を】待ちこがれていた。
+   split: 彼女 は 彼 から の 便り を 待ち こがれていた 。
+226. [A] [N3] teki — 〜的 — -ic; -al; in terms of
+   【効率的】に課題を解決できる人材は、組織の成長に大きく貢献します。
+   split: 効率的 に 課題 を 解決 できる 人材 は 、 組織 の 成長 に 大きく 貢献します 。
+227. [A] [N4] n-desu-no-desu — 〜んです / 〜のです — it's that ...; (explaining or asking for an explanation)
+   君のボーイフレンドになりたい【んだ】。
+   split: 君 の ボーイフレンド に なりたい んだ 。
+228. [A] [N4] n-desu-no-desu — 〜んです / 〜のです — it's that ...; (explaining or asking for an explanation)
+   あなたはコーヒーをどうやって飲む【の】、砂糖は入れる、入れない？
+   split: あなた は コーヒー を どう やって 飲む の 、 砂糖 は 入れる 、 入れない ？
+229. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   私はあなたが国債に投資なさる事【を】お勧めします。
+   split: 私 は あなた が 国債 に 投資 なさる 事 を お 勧め します 。
+230. [A] [N5] ka-question — 〜か（question） — (question marker) turns a sentence into a question
+   大学では何を専攻されていたんです【か】？
+   split: 大学 では 何 を 専攻されていた んです か ？
+231. [A] [N5] nai — 〜ない — do not; will not (plain negative of verbs)
+   あまり物事を深刻に【考えない】ようにしなさい。
+   split: あまり 物事 を 深刻 に 考えない ように しなさい 。
+232. [A] [N4] reru-rareru-passive — 〜れる / 〜られる（passive） — be done (by someone); passive voice
+   印刷術はいつ【発明されました】か。
+   split: 印刷 術 は いつ 発明されました か 。
+233. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   この写真【の】わたしは１５歳だ。
+   split: この 写真 の わたし は １ ５ 歳 だ 。
+234. [A] [N4] to — 〜と（conditional） — when; if; whenever (natural or automatic result)
+   空港につく【と】すぐに彼は妻に電話した。
+   split: 空港 に つく と すぐに 彼 は 妻 に 電話した 。
+235. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   この歌【は】日本でたいへん人気がある。
+   split: この 歌 は 日本 で たいへん 人気 が ある 。
+236. [A] [N5] ga-aru-ga-iru — 〜がある / 〜がいる — there is; there are; have (ある for things, いる for people and animals)
+   ベッドの下にモンスター【がいる】。
+   split: ベッド の 下 に モンスター が いる 。
+237. [A] [N5] ta — 〜た — did (plain past of verbs)
+   私はこんなに早く【目覚めた】ことはない。
+   split: 私 は こんなに 早く 目覚めた こと は ない 。
+238. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   時勢に付いて行くために新聞【を】読むようにしなさい。
+   split: 時勢 に 付いて 行く ため に 新聞 を 読む ように しなさい 。
+239. [A] [N5] nai — 〜ない — do not; will not (plain negative of verbs)
+   最近トムがかまって【くれない】の。
+   split: 最近 トム が かまって くれない の 。
+240. [A] [N5] ya — 〜や — and (giving some examples out of more); ... and so on
+   その若い医師は貧しい人々【や】病人を助けることに専念した。
+   split: その 若い 医師 は 貧しい 人々 や 病人 を 助ける こと に 専念した 。
+241. [A] [N5] kara-reason — 〜から（reason） — because; since; so
+   父は本当は私たちの結婚に賛成ではないのです。というのは、ジョンはまだ職がない【から】です。
+   split: 父 は 本当 は 私たち の 結婚 に 賛成 ではない のです 。 と いう の は 、 ジョン は まだ 職 が ない から です 。
+242. [A] [N4] te-mo-de-mo — 〜ても / 〜でも — even if; even though
+   エドウィンと言う名前を【聞いて】もピンとこない。
+   split: エドウィン と 言う 名前 を 聞いて も ピン と こない 。
+243. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   私【は】ある人に家を建ててもらった。
+   split: 私 は ある 人 に 家 を 建てて もらった 。
+244. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   日が照っていたから外に洗濯物【を】干したのに、干した途端に雨が降ってくるってどういうこと！？
+   split: 日 が 照っていた から 外 に 洗濯 物 を 干した のに 、 干した 途端 に 雨 が 降って くる って どう いう こと ！ ？
+245. [A] [N3] to-shite — 〜として — as; in the role or capacity of
+   彼女は外国人だったので外国人【として】扱われた。
+   split: 彼女 は 外国人 だった ので 外国人 と して 扱われた 。
+246. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   トムはリス【を】見た。
+   split: トム は リス を 見た 。
+247. [A] [N5] desu — 〜です — is; am; are (polite copula)
+   悲しい【です】。
+   split: 悲しい です 。
+248. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   1月1日【は】パブリックドメインの日です。
+   split: 1 月 1日 は パブリック ドメイン の 日 です 。
+249. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   彼【は】、ナタナエル見つけていった。
+   split: 彼 は 、 ナタナエル 見つけて いった 。
+250. [A] [N5] ta — 〜た — did (plain past of verbs)
+   その声明には真実のかけらも【なかった】。
+   split: その 声明 に は 真実 の かけら も なかった 。
+251. [A] [N4] to-omou — 〜と思う — I think that
+   トムってお腹空いてる【と思う】？
+   split: トム って お腹 空いてる と 思う ？
+252. [A] [N5] desu — 〜です — is; am; are (polite copula)
+   私に関する限りでは、すべて順調【です】。
+   split: 私 に 関する 限り では 、 すべて 順調 です 。
+253. [A] [N5] de-place — 〜で（place of action） — at; in (the place where an action happens)
+   教室【で】おしゃべりをしてはいかん。
+   split: 教室 で おしゃべり を して はい か ん 。
+254. [A] [N5] yo — 〜よ — you know; I tell you (giving new information or emphasis)
+   何、まだ俺の言った事を信じているのか？あれは嘘だ【よ】！
+   split: 何 、 まだ 俺 の 言った 事 を 信じている の か ？ あれ は 嘘 だ よ ！
+255. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   案内所【は】どこですか。
+   split: 案 内所 は どこ です か 。
+256. [A] [N5] ne — 〜ね — isn't it?; right? (seeking agreement or sharing a feeling)
+   このハイテク枕【ね】、いびきをかくと振動するのよ。
+   split: この ハイテク 枕 ね 、 いびき を かく と 振動する の よ 。
+257. [A] [N5] to-and — 〜と（and） — and (joining nouns in a complete list)
+   ある日マイク【と】ジェインは町へ買物をしに行きました。
+   split: ある 日 マイク と ジェイン は 町 へ 買物 を し に 行きました 。
+258. [A] [N5] kono-sono-ano-dono — この / その / あの / どの — this; that (near you); that ... over there; which (before a noun)
+   【どの】席でもかまいません。
+   split: どの 席 でも かまいません 。
+259. [A] [N5] te — 〜て — and; and then (linking actions in order)
+   お琴の魅力を分かって【もらえて】嬉しいです。ありがとう。
+   split: お 琴 の 魅力 を 分かって もらえて 嬉しい です 。 ありがとう 。
+260. [A] [N5] yo — 〜よ — you know; I tell you (giving new information or emphasis)
+   夜そんなに遅くコーヒーを飲みすぎない方がいい【よ】。
+   split: 夜 そんなに 遅く コーヒー を 飲み すぎない 方 が いい よ 。
+261. [A] [N5] da — 〜だ — is; am; are (plain copula)
+   腕時計の収集が趣味【だ】。
+   split: 腕 時計 の 収集 が 趣味 だ 。
+262. [A] [N4] n-desu-no-desu — 〜んです / 〜のです — it's that ...; (explaining or asking for an explanation)
+   実は私は彼女を愛してはいない【のです】。
+   split: 実は 私 は 彼女 を 愛して は いない のです 。
+263. [A] [N5] te-iru — 〜ている — be doing (ongoing action); be in a state (result of a change); do regularly
+   そこにはバスで【行ってる】の？それとも車？
+   split: そこ に は バス で 行ってる の ？ それとも 車 ？
+264. [A] [N4] tsumori — 〜つもり — intend to; plan to
+   トムがオーストラリアに移住する【つもり】だとは知らなかったよ。
+   split: トム が オーストラリア に 移住する つもり だ と は 知らなかった よ 。
+265. [A] [N5] yo — 〜よ — you know; I tell you (giving new information or emphasis)
+   ずぼらというか、わざとやってるんだと思う【よ】。
+   split: ず ぼ ら と いう か 、 わざと やってる んだ と 思う よ 。
+266. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   フロイトほど夢の理解に貢献した人【は】いない。
+   split: フロイト ほど 夢 の 理解 に 貢献した 人 は いない 。
+267. [A] [N5] ta — 〜た — did (plain past of verbs)
+   トムにドアを閉めてと【頼んだ】。
+   split: トム に ドア を 閉めて と 頼んだ 。
+268. [A] [N5] te-iru — 〜ている — be doing (ongoing action); be in a state (result of a change); do regularly
+   日本は外交政策の変更を迫られてき【ている】。
+   split: 日本 は 外交 政策 の 変更 を 迫られて きている 。
+269. [A] [N5] yo — 〜よ — you know; I tell you (giving new information or emphasis)
+   僕のこと分かってくれたと思う【よ】。
+   split: 僕 の こと 分かって くれた と 思う よ 。
+270. [A] [N3] nanka-nante — 〜なんか / 〜なんて — things like; the likes of (dismissive or humble); how ...! (surprise)
+   そんな風にふるまう【なんて】、彼は愚かですね。
+   split: そんな 風 に ふ る ま う なんて 、 彼 は 愚か です ね 。
+271. [A] [N4] hazu-ga-nai — 〜はずがない — can't be; there's no way that
+   彼がその事を言った【はずがない】。
+   split: 彼 が その 事 を 言った はず が ない 。
+272. [A] [N4] te-mo-de-mo — 〜ても / 〜でも — even if; even though
+   どこ【行って】も高層マンションの建設現場を見るなあ。
+   split: どこ 行って も 高層 マンション の 建設 現場 を 見る なあ 。
+273. [A] [N5] nai — 〜ない — do not; will not (plain negative of verbs)
+   彼女が都会に住んでいようが田舎に住んでいようが、僕には大した違いは【ない】よ。
+   split: 彼女 が 都会 に 住んでいよう が 田舎 に 住んでいよう が 、 僕 に は 大した 違い は ない よ 。
+274. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   お昼ご飯【は】、残り物を食べました。
+   split: お昼 ご飯 は 、 残り物 を 食べました 。
+275. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   太陽が雲の間から顔【を】出した。
+   split: 太陽 が 雲 の 間 から 顔 を 出した 。
+276. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   子ども【は】大人のようにふるまいたがる。
+   split: 子ども は 大人 の ように ふ る まいた がる 。
+277. [A] [N4] darou — 〜だろう — probably; I suppose (plain form of でしょう)
+   私たちの仕事はこれまでは容易だったが、これから先は難しくなる【だろう】。
+   split: 私たち の 仕事 は これ まで は 容易 だった が 、 これから 先 は 難しく なる だろう 。
+278. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   検査結果【は】陰性です。
+   split: 検査 結果 は 陰性 です 。
+279. [A] [N5] ni-location — 〜に（place of existence） — in; at; on (where someone or something is)
+   パリはフランス【に】あります。
+   split: パリ は フランス に あります 。
+280. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   私たち【は】需要を満たさなければならない。
+   split: 私たち は 需要 を 満たさなければ ならない 。
+281. [A] [N5] ne — 〜ね — isn't it?; right? (seeking agreement or sharing a feeling)
+   それはとてもよかった【ね】。
+   split: それ は とても よかった ね 。
+282. [A] [N5] nai — 〜ない — do not; will not (plain negative of verbs)
+   弁解の余地も【ない】よ。
+   split: 弁解 の 余地 も ない よ 。
+283. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   私【は】騒がしいクラスで自分の言うことを聞いて貰えなかった。
+   split: 私 は 騒がしい クラス で 自分 の 言う こと を 聞いて 貰えなかった 。
+284. [A] [N5] ni-destination — 〜に（destination） — to; into (the destination of movement)
+   重傷を負った男性は病院【に】着いた時既に亡くなっていた。
+   split: 重傷 を 負った 男性 は 病院 に 着いた 時 既に 亡くなっていた 。
+285. [A] [N4] shika-nai — 〜しか〜ない — only; nothing but
+   トムはメアリー【しか】見えていない。
+   split: トム は メアリー しか 見えていない 。
+286. [A] [N4] no-koto-nominalizer — 〜の / 〜こと（nominalizer） — the act of doing (turns a verb phrase into a noun)
+   正しいと思う【こと】をやりなさい。
+   split: 正しい と 思う こと を やりなさい 。
+287. [A] [N3] tte — 〜って — (casual quotation) says that; I heard; as for; what is
+   今こそピンチをチャンスに変える時【って】、簡単に言うなよ。
+   split: 今 こそ ピンチ を チャンス に 変える 時 って 、 簡 単に 言う な よ 。
+288. [A] [N5] o — 〜を — marks the direct object of a verb; marks a place moved through or left
+   彼【を】見てご覧、また酔っ払っているよ。
+   split: 彼 を 見て ご覧 、 また 酔っ払っている よ 。
+289. [A] [N5] no — 〜の（possessive） — 's; of (possession, belonging or description)
+   ２つ目【の】角を右に曲がりなさい。
+   split: ２ つ 目 の 角 を 右 に 曲がりなさい 。
+290. [A] [N5] ta — 〜た — did (plain past of verbs)
+   彼は永久に日本を【離れた】。
+   split: 彼 は 永久 に 日本 を 離れた 。
+291. [A] [N5] ga-subject — 〜が（subject） — marks the subject; points out new or focused information
+   自分【が】一体何をしているか分かっているのか？
+   split: 自分 が 一体 何 を している か 分かっている の か ？
+292. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   トム【は】辞書で見つけた卑猥な例文をノートに写して暗記している。
+   split: トム は 辞書 で 見つけた 卑猥 な 例文 を ノート に 写して 暗記している 。
+293. [A] [N5] ga-suki-ga-kirai — 〜が好き / 〜が嫌い — like; dislike
+   ボストン人はボストン【が大好き】です。
+   split: ボストン 人 は ボストン が 大好き です 。
+294. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   まずその問題を解決しなくて【は】ならない。
+   split: まず その 問題 を 解決しなくて は ならない 。
+295. [A] [N5] kono-sono-ano-dono — この / その / あの / どの — this; that (near you); that ... over there; which (before a noun)
+   【この】講堂は300人まで入れる。
+   split: この 講堂 は 3 0 0 人 まで 入れる 。
+296. [A] [N5] yo — 〜よ — you know; I tell you (giving new information or emphasis)
+   そんなこと、考えたこともない【よ】。
+   split: そんな こと 、 考えた こと も ない よ 。
+297. [A] [N5] ka-question — 〜か（question） — (question marker) turns a sentence into a question
+   あなたはこのプレゼントを配達してもらいたいのです【か】。
+   split: あなた は この プレゼント を 配達して もらいたい のです か 。
+298. [A] [N5] nai — 〜ない — do not; will not (plain negative of verbs)
+   昨年ボストンを離れてから、まだ一度も【戻ってない】んだ。
+   split: 昨年 ボストン を 離れて から 、 まだ 一度 も 戻ってない んだ 。
+299. [A] [N5] wa — 〜は — as for; marks the topic of the sentence
+   警察【は】鉄砲の指紋とドアの指紋とを見くらべた。
+   split: 警察 は 鉄砲 の 指紋 と ドア の 指紋 と を 見 く ら べた 。
+300. [A] [N5] mo — 〜も — also; too; (with a negative) not ... either; neither ... nor
+   水【も】高価な商品になることがある。
+   split: 水 も 高価 な 商品 に なる こと が ある 。
+301. [B] [N3] to-shite — 〜として — as; in the role or capacity of
+   あなたが馬鹿者のように振る舞えば、馬鹿者【として】扱われる。
+   split: あなた が 馬鹿 者 の ように 振る舞えば 、 馬鹿 者 と して 扱われる 。
+302. [B] [N3] beki-da-beki-de-wa-nai — 〜べきだ / 〜べきではない — should; ought to / should not
+   僕らはみんな行く【べきだ】。
+   split: 僕ら は みんな 行く べ き だ 。
+303. [B] [N3] beki-da-beki-de-wa-nai — 〜べきだ / 〜べきではない — should; ought to / should not
+   君は仕事に精を出す【べきだ】。
+   split: 君 は 仕事 に 精 を 出 すべ き だ 。
+304. [B] [N3] nanka-nante — 〜なんか / 〜なんて — things like; the likes of (dismissive or humble); how ...! (surprise)
+   泳ぐの【なんて】簡単だよ。
+   split: 泳ぐ の なんて 簡単 だ よ 。
+305. [B] [N3] mono-de-wa-nai — 〜ものではない — one shouldn't; it's not right to
+   狂気とはそこまで我々にとって縁遠い【ものではない】。
+   split: 狂気 と は そこ まで 我々 に とって 縁 遠い もの ではない 。
+306. [B] [N3] teki — 〜的 — -ic; -al; in terms of
+   彼は【全国的】名声があった。
+   split: 彼 は 全国的 名声 が あった 。
+307. [B] [N3] you-na-you-ni-like — 〜ような / 〜ように（like） — like; as; such as
+   宝石箱の【ように】輝いた日々が懐かしい。
+   split: 宝石 箱 の ように 輝いた 日々 が 懐かしい 。
+308. [B] [N3] beki-da-beki-de-wa-nai — 〜べきだ / 〜べきではない — should; ought to / should not
+   口をつぐんでいる【べきだ】った。
+   split: 口 を つぐんでいる べ き だった 。
+309. [B] [N3] sae-ba — 〜さえ〜ば — if only; as long as; provided that
+   父は暇【さえあれば】釣りに行きます。
+   split: 父 は 暇 さえ あれば 釣り に 行きます 。
+310. [B] [N3] tatte-datte — 〜たって / 〜だって — even if; no matter (casual)
+   「由美！私たちは真剣に話し合ってるのよ」「私【だって】真剣だもん」「そうは見えないわ」
+   split: 「 由 美 ！ 私たち は 真剣 に 話し合ってる の よ 」 「 私 だって 真剣 だ も ん 」 「 そう は 見えない わ 」
+311. [B] [N3] to-shite — 〜として — as; in the role or capacity of
+   その戦争の結果【として】、多くの人が亡くなった。
+   split: その 戦争 の 結果 と して 、 多く の 人 が 亡くなった 。
+312. [B] [N3] koto-wa-nai — 〜ことはない — there's no need to; don't have to
+   私は特に言う【ことはない】。
+   split: 私 は 特に 言う こと は ない 。
+313. [B] [N3] muki-muke — 〜向き / 〜向け — suitable for / aimed at; intended for
+   子供【向け】にかかれているので、この本は読みやすい。
+   split: 子供 向け に かかれている ので 、 この 本 は 読み や す い 。
+314. [B] [N3] teki — 〜的 — -ic; -al; in terms of
+   月明かりの下、静かに佇む古城の姿は、なんとも【幻想的】で美しい。
+   split: 月明かり の 下 、 静か に 佇む 古 城 の 姿 は 、 なんとも 幻想的 で 美しい 。
+315. [B] [N3] ni-tsuite — 〜について — about; concerning; regarding
+   私が考えていた計画【について】言えば、それ自体は悪くはなかった。
+   split: 私 が 考えていた 計画 に ついて 言えば 、 それ 自体 は 悪く は なかった 。
+316. [B] [N3] teki — 〜的 — -ic; -al; in terms of
+   【一般的】にウサギはネズミより大きいよ。
+   split: 一般的 に ウサギ は ネズミ より 大きい よ 。
+317. [B] [N3] ni-totte — 〜にとって — for; to (from the standpoint of)
+   彼女は私【にとって】もっとも大切な人だ。
+   split: 彼女 は 私 に とって もっとも 大切 な 人 だ 。
+318. [B] [N3] beki-da-beki-de-wa-nai — 〜べきだ / 〜べきではない — should; ought to / should not
+   その問題が解けないなら、別の方法を試みる【べきだ】。
+   split: その 問題 が 解けない なら 、 別 の 方法 を 試みる べ き だ 。
+319. [B] [N3] you-to-suru — 〜ようとする — try to; attempt to; be about to
+   我々を【生かそう】として彼は死んだ。
+   split: 我々 を 生かそう と して 彼 は 死んだ 。
+320. [B] [N3] teki — 〜的 — -ic; -al; in terms of
+   外国人を悩ますもう一つの、多くの日本人のもつ傾向は、「すべての」「あらゆる」というような言葉を使ったり、仄めかしたりして、あまりにも【一般的】であり、あまりにも広がりのある表現をする点にある。
+   split: 外国人 を 悩ます もう 一つ の 、 多く の 日本人 の も つ 傾向 は 、 「 すべて の 」 「 あらゆる 」 と いう ような 言葉 を 使った り 、 仄めかし たり して 、 あまり に も 一般的 で あり 、 あまり に も 広がり の ある 表現 を する 点 に ある 。
+321. [B] [N3] ni-kanshite-ni-kansuru — 〜に関して / 〜に関する — regarding; concerning; related to
+   私【に関する】限り、その計画には反対ではありません。
+   split: 私 に 関する 限り 、 その 計画 に は 反対 では ありません 。
+322. [B] [N3] nanka-nante — 〜なんか / 〜なんて — things like; the likes of (dismissive or humble); how ...! (surprise)
+   俺【なんか】どうせやっても無駄だよ。
+   split: 俺 なんか どうせ やって も 無駄 だ よ 。
+323. [B] [N3] beki-da-beki-de-wa-nai — 〜べきだ / 〜べきではない — should; ought to / should not
+   たまには一歩下がって考える【べきだ】。
+   split: たまに は 一歩 下 がって 考える べ き だ 。
+324. [B] [N3] ni-tsuite — 〜について — about; concerning; regarding
+   トムはそれ【について】話すのが嫌なんだよ。
+   split: トム は それに ついて 話す の が 嫌 な んだ よ 。
+325. [B] [N3] tte — 〜って — (casual quotation) says that; I heard; as for; what is
+   スパゲティじゃなくパスタ【って】呼んでね。
+   split: スパゲティ じゃ なく パスタ って 呼んで ね 。
+326. [B] [N3] teki — 〜的 — -ic; -al; in terms of
+   女性は【体力的】には男性より弱い。
+   split: 女性 は 体力的 に は 男性 より 弱い 。
+327. [B] [N3] ba-ii — 〜ばいい — should; all you need to do is; I hope (with のに/けど: I wish)
+   履歴書書くのって初めてだから、どうやって書け【ばいい】か分からないんだけど、教えてくれない？
+   split: 履歴 書 書く の って 初めて だから 、 どう やって 書けば いい か 分からない んだ けど 、 教えて くれない ？
+328. [B] [N3] tokoro-ni-tokoro-e-tokoro-o — 〜ところに / 〜ところへ / 〜ところを — just when; at the moment (someone arrives or something interrupts)
+   仕事に出かけようとしている【ところへ】電話が鳴った。
+   split: 仕事 に 出かけよう と している ところ へ 電話 が 鳴った 。
+329. [B] [N3] tte — 〜って — (casual quotation) says that; I heard; as for; what is
+   厨房【って】、人が足りてる？
+   split: 厨房 って 、 人 が 足りてる ？
+330. [B] [N3] ni-yotte-ni-yoru — 〜によって / 〜による — by (agent); by means of; due to; depending on
+   禁煙【による】健康上の利点は、顕著であり、すぐに現れ、着実に増加していくのである。
+   split: 禁煙 に よる 健康 上 の 利点 は 、 顕著 で あり 、 すぐに 現れ 、 着 実に 増加して いく ので ある 。
+331. [B] [N3] nanka-nante — 〜なんか / 〜なんて — things like; the likes of (dismissive or humble); how ...! (surprise)
+   おばあさんをだます【なんて】彼は卑劣だ。
+   split: おばあさん を だます なんて 彼 は 卑劣 だ 。
+332. [B] [N3] beki-da-beki-de-wa-nai — 〜べきだ / 〜べきではない — should; ought to / should not
+   他人をばかにす【べきではない】。
+   split: 他人 を ばか に すべ き ではない 。
+333. [B] [N3] au — 〜合う — do to each other; do together
+   抱き【合お】う、諸人よ。
+   split: 抱き合おう 、 諸 人 よ 。
+334. [B] [N3] you-to-suru — 〜ようとする — try to; attempt to; be about to
+   彼は様々のグループを統一し【ようと】した。
+   split: 彼 は 様々 の グループ を 統一しよう と した 。
+335. [B] [N3] you-na-you-ni-like — 〜ような / 〜ように（like） — like; as; such as
+   枠が出来上がると、クモはちょうど自転車の車輪のやの【ように】、それに絹の糸をかける。
+   split: 枠 が 出来上がる と 、 クモ は ちょうど 自転車 の 車輪 の や の ように 、 それに 絹 の 糸 を かける 。
+336. [B] [N3] ba-hodo — 〜ば〜ほど — the more ... the more
+   私たちの学校のいち【ばん年下の先生でもそれほど】若くない。
+   split: 私たち の 学校 の いちばん 年下 の 先生 でも それほど 若くない 。
+337. [B] [N3] ni-kanshite-ni-kansuru — 〜に関して / 〜に関する — regarding; concerning; related to
+   この問題【に関する】限り、あなたは自分の責任を逃れられません。
+   split: この 問題 に 関する 限り 、 あなた は 自分 の 責任 を 逃れられません 。
+338. [B] [N3] au — 〜合う — do to each other; do together
+   私たちは彼とその家の値段について話し【合っ】た。
+   split: 私たち は 彼 と その 家 の 値段 に ついて 話し合った 。
+339. [B] [N3] mono-da — 〜ものだ — it's natural that; one should; used to (nostalgia); how ...! (deep feeling)
+   よくもまああなたはそんな無作法な振る舞いができる【ものだ】。
+   split: よく も まあ あなた は そんな 無 作法 な 振る舞い が できる もの だ 。
+340. [B] [N3] tte — 〜って — (casual quotation) says that; I heard; as for; what is
+   「スーツ【って】クリーニングに出した方がいい？」「もちろん」
+   split: 「 スーツ って クリーニング に 出した 方 が いい ？ 」 「 もちろん 」
+341. [B] [N3] dake-de-naku — 〜だけでなく — not only ... but also
+   霊長類は尾の無いサル【だけでなく】人間も含む。
+   split: 霊 長 類 は 尾 の 無い サル だけ で なく 人間 も 含む 。
+342. [B] [N3] to-shite — 〜として — as; in the role or capacity of
+   トムは弁護士【として】成功を収めた。
+   split: トム は 弁護士 と して 成功 を 収めた 。
+343. [B] [N3] tte — 〜って — (casual quotation) says that; I heard; as for; what is
+   トム【って】メアリーのこと好きなんだと思う？
+   split: トム って メアリー の こと 好き な んだ と 思う ？
+344. [B] [N3] ni-taishite — 〜に対して — toward; against; in contrast to
+   その事故【に対して】責任があるのは彼だ。
+   split: その 事故 に 対して 責任 が ある の は 彼 だ 。
+345. [B] [N3] you-to-suru — 〜ようとする — try to; attempt to; be about to
+   トムは門を【直そう】としました。
+   split: トム は 門 を 直そう と しました 。
+346. [B] [N3] ni-taishite — 〜に対して — toward; against; in contrast to
+   前者がインディペンデント映画で注目されたの【に対して】、後者は音楽番組のディレクターから映画監督に転身したという経歴を持つ。
+   split: 前者 が インディペンデント 映画 で 注目された のに 対して 、 後者 は 音楽 番組 の ディレクター から 映画 監督 に 転身した と いう 経歴 を 持つ 。
+347. [B] [N3] baai-wa — 〜場合（は） — in the case of; if; in the event that
+   彼の言った事はこの【場合】にも当てはまる。
+   split: 彼 の 言った 事 は この 場合 に も 当てはまる 。
+348. [B] [N3] beki-da-beki-de-wa-nai — 〜べきだ / 〜べきではない — should; ought to / should not
+   再びやってみる【べきだ】という彼らの意見に賛成だ。
+   split: 再び やって みる べ き だ と いう 彼ら の 意見 に 賛成 だ 。
+349. [B] [N3] tte — 〜って — (casual quotation) says that; I heard; as for; what is
+   私は死んだものと思った【って】、トム言ってた。
+   split: 私 は 死んだ もの と 思った って 、 トム 言ってた 。
+350. [B] [N3] ni-kanshite-ni-kansuru — 〜に関して / 〜に関する — regarding; concerning; related to
+   私は日本経済【に関する】論文を仕上げなければならない。
+   split: 私 は 日本 経済 に 関する 論文 を 仕上げなければ ならない 。
+351. [B] [N2] amari-ni — 〜あまり（に） — so much that; out of excessive; because of too much
+   彼女は、驚きの【あまり】目を丸くして僕を見下ろしている。
+   split: 彼女 は 、 驚き の あまり 目 を 丸く して 僕 を 見下ろしている 。
+352. [B] [N2] shidai — 〜次第 — as soon as (then immediately)
+   見つけ【次第】殺すぞ！
+   split: 見つけ 次第 殺す ぞ ！
+353. [B] [N2] amari-ni — 〜あまり（に） — so much that; out of excessive; because of too much
+   子供は恐怖の【あまり】立ちすくんだ。
+   split: 子供 は 恐怖 の あまり 立ちすくんだ 。
+354. [B] [N2] to-itte-mo — 〜といっても — although I say; even though (it's called)
+   今は原子力時代だ【といっても】過言ではない。
+   split: 今 は 原子 力 時代 だ と いって も 過言 ではない 。
+355. [B] [N2] ni-oite-ni-okeru — 〜において / 〜における — in; at; in the field of (formal)
+   そういった活動を通じて、ユネスコ認定の遺産をはじめ、ベトナム【における】そのほかの自然文化財の保護、修復や価値伝達に関する知識、経験などの共有をしていきたいです。
+   split: そう いった 活動 を 通じて 、 ユネスコ 認定 の 遺産 を はじめ 、 ベトナム に お け る そのほか の 自然 文化財 の 保護 、 修復 や 価値 伝達 に 関する 知識 、 経験 など の 共有 を して いきたい です 。
+356. [B] [N2] ppanashi — 〜っぱなし — leaving (something) as is; keep (doing) without a break
+   バスの中に空席がなかったので、私は立ち【っぱなし】だった。
+   split: バス の 中 に 空席 が なかった ので 、 私 は 立ち っ ぱ なし だった 。
+357. [B] [N2] kara-miru-to-kara-mireba — 〜から見ると / 〜から見れば — from the point of view of; judging from; seen from
+   本人は唯我独尊を決め込んでいるようだけども、周り【から見れば】単なるわがままだよね。
+   split: 本人 は 唯 我 独 尊 を 決め込んでいる よう だけど も 、 周り から 見れば 単なる わがまま だ よ ね 。
+358. [B] [N2] ni-oite-ni-okeru — 〜において / 〜における — in; at; in the field of (formal)
+   私の人生【において】、最高の日でした。
+   split: 私 の 人生 に おいて 、 最高 の 日 でした 。
+359. [B] [N2] ni-oite-ni-okeru — 〜において / 〜における — in; at; in the field of (formal)
+   わたしたちはみな、人生【において】成功を収めようとするが、成功するのは、きわめて数少ない人たちである。
+   split: わたし たち は みな 、 人生 に おいて 成功 を 収めよう と する が 、 成功する の は 、 き わ め て 数 少ない 人たち で ある 。
+360. [B] [N2] kara-ni-wa — 〜からには — now that; since (having done/being ..., one must)
+   俺サマが来た【からには】、ママにミルクをねだる時間はねーぞ！
+   split: 俺 サマ が 来た から に は 、 ママ に ミルク を ねだる 時間 は ね ー ぞ ！
+361. [B] [N2] koto-ni-wa — 〜ことに（は） — (emotion)-ly; what is (surprising, sad, etc.) is that
+   彼の会社は倒産した。そしてさらに困った【ことに】は、彼自身交通事故に遭ってしまった。
+   split: 彼 の 会社 は 倒産した 。 そして さらに 困った こと に は 、 彼 自身 交通 事故 に 遭って しまった 。
+362. [B] [N2] mono-ka — 〜ものか — no way (will I); as if; I'll never
+   ボストンになど帰らせる【ものか】。
+   split: ボストン に など 帰らせる もの か 。
+363. [B] [N2] ni-mukete — 〜に向けて — toward; aimed at; in preparation for; addressed to
+   女王は国民【に向けて】演説をした。
+   split: 女王 は 国民 に 向けて 演説 を した 。
+364. [B] [N2] tatoe-te-mo — たとえ〜ても — even if; no matter
+   【たとえ誰が電話してきても】、私は留守だと言ってくれ。
+   split: たとえ 誰 が 電話して きて も 、 私 は 留守 だ と 言って くれ 。
+365. [B] [N2] zaru-o-enai — 〜ざるを得ない — have no choice but to; cannot help but
+   彼は結局あきらめ【ざるを得なか】った。
+   split: 彼 は 結局 あ きら め ざる を 得なかった 。
+366. [B] [N2] tsutsu-aru — 〜つつある — be in the process of; be gradually (changing)
+   お茶の質は下がり【つつある】。
+   split: お茶 の 質 は 下がり つ つ ある 。
+367. [B] [N2] yara-yara — 〜やら〜やら — what with ... and ...; and ... and (among other things)
+   まさかこんなに雪が積もるとは思ってなかったからさ、雪かき【やら何やら】で、もう朝からてんてこまいだったんだ。
+   split: まさか こんなに 雪 が 積もる と は 思ってなかった から さ 、 雪 かき や ら 何 や ら で 、 もう 朝 から て ん て こま い だった んだ 。
+368. [B] [N2] ni-suginai — 〜に過ぎない — merely; nothing more than; only
+   彼もただの政治家【に過ぎない】。
+   split: 彼 も ただ の 政治家 に 過ぎない 。
+369. [B] [N2] sai-ni — 〜際（に） — when; at the time of; on the occasion of
+   通りを横断する【際に】は車に気をつけなさい。
+   split: 通り を 横断する 際 に は 車 に 気をつけなさい 。
+370. [B] [N2] ni-oujite — 〜に応じて — according to; depending on; in response to
+   きっと彼は私たちの招待【に応じて】くれると思います。
+   split: きっと 彼 は 私たち の 招待 に 応じて くれる と 思います 。
+371. [B] [N2] kurai-nara-gurai-nara — 〜くらいなら / 〜ぐらいなら — rather than; if it comes to (doing that), I'd rather
+   盗みをする【ぐらいなら】、飢え死にした方がましだよ。
+   split: 盗み を する ぐらい なら 、 飢え 死に した 方 が まし だ よ 。
+372. [B] [N2] ni-oite-ni-okeru — 〜において / 〜における — in; at; in the field of (formal)
+   林商店が日本【における】わが社の唯一の代理店である。
+   split: 林 商店 が 日本 に お け る わ が 社 の 唯一 の 代理 店 で ある 。
+373. [B] [N2] to-ieba-to-iu-to — 〜といえば / 〜というと — speaking of; when you think of; if you mention
+   ウクライナ【といえば】チェルノブイリくらいしか知らないな。あ、ブブカもウクライナだっけ？
+   split: ウクライナ と いえば チェルノブイリ く ら い しか 知らない な 。 あ 、 ブブカ も ウクライナ だ っ け ？
+374. [B] [N2] ni-hanshite — 〜に反して — contrary to; against; in violation of
+   彼は、自分の意志【に反して】契約書に署名させられた。
+   split: 彼 は 、 自分 の 意志 に 反して 契約 書 に 署名させられた 。
+375. [B] [N2] amari-ni — 〜あまり（に） — so much that; out of excessive; because of too much
+   彼は怒りの【あまり】、言葉が出なかった。
+   split: 彼 は 怒り の あまり 、 言葉 が 出なかった 。
+376. [B] [N2] o-tsuujite-o-tooshite — 〜を通じて / 〜を通して — through; via; by way of; throughout (a period)
+   そして彼らはその文学、映画、音楽などの感動【を通して】世界に影響を与えつづけるだろう。
+   split: そして 彼ら は その 文学 、 映画 、 音楽 など の 感動 を 通して 世界 に 影響 を 与え つ づ け る だろう 。
+377. [B] [N2] zu-ni-wa-irarenai — 〜ずにはいられない — can't help doing; can't resist doing
+   友人がトロフィーを手渡されたとき、私は喝采せ【ずにはいられなか】った。
+   split: 友人 が トロフィー を 手渡された とき 、 私 は 喝采せず に は いられなかった 。
+378. [B] [N2] tatoe-te-mo — たとえ〜ても — even if; no matter
+   【たとえ困っていても】、マックはいつも楽天的だ。
+   split: たとえ 困ってい ても 、 マック は いつも 楽天的 だ 。
+379. [B] [N2] no-moto-de-no-moto-ni — 〜のもとで / 〜のもとに — under (guidance, influence, a rule); with
+   いかなる状況【のもとで】も、王女が王位を継承することはあるまい。
+   split: いかなる 状況 の も と でも 、 王女 が 王位 を 継承する こと は ある ま い 。
+380. [B] [N2] ni-mo-kakawarazu — 〜にもかかわらず — despite; in spite of; although
+   その講義はとても長かったが、それ【にもかかわらず】私はその講義を楽しんだ。
+   split: その 講義 は とても 長かった が 、 それ にもかかわらず 私 は その 講義 を 楽しんだ 。
+381. [B] [N2] ni-motozuite — 〜に基づいて — based on; on the basis of
+   うわさだけ【に基づいて】人の評価をしてはならない。
+   split: うわ さ だけ に 基づいて 人 の 評価 を して は ならない 。
+382. [B] [N2] ni-oite-ni-okeru — 〜において / 〜における — in; at; in the field of (formal)
+   彼の意見は大体【において】正しい。
+   split: 彼 の 意見 は 大体 におい て 正しい 。
+383. [B] [N2] ni-oite-ni-okeru — 〜において / 〜における — in; at; in the field of (formal)
+   最近、市内【において】猪の目撃情報が増加しています。危険ですので、猪を見かけても近づいたりしないでください。
+   split: 最近 、 市内 に おいて 猪 の 目撃 情報 が 増加しています 。 危険 です ので 、 猪 を 見かけ ても 近づいた り しない で ください 。
+384. [B] [N2] wa-mochiron-wa-motoyori — 〜はもちろん / 〜はもとより — not to mention; of course ... and also
+   彼【はもちろん】私の事を社長に告げ口するだろう。
+   split: 彼 は もちろん 私 の 事 を 社長 に 告げ 口 する だろう 。
+385. [B] [N2] kurai-nara-gurai-nara — 〜くらいなら / 〜ぐらいなら — rather than; if it comes to (doing that), I'd rather
+   降伏する【くらいなら】死を選びます。
+   split: 降伏する く ら い なら 死 を 選びます 。
+386. [B] [N2] gatai — 〜がたい — hard to; almost impossible to (emotionally)
+   何か拭い【がたい】ひけ目を持った少年が、自分はひそかに選ばれた者だ、と考えるのは、当然ではあるまいか。
+   split: 何か 拭い が たい ひけ 目 を 持った 少年 が 、 自分 は ひ そ か に 選ばれた 者 だ 、 と 考える の は 、 当然 では ある ま いか 。
+387. [B] [N2] zu-ni-wa-irarenai — 〜ずにはいられない — can't help doing; can't resist doing
+   彼女は息子のことを心配せ【ずにはいられなか】った。
+   split: 彼女 は 息子 の こと を 心配せず に は いられなかった 。
+388. [B] [N2] ni-mukete — 〜に向けて — toward; aimed at; in preparation for; addressed to
+   冬【に向けて】の燃料が不足している。
+   split: 冬 に 向けて の 燃料 が 不足している 。
+389. [B] [N2] ni-oite-ni-okeru — 〜において / 〜における — in; at; in the field of (formal)
+   ここ【において】、著者たちは方法論の中心的な問題に言及している。
+   split: ここ におい て 、 著者 たち は 方法 論 の 中心的 な 問題 に 言及している 。
+390. [B] [N2] to-wa-kagiranai — 〜とは限らない — not necessarily; not always
+   警察官だからといってみな勇敢だ【とは限らない】。
+   split: 警察官 だから と いって みな 勇敢 だ と は 限らない 。
+391. [B] [N2] o-nozoite — 〜を除いて — except; excluding; apart from
+   私たちはジョー【を除いて】全員そのパーティーに行きました。
+   split: 私たち は ジョー を 除いて 全員 その パーティー に 行きました 。
+392. [B] [N2] ni-tsuki — 〜につき — per; for each; due to (in formal notices)
+   新しい職【につき】、そこでの仕事をなんとかこなそうと必死で頑張っています。
+   split: 新しい 職 に つき 、 そこで の 仕事 を なんとか こなそう と 必死 で 頑張っています 。
+393. [B] [N2] ppanashi — 〜っぱなし — leaving (something) as is; keep (doing) without a break
+   彼はヒーターをつけ【っぱなし】にしたまま外出した。
+   split: 彼 は ヒーター を つけ っ ぱ なし に した まま 外出した 。
+394. [B] [N2] ni-mukete — 〜に向けて — toward; aimed at; in preparation for; addressed to
+   彼は、１０時に東京【に向けて】出発する。
+   split: 彼 は 、 １ ０ 時 に 東 京 に 向けて 出発する 。
+395. [B] [N2] koto-ni-wa — 〜ことに（は） — (emotion)-ly; what is (surprising, sad, etc.) is that
+   驚いた【ことに】、彼は試験に失敗した。
+   split: 驚いた こと に 、 彼 は 試験 に 失敗した 。
+396. [B] [N2] tsutsu-aru — 〜つつある — be in the process of; be gradually (changing)
+   他の点では分別のある人が、この同じ屋根、あの殆ど幻想になり【つつある】商品が荷造りをして別の国へ行くだけで自由に手に入ると信じるようになるのはどうしてなのか、ということである。
+   split: 他 の 点 では 分別 の ある 人 が 、 この 同じ 屋根 、 あの 殆ど 幻想 に なり つ つ ある 商品 が 荷造り を して 別 の 国 へ 行く だけ で 自由 に 手 に 入る と 信じる ように なる の は どうして な の か 、 と いう こと で ある 。
+397. [B] [N2] dokoro-ka — 〜どころか — far from; let alone; on the contrary
+   彼は休養する【どころか】、かえっていつもより仕事に励んだ。
+   split: 彼 は 休養する ど ころ か 、 かえって いつも より 仕事 に 励んだ 。
+398. [B] [N2] tsutsu-aru — 〜つつある — be in the process of; be gradually (changing)
+   全てが正常に戻り【つつある】。
+   split: 全て が 正 常に 戻り つ つ ある 。
+399. [B] [N2] tsutsu-aru — 〜つつある — be in the process of; be gradually (changing)
+   しかし老人の現在のこうした低い地位も変わり【つつある】のかもしれない。
+   split: しかし 老人 の 現在 の こう した 低い 地位 も 変わり つ つ ある の かもしれない 。
+400. [B] [N2] zu-ni-wa-irarenai — 〜ずにはいられない — can't help doing; can't resist doing
+   彼は自分の分け前に満足せ【ずにはいられなか】った。
+   split: 彼 は 自分 の 分け 前 に 満足せず に は いられなかった 。
+401. [B] [N1] made-mo-nai — 〜までもない — needless to; there's no need to (go as far as)
+   英語が世界語であることは言う【までもない】。
+   split: 英語 が 世界 語 で ある こと は 言う まで も ない 。
+402. [B] [N1] nari-ni-nari-no — 〜なりに / 〜なりの — in one's own way; as far as (one's limits) allow
+   タケオは彼【なりに】良いやつだ。
+   split: タケオ は 彼 なり に 良い やつ だ 。
+403. [B] [N1] you-ga-you-to — 〜(よ)うが / 〜(よ)うと — no matter (what, how); even if
+   あなたが彼と一緒に行こうが家に残ってい【ようが】、彼は泳ぎに行くだろう。
+   split: あなた が 彼 と 一緒 に 行こう が 家 に 残っていよう が 、 彼 は 泳ぎ に 行く だろう 。
+404. [B] [N1] kare-kare — 〜かれ〜かれ — whether A or B; A or B alike (fixed pairs)
+   遅【かれ早かれ】、君は困った立場に追い込まれるだろう。
+   split: 遅 か れ 早 か れ 、 君 は 困った 立場 に 追い込まれる だろう 。
+405. [B] [N1] nari-ni-nari-no — 〜なりに / 〜なりの — in one's own way; as far as (one's limits) allow
+   猫は背を弓【なりに】曲げた。
+   split: 猫 は 背 を 弓 なり に 曲げた 。
+406. [B] [N1] kare-kare — 〜かれ〜かれ — whether A or B; A or B alike (fixed pairs)
+   彼は遅【かれ早かれ】、よい弁護士になるでしょう。
+   split: 彼 は 遅 か れ 早 か れ 、 よい 弁護士 に なる でしょう 。
+407. [B] [N1] kare-kare — 〜かれ〜かれ — whether A or B; A or B alike (fixed pairs)
+   我々は誰でも芸術には多【かれ少なかれ】興味を抱いている。
+   split: 我々 は 誰 でも 芸術 に は 多 か れ 少 なか れ 興味 を 抱いている 。
+408. [B] [N1] made-mo-nai — 〜までもない — needless to; there's no need to (go as far as)
+   言う【までもなく】、早起きは大切です。
+   split: 言う まで も なく 、 早起き は 大切 です 。
+409. [B] [N1] you-ga-you-to — 〜(よ)うが / 〜(よ)うと — no matter (what, how); even if
+   その目的は、どこに住んでい【ようと】、そこに住んでいる貧しい人々を助けることである。
+   split: その 目的 は 、 どこ に 住んでいよう と 、 そこ に 住んでいる 貧しい 人々 を 助ける こと で ある 。
+410. [B] [N1] made-mo-nai — 〜までもない — needless to; there's no need to (go as far as)
+   健康が富より大切なのは言う【までもない】。
+   split: 健康 が 富 より 大切 な の は 言う まで も ない 。
+411. [B] [N1] ni-itaru-ni-itatte-ni-itatte-wa — 〜に至る / 〜に至って / 〜に至っては — reach; lead to; only when it came to; as for (the most extreme case)
+   ピョンヤンとワシントンの間で何らかの妥協【に至る】ことが不可欠だ。
+   split: ピョンヤン と ワシントン の 間 で 何ら か の 妥協 に 至る こと が 不可欠 だ 。
+412. [B] [N1] made-mo-nai — 〜までもない — needless to; there's no need to (go as far as)
+   彼が無罪であることは言う【までもない】。
+   split: 彼 が 無罪 で ある こと は 言う まで も ない 。
+413. [B] [N1] you-ga-you-to — 〜(よ)うが / 〜(よ)うと — no matter (what, how); even if
+   どんなに疲れてい【ようと】も、今日君はその仕事を終えなければいけない。
+   split: どんなに 疲れていよう と も 、 今日 君 は その 仕事 を 終えなければ いけない 。
+414. [B] [N1] you-ga-mai-ga-you-to-mai-to — 〜(よ)うが〜まいが / 〜(よ)うと〜まいと — whether or not; regardless of whether
+   あなたが行こ【うが行くまいが】、ぼくは少しもかまわない。
+   split: あなた が 行こう が 行く ま い が 、 ぼ く は 少しも かまわない 。
+415. [B] [N1] de-are-de-are-de-are — 〜であれ / 〜であれ〜であれ — whatever (it is); whoever; whether A or B
+   選挙では、それが誰【であれ】、過半数を得た候補者が当選とされる。
+   split: 選挙 では 、 それ が 誰 で あれ 、 過半数 を 得た 候補 者 が 当選 と される 。
+416. [B] [N1] you-ga-you-to — 〜(よ)うが / 〜(よ)うと — no matter (what, how); even if
+   どんな失敗をし【ようと】関係ないよ。かわいければ、それで許されるから。
+   split: どんな 失敗 を しよう と 関係 ない よ 。 かわいければ 、 それで 許される から 。
+417. [B] [N1] nari-ni-nari-no — 〜なりに / 〜なりの — in one's own way; as far as (one's limits) allow
+   このプッシュホンもそれ【なりに】役に立つのが分かった。
+   split: この プッシュホン も それ なり に 役に立つ の が 分かった 。
+418. [B] [N1] ni-itaru-ni-itatte-ni-itatte-wa — 〜に至る / 〜に至って / 〜に至っては — reach; lead to; only when it came to; as for (the most extreme case)
+   微妙な関係のまま現在【に至る】。
+   split: 微妙 な 関係 の まま 現在 に 至る 。
+419. [B] [N1] bekarazu-bekarazaru — 〜べからず / 〜べからざる — must not; do not (on signs); (before a noun) must not be
+   男子厨房に入る【べからず】。
+   split: 男子 厨房 に 入る べ から ず 。
+420. [B] [N1] made-mo-nai — 〜までもない — needless to; there's no need to (go as far as)
+   言う【までもなく】、サーバの負荷が増大してしまうのです。
+   split: 言う まで も なく 、 サーバ の 負荷 が 増大して しまう のです 。
+421. [B] [N1] made-mo-nai — 〜までもない — needless to; there's no need to (go as far as)
+   言う【までもなく】事故のため、彼はしばらく学校を欠席する。
+   split: 言う まで も なく 事故 の ため 、 彼 は しばらく 学校 を 欠席する 。
+422. [B] [N1] n-bakari — 〜んばかり — as if about to; almost (to the point of)
+   スタディアムは溢れ【んばかり】の人込みだった。
+   split: スタディアム は 溢れ ん ばかり の 人込み だった 。
+423. [B] [N1] ya-ina-ya — 〜や否や — as soon as; the moment; no sooner ... than
+   その知らせを聞く【や否や】彼はさっと立ち上がった。
+   split: その 知らせ を 聞く や 否 や 彼 は さっと 立ち上がった 。
+424. [B] [N1] you-ga-you-to — 〜(よ)うが / 〜(よ)うと — no matter (what, how); even if
+   彼はそんなに長生きし【ようと】は思わなかった。
+   split: 彼 は そんなに 長生きしよう と は 思わなかった 。
+425. [B] [N1] kare-kare — 〜かれ〜かれ — whether A or B; A or B alike (fixed pairs)
+   良【かれ悪しかれ】、困難を乗り切るにはこうするより他ない。
+   split: 良 か れ 悪 しかれ 、 困難 を 乗り切る に はこう する より 他 ない 。
+426. [B] [N1] nagara-ni-nagara-no — 〜ながらに / 〜ながらの — as (it was); while remaining; since (birth)
+   私は生まれ【ながらに】しての天才だ。
+   split: 私 は 生まれ ながら に して の 天才 だ 。
+427. [B] [N1] you-ga-you-to — 〜(よ)うが / 〜(よ)うと — no matter (what, how); even if
+   彼が何をし【ようと】我々は気にしない。
+   split: 彼 が 何 を しよう と 我々 は 気 に しない 。
+428. [B] [N1] you-ga-you-to — 〜(よ)うが / 〜(よ)うと — no matter (what, how); even if
+   トムは百戦錬磨の兵だよ？誰に何と言われ【ようが】、ぶれないよ。
+   split: トム は 百 戦 錬 磨 の 兵 だ よ ？ 誰 に 何と 言われよう が 、 ぶれない よ 。
+429. [B] [N1] nagara-ni-nagara-no — 〜ながらに / 〜ながらの — as (it was); while remaining; since (birth)
+   彼は生まれ【ながらに】知性と美に恵まれていた。
+   split: 彼 は 生まれ ながら に 知性 と 美 に 恵まれていた 。
+430. [B] [N1] nari-ni-nari-no — 〜なりに / 〜なりの — in one's own way; as far as (one's limits) allow
+   いき【なりの】ことで恐怖を感じたんだろう。
+   split: いきなり の こと で 恐怖 を 感じた ん だろう 。
+431. [B] [N1] nari-ni-nari-no — 〜なりに / 〜なりの — in one's own way; as far as (one's limits) allow
+   この問題に正解はないので、自分【なりの】意見を持つ必要があります。
+   split: この 問題 に 正解 は ない ので 、 自分 なり の 意見 を 持つ 必要 が あります 。
+432. [B] [N1] nari-ni-nari-no — 〜なりに / 〜なりの — in one's own way; as far as (one's limits) allow
+   そんな状況下では、冷静に【なりに】くいんだ。
+   split: そんな 状況 下 では 、 冷静 に なり に く い んだ 。
+433. [B] [N1] you-ga-you-to — 〜(よ)うが / 〜(よ)うと — no matter (what, how); even if
+   誰に何と言われ【ようと】、僕はボストンに行くよ。
+   split: 誰 に 何と 言われよう と 、 僕 は ボストン に 行く よ 。
+434. [B] [N1] made-mo-nai — 〜までもない — needless to; there's no need to (go as far as)
+   正直が最上の策であることは言う【までもない】。
+   split: 正直 が 最上 の 策 で ある こと は 言う まで も ない 。
+435. [B] [N1] nari-ni-nari-no — 〜なりに / 〜なりの — in one's own way; as far as (one's limits) allow
+   体力はそれ【なりに】ある方だと自負しています。
+   split: 体力 は それ なり に ある 方 だ と 自負しています 。
+436. [B] [N1] nari-ni-nari-no — 〜なりに / 〜なりの — in one's own way; as far as (one's limits) allow
+   これにはそれ【なりの】理由があったのよ。
+   split: これ に は それ なり の 理由 が あった の よ 。
+437. [B] [N1] made-mo-nai — 〜までもない — needless to; there's no need to (go as far as)
+   言う【までもなく】、不断の努力は幸せのための鍵である。
+   split: 言う まで も なく 、 不断 の 努力 は 幸せ の ため の 鍵 で ある 。
+438. [B] [N1] made-mo-nai — 〜までもない — needless to; there's no need to (go as far as)
+   たゆまぬ努力が成功の鍵であることは言う【までもない】。
+   split: た ゆ ま ぬ 努力 が 成功 の 鍵 で ある こと は 言う まで も ない 。
+439. [B] [N1] n-bakari — 〜んばかり — as if about to; almost (to the point of)
+   友人は「不可能だ」と言わ【んばかり】に首を横に振った。
+   split: 友人 は 「 不可能 だ 」 と 言 わ ん ばかり に 首 を 横 に 振った 。
+440. [B] [N1] ni-taru — 〜に足る — worthy of; sufficient to
+   それは私にはほとんど取る【に足ら】ない。
+   split: それ は 私 に は ほとんど 取る に 足らない 。
+441. [B] [N1] bekarazu-bekarazaru — 〜べからず / 〜べからざる — must not; do not (on signs); (before a noun) must not be
+   実際にこれらの目標を実現するのに欠く【べからざる】役割を果たしてきた。
+   split: 実際 に これら の 目標 を 実現する のに 欠く べ から ざる 役割 を 果たして きた 。
+442. [B] [N1] nai-made-mo — 〜ないまでも — even if not (to that extent), at least
+   君のレポートは、優秀とは言え【ないまでも】かなりよい。
+   split: 君 の レポート は 、 優秀 と は 言えない まで も かなり よい 。
+443. [B] [N1] ni-taru — 〜に足る — worthy of; sufficient to
+   タトエバではすべての文が対等な立場にあり、すべての文が自然であることが求められています。そのため、例えば英語の文をフランス語に訳す場合、そのフランス語の文は、フランス語のできる英語学習者の役に立つような正確な訳であると同時に、世界中のフランス語学習者が暗誦する【に足る】ような模範的な文でもある必要があります。
+   split: タトエバ では すべて の 文 が 対等 な 立場 に あり 、 すべて の 文 が 自然 で ある こと が 求められています 。 そのため 、 例えば 英語 の 文 を フランス 語 に 訳す 場合 、 その フランス 語 の 文 は 、 フランス 語 の できる 英語 学習 者 の 役に立つ ような 正確 な 訳 で ある と 同時 に 、 世界 中 の フランス 語 学習 者 が 暗誦する に 足る ような 模範的 な 文 でも ある 必要 が あります 。
+444. [B] [N1] kare-kare — 〜かれ〜かれ — whether A or B; A or B alike (fixed pairs)
+   君は遅【かれ早かれ】、そのやり方を知るだろう。
+   split: 君 は 遅 か れ 早 か れ 、 その やり方 を 知る だろう 。
+445. [B] [N1] kare-kare — 〜かれ〜かれ — whether A or B; A or B alike (fixed pairs)
+   君は遅【かれ早かれ】怠けていたことを後悔するよ。
+   split: 君 は 遅 か れ 早 か れ 怠けていた こと を 後悔する よ 。
+446. [B] [N1] you-ga-you-to — 〜(よ)うが / 〜(よ)うと — no matter (what, how); even if
+   どこを旅行してい【ようと】も、週に１度は必ず電話をください。
+   split: どこ を 旅行していよう と も 、 週 に １度 は 必ず 電話 を ください 。
+447. [B] [N1] made-mo-nai — 〜までもない — needless to; there's no need to (go as far as)
+   彼は化学は言う【までもなく】数学もほとんど知らない。
+   split: 彼 は 化学 は 言う まで も なく 数学 も ほとんど 知らない 。
+448. [B] [N1] kare-kare — 〜かれ〜かれ — whether A or B; A or B alike (fixed pairs)
+   遅【かれ早かれ】彼は破滅する。
+   split: 遅 か れ 早 か れ 彼 は 破滅する 。
+449. [B] [N1] made-mo-nai — 〜までもない — needless to; there's no need to (go as far as)
+   お金よりも健康が大切なことは言う【までもない】。
+   split: お金 より も 健康 が 大切 な こと は 言う まで も ない 。
+450. [B] [N1] made-mo-nai — 〜までもない — needless to; there's no need to (go as far as)
+   健康が大切なことは言う【までもない】。
+   split: 健康 が 大切 な こと は 言う まで も ない 。

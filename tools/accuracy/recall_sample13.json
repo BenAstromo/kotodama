@@ -1,0 +1,956 @@
+[
+ {
+  "n": 1,
+  "text": "まだ落ち込んでるの？",
+  "detected": [
+   "n-desu-no-desu",
+   "te-iru"
+  ]
+ },
+ {
+  "n": 2,
+  "text": "試験って今日だっけ？",
+  "detected": [
+   "tte",
+   "kke"
+  ]
+ },
+ {
+  "n": 3,
+  "text": "死ぬ時が来れば、逃げられないよ。",
+  "detected": [
+   "nai",
+   "toki",
+   "ga-subject",
+   "eru-rareru-potential",
+   "yo"
+  ]
+ },
+ {
+  "n": 4,
+  "text": "こちらの調子に合わせてください。",
+  "detected": [
+   "te-kudasai",
+   "no"
+  ]
+ },
+ {
+  "n": 5,
+  "text": "私の娘は分娩中だ。",
+  "detected": [
+   "no",
+   "wa",
+   "chuu-juu",
+   "da"
+  ]
+ },
+ {
+  "n": 6,
+  "text": "トムは自転車事故に遭った。",
+  "detected": [
+   "wa",
+   "ta"
+  ]
+ },
+ {
+  "n": 7,
+  "text": "彼女はついに喫煙という悪い習慣がついた。",
+  "detected": [
+   "to-iu-named",
+   "wa",
+   "ta",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 8,
+  "text": "息子は八歳です。",
+  "detected": [
+   "wa",
+   "desu"
+  ]
+ },
+ {
+  "n": 9,
+  "text": "あの男の子、めちゃめちゃ頭いいんだよ。",
+  "detected": [
+   "n-desu-no-desu",
+   "kono-sono-ano-dono",
+   "yo"
+  ]
+ },
+ {
+  "n": 10,
+  "text": "お茶っぱは、少なくとも５分は浸しましょう。",
+  "detected": [
+   "mashou",
+   "wa"
+  ]
+ },
+ {
+  "n": 11,
+  "text": "彼女の電話番号知ってる？",
+  "detected": [
+   "no",
+   "te-iru"
+  ]
+ },
+ {
+  "n": 12,
+  "text": "そんなお金、受け取るつもりはありません。",
+  "detected": [
+   "masen",
+   "tsumori",
+   "wa"
+  ]
+ },
+ {
+  "n": 13,
+  "text": "風は強い？",
+  "detected": [
+   "wa"
+  ]
+ },
+ {
+  "n": 14,
+  "text": "東京まで行けば、可愛いお洋服って売ってるわよね。",
+  "detected": [
+   "ne",
+   "te-iru",
+   "made",
+   "ba",
+   "tte",
+   "yo"
+  ]
+ },
+ {
+  "n": 15,
+  "text": "市場は今日は閑散としていた。",
+  "detected": [
+   "te-iru",
+   "wa",
+   "ta"
+  ]
+ },
+ {
+  "n": 16,
+  "text": "すばらしい考えがふと心に浮かんだ。",
+  "detected": [
+   "ni-location",
+   "ta",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 17,
+  "text": "コールタールを蒸留して得られる成分名は下表の通りである。",
+  "detected": [
+   "no",
+   "wa",
+   "o",
+   "te"
+  ]
+ },
+ {
+  "n": 18,
+  "text": "車の運転は、まだ習ったことないよ。",
+  "detected": [
+   "no",
+   "nai",
+   "ta",
+   "wa",
+   "yo"
+  ]
+ },
+ {
+  "n": 19,
+  "text": "彼は法律を生涯の仕事に選んだ。",
+  "detected": [
+   "no",
+   "wa",
+   "o",
+   "ta"
+  ]
+ },
+ {
+  "n": 20,
+  "text": "にぎやかなところが好きだ。",
+  "detected": [
+   "ga-suki-ga-kirai",
+   "da"
+  ]
+ },
+ {
+  "n": 21,
+  "text": "その患者は片時も目を離せない。",
+  "detected": [
+   "kono-sono-ano-dono",
+   "nai",
+   "wa",
+   "o",
+   "mo",
+   "eru-rareru-potential"
+  ]
+ },
+ {
+  "n": 22,
+  "text": "あ、牛乳買うの忘れてた。",
+  "detected": [
+   "te-iru",
+   "ta"
+  ]
+ },
+ {
+  "n": 23,
+  "text": "彼は縄で木に縛り付けられた。",
+  "detected": [
+   "wa",
+   "reru-rareru-passive",
+   "ta"
+  ]
+ },
+ {
+  "n": 24,
+  "text": "彼を知っている人は皆彼を尊敬します。",
+  "detected": [
+   "te-iru",
+   "wa",
+   "o",
+   "masu"
+  ]
+ },
+ {
+  "n": 25,
+  "text": "昨晩、彼女が私に庭で豪華な夕食をごちそうしてくれた。",
+  "detected": [
+   "te-kureru",
+   "de-place",
+   "na-na-adjective",
+   "ta",
+   "o",
+   "ni-indirect-object",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 26,
+  "text": "彼は酸素不足で死んだ。",
+  "detected": [
+   "wa",
+   "ta"
+  ]
+ },
+ {
+  "n": 27,
+  "text": "君たちのうち誰かこの方の御用を伺っているか。",
+  "detected": [
+   "te-iru",
+   "nani-ka-dare-ka-doko-ka",
+   "kenjougo",
+   "o",
+   "ka-question"
+  ]
+ },
+ {
+  "n": 28,
+  "text": "校長のブッシュ先生はエール大学の卒業です。",
+  "detected": [
+   "no",
+   "wa",
+   "desu"
+  ]
+ },
+ {
+  "n": 29,
+  "text": "車がきてるぞ。",
+  "detected": []
+ },
+ {
+  "n": 30,
+  "text": "しかし、この新聞は長くもたず、結局発行を中止した。",
+  "detected": [
+   "wa",
+   "o",
+   "kono-sono-ano-dono",
+   "ta"
+  ]
+ },
+ {
+  "n": 31,
+  "text": "彼は仙台に住んではいない。",
+  "detected": [
+   "ni-location",
+   "wa",
+   "nai"
+  ]
+ },
+ {
+  "n": 32,
+  "text": "熱があると思う。",
+  "detected": [
+   "ga-aru-ga-iru",
+   "to-omou",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 33,
+  "text": "明日このラジオを修理してもらいましょう。",
+  "detected": [
+   "mashou",
+   "te-morau",
+   "o",
+   "kono-sono-ano-dono"
+  ]
+ },
+ {
+  "n": 34,
+  "text": "あすの朝まっさきにそれを片付けます。",
+  "detected": [
+   "no",
+   "kore-sore-are-dore",
+   "o",
+   "masu"
+  ]
+ },
+ {
+  "n": 35,
+  "text": "ドアは静かに閉めましょう。",
+  "detected": [
+   "mashou",
+   "wa"
+  ]
+ },
+ {
+  "n": 36,
+  "text": "午前中からずっと探しています。",
+  "detected": [
+   "te-iru",
+   "chuu-juu",
+   "masu"
+  ]
+ },
+ {
+  "n": 37,
+  "text": "あなたは何でも持っている。",
+  "detected": [
+   "te-iru",
+   "wa"
+  ]
+ },
+ {
+  "n": 38,
+  "text": "それ、私がよく聞かれる質問だよ。",
+  "detected": [
+   "da",
+   "kore-sore-are-dore",
+   "reru-rareru-passive",
+   "ga-subject",
+   "yo"
+  ]
+ },
+ {
+  "n": 39,
+  "text": "彼女はあまり遅刻しないよ。",
+  "detected": [
+   "amari-nai",
+   "nai",
+   "wa",
+   "yo"
+  ]
+ },
+ {
+  "n": 40,
+  "text": "ああ、何て恐ろしい。",
+  "detected": []
+ },
+ {
+  "n": 41,
+  "text": "群衆が火事を見に集まった。",
+  "detected": [
+   "o",
+   "ta",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 42,
+  "text": "彼は少しばかり皮肉っぽく話した。",
+  "detected": [
+   "bakari",
+   "ppoi",
+   "wa",
+   "ta"
+  ]
+ },
+ {
+  "n": 43,
+  "text": "ヤニーはそこに座った。",
+  "detected": [
+   "ni-location",
+   "wa",
+   "ta",
+   "koko-soko-asoko-doko"
+  ]
+ },
+ {
+  "n": 44,
+  "text": "お父さんとお母さんに、よろしくね。",
+  "detected": [
+   "ne",
+   "to-and"
+  ]
+ },
+ {
+  "n": 45,
+  "text": "この本はよく売れる。",
+  "detected": [
+   "wa",
+   "kono-sono-ano-dono"
+  ]
+ },
+ {
+  "n": 46,
+  "text": "彼は期待以上のものを提供した。",
+  "detected": [
+   "no",
+   "wa",
+   "o",
+   "ta"
+  ]
+ },
+ {
+  "n": 47,
+  "text": "幸福とお金とが同一視されることがある。",
+  "detected": [
+   "koto-ga-aru",
+   "reru-rareru-passive"
+  ]
+ },
+ {
+  "n": 48,
+  "text": "少年は少女の顎に軽く触れ、頬にキスをした。",
+  "detected": [
+   "no",
+   "wa",
+   "o",
+   "ta"
+  ]
+ },
+ {
+  "n": 49,
+  "text": "流れが少しずつこちらに来てるな。",
+  "detected": [
+   "ni-destination",
+   "zutsu",
+   "te-iru",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 50,
+  "text": "彼は私に到着したことを知らせてきた。",
+  "detected": [
+   "te-kuru",
+   "ni-destination",
+   "ta",
+   "wa",
+   "o",
+   "no-koto-nominalizer"
+  ]
+ },
+ {
+  "n": 51,
+  "text": "ヌルシアのベネディクトゥスはアポロン神殿を壊し、ベネディクト会の修道院を建てた。",
+  "detected": [
+   "no",
+   "wa",
+   "o",
+   "ta"
+  ]
+ },
+ {
+  "n": 52,
+  "text": "その映画を見に行くよりも散歩に行くほうがいい。",
+  "detected": [
+   "ni-iku",
+   "hou-ga-ii",
+   "o",
+   "kono-sono-ano-dono",
+   "yori",
+   "ni-destination"
+  ]
+ },
+ {
+  "n": 53,
+  "text": "聖書を読むのは初めてです。",
+  "detected": [
+   "desu",
+   "wa",
+   "o",
+   "no-koto-nominalizer"
+  ]
+ },
+ {
+  "n": 54,
+  "text": "彼は革製品の売買をしている。",
+  "detected": [
+   "te-iru",
+   "no",
+   "wa",
+   "o"
+  ]
+ },
+ {
+  "n": 55,
+  "text": "２０周年記念に乾杯。",
+  "detected": []
+ },
+ {
+  "n": 56,
+  "text": "きれいな子だ。",
+  "detected": [
+   "na-na-adjective",
+   "da"
+  ]
+ },
+ {
+  "n": 57,
+  "text": "思った通りだった。",
+  "detected": [
+   "ta"
+  ]
+ },
+ {
+  "n": 58,
+  "text": "あなたは新しい家にもう落ち着かれましたか。",
+  "detected": [
+   "mashita",
+   "wa",
+   "reru-rareru-passive",
+   "ka-question",
+   "ta"
+  ]
+ },
+ {
+  "n": 59,
+  "text": "あの女の子に気があるのかい？",
+  "detected": [
+   "ga-aru-ga-iru",
+   "n-desu-no-desu",
+   "kono-sono-ano-dono",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 60,
+  "text": "君は手紙を書くのが好きだから、彼女に一筆書いたらどうですか。",
+  "detected": [
+   "ga-suki-ga-kirai",
+   "tara-dou",
+   "ka-question",
+   "kara-reason",
+   "desu",
+   "wa",
+   "o",
+   "no-koto-nominalizer",
+   "tara",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 61,
+  "text": "私は禁酒を誓ったが、結局次の週からまた飲み始めた。",
+  "detected": [
+   "hajimeru-owaru-tsuzukeru",
+   "ga-but",
+   "no",
+   "ta",
+   "kara-from",
+   "wa",
+   "o"
+  ]
+ },
+ {
+  "n": 62,
+  "text": "僕はレストランの食事には飽き飽きしている。",
+  "detected": [
+   "te-iru",
+   "no",
+   "wa"
+  ]
+ },
+ {
+  "n": 63,
+  "text": "私たちの思想は言葉にとって表現される。",
+  "detected": [
+   "ni-totte",
+   "no",
+   "wa",
+   "reru-rareru-passive"
+  ]
+ },
+ {
+  "n": 64,
+  "text": "あの子、１０年前は今より太ってたのよ。",
+  "detected": [
+   "kono-sono-ano-dono",
+   "te-iru",
+   "yori",
+   "ta",
+   "wa",
+   "yo"
+  ]
+ },
+ {
+  "n": 65,
+  "text": "優しさがたまに人を傷つけるって、ほんと？",
+  "detected": [
+   "o",
+   "sa"
+  ]
+ },
+ {
+  "n": 66,
+  "text": "私は先生にしかられないように隠れた。",
+  "detected": [
+   "nai",
+   "ta",
+   "wa",
+   "reru-rareru-passive",
+   "you-ni"
+  ]
+ },
+ {
+  "n": 67,
+  "text": "コンサートは７時に始まります。遅れてはいけません。",
+  "detected": [
+   "masen",
+   "te-wa-ikenai",
+   "wa",
+   "ni-time",
+   "masu"
+  ]
+ },
+ {
+  "n": 68,
+  "text": "永遠にあなたを愛します。",
+  "detected": [
+   "o",
+   "masu"
+  ]
+ },
+ {
+  "n": 69,
+  "text": "彼女は塩を切らしているのに気付いた。",
+  "detected": [
+   "te-iru",
+   "wa",
+   "o",
+   "ta"
+  ]
+ },
+ {
+  "n": 70,
+  "text": "君はこの本をもう読んでしまったのですか。",
+  "detected": [
+   "mou-ta",
+   "te-shimau-chau",
+   "n-desu-no-desu",
+   "ka-question",
+   "kono-sono-ano-dono",
+   "ta",
+   "wa",
+   "o"
+  ]
+ },
+ {
+  "n": 71,
+  "text": "彼女の証言にはつじつまが合わない点がある。",
+  "detected": [
+   "ga-aru-ga-iru",
+   "no",
+   "wa",
+   "nai",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 72,
+  "text": "彼女は自分の洞察力という利益を彼らに与えてやった。",
+  "detected": [
+   "no",
+   "ta",
+   "wa",
+   "o",
+   "ni-indirect-object"
+  ]
+ },
+ {
+  "n": 73,
+  "text": "インフルエンザで寝込んでました。",
+  "detected": [
+   "mashita",
+   "te-iru",
+   "ta"
+  ]
+ },
+ {
+  "n": 74,
+  "text": "高いパソコンを長く使うか、安いのをこまめに買いかえるか？",
+  "detected": [
+   "o",
+   "no-koto-nominalizer",
+   "ka-question"
+  ]
+ },
+ {
+  "n": 75,
+  "text": "それは本当らしく見える。",
+  "detected": [
+   "wa",
+   "kore-sore-are-dore",
+   "rashii-typical-of"
+  ]
+ },
+ {
+  "n": 76,
+  "text": "信号に関係なく左へ曲がれ。",
+  "detected": [
+   "nai",
+   "e",
+   "e-ro"
+  ]
+ },
+ {
+  "n": 77,
+  "text": "私たちはトムが無事に戻ったとの知らせを聞いて喜んだ。",
+  "detected": [
+   "te",
+   "ni-destination",
+   "ta",
+   "wa",
+   "o",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 78,
+  "text": "トムとメアリーって、まだボストンにいるの？",
+  "detected": [
+   "ni-location",
+   "tte",
+   "n-desu-no-desu"
+  ]
+ },
+ {
+  "n": 79,
+  "text": "窓が開けっぱなしだったわよ。",
+  "detected": [
+   "ppanashi",
+   "yo",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 80,
+  "text": "村井さん夫婦は結婚して１０年になる。",
+  "detected": [
+   "ku-naru-ni-naru",
+   "wa"
+  ]
+ },
+ {
+  "n": 81,
+  "text": "眼鏡を新調した。",
+  "detected": [
+   "o",
+   "ta"
+  ]
+ },
+ {
+  "n": 82,
+  "text": "その男は警察へ引き渡された。",
+  "detected": [
+   "kono-sono-ano-dono",
+   "e",
+   "ta",
+   "wa",
+   "reru-rareru-passive"
+  ]
+ },
+ {
+  "n": 83,
+  "text": "記事を書いている。",
+  "detected": [
+   "te-iru",
+   "o"
+  ]
+ },
+ {
+  "n": 84,
+  "text": "南部の売り上げは４７パーセント増加した。",
+  "detected": [
+   "no",
+   "wa",
+   "ta"
+  ]
+ },
+ {
+  "n": 85,
+  "text": "その彫刻は非常に貴重である。",
+  "detected": [
+   "wa",
+   "kono-sono-ano-dono"
+  ]
+ },
+ {
+  "n": 86,
+  "text": "もっと古典的な顔立ちなのかと思いきや、今の時代でも充分通用する美形です。",
+  "detected": [
+   "ka-to-omoikiya",
+   "na-na-adjective",
+   "no",
+   "desu",
+   "teki",
+   "n-desu-no-desu"
+  ]
+ },
+ {
+  "n": 87,
+  "text": "今日はゆっくりできない。",
+  "detected": [
+   "nai",
+   "wa",
+   "eru-rareru-potential"
+  ]
+ },
+ {
+  "n": 88,
+  "text": "煮えたぎっている湯にその卵を入れなさい。",
+  "detected": [
+   "te-iru",
+   "nasai",
+   "ni-destination",
+   "kono-sono-ano-dono",
+   "o",
+   "ta"
+  ]
+ },
+ {
+  "n": 89,
+  "text": "ちょっと痩せたんじゃない？ちゃんと食べてる？",
+  "detected": [
+   "de-wa-arimasen-ja-nai",
+   "n-desu-no-desu",
+   "te-iru",
+   "ta"
+  ]
+ },
+ {
+  "n": 90,
+  "text": "今日の公園、雪が多いね。",
+  "detected": [
+   "no",
+   "ne",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 91,
+  "text": "これらの患者には外科的な処置だけでは十分とは言い難い。",
+  "detected": [
+   "no",
+   "na-na-adjective",
+   "wa",
+   "ni-indirect-object",
+   "teki",
+   "dake"
+  ]
+ },
+ {
+  "n": 92,
+  "text": "私は昨日２０万円の利益を得た。",
+  "detected": [
+   "no",
+   "wa",
+   "o",
+   "ta"
+  ]
+ },
+ {
+  "n": 93,
+  "text": "ご確認をお願いいたします。",
+  "detected": [
+   "kenjougo",
+   "o",
+   "masu"
+  ]
+ },
+ {
+  "n": 94,
+  "text": "彼らはそのころ暮らし向きが悪かった。",
+  "detected": [
+   "wa",
+   "ta",
+   "ku-nai-katta-ku-nakatta",
+   "ga-subject"
+  ]
+ },
+ {
+  "n": 95,
+  "text": "彼は１週間前からずっとここに住んでいます。",
+  "detected": [
+   "te-iru",
+   "ni-location",
+   "wa",
+   "masu",
+   "koko-soko-asoko-doko"
+  ]
+ },
+ {
+  "n": 96,
+  "text": "これらは完全に機能する。",
+  "detected": [
+   "wa"
+  ]
+ },
+ {
+  "n": 97,
+  "text": "私は自分の過失を認めます。",
+  "detected": [
+   "no",
+   "wa",
+   "o",
+   "masu"
+  ]
+ },
+ {
+  "n": 98,
+  "text": "トムはギターも弾けるし歌も上手いんだ。",
+  "detected": [
+   "n-desu-no-desu",
+   "wa",
+   "mo",
+   "shi"
+  ]
+ },
+ {
+  "n": 99,
+  "text": "トムは怒りを隠しきれなかった。",
+  "detected": [
+   "nai",
+   "wa",
+   "o",
+   "ta"
+  ]
+ },
+ {
+  "n": 100,
+  "text": "そう思いませんよ。",
+  "detected": [
+   "masen",
+   "yo"
+  ]
+ }
+]

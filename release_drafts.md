@@ -1,0 +1,158 @@
+# Kotodama 言霊: release drafts (2026-10-17)
+
+Drafts for the owner to edit and paste. Nothing in the add-on reads this file, and `tools/build_package.py` leaves it out of the package (it isn't on the allow-list: that's fine, but it will be reported as an unknown file; delete it or add it to the skip list once used).
+
+---
+
+## Owner decisions (answer these first)
+
+**Answered 2026-10-20 (owner):**
+
+1. **Licence for our own code**: **AGPL-3.0-or-later.** LICENSE = the official text from gnu.org (verbatim); copyright line in the README.
+2. **Author name**: **BenAstromo** (manifest, README copyright line, AnkiWeb page).
+3. **Ko-fi link**: **https://ko-fi.com/benastromo** (♥ Support button built; §6 filled in).
+4. **Bug-report place**: a GitHub page, later (§6 placeholder stays until then).
+5. **Rank picture credit**: **no Grok credit** (owner). The README / AnkiWeb lines now credit the pictures to the author. Note kept for the record: xAI's terms were read earlier as expecting attribution; the owner decided against it. Still check that the Wallpaper Engine scene uses only your own assets.
+6. **Rank name "Gaijin" (外人)**: **kept.**
+7. **Accuracy numbers on the page**: **not published** (owner); kept documented at the end of §6.
+8. **Screenshots / GIF** for the page: Overview, Kanji & Grammar grid, Text Check, Missing → Grammar, the mini widget, the share image.
+
+---
+
+## 1. Grok prompts for the three rank pictures to regenerate (to-do 0b)
+
+The current Shogun, Nihonjin and Naijin pictures copy real people's photos (an actor's costume photo, an advert, a private person's meme photo). Make new ones from text alone, with **invented faces** and a **different pose**. Match the existing set: 3:2 landscape (the art is shown at 480×320), the figure centred from the knees or waist up, dramatic light, a detailed Japanese setting behind. Generate several, pick one, and don't feed any old picture back in as a reference.
+
+### Shogun (将軍): replaces the golden samurai
+> Cinematic digital painting, 3:2 landscape. A middle-aged Japanese warlord in ornate black-lacquered and gold armour stands in the centre of a dim castle hall with dark wooden pillars. His helmet has a tall crescent-moon crest and he wears a crimson jinbaori surcoat over the armour. One hand rests on the hilt of a sheathed katana and the other holds a war fan (gunbai). His face is calm and severe, with a short greying beard, and is entirely invented, not resembling any real person or actor. Gold-embroidered banners hang on both sides showing an abstract family crest (no readable text). Warm candlelight from below, drifting incense smoke, and gold highlights on a dark scene. Highly detailed, painterly, no text, no watermark.
+
+Avoid: the old picture's diagonal sword pose, the 秀神 banners and the actor's crest. The crest should be generic (a circle with leaves or waves).
+
+### Nihonjin (日本人): replaces the businessman spraying his hair on a train
+> Black-and-white ink illustration in the style of a detailed manga panel, 3:2 landscape. A tired but kind Japanese office worker in his thirties stands holding a hanging strap on a crowded morning commuter train. He wears a dark suit and a loosened tie, and a convenience-store coffee is in his other hand. Invented face with short neat hair, not resembling any real person. Through the windows, the city rushes past in motion blur, and soft morning light falls through the train. Fine cross-hatching, high contrast, no text, no logos, no adverts on the train walls.
+
+Avoid: hairspray, both hands raised to the head, and any product. The new pose should read as an ordinary daily routine, not an advert.
+
+### Naijin (内人): replaces the man in the dark kimono with steepled hands
+> Warm digital illustration, 3:2 landscape. A friendly Western man in his late twenties with an invented face, not resembling any real person, sits relaxed on the engawa (wooden veranda) of a traditional Japanese house in the evening. He wears a simple indigo yukata with a subtle white pattern, holds a cup of green tea and smiles as he talks with an elderly Japanese neighbour, who is partly visible at the edge of the frame. Behind them are paper shoji screens glowing with lamplight, a small garden with a stone lantern, and a sunset sky. The mood is that he belongs here, at home in the community. Soft painterly lighting, no text.
+
+Avoid: standing front-on with steepled hands, the red-polka-dot robe, a tatami room with tables, and anything that echoes the "weeb" meme. The rank means "an integrated foreigner", so show belonging, not costume.
+
+---
+
+## 2. Licence options for our own code (to-do 0c)
+
+This covers only the code we wrote. Bundled data keeps its own licence whatever we choose (see §3), so the README should say both.
+
+| Option | For | Against |
+|---|---|---|
+| **AGPL-3.0-or-later** (recommended) | Same licence as Anki itself. Add-ons import Anki's code (`aqt`), and AGPL is the safe reading of that. Forks must stay open. | Stricter than most users care about. Companies avoid AGPL code (irrelevant here). |
+| GPL-3.0-or-later | Copyleft, widely understood, and compatible with AGPL. | Arguably weaker than Anki's own terms for a plugin that imports it. |
+| MIT | Short and permissive, and very common for add-ons. | Anyone can take the code into a closed or paid product. And since the add-on imports AGPL code, the combined work is AGPL anyway, so MIT mostly signals intent. |
+
+**Data licence facts the README must state (whatever the code licence):**
+- JMdict / KANJIDIC2 / Jitendex / OpenJLPT: **CC BY-SA 4.0**. Attribution is required, and our derived data files (meanings.json, jlpt_n*.txt, kanji_jlpt.txt, grammar_jlpt.json, kinds_fix.txt, kana_ok.txt) must stay CC BY-SA 4.0.
+- Jonathan Waller's JLPT levels: **CC BY**.
+- BCCWJ frequency lists (NINJAL): **CC BY-NC-ND 3.0**. **Non-commercial**: a free add-on with a voluntary tip is the most compatible form, and nothing may ever be unlocked by paying until NINJAL agrees. **No derivatives**: our trimmed / split files (freq_bccwj.txt, freq_extra.txt, freq_splits.py) are technically derivatives. The owner accepted this risk earlier; asking NINJAL is the clean fix.
+- Tatoeba: **CC BY 2.0 FR**. No Tatoeba sentences ship. kana_usual.txt is a word list chosen by counting Tatoeba spellings (facts, not text), so credit is courtesy rather than a requirement.
+
+**Not legal advice.** For a free add-on, AGPL code plus clearly labelled data licences is the standard, low-risk setup.
+
+**LICENSE file:** put the full AGPL-3.0 text in `LICENSE` (build_package.py already warns that it's missing). Add a short `NOTICE` or "Data licences" section to the README pointing to each source.
+
+---
+
+## 3. README credits (replacement for "Data sources & credits")
+
+Every source below was checked against the code and bundled files (2026-10-17).
+
+```markdown
+## Data sources & credits
+- **JLPT vocabulary lists:** [OpenJLPT](https://github.com/evanclan/OpenJLPT) (CC BY-SA 4.0), levels from [Jonathan Waller's JLPT lists](https://www.tanos.co.uk/jlpt/) (CC BY). A few Waller words OpenJLPT omits come via [stephenmk/yomitan-jlpt-vocab](https://github.com/stephenmk/yomitan-jlpt-vocab). 211 community additions come from [jamsinclair/open-anki-jlpt-decks](https://github.com/jamsinclair/open-anki-jlpt-decks) and [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list), flagged `community` in the list files.
+- **Grammar points** (patterns, meanings, formation, examples): [OpenJLPT](https://github.com/evanclan/OpenJLPT) contributors (CC BY-SA 4.0)
+- **Kanji levels, readings and meanings:** [OpenJLPT](https://github.com/evanclan/OpenJLPT) (CC BY-SA 4.0): Jonathan Waller's kanji levels (CC BY) and [KANJIDIC2](https://www.edrdg.org/wiki/KANJIDIC_Project.html), EDRDG (CC BY-SA 4.0)
+- **Dictionary data** (word kinds for the parser, loanword flags, spelling mapping): [JMdict](https://www.edrdg.org/jmdict/j_jmdict.html), Electronic Dictionary Research and Development Group (CC BY-SA 4.0)
+- **Meanings on hover:** [Jitendex](https://jitendex.org) by Stephen Kraus (CC BY-SA 4.0), based on JMdict
+- **Frequency list and rank:** BCCWJ short-unit-word frequency list v1.0, National Institute for Japanese Language and Linguistics (NINJAL) (CC BY-NC-ND 3.0). **Estimated ranks for compounds (≈):** BCCWJ long-unit-word frequency list v1.0, NINJAL (CC BY-NC-ND 3.0).
+- **Usually-kana word list and accuracy testing:** sentences from [Tatoeba](https://tatoeba.org) (CC BY 2.0 FR) were used to measure the parser and to find words usually written in kana. No Tatoeba sentences are included.
+- **Rank pictures:** by the author. The animated Amaterasu was made in Wallpaper Engine.
+- **Star sounds:** synthesised by the author from the Sun's measured oscillation spectrum (helioseismology), sped up into hearing range.
+
+Derived data files (jlpt_n*.txt, kanji_jlpt.txt, grammar_jlpt.json, meanings.json, kinds_fix.txt, kana_ok.txt, kana_usual.txt) are shared under CC BY-SA 4.0. The frequency files (freq_bccwj.txt, freq_extra.txt, freq_splits.py) remain under NINJAL's CC BY-NC-ND 3.0 terms. The add-on's code is licensed under the GNU Affero General Public License v3.0 or later (AGPL-3.0-or-later), see LICENSE.
+
+Kotodama is not affiliated with or endorsed by the Japan Foundation, JEES (the JLPT's organisers), NINJAL, the EDRDG, Tatoeba, or Ankitects (Anki). "JLPT" refers to the Japanese-Language Proficiency Test; there is no official JLPT vocabulary or grammar list, and these are community lists.
+```
+
+Checked and **not needed**: no bundled fonts (system fonts only), no third-party sounds (the chime WAV is generated at run time, the star sounds by `tools/star_ambience.js`), and no third-party Python packages. MeCab / UniDic were used only in dev tools that don't ship.
+
+---
+
+## 4. New `manifest.json` description
+
+The current one says "Vocabulary Rank" (outdated).
+
+```
+JLPT N5–N1 progress for your Anki deck: vocabulary, kanji and grammar coverage, a 20,000-word frequency rank, a Text Check for any Japanese text, and a share image. Free, offline.
+```
+
+(178 characters. The `name` "Kotodama — JLPT Progress & Rank Tracker" is fine. Fill `author` (decision 2), and bump `version` together with `__init__.py` and README, e.g. to 3.0.0 since so much changed.)
+
+---
+
+## 5. Not-affiliated line and privacy line
+
+**Not affiliated (short form, for the page footer and the "?" popup):**
+> Kotodama is an independent fan project, not affiliated with the Japan Foundation, JEES or Anki. There is no official JLPT word or grammar list: the levels come from community lists (OpenJLPT / Jonathan Waller).
+
+**Privacy (rewritten 2026-10-17 for Nakama):**
+> Kotodama works offline. It connects to the internet only if you join **Nakama** (the friends tab): then your chosen name and the numbers on your bars (rank, JLPT words per level, top-20k words, kanji, grammar, this week's gain) are sent to Kotodama's small server after Anki syncs, and your friends' cards are fetched when you open the tab. No cards, words, sentences or deck names are ever sent. Anyone you give your friend code to can see your card; there is no search or public list. Leaving Nakama deletes your card from the server. Everything else stays in the add-on's folder on your computer (`addons21/jlpt_progress/user_files/`). Shift+click on a word (or the search buttons) opens Jisho or a Google search in your web browser, only when you click.
+
+What `user_files/` holds, for reference: `history.json` (daily progress snapshots), `overrides.json` / `kanji_overrides.json` / `grammar_overrides.json` (found and suspended marks), `found_count.json`, `parse_cache.json` / `words_cache.json` (parser caches), `nakama.json` (your Nakama code, secret key, friends' codes and their cached cards, your last snapshot), and `ascension_chime.wav` (generated). Settings live in Anki's own add-on config (`meta.json`). Network code: only `nakama.py` (urllib, HTTPS to `kotodama-nakama.kotodama-anki.workers.dev`, only after Join); the server's code is `server/worker.js` (Cloudflare Worker + D1, free plan). Web links otherwise: jisho.org and google.com searches opened by `QDesktopServices.openUrl` on a click.
+
+---
+
+## 6. AnkiWeb page draft
+
+AnkiWeb add-on descriptions accept a limited set of HTML tags (`<b>`, `<i>`, `<a>`, `<img>`, line breaks). Keep it short with images. Screenshots must be hosted elsewhere (e.g. imgur or the GitHub repo) and linked with `<img src>`.
+
+```html
+<b>Kotodama 言霊: see how much Japanese your Anki deck really covers.</b>
+
+Kotodama reads your deck and shows your progress through every JLPT level, N5 to N1, in <b>vocabulary, kanji and grammar</b>. It also gives you a rank on a 20,000-word frequency ladder, from Gaijin to Amaterasu.
+
+[SCREENSHOT: Overview]
+
+<b>What it does</b>
+• <b>JLPT vocabulary bars</b> for N5–N1 (8,070 words; community lists, since there is no official JLPT list). Click a missing word to copy it, Shift+click to look it up on Jisho.
+• <b>Kanji</b>: a heatmap of every JLPT kanji, coloured by how well you know it.
+• <b>Grammar</b>: an automatic parser finds the JLPT grammar points used in your cards' example sentences, so mined sentences count. No grammar deck needed.
+• <b>Frequency rank</b>: how many of the 20,000 most common words (BCCWJ corpus) you know, with ranks, belts and a top-rank surprise.
+• <b>Text Check</b>: paste any Japanese text (an article, a song, a chapter) to see what share of its words you already know and which ones to learn next.
+• <b>Share image</b>: a picture of your rank and bars to post.
+• <b>History</b>: your progress over time, and a small widget on Anki's main screen.
+
+[SCREENSHOT: Kanji & Grammar] [SCREENSHOT: Text Check] [GIF: rank-up]
+
+Words count as "known" when you can recognise them in your deck (young or mature cards). Kotodama measures recognition, not production. Any grammar point it misses can be marked by hand in one click.
+
+<b>Setup</b>
+Kotodama menu → Settings: pick your deck and the field that holds the Japanese word (and optionally the example sentence). That's it.
+
+<b>Nakama 仲間</b>
+Swap friend codes and see your friends' bars next to yours, updated when they sync. Friends only: no global leaderboard.
+
+<b>Privacy</b>
+Works offline. Only if you join Nakama are your name and bar numbers sent (never your cards or words), and only friends with your code can see them. Leave at any time: your name and numbers are removed from the server.
+
+<b>Free</b>
+Kotodama is free and always will be. If it helps you, you can buy me a coffee: <a href="https://ko-fi.com/benastromo">♥ Support on Ko-fi</a>.
+
+Bugs and ideas: <a href="[GITHUB ISSUES LINK]">[GitHub]</a>
+
+<i>Requires Anki 2.1.50 or newer (desktop). Not affiliated with the Japan Foundation, JEES or Anki. Data: OpenJLPT, Jonathan Waller's JLPT lists, JMdict / KANJIDIC2 (EDRDG), Jitendex, BCCWJ (NINJAL). Full credits and licences in the add-on's README.</i>
+```
+
+Measured accuracy: documented here only, NOT published on the page (owner 2026-10-20). If it's ever quoted, use only fresh measurements, never tuned ones:
+- Grammar precision: 99% (95% CI 96–100%), from 200 detections drawn as they occur in real text (fresh precision sample 8, 2026-10-20, after the 2026-10-20 rounds). Per level: N3 96%, N2 96%, N1 100% (37/37). Earlier (sample 7): 98%.
+- Grammar recall: 90.5% (87–93%), fresh recall sample 12 (2026-10-20, 100 sentences annotated blind). Earlier (sample 11): 92% (88–94%) — the same within the margin. Round to "about 90%".
+- Words: fresh vocab set 2 before its fixes gave recall 97.8% and precision 97.8%. All 250 sentences now (tuned) give 99.4% / 99.3%; don't quote those.

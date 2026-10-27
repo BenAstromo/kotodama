@@ -1,0 +1,20 @@
+{
+    "deck_name": "",
+    "field_mappings": [],
+    "mini_widget_enabled": true,
+    "mini_widget_show_rank": true,
+    "mini_widget_show_rank_art": true,
+    "review_seal": false,
+    "amaterasu_sound": true,
+    "effects_volume": 50,
+    "mini_widget_sound": true,
+    "neon_flicker": true,
+    "rain": true,
+    "fx_spill": true,
+    "fx_bokeh": true,
+    "fx_vignette": true,
+    "fx_condensation": true,
+    "ignore_suspended_cards": false,
+    "kanji_source": {"mode": "vocab", "deck": "", "mappings": []},
+    "grammar_source": {"mode": "sentence", "deck": "", "mappings": []}
+}

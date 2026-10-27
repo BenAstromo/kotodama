@@ -1,0 +1,9 @@
+{
+    "name": "Kotodama — JLPT Progress & Rank Tracker",
+    "package": "jlpt_progress",
+    "author": "BenAstromo",
+    "version": "3.0.0",
+    "description": "JLPT N5–N1 progress for your Anki deck: vocabulary, kanji and grammar coverage, a 20,000-word frequency rank, a Text Check for any Japanese text, a share image and an optional friends board. Free.",
+    "min_point_version": 50,
+    "max_point_version": null
+}

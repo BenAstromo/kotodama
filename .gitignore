@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+
+# Personal data: the owner's reviews, sentences, marks, history, caches
+user_files/
+
+# Anki's per-profile copy of the settings (deck name, field mappings)
+meta.json
+
+# Cloudflare's local cache for the Nakama worker (account details, builds)
+server/.wrangler/
+server/.dev.vars
+node_modules/
+
+# Dev scratch
+tools/dev/fh.txt
+tools/dev/qtdb/
+.claude/settings.local.json

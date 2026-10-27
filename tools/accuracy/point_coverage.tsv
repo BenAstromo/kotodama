@@ -1,0 +1,527 @@
+tatoeba_hits	level	id	pattern	searched	examples_detected	examples	first_tatoeba_hit
+0	N1	katawara	〜かたわら	searched	2	2	
+0	N1	sura	〜すら	NOT SEARCHED	0	3	
+0	N1	to-aimatte	〜と相まって	searched	1	3	
+0	N1	beku	〜べく	NOT SEARCHED	0	3	
+0	N1	o-kinjienai	〜を禁じ得ない	searched	3	3	
+0	N1	ikan-de-ikan-ni-yorazu	〜いかんで / 〜いかんによらず	searched	3	3	
+0	N1	no-kiwami	〜の極み	searched	3	3	
+0	N1	koto-tote	〜こととて	searched	3	3	
+0	N1	shimatsu-da	〜始末だ	searched	3	3	
+0	N1	zu-ni-wa-okanai-nai-de-wa-okanai	〜ずにはおかない / 〜ないではおかない	searched	3	3	
+0	N1	dani	〜だに	NOT SEARCHED	0	3	
+0	N1	taru	〜たる	NOT SEARCHED	0	3	
+0	N1	tsu-tsu	〜つ〜つ	NOT SEARCHED	0	3	
+0	N1	temae	〜手前	NOT SEARCHED	0	3	
+0	N1	to-ii-to-ii	〜といい〜といい	searched	3	3	
+0	N1	to-ittara-nai	〜といったらない	searched	3	3	
+0	N1	to-wa	〜とは	NOT SEARCHED	0	3	
+0	N1	to-mo-naku-to-mo-nashi-ni	〜ともなく / 〜ともなしに	NOT SEARCHED	0	3	
+0	N1	nai-mono-de-mo-nai	〜ないものでもない	searched	3	3	
+0	N1	nakushite-wa	〜なくして(は)	NOT SEARCHED	0	3	
+0	N1	nashi-ni-wa	〜なしに(は)	NOT SEARCHED	0	3	
+0	N1	nara-iza-shirazu-wa-iza-shirazu	〜ならいざしらず / 〜はいざしらず	searched	3	3	
+0	N1	nari	〜なり	NOT SEARCHED	0	3	
+0	N1	ni-wa-ataranai	〜には当たらない	searched	3	3	
+0	N1	ni-shite	〜にして	NOT SEARCHED	0	3	
+0	N1	ni-hikikae	〜にひきかえ	searched	3	3	
+0	N1	no-itari	〜の至り	searched	3	3	
+0	N1	meku	〜めく	NOT SEARCHED	0	3	
+0	N1	mono-o	〜ものを	NOT SEARCHED	0	3	
+0	N1	o-oite	〜をおいて	searched	3	3	
+0	N1	o-motte	〜をもって	NOT SEARCHED	0	3	
+0	N1	o-yoso-ni	〜をよそに	searched	3	3	
+0	N1	n-ga-tame-ni	〜んがため(に)	searched	3	3	
+0	N1	ue-wa	〜うえは	searched	3	3	
+0	N1	te-habakaranai	〜てはばからない	searched	3	3	
+0	N1	kai-mo-naku	〜かいもなく	searched	3	3	
+0	N1	to-mieru-to-miete	〜とみえる / 〜とみえて	searched	3	3	
+0	N1	o-fumaete	〜を踏まえて	searched	1	3	
+0	N1	nai-to-mo-kagiranai	〜ないとも限らない	searched	3	3	
+0	N2	ni-tomonatte	〜に伴って	searched	1	3	
+0	N2	ka-no-you-da	〜かのようだ	searched	0	3	
+0	N2	ue-ni	〜上（に）	NOT SEARCHED	0	3	
+0	N2	ue-de	〜上で	NOT SEARCHED	0	3	
+0	N2	te-kara-de-nai-to	〜てからでないと	searched	1	2	
+0	N2	ni-kotaete	〜にこたえて	searched	2	3	
+0	N2	ni-soui-nai	〜に相違ない	searched	2	2	
+0	N2	o-to-shite	〜を〜として	NOT SEARCHED	0	2	
+0	N2	kiri	〜きり	NOT SEARCHED	0	3	
+0	N2	ge	〜げ	NOT SEARCHED	0	3	
+0	N2	mai	〜まい	NOT SEARCHED	0	2	
+0	N2	mo-kamawazu	〜もかまわず	searched	2	2	
+0	N2	jou	〜上	NOT SEARCHED	0	3	
+0	N2	you-ni-yotte-wa	〜ようによっては	searched	2	2	
+0	N3	mono-mon	〜もの / 〜もん	NOT SEARCHED	0	3	
+0	N3	koto-instruction	〜こと（instruction）	NOT SEARCHED	0	3	
+0	N3	zu-ni	〜ずに	NOT SEARCHED	0	3	
+0	N3	mama	〜まま	NOT SEARCHED	0	3	
+0	N3	hodo	〜ほど	NOT SEARCHED	0	3	
+0	N3	kurai-gurai-extent	〜くらい / 〜ぐらい（extent）	NOT SEARCHED	0	3	
+0	N3	sae	〜さえ	NOT SEARCHED	0	3	
+0	N3	koso	〜こそ	NOT SEARCHED	0	3	
+0	N3	toka-hearsay	〜とか（hearsay）	NOT SEARCHED	0	3	
+0	N3	buri	〜ぶり	NOT SEARCHED	0	3	
+0	N3	kke	〜っけ	NOT SEARCHED	0	3	
+0	N3	gachi	〜がち	NOT SEARCHED	0	3	
+0	N3	made-even	〜まで（even）	NOT SEARCHED	0	3	
+0	N4	kata	〜方	NOT SEARCHED	0	3	
+0	N4	chuu-juu	〜中	NOT SEARCHED	0	3	
+0	N4	eru-rareru-potential	〜える / 〜られる（potential）	NOT SEARCHED	0	3	
+0	N4	te-reason	〜て（reason）	NOT SEARCHED	0	3	
+0	N4	shi	〜し	NOT SEARCHED	0	3	
+0	N4	garu	〜がる	NOT SEARCHED	0	3	
+0	N4	sa	〜さ	NOT SEARCHED	0	3	
+1	N1	tomo-naru-to-tomo-nareba	〜ともなると / 〜ともなれば	searched	3	3	夜ともなれば彼は好奇心を抱いて星空を見上げたこともあろうと思う。
+1	N1	kagiri-da	〜かぎりだ	searched	3	3	そんなに私のことを考えてくれるとは、ありがたいかぎりです。
+1	N1	katagata	〜かたがた	searched	3	3	末筆ながら皆様方のご多幸とご発展をお祈り申し上げお礼かたがた御挨拶申し上げます。
+1	N1	kiwamaru-kiwamari-nai	〜極まる / 〜極まりない	searched	0	3	家庭での生活は、今、考えると、みじめ極まるものであった。
+1	N1	zu-ni-wa-sumanai-nai-de-wa-sumanai	〜ずにはすまない / 〜ないではすまない	searched	3	3	彼のふしだらな行為は気付かれずにはすまなかった。
+1	N1	soba-kara	〜そばから	searched	3	3	お金が入るそばから、すぐ使ってしまうんだ。
+1	N1	te-mo-sashitsukae-nai	〜てもさしつかえない	searched	1	3	自分が利口だと思ってもさしつかえないが、それだからと言って私をあざ笑うことはできないよ。
+1	N1	to-atte	〜とあって	searched	3	3	フィルターの手入れ不要とあっても手入れしてしまう。
+1	N1	to-shita-tokoro-de-ni-shita-tokoro-de	〜としたところで / 〜にしたところで	searched	3	3	酒を飲んでも、ウイスキーを飲んでも同じだ。どちらにしたところで飲み過ぎれば、飲めや歌えの騒ぎになるから。
+1	N1	ni-kataku-nai	〜に難くない	searched	3	3	それは想像に難くない。
+1	N1	ni-sokushite	〜に即して	searched	2	3	彼の伝記は全くの事実に即して書かれたものだ。
+1	N1	ba-sore-made-da	〜ばそれまでだ	searched	3	3	「騙された」と言ってしまえばそれまでですが、「うまい話」に乗った当人であることは間違いありません。
+1	N1	majiki	〜まじき	searched	2	2	教師にあるまじき行為だ。
+1	N1	mo-saru-koto-nagara	〜もさることながら	searched	3	3	失業問題もさることながら、環境問題も大切だ。
+1	N1	o-kawakiri-ni	〜を皮切りに	searched	3	3	かわりに「ある程度」「多くの」「しばしば」という言葉を使い、「私の経験では」「間違っていたら申し訳ないのですが」「多くの例では」のような言葉を皮切りに話を始めなさい。
+1	N1	dano-dano	〜だの〜だの	searched	3	3	彼女は私を馬鹿だの何だのと罵った。
+1	N1	ni-kamakete	〜にかまけて	searched	3	3	スポーツにかまけて学業を怠る学生もいる。
+1	N1	gurumi	〜ぐるみ	searched	3	3	私たちはすでに家族ぐるみのお付き合いがあります。
+1	N2	bakari-ni	〜ばかりに	searched	3	3	最後の詰めを怠ったばかりに、画竜点睛を欠くはめになってしまったね。
+1	N2	nai-kagiri	〜ないかぎり	searched	2	2	食べすぎないかぎり、何を食べてもかまわない。
+2	N1	atte-no	〜あっての	searched	3	3	命あっての物種。
+2	N1	you-ni-mo-nai	〜(よ)うにも〜ない	searched	3	3	そして我々が過去のあったようにもどるとそれは起こらないだろう。
+2	N1	kirai-ga-aru	〜きらいがある	searched	3	3	彼は何でもないようなことで怒り出すきらいがある。
+2	N1	zu-jimai	〜ずじまい	searched	3	3	日本にいる間に北海道に行きたかったが、結局できずじまいで帰ってしまった。
+2	N1	de-wa-aru-mai-shi	〜ではあるまいし	searched	2	3	私達は金持ちではあるまいし。
+2	N1	to-bakari-ni	〜とばかりに	searched	2	3	絶好の機会とばかりに飛びついた。
+2	N1	nara-mada-shimo	〜ならまだしも	searched	3	3	数日ならまだしも１０日も滞納している。
+2	N1	ni-todomarazu	〜にとどまらず	searched	3	3	アウグスティヌスの思想的影響はキリスト教にとどまらず、西洋思想全体に及んでいるといっても過言ではない。
+2	N1	ba-koso	〜ばこそ	searched	3	3	愛すればこそ彼女と結婚したかった。
+2	N1	tada-nomi	ただ〜のみ	searched	2	3	ただ結果を待つのみだ。
+2	N1	tomo-arou	〜ともあろう	searched	3	3	大学の教授ともあろうものが、なぜ殺人事件を起こしたのだろうか。
+2	N1	ni-kakotsukete	〜にかこつけて	searched	3	3	愛国心にかこつけて多くの殺人が行われてきた。
+2	N1	kitte-no	〜きっての	searched	3	3	田中くんは省内きっての馬鹿者だよ。
+2	N1	zu-tomo	〜ずとも	searched	3	3	彼は、黒人たちが暴力に頼らずとも平等な権利を勝ち取れると信じていた。
+2	N1	beku-shite	〜べくして	searched	3	3	起こるべくして起こった事故だった。
+2	N1	ni-nottotte	〜に則って	searched	2	3	日本の神道の儀式に則って、挙式をしたいという方がおられれば、この教会で出来ます。
+2	N1	koto-kono-ue-nai	〜ことこの上ない	searched	3	3	指示代名詞が多すぎて、正直、わかりづらいことこの上ない。
+2	N2	o-kikkake-ni	〜をきっかけに	searched	2	2	松川先生との出会いをきっかけに、私の人生は変わった。
+2	N2	koto-dakara	〜ことだから	searched	2	2	あなたのことだから上々でしょう。
+2	N2	koto-wa-ga	〜ことは〜が	searched	2	3	彼女は来ることは来たが、長くはいなかった。
+2	N2	ageku	〜あげく	searched	3	3	勝手に水質検査を行ったあげく浄水器を売りつけるなど、悪質な訪問販売が多発しています。
+2	N2	kara-iu-to-kara-itte	〜からいうと / 〜からいって	searched	2	2	建築デザインの立場からいうと、このアプローチにはもっと多くの代案が考えられる。
+2	N2	ni-kagiri	〜に限り	searched	3	3	学生に限り入場可。
+2	N2	ni-sakidatte	〜に先立って	searched	1	2	海戦に先立って出港したからには、乗組員が船に慣れる時間がないことが、しばしばあるものだ。
+2	N2	ni-sureba-ni-shitara	〜にすれば / 〜にしたら	searched	2	2	彼は、子供にしたら大変な理解力を持っている。
+2	N3	nai-koto-wa-nai	〜ないことはない	searched	3	3	どんなに年を取っても学問ができないことはない。
+3	N1	ga-hayai-ka	〜が早いか	searched	3	3	山の麓に日が昇るが早いかただ一人山を登り始めた。
+3	N1	te-yamanai	〜てやまない	searched	3	3	あなたの幸せを祈ってやまない。
+3	N1	ka-to-omoikiya	〜かと思いきや	searched	3	3	もっと古典的な顔立ちなのかと思いきや、今の時代でも充分通用する美形です。
+3	N1	koto-nashi-ni	〜ことなしに	searched	3	3	人は生まれたときから他の人々を頼ることなしに生きていくこと。
+3	N1	o-ki-ni	〜を機に	searched	3	3	「エグゼンプション」の議論を機に働き方を見直そう。
+3	N2	ni-saishite	〜に際して	searched	3	3	書物の選択に際して、過去の偉大な作家は最も注意されるべきだ。
+3	N2	you-de-wa	〜ようでは	searched	2	2	問題をなおざりにしているようではいけない。
+3	N2	ni-hoka-naranai	〜にほかならない	searched	2	2	彼の言ったことは脅しにほかならなかった。
+4	N1	te-shikaru-beki-da	〜てしかるべきだ	searched	3	3	老人のための国立の病院がもっとあってしかるべきだ。
+4	N1	to-areba	〜とあれば	searched	3	3	ぜひにとあれば仕方がない。
+4	N1	ni-mo-hodo-ga-aru	〜にもほどがある	searched	3	3	世間知らずにもほどがある。井の中の蛙大海を知らず、ということかね。
+4	N2	ka-to-omottara-ka-to-omou-to	〜かと思ったら / 〜かと思うと	searched	3	3	稲妻が光ったかと思うと雷がなった。
+5	N1	nara-de-wa	〜ならでは	searched	3	3	田舎は何かと不便ですが、田舎ならではの良さもたくさんあります。
+5	N1	to-itta-tokoro-da	〜といったところだ	searched	3	3	新しいレストランの食事は特にどうということはない。よくて平均的といったところだ。
+5	N1	ni-mo-mashite	〜にもまして	searched	3	3	彼は何物にもまして名誉を重んじる。
+5	N1	nomi-narazu	〜のみならず	searched	3	3	彼女のみならず彼女の息子達も幸せだった。
+5	N1	wa-oroka	〜はおろか	searched	3	3	僕はイタリア語を書くのはおろか読めもしない。
+5	N1	o-kagiri-ni	〜を限りに	searched	3	3	同じ頃、事務員・有村夏恵は、今月を限りに退職する旨を五鬼上に申し入れた。
+5	N1	to-wa-ie	〜とはいえ	searched	2	3	「あ、は、はい・・・ごめん、玲姉」「コラ。幾ら親戚とはいえ、私は先輩医師よ？院内ではちゃんとケジメをつけなさい」
+5	N1	o-ii-koto-ni	〜をいいことに	searched	3	3	お前が近くにいるのをいいことにベタベタしやがって！！
+5	N2	mono-nara	〜ものなら	searched	3	3	彼は私に崖から飛び降りれるものなら飛び降りてみろと言った。
+5	N2	sue-ni	〜末（に）	searched	2	3	大恋愛の末に結ばれるわけではないから、アバタもエクボということはありえなかった。
+5	N2	ni-atatte	〜にあたって	searched	2	3	友人を選ぶにあたってはいくら注意してもしすぎることはない。
+5	N2	you-de-wa-nai-ka	〜（よ）うではないか	searched	1	2	今夜は一つ語り明かそうではないか。
+6	N1	gatera	〜がてら	searched	2	2	そうだ、どうせなら散歩がてらに、林道に行ってプチ森林浴でも・・・。
+6	N1	zukume	〜ずくめ	searched	3	3	規則ずくめだが、静かにするという規則だけはない病院！？
+6	N1	you-mono-nara	〜(よ)うものなら	searched	3	3	万一彼が君の結婚のことを聞こうものなら、彼はものすごく怒るだろう。
+6	N1	to-iedomo	〜といえども	searched	3	3	貧しいといえども彼女は幸せだ。
+6	N1	o-mono-tomo-sezu	〜をものともせず	searched	3	3	氷のような水をものともせずに彼は川へ飛びこんだ。
+6	N1	ni-iwasereba	〜に言わせれば	searched	3	3	私に言わせれば君は不良品をつかまされたのだよ。
+6	N2	te-wa-irarenai	〜てはいられない	searched	2	2	君が虐待されているのを放ってはいられない。
+6	N2	nai-koto-ni-wa	〜ないことには	searched	2	2	お前と俺は、今回のプロジェクトでは車の両輪ということだろう。仲良くしないことにはうまくいかないよ。
+6	N2	ni-kagirazu	〜に限らず	searched	2	2	TOEICの学習に限らず、英語を学ぶのであれば英和辞典は必携の書の一つでしょう。
+6	N2	ka-nai-ka-no-uchi-ni	〜か〜ないかのうちに	searched	2	2	彼は逃げるか逃げないかのうちにまた捕まった。
+6	N2	to-iu-mono-de-wa-nai	〜というものではない	searched	2	2	それは誰にでもできるというものではない。
+6	N3	ni-kimatte-iru	〜に決まっている	searched	2	3	民主党はまだ候補者を決めていないが、どっちにしても負けるに決まっている。
+7	N1	tara-saigo-ga-saigo	〜たら最後 / 〜が最後	searched	3	3	見つかったが最後、真珠は取り上げられてしますぞ。
+7	N1	ni-taeru-ni-taenai	〜に堪える / 〜に堪えない	searched	2	3	彼は十分その職に堪える。
+7	N1	beku-mo-nai	〜べくもない	searched	3	3	彼はその時あそこにいたのは、否定べくもない。
+7	N2	kara-shite	〜からして	searched	3	3	「おかしいよね。予定では今頃みんなＵＦＯを目撃して、一丸となって研究してるはずだったんだけどさ」「目撃からしてアリエネー」
+7	N2	wa-tomokaku	〜はともかく	searched	2	2	信じていたかどうかはともかく、超常的な話題に拒絶反応があるということはないようだ。
+7	N2	hanmen	〜反面 / 〜半面	searched	3	3	彼の顔は怖そうに見える反面、声は優しくおだやかだった。
+7	N2	nuki-de-nuki-ni	〜抜きで / 〜抜きに	searched	0	3	他人行儀は抜きにしましょう。
+7	N2	o-komete	〜をこめて	searched	2	2	丹精をこめてつくったこの美しい織物をごらんください。
+7	N2	osore-ga-aru	〜おそれがある	searched	3	3	私たちは命を失うおそれがあった。
+7	N2	dake-no-koto-wa-aru	〜だけのことはある	searched	2	2	彼は留学しただけのことはある。
+7	N3	tsuide-ni	〜ついでに	searched	3	3	父がついでに私を飛行場まで送ってくれることになっている。
+8	N2	ni-koshita-koto-wa-nai	〜に越したことはない	searched	3	3	警戒するに越したことはない。
+8	N2	o-chuushin-ni	〜を中心に	searched	2	3	世界は君を中心に回っているわけではないんだよ。
+8	N2	o-towazu	〜を問わず	searched	3	3	老いも若きも、また男女を問わず、地元の浴場で一緒になることを楽しみにしていた。
+9	N1	to-kitara	〜ときたら	searched	3	3	僕はスーザンに謝ろうと電話したのに、彼女ときたら一方的に電話を切っちゃったんだ。
+9	N2	bakari-ka	〜ばかりか	searched	3	3	労働はただ単に必要なものであるばかりか、楽しみでもある。
+9	N2	o-moto-ni	〜をもとに	searched	2	2	彼は親譲りの財産をもとにして富を作った。
+9	N2	zu-ni-sumu-naide-sumu	〜ずに済む / 〜ないで済む	searched	2	2	抜歯しないで済ます方法はありますか。
+9	N3	ippou-de	〜一方で	searched	3	3	また一方で、若者たちは仏教に触れる中で、仏教を心の支えに必要なものと考え始めているようだ。
+9	N3	kara-ni-kakete	〜から〜にかけて	searched	3	3	彼は腰からひざにかけてびしょ濡れになった。
+10	N1	te-kara-to-iu-mono	〜てからというもの	searched	3	3	新学期が始まってからというもの、とっても忙しいの。
+10	N1	nari-nari	〜なり〜なり	searched	3	3	冬になると夜が長くなり昼がみじかくなり、子供たちがスケートをしたりそりにのったりするのをみました。
+10	N2	o-megutte	〜をめぐって	searched	2	3	彼らの間でつまらないことをめぐってけんかが始まった。
+10	N2	te-naranai	〜てならない	searched	2	3	行けども行けども、やはり同じ場所をグルグル回っている気がしてならない。
+11	N1	made-da-made-no-koto-da	〜までだ / 〜までのことだ	searched	3	3	私はただ彼の意見をそのまま言ったまでだ。
+11	N2	kagiri	〜かぎり	searched	3	3	彼女は他の人に追いつくためにできるかぎり速く走った。
+11	N2	o-hajime	〜をはじめ	searched	3	3	ドルが円をはじめとする主要なアジア通貨に対して急落しているなか、実質上のドルペッグ政策を採っている中国の人民元は割安となっている。
+11	N2	dake-atte-dake-ni	〜だけあって / 〜だけに	searched	3	3	彼はボディビルが趣味というだけあって体がガシッとしている。
+11	N3	wari-ni-wari-ni-wa	〜わりに / 〜わりには	searched	3	3	母は、年のわりには若く見えます。
+12	N1	o-yogi-naku-sareru	〜を余儀なくされる	searched	2	3	複数の呼吸器疾患による衰弱のため、彼は先週、指揮者としての仕事を断念する旨の発表を余儀なくされたばかりでした。
+12	N1	jimiru-jimita	〜じみる / 〜じみた	searched	3	3	父は時には子供じみたことをいったり、します。
+12	N2	koto-ka	〜ことか	searched	3	3	アメリカの尻馬に乗るなというセリフに正面から反論するのが、どれほどしんどいことだったことか。
+12	N2	kara-koso	〜からこそ	searched	3	3	彼女には欠点があるからこそ僕は一層彼女が好きだ。
+12	N2	ta-tokoro-de	〜たところで	searched	3	3	私が選挙で一票入れたところで、何も変わらないと思ってしまう。
+12	N2	wa-sateoki	〜はさておき	searched	2	2	内容はさておき、なにこの物々しい話し方は？
+12	N2	te-koso	〜てこそ	searched	2	2	こだわりはお客に伝わってこそ意味をなす。
+12	N2	ka-to-iu-to	〜かというと	searched	3	3	日本のクリスマスは、どちらかというと恋人たちの日です。
+12	N2	to-iu-mono-da	〜というものだ	searched	3	3	何十年も鍛え続けた強者が、ほんの一瞬の油断で弱者に倒されることがあるんですの。それが武術の世界というものですわ。
+12	N3	wake-ga-nai	〜わけがない	searched	2	3	彼には日常必需品すらない、まして贅沢品はあるわけがない。
+12	N3	ippou-da	〜一方だ	searched	2	3	社会保険庁や厚生労働省への不信感は募る一方である。
+12	N3	rashii-typical-of	〜らしい（typical of）	searched	0	3	罪状は殺人らしいが、詳しい事は口に出そうとしない。
+13	N1	ni-atte	〜にあって	searched	3	3	彼女は夫の死にあっても心を動かされなかった。
+13	N2	kko-nai	〜っこない	searched	2	2	彼ならいざ知らず、私ではその試験には合格できっこない。
+13	N4	me	〜目	searched	2	3	彼女が一つ目のグラスを持ち上げたら、水がそこらじゅうにこぼれて店長を呼ぶことになったわ。
+14	N1	tari-tomo	〜たりとも	searched	3	3	彼は一日たりとも自分のしたことを後悔せずに過ごした日はなかった。
+14	N2	shidai-da-shidai-de	〜次第だ / 〜次第で	searched	0	3	日にち次第ですね。
+14	N2	ni-kakawaru	〜にかかわる	searched	2	2	現在、韓国と日本の政府との間で、教科書問題が両国間にかかわる重要な問題へと発展しています。
+14	N2	hoka-nai	〜ほかない	searched	2	2	彼女は彼のプロポーズを断るほかなかった。
+14	N4	de-gozaimasu	〜でございます	searched	3	3	これについては「まことに仰る通りでございます」と答えるしかないのです。
+14	N5	to-to-dochira-ga	〜と〜とどちらが	searched	3	3	林檎とオレンジとどちらが好きですか。
+16	N1	gotoki-gotoku	〜ごとき / 〜ごとく	searched	3	3	実験台ごときで恐れる俺様じゃないぞ。
+16	N1	mamire	〜まみれ	searched	3	3	彼は全身泥まみれだった。
+16	N3	gimi	〜気味	searched	2	3	お友達ブロガーさんがブログ閉鎖を決心されて凹み気味です。
+17	N1	nai-made-mo	〜ないまでも	searched	3	3	彼女は太っているとはいえないまでも大柄な人だ。
+17	N1	yue-ni	〜ゆえ(に)	searched	2	3	それゆえに、全てが舞さんの肩に圧し掛かってくることになる訳だ。
+17	N2	nagara-mo	〜ながら（も）	searched	2	3	ぜいぜい言いながらも、気合をいれて走り続ける。
+17	N2	tsutsu-tsutsu-mo	〜つつ / 〜つつも	searched	3	3	両者の利害の調整を図りつつ、国際的視野に立った人口政策を考えていかなければならない。
+17	N2	you-ga-nai	〜ようがない	searched	3	3	彼の発言は他に解釈のしようがない。
+17	N2	ni-kakawarazu	〜にかかわらず	searched	3	3	会社に入ると、自分が望むと望まざるとにかかわらず、会社のために働かなくてはいけない。
+17	N2	sei-ka	〜せいか	searched	3	3	ぎょうざの具のあまりは？餃子を家で作りましたが、皮が少なかったせいか、具が少し余ってしまいました。
+18	N3	wake-da	〜わけだ	searched	3	3	私の命が危ないと言ってるわけですか？
+18	N3	ni-kawatte	〜に代わって	searched	3	3	副大統領は大統領に代わって式典に出席した。
+19	N2	ta-tokoro	〜たところ	searched	2	2	彼にお金を貸してくれるように頼んだところ、彼は拒否した。
+19	N2	bakari-da	〜ばかりだ	searched	2	2	物価は安くなるどころか、高くなるばかりだった。
+19	N2	ni-kagitte	〜に限って	searched	3	3	夜寝れない時に限って、時計のカチカチいう音が気になるものだ。
+19	N2	ni-kakete-wa	〜にかけては	searched	2	2	料理にかけては、彼女は名人だ。
+19	N2	dokoro-de-wa-nai	〜どころではない	searched	2	2	彼女は才能に恵まれているどころではない。
+20	N2	mono-no	〜ものの	searched	3	3	高校時代からつきあっている彼氏はいるものの、つきあいが惰性になっていると感じ、不満をつのらせている。
+20	N3	koto-da	〜ことだ	searched	2	3	「ここまでは表向きの話なんです。キリカさんも知っていることですね」「ってことは、裏向きもあるんですか？」
+20	N3	zurai	〜づらい	searched	3	3	指示代名詞が多すぎて、正直、わかりづらいことこの上ない。
+21	N1	ya-ina-ya	〜や否や	searched	2	3	彼女は私を見るや否や、わっと泣き出した。
+21	N2	kara-ni-wa	〜からには	searched	2	2	私の参謀としてついたからには、危機感を持って任にあたって貰わねば困ります。
+21	N3	mo-ba-mo	〜も〜ば〜も	searched	2	3	夜ともなれば彼は好奇心を抱いて星空を見上げたこともあろうと思う。
+21	N3	saichuu-ni	〜最中に	searched	2	3	彼らは話をしている最中に電話を切られた。
+22	N2	ni-kuwaete	〜に加えて	searched	2	2	有名な物理学者であることに加えて、彼は偉大な小説家でもある。
+22	N2	ni-kagiru	〜に限る	searched	3	3	こんな時は、迎え酒に限ります。
+23	N2	kanenai	〜かねない	searched	3	3	彼は望む物を手に入れるためには人をもだましかねない。
+23	N2	kara-suru-to-kara-sureba	〜からすると / 〜からすれば	searched	2	2	法律の観点からすると、彼は自由だ。
+24	N1	bekarazu-bekarazaru	〜べからず / 〜べからざる	searched	3	3	好機逸すべからず。
+24	N2	ni-hanshite	〜に反して	searched	2	3	彼女は自分の意思に反して計画を断念した。
+24	N2	yara-yara	〜やら〜やら	searched	2	2	侮り難いぜ、地元の遊園地。カップルやら家族やら・・・見渡す限り人、人、人。
+25	N3	ni-kurabete	〜に比べて	searched	3	3	味は日本のお米に比べて遜色はありません。
+25	N5	no-naka-de-ga-ichiban	〜の中で〜が一番	searched	3	3	彼女の顔のつくりの中で目が一番いい。
+26	N1	de-are-de-are-de-are	〜であれ / 〜であれ〜であれ	searched	3	3	どんな組織であれ、内部の融和と団結はその組織の成敗を決める重要な要素だ。
+26	N1	ni-taru	〜に足る	searched	3	3	彼は自分では偉いつもりでいるが、実際はとるに足らぬ人だ。
+26	N3	te-shou-ga-nai-te-shikata-ga-nai	〜てしょうがない / 〜てしかたがない	searched	2	3	戦争は軽々しくするものではないし、憲法を改正するのも「戦争したくてしょうがない」わけではない。
+27	N2	mono-ka	〜ものか	searched	2	3	「—osity」という接尾辞がどういうものかを理解すれば良い。
+27	N4	te-mo-kamawanai	〜ても構わない	searched	2	3	金銭的に余裕があるのなら併用しても構わないが催眠だけで、十分に効果がある。
+28	N2	koto-kara	〜ことから	searched	2	2	不発弾の危険性もあることから警察に通報し、現場にテープを張って立ち入りを防いでいる。
+28	N2	no-moto-de-no-moto-ni	〜のもとで / 〜のもとに	searched	3	3	このシステムのもとでは、生徒は交替で教えあい、お互いに助け合わなければなりません。
+29	N1	ni-itaru-ni-itatte-ni-itatte-wa	〜に至る / 〜に至って / 〜に至っては	searched	2	3	ピョンヤンとワシントンの間で何らかの妥協に至ることが不可欠だ。
+29	N1	nagara-ni-nagara-no	〜ながらに / 〜ながらの	searched	3	3	工藤甲人氏は生まれながらの詩人である。
+29	N2	ni-watatte	〜にわたって	searched	2	3	野球への興味はわが国ではあらゆる階層、年齢にわたっている。
+29	N2	gatai	〜がたい	searched	3	3	忘れがたい事件が起こった。
+29	N3	marude-you-da	まるで〜ようだ	searched	1	3	病後の彼女はまるで以前の彼女の影を見るようだった。
+29	N3	ni-shite-wa	〜にしては	searched	3	3	彼は、子供にしてはなかなか物わかりがよい。
+30	N1	n-bakari	〜んばかり	searched	3	3	返事を待つアリスに向けられたのは突然の咆哮。それは耳を貫かんばかりに鋭く、天に届かんばかりに大きく響くものでした。
+30	N2	to-itte-mo	〜といっても	searched	2	2	黒鯛の料理方法．刺し身、黒鯛は何といっても刺身が一番おいしいです。
+31	N4	toka-toka	〜とか〜とか	searched	3	3	普通の人は、３Ｄだとか高速でうんたらだとか必要としないですからね。
+32	N2	ni-sotte	〜に沿って	searched	2	3	郵便局は通りに沿ってあります。
+33	N1	you-ga-mai-ga-you-to-mai-to	〜(よ)うが〜まいが / 〜(よ)うと〜まいと	searched	3	3	疲れていようといまいと、私たちは歩き続けねばならなかった。
+34	N2	te-irai	〜て以来	searched	2	3	３年前に東京へ来て以来ここに住んでいる。
+34	N3	kuse-ni	〜くせに	searched	3	3	日本語のニュアンスが分からないくせに、自分の辞書のほうが正しいと言い張る傲慢な毛唐だ。
+35	N2	kara-miru-to-kara-mireba	〜から見ると / 〜から見れば	searched	2	2	離れたところから見ると、それは人間の様に見える。
+36	N2	ijou-wa	〜以上（は）	searched	3	3	私はムスリムではないので断食を守る義務はないのだが、同じアパートで暮らす以上、そうした慣習に配慮することは大事なことだ。
+37	N3	te-hajimete	〜てはじめて	searched	3	3	翌朝になってはじめてわれわれはその事実を知った。
+38	N2	ni-shiro-ni-seyo	〜にしろ / 〜にせよ	searched	3	3	謝罪はあったにせよ、私はまだ彼に腹を立てている。
+38	N2	ni-tsuki	〜につき	searched	3	3	これにつきまして、お考えをお聞かせ願えればと存じます。
+38	N5	goro	〜ごろ	searched	3	3	夕方ごろには雪になりそうだ。
+39	N2	shidai	〜次第	searched	3	3	北海道に着き次第、一筆差し上げます。
+39	N3	bakari-de-naku	〜ばかりでなく	searched	3	3	彼女は良い教師であるばかりでなく、偉大な学者でもあった。
+39	N3	te-tamaranai	〜てたまらない	searched	3	3	冷たいものを飲みたくてたまらない。
+39	N4	zutsu	〜ずつ	searched	1	3	はい、お賽銭・・・１０円ずつね。はい、美羽ちゃん。
+41	N2	ni-oujite	〜に応じて	searched	2	3	この例文は、書き方のサンプルなので必要に応じて内容を追加削除をしてからお使いください。
+42	N2	o-nozoite	〜を除いて	searched	2	3	アキレスはかかとを除いては不死身だった。
+43	N2	nuku	〜抜く	searched	3	3	どうぞ、皆様も最後の一瞬まで粘り抜いてください。
+43	N3	shika-nai-no-choice	〜しかない	searched	3	3	待つしかない。
+44	N2	mono-ga-aru	〜ものがある	searched	3	3	足を棒にして探しても、気に入るものがありませんでした。
+44	N2	koto-naku	〜ことなく	searched	2	2	自転車は都会の環境を破壊することなく資源利用を持続することのできる道具である。
+48	N2	wa-mochiron-wa-motoyori	〜はもちろん / 〜はもとより	searched	3	3	MPEG-4 AVC録画の実力テスト：使いやすさはもとより、画質・音質の実力も高い。
+50	N2	ni-suginai	〜に過ぎない	searched	3	3	ほとんどの科学的進歩は当然のことについての発見に過ぎない。
+50	N2	dokoro-ka	〜どころか	searched	3	3	「おわったの」「それどころかまだ始めていないよ」
+51	N2	ni-motozuite	〜に基づいて	searched	1	3	報告は事実に基づいていなければならない。
+54	N4	sasete-kudasai	〜させてください	searched	1	3	明日夜９時にアカデミック・アドバイザーに電話をかけることを、思い出させてください。
+55	N2	kaneru	〜かねる	searched	3	3	理由がわかりかねます。
+58	N1	nari-ni-nari-no	〜なりに / 〜なりの	searched	3	3	初心者なりによくやった。
+58	N1	kare-kare	〜かれ〜かれ	searched	3	3	良かれ悪しかれ、困難を乗り切るにはこうするより他ない。
+58	N3	wake-ni-wa-ikanai	〜わけにはいかない	searched	3	3	むろん、舟は何百艘も水面を動きまわっているが、どれでもいいというわけにはいかない。
+59	N2	sai-ni	〜際（に）	searched	2	3	全角文字を含むファイル名の場合、一部のＯＳでは文字化けが生じることがありますので、ダウンロードの際に適宜ファイル名を変更してください。
+60	N4	de-mo-suggestion	〜でも（suggestion）	searched	1	3	「そろそろ、人物写真でもやってみたらどうだ？」「え？スナップ・・・ですか？それは・・・」
+61	N2	to-ieba-to-iu-to	〜といえば / 〜というと	searched	3	3	世界的に過大に評価された中国書といえば、『孫子』ですかね。
+61	N3	sou-ni-nai-sou-mo-nai	〜そうにない / 〜そうもない	searched	3	3	なんか分からないが、一筋縄じゃいきそうにないってことだな。ううむ。
+61	N3	ni-shitagatte	〜に従って	searched	3	3	３．電話をかけても、アナウンス等に従って操作したりせず、すぐに切ること。
+61	N4	oki-ni	〜おきに	searched	3	3	六時間おきに体温を測った。
+64	N3	ta-totan-ta-totan-ni	〜たとたん / 〜たとたんに	searched	3	3	由香は新任の英語の先生に紹介されたとたん、恋におちた。
+65	N3	tokoro-ni-tokoro-e-tokoro-o	〜ところに / 〜ところへ / 〜ところを	searched	3	3	売春宿から出てきたところを友人に見られてばつが悪かった。
+66	N3	to-tomo-ni	〜とともに	searched	3	3	その瞬間、大音響とともに爆発した。
+67	N3	masu-you-ni	〜ますように	searched	2	3	愉快な夏休みでありますように！
+69	N5	no-hou-ga-yori	〜の方が〜より	searched	2	3	男性の方が女性より肌が脂っぽいって本当ですか？
+70	N2	o-tsuujite-o-tooshite	〜を通じて / 〜を通して	searched	3	3	梅毒は性行為を通じて感染する病気です。
+71	N3	mono-dakara-mono-de	〜ものだから / 〜もので	searched	3	3	答えが分かったんだ、でもあまりにすぐに分かったものだから正解であるはずがないんだ。
+72	N2	ni-mukete	〜に向けて	searched	2	3	只今、僕は旅立ちの日に向けて修業中です。
+73	N5	tari-tari-suru	〜たり〜たりする	searched	0	3	項目が増えたり減ったりする表示なら、Accessでなくて表計算ソフトを活用すべきだと思います。
+74	N3	ni-shite-mo	〜にしても	searched	3	3	それにしても男に綺麗って形容はやめろよな～。
+77	N1	you-ga-you-to	〜(よ)うが / 〜(よ)うと	searched	1	3	私が何をしようと彼女はもっとうまくできると言うんだ。
+77	N5	ato-de	〜後で	searched	3	3	富士山に登った後で一首浮かんだ。
+79	N2	uru-enai	〜得る / 〜得ない	searched	3	3	有り得ない！
+79	N3	ni-tsurete	〜につれて	searched	3	3	老いてくるにつれて自分自身の面倒を見られなくなる人は多い。
+83	N2	kurai-nara-gurai-nara	〜くらいなら / 〜ぐらいなら	searched	2	2	偽りの姿を愛されるくらいなら、嫌われた方がましだ。
+83	N2	ppanashi	〜っぱなし	searched	3	3	ネット上のマナーやら常識の無さやうんちゃらかんちゃらにうんざりしっぱなしです。
+83	N3	te-bakari-iru	〜てばかりいる	searched	3	3	隣の犬はほえてばかりいます。
+87	N5	nakute-mo-ii	〜なくてもいい	searched	3	3	そんなに緊張しなくてもいいですよ。
+88	N2	amari-ni	〜あまり（に）	searched	3	3	１か月あまり名古屋に居たことがある。
+88	N4	serareru-saserareru	〜せられる / 〜させられる	searched	1	3	圭はその問いにギクリとさせられたが、頭を何でもないといいたそうに横に振る。
+89	N3	kara-to-itte	〜からといって	searched	3	3	人が肉体を持ち、地上に生まれたからといって、地上のことを全て理解するわけではないのと同様に、死んだからといって霊的世界を全て理解しているわけでもないのです。
+90	N3	darake	〜だらけ	searched	3	3	この世は、愚か者だらけ。
+91	N3	to-sureba-to-shitara	〜とすれば / 〜としたら	searched	3	3	アフリカ大陸のどこかへ行くとしたらどこが一番衛生的で安全ですか？
+93	N2	zu-ni-wa-irarenai	〜ずにはいられない	searched	3	3	私はハリウッド映画の商業主義に懸念を抱かずにはいられない。
+93	N3	koto-ni-shite-iru	〜ことにしている	searched	3	3	毎日三時間英語を勉強することにしている。
+94	N3	tabi-ni	〜たびに	searched	3	3	あぁいらいらする・・・今やパソコンを使うたびに頭痛がするよ。
+94	N3	to-iu-koto-da	〜ということだ	searched	3	3	ドルペッグの意味は、強い国につけということです。
+94	N3	muki-muke	〜向き / 〜向け	searched	2	3	彼が直向きに生きるその姿は実に健気です。
+95	N2	zaru-o-enai	〜ざるを得ない	searched	3	3	病気のため、彼は会合を延期せざるを得なかった。
+100	N3	goto-ni	〜ごとに	searched	3	3	冷たい風が冬ごとに激しく吹く。
+102	N3	toori-ni-doori-ni	〜とおりに / 〜どおりに	searched	2	3	列車はダイヤどおりに動いている。
+102	N4	nakanaka-nai	なかなか〜ない	searched	2	3	陰影に気をつけてみたのですがなかなかうまくいかないです。
+105	N3	furi-o-suru	〜ふりをする	searched	3	3	彼女は寝たふりをしているからいびきをかいていないんだ。
+107	N3	to-shite-mo	〜としても	searched	3	3	ｍｅｄｉａ　ｐｌａｙｅｒで音楽を聞こうとしてもエラーが出てファイルを再生できません。
+109	N2	tsutsu-aru	〜つつある	searched	2	2	「未来形」というのは存在しない、ということは受験英語でも一般的になりつつあります。
+109	N3	mono-de-wa-nai	〜ものではない	searched	1	3	私よりも物知りな数学者が自分のことをはっきりと表現できていないのを見るのは心地の良いものではない。
+109	N4	aida-aida-ni	〜間 / 〜間に	searched	1	3	まだ晴れている間に洗濯をしなければなりません。
+111	N4	hazu-ga-nai	〜はずがない	searched	3	3	答えが分かったんだ、でもあまりにすぐに分かったものだから正解であるはずがないんだ。
+112	N2	tatoe-te-mo	たとえ〜ても	searched	2	3	たとえ彼が失敗してもかなうものか。
+115	N4	tara-dou	〜たらどう	searched	2	2	「もし疲れているなら寝たらどう？」「僕が今寝たらあまりに早く目覚めてしまうから」
+116	N3	kakeru	〜かける	searched	2	3	ひょんなことからほんとうのことがわかったんだ、ほとんど手を引きかけたときに。
+118	N1	made-mo-nai	〜までもない	searched	3	3	その時、二人の間に師弟を越えた友情のようなものが芽生えた事は言うまでもない。
+120	N3	hodo-wa-nai	〜ほど〜はない	searched	3	3	老人のばかほどばかなものはない。
+121	N3	ppoi	〜っぽい	searched	3	3	男性は色っぽい女性が大好きなのです。
+123	N2	ni-mo-kakawarazu	〜にもかかわらず	searched	2	2	睡眠は重要であるにもかかわらず、その役割は謎である。
+124	N3	kiru-kirenai	〜切る / 〜切れない	searched	3	3	子供にお金を残そうなんて考えずにパーッと派手に遊んで使い切って下さいね。
+125	N5	ni-suru	〜にする（decide）	searched	1	3	彼は思ったことを口にする。
+126	N3	koto-wa-nai	〜ことはない	searched	2	3	1.5V乾電池を直接触っただけでは感電死することはないでしょう。
+126	N3	to-iu-yori	〜というより	searched	3	3	率直に言えば、彼は愛国者というよりはむしろ偽善者だ。
+128	N3	kawari-ni	〜代わりに	searched	3	3	これは代わりになるものをみつけたい単語だ。
+131	N3	tokoro-datta	〜ところだった	searched	3	3	列車は定刻に到着するところだった。
+132	N5	o-kudasai	〜をください	searched	2	3	冷やしたのをください。
+137	N3	sei-de	〜せいで	searched	3	3	あんたのせいで食欲をなくしたよ。
+137	N3	naosu	〜直す	searched	3	3	また後でかけ直していただけませんか？
+140	N4	ta-bakari	〜たばかり	searched	3	3	会ったばかりの患者の下の世話をするのは大変なお仕事だ。
+141	N3	ba-hodo	〜ば〜ほど	searched	2	3	この30年間、広告会社は大手たばこ会社のお客をのどから手が出るほど欲しがった。
+142	N4	o-ni-naru	お〜になる	searched	3	3	何かお飲みになりますか？
+146	N2	koto-ni-wa	〜ことに（は）	searched	3	3	妙なことには、私は昨日同じ夢を２回みた。
+147	N2	to-wa-kagiranai	〜とは限らない	searched	2	2	クレームがないからといってお客さまが満足しているとは限らないのです。
+147	N3	ni-yoru-to-ni-yoreba	〜によると / 〜によれば	searched	3	3	消息筋によると、○○社は東証一部への上場を準備している。
+150	N3	dake-de-naku	〜だけでなく	searched	3	3	労働は経済面の利益、つまり給料を選るのに必要なだけでなく、社会的及び心理的欲求、つまり、社会の利益のために何かをしているという感じを抱くためにも、必要なのである。
+161	N3	to-iu-no-wa	〜というのは	searched	1	3	痩せる必要がないというのは残念だ。
+163	N5	kurai-gurai	〜くらい / 〜ぐらい（approximately）	searched	3	3	何時くらいまでなら電話してもいいですか。
+182	N5	ka-or	〜か（or）	searched	3	3	先程、どういうわけかマイクが入りませんでした。
+184	N3	koto-ni-natte-iru	〜ことになっている	searched	3	3	鈴木さんはその日の午後にスピーチをすることになっていた。
+186	N4	ba-yokatta	〜ばよかった	searched	3	3	彼女は姑の気にさわるようなことを言わなければよかったと臍を噛んだ。
+192	N3	okage-de	〜おかげで	searched	3	3	コンピューターのおかげで人間は馬鹿になる。
+196	N3	sae-ba	〜さえ〜ば	searched	3	3	主体・客体さえ訳せればあとはそこまで難しくないです。
+201	N5	ni-frequency	〜に（frequency）	searched	2	3	一日に何回鏡で自分を見ているの？
+202	N5	mada-te-inai	まだ〜ていない	searched	0	3	「おわったの」「それどころかまだ始めていないよ」
+213	N5	mashou-ka	〜ましょうか	searched	3	3	家に帰りましょうか。
+219	N3	ni-chigai-nai	〜に違いない	searched	3	3	私もそうだが、ＩＴ業界には宵っ張りの人が多いに違いない。
+229	N5	naide-kudasai	〜ないでください	searched	3	3	ここで写真を撮らないでください。
+234	N4	koto-ga-aru	〜ことがある	searched	3	3	何か私にできることがありましたらお知らせ下さい。
+239	N2	ni-oite-ni-okeru	〜において / 〜における	searched	3	3	もっと成績を気にかけられればいいのだけれど、でも自分の人生のある点において成績はそんなに重要ではないと分かったんだ。
+239	N4	rashii	〜らしい（hearsay/conjecture）	searched	2	3	ただし、安全日だからって、中出ししても妊娠しないというわけではないらしいです。
+244	N4	hazu-da	〜はずだ	searched	2	3	私のパソコンは何かの役に立つはずだ。
+246	N4	te-hoshii	〜てほしい	searched	3	3	政府は及び腰と言われないようなしっかりとした対応を見せてほしい。
+246	N5	zenzen-nai	全然〜ない	searched	1	3	私は芸術家ではない。全然向いていない。
+255	N5	ga-jouzu-ga-heta	〜が上手 / 〜が下手	searched	3	3	彼女は兄に勝るとも劣らぬくらい英語が上手だ。
+256	N3	tara-ta	〜たら〜た	searched	0	3	６月末に参加者を募ったら１週間弱で約５００席が予約でいっぱいになった。
+264	N4	you-to-omou	〜(よ)うと思う	searched	3	3	まず新しいサイトの概説をしようと思う。
+268	N3	ki-ga-suru	〜気がする	searched	3	3	カンマを入れないようにしたいんだけど、６はカンマがないと不自然な気がします。
+269	N4	sou-da-hearsay	〜そうだ（hearsay）	searched	3	3	前の歯医者さんに、たばこをやめるなら、ヤニ取りしてあげる・・・といわれたそうです。
+302	N4	bakari	〜ばかり	searched	3	3	無鉄砲で子供の時から損ばかりしている。
+316	N4	noni-purpose	〜のに（purpose）	searched	3	3	あなたが駅に着くのにどのくらいかかりますか。
+317	N4	koto-ni-suru	〜ことにする	searched	3	3	ここで迷わず迂回路を取ることにする。
+317	N4	e-ro	〜え / 〜ろ	searched	1	3	省エネのためにコンビニの２４時間営業を廃止しろ！
+318	N3	baai-wa	〜場合（は）	searched	3	3	最悪の場合を考えておこう。
+326	N3	tatte-datte	〜たって / 〜だって	searched	0	3	母ちゃんも同じ事いってたな。だからどうしたってんだよ。オレにゃ関係ない。
+331	N4	tagaru	〜たがる	searched	3	3	みんなあなたに会いたがってる。あなたは有名なのよ！
+336	N3	ni-taishite	〜に対して	searched	2	3	結果次第では、両社に対して2月以来の行政指導が行われる。
+343	N3	wake-de-wa-nai	〜わけではない	searched	2	3	私は反社会的かもしれないけれど人と話さないわけではない。
+343	N3	uchi-ni	〜うちに	searched	3	3	私の生きているうちに共産主義が効力を持つことは無いだろう。
+362	N3	ni-kanshite-ni-kansuru	〜に関して / 〜に関する	searched	3	3	教育産業に関する情報を掲載したインターネットサイトには以下のようなものがあります。
+363	N4	koto-ni-naru	〜ことになる	searched	3	3	友人の結婚式にアカペラで歌うことになりました。
+367	N4	nai-to-ikenai-nakucha	〜ないといけない / 〜なくちゃ	searched	3	3	彼を誘わなくちゃだめよ。
+375	N4	ga-suru	〜がする	searched	3	3	あぁいらいらする・・・今やパソコンを使うたびに頭痛がするよ。
+393	N4	you-ni-naru	〜ようになる	searched	3	3	はぁ・・・（汗）、それでコンタクトは取れるようになったのかしら・・・？
+395	N4	ku-suru-ni-suru	〜くする / 〜にする（make）	searched	3	3	人生とは、他の予定を立てることに忙しくしている時に起こる現象のことだ。
+397	N4	tokoro-da	〜ところだ	searched	3	3	今日君は来るのかなと思っていたところだよ。
+405	N4	naide	〜ないで	searched	3	3	心配しないで、楽しくいこう！
+407	N4	te-aru	〜てある	searched	3	3	中央には机が据えられていて、赤い革張りの回転椅子がそえてあった。
+410	N4	nado	〜など	searched	3	3	愛のない人生など全く無意味だ。
+412	N4	yotei	〜予定	searched	3	3	人生とは、他の予定を立てることに忙しくしている時に起こる現象のことだ。
+470	N4	ka-dou-ka	〜かどうか	searched	3	3	私たちがそこへ行くかどうかを決めるのは君の責任だ。
+473	N3	you-ni-iu-you-ni-tanomu	〜ように言う / 〜ように頼む	searched	3	3	私は彼らにチケットをもう一枚送ってくれるように頼んだ。
+475	N4	te-kuremasen-ka-te-itadakemasen-ka	〜てくれませんか / 〜ていただけませんか	searched	3	3	僕と踊ってくれませんか。
+476	N4	mitai	〜みたい	searched	3	3	馬鹿みたい！
+490	N4	you-ni-suru	〜ようにする	searched	3	3	あなたの勉強を邪魔しないようにします。
+490	N5	ga-hoshii	〜がほしい	searched	2	3	ここから遠くまで行けるボートが欲しいです。
+492	N5	masen-deshita	〜ませんでした	searched	3	3	先程、どういうわけかマイクが入りませんでした。
+498	N3	ba-ii	〜ばいい	searched	3	3	もっと成績を気にかけられればいいのだけれど、でも自分の人生のある点において成績はそんなに重要ではないと分かったんだ。
+511	N5	te-kara	〜てから	searched	3	3	最後に家族でディズニーランドへに行ってからもう随分になる。
+513	N5	nagara	〜ながら（while）	searched	3	3	「あの音で考え事ができないわ」と、彼女はタイプライターを見つめながら言った。
+523	N4	dasu	〜出す	searched	2	2	仏政府は国家予算の帳尻を合わせるよう納税者に挑むオンラインゲームを売り出した。
+534	N4	te-kudasaru-te-itadaku	〜てくださる / 〜ていただく	searched	2	3	彼の評論は問題の表面的な分析結果を取り上げていただけだったのでクラスで最上位の成績を得たことにとても驚いた。
+535	N4	yasui-nikui	〜やすい / 〜にくい	searched	3	3	こわれやすいガラス張りの家に住む者は石を投げてはいけない。
+545	N3	ni-totte	〜にとって	searched	3	3	あなたにとってひらめきの最大の源は何？
+546	N3	au	〜合う	searched	3	3	お互いを信頼し合うしかない。
+546	N4	hodo-nai	〜ほど〜ない	searched	2	3	この空港は新千歳空港ほど便数が多くないので、送迎デッキから見ても最初は飛行機がいませんでした。
+563	N4	made-ni	〜までに	searched	3	3	技術が追いつくまでに5年はかかるだろう。
+589	N4	te-ageru	〜てあげる	searched	3	3	恐い話が聞きたいなら、数週間前に私が見た夢のことを話してあげるよ。
+612	N5	amari-nai	あまり〜ない	searched	1	3	答えが分かったんだ、でもあまりにすぐに分かったものだから正解であるはずがないんだ。
+641	N5	mou-ta	もう〜た	searched	3	3	もう何をしたらいいか分からない。
+663	N4	shika-nai	〜しか〜ない	searched	3	3	みんなもそうなのかな、と思うことくらいしかできない。
+684	N5	te-mo-ii	〜てもいい	searched	3	3	ひとつ質問してもいいですか。
+688	N5	te-wa-ikenai	〜てはいけない	searched	3	3	こわれやすいガラス張りの家に住む者は石を投げてはいけない。
+697	N4	o-suru	お〜する	searched	2	3	すぐに伝票をお持ちします。
+707	N5	masen-ka	〜ませんか	searched	3	3	「以前にどこかで会ったことがありませんか」とその学生はたずねた。
+764	N4	you-da	〜ようだ	searched	2	3	僕が最後に自分の考えを伝えた人は、僕を気違いだと思ったようだ。
+777	N4	sonkeigo	尊敬語	searched	3	3	「寝てた？」「爆睡」「そ、そうか？」「なんかうなされてたよ。怖い夢でも見てた？」
+781	N5	ya	〜や	searched	2	2	ほお紅や口紅を差すだけで表情や笑顔がどんどん変わってくるんです。
+793	N4	kamo-shirenai	〜かもしれない	searched	3	3	私は反社会的かもしれないけれど人と話さないわけではない。
+795	N4	noni-although	〜のに（although）	searched	3	3	日本へ行けたらいいのに。
+803	N4	kana-kashira	〜かな / 〜かしら	searched	3	3	みんなもそうなのかな、と思うことくらいしかできない。
+807	N3	mono-da	〜ものだ	searched	3	3	欲しいものがみつかると、決まって高いものだ。
+855	N5	to-iu-named	〜という（named）	searched	1	3	何かを証明しようとする場合、それが真実であるという確信を持つことは何らかの手助けになる。
+859	N4	mo-emphasis	〜も（emphasis）	searched	3	3	孵化後まもないヒナは、産毛が濡れていますが、２時間もすると乾いてフワフワになります。
+871	N3	ni-yotte-ni-yoru	〜によって / 〜による	searched	3	3	それは文脈による。
+911	N5	ku-nai-katta-ku-nakatta	〜くない / 〜かった / 〜くなかった	searched	1	3	こんなことにはなって欲しくなかった。
+935	N4	na-prohibition	〜な（prohibition）	searched	3	3	靴が小さすぎるから新しいのを買う必要があるな。
+941	N5	ga-but	〜が（but）	searched	2	3	「騙された」と言ってしまえばそれまでですが、「うまい話」に乗った当人であることは間違いありません。
+942	N5	mashou	〜ましょう	searched	3	3	何かしてみましょう。
+980	N4	hajimeru-owaru-tsuzukeru	〜始める / 〜終わる / 〜続ける	searched	3	3	驚くこと、不思議に思うことは理解し始めるということなんだ。
+983	N4	sou-da-appearance	〜そうだ（appearance）	searched	2	3	面白そう！
+990	N5	mae-ni	〜前に	searched	2	3	最初着る前に洗濯してください。
+1002	N3	to-shite	〜として	searched	3	3	私たちは兄弟として共に生きることを知らなければならない。さもなくば、愚か者として共に滅びるであろう。
+1016	N5	ta-koto-ga-aru	〜たことがある	searched	3	3	「以前にどこかで会ったことがありませんか」とその学生はたずねた。
+1035	N4	te-oku	〜ておく	searched	3	3	最悪の場合を考えておこう。
+1041	N5	deshita	〜でした	searched	3	3	もし変更が必要でしたら、お知らせください。
+1047	N5	kute-de	〜くて / 〜で	searched	1	3	うるさくて眠れないんです。
+1102	N4	ageru-kureru-morau	あげる / くれる / もらう	searched	3	3	君にお金をあげるから俺が必要なのか。
+1119	N5	ni-iku	〜に行く	searched	2	3	買い物に行かなければならない。一時間で戻るよ。
+1136	N4	hou-ga-ii	〜ほうがいい	searched	3	3	眠った方がいいよ。
+1137	N3	beki-da-beki-de-wa-nai	〜べきだ / 〜べきではない	searched	3	3	私の言う事を聞くべきだったのに。
+1149	N4	seru-saseru	〜せる / 〜させる	searched	1	3	警察はあなたに弾丸をみつけさせるでしょう。
+1208	N4	sugiru	〜すぎる	searched	3	3	貧しい人とはほんのわずかしか持っていない人ではなく欲のありすぎる人である。
+1223	N4	koto-ga-dekiru	〜ことができる	searched	3	3	過去は知られているが変えられない。未来は未知だが変えることができる。
+1231	N4	ka-embedded-question	〜か（embedded question）	searched	3	3	何と言ったら良いか分かりません。
+1232	N3	nanka-nante	〜なんか / 〜なんて	searched	3	3	丸一日オンラインで君を見ないなんてびっくりだよ。
+1237	N4	te-morau	〜てもらう	searched	3	3	一晩泊めてもらいたいんだけど。
+1248	N5	made	〜まで（until）	searched	3	3	学校まで１０分で歩いて行ける。
+1257	N4	tsumori	〜つもり	searched	3	3	自分勝手にするつもりはない。
+1272	N4	te-iku	〜ていく	searched	3	3	年月を経て物事がどう変わっていくか見るのは面白そうだ。
+1278	N4	you-ni	〜ように（purpose）	searched	3	3	あなたがじゃがいもを買うように奇蹟を買うことができないなんて本当に残念だわ。
+1280	N5	nani-mo-nai-dare-mo-nai	何も〜ない / 誰も〜ない	searched	0	3	誰も私のことを分かってくれない。
+1314	N5	to-with	〜と（with）	searched	1	3	私は反社会的かもしれないけれど人と話さないわけではない。
+1325	N3	you-to-suru	〜ようとする	searched	3	3	うまく言えないんだけど・・・自分も理解していないことを君に説明しようとしてるんだ。
+1378	N4	to-iu-say	〜と言う	searched	1	3	何と言ったら良いか分かりません。
+1427	N4	te-miru	〜てみる	searched	3	3	何かしてみましょう。
+1576	N3	ni-tsuite	〜について	searched	3	3	多くの人が日常のことについて文を書く。
+1581	N4	te-mo-de-mo	〜ても / 〜でも	searched	2	3	いつまでかかっても全部を説明するのは無理だ。
+1626	N3	you-na-you-ni-like	〜ような / 〜ように（like）	searched	2	3	またいつか風のように走るんだ。
+1632	N4	nara	〜なら	searched	3	3	お金を稼ぎたいならアメリカが一番だ。
+1862	N5	dake	〜だけ	searched	3	3	言ってみただけだよ！
+1949	N5	de-means	〜で（means）	searched	2	3	イタリア語では何て言うんですか。
+1979	N4	kenjougo	謙譲語	searched	3	3	また後でかけ直していただけませんか？
+2001	N4	tame-ni	〜ために	searched	3	3	それをするためには危険を冒さなければならない。
+2004	N5	deshou	〜でしょう	searched	3	3	そんなことは起きないでしょう。
+2148	N3	teki	〜的	NOT SEARCHED	3	3	私は反社会的かもしれないけれど人と話さないわけではない。
+2171	N5	de-wa-arimasen-ja-nai	〜ではありません / 〜じゃない	searched	3	3	違うよ、新しい彼じゃない。
+2291	N4	kedo-keredomo	〜けど / 〜けれども	searched	3	3	私は反社会的かもしれないけれど人と話さないわけではない。
+2312	N5	nani-ka-dare-ka-doko-ka	何か / 誰か / どこか	searched	2	3	何かしてみましょう。
+2327	N4	to	〜と（conditional）	searched	3	3	「実を言うと、俺、高所恐怖症なんだ」「臆病者っ！」
+2410	N5	kara-reason	〜から（reason）	searched	3	3	それはあなたが一人になりたくないからです。
+2551	N5	yori	〜より	searched	2	3	私よりも物知りな数学者が自分のことをはっきりと表現できていないのを見るのは心地の良いものではない。
+2564	N4	node	〜ので	searched	3	3	僕はあまりに疲れていたので昼休みにひと眠りした。
+2591	N4	toki	〜とき	searched	3	3	高校生の時は毎朝6時に起きていた。
+2660	N5	to-and	〜と（and）	searched	2	3	誰にでも長所と短所がある。
+2716	N5	ga-suki-ga-kirai	〜が好き / 〜が嫌い	searched	3	3	私はいつも不思議な性格の方が好きだった。
+2776	N5	ni-indirect-object	〜に（indirect object）	searched	2	3	もう彼女には言えないよ。そんなに単純なことではなくなってきたからね。
+2818	N3	tte	〜って	searched	0	3	もし誰かにこの話の要点は何かって尋ねられても、私はさっぱりわからないわ。
+2851	N4	nasai	〜なさい	searched	2	3	本を取ってそれを読みなさい。
+2928	N5	nakereba-naranai-nakute-wa-ikenai	〜なければならない / 〜なくてはいけない	searched	3	3	私は眠らなければなりません。
+3078	N4	te-kureru	〜てくれる	searched	3	3	私は彼らにチケットをもう一枚送ってくれるように頼んだ。
+3139	N4	ou-you	〜おう / 〜よう	searched	3	3	最悪の場合を考えておこう。
+3325	N4	tara	〜たら	searched	2	3	何と言ったら良いか分かりません。
+3348	N4	ba	〜ば	searched	3	3	長い目で見れば違ってくると思います。
+3402	N5	te-kudasai	〜てください	searched	3	3	もし間違いを見つけたら訂正してください。
+3440	N5	e	〜へ	searched	3	3	日本へ行けたらいいのに。
+3508	N4	te-shimau-chau	〜てしまう / 〜ちゃう	searched	3	3	この世界の教育にはがっかりしてしまう。
+3532	N4	darou	〜だろう	searched	3	3	兄弟がいるとどんなだろうといつも思う。
+3632	N5	ni-time	〜に（time）	searched	3	3	高校生の時は毎朝6時に起きていた。
+3833	N5	masen	〜ません	searched	2	3	私は眠らなければなりません。
+3858	N4	to-omou	〜と思う	searched	3	3	長い目で見れば違ってくると思います。
+3963	N5	de-place	〜で（place of action）	searched	1	3	ウィキペディアでいつかバイアグラを検索するなんて思ってもみなかったわ。
+4364	N4	te-kuru	〜てくる	searched	3	3	きみにちょっとしたものをもってきたよ。
+5610	N5	tai	〜たい	searched	3	3	それはあなたが一人になりたくないからです。
+5796	N5	kara-from	〜から（from）	searched	3	3	それがどこから来たのか分からなかった。
+5977	N5	ne	〜ね	searched	3	3	驚くことではないね。
+6110	N5	koko-soko-asoko-doko	ここ / そこ / あそこ / どこ	searched	3	3	それがどこから来たのか分からなかった。
+6905	N5	na-na-adjective	〜な（na-adjective）	searched	1	3	私はいつも不思議な性格の方が好きだった。
+7008	N5	mo	〜も	searched	3	3	みんなもそうなのかな、と思うことくらいしかできない。
+7093	N5	ga-aru-ga-iru	〜がある / 〜がいる	searched	2	3	時間があるか分かりません。
+7137	N5	mashita	〜ました	searched	3	3	ムーリエルは２０歳になりました。
+7723	N5	ni-location	〜に（place of existence）	searched	3	3	私は山にいました。
+7898	N5	ni-destination	〜に（destination）	searched	3	3	家に来ませんか。
+7942	N5	ku-naru-ni-naru	〜くなる / 〜になる	searched	3	3	ムーリエルは２０歳になりました。
+8763	N4	reru-rareru-passive	〜れる / 〜られる（passive）	searched	3	3	もし誰かにこの話の要点は何かって尋ねられても、私はさっぱりわからないわ。
+8890	N5	te	〜て	searched	3	3	すぐに諦めて昼寝をするかも知れない。
+9296	N5	kore-sore-are-dore	これ / それ / あれ / どれ	searched	3	3	それは最近の写真？
+11020	N4	no-koto-nominalizer	〜の / 〜こと（nominalizer）	searched	2	3	いつまでかかっても全部を説明するのは無理だ。
+14871	N5	ka-question	〜か（question）	searched	3	3	なぜみんなが私のことを気違いだと思うのか、遂に説明してくれてありがとう。
+15995	N5	da	〜だ	searched	2	3	僕が最後に自分の考えを伝えた人は、僕を気違いだと思ったようだ。
+16807	N5	desu	〜です	searched	3	3	今日は６月１８日で、ムーリエルの誕生日です！
+18107	N5	yo	〜よ	searched	3	3	きみにちょっとしたものをもってきたよ。
+18501	N5	masu	〜ます	searched	3	3	すぐに戻ります。
+20816	N4	n-desu-no-desu	〜んです / 〜のです	searched	3	3	何してるの？
+29903	N5	kono-sono-ano-dono	この / その / あの / どの	searched	3	3	この世界の教育にはがっかりしてしまう。
+36082	N5	nai	〜ない	searched	3	3	私は眠らなければなりません。
+42187	N5	te-iru	〜ている	searched	3	3	何してるの？
+55528	N5	ga-subject	〜が（subject）	searched	2	3	きりがない。
+63088	N5	no	〜の（possessive）	searched	2	3	今日は６月１８日で、ムーリエルの誕生日です！
+83212	N5	o	〜を	searched	3	3	きみにちょっとしたものをもってきたよ。
+88879	N5	ta	〜た	searched	3	3	きみにちょっとしたものをもってきたよ。
+149490	N5	wa	〜は	searched	3	3	私は眠らなければなりません。
