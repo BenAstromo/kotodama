@@ -30,6 +30,13 @@ EXACT = {
     "JLPT Goal": "JLPT目標", "<b>JLPT Goal</b>": "<b>JLPT目標</b>", "JLPT goal": "JLPT目標",
     "Set a JLPT goal…": "JLPT目標を設定…", "Set your next goal…": "次の目標を設定…",
     "Change…": "変更…", "Other date…": "別の日付…", "Save": "保存", "Cancel": "キャンセル",
+    # Progress Review (review_view.py, owner 2026-10-27)
+    "Progress Review": "振り返り", "Goal reached": "目標達成",
+    "Click any heading or item to see its cards in the Browser.":
+        "見出しや項目をクリックすると、そのカードをブラウザで開きます。",
+    "Nothing new yet today.": "今日はまだ新しいものはありません。",
+    "Nothing new in these days.": "この期間に新しいものはありません。",
+    "No history yet: the review fills in as you study.": "まだ履歴がありません。学習するにつれて振り返りが埋まります。",
     "Test date:": "試験日：", "Remove goal": "目標を削除",
     "Show time with Kotodama": "言霊と過ごした時間を表示", "Show JLPT goal": "JLPT目標を表示",
     "Which words count: for N5 to N3, the JLPT word lists (the JLPT Vocabulary bars). For N2 and "
@@ -426,6 +433,10 @@ def _pace_ja(m) -> str:
             f"{_PACE_NOTES[m.group(8)]}")
 
 
+_REVIEW_KINDS = {"Words": "単語", "Kanji": "漢字", "Grammar": "文法", "word": "単語", "words": "単語",
+                 "kanji": "漢字", "grammar point": "文法", "grammar points": "文法"}
+_JA_WEEKDAYS = dict(zip(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], "月火水木金土日"))
+
 PATTERNS = [
     # JLPT goal (goal_view.py)
     (re.compile(r"^(<b style='color:#\w+;'>JLPT N\d</b>) · (" + _DATE_RX + r") · <b>([\d,]+)</b> days? left to learn$"),
@@ -468,6 +479,23 @@ PATTERNS = [
     (re.compile(r"^Words: the JLPT word lists up to (N\d) \(the JLPT Vocabulary bars above\)\.$"),
      r"単語：\1 までのJLPT語彙リスト（上のJLPT語彙バー）。"),
     (re.compile(r"Goal words \((N\d)\)"), r"目標の単語（\1）"),                      # History legend (N2 / N1 goal)
+    # Progress Review (review_view.py, owner 2026-10-27)
+    (re.compile(r"^(Words|Kanji|Grammar) · ([\d,]+)$"),
+     lambda m: f"{_REVIEW_KINDS[m.group(1)]} · {m.group(2)}"),
+    (re.compile(r"^Past ([\d,]+) days$"), r"過去\1日間"),
+    (re.compile(r"^\+([\d,]+) (words?|kanji|grammar points?) outside your (N\d) goal$"),
+     lambda m: f"{m.group(3)}目標外の{_REVIEW_KINDS[m.group(2)]} +{m.group(1)}"),
+    (re.compile(r"^\+([\d,]+) (words?|kanji|grammar points?) on no JLPT list$"),
+     lambda m: f"JLPTリスト外の{_REVIEW_KINDS[m.group(2)]} +{m.group(1)}"),
+    (re.compile(r"^\+([\d,]+) words? today$"), r"今日 +\1 語"),
+    (re.compile(r"^([\d,]+) words?$"), r"\1 語"),
+    (re.compile(r"^([\d,]+) kanji$"), r"\1 字"),
+    (re.compile(r"^([\d,]+) grammar$"), r"文法 \1"),
+    (re.compile(r"^Needed pace: ([\d,]+) a day → ([\d,]+) in ([\d,]+) days$"),
+     r"必要なペース：1日 \1 語 → \3日で \2 語"),
+    (re.compile(r"^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (\d+)$"),
+     lambda m: f"{m.group(2)}日（{_JA_WEEKDAYS[m.group(1)]}）"),
+    (re.compile(r"^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)$"), lambda m: _JA_WEEKDAYS[m.group(1)]),
     (re.compile(r"Top ([\d,]+) words"), r"上位 \1 語"),
     (re.compile(r"Most Common Words — Top ([\d,]+)$"), r"最頻出語 — 上位 \1"),
     (re.compile(r"\bTop ([\d,]+)\b"), r"上位 \1"),                                 # "Top 3,900" (History legend, grid headers)

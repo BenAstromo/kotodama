@@ -89,8 +89,10 @@ def open_gained(series: dict, parts, days_back: int, parent=None):
 
 
 def connect_gain_links(lbl: QLabel, series_fn):
-    """Make a label's "gain:<key>:<days>" links open the Browser. series_fn()
-    gives the current series (it's rebuilt on refresh)."""
+    """Make a label's "gain:<key>:<days>" links open the Progress Review
+    (owner 2026-10-27; the past 30 days for "this month", else 7), or the
+    Browser outside the main window. series_fn() gives the current series
+    (it's rebuilt on refresh)."""
     lbl.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse)
     lbl.setOpenExternalLinks(False)
 
@@ -98,6 +100,9 @@ def connect_gain_links(lbl: QLabel, series_fn):
         if not href.startswith("gain:"):
             return
         _g, key, days = href.split(":")
+        from .review_view import open_from
+        if open_from(lbl, 30 if int(days) >= 30 else 7):
+            return
         open_gained(series_fn(), [(key, None)], int(days), lbl)
     lbl.linkActivated.connect(activated)
 
@@ -112,7 +117,7 @@ def delta_label(series: dict, key: str, color: str, what: str) -> QLabel | None:
     lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
     lbl.setStyleSheet(BODY_CSS + " color: #bbbbbb; padding: 1px 0 3px 0;")
     lbl.setToolTip(f"Change in {what} today and over the last 7 and 30 days. "
-                   "Click a number to see those cards in the Browser. "
+                   "Click a number for the Progress Review: what you learned, each card a click away. "
                    "The History tab has the chart and lifetime numbers.")
     connect_gain_links(lbl, lambda: series)
     from .progress_dialog import _regold

@@ -32,9 +32,9 @@ import importlib.util
 
 HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 UI_FILES = ["progress_dialog.py", "kanji_view.py", "history_view.py", "share_card.py", "nakama_view.py",
-            "text_check_view.py", "goal_view.py", "busy.py", "__init__.py"]
+            "text_check_view.py", "goal_view.py", "busy.py", "__init__.py", "review_view.py"]
 
-CALLS = {"QLabel", "QPushButton", "QCheckBox", "QRadioButton", "QGroupBox"}
+CALLS = {"QLabel", "QPushButton", "QCheckBox", "QRadioButton", "QGroupBox", "_label"}
 # "please wait" notes (busy.py): the text is the second argument
 WAIT_CALLS = {"busy", "show_note", "_LazyTab"}
 METHODS = {"setText": 0, "setPlaceholderText": 0, "addItem": 0, "setWindowTitle": 0,
@@ -68,7 +68,7 @@ LEVEL_NAMES = {"lvl", "level", "key", "l"}
 SAMPLES = {"kind": "automatic", "when": "Oct 9, 19:05", "deck_name": "Deck",
            "_deck_name": "Deck", "coverage": "85.0", "noun": "grammar points",
            "target": "20,000", "name": "N5", "color": "#7ec8f0", "c": "#7ec8f0",
-           "range_txt": "13,800 – 20,000 cards"}
+           "range_txt": "13,800 – 20,000 cards", "date": "December 6, 2026"}
 
 
 def _sample(node) -> str:

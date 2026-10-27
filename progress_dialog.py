@@ -46,6 +46,7 @@ FOUND_ROW_TEXT = ("Counted as found through another spelling or reading of this 
                   "(marked on its JLPT entry or the other form). Unmark it there.")
 MISSING_GLOW = "#6a6a6a"     # the grids' glow around missing / new tiles
 EXTRA_HEIGHT = 210           # px the main window opens above its layout's minimum height
+REVIEW_POP_MS = 2500         # the once-a-day Progress Review opens this long after the window
 FREQ_BG = "#1f86b3"
 
 # Search-match outlines use each tile's complementary colour — see
@@ -7358,6 +7359,9 @@ class ProgressDialog(QDialog):
         if getattr(self, "_intro_done", False):
             return
         self._intro_done = True
+        # The day's word target reached: the Progress Review, once a day,
+        # after the window's intro (owner 2026-10-27).
+        QTimer.singleShot(REVIEW_POP_MS, self._maybe_review)
         if self._gold:
             return
         _INTRO["run"] += 1
@@ -7390,6 +7394,21 @@ class ProgressDialog(QDialog):
         # First tick once the event loop is idle (the window has painted).
         QTimer.singleShot(0, _neon_wake)
         attach_rain(self)                   # rain on the glass (rain.py)
+
+    def _maybe_review(self):
+        try:
+            if not self.isVisible():
+                return
+            from . import review
+            if review.should_pop(self._results, self._deck_name):
+                review.mark_popped()
+                from .review_view import open_review
+                open_review(self, self._results, self._deck_name, 7)
+        except RuntimeError:
+            pass                            # closed meanwhile
+        except Exception:
+            import traceback
+            traceback.print_exc()           # never in the way of the window
 
     def done(self, result):
         # Every way of closing ends here (Close button → accept, Esc →

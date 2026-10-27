@@ -113,7 +113,8 @@ def add_goal_card(page: QVBoxLayout, tab) -> None:
         per_lbl.setStyleSheet(BODY_CSS + " font-size: 15px;")
         outer.addWidget(per_lbl)
         today_lbl = _label("Today: " + " · ".join(today))
-        today_lbl.setToolTip("Click a number to see today's new cards in the Browser.")
+        today_lbl.setToolTip("Click a number for the Progress Review: what you learned today and "
+                             "this week, each card a click away.")
         _connect_today(today_lbl, tab, lvl)
         outer.addWidget(today_lbl)
         outer.addWidget(_label("Still to learn: " + " · ".join(left), HINT_CSS))
@@ -142,6 +143,9 @@ def _connect_today(lbl: QLabel, tab, lvl: str):
 
     def activated(href: str):
         if not href.startswith("today:"):
+            return
+        from .review_view import open_from
+        if open_from(lbl, 7):                   # the Progress Review (owner 2026-10-27)
             return
         from .history_view import open_gained
         kind = href.split(":", 1)[1]
