@@ -10,7 +10,9 @@
 
 **Confirmed by the owner in Anki:** everything built so far, including (2026-10-26) bokeh parallax, the 4-switch Night look, header/page seam, on-screen windows, the new window sizes (main `EXTRA_HEIGHT` 210; grid pop-ups 900×890 centred and level with the main window's bottom), heatmap-coloured Kanji / Grammar grid glow, rain glare streaks removed, 50 % effects volume, and busy notes in place of Anki's progress bar.
 
-**Built, not yet seen in Anki (owner's next restart):** Settings is one scrolling page (no tabs; the field mappings group is now "Vocab — which fields hold your words?", with Kanji and Grammar sources under it; the rows' ✕ buttons are visible now, `_remove_button`); the custom word-list upload is gone and the bundled lists are always used (§7). Settings → Sound effects → "Mini widget sounds" (`mini_widget_sound`, default on; `effects.mini_sound_on`) silences only the deck-list widget's flicker sound. Nothing in the mini widget can be dragged any more (`-webkit-user-drag: none`, `draggable="false"` on the link and rank picture), so a slipped click no longer drops it on Anki ("Unsupported file type"). The rank "?" window has the main window's night look (`theme.apply`, stars, rain, see-through dark badge tiles, faint separators `_INFO_SEP_CSS`).
+**Built, not yet seen in Anki (owner's next restart):** Settings is one scrolling page (no tabs; the field mappings group is now "Vocab — which fields hold your words?", with Kanji and Grammar sources under it; the rows' ✕ buttons are visible now, `_remove_button`); the custom word-list upload is gone and the Kotodama JLPT lists are always used (§7); "bundled lists" renamed to "the Kotodama JLPT lists" everywhere user-facing (§8). Settings → Sound effects → "Mini widget sounds" (`mini_widget_sound`, default on; `effects.mini_sound_on`) silences only the deck-list widget's flicker sound. Nothing in the mini widget can be dragged any more (`-webkit-user-drag: none`, `draggable="false"` on the link and rank picture), so a slipped click no longer drops it on Anki ("Unsupported file type"). The rank "?" window has the main window's night look (`theme.apply`, stars, rain, see-through dark badge tiles, faint separators `_INFO_SEP_CSS`).
+
+**Git (2026-10-26):** the add-on folder is a git repo, pushed to the **private** GitHub repo https://github.com/BenAstromo/kotodama (branch `main`). `.gitignore` keeps out `user_files/`, `meta.json`, `server/.wrangler/` and caches. Commit / push only when the owner asks. Before making it public: the release checklist (§11), and decide whether `server/wrangler.toml`'s D1 `database_id` should stay in it.
 
 **Accuracy state:** grammar fresh recall 91 % (tuning stopped: fresh samples don't move); precision A 99 % / N3 94 % / N2 98 % / N1 97 %; `tools/grammar_cases.json` 4,859 rulings, 0 failures. Tatoeba has almost no unreviewed N1 left (a future N1 check needs the owner's own sentences, `user_files/parse_cache.json`).
 
@@ -190,7 +192,7 @@ Deliberately not done: dropping white papers / Diet minutes (they hold N2/N1 voc
 | Grid glow | The tiles' shape glows, not each tile; kanji/grammar glow follows the heatmap | Per-tile glow (small words unreadable). |
 | Debug buttons | Visible; the owner removes them before release | — |
 | Ranks 11–12 (Susanoo, Tsukuyomi) | Parked (#14); plan in HISTORY | — |
-| Custom word lists | Removed 2026-10-26: always the bundled lists (`build_lists` ignores the old `lists` config) | Per-level upload: Nakama / History / Goal numbers stop being comparable; uploads lack JMdict ids. Text Check covers "how much of list X do I know". |
+| Custom word lists | Removed 2026-10-26: always the Kotodama JLPT lists (`build_lists` ignores the old `lists` config) | Per-level upload: Nakama / History / Goal numbers stop being comparable; uploads lack JMdict ids. Text Check covers "how much of list X do I know". |
 | Settings layout | One scrolling page: deck, field mappings, kanji, grammar, suspended, then widget / Amaterasu / sound / animations / Night look | Three tabs (Deck & Fields, Vocabulary Lists, Kanji & Grammar). |
 
 ---
@@ -205,6 +207,7 @@ Deliberately not done: dropping white papers / Diet minutes (they hold N2/N1 voc
 - **Waits:** busy.py notes, never Anki's progress bar (`card_state.run_in_background` without a label).
 - **Gold mode:** new bars `LevelBar(..., force_max_gold=..., colors=..., clickable=...)` added to `_freq_bars` / `_level_bars`; new labels in `_set_level_label_gold`; text set after build → `_regold(widget)`; only gold, black #0d0b08 and white in gold mode.
 - **Gold text protocol** (memory `gold-text-protocol`): every English UI text gets its Japanese in `divine_text.py` (`EXACT`, `PATTERNS`, `PHRASES`, `HEADERS`, `PLACEHOLDERS`) in the same change; `tools/check_gold_text.py` must print OK. Settings and tooltips stay English. Never remove English the owner wrote (`_AMATERASU_MESSAGE_EN`).
+- **Naming the word lists:** user-facing text says **"the Kotodama JLPT lists"** (gold: 言霊のJLPTリスト), never "bundled lists" (owner 2026-10-26: confusing once custom lists were gone). "Bundled data" stays fine for licences and shipped files.
 - **New visuals:** offscreen mock-ups of 2–3 variants first, owner picks; new effects start very faint, one tunable constant each, each its own switch; new sounds start low.
 
 ---

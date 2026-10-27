@@ -49,7 +49,7 @@ _HERE = os.path.dirname(os.path.abspath(__file__))
 # ── Per-word metadata (from optional 3rd/4th list columns) ───────────────────
 #
 # Keyed by (display, reading). Filled as list files are loaded, so it covers
-# whatever lists are active (bundled or user-supplied).
+# the Kotodama JLPT lists.
 #   ALT_FORMS: other spellings of the same word, e.g. いちばん → [一番]
 #   FLAGS:     loanword flags derived from JMdict — "eng", "wasei", "abbr",
 #              or "loan-<lang>" for loanwords from other languages
@@ -285,7 +285,7 @@ def is_english_loanword(display: str, reading: str) -> bool:
             and display not in NOT_ENGLISH)
 
 
-# ── Bundled list loading ──────────────────────────────────────────────────────
+# ── Kotodama JLPT list loading ─────────────────────────────────────────────────
 
 def _load_bundled(level: str) -> list:
     """

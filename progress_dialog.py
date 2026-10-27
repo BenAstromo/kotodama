@@ -453,7 +453,7 @@ The JLPT tracking in this add-on relies on community vocabulary lists.
 Because the JLPT organizers stopped publishing official lists in 2010, every available list is an
 educated reconstruction of the pre-2010 official lists.<br><br>
 
-Our bundled lists (OpenJLPT, based on Jonathan Waller's JLPT lists) contain a total of
+The Kotodama JLPT lists (OpenJLPT, based on Jonathan Waller's JLPT lists) contain a total of
 {sum(level_counts.values()):,} words
 <i>(discrete per-level counts — words appear in only one level)</i>:<br>
 {level_lines}<br>
@@ -506,7 +506,7 @@ Keep adding cards, keep reviewing, and watch your rank climb!
 JLPTの主催者は2010年に公式の語彙リストの公開をやめたため、手に入るリストはどれも
 2010年以前の公式リストを推定して作り直したものです。<br><br>
 
-同梱のリスト（OpenJLPT。Jonathan Waller氏のJLPTリストに基づく）は合計
+言霊のJLPTリスト（OpenJLPT。Jonathan Waller氏のJLPTリストに基づく）は合計
 {sum(level_counts.values()):,} 語です
 <i>（レベルごとの語数。各語は一つのレベルにだけ入っています）</i>：<br>
 {level_lines_ja}<br>
@@ -5513,7 +5513,7 @@ class MarkedSuspendedPanel(QWidget):
             table.setCellWidget(i, table.columnCount() - 1, btn)
 
 
-# ── Off-list words panel (deck cards on no bundled JLPT list) ──────────────────────────────────────────────────────
+# ── Off-list words panel (deck cards on no Kotodama JLPT list) ──────────────────────────────────────────────────────
 
 class _UnlistedPanel(QWidget):
     def __init__(self, words: list, overrides: Overrides,
@@ -5545,7 +5545,7 @@ class _UnlistedPanel(QWidget):
         n_common = sum(1 for _, _, nid in self._words if nid in self._nid_rank)
         info  = QLabel(
             f"<b>Off-list words</b> — {len(self._words):,} cards in your deck aren't on "
-            "the bundled JLPT lists. The lists are old and incomplete, so many of these "
+            "the Kotodama JLPT lists. The lists are old and incomplete, so many of these "
             "can still appear on the test. "
             f"{n_common:,} of them are among the {freq_data.TIERS[-1]:,} most common words, "
             "and they all count toward your rank and the Frequency Check.<br>"

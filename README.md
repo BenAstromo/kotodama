@@ -41,7 +41,7 @@ This tab also has the **Main screen widget** toggle (on by default) with an **In
 **Ignore cards suspended in Anki**: when ticked, notes whose cards are all suspended in Anki don't count toward the JLPT bars, the Frequency Check or the rank.
 
 ### 2. Vocabulary Lists tab
-Bundled lists for every level (OpenJLPT plus a few hundred additions, 8,070 words total) are used by default. They follow Jonathan Waller's community JLPT lists — the basis of every JLPT list since official lists stopped in 2010 — with modern spellings (ありがとう rather than 有難う) and alternate spellings kept for matching. Everyone uses the same bundled lists, so your bars, History and Nakama numbers compare fairly. To check your coverage of some other list (a textbook's, say), paste it into **Text Check**.
+The **Kotodama JLPT lists** cover every level (OpenJLPT plus a few hundred additions, 8,070 words total). They follow Jonathan Waller's community JLPT lists — the basis of every JLPT list since official lists stopped in 2010 — with modern spellings (ありがとう rather than 有難う) and alternate spellings kept for matching. Everyone uses the same Kotodama JLPT lists, so your bars, History and Nakama numbers compare fairly. To check your coverage of some other list (a textbook's, say), paste it into **Text Check**.
 
 **File format** (may be mixed within one file):
 - One word per line: `食べる`
@@ -117,7 +117,7 @@ Where your grammar comes from:
 - Overrides are stored in `user_files/overrides.json` inside the add-on folder (Anki keeps `user_files` when the add-on updates); a file placed there is picked up on Refresh. An `overrides.json` from an older version in the add-on folder is copied there automatically, with a backup copy (`overrides_backup_before_move.json`)
 
 ### Off-list tab
-- Your deck cards that aren't on the bundled JLPT lists (the lists are old and incomplete, so many can still appear on the test). They still count toward your rank and the Frequency Check.
+- Your deck cards that aren't on the Kotodama JLPT lists (the lists are old and incomplete, so many can still appear on the test). They still count toward your rank and the Frequency Check.
 - Tile grid on the left (grouped Mature → Young → Learning, most common first) and a filterable word list on the right; drag the divider to resize.
 - Click a tile or double-click a row to open the note in the Browser.
 

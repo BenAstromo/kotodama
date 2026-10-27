@@ -590,9 +590,9 @@ PATTERNS = [
      lambda m: f"{'漢字' if m.group(1) == 'kanji' else '文法'}はグリッド（漢字 & 文法タブ）で"
                "中クリック／Ctrl+中クリックすると発見済み・保留にできます。更新でバーに反映されます。"),
     # Off-list tab
-    (re.compile(r"^<b>Off-list words</b> — ([\d,]+) cards in your deck aren't on the bundled "
+    (re.compile(r"^<b>Off-list words</b> — ([\d,]+) cards in your deck aren't on the Kotodama "
                 r"JLPT lists\..*?([\d,]+) of them are among the ([\d,]+) most common words.*", re.S),
-     r"<b>リスト外の単語</b> — デッキの \1 枚のカードは同梱のJLPTリストにありません。"
+     r"<b>リスト外の単語</b> — デッキの \1 枚のカードは言霊のJLPTリストにありません。"
      r"リストは古く不完全なので、多くは試験に出ることもあります。そのうち \2 枚は最頻出 \3 語に"
      r"入り、すべてランクと頻度チェックに数えられます。<br><span style='color:#aaa; font-size:11px;'>"
      r"タイルは 成熟 → 若い の順、各グループ内はよく使われる順。リストはよく使われる"
