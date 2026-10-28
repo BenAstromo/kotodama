@@ -639,6 +639,12 @@ def _widget_html(results: dict, deck_name: str = "", ignore_suspended: bool = Fa
         white-space: nowrap;
         pointer-events: none;
       }}
+      /* Narrow window (owner 2026-10-28): the corner widget would cover the
+         deck list, so it drops into the page under the stats instead. */
+      #jlpt-mini-widget.jlpt-mini-docked {{
+        position: static;
+        margin: 16px auto 8px;
+      }}
       {neon_css}
     </style>
     <a id="jlpt-mini-widget" href="#"{' class="jlpt-divine-aura"' if force_max_gold else ''}
@@ -648,6 +654,19 @@ def _widget_html(results: dict, deck_name: str = "", ignore_suspended: bool = Fa
       {rows_html}
       {_dust_html() if force_max_gold else ''}
     </a>
+    <script>(function(){{
+      function fit(){{
+        var w = document.getElementById('jlpt-mini-widget');
+        var t = document.getElementById('decktable') || document.querySelector('table');
+        if (!w || !t) return;
+        w.classList.remove('jlpt-mini-docked');
+        var a = w.getBoundingClientRect(), b = t.getBoundingClientRect();
+        if (a.left < b.right && a.top < b.bottom && b.top < a.bottom)
+          w.classList.add('jlpt-mini-docked');
+      }}
+      fit();
+      window.addEventListener('resize', fit);
+    }})();</script>
     """
 
 
