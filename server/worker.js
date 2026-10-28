@@ -11,7 +11,15 @@
 //   PUT    /profile/<id>       {key, name, data}      → {ok}        update
 //   POST   /profile/<id>/leave {key}                  → {ok}        leave, keep the code
 //   DELETE /profile/<id>       {key}                  → {ok}        delete
-//   GET    /profiles?ids=A,B   → {profiles: [{id, name, data, updated}]}
+//   GET    /profiles?ids=A,B   → {profiles: [{id, name, data, updated, supporter}]}
+//   POST   /kofi               Ko-fi's webhook (form field "data", JSON)
+//
+// Supporters (2026-10-27): a Ko-fi tip whose message contains a friend code
+// ("ABCD-2345") marks that profile with the date of the first tip. Ko-fi's
+// verification token (secret KOFI_TOKEN: `npx wrangler secret put
+// KOFI_TOKEN`) proves the call is Ko-fi's. Only the date is kept: no name,
+// email, amount or message. Ko-fi sends no refund webhook, so a refund is
+// cleared by hand (UPDATE profiles SET supporter = NULL WHERE id = ...).
 //
 // Leaving (2026-10-20) erases the name and snapshot (data "{}") but keeps the
 // row: the code stays reserved for its key, so rejoining (a PUT with the key)
@@ -32,6 +40,9 @@ const MAX_IDS = 60;
 const MIN_UPDATE_GAP = 60;                 // seconds
 const STALE_DAYS = 400;
 const LEFT = "{}";                         // the data of a profile that left
+const MAX_CLAIMS = 3;                      // friend codes credited by one tip
+// A friend code in free text: 8 code characters, optionally split 4-4.
+const CODE_IN_TEXT = /(?<![0-9A-Z])([2-9A-HJKMNP-Z]{4})[-\s]?([2-9A-HJKMNP-Z]{4})(?![0-9A-Z])/g;
 
 const JSON_HEADERS = { "content-type": "application/json", "cache-control": "no-store" };
 
@@ -165,11 +176,36 @@ async function list(url, env) {
   const ids = [...new Set((url.searchParams.get("ids") || "").split(",").map(cleanCode).filter(Boolean))]
     .slice(0, MAX_IDS);
   if (!ids.length) return reply({ profiles: [] });
-  const q = `SELECT id, name, data, updated FROM profiles WHERE id IN (${ids.map(() => "?").join(",")}) AND data != ?`;
+  const q = `SELECT id, name, data, updated, supporter FROM profiles WHERE id IN (${ids.map(() => "?").join(",")}) AND data != ?`;
   const { results } = await env.DB.prepare(q).bind(...ids, LEFT).all();
   return reply({
-    profiles: results.map((r) => ({ id: r.id, name: r.name, data: JSON.parse(r.data), updated: r.updated })),
+    profiles: results.map((r) => ({
+      id: r.id, name: r.name, data: JSON.parse(r.data), updated: r.updated, supporter: r.supporter || null,
+    })),
   });
+}
+
+async function kofi(request, env) {
+  // Ko-fi posts application/x-www-form-urlencoded with one field, "data".
+  let payload;
+  try {
+    const form = await request.formData();
+    payload = JSON.parse(String(form.get("data") || ""));
+  } catch {
+    return err("Bad request");
+  }
+  if (!env.KOFI_TOKEN || !payload || payload.verification_token !== env.KOFI_TOKEN) {
+    return err("Wrong token", 403);
+  }
+  const text = String(payload.message || "").toUpperCase();
+  const codes = [...new Set([...text.matchAll(CODE_IN_TEXT)].map((m) => m[1] + m[2]))].slice(0, MAX_CLAIMS);
+  const now = Math.floor(Date.now() / 1000);
+  for (const id of codes) {
+    // the first tip's date stays; unknown codes are ignored
+    await env.DB.prepare("UPDATE profiles SET supporter = COALESCE(supporter, ?) WHERE id = ?")
+      .bind(now, id).run();
+  }
+  return reply({ ok: true });   // always 200 for a genuine call, or Ko-fi retries
 }
 
 export default {
@@ -178,6 +214,7 @@ export default {
     const parts = url.pathname.split("/").filter(Boolean);
     try {
       if (parts[0] === "profiles" && parts.length === 1 && request.method === "GET") return await list(url, env);
+      if (parts[0] === "kofi" && parts.length === 1 && request.method === "POST") return await kofi(request, env);
       if (parts[0] === "profile") {
         if (parts.length === 1 && request.method === "POST") return await create(request, env);
         const id = cleanCode(parts[1]);

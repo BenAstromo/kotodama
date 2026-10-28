@@ -86,6 +86,20 @@ EXACT = {
     "History": "履歴",
     "Close": "閉じる",
     # Duplicate cards list (progress_dialog._show_duplicates, owner 2026-10-27)
+    # ♥ Support note (progress_dialog._show_support_note, owner 2026-10-27)
+    "Support Kotodama": "言霊を応援", "Go to Ko-fi": "Ko-fiへ",
+    "Kotodama is free. If it helps you, you can leave a tip on Ko-fi. Nothing is unlocked by it: thank you!":
+        "言霊は無料です。役に立っていたら、Ko-fiでチップを送れます。それで何かが解放されることはありません。ありがとうございます！",
+    "Put your friend code in the Ko-fi message, and your Nakama card and share image will say "
+    "“♥ Supported Kotodama”, the same for any amount. It shows once your Nakama tab next updates.":
+        "Ko-fiのメッセージに仲間コードを書くと、仲間カードと共有画像に「♥ 言霊サポーター」と表示されます"
+        "（金額に関係なく同じです）。次に仲間タブが更新されると表示されます。",
+    "Join Nakama first (the Nakama tab) and put your friend code in the Ko-fi message, and your card "
+    "and share image will say “♥ Supported Kotodama”.":
+        "まず仲間に参加し（仲間タブ）、Ko-fiのメッセージに仲間コードを書くと、カードと共有画像に"
+        "「♥ 言霊サポーター」と表示されます。",
+    "Only the date of your first tip is kept with your code: no name, email or amount.":
+        "コードと一緒に保存されるのは最初のチップの日付だけです。名前、メール、金額は保存されません。",
     "Open all in browser": "すべてブラウザで開く", "Duplicate cards": "重複カード",
     "The same word in more than one note. Click a word to open its cards in the browser.":
         "同じ単語が複数のノートにあります。単語をクリックするとそのカードをブラウザで開きます。",

@@ -175,6 +175,9 @@ Clicking a known word tile searches the Browser with `nid:<note_id>`, which alwa
 - **Extra JLPT words:** a few words on Jonathan Waller's lists that OpenJLPT omits (via [stephenmk/yomitan-jlpt-vocab](https://github.com/stephenmk/yomitan-jlpt-vocab), which keeps Waller's levels)
 - **Community additions:** 211 words on community JLPT lists ([jamsinclair/open-anki-jlpt-decks](https://github.com/jamsinclair/open-anki-jlpt-decks), [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list)) that Waller's current lists don't have, e.g. 顔, 母, 頑張る, 当然, 仕方がない. They use those lists' levels and are flagged `community` in the list files.
 
+## Supporting Kotodama
+Kotodama is free, and nothing is unlocked by money. **♥ Support** (bottom left of the window) explains how to leave a tip on [Ko-fi](https://ko-fi.com/benastromo). If you're in Nakama and put your friend code in the Ko-fi message, your Nakama card and share image say **♥ Supported Kotodama**: one plain line, the same for any amount. The Nakama server keeps only the date of your first tip with your code (no name, email or amount).
+
 ## Compatibility
 - Anki 2.1.50+, Qt6 or Qt5 builds. On the older Qt5 builds (2.1.50–2.1.66) everything works except the top rank's animated picture (shown still) and its star ambience (silent), which need Qt6
 - Desktop only — AnkiDroid/AnkiMobile do not support add-ons

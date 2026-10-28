@@ -25,10 +25,10 @@
 **Accuracy state:** grammar fresh recall 91 % (tuning stopped); precision A 99 % / N3 94 % / N2 98 % / N1 97 %; `tools/grammar_cases.json` 4,859 rulings, 0 failures; vocab recall 99.4 % / precision 99.3 %. Re-run 2026-10-27 after the `word_rank` and kana-card changes: 0 differences from the baselines. **Kana cards (2026-10-27, third session, seen in Anki):** a kana-only card no longer falls back to any kanji homophone, only to a usually-kana word's tile (§5b); `t_marks.py` now 26 checks.
 
 **Open (owner's call unless noted):**
-- **WIGGLE needs this version** (folder copy without `user_files/`): his card only changes once his add-on has it.
-- **Word Addition Project** (suggested next): 589 candidates in the frequency top 3,900 with no JLPT entry → rules in `tools/missing_words/confidence_rules.py` add 453 (N5 5, N4 40, N3 119, N2 190, N1 99), skip 136. Phone review Artifact https://claude.ai/artifact/NHt9rMw2icW5aSLuNxSLuq: round 1 = ArtifactData `review/choices` (52 owner decisions); `review/round2` saved 2026-10-26 with no changes (= accepted as is; confirm with the owner). Next: add the words in `tools/build_jlpt.py` with flag `ours`, rebuild, run the evals; then the #3,901–6,000 batch (`wa_candidates.json`, db doc `review/round3`); afterwards rebuild `freq_extra.txt` (needs the LUW zip, §6). Details: grep HISTORY for "Word Addition Project".
-- **Gamification:** Progress Review built; no streaks. Unpicked ideas (2026-10-26): milestone seals (判子) on bars, level clears (完), rare-word finds, kanji families, grammar "seen in the wild", weekly ink on the History chart, hidden titles on the share image, Nakama nudges. Recommended first: seals + "seen in the wild". Mock-ups before building (§8).
-- Rank pictures (only Amaterasu is animated); testing on other PCs; release prep (GitHub page, screenshots, version bump, "Supported Kotodama" line, §11).
+- **Word Addition Project** (suggested next): 589 candidates in the frequency top 3,900 with no JLPT entry → rules in `tools/missing_words/confidence_rules.py` add 453 (N5 5, N4 40, N3 119, N2 190, N1 99), skip 136. Phone review Artifact https://claude.ai/artifact/NHt9rMw2icW5aSLuNxSLuq: round 1 = ArtifactData `review/choices` (52 owner decisions); `review/round2`: **the owner is still reviewing round 2 (on hold, 2026-10-27); don't build until they say so.** Next: add the words in `tools/build_jlpt.py` with flag `ours`, rebuild, run the evals; then the #3,901–6,000 batch (`wa_candidates.json`, db doc `review/round3`); afterwards rebuild `freq_extra.txt` (needs the LUW zip, §6). Details: grep HISTORY for "Word Addition Project".
+- **Gamification: closed (owner 2026-10-27).** Progress Review built; no streaks. The other ideas (seals 判子, level clears 完, rare-word finds, kanji families, grammar "seen in the wild", weekly ink, hidden titles, Nakama nudges) were declined: don't propose them again.
+- Rank pictures: new rank icons waiting until the owner has Grok Pro again; most likely only Amaterasu stays animated (not final). Testing on other PCs; release prep (GitHub page, screenshots, version bump, §11).
+- **"♥ Supported Kotodama" line: code built 2026-10-27, not live yet.** Ko-fi webhook → `server/worker.js` POST /kofi (checks secret `KOFI_TOKEN`; friend codes in the message get `supporter` = first tip date; nothing else stored; refunds cleared by hand). Line on the Nakama card (`profile.supporter`) and share image (`nakama.is_supporter()`, only when the server confirms; `share_card._supporter_line`). ♥ Support now opens `_show_support_note` (code + Copy + Go to Ko-fi) instead of Ko-fi directly. Tests: `node tools/dev/maint/t_kofi.mjs`. **Owner steps to go live:** add the column (schema.sql comment), `npx wrangler secret put KOFI_TOKEN` (Ko-fi → Settings → API → Webhooks token), `npx wrangler deploy`, set the Ko-fi webhook URL to `https://kotodama-nakama.kotodama-anki.workers.dev/kofi`, then one real small tip with the code to check.
 - History chart marking-day step: stays as it is (owner 2026-10-27). #6 duplicate-card finder: built 2026-10-27 (⧉ on tiles + a "see the list" line per grid; §3), owner checked it in Anki: works.
 - Known small issue: renaming a mapped field keeps a stale field index until a note changes or Anki restarts (`tools/dev/maintenance_log.md`).
 
@@ -206,7 +206,7 @@ Deliberately not done: dropping white papers / Diet minutes (they hold N2/N1 voc
 | History | Backfill from revlog + note first review; daily auto snapshot; `user_files/` | Dating by nid (shared decks keep the author's nid). |
 | Grid glow | The tiles' shape glows, not each tile; kanji/grammar glow follows the heatmap | Per-tile glow (small words unreadable). |
 | Debug buttons | Visible; the owner removes them before release | — |
-| Ranks 11–12 (Susanoo, Tsukuyomi) | Parked (#14); plan in HISTORY | — |
+| Ranks 11–12 (Susanoo, Tsukuyomi) | Dropped (owner 2026-10-27): not part of Kotodama | — |
 | Custom word lists | Removed 2026-10-26: always the Kotodama JLPT lists (`build_lists` ignores the old `lists` config) | Per-level upload: Nakama / History / Goal numbers stop being comparable; uploads lack JMdict ids. Text Check covers "how much of list X do I know". |
 | Settings layout | One scrolling page: deck, field mappings, kanji, grammar, suspended, then widget / Amaterasu / sound / animations / Night look | Three tabs (Deck & Fields, Vocabulary Lists, Kanji & Grammar). |
 
@@ -251,12 +251,12 @@ All levels 3,006 / 8,064 (2,504 from cards + 501 loanwords + 1 marked); N5 661/6
 ---
 
 ## 10. Open questions (ask the owner before acting)
-1. Rank/belt colour legibility — waiting for the owner's screenshots.
+1. (closed 2026-10-27: rank/belt colour legibility was already done.)
 2. (closed 2026-10-27: chart stays; duplicate finder built.)
 
 ## 11. Backlog and release plan
-- Open backlog: #11 listening frequency bar (maybe), #12 BCCWJ + Jiten blend (on hold), #14 Susanoo + Tsukuyomi ranks (parked). Everything else in the original backlog is built.
-- **Release:** release-ready first (parser vocab accuracy measured like grammar), then roadmap + licence audit (JMdict, Tatoeba, OpenJLPT, BCCWJ, AnkiWeb rules on donation links). Launch with only the Ko-fi one-time donation ("♥ Support", bottom-left, never a popup). "Supported Kotodama" line: verified via Ko-fi webhook → Nakama Worker (plan in HISTORY, not built). Rank-up ribbons on the share image and supporter cosmetics: ideas, not part of the first release; earned things (rank, glow, belts) never change with money.
+- Open backlog: #11 listening frequency bar (maybe), #12 BCCWJ + Jiten blend (on hold), Everything else in the original backlog is built.
+- **Release:** release-ready first (parser vocab accuracy measured like grammar), then roadmap + licence audit (JMdict, Tatoeba, OpenJLPT, BCCWJ, AnkiWeb rules on donation links). Launch with only the Ko-fi one-time donation ("♥ Support", bottom-left, never a popup). "Supported Kotodama" line: built (see §0), goes live once the owner deploys it. Rank-up ribbons on the share image and supporter cosmetics: ideas, not part of the first release; earned things (rank, glow, belts) never change with money.
 - **Positioning:** grammar coverage of your own sentences and any text is the strongest unique claim (measured precision/recall above).
 
 ## 12. Credits that must stay in README / list headers

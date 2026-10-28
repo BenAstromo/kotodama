@@ -91,10 +91,15 @@ def gather(results: dict, info: dict, kanji_overrides=None, grammar_overrides=No
     g = goal.get()
     if g is not None and g["date"] < datetime.date.today():
         g = None                              # that test is over
+    try:
+        from . import nakama
+        supporter = nakama.is_supporter()
+    except Exception:
+        supporter = False
     c = _cfg()
     return {"levels": levels, "freq": (fk, fn), "info": info,
             "date": datetime.date.today(), "loyal": loyalty.shown_months(), "sun": loyalty.shown_sun(),
-            "goal": g, "loans": loans,
+            "goal": g, "loans": loans, "supporter": supporter,
             # the share pop-up's checkboxes (owner 2026-10-20), remembered
             "show_loyal": c.get("share_show_loyalty", True), "show_goal": c.get("share_show_goal", True)}
 
@@ -264,6 +269,12 @@ def _loans_line(loans: int, gold: bool) -> str:
             else f"{loans:,} English {'loanword' if loans == 1 else 'loanwords'}")
 
 
+def _supporter_line(gold: bool) -> str:
+    """A Ko-fi tip confirmed by the Nakama server (nakama.is_supporter):
+    one plain line, the same for any amount (owner 2026-10-27)."""
+    return "♥ 言霊サポーター" if gold else "♥ Supported Kotodama"
+
+
 def render(data: dict, name: str, message: str = "") -> QImage:
     info = data["info"]
     gold = bool(info.get("is_max_amaterasu"))
@@ -282,6 +293,11 @@ def render(data: dict, name: str, message: str = "") -> QImage:
         p.setFont(_font(13))
         p.setPen(QColor(GOLD_DARK if gold else "#aaaaaa"))
         p.drawText(QRectF(50, y + 4, 400, 22), Qt.AlignmentFlag.AlignCenter, _loans_line(loans, gold))
+    if data.get("supporter"):
+        p.setFont(_font(13))
+        p.setPen(QColor(GOLD_DARK if gold else "#aaaaaa"))
+        p.drawText(QRectF(50, y + (28 if loans else 4), 400, 22), Qt.AlignmentFlag.AlignCenter,
+                   _supporter_line(gold))
     x1 = W - 60
     _draw_right(p, data, name, gold, x1)
     # ── message (Amaterasu mode only) ──
@@ -571,6 +587,8 @@ def render_profile(profile: dict, mine: dict | None, synced: str = "", framed: b
         # counted toward the rank so far (they join on a schedule); just
         # the number, like the share image (owner 2026-10-27: less clutter)
         lines.append(_loans_line(loans, gold))
+    if profile.get("supporter"):      # from the server only (a Ko-fi tip with this code)
+        lines.append(_supporter_line(gold))
     g = data.get("goal")              # "N3 2026-12-06" (goal.py); hidden once that day is over
     try:
         lvl, day = str(g).split()

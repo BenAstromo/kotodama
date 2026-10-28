@@ -358,6 +358,71 @@ def _show_loanword_info_dialog(parent=None):
     dlg.exec()
 
 
+SUPPORT_TEXT = ("Kotodama is free. If it helps you, you can leave a tip on Ko-fi. "
+                "Nothing is unlocked by it: thank you!")
+SUPPORT_CODE_TEXT = ("Put your friend code in the Ko-fi message, and your Nakama card and share "
+                     "image will say “♥ Supported Kotodama”, the same for any amount. It shows "
+                     "once your Nakama tab next updates.")
+SUPPORT_JOIN_TEXT = ("Join Nakama first (the Nakama tab) and put your friend code in the Ko-fi "
+                     "message, and your card and share image will say “♥ Supported Kotodama”.")
+SUPPORT_PRIVACY = ("Only the date of your first tip is kept with your code: no name, email or "
+                   "amount.")
+
+
+def _show_support_note(parent=None):
+    """♥ Support (owner 2026-10-27): Ko-fi, and how a tip shows as
+    "♥ Supported Kotodama" (your friend code in the Ko-fi message; the
+    Nakama server confirms it). Opens only on that click, never by itself."""
+    from . import nakama
+    dlg = QDialog(parent)
+    dlg.setWindowTitle("Support Kotodama")
+    dlg.setMinimumWidth(500)
+    v = QVBoxLayout(dlg)
+    v.setSizeConstraint(QLayout.SizeConstraint.SetMinimumSize)   # wrapped text gets its full height
+
+    def text(t, css):
+        lbl = QLabel(t)
+        lbl.setWordWrap(True)
+        lbl.setFixedWidth(480)          # a fixed width: Qt then gives wrapped text its full height
+        lbl.setStyleSheet(css)
+        v.addWidget(lbl)
+
+    text(SUPPORT_TEXT, BODY_CSS)
+    if nakama.joined():
+        text(SUPPORT_CODE_TEXT, BODY_CSS)
+        code = nakama.show_code(nakama.state()["id"])
+        row = QHBoxLayout()
+        shown = QLabel(f"<b style='font-size:18px; letter-spacing:1px;'>{code}</b>")
+        shown.setTextInteractionFlags(Qt.TextInteractionFlag.TextSelectableByMouse)
+        copy = QPushButton("Copy code")
+        copy.clicked.connect(lambda: QApplication.clipboard().setText(code))
+        row.addWidget(shown)
+        row.addWidget(copy)
+        row.addStretch()
+        v.addLayout(row)
+    else:
+        text(SUPPORT_JOIN_TEXT, BODY_CSS)
+    text(SUPPORT_PRIVACY, HINT_CSS)
+    row = QHBoxLayout()
+    go = QPushButton("Go to Ko-fi")
+    go.clicked.connect(lambda: QDesktopServices.openUrl(QUrl(SUPPORT_URL)))
+    close = QPushButton("Close")
+    close.clicked.connect(dlg.accept)
+    row.addWidget(go)
+    row.addStretch()
+    row.addWidget(close)
+    v.addLayout(row)
+    from . import theme
+    theme.apply(dlg, gold=_GOLD_MODE["on"])
+    if _GOLD_MODE["on"]:
+        from . import divine_text
+        dlg.setWindowTitle("言霊を応援")
+        divine_text.gold_palette(dlg, True)
+        divine_text.apply(dlg, True)
+        divine_text.gold_titlebar(dlg, True)
+    dlg.exec()
+
+
 def _show_freq_info_dialog(parent=None):
     """The Frequency Check's "?" (owner 2026-10-20): the explanation that used
     to sit above the bars."""
@@ -7748,10 +7813,10 @@ class ProgressDialog(QDialog):
         # unlocked by it; quiet until hovered, always in the bottom row,
         # never a popup.
         support_btn = QPushButton("♥ Support")
-        support_btn.setToolTip("Kotodama is free. If it helps you, you can leave a tip on Ko-fi "
-                               "(opens your browser). Nothing is unlocked by it: thank you!")
+        support_btn.setToolTip("Kotodama is free. If it helps you, you can leave a tip on Ko-fi. "
+                               "Nothing is unlocked by it: thank you!")
         support_btn.setStyleSheet(_quiet_button_style("#ff5e5b", (255, 94, 91)))
-        support_btn.clicked.connect(lambda: QDesktopServices.openUrl(QUrl(SUPPORT_URL)))
+        support_btn.clicked.connect(lambda: _show_support_note(self))
         btn_row.addWidget(support_btn)
         btn_row.addStretch()
         close_btn = QPushButton("Close")

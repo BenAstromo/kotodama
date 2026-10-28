@@ -17,6 +17,10 @@ marked on every bar.
     window and the deck-list widget) and uploaded after Anki syncs, or when
     the Nakama tab opens, only if it changed. Friends' cards are fetched
     when the tab opens.
+  - Supporters (2026-10-27): a Ko-fi tip with your friend code in its
+    message marks your profile on the server (the date only; server POST
+    /kofi). Your card and share image then say "♥ Supported Kotodama",
+    once the server confirms it (is_supporter).
   - Leave erases your name and card from the server but keeps your code
     reserved for you (server: POST /profile/<id>/leave); joining again
     reuses it ("parked" in the local state). Codes unused for 400 days are
@@ -216,6 +220,13 @@ def parked_code() -> str | None:
 def joined() -> bool:
     s = state()
     return bool(s.get("id") and s.get("key"))
+
+
+def is_supporter() -> bool:
+    """The server has a Ko-fi tip for your code (as of the last time the
+    Nakama tab fetched the cards). Only then does your share image say so."""
+    s = state()
+    return joined() and bool((s["cache"].get(s["id"]) or {}).get("supporter"))
 
 
 def clean_code(text: str) -> str | None:
