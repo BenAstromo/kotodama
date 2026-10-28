@@ -323,6 +323,12 @@ OUR_ADDITIONS = {
 for _l, _words in OUR_ADDITIONS.items():
     ADDITIONS.setdefault(_l, []).extend(_words)
 
+# OpenJLPT entries written in kana whose word is a kanji one (owner
+# 2026-10-28): Waller's N3 出 (で) "coming out; outflow; graduate (of)",
+# JMdict 1896380, was listed as で, so the particle / conjunction で (no
+# kanji) borrowed 出 as its spelling and meaning. (word, reading, jmdict_id) → word.
+WORD_FIXES = {("で", "で", 1896380): "出"}
+
 UK = "word usually written using kana alone"
 KANJI = re.compile(r"[一-鿿㐀-䶿々]")
 out = {}; stats = collections.Counter(); kata_words = []; added = 0; added_r = 0
@@ -334,6 +340,7 @@ for l in "54321":
     entries += [a for a in ADDITIONS.get(l, []) if (a["word"], a["reading"]) not in present]
     for e in entries:
         w, r = e["word"].strip(), e["reading"].strip()
+        w = WORD_FIXES.get((w, r, e.get("jmdict_id")), w)
         alts = [a for a in (e.get("other_forms") or []) if a and a != w]
         alt_reads = []
         flags = list(e.get("flags") or [])   # e.g. "community" for COMMUNITY_ADDITIONS
