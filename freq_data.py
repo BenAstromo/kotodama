@@ -376,22 +376,42 @@ def word_rank(display: str, reading: str, alts=()) -> int | None:
     """1-based frequency rank of a word (e.g. a JLPT list entry), or None if
     it isn't in the list. Matches on any spelling (display or alts) whose
     entry also has this reading, so 汚れ よごれ and 汚れ けがれ get their own
-    ranks."""
+    ranks. A kana spelling prefers the row spelled that way, then a row whose
+    main reading it is, then a kana row it's a variant of (ずうっと → ずっと),
+    and never a kanji row that only lists it as a side form: else ほうき
+    (broom) was 放棄, やかん (kettle) 夜間, じゃ 蛇 (owner 2026-10-27). The
+    word's own spelling wins over its alts (街 is 街, not the commoner 町)."""
     global _rank_index
     if _rank_index is None:
         _rank_index = {}
-        for rank, (_, rd, _, forms) in enumerate(load(), start=1):
+        for rank, (disp, rd, _, forms) in enumerate(load(), start=1):
             readings = {_kata_to_hira(_norm(f)) for f in forms if _is_kana(_norm(f))}
             readings.add(_kata_to_hira(rd))
+            row = (rank, readings, _kata_to_hira(_norm(disp)), _kata_to_hira(_norm(rd)))
             for form in forms:
-                _rank_index.setdefault(_norm(form), []).append((rank, readings))
+                _rank_index.setdefault(_norm(form), []).append(row)
     r = _kata_to_hira(_norm(reading)) if reading else ""
-    best = None
-    for form in (display, *alts):
-        for rank, readings in _rank_index.get(_norm(form), ()):
-            if (not r or r in readings) and (best is None or rank < best):
-                best = rank
-    return best
+    best = None                              # (tier, rank)
+    for i, form in enumerate((display, *alts)):
+        f = _norm(form)
+        kana = _is_kana(f)
+        alt = i > 0
+        for rank, readings, disp_h, main_h in _rank_index.get(f, ()):
+            if r and r not in readings:
+                continue
+            if _kata_to_hira(f) == disp_h:
+                tier = 2 if alt else 0       # the row spelled this way (はし with alt 箸: 箸)
+            elif not kana:
+                tier = 3 if alt else 1       # one of the row's spellings (解ける in 溶ける)
+            elif _kata_to_hira(f) == main_h:
+                tier = 5 if alt else 4       # by its sound
+            elif _is_kana(disp_h):
+                tier = 7 if alt else 6       # a kana variant of a kana row
+            else:
+                continue
+            if best is None or (tier, rank) < best:
+                best = (tier, rank)
+    return best[1] if best else None
 
 
 _extra_index = None   # spelling → [(rank, estimated, {readings})], built lazily

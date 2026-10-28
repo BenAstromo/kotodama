@@ -290,11 +290,25 @@ def rebuild(results: dict, deck_name: str, ignore_suspended: bool) -> dict:
             d = day_of(nid / 1000, rollover)
         return min(d, end)
 
+    # Marked English loanwords the counts include (card_state.hold_back_loans
+    # left only these): each joins on the day the learned cards reached it,
+    # as for the rank, not from the first day (2026-10-27). key → its place
+    # in the order they join.
+    fkeys = card_state._found_keys(results)
+    loan_order = {k: i for i, (_rk, _r, k) in enumerate(sorted(
+        (rk, repr(k), k) for k, (is_loan, rk) in fkeys.items() if is_loan))}
+    loan_incs: list[tuple[int, str, object]] = []      # (place, key, item)
+
     # Dated items: (day, key, nid, item) increments for the cumulative
     # JLPT/freq counts.
     increments: list[tuple[datetime.date | None, str, int | None, object]] = []
     for lvl in LEVELS:
         for _d, _r, nid in results.get(lvl, {}).get("known_words", []):
+            if nid is None:
+                k = card_state.found_key(_d, _r)
+                if k in loan_order:
+                    loan_incs += [(loan_order[k], lvl, None), (loan_order[k], "jlpt", None)]
+                    continue
             day = note_day(nid) if nid else None   # None = marked found
             increments.append((day, lvl, nid, None))
             increments.append((day, "jlpt", nid, None))
@@ -305,7 +319,12 @@ def rebuild(results: dict, deck_name: str, ignore_suspended: bool) -> dict:
             first = min(nids, key=note_day)
             dated_ranks.append((rank, note_day(first), first))
         # Marked found with no card: from the first day, like JLPT words.
-        dated_ranks += [(rank, None, None) for rank in freq.get("found_ranks", ())]
+        for rank in freq.get("found_ranks", ()):
+            if ("row", rank) in loan_order:
+                loan_incs += [(loan_order[("row", rank)], f"f{n}", rank)
+                              for n in freq_data.TIERS if rank < n]
+            else:
+                dated_ranks.append((rank, None, None))
         for rank, day, nid in dated_ranks:
             for n in freq_data.TIERS:
                 if rank < n:
@@ -382,6 +401,7 @@ def rebuild(results: dict, deck_name: str, ignore_suspended: bool) -> dict:
     extra = card_state.found_parts(results)
     cards = 0
     mature = 0
+    joined: list[int] = []             # loanwords counted on each day
     for i, day in enumerate(days):
         touched = set()
         for cid, state in events.get(day, ()):
@@ -400,6 +420,22 @@ def rebuild(results: dict, deck_name: str, ignore_suspended: bool) -> dict:
             note_st[nid] = new
         values["rank"][i] = card_state.rank_split(cards, extra)[0]
         values["mature"][i] = mature
+        joined.append(card_state.loans_counted(cards, extra["loans"]))
+
+    # The counted loanwords on each day: those whose place is below that
+    # day's count (it drops if cards are reset). All of them today: today's
+    # count is the real one, the replayed cards can fall a little short.
+    if loan_incs:
+        import bisect
+        places: dict[str, list[int]] = {}
+        for place, key, _item in loan_incs:
+            if key in values and key not in RANK_KEYS:
+                places.setdefault(key, []).append(place)
+        for key, ps in places.items():
+            ps.sort()
+            for i in range(n_days - 1):
+                values[key][i] += bisect.bisect_left(ps, joined[i])
+            values[key][-1] += len(ps)
 
     return {"days": days, "values": values, "gained": gained}
 

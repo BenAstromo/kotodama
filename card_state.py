@@ -259,6 +259,15 @@ def _found_rank(d: str, r: str):
     return rk
 
 
+def found_key(d: str, r: str):
+    """The word a mark with no card is (one word on both lists counts once):
+    its frequency row when it has one (JLPT おまえ = frequency お前), else
+    its spelling."""
+    from . import freq_data
+    rk = _found_rank(d, r)
+    return ("row", rk - 1) if rk is not None else freq_data._override_key(d, r)
+
+
 def found_words_in(results: dict) -> int:
     """Distinct words marked found with no card behind them, over the JLPT
     lists and the frequency list (a word found on both counts once).
@@ -350,7 +359,7 @@ def _found_keys(results: dict) -> dict:
         for d, r, nid in results.get(lvl, {}).get("known_words", []):
             if nid is None:
                 rk = _found_rank(d, r)
-                key = ("row", rk - 1) if rk is not None else freq_data._override_key(d, r)
+                key = found_key(d, r)
                 loan = is_loan(d, r)
                 old = keys.get(key)
                 keys[key] = ((old[0] if old else False) or loan, rk or _LEVEL_SIZE.get(lvl, 13800))
@@ -401,9 +410,7 @@ def hold_back_loans(results: dict, deck_name: str, ignore_suspended: bool, lists
         keep, out = [], []
         for d_, r, nid in d.get("known_words", []):
             if nid is None:
-                rk = _found_rank(d_, r)
-                key = ("row", rk - 1) if rk is not None else freq_data._override_key(d_, r)
-                if key in held:
+                if found_key(d_, r) in held:
                     out.append((d_, r))
                     continue
             keep.append((d_, r, nid))
