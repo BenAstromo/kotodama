@@ -916,3 +916,31 @@ Order: release-ready first (parser vocab accuracy → measured like grammar), th
 - Jitendex, Stephen Kraus (CC BY-SA 4.0): hover meanings
 - OpenJLPT kanji (Waller levels + KANJIDIC2, EDRDG, CC BY-SA 4.0): kanji tracker
 - stephenmk/yomitan-jlpt-vocab (Waller reference), jamsinclair/open-anki-jlpt-decks and elzup/jlpt-word-list (community additions)
+
+---
+
+## Later sessions (after the 2026-10-26 slim-down; newest first)
+
+### 2026-10-27 (first session): APP_VISION §0 as it stood at its end
+
+**Session 2026-10-27, all committed and pushed** (`0572862`). Git holds the detail: `git log` on https://github.com/BenAstromo/kotodama (private, branch `main`).
+
+**Confirmed by the owner in Anki:** everything up to and including this session. That covers last session's work too: one-page Settings, no custom word-list uploads ("the Kotodama JLPT lists", §8), "Mini widget sounds", the undraggable mini widget, the rank "?" window's night look and the N5–N1 building sign (`SIGN_*`, `_Facade`; no windows or bounce light, both rejected).
+
+**This session:**
+- **Nakama identity fix (not committed):** the owner sent a friend the add-on folder itself (the `.ankiaddon` "doesn't work for him", cause unknown), `user_files/nakama.json` included, so the friend's Anki uploaded under the owner's code (the owner's card showed the friend's 344 words). Now a membership records its collection (`col` = `mw.col.crt`, in nakama.json and the collection copy): a different collection drops it (`foreign`), and only a matching stamped collection copy is adopted (unstamped ones wait for the owner's own computer to stamp and sync). If the server's card isn't what you last sent, it's re-sent, once a day. Test: scratchpad t_nakama_owner.py pattern (14 cases) + t_nakama_offline pass. Never share the add-on folder with `user_files/` in it.
+- **Progress Review (built, NOT seen in Anki by the owner yet, not committed):** `review.py`, `review_view.py`; the +N links and the goal card's "Today" open it; once-a-day pop-up (§3). Offscreen test passed (data matches the goal's Today, clicks open the right notes, gold mode all Japanese); t_scenarios normal / fresh / empty pass; t_leaks' memory check is its usual noise (every counter flat). The gold-text checker now also reads `_label(...)` calls and review_view.py.
+- **Belt label:** the badge's "BLUE BELT" line is a flat cloth belt (`_BeltStrip` in progress_dialog.py): belt colour, stitching rows, white or black text, so it reads on every rank colour (coloured text vanished, e.g. purple on 天皇). Two fixed lengths: plain belts, and degree belts (room for ten gold bars, one per degree). Amaterasu's first black belt is just "Black" (rank_data.py); names and bars start at Second-Degree. Rejected after mock-ups: knot / ribbon / frayed ends, a tied 3-D loop with the name inside. The share image keeps its coloured belt text (owner: fine as is).
+- **Add-on list name:** Anki shows `meta.json`'s `"name"`, else the folder name. The owner's copy (installed by folder copy) got `"name"` from manifest.json; `.ankiaddon` / AnkiWeb installs fill it in themselves. Never rename the `jlpt_progress` folder: it is the package id (manifest `"package"`, migrate.py, dev imports).
+
+**Git:** commit / push only when the owner asks. `.gitignore` keeps out `user_files/`, `meta.json`, `server/.wrangler/` and caches. Before making the repo public: the release checklist (§11), and decide whether `server/wrangler.toml`'s D1 `database_id` stays.
+
+**Accuracy state:** grammar fresh recall 91 % (tuning stopped); precision A 99 % / N3 94 % / N2 98 % / N1 97 %; `tools/grammar_cases.json` 4,859 rulings, 0 failures. A future N1 check needs the owner's own sentences (`user_files/parse_cache.json`).
+
+**Open (owner's call unless noted):**
+- **Word Addition Project** (suggested next): 589 candidates in the frequency top 3,900 with no JLPT entry → rules in `tools/missing_words/confidence_rules.py` add 453 (N5 5, N4 40, N3 119, N2 190, N1 99), skip 136. Phone review Artifact https://claude.ai/artifact/NHt9rMw2icW5aSLuNxSLuq: round 1 = ArtifactData `review/choices` (52 owner decisions); `review/round2` was saved 2026-10-26 with no changes (= accepted as is; confirm with the owner). Next: add the words in `tools/build_jlpt.py` with flag `ours`, rebuild, run the evals; then the #3,901–6,000 batch (`wa_candidates.json`, db doc `review/round3`); afterwards rebuild `freq_extra.txt` (needs the LUW zip, §6). Details: grep HISTORY for "Word Addition Project".
+- **Gamification round:** owner picked the Progress Review (built 2026-10-27, above); no streaks. Earlier ideas (2026-10-26), not picked: milestone seals (判子) on bars, level clears (完), rare-word finds, kanji families, grammar "seen in the wild" (from the owner's own sentences), weekly ink on the History chart (no streaks), hidden titles on the share image, Nakama nudges. Recommended first: seals + "seen in the wild". Mock-ups before building (§8).
+- Rank pictures (only Amaterasu is animated); testing on other PCs; release prep (GitHub page, screenshots, version bump, "Supported Kotodama" line, §11).
+- Owner decisions pending: History chart marking-day step; #6 duplicate-card finder.
+- Known small issue: renaming a mapped field keeps a stale field index until a note changes or Anki restarts (`tools/dev/maintenance_log.md`).
+- Dev note: `%TEMP%\qtv\Scripts\python.exe` keeps vanishing; `py -m venv --upgrade qtv` (from `%TEMP%`) restores it.
