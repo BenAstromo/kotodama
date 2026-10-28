@@ -6,34 +6,31 @@
 
 ---
 
-## 0. Current state (updated 2026-10-28, end of session)
+## 0. Current state (updated 2026-10-28, end of fifth session)
 
-**Everything is committed and pushed** (https://github.com/BenAstromo/kotodama, private, branch `main`; `git log` for detail). The working folder matches GitHub. Earlier sessions are logged in `docs/HISTORY.md` (grep the date).
+**Everything is committed and pushed** (https://github.com/BenAstromo/kotodama, private, branch `main`; `git log` for detail). The working folder matches GitHub. Earlier sessions are logged in `docs/HISTORY.md` (grep the date; the 2026-10-28 fourth and fifth sessions are at the end).
 
-**This session (2026-10-27/28; none of it seen in Anki yet — owner to check):**
-- **Everyday speech percentage:** under "of everyday written text", a smaller "% of everyday speech" from `freq_cejc.txt` (NINJAL CEJC vocabulary table ver202209, CC BY-NC-ND 3.0 like BCCWJ; `tools/build_freq.py <addon_dir> <cejc tsv>` run from %TEMP%; download www2.ninjal.ac.jp/conversation/cejc/cejc-wc.html). Speech only, never bars or ranks (2.4M words). Written-list words keep their known / suspended / held state; speech-only words match the deck the same way (`freq_data.coverage`). Source lines say the bars are BCCWJ. Owner's sentences alone: written 69.9 %, speech 86.6 %.
-- **`freq_data.COVERAGE_PARTS`:** in both percentages only, 何 なん counts for 何 なに, and お母さん / お父さん / お兄さん / お姉さん / おじいさん / おばあさん (+ ちゃん forms) count for the corpus's split rows 母 かあ, 父 とう, 兄 にい, 姉 ねえ, じい, ばあ. 母 かあ / 父 とう kept in the speech list only (`KEEP_PARTS`).
-- **JLPT goal:** marked English loanwords still waiting on the gradual schedule (`results["loans_waiting"]`) are left out of "Still to learn" and the per-day number (`goal.counts` → `"waiting"`), with a "Not included: N English loanwords…" line (+ JA). Bars and step lines unchanged. Test `tools/dev/qt_goal.py`.
-- **N3 で → 出 (で):** Waller's word is the noun 出 (JMdict 1896380); OpenJLPT wrote it in kana, so the particle row で (#342) showed 〔出〕. `WORD_FIXES` in `tools/build_jlpt.py`; lists rebuilt with current JMdict (+4 rare spellings).
-- **Condensation mist** stays off UI elements (`rain.ui_region`: buttons, labels, inputs, lists, tab bars, leaf custom widgets; mouse-transparent overlays keep it); rescanned each second and 0.1 s after a scroll.
-- **About screen:** Kotodama → About Kotodama… (`about.py`): version, AGPL, every data credit with links (JMdict requires a credits screen reachable from a menu). `THIRD_PARTY_NOTICES.txt`: MIT notices of the two community lists. README Waller link → archive.org.
-- **Licence audit researched:** `release_drafts.md` §7 (table, NINJAL email draft, order of work).
+**This session (none of it seen in Anki yet — owner to check):**
+- **+N today / week / month** links open those cards in the Browser (the Progress Review opens only from the goal card's "Today" and its daily pop-up); hovering any number explains it (`history.gain_parts` → "+35 today: 30 learned from cards, 5 marked English loanwords joined").
+- **JLPT goal card:** a "?" window (`goal_view._show_info`: N5–N1 milestones shared with the rank window via `progress_dialog.MILESTONES_EN/JA`, which words count, the daily number); a "Learned: k / total" line. Pace from `goal.daily_share`: per day rounded to the nearest; kanji / grammar at ≤ 6 a week show a weekly number over the past 7 days (green: one today, or the week reached); words never weekly.
+- **Progress Review:** level on word hover, kanji / grammar in the bars' colours, "Needed in N days" for words, kanji and grammar.
+- **Removed** the "★ Mark basic particles as found" button (the parser finds them); kanji legend only on the grids; sparks 75 % (`rain.SPARK_SCALE`); kinder Off-list wording; README Text Check accuracy line.
 
-**Tests to run after related changes:** `t_marks.py`, `t_dups.py`, `t_kofi.mjs`, `tools/dev/qt_goal.py` (PyQt6 venv `%TEMP%\qtv`), `tools/grammar_eval.py` + `tools/vocab_eval.py` (0 differences from baseline 2026-10-28), `tools/check_gold_text.py` after any UI text.
+**Tests to run after related changes:** `t_marks.py`, `t_dups.py`, `t_kofi.mjs`, `tools/dev/qt_goal.py` and `tools/dev/test_gain.py` (PyQt6 venv `%TEMP%\qtv`), `tools/dev/maint/t_scenarios.py normal` (delete its `env/` after), `tools/grammar_eval.py` + `tools/vocab_eval.py` (0 differences from baseline 2026-10-28), `tools/check_gold_text.py` after any UI text, `parse39.py` / `compat39.py` before a commit.
 
 **Git:** commit / push only when the owner asks (they usually just say "commit"). `.gitignore` keeps out `user_files/`, `meta.json`, `.wrangler/`, `server/.wrangler/` and caches. Before making the repo public: the release checklist (§11). `server/wrangler.toml`'s D1 `database_id` stays public (owner 2026-10-27: it's a label, not a secret).
 
 **Accuracy state:** grammar fresh recall 91 % (tuning stopped); precision A 99 % / N3 94 % / N2 98 % / N1 97 %; `tools/grammar_cases.json` 4,859 rulings, 0 failures; vocab recall 99.4 % / precision 99.3 %.
 
 **Open (development only; owner's call unless noted):**
-- **Owner checks in Anki:** the speech percentage, the goal's per-day number + "Not included" line, the mist, rank 342 で without 〔出〕, Kotodama → About Kotodama…. **Still to check from before: one real Ko-fi tip** ("♥ Supported Kotodama" line; server deployed 2026-10-28; test `node tools/dev/maint/t_kofi.mjs`; refunds: clear `supporter` by hand; wrangler from the add-on root needs `--config server/wrangler.toml`).
+- **Owner checks in Anki:** this session's list above (goal "?" and Learned line, weekly kanji / grammar, +N hovers and Browser links, review hovers / colours, sparks, no particles button). **From the fourth session, still unchecked:** the speech percentage, the goal's "Not included" loanword line, the mist staying off UI elements, rank 342 で without 〔出〕, Kotodama → About Kotodama…, one real Ko-fi tip ("♥ Supported Kotodama"; test `node tools/dev/maint/t_kofi.mjs`; refunds: clear `supporter` by hand; wrangler from the add-on root needs `--config server/wrangler.toml`).
 - **Word Addition Project — on hold: the owner is still reviewing round 2; don't build until they say so.** 589 candidates in the frequency top 3,900 with no JLPT entry → rules in `tools/missing_words/confidence_rules.py` add 453 (N5 5, N4 40, N3 119, N2 190, N1 99), skip 136. Phone review Artifact https://claude.ai/artifact/NHt9rMw2icW5aSLuNxSLuq (ArtifactData `review/choices` = round 1, 52 decisions; `review/round2`). Then: add the words in `tools/build_jlpt.py` with flag `ours`, rebuild, run the evals; the #3,901–6,000 batch (`wa_candidates.json`, db doc `review/round3`); afterwards rebuild `freq_extra.txt` (needs the LUW zip, §6). Grep HISTORY for "Word Addition Project".
 - **Licence (release_drafts.md §7):** owner sends the NINJAL email (NC + ND for BCCWJ and CEJC); README: add the CEJC citation; owner decides the Grok credit (xAI brand guidelines ask "Created with Grok"; earlier decision was no credit) or redraws; regenerate the three rank pictures copied from real people's photos (§1).
 - **Rank pictures:** new rank icons wait until the owner has Grok Pro again; most likely only Amaterasu stays animated (not final).
 - **Release prep (§11):** testing on other PCs, GitHub page + screenshots (owner: when features feel complete), version bump (3.0.0 now).
-- Known small issue: renaming a mapped field keeps a stale field index until a note changes or Anki restarts (`tools/dev/maintenance_log.md`).
-- Backlog: empty (#11 became the speech percentage).
-- **Closed, don't propose again:** gamification ideas beyond the Progress Review; Susanoo/Tsukuyomi ranks; History chart marking-day step (stays); #12 BCCWJ + Jiten blend (muddies the written-Japanese meaning, shifts every rank, and BCCWJ's NC-ND can't meet Jiten's share-alike); a spoken-corpus toggle for the bars (CEJC too small to rank 20,000 words).
+- Known small issues: renaming a mapped field keeps a stale field index until a note changes or Anki restarts (`tools/dev/maintenance_log.md`); the mini widget can't see the past 7 days (only matters for weekly kinds, which it never shows).
+- Backlog: empty.
+- **Closed, don't propose again:** gamification ideas beyond the Progress Review; Susanoo/Tsukuyomi ranks; History chart marking-day step (stays); #12 BCCWJ + Jiten blend; a spoken-corpus toggle for the bars; a stricter step 2 (only the most common non-list words: owner kept "any of the top N"); fractional per-day numbers (weekly instead).
 
 ---
 

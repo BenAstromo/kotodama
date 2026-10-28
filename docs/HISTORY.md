@@ -971,3 +971,12 @@ Order: release-ready first (parser vocab accuracy → measured like grammar), th
 - **N3 で → 出 (で)** (`e169f55`): OpenJLPT entry linked to JMdict 1896380 but written in kana; Waller's own list has 出.
 - **Mist off UI elements** (`4b636a7`): ~15 ms scan for a 3,000-tile grid.
 - **About screen + MIT notices** (`ff9743c`); licence audit in release_drafts.md §7.
+
+### 2026-10-28 (fifth session): goal "?" window, weekly pace, gain hovers, particles button removed
+- **Commits `bcebdaf`, `d2ae841`.** None seen in Anki at session end.
+- **+N today / week / month** open those cards in the Browser; the Progress Review opens only from the goal card's "Today" (and its daily pop-up). Every +N hover says what it's made of (`history.gain_parts`, `history_view.gain_tip`): cards, marked loanwords that joined (they raise the values with no "gained" entry: the owner's "+35 today" vs 30 in the Browser), resets.
+- **Goal card:** explanations behind "?" (`goal_view._show_info`: N5–N1 milestones from `progress_dialog.MILESTONES_EN/JA`, shared with the rank window; WORDS_EXPLAINED incl. "any common word counts, in any order"; finish line; waiting loanwords; weekly). New "Learned: k / total" line. Owner kept step 2 loose (any of the top 6,000 / 13,800, not only the 1,147 most common: immersion order).
+- **Pace (`goal.daily_share`):** per day rounds to the nearest (1.4 → 1, 1.5 → 2; self-correcting since it's recomputed daily; last day = everything left). Kanji / grammar needing ≤ 6 a week show a weekly number over the past 7 days (no reset day); green = one learned today or the past 7 days reach it. Words never weekly (owner).
+- **Progress Review:** JLPT level (or "Common word #rank") first on word hovers; kanji #4fc3a1 / grammar #a493f0 (the share card's bar colours); "Needed in N days" for all three kinds.
+- **Removed "★ Mark basic particles as found"**: the parser finds all 16 in the owner's sentences (は 3,851 … と-with 42); BASIC_PARTICLES stays for the Text Check.
+- Kanji heat legend only on the grids; sparks `rain.SPARK_SCALE = 0.75`; Off-list wording leads with relevance; README Text Check line (particles left out on purpose; recall ≈ 9 in 10, precision ≈ 99 %, misses need meaning).
