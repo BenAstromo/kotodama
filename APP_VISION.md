@@ -6,31 +6,28 @@
 
 ---
 
-## 0. Current state (updated 2026-10-27, second session, end)
+## 0. Current state (updated 2026-10-27, third session, end)
 
-**Everything is committed and pushed** (https://github.com/BenAstromo/kotodama, private, branch `main`; `git log` for detail). The working folder matches GitHub. The first 2026-10-27 session (Nakama membership per collection, Progress Review, cloth belt label) is logged in `docs/HISTORY.md` → "2026-10-27".
+**Everything is committed and pushed** (https://github.com/BenAstromo/kotodama, private, branch `main`; `git log` for detail). The working folder matches GitHub. Earlier 2026-10-27 sessions are logged in `docs/HISTORY.md` (grep "2026-10-27").
 
-**This session (owner checked everything in Anki 2026-10-27, all good; the kana-card change too):**
-- **Marked English loanwords join every count gradually**, not just the rank (§2.4): `card_state.hold_back_loans` runs after each analysis (window + mini widget) and moves loanwords the rank doesn't count yet out of the JLPT known words and the frequency tiers; `results["loans_waiting"]` keeps them. `found_parts` is cached in results (always the full marked list). Word Grid: waiting ones sit in list order among the missing, drawn as missing with a faint ★ (`WordCell(waiting=…)`, `#7a6a3a`); the Missing tab leaves them out. History dates each loanword to the day the cards reached it. Cause: WIGGLE's Nakama card showed 344 words beside 850 JLPT words (2,586 marked, 4 counted).
-- **A word is an English loanword if either list's test says so** (`card_state.is_loan`), everywhere marks are split into "loanwords" / "marked found".
-- **Marks reach only their own word** (§5b): katakana marks only reach katakana frequency rows (the loanword button had also marked がん via ガン, 鯛 via タイ …: the owner's "6 words marked found"); `word_rank` tiers (own spelling first; kana never lands on a kanji row that only lists it as a side form). 91 JLPT words moved to their right row (ほうき was 放棄, 街 was 町).
-- **Nakama ⟳ Refresh recounts first** (the window's full refresh), so your card carries your latest marks. Nakama card / share image: "N English loanwords", "N words marked found" (`share_card._loans_line`, one line for both).
-- **Kanji & Grammar:** a Refresh left the old intro + ⟳ drawn over the page; `update_results` now deletes every child but the gold overlay. Other tabs checked: fine.
-- **Progress Review:** "+N outside your goal" is a link only (no word list). Days with 0 words draw no bar.
-- **Loanword "?" pop-up** rewritten: gradual everywhere, one order (rank counts all counted ones; frequency bars those in the top 20,000; JLPT bars those on a list), JLPT-only loanwords take their level's place (N5 800 … N1 13,800).
-- **Regression test** `tools/dev/maint/t_marks.py` (plain Python, 17 checks): run it after any change to marks, `word_rank`, loanwords or history.
+**This session (owner checked all of it in Anki except the live Ko-fi tip):**
+- **Kana cards** reach only a tile spelled that way, or a usually-kana word's kanji tile (§5b).
+- **Duplicate-card finder** (§3 Word Grid / Off-list): ⧉ on tiles in every grid, a "see the list" line beside each grid's search box, a non-modal list window. Test `tools/dev/maint/t_dups.py`.
+- **"♥ Supported Kotodama"**: Ko-fi tip with the friend code in the message → Nakama server stores the first tip's date → line on the Nakama card and share image. ♥ Support opens a small note (code, Copy, Go to Ko-fi). **Server deployed by the owner 2026-10-28** (`KOFI_TOKEN` secret, `supporter` column, webhook URL `…workers.dev/kofi`). **Still to check: one real tip** (line appears after the Nakama tab fetches). Test `node tools/dev/maint/t_kofi.mjs`. Refunds: clear `supporter` by hand. Wrangler from the add-on root: add `--config server/wrangler.toml`.
 
-**Git:** commit / push only when the owner asks (he usually just says "commit"). `.gitignore` keeps out `user_files/`, `meta.json`, `server/.wrangler/` and caches. Before making the repo public: the release checklist (§11), and decide whether `server/wrangler.toml`'s D1 `database_id` stays.
+**Tests to run after related changes:** `t_marks.py` (26 checks: marks, `word_rank`, loanwords, history, kana cards), `t_dups.py`, `t_kofi.mjs`, `tools/grammar_eval.py` + `tools/vocab_eval.py` (0 differences from baseline 2026-10-27), `tools/check_gold_text.py` after any UI text.
 
-**Accuracy state:** grammar fresh recall 91 % (tuning stopped); precision A 99 % / N3 94 % / N2 98 % / N1 97 %; `tools/grammar_cases.json` 4,859 rulings, 0 failures; vocab recall 99.4 % / precision 99.3 %. Re-run 2026-10-27 after the `word_rank` and kana-card changes: 0 differences from the baselines. **Kana cards (2026-10-27, third session, seen in Anki):** a kana-only card no longer falls back to any kanji homophone, only to a usually-kana word's tile (§5b); `t_marks.py` now 26 checks.
+**Git:** commit / push only when the owner asks (they usually just say "commit"). `.gitignore` keeps out `user_files/`, `meta.json`, `.wrangler/`, `server/.wrangler/` and caches. Before making the repo public: the release checklist (§11), and decide whether `server/wrangler.toml`'s D1 `database_id` stays.
 
-**Open (owner's call unless noted):**
-- **Word Addition Project** (suggested next): 589 candidates in the frequency top 3,900 with no JLPT entry → rules in `tools/missing_words/confidence_rules.py` add 453 (N5 5, N4 40, N3 119, N2 190, N1 99), skip 136. Phone review Artifact https://claude.ai/artifact/NHt9rMw2icW5aSLuNxSLuq: round 1 = ArtifactData `review/choices` (52 owner decisions); `review/round2`: **the owner is still reviewing round 2 (on hold, 2026-10-27); don't build until they say so.** Next: add the words in `tools/build_jlpt.py` with flag `ours`, rebuild, run the evals; then the #3,901–6,000 batch (`wa_candidates.json`, db doc `review/round3`); afterwards rebuild `freq_extra.txt` (needs the LUW zip, §6). Details: grep HISTORY for "Word Addition Project".
-- **Gamification: closed (owner 2026-10-27).** Progress Review built; no streaks. The other ideas (seals 判子, level clears 完, rare-word finds, kanji families, grammar "seen in the wild", weekly ink, hidden titles, Nakama nudges) were declined: don't propose them again.
-- Rank pictures: new rank icons waiting until the owner has Grok Pro again; most likely only Amaterasu stays animated (not final). Testing on other PCs; release prep (GitHub page, screenshots, version bump, §11).
-- **"♥ Supported Kotodama" line: code built 2026-10-27, not live yet.** Ko-fi webhook → `server/worker.js` POST /kofi (checks secret `KOFI_TOKEN`; friend codes in the message get `supporter` = first tip date; nothing else stored; refunds cleared by hand). Line on the Nakama card (`profile.supporter`) and share image (`nakama.is_supporter()`, only when the server confirms; `share_card._supporter_line`). ♥ Support now opens `_show_support_note` (code + Copy + Go to Ko-fi) instead of Ko-fi directly. Tests: `node tools/dev/maint/t_kofi.mjs`. **Owner steps to go live:** add the column (schema.sql comment), `npx wrangler secret put KOFI_TOKEN` (Ko-fi → Settings → API → Webhooks token), `npx wrangler deploy`, set the Ko-fi webhook URL to `https://kotodama-nakama.kotodama-anki.workers.dev/kofi`, then one real small tip with the code to check.
-- History chart marking-day step: stays as it is (owner 2026-10-27). #6 duplicate-card finder: built 2026-10-27 (⧉ on tiles + a "see the list" line per grid; §3), owner checked it in Anki: works.
+**Accuracy state:** grammar fresh recall 91 % (tuning stopped); precision A 99 % / N3 94 % / N2 98 % / N1 97 %; `tools/grammar_cases.json` 4,859 rulings, 0 failures; vocab recall 99.4 % / precision 99.3 %.
+
+**Open (development only; owner's call unless noted):**
+- **Word Addition Project — on hold: the owner is still reviewing round 2; don't build until they say so.** 589 candidates in the frequency top 3,900 with no JLPT entry → rules in `tools/missing_words/confidence_rules.py` add 453 (N5 5, N4 40, N3 119, N2 190, N1 99), skip 136. Phone review Artifact https://claude.ai/artifact/NHt9rMw2icW5aSLuNxSLuq (ArtifactData `review/choices` = round 1, 52 decisions; `review/round2`). Then: add the words in `tools/build_jlpt.py` with flag `ours`, rebuild, run the evals; the #3,901–6,000 batch (`wa_candidates.json`, db doc `review/round3`); afterwards rebuild `freq_extra.txt` (needs the LUW zip, §6). Grep HISTORY for "Word Addition Project".
+- **Rank pictures:** new rank icons wait until the owner has Grok Pro again; most likely only Amaterasu stays animated (not final).
+- **Release prep (§11):** testing on other PCs, GitHub page + screenshots (owner: when features feel complete), version bump (3.0.0 now), licence audit.
+- Backlog: #11 listening frequency bar (maybe), #12 BCCWJ + Jiten blend (on hold).
 - Known small issue: renaming a mapped field keeps a stale field index until a note changes or Anki restarts (`tools/dev/maintenance_log.md`).
+- **Closed, don't propose again:** gamification ideas beyond the Progress Review; Susanoo/Tsukuyomi ranks; History chart marking-day step (stays).
 
 ---
 
@@ -256,7 +253,7 @@ All levels 3,006 / 8,064 (2,504 from cards + 501 loanwords + 1 marked); N5 661/6
 
 ## 11. Backlog and release plan
 - Open backlog: #11 listening frequency bar (maybe), #12 BCCWJ + Jiten blend (on hold), Everything else in the original backlog is built.
-- **Release:** release-ready first (parser vocab accuracy measured like grammar), then roadmap + licence audit (JMdict, Tatoeba, OpenJLPT, BCCWJ, AnkiWeb rules on donation links). Launch with only the Ko-fi one-time donation ("♥ Support", bottom-left, never a popup). "Supported Kotodama" line: built (see §0), goes live once the owner deploys it. Rank-up ribbons on the share image and supporter cosmetics: ideas, not part of the first release; earned things (rank, glow, belts) never change with money.
+- **Release:** release-ready first (parser vocab accuracy measured like grammar), then roadmap + licence audit (JMdict, Tatoeba, OpenJLPT, BCCWJ, AnkiWeb rules on donation links). Launch with only the Ko-fi one-time donation ("♥ Support", bottom-left, never a popup). "Supported Kotodama" line: built and deployed 2026-10-28 (see §0). Rank-up ribbons on the share image and supporter cosmetics: ideas, not part of the first release; earned things (rank, glow, belts) never change with money.
 - **Positioning:** grammar coverage of your own sentences and any text is the strongest unique claim (measured precision/recall above).
 
 ## 12. Credits that must stay in README / list headers

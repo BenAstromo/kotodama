@@ -944,3 +944,22 @@ Order: release-ready first (parser vocab accuracy → measured like grammar), th
 - Owner decisions pending: History chart marking-day step; #6 duplicate-card finder.
 - Known small issue: renaming a mapped field keeps a stale field index until a note changes or Anki restarts (`tools/dev/maintenance_log.md`).
 - Dev note: `%TEMP%\qtv\Scripts\python.exe` keeps vanishing; `py -m venv --upgrade qtv` (from `%TEMP%`) restores it.
+
+### 2026-10-27 (second session): loanwords join gradually, marks reach only their own word
+
+**This session (owner checked everything in Anki 2026-10-27, all good; the kana-card change too):**
+- **Marked English loanwords join every count gradually**, not just the rank (§2.4): `card_state.hold_back_loans` runs after each analysis (window + mini widget) and moves loanwords the rank doesn't count yet out of the JLPT known words and the frequency tiers; `results["loans_waiting"]` keeps them. `found_parts` is cached in results (always the full marked list). Word Grid: waiting ones sit in list order among the missing, drawn as missing with a faint ★ (`WordCell(waiting=…)`, `#7a6a3a`); the Missing tab leaves them out. History dates each loanword to the day the cards reached it. Cause: WIGGLE's Nakama card showed 344 words beside 850 JLPT words (2,586 marked, 4 counted).
+- **A word is an English loanword if either list's test says so** (`card_state.is_loan`), everywhere marks are split into "loanwords" / "marked found".
+- **Marks reach only their own word** (§5b): katakana marks only reach katakana frequency rows (the loanword button had also marked がん via ガン, 鯛 via タイ …: the owner's "6 words marked found"); `word_rank` tiers (own spelling first; kana never lands on a kanji row that only lists it as a side form). 91 JLPT words moved to their right row (ほうき was 放棄, 街 was 町).
+- **Nakama ⟳ Refresh recounts first** (the window's full refresh), so your card carries your latest marks. Nakama card / share image: "N English loanwords", "N words marked found" (`share_card._loans_line`, one line for both).
+- **Kanji & Grammar:** a Refresh left the old intro + ⟳ drawn over the page; `update_results` now deletes every child but the gold overlay. Other tabs checked: fine.
+- **Progress Review:** "+N outside your goal" is a link only (no word list). Days with 0 words draw no bar.
+- **Loanword "?" pop-up** rewritten: gradual everywhere, one order (rank counts all counted ones; frequency bars those in the top 20,000; JLPT bars those on a list), JLPT-only loanwords take their level's place (N5 800 … N1 13,800).
+- **Regression test** `tools/dev/maint/t_marks.py` (plain Python, 17 checks): run it after any change to marks, `word_rank`, loanwords or history.
+
+### 2026-10-27 (third session): kana cards, duplicate finder, Supported Kotodama
+
+- **Kana cards only reach their own tile** (`0902c78`): no fallback to any kanji homophone (と was 都, ねこ 猫); only usually-kana words (`freq_data.usually_kana`: kana_ok + kana_usual) reach a kanji tile. `word_rank` same rule; a kana side form only reaches a kana row starting with the same kana (なんか ↛ カボチャ, リポート → レポート). せっけん / やさしい added to the kana_ok hand list. Evals: 0 differences.
+- **Duplicate-card finder** (`c071266`): `_duplicate_groups` in `analyse` (exact copies, same-word second cards, one word at two levels); rules from the owner's real deck: different kanji, no shared reading, or a kanji card that isn't the kana word's main spelling (いる / 要る) are never duplicates. Owner's deck: 35 groups. Faint ⧉ on tiles in every grid; "⧉ Words with more than one card: N — see the list" beside each grid's search box (first put inside the scroll area: hidden by the top fade); the list is non-modal (modal pushed the Browser behind everything).
+- **"♥ Supported Kotodama"** (`81e24fb`): Ko-fi webhook on the Nakama Worker, deployed by the owner 2026-10-28 (live probe: /kofi refuses a wrong token). Wrangler run from the add-on root needs `--config server/wrangler.toml`; it leaves a root `.wrangler/` cache (now gitignored).
+- Owner decisions: History chart step stays; gamification closed (no more ideas); Susanoo/Tsukuyomi dropped; to-do lists = development only.
