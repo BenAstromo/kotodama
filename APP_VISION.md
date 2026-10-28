@@ -29,7 +29,7 @@
 - **Word Addition Project** (suggested next): 589 candidates in the frequency top 3,900 with no JLPT entry → rules in `tools/missing_words/confidence_rules.py` add 453 (N5 5, N4 40, N3 119, N2 190, N1 99), skip 136. Phone review Artifact https://claude.ai/artifact/NHt9rMw2icW5aSLuNxSLuq: round 1 = ArtifactData `review/choices` (52 owner decisions); `review/round2` saved 2026-10-26 with no changes (= accepted as is; confirm with the owner). Next: add the words in `tools/build_jlpt.py` with flag `ours`, rebuild, run the evals; then the #3,901–6,000 batch (`wa_candidates.json`, db doc `review/round3`); afterwards rebuild `freq_extra.txt` (needs the LUW zip, §6). Details: grep HISTORY for "Word Addition Project".
 - **Gamification:** Progress Review built; no streaks. Unpicked ideas (2026-10-26): milestone seals (判子) on bars, level clears (完), rare-word finds, kanji families, grammar "seen in the wild", weekly ink on the History chart, hidden titles on the share image, Nakama nudges. Recommended first: seals + "seen in the wild". Mock-ups before building (§8).
 - Rank pictures (only Amaterasu is animated); testing on other PCs; release prep (GitHub page, screenshots, version bump, "Supported Kotodama" line, §11).
-- History chart marking-day step: stays as it is (owner 2026-10-27). #6 duplicate-card finder: built 2026-10-27 (⧉ on tiles in every grid + an Off-list line; §3), tested headless, not yet seen in Anki.
+- History chart marking-day step: stays as it is (owner 2026-10-27). #6 duplicate-card finder: built 2026-10-27 (⧉ on tiles + a "see the list" line per grid; §3), owner checked it in Anki: works.
 - Known small issue: renaming a mapped field keeps a stale field index until a note changes or Anki restarts (`tools/dev/maintenance_log.md`).
 
 ---
