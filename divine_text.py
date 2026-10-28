@@ -85,6 +85,10 @@ EXACT = {
     "Kanji && Grammar": "漢字 && 文法",
     "History": "履歴",
     "Close": "閉じる",
+    # Duplicate cards list (progress_dialog._show_duplicates, owner 2026-10-27)
+    "Open all in browser": "すべてブラウザで開く", "Duplicate cards": "重複カード",
+    "The same word in more than one note. Click a word to open its cards in the browser.":
+        "同じ単語が複数のノートにあります。単語をクリックするとそのカードをブラウザで開きます。",
     "♥ Support": "♥ 応援する",
     # Overview
     "Click any bar to open that level's word grid.":
@@ -639,6 +643,9 @@ PATTERNS = [
      r"順です（≈ は頻度リストで分割される複合語の推定順位、例：日本語）。仕切りをドラッグして"
      r"大きさを変えられます。タイルをクリック（または行をダブルクリック）するとブラウザで開きます。"
      r"これらは発見済み・保留にはできません。</span>"),
+    (re.compile(r"^(<span[^>]*>)⧉ Words with more than one card: ([\d,]+) — "
+                r"<a href='dups'>see the list</a></span>$"),
+     r"\1⧉ 複数のカードがある単語：\2 — <a href='dups'>一覧を見る</a></span>"),
     # History: dates in Japanese
     (re.compile(r"Last snapshot: (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d+), "
                 r"(\d+:\d+) \((manual|automatic)\)"),

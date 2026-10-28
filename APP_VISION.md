@@ -10,7 +10,7 @@
 
 **Everything is committed and pushed** (https://github.com/BenAstromo/kotodama, private, branch `main`; `git log` for detail). The working folder matches GitHub. The first 2026-10-27 session (Nakama membership per collection, Progress Review, cloth belt label) is logged in `docs/HISTORY.md` → "2026-10-27".
 
-**This session (owner saw the first half in Anki; the bug-round fixes at the end are tested headless, not yet seen):**
+**This session (owner checked everything in Anki 2026-10-27, all good; the kana-card change too):**
 - **Marked English loanwords join every count gradually**, not just the rank (§2.4): `card_state.hold_back_loans` runs after each analysis (window + mini widget) and moves loanwords the rank doesn't count yet out of the JLPT known words and the frequency tiers; `results["loans_waiting"]` keeps them. `found_parts` is cached in results (always the full marked list). Word Grid: waiting ones sit in list order among the missing, drawn as missing with a faint ★ (`WordCell(waiting=…)`, `#7a6a3a`); the Missing tab leaves them out. History dates each loanword to the day the cards reached it. Cause: WIGGLE's Nakama card showed 344 words beside 850 JLPT words (2,586 marked, 4 counted).
 - **A word is an English loanword if either list's test says so** (`card_state.is_loan`), everywhere marks are split into "loanwords" / "marked found".
 - **Marks reach only their own word** (§5b): katakana marks only reach katakana frequency rows (the loanword button had also marked がん via ガン, 鯛 via タイ …: the owner's "6 words marked found"); `word_rank` tiers (own spelling first; kana never lands on a kanji row that only lists it as a side form). 91 JLPT words moved to their right row (ほうき was 放棄, 街 was 町).
@@ -22,14 +22,14 @@
 
 **Git:** commit / push only when the owner asks (he usually just says "commit"). `.gitignore` keeps out `user_files/`, `meta.json`, `server/.wrangler/` and caches. Before making the repo public: the release checklist (§11), and decide whether `server/wrangler.toml`'s D1 `database_id` stays.
 
-**Accuracy state:** grammar fresh recall 91 % (tuning stopped); precision A 99 % / N3 94 % / N2 98 % / N1 97 %; `tools/grammar_cases.json` 4,859 rulings, 0 failures; vocab recall 99.4 % / precision 99.3 %. Re-run 2026-10-27 after the `word_rank` and kana-card changes: 0 differences from the baselines. **Kana cards (2026-10-27, third session, not yet seen in Anki):** a kana-only card no longer falls back to any kanji homophone, only to a usually-kana word's tile (§5b); `t_marks.py` now 26 checks.
+**Accuracy state:** grammar fresh recall 91 % (tuning stopped); precision A 99 % / N3 94 % / N2 98 % / N1 97 %; `tools/grammar_cases.json` 4,859 rulings, 0 failures; vocab recall 99.4 % / precision 99.3 %. Re-run 2026-10-27 after the `word_rank` and kana-card changes: 0 differences from the baselines. **Kana cards (2026-10-27, third session, seen in Anki):** a kana-only card no longer falls back to any kanji homophone, only to a usually-kana word's tile (§5b); `t_marks.py` now 26 checks.
 
 **Open (owner's call unless noted):**
 - **WIGGLE needs this version** (folder copy without `user_files/`): his card only changes once his add-on has it.
 - **Word Addition Project** (suggested next): 589 candidates in the frequency top 3,900 with no JLPT entry → rules in `tools/missing_words/confidence_rules.py` add 453 (N5 5, N4 40, N3 119, N2 190, N1 99), skip 136. Phone review Artifact https://claude.ai/artifact/NHt9rMw2icW5aSLuNxSLuq: round 1 = ArtifactData `review/choices` (52 owner decisions); `review/round2` saved 2026-10-26 with no changes (= accepted as is; confirm with the owner). Next: add the words in `tools/build_jlpt.py` with flag `ours`, rebuild, run the evals; then the #3,901–6,000 batch (`wa_candidates.json`, db doc `review/round3`); afterwards rebuild `freq_extra.txt` (needs the LUW zip, §6). Details: grep HISTORY for "Word Addition Project".
 - **Gamification:** Progress Review built; no streaks. Unpicked ideas (2026-10-26): milestone seals (判子) on bars, level clears (完), rare-word finds, kanji families, grammar "seen in the wild", weekly ink on the History chart, hidden titles on the share image, Nakama nudges. Recommended first: seals + "seen in the wild". Mock-ups before building (§8).
 - Rank pictures (only Amaterasu is animated); testing on other PCs; release prep (GitHub page, screenshots, version bump, "Supported Kotodama" line, §11).
-- Owner decisions pending: History chart marking-day step; #6 duplicate-card finder.
+- History chart marking-day step: stays as it is (owner 2026-10-27). #6 duplicate-card finder: built 2026-10-27 (⧉ on tiles in every grid + an Off-list line; §3), tested headless, not yet seen in Anki.
 - Known small issue: renaming a mapped field keeps a stale field index until a note changes or Anki restarts (`tools/dev/maintenance_log.md`).
 
 ---
@@ -89,10 +89,10 @@ An Anki desktop add-on (`addons21/jlpt_progress`, menu **Kotodama**: Open Kotoda
 
 **Main window** (`ProgressDialog`): header (Kotodama 言霊 | JLPT Tracker, moon), tabs:
 1. **Vocabulary** — All N Levels Combined + N5–N1 bars (click → word grid pop-up), "+N today / week / month", rank badge / rank bar / belt bar, **JLPT Goal** card (`goal.py`, `goal_view.py`: level + test date → words / kanji / grammar per day), Frequency Check bars, share image button.
-2. **Word Grid** — JLPT words: known level by level (Mature → Young → New, ★ marked found last, most common first), then missing. Hover = meaning (Jitendex); click known → Browser, missing → copy; Shift+click → Jisho; middle-click found; Ctrl+middle suspend.
+2. **Word Grid** — JLPT words: known level by level (Mature → Young → New, ★ marked found last, most common first), then missing. Hover = meaning (Jitendex); click known → Browser, missing → copy; Shift+click → Jisho; middle-click found; Ctrl+middle suspend. **⧉ duplicates** (owner 2026-10-27, minimal): `analyse` → `results["duplicates"]` (`_duplicate_groups`: exact copies from `collect_words(duplicates=)`, leftover same-kanji second cards, one word listed at two levels with matching alternates; never sentence-card words, kana cards for kanji words, different kanji/readings); `WordCell` draws a faint ⧉ top-left (`DUP_MARK_ALPHA`) in every grid and opens all the notes; every `WordGridPanel` (Word Grid tab, JLPT and frequency pop-ups) and the Off-list tab show "⧉ Words with more than one card: N — see the list" (grids: beside the search box, out of the scroll fade) only when their tiles include some → `_show_duplicates` list (click = that word's notes, "Open all in browser"); test `tools/dev/maint/t_dups.py`.
 3. **Missing** — Vocab / Kanji / Grammar switch; sortable, filterable, Copy all.
 4. **Marked & Suspended** — found and suspended lists (each in its own card with its Reset button), loanword button, Show / Sort.
-5. **Off-list** — deck cards on no list (still count for rank + frequency); tile grid | table splitter.
+5. **Off-list** — deck cards on no list (still count for rank + frequency); tile grid | table splitter; the same "⧉ … see the list" line only when an off-list word has a duplicate.
 6. **Kanji & Grammar** — compact bars; heatmap grids (strength = mean card score; red → cyan); grammar from the sentence parser or a grammar deck; "find it in your deck" search.
 7. **Text Check** — paste text / open subtitles → coverage, verdict, unknown words (`text_check.py`).
 8. **History** — chart of rank, JLPT, frequency over time (`history.py`, `history_view.py`); daily auto snapshot + "Take snapshot now".
@@ -252,10 +252,10 @@ All levels 3,006 / 8,064 (2,504 from cards + 501 loanwords + 1 marked); N5 661/6
 
 ## 10. Open questions (ask the owner before acting)
 1. Rank/belt colour legibility — waiting for the owner's screenshots.
-2. History chart marking-day step; #6 duplicate-card finder — explained, undecided.
+2. (closed 2026-10-27: chart stays; duplicate finder built.)
 
 ## 11. Backlog and release plan
-- Open backlog: #6 duplicate finder (undecided), #11 listening frequency bar (maybe), #12 BCCWJ + Jiten blend (on hold), #14 Susanoo + Tsukuyomi ranks (parked). Everything else in the original backlog is built.
+- Open backlog: #11 listening frequency bar (maybe), #12 BCCWJ + Jiten blend (on hold), #14 Susanoo + Tsukuyomi ranks (parked). Everything else in the original backlog is built.
 - **Release:** release-ready first (parser vocab accuracy measured like grammar), then roadmap + licence audit (JMdict, Tatoeba, OpenJLPT, BCCWJ, AnkiWeb rules on donation links). Launch with only the Ko-fi one-time donation ("♥ Support", bottom-left, never a popup). "Supported Kotodama" line: verified via Ko-fi webhook → Nakama Worker (plan in HISTORY, not built). Rank-up ribbons on the share image and supporter cosmetics: ideas, not part of the first release; earned things (rank, glow, belts) never change with money.
 - **Positioning:** grammar coverage of your own sentences and any text is the strongest unique claim (measured precision/recall above).
 

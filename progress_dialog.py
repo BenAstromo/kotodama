@@ -1015,7 +1015,112 @@ def _open_in_browser(nid: int):
     from aqt import dialogs
     b = dialogs.open("Browser", mw)
     b.search_for(f"nid:{card_state.real_nid(nid)}")   # parsed sentence words → their note
+    b.raise_()
     b.activateWindow()
+
+def _open_notes_in_browser(nids):
+    """Several notes at once (a word's duplicate cards), side by side."""
+    from aqt import dialogs
+    b = dialogs.open("Browser", mw)
+    b.search_for("nid:" + ",".join(str(card_state.real_nid(n)) for n in nids))
+    b.raise_()
+    b.activateWindow()
+
+
+# Note → every note that is the same word (analyse's results["duplicates"]):
+# its tiles get a faint ⧉ and open all of them. Set by ProgressDialog.
+_DUP_OF: dict = {}
+_DUP_NAMES: dict = {}   # nid → (display, reading), for the duplicates list
+DUP_MARK_ALPHA = 150   # the ⧉'s white on a tile (0–255)
+
+
+def _set_duplicates(results: dict, analysis_inputs: dict = None):
+    _DUP_OF.clear()
+    _DUP_NAMES.clear()
+    ai = analysis_inputs or {}
+    nd, nr = ai.get("nid_to_display") or {}, ai.get("nid_to_reading") or {}
+    for group in (results or {}).get("duplicates", []):
+        for nid in group:
+            _DUP_OF[nid] = group
+            if nid in nd:
+                _DUP_NAMES[nid] = (nd[nid], nr.get(nid, ""))
+
+
+def _dup_line(groups: list) -> QLabel:
+    """The grid's "⧉ N words with more than one card — see the list" line
+    (owner 2026-10-27); groups as _DUP_OF holds them, in grid order."""
+    lbl = QLabel(f"<span style='color:#aaa; font-size:13px;'>⧉ Words with more than "
+                 f"one card: {len(groups):,} — <a href='dups'>see the list</a></span>")
+    lbl.linkActivated.connect(lambda _=None, gs=groups: _show_duplicates(gs, lbl.window()))
+    return lbl
+
+
+def _dup_title(group: list) -> str:
+    """できる · 出来る, or 聞く【きく】 for exact copies; + how many cards."""
+    words = list(dict.fromkeys(_DUP_NAMES[n] for n in group if n in _DUP_NAMES))
+    if len(words) == 1:
+        d, r = words[0]
+        text = d + (f"【{r}】" if r and r != d else "")
+    else:
+        text = " · ".join(d for d, _ in words)
+    return f"{text}   ×{len(group)}"
+
+
+def _show_duplicates(groups: list, parent=None):
+    """Every duplicate in a grid: click a word to open its cards in the
+    Browser, or all of them at once. Not modal: a modal list kept pushing
+    the Browser behind every window while it was open (owner 2026-10-27)."""
+    dlg = QDialog(parent)
+    dlg.setWindowFlags(dlg.windowFlags() | Qt.WindowType.Window
+                       | Qt.WindowType.WindowCloseButtonHint)
+    dlg.setAttribute(Qt.WidgetAttribute.WA_DeleteOnClose)
+    dlg.setWindowTitle("Duplicate cards")
+    dlg.resize(420, 520)
+    v = QVBoxLayout(dlg)
+    hint = QLabel("The same word in more than one note. Click a word to open its cards "
+                  "in the browser.")
+    hint.setWordWrap(True)
+    hint.setStyleSheet(HINT_CSS)
+    v.addWidget(hint)
+    lst = QListWidget()
+    lst.setStyleSheet("font-size: 16px;")
+    for g in groups:
+        item = QListWidgetItem(_dup_title(g))
+        item.setData(Qt.ItemDataRole.UserRole, g)
+        lst.addItem(item)
+    lst.itemClicked.connect(lambda it: _open_notes_in_browser(it.data(Qt.ItemDataRole.UserRole)))
+    v.addWidget(lst, 1)
+    row = QHBoxLayout()
+    every = QPushButton("Open all in browser")
+    every.clicked.connect(lambda: _open_notes_in_browser([n for g in groups for n in g]))
+    close = QPushButton("Close")
+    close.clicked.connect(dlg.accept)
+    row.addWidget(every)
+    row.addStretch()
+    row.addWidget(close)
+    v.addLayout(row)
+    from . import theme
+    theme.apply(dlg, gold=_GOLD_MODE["on"])
+    if _GOLD_MODE["on"]:
+        from . import divine_text
+        dlg.setWindowTitle("重複カード")
+        divine_text.gold_palette(dlg, True)
+        divine_text.apply(dlg, True)
+    dlg.show()
+    if _GOLD_MODE["on"]:
+        divine_text.gold_titlebar(dlg, True)    # needs the native window
+
+
+def _grid_dups(cells) -> list:
+    """The duplicate groups among a grid's known tiles, in tile order."""
+    seen, out = set(), []
+    for c in cells:
+        g = c._dups if c._known else None
+        if g and id(g) not in seen:
+            seen.add(id(g))
+            out.append(g)
+    return out
+
 
 def _copy_to_clipboard(text: str):
     QApplication.clipboard().setText(text)
@@ -1056,6 +1161,7 @@ def _search_term_in_browser(display: str, reading: str):
     query = " or ".join(terms)
     b = dialogs.open("Browser", mw)
     b.search_for(query)
+    b.raise_()
     b.activateWindow()
 
 
@@ -3996,6 +4102,9 @@ class WordCell(QWidget):
         # card_state.NEW..MATURE for known tiles; None = full colour
         # (marked-found words with no card).
         self._maturity    = maturity
+        # Every note that is this word, when there's more than one card
+        # (the duplicate finder, owner 2026-10-27): faint ⧉, click opens all.
+        self._dups        = _DUP_OF.get(nid) if nid is not None else None
 
         self.setFixedSize(CELL_W, CELL_H)
         self.setCursor(Qt.CursorShape.PointingHandCursor)
@@ -4105,6 +4214,11 @@ class WordCell(QWidget):
         elif self._is_found:
             info.append("★ Marked as found" if self._overrides.is_found(self._display, self._reading)
                         else "★ " + FOUND_ROW_TEXT)
+        elif self._known and self._dups:
+            info.append(f"⧉ {len(self._dups)} cards for this word in your deck — "
+                        "click to open them all in browser")
+            if self._maturity is not None:
+                info.append(f"Card: {MATURITY_LABELS[self._maturity]}")
         elif self._known:
             info.append("In your deck — click to open in browser")
             if self._maturity is not None:
@@ -4206,7 +4320,9 @@ class WordCell(QWidget):
             elif event.modifiers() & Qt.KeyboardModifier.ControlModifier:
                 _search_term_in_browser(self._display, self._reading)
             elif self._known or self._is_found:
-                if self._nid is not None:
+                if self._known and self._dups:
+                    _open_notes_in_browser(self._dups)
+                elif self._nid is not None:
                     _open_in_browser(self._nid)
                 else:
                     _open_jisho(self._display, self._reading)
@@ -4316,6 +4432,13 @@ class WordCell(QWidget):
             p.setFont(f2)
             p.setPen(QColor("#8a5a00" if gold_tile else "#7a6a3a" if waiting else "#ffe066"))
             p.drawText(QRect(w - 13, 2, 11, 11), Qt.AlignmentFlag.AlignCenter, "★")
+
+        # ── ⧉ for a word with more than one card (top left, faint) ────────────
+        if known and self._dups and not suspended:
+            f4 = QFont(); f4.setPointSize(7)
+            p.setFont(f4)
+            p.setPen(QColor(59, 38, 0, 150) if gold_tile else QColor(255, 255, 255, DUP_MARK_ALPHA))
+            p.drawText(QRect(2, 2, 11, 11), Qt.AlignmentFlag.AlignCenter, "⧉")
 
         # ── ✕ badge for suspended ─────────────────────────────────────────────
         if suspended:
@@ -4700,6 +4823,7 @@ class WordGridPanel(QWidget):
         self._search_edit.setMinimumWidth(300)
         self._search_edit.setMaximumWidth(300)
         search_row.addWidget(self._search_edit)
+        self._search_row = search_row
         self._search_status = QLabel("")
         self._search_status.setStyleSheet(HINT_CSS)
         self._search_status.setWordWrap(True)
@@ -4818,6 +4942,10 @@ class WordGridPanel(QWidget):
                 self._all_cells.extend(cells)
                 vbox.addWidget(_TileCanvas(cells, glow=True))
 
+        dups = _grid_dups(self._all_cells)
+        if dups:                     # only when this grid shows some; beside the
+            self._search_row.insertSpacing(2, 14)    # search box, clear of the
+            self._search_row.insertWidget(3, _dup_line(dups))   # grid's top fade
         vbox.addStretch()
         scroll.setWidget(container)
         outer.addWidget(scroll)
@@ -5740,6 +5868,12 @@ class _UnlistedPanel(QWidget):
         )
         info.setWordWrap(True)
         outer.addWidget(info)
+        # Off-list words with more than one card (two スマホ notes): one
+        # quiet line, only when there are some (owner 2026-10-27).
+        shown = {nid for _, _, nid in self._words}
+        groups = list({id(g): g for n, g in _DUP_OF.items() if n in shown}.values())
+        if groups:
+            outer.addWidget(_dup_line(groups))
         outer.addWidget(_maturity_legend("unlisted"))
 
         # Tile grid on the left, word list on the right; the user can drag
@@ -7292,6 +7426,7 @@ class ProgressDialog(QDialog):
         self._deck_name       = deck_name
         self._lists           = lists
         _set_jlpt_levels(lists or {})
+        _set_duplicates(results, analysis_inputs)
         self._overrides       = overrides or Overrides()
         self._analysis_inputs = analysis_inputs or {}
         self._refreshing = False
@@ -7779,6 +7914,7 @@ class ProgressDialog(QDialog):
         self._grid_stale.update(self._grid_windows)     # new counts: rebuilt when reopened
         self._results = results
         self._analysis_inputs.update(analysis_inputs)
+        _set_duplicates(results, self._analysis_inputs)
         self._history = series
         self._history_tab.update_series(self._history or {})
         with _neon_quiet():             # a rebuild, not a first look: no flicker again
@@ -7841,18 +7977,21 @@ class ProgressDialog(QDialog):
         field_mappings   = ai.get("field_mappings", [])
         ignore_suspended = ai.get("ignore_suspended", False)
         if field_mappings:
+            exact_dups: dict = {}
             display_index, reading_index, nid_to_display, nid_to_reading = \
-                collect_words(self._deck_name, field_mappings, ignore_suspended)
+                collect_words(self._deck_name, field_mappings, ignore_suspended,
+                              duplicates=exact_dups)
             ai["display_index"]  = display_index
             ai["reading_index"]  = reading_index
             ai["nid_to_display"] = nid_to_display
             ai["nid_to_reading"] = nid_to_reading
+            ai["exact_duplicates"] = exact_dups
 
         results = analyse(
             ai["display_index"], ai["reading_index"],
             ai["nid_to_display"], ai["nid_to_reading"],
             self._lists, ai["unique_readings"],
-            overrides=self._overrides,
+            overrides=self._overrides, exact_duplicates=ai.get("exact_duplicates"),
         )
         results["maturity"] = card_state.with_pseudo(
             card_state.note_maturity(self._deck_name, ignore_suspended),

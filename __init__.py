@@ -262,9 +262,12 @@ def _build_unique_readings(lists: dict) -> set[str]:
 # ── deck scanning ──────────────────────────────────────────────────────────────
 
 def collect_words(deck_name: str, field_mappings: list, ignore_suspended: bool = False,
-                  seen_only: bool = True):
+                  seen_only: bool = True, duplicates: dict | None = None):
     """seen_only=False: never-studied notes too (only for new_card_words,
-    the grids' "New" tiles; nothing counts them)."""
+    the grids' "New" tiles; nothing counts them). `duplicates`, if given,
+    is filled with {first nid: [nids]} for notes with the very same word and
+    reading (sentence-card words don't count: a word card plus a sentence
+    using it is no duplicate)."""
     from . import sentence_parser
     col = mw.col
     raw: list[tuple[int, str, str]] = []
@@ -315,7 +318,7 @@ def collect_words(deck_name: str, field_mappings: list, ignore_suspended: bool =
         sentence_words.sort(key=lambda w: -maturity.get(w[0], -1))
         raw += [(card_state.pseudo_nid(nid, i), d, r) for nid, i, d, r in sentence_words]
 
-    seen_word_pairs: set[tuple[str, str]] = set()
+    seen_word_pairs: dict[tuple[str, str], int] = {}   # pair → first nid
     display_index:  dict[str, list[int]] = {}
     reading_index:  dict[str, list[int]] = {}
     nid_to_display: dict[int, str] = {}
@@ -326,8 +329,12 @@ def collect_words(deck_name: str, field_mappings: list, ignore_suspended: bool =
         nr   = _norm(reading)
         pair = (nd, nr)
         if pair in seen_word_pairs:
+            first = seen_word_pairs[pair]
+            if (duplicates is not None and nid < card_state.PSEUDO_BASE
+                    and first < card_state.PSEUDO_BASE):
+                duplicates.setdefault(first, [first]).append(nid)
             continue
-        seen_word_pairs.add(pair)
+        seen_word_pairs[pair] = nid
         display_index.setdefault(nd, []).append(nid)
         for part in _reading_parts(nr):   # index each alternative reading
             reading_index.setdefault(part, []).append(nid)
@@ -530,9 +537,12 @@ def _find_match(jlpt_display: str, jlpt_reading: str,
 # ── analysis ───────────────────────────────────────────────────────────────────
 
 def analyse(display_index, reading_index, nid_to_display, nid_to_reading,
-            lists, unique_readings, overrides: Overrides = None) -> dict:
+            lists, unique_readings, overrides: Overrides = None,
+            exact_duplicates: dict | None = None) -> dict:
     """
     Each nid counted at most once. First level to claim a nid wins (N5→N1).
+    results["duplicates"]: groups of notes that are one word (collect_words'
+    exact copies + a second card for a counted JLPT word, かかる / 掛かる).
 
     Overrides applied before analysis:
       - suspended words are skipped entirely (not counted as known or missing)
@@ -657,6 +667,7 @@ def analyse(display_index, reading_index, nid_to_display, nid_to_reading,
     # alternate spelling) with one of the entry's readings. Those aren't
     # "Non-JLPT", so keep them out of the unlisted bucket.
     jlpt_spellings: dict[str, set[str]] = {}
+    spelling_entries: dict[str, list] = {}   # spelling → [((display, reading), readings)]
     for lvl in LEVELS:
         for d, r in lists.get(lvl, []):
             acc = _accepted_readings(d, r)
@@ -667,6 +678,10 @@ def analyse(display_index, reading_index, nid_to_display, nid_to_reading,
                 if entry_has_kanji and not _KANJI_RE.search(_norm(form)):
                     continue
                 jlpt_spellings.setdefault(_norm(form), set()).update(acc)
+                alts = jlpt_data.alt_forms(d, r)
+                main = next((_norm(a) for a in alts if _KANJI_RE.search(a)), "")
+                spelling_entries.setdefault(_norm(form), []).append(
+                    ((_norm(d), _norm(r), frozenset(alts)), acc, main))
 
     def _is_jlpt_duplicate(nid: int, display: str) -> bool:
         acc = jlpt_spellings.get(_norm(display))
@@ -687,11 +702,86 @@ def analyse(display_index, reading_index, nid_to_display, nid_to_reading,
             seen_unlisted.add(nid)
 
     results["unlisted"] = {"known_words": unlisted, "missing_words": []}
+    results["duplicates"] = _duplicate_groups(
+        results, nid_to_display, nid_to_reading, spelling_entries, exact_duplicates or {},
+        lambda nid: (nid not in claimed_nids and nid not in soft_nids
+                     and nid not in used_readings))
 
     # Frequency-dictionary comparison for the rank section (independent of
     # the JLPT lists; found/suspended marks apply to it too).
     results["frequency"] = freq_data.coverage(nid_to_display, nid_to_reading, overrides)
     return results
+
+
+def _duplicate_groups(results, nid_to_display, nid_to_reading, spelling_entries,
+                      exact: dict, leftover) -> list:
+    """Notes that are the same word, as [[nid, …], …] (word order of the
+    first note): exact copies, and a leftover card that is a second card for
+    a JLPT word another card already counts (掛かる next to かかる, 出来る next
+    to できる; same kanji only, kana cards never for kanji words). Better
+    than Anki's own check, which only compares the first field as typed.
+    Sentence-card words are never part of a group. A list entry is its
+    spelling, reading and alternates (いる 居る and いる 要る are two words)."""
+    real = lambda n: n is not None and n < card_state.PSEUDO_BASE
+    entry_nid = {}   # one word listed at two levels (うるさい N5 + N1) takes two cards
+    parent = {}
+
+    def readings(n):
+        return {_kata_to_hira(p) for p in _reading_parts(nid_to_reading.get(n, ""))}
+
+    def same_word(a, b) -> bool:
+        """Two cards an entry lumps together are still two words if both
+        have kanji and the kanji differ (点ける / 付ける, 掛ける / 懸ける), or
+        both have readings and none is shared (避ける さける / よける)."""
+        da, db = _norm(nid_to_display.get(a, "")), _norm(nid_to_display.get(b, ""))
+        if (_KANJI_RE.search(da) and _KANJI_RE.search(db)
+                and not (jlpt_data.same_kanji(da, db) or jlpt_data.same_kanji(db, da))):
+            return False
+        ra, rb = readings(a), readings(b)
+        return not (ra and rb) or bool(ra & rb)
+
+    def find(n):
+        while parent.setdefault(n, n) != n:
+            n = parent[n]
+        return n
+
+    def join(a, b):
+        parent[find(b)] = find(a)
+
+    for lvl in LEVELS:
+        for d, r, nid in results.get(lvl, {}).get("known_words", []):
+            if not real(nid):
+                continue
+            # Same spelling, reading and alternates = the same word; かかる
+            # 掛かる (N5) and かかる 罹る (N3) differ, so they stay apart.
+            word = (_norm(d), _norm(r), frozenset(jlpt_data.alt_forms(d, r)))
+            first = entry_nid.setdefault(word, nid)
+            if first != nid and same_word(first, nid):
+                join(first, nid)
+    for first, nids in exact.items():
+        for n in nids:
+            join(first, n)
+    for nid, display in nid_to_display.items():
+        if not real(nid) or not leftover(nid):
+            continue
+        parts = readings(nid)
+        for key, acc, main in spelling_entries.get(_norm(display), ()):
+            anchor = entry_nid.get(key)
+            # A kana card is the word's main kanji spelling only: いる is
+            # listed as 居る and 要る, so a 要る card isn't a second いる.
+            if (anchor is not None and anchor != nid and not _KANJI_RE.search(
+                    _norm(nid_to_display.get(anchor, ""))) and _KANJI_RE.search(_norm(display))
+                    and not (main and jlpt_data.same_kanji(main, _norm(display)))):
+                continue
+            if (anchor is not None and anchor != nid and (not parts or parts & acc)
+                    and same_word(anchor, nid)):
+                join(anchor, nid)
+                break
+    groups = {}
+    for n in list(parent):
+        groups.setdefault(find(n), []).append(n)
+    out = [sorted(g) for g in groups.values() if len(g) > 1]
+    return sorted(out, key=lambda g: _norm(nid_to_display.get(g[0], "")))
 
 
 def new_card_words(results: dict, deck_name: str, lists: dict, analysis_inputs: dict) -> dict:
@@ -817,12 +907,13 @@ def _dialog_work(cfg: dict, lists: dict):
     ignore_suspended = bool(cfg.get("ignore_suspended_cards", False))
     overrides        = Overrides()
     unique_readings  = _build_unique_readings(lists)
-    display_index, reading_index, nid_to_display, nid_to_reading =         collect_words(deck_name, field_mappings, ignore_suspended)
+    exact_dups: dict = {}
+    display_index, reading_index, nid_to_display, nid_to_reading =         collect_words(deck_name, field_mappings, ignore_suspended, duplicates=exact_dups)
     results = analyse(
         display_index, reading_index,
         nid_to_display, nid_to_reading,
         lists, unique_readings,
-        overrides=overrides,
+        overrides=overrides, exact_duplicates=exact_dups,
     )
     # nid → new/learning/young/mature, for the tile saturation.
     results["maturity"] = card_state.with_pseudo(
@@ -832,6 +923,7 @@ def _dialog_work(cfg: dict, lists: dict):
         "reading_index":  reading_index,
         "nid_to_display": nid_to_display,
         "nid_to_reading": nid_to_reading,
+        "exact_duplicates": exact_dups,
         "unique_readings": unique_readings,
         "field_mappings":  field_mappings,   # needed so Refresh re-scans the deck
         "ignore_suspended": ignore_suspended,
