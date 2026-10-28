@@ -884,12 +884,15 @@ class KanjiGrammarTab(QWidget):
         self._divine_overlay = DivineOverlay(self._body)
 
     def update_results(self, kres: dict, gres: dict):
+        # Every old widget, not just the layout's direct ones: the intro and
+        # its ⟳ sit in a row layout and were left behind, drawn over the new
+        # page (owner's screenshot 2026-10-27).
+        for w in self._body.findChildren(QWidget):
+            if w.parent() is self._body and w is not self._divine_overlay:
+                w.hide()
+                w.deleteLater()
         old = self._body.layout()
         if old is not None:
-            while old.count():
-                item = old.takeAt(0)
-                if item.widget():
-                    item.widget().deleteLater()
             QWidget().setLayout(old)
         self._bars, self._labels = [], []
         self._build(kres, gres)
