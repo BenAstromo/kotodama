@@ -78,6 +78,46 @@ def page_scroll_areas(win) -> list:
     return out
 
 
+# Widgets the mist stays off (owner 2026-10-28: "not render on UI
+# elements"): these, and any leaf custom widget (bars, tiles). Containers
+# (cards, pages) and the see-through overlays (glows, the night sky:
+# mouse-transparent) keep it.
+_UI_TYPES = (QAbstractButton, QLabel, QLineEdit, QComboBox, QAbstractSpinBox, QAbstractItemView,
+             QTextEdit, QPlainTextEdit, QProgressBar, QAbstractSlider, QTabBar)
+UI_RECHECK_S = 1.0            # how often the UI area is worked out again (tab switches, refreshes):
+UI_SCROLL_S = 0.1             # … and this soon after a scroll (~15 ms in a 3,000-tile grid)
+
+
+def ui_region(win) -> QRegion:
+    """The window's UI elements (_UI_TYPES and leaf custom widgets), as the
+    part of each that's on screen, in window coordinates."""
+    rects = []
+
+    def walk(w):
+        for c in w.children():
+            if not isinstance(c, QWidget) or c.isWindow() or not c.isVisible():
+                continue
+            if c.testAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents):
+                continue
+            if isinstance(c, QLabel) and not c.text() and (c.pixmap() is None or c.pixmap().isNull()) \
+                    and c.movie() is None:
+                continue                       # an empty label: spacing
+            leaf = not any(isinstance(k, QWidget) and not k.isWindow() and k.isVisible()
+                           for k in c.children())
+            if isinstance(c, _UI_TYPES) or (leaf and type(c) not in (QWidget, QFrame)):
+                vr = c.visibleRegion()
+                if not vr.isEmpty():
+                    rects.append(vr.translated(c.mapTo(win, QPoint(0, 0))))
+                continue
+            walk(c)
+
+    walk(win)
+    out = QRegion()
+    for r in rects:
+        out = out.united(r)
+    return out
+
+
 def _is_tube(w) -> bool:
     """A bar or level sign (sparks and stutters come off those), and still alive."""
     try:
@@ -110,6 +150,9 @@ class RainGlass(QWidget):
         self._mist = self._mist_orig = None    # condensation (QImage), wiped by running drops
         self._mist_wiped = QRect()             # where it was wiped, mists over again
         self._mist_at = 0.0
+        self._ui = None                        # ui_region(window), the mist's holes
+        self._ui_at = 0.0                      # monotonic time it was worked out
+        self._ui_moved = False                 # a scroll since: work it out again soon
         self.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents)
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         self.setAttribute(Qt.WidgetAttribute.WA_ShowWithoutActivating)
@@ -278,6 +321,7 @@ class RainGlass(QWidget):
                         part[1] -= dy
                     self._move_spark(sp, 0.0)
             self._lights, self._sig = [], None      # the tubes moved too: relight next frame
+            self._ui_moved = True                   # and the mist's holes
             self.update(box)
         except RuntimeError:
             pass
@@ -318,6 +362,7 @@ class RainGlass(QWidget):
                 self._check_at = t + 1.0
                 self._self_check()
                 dirty += self._lens_check()
+            dirty += self._ui_check()
             raining = self._rain_fn()
             self._timer.setInterval(FRAME_MS if raining else LENS_FRAME_MS)
             if not raining and (self._drops or self._sliders or self._streaks or self._sparks):
@@ -530,6 +575,26 @@ class RainGlass(QWidget):
         self._lens_on = on
         return QRegion()
 
+    def _ui_region(self) -> QRegion:
+        if self._ui is None:
+            self._ui = ui_region(self._win)
+            self._ui_at = time.monotonic()
+        return self._ui
+
+    def _ui_check(self) -> QRegion:
+        """With the mist on, every UI_RECHECK_S (UI_SCROLL_S after a scroll):
+        the UI moved (a scroll, a tab switch, a refresh) → redraw where its
+        holes in the mist changed."""
+        if not self._fx_fn("fx_condensation"):
+            return QRegion()
+        age = time.monotonic() - self._ui_at
+        if age < (UI_SCROLL_S if self._ui_moved else UI_RECHECK_S):
+            return QRegion()
+        old = self._ui
+        self._ui, self._ui_moved = None, False
+        new = self._ui_region()
+        return QRegion() if old is None else old.xored(new)
+
     def _vignette_pm(self):
         if self._vignette is None or self._vignette[0] != self.size():
             w, h = max(self.width(), 1), max(self.height(), 1)
@@ -637,7 +702,11 @@ class RainGlass(QWidget):
         if self._fx_fn("fx_vignette"):
             p.drawPixmap(br, self._vignette_pm(), br)
         if self._fx_fn("fx_condensation"):
+            # only on the backgrounds, never over a UI element
+            p.save()
+            p.setClipRegion(er.subtracted(self._ui_region()))
             p.drawImage(br, self._mist_img(), br)
+            p.restore()
         # rain beyond the glass
         for s in self._streaks:
             if not er.intersects(self._streak_rect(s)):
