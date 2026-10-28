@@ -25,9 +25,9 @@
 - **Word Addition Project — on hold: the owner is still reviewing round 2; don't build until they say so.** 589 candidates in the frequency top 3,900 with no JLPT entry → rules in `tools/missing_words/confidence_rules.py` add 453 (N5 5, N4 40, N3 119, N2 190, N1 99), skip 136. Phone review Artifact https://claude.ai/artifact/NHt9rMw2icW5aSLuNxSLuq (ArtifactData `review/choices` = round 1, 52 decisions; `review/round2`). Then: add the words in `tools/build_jlpt.py` with flag `ours`, rebuild, run the evals; the #3,901–6,000 batch (`wa_candidates.json`, db doc `review/round3`); afterwards rebuild `freq_extra.txt` (needs the LUW zip, §6). Grep HISTORY for "Word Addition Project".
 - **Rank pictures:** new rank icons wait until the owner has Grok Pro again; most likely only Amaterasu stays animated (not final).
 - **Release prep (§11):** testing on other PCs, GitHub page + screenshots (owner: when features feel complete), version bump (3.0.0 now), licence audit.
-- Backlog: #11 listening frequency bar (maybe), #12 BCCWJ + Jiten blend (on hold).
+- **Everyday speech percentage (2026-10-27, not yet seen in Anki):** under "of everyday written text", a smaller "% of everyday speech" from `freq_cejc.txt` (NINJAL CEJC vocabulary table ver202209, CC BY-NC-ND 3.0 like BCCWJ; built with `tools/build_freq.py <addon_dir> <cejc tsv>` from %TEMP%; download: www2.ninjal.ac.jp/conversation/cejc/cejc-wc.html). Speech only, never bars or ranks (2.4M words). Written-list words keep their known / suspended / held state; speech-only words match the deck the same way (`freq_data.coverage`). Owner's sentences alone (no word cards): written 69.6 %, speech 84.0 %. Known gaps shared with the written stat: 何 なん doesn't reach 何 なに; お母さん / お兄さん don't reach the corpus's split 母 かあ / 兄 にい rows. Source lines now say the bars are BCCWJ. Replaces backlog #11 (Jiten listening bar: scripted, fiction-heavy).
 - Known small issue: renaming a mapped field keeps a stale field index until a note changes or Anki restarts (`tools/dev/maintenance_log.md`).
-- **Closed, don't propose again:** gamification ideas beyond the Progress Review; Susanoo/Tsukuyomi ranks; History chart marking-day step (stays).
+- **Closed, don't propose again:** gamification ideas beyond the Progress Review; Susanoo/Tsukuyomi ranks; History chart marking-day step (stays); #12 BCCWJ + Jiten blend (2026-10-27: muddies the written-Japanese meaning, shifts every rank, and BCCWJ's NC-ND can't meet Jiten's share-alike).
 
 ---
 
@@ -252,7 +252,7 @@ All levels 3,006 / 8,064 (2,504 from cards + 501 loanwords + 1 marked); N5 661/6
 2. (closed 2026-10-27: chart stays; duplicate finder built.)
 
 ## 11. Backlog and release plan
-- Open backlog: #11 listening frequency bar (maybe), #12 BCCWJ + Jiten blend (on hold), Everything else in the original backlog is built.
+- Open backlog: none. #11 became the everyday speech percentage (CEJC, §0); #12 blend: closed 2026-10-27 (§0). Everything else in the original backlog is built.
 - **Release:** release-ready first (parser vocab accuracy measured like grammar), then roadmap + licence audit (JMdict, Tatoeba, OpenJLPT, BCCWJ, AnkiWeb rules on donation links). Launch with only the Ko-fi one-time donation ("♥ Support", bottom-left, never a popup). "Supported Kotodama" line: built and deployed 2026-10-28 (see §0). Rank-up ribbons on the share image and supporter cosmetics: ideas, not part of the first release; earned things (rank, glow, belts) never change with money.
 - **Positioning:** grammar coverage of your own sentences and any text is the strongest unique claim (measured precision/recall above).
 
@@ -260,6 +260,7 @@ All levels 3,006 / 8,064 (2,504 from cards + 501 loanwords + 1 marked); N5 661/6
 - OpenJLPT (CC BY-SA 4.0); Jonathan Waller's JLPT lists (CC BY)
 - JMdict, EDRDG (CC BY-SA 4.0); KANJIDIC2 via OpenJLPT kanji
 - BCCWJ short- and long-unit frequency lists, NINJAL (CC BY-NC-ND 3.0; trimmed files are derivatives, accepted by the owner)
+- CEJC short-unit vocabulary table ver202209, NINJAL (CC BY-NC-ND 3.0, same terms): the everyday speech percentage
 - Jitendex, Stephen Kraus (CC BY-SA 4.0): hover meanings
 - Tatoeba (CC BY 2.0 FR): evaluation only
 - stephenmk/yomitan-jlpt-vocab, jamsinclair/open-anki-jlpt-decks, elzup/jlpt-word-list (community additions)

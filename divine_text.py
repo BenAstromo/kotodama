@@ -181,10 +181,23 @@ EXACT = {
     "The percentage at the top is how much of everyday written text your known words cover, "
     "weighted by how often each word is used.":
         "上の割合は、知っている語が日常の書き言葉のどれだけをカバーしているかです（語の使用頻度で重み付け）。",
-    "Source: BCCWJ (Balanced Corpus of Contemporary Written Japanese, NINJAL) — "
-    "top 20,000 content words; particles, numerals and proper nouns excluded.":
-        "出典：BCCWJ（現代日本語書き言葉均衡コーパス、国立国語研究所）— "
+    "Bars and word lists: BCCWJ (Balanced Corpus of Contemporary Written Japanese, "
+    "NINJAL) — top 20,000 content words; particles, numerals and proper nouns excluded.":
+        "バーと単語一覧：BCCWJ（現代日本語書き言葉均衡コーパス、国立国語研究所）— "
         "上位20,000の内容語（助詞・数詞・固有名詞を除く）",
+    # everyday speech percentage (owner 2026-10-27)
+    "of everyday speech": "日常の話し言葉をカバー",
+    "Everyday speech percentage: CEJC (Corpus of Everyday Japanese Conversation, "
+    "NINJAL) — top 20,000 content words; particles, numerals and proper nouns excluded.":
+        "話し言葉の割合：CEJC（日本語日常会話コーパス、国立国語研究所）— "
+        "上位20,000の内容語（助詞・数詞・固有名詞を除く）",
+    "The smaller percentage under it is the same for everyday speech: real "
+    "conversations recorded at home, at work, in shops and with friends. "
+    "Conversation uses a small set of words over and over, so it's higher: "
+    "that's real, not a flattering estimate.":
+        "その下の小さい割合は、日常の話し言葉について同じものです。家庭・職場・お店・友人との"
+        "実際の会話を録音したものです。会話は少ない語を何度も使うので割合が高くなります。"
+        "甘い見積もりではなく、実際にそうなのです。",
     # Kanji & Grammar tab
     "Kanji and grammar are tracked separately from your words: they don't affect your "
     "rank or the word counts. Click a bar to open its grid.":

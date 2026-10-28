@@ -31,6 +31,10 @@ _PATH = os.path.join(_HERE, "freq_bccwj.txt")
 # short-unit list splits apart (日本語, 可能性 …). Display and sorting only —
 # never part of the Frequency Check bars. Built by tools/build_freq_extra.py.
 _EXTRA_PATH = os.path.join(_HERE, "freq_extra.txt")
+# The CEJC (everyday conversation) list, same format: only for the "of
+# everyday speech" percentage, never the bars or ranks (2.4 million words,
+# too small to rank 20,000 words reliably). Built by tools/build_freq.py.
+_SPEECH_PATH = os.path.join(_HERE, "freq_cejc.txt")
 
 # Tier cut-offs shown as bars. The target is the "Required N1 Vocab (Modern
 # Estimate)", ~13,800 words. It's also where the Amaterasu rank begins, but
@@ -135,6 +139,27 @@ def load() -> list:
 
 
 _PARSER_ROWS: list = []
+
+_speech = None   # [(display, reading, pmw, [spellings])] from freq_cejc.txt
+
+
+def load_speech() -> list:
+    global _speech
+    if _speech is not None:
+        return _speech
+    rows = []
+    try:
+        with open(_SPEECH_PATH, encoding="utf-8") as f:
+            for line in f:
+                if not line.strip() or line.startswith("#"):
+                    continue
+                parts = line.rstrip("\n").split("\t")
+                if len(parts) >= 4:
+                    rows.append((_norm(parts[0]), parts[1], float(parts[2]), parts[3].split("|")))
+    except Exception:
+        rows = []
+    _speech = rows
+    return rows
 
 
 def parser_rows() -> list:
@@ -572,6 +597,7 @@ def coverage(nid_to_display: dict, nid_to_reading: dict, overrides=None) -> dict
         for nid, r in nid_to_reading.items() if r
     }
 
+    written_rank: dict[tuple[str, str], int] = {}   # (display, reading) → 0-based rank
     for rank, (display, reading, pmw, forms) in enumerate(entries):
         readings = {_kata_to_hira(_norm(f)) for f in forms if _is_kana(_norm(f))}
         readings.add(_kata_to_hira(reading))
@@ -592,6 +618,7 @@ def coverage(nid_to_display: dict, nid_to_reading: dict, overrides=None) -> dict
                     nids.extend(kana_hira[rh])
                     kana_fallback_used.add(rh)
 
+        written_rank.setdefault((nd_, _kata_to_hira(reading)), rank)
         okey = _override_key(display, reading)
         if okey in suspended_keys or rank in suspended_alias:
             # Suspended: out of the counts and the totals.
@@ -617,6 +644,42 @@ def coverage(nid_to_display: dict, nid_to_reading: dict, overrides=None) -> dict
                     nid_best_rank[nid] = rank
         else:
             missing.append((rank + 1, display, reading))
+
+    # Everyday speech (CEJC): the same estimate over real conversation. A
+    # word in the written list keeps its known / suspended state from there
+    # (marks included); a speech-only word (うわ, めっちゃ) is matched to the
+    # deck the same way as above.
+    def _deck_has(display, reading, forms):
+        readings = {_kata_to_hira(_norm(f)) for f in forms if _is_kana(_norm(f))}
+        readings.add(_kata_to_hira(reading))
+        for form in forms:
+            for nid in by_display.get(_norm(form), ()):
+                r = note_reading.get(nid)
+                if not r or r & readings:
+                    return True
+        if _is_kana(display):
+            return display in kana_cards
+        return any(rh in kana_hira and rh not in kana_spelled and usually_kana(display, rh)
+                   for rh in readings)
+
+    speech_known = speech_total = 0.0
+    speech_by_rank: dict[int, float] = {}   # written rank → speech pmw, for hold_found
+    for display, reading, pmw, forms in load_speech():
+        r = written_rank.get((display, _kata_to_hira(reading)))
+        if r is not None:
+            if known_flags[r] is None:          # suspended
+                continue
+            known = known_flags[r] or _deck_has(display, reading, forms)
+            if known_flags[r]:
+                speech_by_rank[r] = speech_by_rank.get(r, 0.0) + pmw
+        else:
+            okey = _override_key(display, reading)
+            if okey in suspended_keys:
+                continue
+            known = okey in found_keys or _deck_has(display, reading, forms)
+        speech_total += pmw
+        if known:
+            speech_known += pmw
 
     tiers = []
     tier_totals = {}
@@ -674,6 +737,11 @@ def coverage(nid_to_display: dict, nid_to_reading: dict, overrides=None) -> dict
         "notes_in_top":  notes_in_top,
         "text_coverage": (pmw_known / pmw_total) if pmw_total else 0.0,
         "pmw_total":     pmw_total,       # for hold_found
+        # Share (0-1) of everyday conversation (CEJC) covered by known words;
+        # None when freq_cejc.txt is missing.
+        "speech_coverage": (speech_known / speech_total) if speech_total else None,
+        "speech_total":  speech_total,    # for hold_found
+        "speech_by_rank": speech_by_rank,
         "missing":       missing,
         "missing_lean":  missing_lean,
         "entries":       grid_entries,
@@ -704,3 +772,7 @@ def hold_found(freq: dict, ranks: set):
                    if (entries[r][0], entries[r][1]) not in SHARED_WITH
                    and (entries[r][0], entries[r][1]) not in COMPOUNDS)
         freq["text_coverage"] = max(0.0, freq.get("text_coverage", 0.0) - held / total)
+    s_total, s_by_rank = freq.get("speech_total") or 0.0, freq.get("speech_by_rank") or {}
+    if freq.get("speech_coverage") is not None and s_total:
+        held = sum(s_by_rank.get(r, 0.0) for r in ranks)
+        freq["speech_coverage"] = max(0.0, freq["speech_coverage"] - held / s_total)

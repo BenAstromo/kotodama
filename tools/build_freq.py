@@ -39,15 +39,25 @@ KANJI=r"[一-鿿㐀-䶿々〆]"
 # UniDic files the じる verbs under their classical ずる form (感ずる): count
 # them as the modern じる word, keeping ずる as a spelling (owner 2026-10-12).
 ZURU={}
+# Spoken mode: argv[2] = the CEJC short-unit lemma list (NINJAL, Corpus of
+# Everyday Japanese Conversation, 2_cejc_frequencylist_suw_token.tsv). Same
+# UniDic columns in Japanese, no registers to exclude; writes freq_cejc.txt.
+CEJC=sys.argv[2] if len(sys.argv)>2 else None
+if CEJC:
+    SRC, EXCLUDED_REGISTERS = CEJC, ()
+    COL={"lemma":"語彙素","lForm":"語彙素読み","pos":"品詞"}
+else:
+    SRC="data/BCCWJ_frequencylist_suw_ver1_0.tsv"
+    COL={"lemma":"lemma","lForm":"lForm","pos":"pos"}
 agg=collections.OrderedDict()
 total_tokens=0
-with open("data/BCCWJ_frequencylist_suw_ver1_0.tsv",encoding="utf-8") as f:
+with open(SRC,encoding="utf-8") as f:
     for row in csv.DictReader(f, delimiter="\t"):
         freq=int(row["frequency"])-sum(int(row[r+"_frequency"] or 0) for r in EXCLUDED_REGISTERS)
         total_tokens+=freq
-        pos=row["pos"]
+        pos=row[COL["pos"]]
         if not pos.startswith(KEEP): continue
-        lemma=row["lemma"]; rd=k2h(row["lForm"])
+        lemma=row[COL["lemma"]]; rd=k2h(row[COL["lForm"]])
         if lemma in DROP_LEMMAS: continue
         if not lemma or not rd or not re.fullmatch(r"[぀-ヿ一-鿿㐀-䶿々〆]+", lemma): continue
         if lemma.endswith("ずる") and rd.endswith("ずる") and lemma[:-2]+"じる" in byk:
@@ -125,6 +135,16 @@ for (lemma,rd),(fr,pmw,pos) in items:
 print("unmapped in top20k:",unmapped, file=sys.stderr)
 open("data/unmapped.txt","w",encoding="utf-8").write("\n".join(f"{a}\t{b}\t{c}" for a,b,c in UNM))
 A=sys.argv[1]
+if CEJC:
+    with open(A+"/freq_cejc.txt","w",encoding="utf-8",newline="\n") as f:
+        f.write("# Top content words in the CEJC (Corpus of Everyday Japanese Conversation): real conversations\n")
+        f.write("#   recorded in daily life (home, work, shops, friends), ~2.4 million words.\n")
+        f.write("# Source: NINJAL, CEJC short-unit-word vocabulary table ver202209 (CC BY-NC-ND 3.0).\n")
+        f.write("#   Particles, auxiliaries, fillers, affixes, numerals, proper nouns and fragments absent from JMdict removed;\n")
+        f.write("#   spellings mapped via JMdict (EDRDG, CC BY-SA 4.0).\n")
+        f.write("# Format: as freq_bccwj.txt; used only for the \"of everyday speech\" percentage.\n\n")
+        for d,r,p,forms,fl in out: f.write(f"{d}\t{r}\t{p:.2f}\t{'|'.join(forms)}\t{fl}\n")
+    print(len(out)); sys.exit()
 with open(A+"/freq_bccwj.txt","w",encoding="utf-8",newline="\n") as f:
     f.write("# Top 20,000 content words in the BCCWJ (Balanced Corpus of Contemporary Written Japanese)\n")
     f.write("# Source: NINJAL, BCCWJ short-unit-word frequency list v1.0 (CC BY-NC-ND 3.0).\n")

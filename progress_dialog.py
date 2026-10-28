@@ -423,6 +423,14 @@ def _show_support_note(parent=None):
     dlg.exec()
 
 
+# The Frequency Check's two sources (owner 2026-10-27: the bars must read as
+# written Japanese now that a speech percentage sits above them).
+FREQ_SOURCE_WRITTEN = ("Bars and word lists: BCCWJ (Balanced Corpus of Contemporary Written Japanese, "
+                       "NINJAL) — top 20,000 content words; particles, numerals and proper nouns excluded.")
+FREQ_SOURCE_SPEECH = ("Everyday speech percentage: CEJC (Corpus of Everyday Japanese Conversation, "
+                      "NINJAL) — top 20,000 content words; particles, numerals and proper nouns excluded.")
+
+
 def _show_freq_info_dialog(parent=None):
     """The Frequency Check's "?" (owner 2026-10-20): the explanation that used
     to sit above the bars."""
@@ -434,8 +442,12 @@ def _show_freq_info_dialog(parent=None):
     for text, css in ((FREQ_INFO_EN, BODY_CSS),
                       ("The percentage at the top is how much of everyday written text your known "
                        "words cover, weighted by how often each word is used.", HINT_CSS),
-                      ("Source: BCCWJ (Balanced Corpus of Contemporary Written Japanese, NINJAL) — "
-                       "top 20,000 content words; particles, numerals and proper nouns excluded.", HINT_CSS)):
+                      ("The smaller percentage under it is the same for everyday speech: real "
+                       "conversations recorded at home, at work, in shops and with friends. "
+                       "Conversation uses a small set of words over and over, so it's higher: "
+                       "that's real, not a flattering estimate.", HINT_CSS),
+                      (FREQ_SOURCE_WRITTEN, HINT_CSS),
+                      (FREQ_SOURCE_SPEECH, HINT_CSS)):
         lbl = QLabel(text)
         lbl.setWordWrap(True)
         lbl.setFixedWidth(520)          # a fixed width: Qt then gives wrapped text its full height
@@ -6996,6 +7008,22 @@ class OverviewTab(QWidget):
         cov_sub.setStyleSheet(HINT_CSS)
         cov_l.addWidget(cov_num)
         cov_l.addWidget(cov_sub)
+        # Everyday speech (CEJC, owner 2026-10-27): smaller, under the written
+        # number, so the bars below still read as written Japanese.
+        speech = freq.get("speech_coverage")
+        if speech is not None:
+            sp_num = QLabel(f"<span style='font-size:16px; font-weight:bold; color:{FREQ_FG};'>"
+                            f"{speech * 100:.1f}%</span>")
+            sp_num.setAlignment(Qt.AlignmentFlag.AlignRight)
+            sp_num.setStyleSheet("margin-top: 4px;")
+            sp_num.setToolTip("Your known words make up about this share of the words in real "
+                              "everyday conversation (weighted by how often each word is used). "
+                              "Conversation leans on a small set of words, so this is higher.")
+            sp_sub = QLabel("of everyday speech")
+            sp_sub.setAlignment(Qt.AlignmentFlag.AlignRight)
+            sp_sub.setStyleSheet(HINT_CSS)
+            cov_l.addWidget(sp_num)
+            cov_l.addWidget(sp_sub)
         head.addLayout(cov_l)
         outer.addLayout(head)
 
@@ -7149,13 +7177,11 @@ class OverviewTab(QWidget):
         )
         dl.addWidget(miss)
 
-        src = QLabel(
-            "Source: BCCWJ (Balanced Corpus of Contemporary Written Japanese, NINJAL) — "
-            "top 20,000 content words; particles, numerals and proper nouns excluded."
-        )
-        src.setWordWrap(True)
-        src.setStyleSheet(HINT_CSS + " margin-top: 2px;")
-        dl.addWidget(src)
+        for text in (FREQ_SOURCE_WRITTEN, FREQ_SOURCE_SPEECH):
+            src = QLabel(text)
+            src.setWordWrap(True)
+            src.setStyleSheet(HINT_CSS + " margin-top: 2px;")
+            dl.addWidget(src)
         outer.addWidget(details)
 
     def _add_rank_ratio(self, layout, bar, common: int):
