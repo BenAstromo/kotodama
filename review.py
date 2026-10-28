@@ -88,7 +88,8 @@ def build(results: dict, deck: str, days_back: int = 7) -> dict | None:
      "words" / "words_out" / "kanji" / "kanji_out" / "grammar" / "grammar_out":
        [item, …] over the period, in the order learned (newest day last).
     An item: {"text", "reading", "level", "nid" (the note to open), "day"
-    (0 = the period's first day), plus "from" (kanji) or "pattern",
+    (0 = the period's first day), plus "rank" (a step-2 word's frequency
+    rank), "from" (kanji) or "pattern",
     "meaning", "sentence", "spans" (grammar)}."""
     series = (results or {}).get("history_series") or {}
     days = series.get("days") or []
@@ -140,7 +141,7 @@ def build(results: dict, deck: str, days_back: int = 7) -> dict | None:
             if d in seen:
                 continue
             seen.add(d)
-            out["words"].append({"text": d, "reading": r, "level": None,
+            out["words"].append({"text": d, "reading": r, "level": None, "rank": rank + 1,
                                  "nid": card_state.real_nid(nid), "day": day})
 
     # Words on no list: the notes first studied in the period (the rank's

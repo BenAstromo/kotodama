@@ -57,6 +57,7 @@ STAYS_ENGLISH = {
     "Kotodama 言霊 — Deck",
     "About the Kotodama 言霊 Japanese Rank",   # window title (label is in EXACT)
     "About the Frequency Check",              # window title, set to 頻度チェックについて in code
+    "About the JLPT Goal",                    # window title, set to JLPT目標について in code
     "English loanwords",                      # window title, set to 英語の外来語 in code
     # f"{belt.upper()} BELT": in gold mode it can only be TENTH-DEGREE BLACK
     # BELT, which is in EXACT

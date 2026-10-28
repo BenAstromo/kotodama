@@ -19,10 +19,11 @@ and from that how much to learn per day to make it.
   - Finish line = 14 days before the test (owner: the last two weeks are for
     review and practice tests). Fixed, no setting.
   - Per day = what was still left at the start of today ÷ days left to the
-    finish line (today included). Worked out fresh every day, so falling
+    finish line (today included), rounded to the nearest (under half a day:
+    a weekly number over the past 7 days instead). Worked out fresh every day, so falling
     behind raises tomorrow's number and getting ahead lowers it. It doesn't
     shrink while you learn during the day: "today" counts against it.
-  - Marks (★ found, "Mark English loanwords as found", basic particles)
+  - Marks (★ found, "Mark English loanwords as found")
     count as known but aren't study: they lower what's left at once (and
     so today's number), never "today" (owner 2026-10-20).
   - Vocab leads (it outnumbers kanji and grammar by far): one-number places
@@ -359,10 +360,11 @@ def today_parts(results: dict, level: str, kind: str) -> list:
     return [(kind, lambda x: x in items)]
 
 
-def _today_from_series(results: dict, level: str, now: dict) -> dict:
+def _today_from_series(results: dict, level: str, now: dict, span: int = 1) -> dict:
     """{kind: items first studied today} from results["history_series"]
     (today_parts' keys and filters, so it matches the link), or {} without
-    a series built today. Marks never count (they aren't in "gained")."""
+    a series built today. Marks never count (they aren't in "gained").
+    span=7: the past 7 days, today included (a weekly pace's count)."""
     series = results.get("history_series") or {}
     days = series.get("days") or []
     gained = series.get("gained") or {}
@@ -376,7 +378,7 @@ def _today_from_series(results: dict, level: str, now: dict) -> dict:
         items, n = set(), 0
         for key, keep in today_parts(results, level, kind):
             for i, nid, item in gained.get(key, ()):
-                if i != last or nid is None or (keep is not None and not keep(item)):
+                if i <= last - span or nid is None or (keep is not None and not keep(item)):
                     continue
                 if item is None:
                     n += 1
@@ -468,6 +470,7 @@ def status(results: dict, deck: str = "", record: bool = True) -> dict | None:
              for kind, got in _today_from_series(results, g["level"], now).items()}
     start = _day_start(g["level"], now, deck, record, known) if now else {}
     start.update(known)
+    week = _today_from_series(results, g["level"], now, 7)
     days_left = (finish - today).days + 1             # today included
     kinds = {}
     for kind in KINDS:
@@ -482,9 +485,12 @@ def status(results: dict, deck: str = "", record: bool = True) -> dict | None:
         # joins, it moves from waiting to found, and the number stays put.
         w = now.get("waiting", 0) if kind == "vocab" else 0
         left_start = max(0, n - f - w - start[kind])
-        per_day = math.ceil(left_start / days_left) if days_left > 0 else left_start
+        per_day, weekly, per_week = daily_share(left_start, days_left, weekly_ok=kind != "vocab")
+        today_n = max(0, k - f - start[kind])
         kinds[kind] = {"known": k, "total": n, "left": max(0, n - k - w), "per_day": per_day,
-                       "today": max(0, k - f - start[kind]), "found": f, "waiting": w}
+                       "today": today_n, "found": f, "waiting": w,
+                       "weekly": weekly, "per_week": per_week,
+                       "week": max(today_n, week.get(kind, 0))}
     if today > test:
         phase = "past"
     elif kinds and all(v["left"] == 0 for v in kinds.values()):
@@ -502,7 +508,33 @@ def status(results: dict, deck: str = "", record: bool = True) -> dict | None:
             "next_date": next_test_after(test)}
 
 
+def daily_share(left: int, days_left: int, weekly_ok: bool = True) -> tuple:
+    """(per day, weekly?, per week) for `left` over `days_left` days.
+    Rounded to the nearest (owner 2026-10-28: 1.4 → 1, 1.5 → 2; rounding up
+    made 1.02 a day "2"). It corrects itself: following it, what's left
+    creeps up until the number rounds up for a day. The last day asks for
+    everything left. Up to 6 a week: a weekly number instead (owner
+    2026-10-28: "1 a day" doubled a 0.3-a-day pace; 7 a week is simply 1 a
+    day), rounded up since it's small, counted over the past 7 days (no
+    reset day); per day stays 1 for the places that show one number.
+    Words never go weekly (weekly_ok=False, owner 2026-10-28): at least 1 a
+    day while any are left."""
+    if days_left <= 1:
+        return left, False, left
+    rate = left / days_left
+    per_week = min(left, math.ceil(rate * 7))
+    if weekly_ok and 0 < per_week <= 6:
+        return 1, True, per_week
+    per_day = max(1, math.floor(rate + 0.5)) if left else 0
+    return per_day, False, per_day * 7
+
+
 def done_today(k: dict) -> bool:
+    """Today's part done. A weekly kind (owner 2026-10-28): one learned
+    today (a full day's share under 1 a day), or the past 7 days already
+    hold the week's number."""
+    if k.get("weekly"):
+        return k["today"] >= 1 or k["week"] >= k["per_week"]
     return k["today"] >= k["per_day"]
 
 
@@ -532,6 +564,10 @@ def today_line(st: dict, ja: bool = False) -> str | None:
     v = st["kinds"].get("vocab")
     if st["phase"] != "plan" or not v:
         return None
+    if v.get("weekly"):
+        if ja:
+            return f"今週：{v['week']:,} / {v['per_week']:,} 語"
+        return f"This week: {v['week']:,} / {v['per_week']:,} words"
     if ja:
         return f"今日：{v['today']:,} / {v['per_day']:,} 語"
     return f"Today: {v['today']:,} / {v['per_day']:,} words"

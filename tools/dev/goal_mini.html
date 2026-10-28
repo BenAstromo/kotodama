@@ -1,5 +1,12 @@
 <html><body style='background:#2a2a2a;margin:0;height:400px;position:relative'>
     <style>
+      /* Nothing in the widget can be dragged (owner 2026-10-26: a click that
+         slipped dragged the rank picture or the link, and dropping it on Anki
+         gave "Unsupported file type"). */
+      #jlpt-mini-widget, #jlpt-mini-widget * {
+        -webkit-user-drag: none;
+        user-select: none;
+      }
       #jlpt-mini-widget {
         position: absolute;
         top: 0;
@@ -286,6 +293,7 @@
     </style>
     <a id="jlpt-mini-widget" href="#"
        onclick="pycmd('jlpt_open_progress'); return false;"
+       draggable="false" ondragstart="return false;"
        title="Open Kotodama">
       
     <div class="jlpt-mini-row">
@@ -354,7 +362,7 @@
     </div>
     
     <div class="jlpt-mini-goal" title="JLPT N3 goal: new words learned today / today's share">
-      <div class="jlpt-mini-goal-text" style="color:#cfcfcf;">Today: 0 / 49 words</div>
+      <div class="jlpt-mini-goal-text" style="color:#cfcfcf;">Today: 0 / 48 words</div>
       <div class="jlpt-mini-goal-track"><div class="jlpt-mini-goal-fill"
            style="width:0.0%; background:#ff9800; box-shadow: 0 0 6px #ff980088;"></div></div>
     </div>

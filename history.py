@@ -527,6 +527,22 @@ def gained_nids(series: dict, key: str, days_back: int, keep=None) -> list[int]:
     return out
 
 
+def gain_parts(series: dict, key: str, days_back: int) -> tuple[int, int, int] | None:
+    """(change, from cards, marked loanwords that joined) behind delta(), or
+    None without data (owner 2026-10-28: "+35 today" but 30 cards in the
+    Browser). Each card's gain is one entry in "gained"; a joining loanword
+    raises the values with no entry, so a gain above the cards is those (a
+    gain below them: cards reset to new)."""
+    d = delta(series, key, days_back)
+    if d is None:
+        return None
+    days = (series or {}).get("days") or []
+    first = len(days) - days_back
+    cards = sum(1 for i, nid, _x in ((series or {}).get("gained") or {}).get(key, ())
+                if i >= first and nid is not None)
+    return d, cards, max(0, d - cards)
+
+
 def delta(series: dict, key: str, days_back: int) -> int | None:
     """Change in `key` over the last `days_back` days (None if no data).
     Marks never count as change (the rebuilt series, _gain_values)."""

@@ -34,7 +34,7 @@ from .progress_dialog import (
     _GOLD_MODE, MISSING_GOLD, _gold_item, _gold_hover,
     _hl_register, _paint_gold_highlight, _regold,
     _copy_word, count_deck_notes, MATURITY_LABELS, _copy_to_clipboard, _fill_table,
-    _tinted_button_style, _quiet_button_style, _paint_in_deck, _section_card, set_empty_hint,
+    _quiet_button_style, _paint_in_deck, _section_card, set_empty_hint,
 )
 
 # Weak → strong heatmap (score 0 … 1). Red → orange → yellow → green → teal,
@@ -948,7 +948,6 @@ class KanjiGrammarTab(QWidget):
                                        "\nClick to open the kanji grid"))
                 if lvl == "All":
                     self._add_delta(v, "kanji", "#ffb74d", "known kanji (all levels)")
-            v.addWidget(_heat_legend())
             if kres["offlist"]:
                 off = QLabel(f"{len(kres['offlist']):,} more kanji in your cards aren't on any "
                              "JLPT level; they're at the end of the All Kanji grid.")
@@ -1249,41 +1248,6 @@ def _kg_lookup(kind: str, key: str):
         _search_grammar_web(grammar_data.data()[key])
 
 
-# The everyday particles the owner listed (2026-10-09) for the "Mark basic
-# particles as found" toggle: は, が (subject), を, に (destination / time /
-# target), で (place / means), の, も, と (and / with), へ, か (question), ね, よ.
-from .grammar_data import BASIC_PARTICLES     # (moved there 2026-10-20: the Text Check uses it too)
-
-
-def _basic_marked(overrides) -> bool:
-    found = {k.split("\t", 1)[0] for k in overrides.found}
-    return all(g in found for g in BASIC_PARTICLES)
-
-
-def _toggle_basic(overrides):
-    """Mark the everyday particles found, or unmark them again."""
-    pairs = [(g, "") for g in BASIC_PARTICLES]
-    if _basic_marked(overrides):
-        overrides.remove_found_many(pairs)
-    else:
-        overrides.add_found_many(pairs)
-
-
-def _basic_button(on_click) -> QPushButton:
-    """The basic-particles toggle (Missing → Grammar and Marked → Grammar)."""
-    btn = QPushButton()
-    btn.setStyleSheet(_tinted_button_style("#f5c518", (245, 197, 24)))
-    btn.setToolTip("は, が (subject), を, に (destination / time / target), で (place / means), "
-                   "の, も, と (and / with), へ, か (question), ね, よ")
-    btn.clicked.connect(on_click)
-    return btn
-
-
-def _basic_text(overrides) -> str:
-    return ("★ Unmark basic particles" if _basic_marked(overrides)
-            else "★ Mark basic particles as found")
-
-
 class KGMissingPanel(QWidget):
     """Missing kanji (no learned card, not marked found) or grammar points,
     each with a ★ Found button."""
@@ -1300,16 +1264,10 @@ class KGMissingPanel(QWidget):
                 "several meanings that OpenJLPT lists as separate points (に: time, destination, "
                 "place, target, frequency). A sentence can't always tell the parser which one "
                 "it is, so only clear cases are detected (3時に → time, 学校に行く → "
-                "destination). Mark the ones you know with ★ Found, or all the everyday "
-                "particles at once with the button.")
+                "destination). Mark the ones you know with ★ Found.")
             note.setWordWrap(True)
             note.setStyleSheet(HINT_CSS + " margin-bottom: 4px;")
             outer.addWidget(note)
-            brow = QHBoxLayout()
-            self._basic_btn = _basic_button(self._toggle_basic)
-            brow.addWidget(self._basic_btn)
-            brow.addStretch()
-            outer.addLayout(brow)
         ctrl = QHBoxLayout()
         ctrl.addWidget(QLabel("Level:"))
         self._level_combo = QComboBox()
@@ -1380,11 +1338,6 @@ class KGMissingPanel(QWidget):
         self.update_results(self._res)
         self.changed.emit()
 
-    def _toggle_basic(self):
-        _toggle_basic(self._overrides)
-        self.update_results(self._res)
-        self.changed.emit()
-
     def update_results(self, res: dict):
         self._res = res
         miss = self._missing()
@@ -1431,8 +1384,6 @@ class KGMissingPanel(QWidget):
                               "background: #333; border: 1px solid #665a1f; border-radius: 3px;")
             btn.clicked.connect(lambda _=False, k=key: self._mark_found(k))
             self._table.setCellWidget(i, col, btn)
-        if self._kind == "grammar":
-            self._basic_btn.setText(_basic_text(self._overrides))
 
     def _on_click(self, item):
         key = self._shown[item.row()][1]
@@ -1470,15 +1421,6 @@ class KGOverridesPanel(QWidget):
         outer = QVBoxLayout(self)
         self._found_hdr = QLabel()
         outer.addWidget(self._found_hdr)
-        # Same toggle as Missing → Grammar, under the found header like the
-        # vocab page's loanword button.
-        self._basic_btn = None
-        if kind == "grammar":
-            self._basic_btn = _basic_button(self._toggle_basic)
-            brow = QHBoxLayout()
-            brow.addWidget(self._basic_btn)
-            brow.addStretch()
-            outer.addLayout(brow)
         self._found_table = self._make_table()
         set_empty_hint(self._found_table, f"No {noun} marked as found yet. Middle-click a tile in "
                        "the grids to count one you know without a card.")
@@ -1551,14 +1493,7 @@ class KGOverridesPanel(QWidget):
                                   "background: #333; border: 1px solid #555; border-radius: 3px;")
                 btn.clicked.connect(lambda _=False, k=key, f=found: self._revert(k, f))
                 table.setCellWidget(i, 3, btn)
-        if self._basic_btn is not None:
-            self._basic_btn.setText(_basic_text(self._overrides))
-        _regold(self)          # header, Revert buttons and toggle were just rewritten
-
-    def _toggle_basic(self):
-        _toggle_basic(self._overrides)
-        self.refresh()
-        self.changed.emit()
+        _regold(self)          # header and Revert buttons were just rewritten
 
     def _revert(self, key: str, found: bool):
         if found:

@@ -102,7 +102,7 @@ Where your grammar comes from:
 
 ### Missing tab
 - A **Show: Vocab / Kanji / Grammar** dropdown at the top. Kanji: every JLPT kanji with no learned card (level, kanji, meaning, on, kun; most common first or by level); grammar: every point not learned (level, pattern, meaning, formation). Click a kanji row to copy it, or a grammar row to find every form of the point in your deck (see below); Shift+Click → Jisho (kanji) or a web search (grammar)
-- Grammar also has a note on why some obvious points are listed, a **★ Found** button on every row (kanji too), and **★ Mark basic particles as found** (toggle): は, が (subject), を, に (destination / time / target), で (place / means), の, も, と (and / with), へ, か (question), ね, よ
+- Grammar also has a note on why some obvious points are listed, a **★ Found** button on every row (kanji too)
 - Vocab: a filterable table of missing words, by level or all levels
 - Click a row to copy the word; Shift+Click to look it up on Jisho
 - **Copy all to clipboard** exports the list as TSV (word TAB reading)

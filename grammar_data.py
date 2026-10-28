@@ -105,8 +105,9 @@ def field_parts(raw: str) -> tuple[list[tuple[str, str]], str]:
 _DATA = None
 _INDEX = None
 
-# The basic particles (owner's list, 2026-10-09): their own "★ Mark basic
-# particles as found" button, and left out of the Text Check's grammar list.
+# The basic particles (owner's list, 2026-10-09): left out of the Text
+# Check's grammar list. (Their "★ Mark basic particles as found" button went
+# 2026-10-28: the parser finds every one in any deck with sentences.)
 BASIC_PARTICLES = ["wa", "ga-subject", "o", "ni-destination", "ni-time",
                    "ni-indirect-object", "de-place", "de-means", "no", "mo", "to-and",
                    "to-with", "e", "ka-question", "ne", "yo"]

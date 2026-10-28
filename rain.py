@@ -33,6 +33,7 @@ FRAME_MS = 16                 # 60 fps while running: low frame rates looked bad
 DROP_AREA = 7500              # px² of window per drop on the glass
 LIGHT_REACH = 60              # px: how far a tube's light reaches a drop
 SPARK_EVERY = (25.0, 70.0)    # s between sparks (random in this range)
+SPARK_SCALE = 0.75            # a spark's size: reach, flash, line width (owner 2026-10-28: a little smaller)
 STUTTER_EVERY = (150.0, 360.0)  # s between tube stutters (very rare)
 SLIDE_EVERY = (1.5, 4.5)      # s between drops starting to run
 RAIN_PER_S = 5.0              # falling streaks per second beyond the glass
@@ -529,7 +530,7 @@ class RainGlass(QWidget):
         parts = []
         for _ in range(r.randint(18, 32)):
             a = r.uniform(-math.pi * 0.95, math.pi * 0.25)
-            v = r.uniform(140, 460)
+            v = r.uniform(140, 460) * SPARK_SCALE
             parts.append([x0, y0, math.cos(a) * v, math.sin(a) * v, r.uniform(0.35, 0.85)])
         sp = {"t0": t, "x0": x0, "y0": y0, "color": QColor(color), "parts": parts, "box": QRect()}
         self._move_spark(sp, 0.0)
@@ -558,7 +559,7 @@ class RainGlass(QWidget):
         for p in sp["parts"]:
             p[0] += p[2] * dt
             p[1] += p[3] * dt
-            p[3] += 700 * dt                   # gravity
+            p[3] += 700 * SPARK_SCALE * dt     # gravity (scaled: the same arc, smaller)
             p[2] *= 0.985
             xs += [p[0], p[0] - p[2] * 0.04]
             ys += [p[1], p[1] - p[3] * 0.04]
@@ -761,7 +762,8 @@ class RainGlass(QWidget):
             age = t - sp["t0"]
             base = sp["color"]
             if age < 0.12:                     # the flash where it broke off
-                g = QRadialGradient(QPointF(sp["x0"], sp["y0"]), 22)
+                fr = 22 * SPARK_SCALE
+                g = QRadialGradient(QPointF(sp["x0"], sp["y0"]), fr)
                 c0 = QColor(base).lighter(170)
                 c0.setAlpha(int(220 * (1 - age / 0.12)))
                 c1 = QColor(base)
@@ -770,17 +772,17 @@ class RainGlass(QWidget):
                 g.setColorAt(1, c1)
                 p.setPen(Qt.PenStyle.NoPen)
                 p.setBrush(QBrush(g))
-                p.drawEllipse(QPointF(sp["x0"], sp["y0"]), 22, 22)
+                p.drawEllipse(QPointF(sp["x0"], sp["y0"]), fr, fr)
             for x, y, vx, vy, life in sp["parts"]:
                 f = 1 - age / life
                 if f <= 0:
                     continue
                 c = QColor(base).lighter(150)
                 c.setAlpha(int(230 * f))
-                p.setPen(QPen(c, 1.8))
+                p.setPen(QPen(c, 1.8 * SPARK_SCALE))
                 p.drawLine(QPointF(x, y), QPointF(x - vx * 0.04, y - vy * 0.04))
                 p.setPen(Qt.PenStyle.NoPen)
                 core = QColor(base).lighter(190)
                 core.setAlpha(int(255 * f))
                 p.setBrush(core)
-                p.drawEllipse(QPointF(x, y), 2.0, 2.0)
+                p.drawEllipse(QPointF(x, y), 2.0 * SPARK_SCALE, 2.0 * SPARK_SCALE)

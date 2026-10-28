@@ -431,6 +431,33 @@ FREQ_SOURCE_SPEECH = ("Everyday speech percentage: CEJC (Corpus of Everyday Japa
                       "NINJAL) — top 20,000 content words; particles, numerals and proper nouns excluded.")
 
 
+# The rank's milestones (the rank "?" window); N5–N1 also in the JLPT goal's
+# "?" (goal_view, owner 2026-10-28), so both read from here.
+MILESTONES_EN = [
+    '<b>0 – 799 Words:</b> The core of the language: greetings, numbers, and the everyday nouns and verbs every sentence leans on.',
+    '<b>800 Words (about N5):</b> Simple everyday Japanese: introducing yourself, shopping, times and dates. The N5 word list covers this level well.',
+    '<b>1,500 Words (about N4):</b> Daily-life basics: short conversations and simple texts about everyday things. The N4 word list covers this level well.',
+    '<b>3,900 Words (about N3):</b> Everyday Japanese starts to open up: casual conversation, simple articles, easier manga and games. The JLPT lists still cover most of what N3 asks for.',
+    '<b>6,000 Words (about N2):</b> Real written Japanese: newspaper-style articles and essays, plus most manga, games and light novels. N2 tests authentic texts, so learn the JLPT lists first, then the most common written words (the Top 6,000 bar).',
+    '<b>13,800 Words (about N1):</b> The entry point for the highest rank. Editorials, novels and work documents, with room to spare at N1. The lists fall well short here; the most common written words (the Top 13,800 bar) fill the gap.',
+    '<b>20,000 Words (Max Rank / Near-Native):</b> The ceiling of the rank: roughly the active vocabulary of an average Japanese adult (the words they use themselves). Most words in everyday reading (news, novels, the web) are familiar. Native speakers recognise far more, often 40,000 or more, so specialist fields and literary Japanese still bring new words.',
+]
+MILESTONES_JA = [
+    '<b>0〜799語：</b>言葉の核：あいさつ、数、どの文にも出てくる日常の名詞や動詞。',
+    '<b>800語（N5相当）：</b>簡単な日常の日本語：自己紹介、買い物、時刻や日付。このレベルはN5の語彙リストで十分カバーできます。',
+    '<b>1,500語（N4相当）：</b>日常生活の基本：身の回りのことについての短い会話や簡単な文章。このレベルはN4の語彙リストで十分カバーできます。',
+    '<b>3,900語（N3相当）：</b>日常の日本語が開けてくる段階：くだけた会話、簡単な記事、易しめの漫画やゲーム。N3が求める語彙の大部分は、まだJLPTリストでカバーできます。',
+    '<b>6,000語（N2相当）：</b>本物の書き言葉：新聞のような記事や評論、そして多くの漫画・ゲーム・ライトノベル。N2では本物の文章が出るので、まずJLPTリストを、次に書き言葉の最頻出語を（上位6,000のバー）。',
+    '<b>13,800語（N1相当）：</b>最高ランクの入口。社説、小説、仕事の文書。N1にも余裕を持って臨めます。ここではリストだけでは大きく足りず、書き言葉の最頻出語（上位13,800のバー）がその差を埋めます。',
+    '<b>20,000語（最高ランク・ネイティブ級）：</b>ランクの頂点：平均的な日本人の大人が自分で使う語彙（使用語彙）のおよその量です。日常の読み物（ニュース・小説・ネット）の語はほとんど見覚えがあります。ネイティブが理解できる語（理解語彙）はさらに多く、4万語以上とも言われるので、専門分野や文学的な日本語ではまだ新しい語に出会います。',
+]
+
+
+def _milestone_lines(items) -> str:
+    return "<br>".join("&nbsp;&nbsp;• " + x for x in items)
+
+
+
 def _show_freq_info_dialog(parent=None):
     """The Frequency Check's "?" (owner 2026-10-20): the explanation that used
     to sit above the bars."""
@@ -560,13 +587,7 @@ By measuring your overall raw vocabulary size, this system helps you track the "
 
 <b style="color:#fff;">Progress Tiers &amp; Milestones</b><br>
 <i style="color:#aaa;">Cumulative: each milestone includes the vocabulary below it. The sizes follow modern estimates for each JLPT level.</i><br>
-&nbsp;&nbsp;• <b>0 – 799 Words:</b> The core of the language: greetings, numbers, and the everyday nouns and verbs every sentence leans on.<br>
-&nbsp;&nbsp;• <b>800 Words (about N5):</b> Simple everyday Japanese: introducing yourself, shopping, times and dates. The N5 word list covers this level well.<br>
-&nbsp;&nbsp;• <b>1,500 Words (about N4):</b> Daily-life basics: short conversations and simple texts about everyday things. The N4 word list covers this level well.<br>
-&nbsp;&nbsp;• <b>3,900 Words (about N3):</b> Everyday Japanese starts to open up: casual conversation, simple articles, easier manga and games. The JLPT lists still cover most of what N3 asks for.<br>
-&nbsp;&nbsp;• <b>6,000 Words (about N2):</b> Real written Japanese: newspaper-style articles and essays, plus most manga, games and light novels. N2 tests authentic texts, so learn the JLPT lists first, then the most common written words (the Top 6,000 bar).<br>
-&nbsp;&nbsp;• <b>13,800 Words (about N1):</b> The entry point for the highest rank. Editorials, novels and work documents, with room to spare at N1. The lists fall well short here; the most common written words (the Top 13,800 bar) fill the gap.<br>
-&nbsp;&nbsp;• <b>20,000 Words (Max Rank / Near-Native):</b> The ceiling of the rank: roughly the active vocabulary of an average Japanese adult (the words they use themselves). Most words in everyday reading (news, novels, the web) are familiar. Native speakers recognise far more, often 40,000 or more, so specialist fields and literary Japanese still bring new words.<br><br>
+{_milestone_lines(MILESTONES_EN)}<br><br>
 
 <b style="color:#fff;">Frequency Check</b><br>
 Card count alone can be misleading: 13,800 obscure words match the modern N1 vocabulary estimate in number without preparing you for N1.
@@ -610,13 +631,7 @@ N1、そしてその先までの進み具合を現実的に示すため、ここ
 
 <b style="color:#fff;">段階と節目</b><br>
 <i style="color:#aaa;">累計です。各節目はそれ以前の語彙をすべて含みます。語数は各JLPTレベルの現代の推定に合わせています。</i><br>
-&nbsp;&nbsp;• <b>0〜799語：</b>言葉の核：あいさつ、数、どの文にも出てくる日常の名詞や動詞。<br>
-&nbsp;&nbsp;• <b>800語（N5相当）：</b>簡単な日常の日本語：自己紹介、買い物、時刻や日付。このレベルはN5の語彙リストで十分カバーできます。<br>
-&nbsp;&nbsp;• <b>1,500語（N4相当）：</b>日常生活の基本：身の回りのことについての短い会話や簡単な文章。このレベルはN4の語彙リストで十分カバーできます。<br>
-&nbsp;&nbsp;• <b>3,900語（N3相当）：</b>日常の日本語が開けてくる段階：くだけた会話、簡単な記事、易しめの漫画やゲーム。N3が求める語彙の大部分は、まだJLPTリストでカバーできます。<br>
-&nbsp;&nbsp;• <b>6,000語（N2相当）：</b>本物の書き言葉：新聞のような記事や評論、そして多くの漫画・ゲーム・ライトノベル。N2では本物の文章が出るので、まずJLPTリストを、次に書き言葉の最頻出語を（上位6,000のバー）。<br>
-&nbsp;&nbsp;• <b>13,800語（N1相当）：</b>最高ランクの入口。社説、小説、仕事の文書。N1にも余裕を持って臨めます。ここではリストだけでは大きく足りず、書き言葉の最頻出語（上位13,800のバー）がその差を埋めます。<br>
-&nbsp;&nbsp;• <b>20,000語（最高ランク・ネイティブ級）：</b>ランクの頂点：平均的な日本人の大人が自分で使う語彙（使用語彙）のおよその量です。日常の読み物（ニュース・小説・ネット）の語はほとんど見覚えがあります。ネイティブが理解できる語（理解語彙）はさらに多く、4万語以上とも言われるので、専門分野や文学的な日本語ではまだ新しい語に出会います。<br><br>
+{_milestone_lines(MILESTONES_JA)}<br><br>
 
 <b style="color:#fff;">頻度チェック</b><br>
 カードの数だけでは誤解を招くことがあります。めったに使われない13,800語でも「必要なN1語彙（現代の推定）」と数の上では同じですが、それでN1の準備ができるわけではありません。
@@ -5932,8 +5947,9 @@ class _UnlistedPanel(QWidget):
         n_common = sum(1 for _, _, nid in self._words if nid in self._nid_rank)
         info  = QLabel(
             f"<b>Off-list words</b> — {len(self._words):,} cards in your deck aren't on "
-            "the Kotodama JLPT lists. The lists are old and incomplete, so many of these "
-            "can still appear on the test. "
+            "the Kotodama JLPT lists. The lists hold the words most likely on the test, but "
+            "the higher levels ask for more words than any list holds, so many of these can "
+            "still appear on the test too. "
             f"{n_common:,} of them are among the {freq_data.TIERS[-1]:,} most common words, "
             "and they all count toward your rank and the Frequency Check.<br>"
             "<span style='color:#aaa; font-size:13px;'>"

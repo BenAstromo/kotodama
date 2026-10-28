@@ -8,8 +8,8 @@ Everything is a link to the Browser (owner): a heading opens everything
 under it (Today → all of today's cards, Words · 12 → today's words), an
 item opens just its own card, a day line or bar that day's. No buttons.
 
-Opened by the +N today / this week / this month links (history_view), the
-goal card's "Today" (goal_view) and, once a day, by itself when the word
+Opened by the goal card's "Today" (goal_view; the +N today / week / month
+links open the Browser instead, owner 2026-10-28) and, once a day, by itself when the word
 target is reached (ProgressDialog). One window per main window: opening it
 again rebuilds it.
 """
@@ -24,8 +24,8 @@ from . import review
 from .jlpt_data import LEVEL_COLORS
 from .theme import BODY_CSS, HINT_CSS, SECTION_CSS
 
-KANJI_COLOR = "#ffb74d"          # history_view's kanji / grammar colours
-GRAMMAR_COLOR = "#ce93d8"
+KANJI_COLOR = "#4fc3a1"          # the share card's kanji / grammar bar colours (owner 2026-10-28)
+GRAMMAR_COLOR = "#a493f0"
 ALL_COLOR = "#ffffff"            # words without a goal
 DIM_BAR = "#4a2a2a"              # a day under the word target
 DIM_GOLD = "#4a3c10"
@@ -239,8 +239,20 @@ class ReviewWindow(QDialog):
                      f"&nbsp;&nbsp;<span style='color:#888888; font-size:12px;'>{html.escape(meaning)}</span>")
         lbl.setWordWrap(True)
         lbl.setProperty("jlpt_gold_skip", True)
-        tip = meanings.tooltip_html(x["text"], x["reading"])
+        tip = self._level_tip(x) + meanings.tooltip_html(x["text"], x["reading"])
         return self._click(lbl, self._open([x["nid"]]), tip)
+
+    def _level_tip(self, x: dict) -> str:
+        """The hover's first line (owner 2026-10-28): the word's JLPT level,
+        or its frequency rank for a goal's step-2 word."""
+        if x.get("level"):
+            return (f"<b style='color:{_c(LEVEL_COLORS[x['level']])};'>{x['level']}</b>"
+                    "<br>")
+        if x.get("rank"):
+            if _gold():
+                return f"<b>よく使われる語 #{x['rank']:,}</b>（JLPTリスト外）<br>"
+            return f"<b>Common word #{x['rank']:,}</b> (not on the JLPT lists)<br>"
+        return "<b>JLPTリスト外</b><br>" if _gold() else "<b>Not on the JLPT lists</b><br>"
 
     def _kanji_line(self, lay, items: list, big: bool):
         """The kanji in one wrapping line, each a link (its hover: where it
@@ -352,8 +364,15 @@ class ReviewWindow(QDialog):
         st = d["goal"]
         per = st["kinds"]["vocab"]["per_day"] if st and st["phase"] == "plan" and "vocab" in st["kinds"] else 0
         if per:
-            lay.addWidget(_label(f"Needed pace: {per:,} a day → {per * self._days_back:,} "
-                                 f"in {self._days_back} days", HINT_CSS))
+            # every kind's pace over the period (owner 2026-10-28), from the goal's per day
+            def over(k):                # a weekly kind (goal.status): its week's share
+                if k.get("weekly"):
+                    return -(-k["per_week"] * self._days_back // 7)
+                return k["per_day"] * self._days_back
+            need = [f"{over(k):,} {name}"
+                    for kind, name in (("vocab", "words"), ("kanji", "kanji"), ("grammar", "grammar"))
+                    for k in [st["kinds"].get(kind)] if k and k["per_day"]]
+            lay.addWidget(_label(f"Needed in {self._days_back} days: " + " · ".join(need), HINT_CSS))
         self._bars(lay, per)
 
         # Words, day by day (newest first).

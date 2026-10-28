@@ -88,11 +88,26 @@ def open_gained(series: dict, parts, days_back: int, parent=None):
     b.search_for("nid:" + ",".join(str(n) for n in nids))
 
 
+def gain_tip(parts, days: int) -> str:
+    """A +N number's hover (owner 2026-10-28, every one): what it's made of.
+    parts = history.gain_parts()."""
+    d, cards, joined = parts
+    when = {1: "today", 7: "this week", 30: "this month"}.get(days, f"in {days} days")
+    lines = [f"{d:+,} {when}: {cards:,} learned from cards"
+             + (f", {joined:,} marked English {'loanword' if joined == 1 else 'loanwords'} joined"
+                if joined else "")
+             + (f", {cards - d:,} lost (cards reset to new)" if d < cards else "") + "."]
+    if joined:
+        lines.append("Marked loanwords join as your learned words reach their place on the frequency "
+                     "list. They have no card, so the Browser shows only the cards.")
+    lines.append("Click to see the cards in the Browser.")
+    return "\n".join(lines)
+
+
 def connect_gain_links(lbl: QLabel, series_fn):
-    """Make a label's "gain:<key>:<days>" links open the Progress Review
-    (owner 2026-10-27; the past 30 days for "this month", else 7), or the
-    Browser outside the main window. series_fn() gives the current series
-    (it's rebuilt on refresh)."""
+    """Make a label's "gain:<key>:<days>" links open those notes in the
+    Browser (owner 2026-10-28: the Progress Review is only the JLPT goal's).
+    series_fn() gives the current series (it's rebuilt on refresh)."""
     lbl.setTextInteractionFlags(Qt.TextInteractionFlag.LinksAccessibleByMouse)
     lbl.setOpenExternalLinks(False)
 
@@ -100,11 +115,25 @@ def connect_gain_links(lbl: QLabel, series_fn):
         if not href.startswith("gain:"):
             return
         _g, key, days = href.split(":")
-        from .review_view import open_from
-        if open_from(lbl, 30 if int(days) >= 30 else 7):
-            return
         open_gained(series_fn(), [(key, None)], int(days), lbl)
     lbl.linkActivated.connect(activated)
+
+    # Hovering a number: what it's made of, when marked loanwords joined
+    # (owner 2026-10-28: "+35 today" opened 30 cards in the Browser).
+    base_tip = [None]                   # the label's own tooltip, off the numbers
+
+    def hovered(href: str):
+        if base_tip[0] is None:
+            base_tip[0] = lbl.toolTip()
+        parts = None
+        if href.startswith("gain:"):
+            _g, key, days = href.split(":")
+            parts = history.gain_parts(series_fn(), key, int(days))
+        if not parts:
+            lbl.setToolTip(base_tip[0])
+            return
+        lbl.setToolTip(gain_tip(parts, int(days)))
+    lbl.linkHovered.connect(hovered)
 
 
 def delta_label(series: dict, key: str, color: str, what: str) -> QLabel | None:
@@ -117,7 +146,7 @@ def delta_label(series: dict, key: str, color: str, what: str) -> QLabel | None:
     lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
     lbl.setStyleSheet(BODY_CSS + " color: #bbbbbb; padding: 1px 0 3px 0;")
     lbl.setToolTip(f"Change in {what} today and over the last 7 and 30 days. "
-                   "Click a number for the Progress Review: what you learned, each card a click away. "
+                   "Click a number to see those cards in the Browser. "
                    "The History tab has the chart and lifetime numbers.")
     connect_gain_links(lbl, lambda: series)
     from .progress_dialog import _regold

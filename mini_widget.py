@@ -128,7 +128,8 @@ def _goal_html(results: dict, deck_name: str, gold: bool) -> str:
     if not text:
         return ""
     v = st["kinds"]["vocab"]
-    pct = min(1.0, v["today"] / v["per_day"]) * 100 if v["per_day"] else 100.0
+    got, need = (v["week"], v["per_week"]) if v.get("weekly") else (v["today"], v["per_day"])
+    pct = min(1.0, got / need) * 100 if need else 100.0
     done = goal.done_today(v)
     if gold:
         fill, col = "#f5c518", "#f5c518"

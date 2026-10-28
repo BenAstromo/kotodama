@@ -43,7 +43,10 @@ EXACT = {
     "N1 the goal is the modern vocabulary size, about 6,000 words for N2 and 13,800 for N1, in two "
     "steps: first every word on the JLPT lists up to that level, since those are the words most "
     "likely on the test; then the rest from the most common words of written Japanese that aren't "
-    "on the lists (the Frequency grid). The JLPT hasn't published word lists since 2010; ours build "
+    "on the lists (the Frequency grid). Any of those common words counts, not only the most common "
+    "few: immersion brings words in its own order, so a rarer word you really learned still counts, "
+    "and the Frequency grid lists them most common first for when you study on purpose. The JLPT "
+    "hasn't published word lists since 2010; ours build "
     "on the old pre-2010 lists, which are close enough up to N3 but stop well short of N2 and N1 "
     "(about 8,000 words up to N1). Written Japanese matters more at N2 and N1, whose reading "
     "sections are newspaper-style articles and essays, and these are the levels employers and "
@@ -51,7 +54,9 @@ EXACT = {
         "数える単語：N5〜N3はJLPT語彙リスト（JLPT語彙バー）。N2とN1の目標は現代の語彙量の推定"
         "（N2は約6,000語、N1は約13,800語）で、2段階です。まず、そのレベルまでのJLPTリストの語を"
         "すべて（試験に最も出やすい語なので）。次に残りを、リストにない書き言葉の最頻出語から"
-        "（頻度グリッド）。JLPTは2010年以降、語彙リストを公開していません。このアドオンのリストは"
+        "（頻度グリッド）。最頻出の一部だけでなく、これらの頻出語ならどれでも数えます。多読・多聴では"
+        "語が出会った順に入ってくるので、少し珍しい語でも本当に覚えたなら数えます。意識して勉強する"
+        "ときのために、頻度グリッドは頻出順に並んでいます。JLPTは2010年以降、語彙リストを公開していません。このアドオンのリストは"
         "2010年以前の旧リストが基で、N3までは十分近いものの、N2・N1には大きく足りません"
         "（N1までで約8,000語）。書き言葉はN2・N1でより重要になり、読解は新聞のような記事や評論です。"
         "就職や進学で重視されるのもこのレベルです。漢字と文法は常にJLPTリストを使います。",
@@ -62,9 +67,32 @@ EXACT = {
     "Review time: the last two weeks before the test are for review and practice tests.":
         "復習期間：試験前の最後の2週間は、復習と模擬試験のための期間です。",
     "The finish line is 14 days before the test: the last two weeks are for review and practice "
-    "tests. Fall behind and the daily number goes up; get ahead and it goes down.":
-        "ゴールは試験の14日前：最後の2週間は復習と模擬試験のためです。"
-        "遅れると1日の量が増え、先に進むと減ります。",
+    "tests. Per day is what's left at the start of today, divided by the days to the finish line: "
+    "fall behind and the daily number goes up; get ahead and it goes down.":
+        "ゴールは試験の14日前：最後の2週間は復習と模擬試験のためです。1日の量は、今日の始まりに"
+        "残っていた量をゴールまでの日数で割ったもの。遅れると1日の量が増え、先に進むと減ります。",
+    # the goal card's "?" (goal_view._show_info, owner 2026-10-28)
+    "<b>How many words each level needs</b>": "<b>各レベルに必要な語数</b>",
+    "Cumulative: each level includes the vocabulary below it. The sizes follow modern estimates "
+    "for each JLPT level, the same milestones as the rank.":
+        "累計です。各レベルはそれ以下の語彙をすべて含みます。語数は各JLPTレベルの現代の推定に"
+        "合わせた、ランクと同じ節目です。",
+    "<b>Which words count</b>": "<b>数える単語</b>",
+    "<b>The daily number</b>": "<b>1日の量</b>",
+    "English loanwords you mark as found join your known words gradually, as your card count "
+    "grows. Until one joins, the goal leaves it out of what's still to learn, so the daily number "
+    "doesn't ask you to study a word you already know.":
+        "見つけた印を付けた英語の外来語は、カードが増えるにつれて少しずつ既知語に加わります。"
+        "加わるまでは目標の「残り」から外すので、もう知っている語を1日の量で求めることはありません。",
+    "When kanji or grammar need 6 or fewer a week, they show a number for the week instead, counted over "
+    "the past 7 days. It turns green when you learn one today, or when the past 7 days already "
+    "reach the week's number.":
+        "漢字や文法が週6つ以下でよいときは、代わりに週の数を表示します（過去7日間で数えます）。今日1つ覚えるか、"
+        "過去7日間ですでに週の数に届いていれば緑になります。",
+    "Click a Today number for the Progress Review: what you learned today and this week, each "
+    "card a click away.":
+        "「今日」の数字をクリックすると振り返りが開きます：今日と今週に覚えたもの、"
+        "どのカードもクリックひとつで。",
     "Time with Kotodama": "言霊と過ごした時間",     # rank "?" window (loyalty.py)
     # tabs and window
     "Overview": "概要",
@@ -234,8 +262,6 @@ EXACT = {
     "Reset All Suspended": "保留をすべて解除",
     "Revert": "元に戻す",
     "★ Found": "★ 発見済み",
-    "★ Mark basic particles as found": "★ 基本の助詞を発見済みにする",
-    "★ Unmark basic particles": "★ 基本の助詞を元に戻す",
     "Click a row to copy the word to clipboard.": "行をクリックすると単語をコピーします。",
     "Click a row to copy the word · Shift+Click to open it on Jisho.org.":
         "行をクリックで単語をコピー · Shift+クリックでJisho.orgを開く",
@@ -440,13 +466,16 @@ def _date_ja(text: str) -> str:
 
 
 _GOAL_UNITS = {"word": "語", "words": "語", "kanji": "字", "grammar point": "文法", "grammar points": "文法"}
-_GOAL_HEADS = {"Per day": "1日あたり", "Today": "今日", "Still to learn": "残り"}
+_GOAL_HEADS = {"Per day": "1日あたり", "Today": "今日", "Still to learn": "残り",
+               "This week": "今週", "Learned": "習得済み"}
 
 
 def _goal_counts_ja(m) -> str:
     """"Per day: <b>14</b> words · <b>3</b> kanji" → "1日あたり：<b>14</b> 語 · <b>3</b> 字"."""
     body = re.sub(r"(</b>(?: / [\d,]+)?) (grammar points?|words?|kanji)\b",
                   lambda u: f"{u.group(1)} {_GOAL_UNITS[u.group(2)]}", m.group(2))
+    # a weekly kind (under 1 a day, goal_view)
+    body = body.replace(" a week", "（週あたり）").replace(" this week", "（今週）")
     return f"{_GOAL_HEADS[m.group(1)]}：{body}"
 
 
@@ -490,7 +519,7 @@ PATTERNS = [
      lambda m: f"JLPT {m.group(1)} の試験（{_date_ja(m.group(2))}）はいかがでしたか？"),
     (re.compile(r"^Everything up to (N\d) is learned\. The rest is review\.$"),
      r"\1 までをすべて習得しました。あとは復習です。"),
-    (re.compile(r"^(Per day|Today|Still to learn): (.*)$", re.S), _goal_counts_ja),
+    (re.compile(r"^(Per day|Today|Still to learn|This week|Learned): (.*)$", re.S), _goal_counts_ja),
     (re.compile(r"^Not included: ([\d,]+) English loanwords you marked found\. "
                 r"They join on their own as your card count grows\.$"),
      r"含まれていないもの：発見済みにした英語の外来語 \1 語。カードが増えるにつれて自然に加わります。"),
@@ -511,19 +540,12 @@ PATTERNS = [
                 + "|".join(_PACE_NAMES_LOWER) + r")\)\."),
      lambda m: f"{_date_ja(m.group(1))}の試験にすれば：1日約 {m.group(2)} 語（{_PACE_NAMES_LOWER[m.group(3)]}）。"),
     (re.compile(r"^" + _DATE_RX + r"$"), lambda m: _date_ja(m.group(0))),          # the date list
-    (re.compile(r"^Why two steps: the JLPT word lists hold the words most likely on the test, so they come "
-                r"first\. (N\d) also asks for about ([\d,]+) words in all, so the rest comes from the most "
-                r"common words of written Japanese, which matter more at N2 and N1\.$"),
-     r"2段階の理由：JLPT語彙リストには試験に最も出やすい語が入っているので先に。\1 は全部で約 \2 語"
-     r"必要なので、残りは書き言葉の最頻出語から（N2・N1ではより重要）。"),
     (re.compile(r"^Step 1 · JLPT word lists up to (N\d): (.+) / ([\d,]+) \(the JLPT Vocabulary bars and grids\)$"),
      r"ステップ1 · \1 までのJLPT語彙リスト：\2 / \3（JLPT語彙バーとグリッド）"),
     (re.compile(r"^Step 2 · then common words not on the lists: (.+) / ([\d,]+) \(the Frequency grid, most common first\)$"),
      r"ステップ2 · 次にリストにない頻出語：\1 / \2（頻度グリッド、頻出順）"),
     (re.compile(r"<br>Step 1, JLPT word lists: ([\d,]+) to go · step 2, common words: ([\d,]+) to go\."),
      r"<br>ステップ1（JLPT語彙リスト）：残り \1 · ステップ2（頻出語）：残り \2。"),
-    (re.compile(r"^Words: the JLPT word lists up to (N\d) \(the JLPT Vocabulary bars above\)\.$"),
-     r"単語：\1 までのJLPT語彙リスト（上のJLPT語彙バー）。"),
     (re.compile(r"Goal words \((N\d)\)"), r"目標の単語（\1）"),                      # History legend (N2 / N1 goal)
     # Progress Review (review_view.py, owner 2026-10-27)
     (re.compile(r"^(Words|Kanji|Grammar) · ([\d,]+)$"),
@@ -537,8 +559,12 @@ PATTERNS = [
     (re.compile(r"^([\d,]+) words?$"), r"\1 語"),
     (re.compile(r"^([\d,]+) kanji$"), r"\1 字"),
     (re.compile(r"^([\d,]+) grammar$"), r"文法 \1"),
-    (re.compile(r"^Needed pace: ([\d,]+) a day → ([\d,]+) in ([\d,]+) days$"),
-     r"必要なペース：1日 \1 語 → \3日で \2 語"),
+    (re.compile(r"^Needed in ([\d,]+) days: (.+)$"),
+     lambda m: f"{m.group(1)}日で必要な量：" + " · ".join(
+         re.sub(r"^([\d,]+) (words|kanji|grammar)$",
+                lambda p: f"{p.group(1)} {'語' if p.group(2) == 'words' else '字'}"
+                if p.group(2) != "grammar" else f"文法 {p.group(1)}", part)
+         for part in m.group(2).split(" · "))),
     (re.compile(r"^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (\d+)$"),
      lambda m: f"{m.group(2)}日（{_JA_WEEKDAYS[m.group(1)]}）"),
     (re.compile(r"^(Mon|Tue|Wed|Thu|Fri|Sat|Sun)$"), lambda m: _JA_WEEKDAYS[m.group(1)]),
@@ -657,7 +683,7 @@ PATTERNS = [
      "<b>当たり前の文型がここにあるのはなぜ？</b> に・で・が のような短い形には意味がいくつもあり、"
      "OpenJLPTでは別々の項目です（に：時間・目的地・場所・相手・頻度）。文からはどれか判別"
      "できないことがあるので、はっきりした場合だけ検出します（3時に → 時間、学校に行く → "
-     "目的地）。知っているものは ★ 発見済み で、日常の助詞はボタンでまとめて登録できます。"),
+     "目的地）。知っているものは ★ 発見済み で登録できます。"),
     (re.compile(r"^Mark (kanji|grammar points) found or suspended with middle-click / "
                 r"Ctrl\+middle-click in the grids \(Kanji & Grammar tab\)\. Press Refresh to "
                 r"update the bars\."),
@@ -667,7 +693,8 @@ PATTERNS = [
     (re.compile(r"^<b>Off-list words</b> — ([\d,]+) cards in your deck aren't on the Kotodama "
                 r"JLPT lists\..*?([\d,]+) of them are among the ([\d,]+) most common words.*", re.S),
      r"<b>リスト外の単語</b> — デッキの \1 枚のカードは言霊のJLPTリストにありません。"
-     r"リストは古く不完全なので、多くは試験に出ることもあります。そのうち \2 枚は最頻出 \3 語に"
+     r"リストには試験に最も出やすい語が入っていますが、上のレベルではどのリストよりも多くの語が"
+     r"求められるので、これらの多くも試験に出ることがあります。そのうち \2 枚は最頻出 \3 語に"
      r"入り、すべてランクと頻度チェックに数えられます。<br><span style='color:#aaa; font-size:11px;'>"
      r"タイルは 成熟 → 若い の順、各グループ内はよく使われる順。リストはよく使われる"
      r"順です（≈ は頻度リストで分割される複合語の推定順位、例：日本語）。仕切りをドラッグして"

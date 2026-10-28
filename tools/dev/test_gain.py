@@ -82,4 +82,19 @@ img = lbl.grab().toImage()
 blue = sum(1 for x in range(img.width()) for y in range(img.height())
            if (lambda c: c.blue() > 150 and c.red() < 90 and c.green() < 140)(img.pixelColor(x, y)))
 check("no default blue link colour", blue, 0)
+# every +N hover: what it's made of (owner 2026-10-28: "+35 today", 30 cards)
+ls = {"days": days[:3], "gains": {"rank": [0, 5, 40]},
+      "gained": {"rank": [(2, n, None) for n in range(30)] + [(1, 99, None)] * 5}}
+check("parts: 30 cards + 5 loanwords today", history.gain_parts(ls, "rank", 1), (35, 30, 5))
+tip = history_view.gain_tip(history.gain_parts(ls, "rank", 1), 1)
+check("tip names both", tip.splitlines()[0],
+      "+35 today: 30 learned from cards, 5 marked English loanwords joined.")
+check("tip, cards only", history_view.gain_tip((3, 3, 0), 7).splitlines()[0], "+3 this week: 3 learned from cards.")
+check("tip, a reset card", history_view.gain_tip((2, 3, 0), 30).splitlines()[0],
+      "+2 this month: 3 learned from cards, 1 lost (cards reset to new).")
+lbl2 = history_view.delta_label(ls, "rank", "#ff5c8a", "x")
+lbl2.linkHovered.emit("gain:rank:1")
+check("hover sets it", lbl2.toolTip().splitlines()[0], "+35 today: 30 learned from cards, 5 marked English loanwords joined.")
+lbl2.linkHovered.emit("")
+check("off the number: the label's own tip", lbl2.toolTip().startswith("Change in x"), True)
 print("FAILS:", fails or "none")

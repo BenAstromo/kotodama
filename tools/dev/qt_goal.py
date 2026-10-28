@@ -30,7 +30,7 @@ app = QtWidgets.QApplication([])
 app.setFont(QtGui.QFont("Segoe UI", 9))
 
 from jlpt_progress import goal, history, divine_text, share_card, rank_data, theme
-from jlpt_progress.goal_view import _words_note as goal_view_words, WORDS_EXPLAINED as WORDS
+from jlpt_progress.goal_view import WORDS_EXPLAINED as WORDS, FINISH_LINE, WAITING_EXPLAINED, TODAY_EXPLAINED
 goal._DAYS_PATH = os.path.join(OUT, "goal_days_test.json")
 if os.path.exists(goal._DAYS_PATH):
     os.remove(goal._DAYS_PATH)
@@ -78,10 +78,10 @@ v = st["kinds"]["vocab"]
 check("finish", st["finish"], datetime.date(2026, 11, 22))
 check("days left (today incl.)", st["days_left"], 34)
 check("vocab", (v["known"], v["total"], v["left"]), (1300, 2950, 1650))
-check("vocab per day = ceil(1650/34)", v["per_day"], 49)
+check("vocab per day = round(1650/34)", v["per_day"], 49)
 check("tight", st["tight"], True)
-check("kanji per day = ceil(150/34)", st["kinds"]["kanji"]["per_day"], 5)
-check("grammar per day = ceil(90/34)", st["kinds"]["grammar"]["per_day"], 3)
+check("kanji per day = round(150/34)", st["kinds"]["kanji"]["per_day"], 4)
+check("grammar per day = round(90/34)", st["kinds"]["grammar"]["per_day"], 3)
 check("today starts at 0", v["today"], 0)
 # later the same day: per day stays, today counts up
 st = goal.status(results(600, 400, 320), "D")       # deck-list count: no kanji / grammar
@@ -91,7 +91,7 @@ check("deck-list count: vocab only", sorted(st["kinds"]), ["vocab"])
 # next day: started at 1320, fell behind → more per day
 TODAY[0] = datetime.date(2026, 10, 21)
 st = goal.status(results(600, 400, 320, (90, 50, 10), (40, 20)), "D")
-check("next day: per day = ceil(1630/33)", st["kinds"]["vocab"]["per_day"], 50)
+check("next day: per day = round(1630/33)", st["kinds"]["vocab"]["per_day"], 49)
 check("next day: today 0", st["kinds"]["vocab"]["today"], 0)
 check("next day: kanji start from yesterday", st["kinds"]["kanji"]["today"], 0)
 # no grammar source → no grammar number
@@ -113,20 +113,20 @@ def marked(r, n):            # n N3 words marked found (no card)
     r["N3"]["missing_words"] = r["N3"]["missing_words"][n:]
     return r
 st0 = goal.status(results(600, 400, 300), "D")           # day start: 1,300 from cards
-check("before marking: per day = ceil(1650/29)", st0["kinds"]["vocab"]["per_day"], 57)
+check("before marking: per day = round(1650/29)", st0["kinds"]["vocab"]["per_day"], 57)
 st = goal.status(marked(results(600, 400, 300), 200), "D")
 check("marking 200: today stays 0", st["kinds"]["vocab"]["today"], 0)
-check("marking 200: per day drops at once = ceil(1450/29)", st["kinds"]["vocab"]["per_day"], 50)
+check("marking 200: per day drops at once = round(1450/29)", st["kinds"]["vocab"]["per_day"], 50)
 check("marking 200: left", st["kinds"]["vocab"]["left"], 1450)
 st = goal.status(marked(results(600, 400, 310), 200), "D")
 check("then 10 from cards: today 10", st["kinds"]["vocab"]["today"], 10)
 check("then 10 from cards: per day unchanged", st["kinds"]["vocab"]["per_day"], 50)
 TODAY[0] = datetime.date(2026, 10, 26)
 st = goal.status(marked(results(600, 400, 310), 200), "D")
-check("next day: per day = ceil(1440/28)", st["kinds"]["vocab"]["per_day"], 52)
+check("next day: per day = round(1440/28)", st["kinds"]["vocab"]["per_day"], 51)
 check("next day: today 0", st["kinds"]["vocab"]["today"], 0)
 st = goal.status(marked(results(600, 400, 310), 100), "D")
-check("un-marking 100: per day up at once = ceil(1540/28)", st["kinds"]["vocab"]["per_day"], 55)
+check("un-marking 100: per day up at once = round(1540/28)", st["kinds"]["vocab"]["per_day"], 55)
 check("un-marking 100: today still 0", st["kinds"]["vocab"]["today"], 0)
 # kanji marks
 r = results(600, 400, 310, (90, 50, 10), (40, 20)); r = marked(r, 100)
@@ -222,9 +222,39 @@ r["history_series"] = {"days": days, "gained": {
 st = goal.status(r, "D3", record=False)["kinds"]
 check("series: today = first studied today", (st["vocab"]["today"], st["kanji"]["today"], st["grammar"]["today"]), (2, 1, 0))
 check("series: per day unchanged by the old start", st["kanji"]["per_day"],
-      -(-(150 - 1) // ((datetime.date(2026, 11, 22) - TODAY[0]).days + 1)))
+      int((150 - 1) / ((datetime.date(2026, 11, 22) - TODAY[0]).days + 1) + 0.5))
 r["history_series"]["days"] = [d - datetime.timedelta(days=1) for d in days]   # built yesterday
 check("stale series: goal_days again", goal.status(r, "D3", record=False)["kinds"]["kanji"]["today"], 2)
+# under 1 a day → a weekly number over the past 7 days (owner 2026-10-28)
+goal.save("N3", datetime.date(2027, 7, 4))
+rw = results(600, 400, 300, (90, 50, 10), (40, 20))
+for kind in ("kanji", "grammar"):
+    rw[kind]["stats"] = {x: {"cards": [1]} for x in rw[kind]["known"]}
+wdays = [TODAY[0] - datetime.timedelta(days=7 - i) for i in range(8)]
+rw["history_series"] = {"days": wdays, "gained": {
+    "grammar": [(0, 1, "N5g0"), (3, 2, "N5g1"), (5, 3, "N4g0")], "kanji": []}}   # day 0: 7 days ago
+g = goal.status(rw, "W", record=False)["kinds"]["grammar"]
+dl = (datetime.date(2027, 6, 20) - TODAY[0]).days + 1
+check("weekly: grammar under 1 a day", (g["weekly"], g["per_week"]), (True, -(-90 * 7 // dl)))
+check("weekly: past 7 days only", (g["week"], g["today"]), (2, 0))
+check("weekly: nothing today, week short → not done", goal.done_today(g), False)
+rw["history_series"]["gained"]["grammar"].append((7, 4, "N4g1"))
+g = goal.status(rw, "W", record=False)["kinds"]["grammar"]
+check("weekly: one today → done", (g["week"], g["today"], goal.done_today(g)), (3, 1, True))
+check("weekly: one today, week short is still done",
+      goal.done_today({"weekly": True, "today": 1, "week": 2, "per_week": 6, "per_day": 1}), True)
+check("weekly: week reached, nothing today → done",
+      goal.done_today({"weekly": True, "today": 0, "week": 6, "per_week": 6, "per_day": 1}), True)
+check("rounding to the nearest; up to 6 a week weekly",
+      [goal.daily_share(l, 700) for l in (980, 1050, 600, 601, 300, 10, 0)] + [goal.daily_share(5, 1)],
+      [(1, False, 7), (2, False, 14), (1, True, 6), (1, False, 7), (1, True, 3), (1, True, 1), (0, False, 0), (5, False, 5)])
+check("words never weekly: 1 a day", goal.daily_share(10, 700, weekly_ok=False), (1, False, 7))
+check("weekly: vocab stays daily", goal.status(rw, "W", record=False)["kinds"]["vocab"]["weekly"], False)
+check("weekly JA", divine_text.translate("Per day: <b>7</b> words · <b>3</b> grammar points a week"),
+      "1日あたり：<b>7</b> 語 · <b>3</b> 文法（週あたり）")
+check("weekly mini", goal.today_line({"phase": "plan", "kinds": {"vocab": {"weekly": True, "week": 2, "per_week": 5}}}),
+      "This week: 2 / 5 words")
+goal.save("N3", datetime.date(2026, 12, 6))
 # the window's series start is saved, so the mini widget (no series) agrees
 # (owner 2026-10-22: switched N2 → N1 mid-day, window 20 / 39, mini 0 / 39)
 _json.dump({"D3": {"v": goal.DAYS_VERSION, "level": "N2", "day": TODAY[0].isoformat(),
@@ -259,7 +289,7 @@ samples = [
     "December 6, 2026",
     "<span style='color:#ffc107;'>■</span> Words up to N3",
     "<span style='color:#bdbdbd;'>┅</span> On track",
-    goal_view_words("N1"), goal_view_words("N3"),
+    FINISH_LINE, WAITING_EXPLAINED, TODAY_EXPLAINED,
     "Step 1 · JLPT word lists up to N2: <b>3,100</b> / 4,853 (the JLPT Vocabulary bars and grids)",
     "Step 2 · then common words not on the lists: <b style='color:#7bd88f;'>1,147</b> / 1,147 (the Frequency grid, most common first)",
     "1,650 words still to learn: about <b>49</b> a day until November 22, 2026, 14 days before the test.<br>Step 1, JLPT word lists: 1,200 to go · step 2, common words: 450 to go.",

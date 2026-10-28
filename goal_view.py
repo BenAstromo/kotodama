@@ -60,6 +60,14 @@ def add_goal_card(page: QVBoxLayout, tab) -> None:
     btn = QPushButton("Set a JLPT goal…" if st is None
                       else "Set your next goal…" if st["phase"] == "past" else "Change…")
     btn.clicked.connect(lambda: _open_dialog(tab))
+    if st is not None and st["phase"] != "past":
+        # the explanations live behind "?" (owner 2026-10-28: the card was cluttered)
+        info = QPushButton("?")
+        info.setObjectName("kicon")          # the theme's icon button, gold in Amaterasu mode
+        info.setStyleSheet("font-weight: bold;")
+        info.setToolTip("About the JLPT goal")
+        info.clicked.connect(lambda: _show_info(tab))
+        head.addWidget(info)
     head.addWidget(btn)
     outer.addLayout(head)
     card = outer
@@ -92,6 +100,7 @@ def add_goal_card(page: QVBoxLayout, tab) -> None:
     elif st["phase"] == "review":
         outer.addWidget(_label("Review time: the last two weeks before the test are for "
                                "review and practice tests."))
+        outer.addWidget(_learned_label(kinds))
         left = [f"{_num(k['left'])} {_unit(kind, k['left'])}"
                 for kind, k in kinds.items() if k["left"]]
         if left:
@@ -105,10 +114,15 @@ def add_goal_card(page: QVBoxLayout, tab) -> None:
         text = QApplication.palette().color(QPalette.ColorRole.WindowText).name()
         for kind, k in kinds.items():
             c = DONE_COLOR if goal.done_today(k) else None
-            per.append(f"{_num(k['per_day'], c)} {_unit(kind, k['per_day'])}")
-            # a link: today's new cards of this kind in the Browser
-            today.append(gain_link(f"today:{kind}", f"{_num(k['today'], c)} / {k['per_day']:,} "
-                                   f"{_unit(kind, k['per_day'])}", text))
+            if k.get("weekly"):         # under 1 a day: a week's number (goal.status)
+                per.append(f"{_num(k['per_week'], c)} {_unit(kind, k['per_week'])} a week")
+                today.append(gain_link(f"today:{kind}", f"{_num(k['week'], c)} / {k['per_week']:,} "
+                                       f"{_unit(kind, k['per_week'])} this week", text))
+            else:
+                per.append(f"{_num(k['per_day'], c)} {_unit(kind, k['per_day'])}")
+                # a link: today's new cards of this kind in the Browser
+                today.append(gain_link(f"today:{kind}", f"{_num(k['today'], c)} / {k['per_day']:,} "
+                                       f"{_unit(kind, k['per_day'])}", text))
             left.append(f"{_num(k['left'])} {_unit(kind, k['left'])}")
         per_lbl = _label("Per day: " + " · ".join(per))
         per_lbl.setStyleSheet(BODY_CSS + " font-size: 15px;")
@@ -118,6 +132,7 @@ def add_goal_card(page: QVBoxLayout, tab) -> None:
                              "this week, each card a click away.")
         _connect_today(today_lbl, tab, lvl)
         outer.addWidget(today_lbl)
+        outer.addWidget(_learned_label(kinds))
         outer.addWidget(_label("Still to learn: " + " · ".join(left), HINT_CSS))
         _add_waiting_line(outer, kinds)
         for line in _step_lines(st):
@@ -131,10 +146,13 @@ def add_goal_card(page: QVBoxLayout, tab) -> None:
                     f"<span style='color:{TIGHT_COLOR};'>{line}{' ' + alt if alt else ''}</span>"))
             else:
                 outer.addWidget(_label(line, HINT_CSS))
-        outer.addWidget(_label(_words_note(lvl), HINT_CSS))
-        outer.addWidget(_label("The finish line is 14 days before the test: the last two weeks "
-                               "are for review and practice tests. Fall behind and the daily "
-                               "number goes up; get ahead and it goes down.", HINT_CSS))
+
+
+def _learned_label(kinds: dict) -> QLabel:
+    """"Learned: 1,300 / 2,950 words · 60 / 150 kanji · …" (owner
+    2026-10-28): the goal's totals, marks included like the bars."""
+    return _label("Learned: " + " · ".join(
+        f"{_num(k['known'])} / {k['total']:,} {_unit(kind, k['total'])}" for kind, k in kinds.items()))
 
 
 def _connect_today(lbl: QLabel, tab, lvl: str):
@@ -156,14 +174,72 @@ def _connect_today(lbl: QLabel, tab, lvl: str):
     lbl.linkActivated.connect(activated)
 
 
-def _words_note(lvl: str) -> str:
-    """Which words the goal counts, for the card (owner 2026-10-20)."""
-    top = goal.vocab_source(lvl)
-    if top:
-        return (f"Why two steps: the JLPT word lists hold the words most likely on the test, so they "
-                f"come first. {lvl} also asks for about {top:,} words in all, so the rest comes from "
-                f"the most common words of written Japanese, which matter more at N2 and N1.")
-    return f"Words: the JLPT word lists up to {lvl} (the JLPT Vocabulary bars above)."
+FINISH_LINE = ("The finish line is 14 days before the test: the last two weeks are for review "
+               "and practice tests. Per day is what's left at the start of today, divided by the "
+               "days to the finish line: fall behind and the daily number goes up; get ahead and "
+               "it goes down.")
+WAITING_EXPLAINED = ("English loanwords you mark as found join your known words gradually, as your "
+                     "card count grows. Until one joins, the goal leaves it out of what's still to "
+                     "learn, so the daily number doesn't ask you to study a word you already know.")
+WEEKLY_EXPLAINED = ("When kanji or grammar need 6 or fewer a week, they show a number for the week instead, "
+                    "counted over the past 7 days. It turns green when you learn one today, or when "
+                    "the past 7 days already reach the week's number.")
+TODAY_EXPLAINED = ("Click a Today number for the Progress Review: what you learned today and this "
+                   "week, each card a click away.")
+
+
+def _show_info(parent):
+    """The goal card's "?" (owner 2026-10-28): the JLPT levels' sizes (the
+    rank's milestones), which words count, the finish line."""
+    from .progress_dialog import _GOLD_MODE, MILESTONES_EN, MILESTONES_JA
+    gold = _GOLD_MODE["on"]
+    dlg = QDialog(parent)
+    dlg.setWindowTitle("About the JLPT Goal")
+    v = QVBoxLayout(dlg)
+    v.setSizeConstraint(QLayout.SizeConstraint.SetMinimumSize)   # wrapped text gets its full height
+    from .theme import SECTION_CSS
+
+    labels = []
+
+    def add(text, css=BODY_CSS, skip=False):
+        lbl = QLabel(text)
+        lbl.setWordWrap(True)
+        lbl.setFixedWidth(560)          # a fixed width: Qt then gives wrapped text its full height
+        lbl.setStyleSheet(css)
+        if skip:
+            lbl.setProperty("jlpt_gold_skip", True)
+        v.addWidget(lbl)
+        labels.append(lbl)
+
+    add("<b>How many words each level needs</b>", SECTION_CSS)
+    add("Cumulative: each level includes the vocabulary below it. The sizes follow modern "
+        "estimates for each JLPT level, the same milestones as the rank.", HINT_CSS)
+    ms = (MILESTONES_JA if gold else MILESTONES_EN)[1:6]       # N5 … N1
+    add("<br>".join("• " + x for x in ms), skip=True)
+    add("<b>Which words count</b>", SECTION_CSS)
+    add(WORDS_EXPLAINED)                # starts "Which words count: …", shared with the goal dialog
+    add(WAITING_EXPLAINED, HINT_CSS)
+    add("<b>The daily number</b>", SECTION_CSS)
+    add(FINISH_LINE)
+    add(WEEKLY_EXPLAINED, HINT_CSS)
+    add(TODAY_EXPLAINED, HINT_CSS)
+    close = QPushButton("Close")
+    close.clicked.connect(dlg.accept)
+    row = QHBoxLayout()
+    row.addStretch()
+    row.addWidget(close)
+    v.addLayout(row)
+    from . import theme
+    theme.apply(dlg, gold=gold)
+    if gold:
+        from . import divine_text
+        dlg.setWindowTitle("JLPT目標について")
+        divine_text.gold_palette(dlg, True)
+        divine_text.apply(dlg, True)
+        divine_text.gold_titlebar(dlg, True)
+    for lbl in labels:                  # after the gold text: wrapped labels get their full height
+        lbl.setMinimumHeight(lbl.heightForWidth(560))
+    dlg.exec()
 
 
 def _add_waiting_line(outer, kinds: dict):
@@ -195,7 +271,10 @@ WORDS_EXPLAINED = (
     "N1 the goal is the modern vocabulary size, about 6,000 words for N2 and 13,800 for N1, in two "
     "steps: first every word on the JLPT lists up to that level, since those are the words most "
     "likely on the test; then the rest from the most common words of written Japanese that aren't "
-    "on the lists (the Frequency grid). The JLPT hasn't published word lists since 2010; ours build "
+    "on the lists (the Frequency grid). Any of those common words counts, not only the most common "
+    "few: immersion brings words in its own order, so a rarer word you really learned still counts, "
+    "and the Frequency grid lists them most common first for when you study on purpose. The JLPT "
+    "hasn't published word lists since 2010; ours build "
     "on the old pre-2010 lists, which are close enough up to N3 but stop well short of N2 and N1 "
     "(about 8,000 words up to N1). Written Japanese matters more at N2 and N1, whose reading "
     "sections are newspaper-style articles and essays, and these are the levels employers and "
