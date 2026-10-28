@@ -70,7 +70,14 @@ for v in agg.values():
     v[1]=v[0]/total_tokens*1e6   # per million words of the remaining corpus
 items=sorted(agg.items(), key=lambda kv:-kv[1][0])
 out=[]; unmapped=0; UNM=[]
+# Spoken mode keeps the お母さん / お父さん parts JMdict has no entry for
+# (母 かあ, 父 とう: ranks 147 and 201 in conversation); freq_data's
+# COVERAGE_PARTS credits them to お母さん cards (owner 2026-10-28).
+KEEP_PARTS={("母","かあ"),("父","とう")} if CEJC else set()
 for (lemma,rd),(fr,pmw,pos) in items:
+    if (lemma,rd) in KEEP_PARTS:
+        out.append((lemma, rd, pmw, [lemma, rd], ""))
+        continue
     cands=[s for s in set(byk.get(lemma,[])+byr.get(lemma,[])) if rd in [k2h(r) for r in J[s]["reb"]]]
     forms=[lemma]; display=lemma
     is_kana = not re.search(r"[一-鿿㐀-䶿々〆]", lemma)

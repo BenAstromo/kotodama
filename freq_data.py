@@ -142,6 +142,27 @@ _PARSER_ROWS: list = []
 
 _speech = None   # [(display, reading, pmw, [spellings])] from freq_cejc.txt
 
+# Words the corpora count inside another row (owner 2026-10-28): UniDic files
+# 何 なん under 何 なに, and splits お母さん into お + 母 (かあ) + さん, so a
+# card for the whole word covers that row in the written / speech
+# percentages. (spellings, readings in hiragana, corpus row (display, reading)).
+# A card matches by spelling (its reading, if any, among these) or as kana.
+COVERAGE_PARTS = [
+    ({"何"}, {"なん"}, ("何", "なに")),
+    ({"お母さん", "母さん", "お母ちゃん", "母ちゃん", "御母さん"},
+     {"おかあさん", "かあさん", "おかあちゃん", "かあちゃん"}, ("母", "かあ")),
+    ({"お父さん", "父さん", "お父ちゃん", "父ちゃん", "御父さん"},
+     {"おとうさん", "とうさん", "おとうちゃん", "とうちゃん"}, ("父", "とう")),
+    ({"お兄さん", "兄さん", "お兄ちゃん", "兄ちゃん", "御兄さん"},
+     {"おにいさん", "にいさん", "おにいちゃん", "にいちゃん"}, ("兄", "にい")),
+    ({"お姉さん", "姉さん", "お姉ちゃん", "姉ちゃん", "御姉さん"},
+     {"おねえさん", "ねえさん", "おねえちゃん", "ねえちゃん"}, ("姉", "ねえ")),
+    ({"お爺さん", "お祖父さん", "爺さん", "お爺ちゃん", "お祖父ちゃん", "爺ちゃん"},
+     {"おじいさん", "じいさん", "おじいちゃん", "じいちゃん"}, ("じい", "じい")),
+    ({"お婆さん", "お祖母さん", "婆さん", "お婆ちゃん", "お祖母ちゃん", "婆ちゃん"},
+     {"おばあさん", "ばあさん", "おばあちゃん", "ばあちゃん"}, ("ばあ", "ばあ")),
+]
+
 
 def load_speech() -> list:
     global _speech
@@ -597,6 +618,18 @@ def coverage(nid_to_display: dict, nid_to_reading: dict, overrides=None) -> dict
         for nid, r in nid_to_reading.items() if r
     }
 
+    # Corpus rows the deck covers through COVERAGE_PARTS (お母さん → 母 かあ):
+    # the two percentages only, never a tile or a bar.
+    credited: set[tuple[str, str]] = set()
+    for spellings, part_readings, target in COVERAGE_PARTS:
+        for nid, display in nid_to_display.items():
+            d = _norm(display)
+            r = note_reading.get(nid)
+            if ((d in spellings and (not r or r & part_readings))
+                    or (_is_kana(d) and _kata_to_hira(d) in part_readings)):
+                credited.add(target)
+                break
+
     written_rank: dict[tuple[str, str], int] = {}   # (display, reading) → 0-based rank
     for rank, (display, reading, pmw, forms) in enumerate(entries):
         readings = {_kata_to_hira(_norm(f)) for f in forms if _is_kana(_norm(f))}
@@ -635,8 +668,9 @@ def coverage(nid_to_display: dict, nid_to_reading: dict, overrides=None) -> dict
         # compound tiles, whose frequency is in other rows already).
         weight = 0.0 if ((display, reading) in SHARED_WITH or (display, reading) in COMPOUNDS) else pmw
         pmw_total += weight
-        if known:
+        if known or (nd_, _kata_to_hira(reading)) in credited:
             pmw_known += weight
+        if known:
             if nids:
                 known_nids[rank] = nids
             for nid in nids:
@@ -678,7 +712,7 @@ def coverage(nid_to_display: dict, nid_to_reading: dict, overrides=None) -> dict
                 continue
             known = okey in found_keys or _deck_has(display, reading, forms)
         speech_total += pmw
-        if known:
+        if known or (display, _kata_to_hira(reading)) in credited:
             speech_known += pmw
 
     tiers = []
