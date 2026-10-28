@@ -17,7 +17,7 @@
 
 **Tests to run after related changes:** `t_marks.py` (26 checks: marks, `word_rank`, loanwords, history, kana cards), `t_dups.py`, `t_kofi.mjs`, `tools/grammar_eval.py` + `tools/vocab_eval.py` (0 differences from baseline 2026-10-27), `tools/check_gold_text.py` after any UI text.
 
-**Git:** commit / push only when the owner asks (they usually just say "commit"). `.gitignore` keeps out `user_files/`, `meta.json`, `.wrangler/`, `server/.wrangler/` and caches. Before making the repo public: the release checklist (§11), and decide whether `server/wrangler.toml`'s D1 `database_id` stays.
+**Git:** commit / push only when the owner asks (they usually just say "commit"). `.gitignore` keeps out `user_files/`, `meta.json`, `.wrangler/`, `server/.wrangler/` and caches. Before making the repo public: the release checklist (§11). `server/wrangler.toml`'s D1 `database_id` stays public (owner 2026-10-27: it's a label, not a secret).
 
 **Accuracy state:** grammar fresh recall 91 % (tuning stopped); precision A 99 % / N3 94 % / N2 98 % / N1 97 %; `tools/grammar_cases.json` 4,859 rulings, 0 failures; vocab recall 99.4 % / precision 99.3 %.
 
