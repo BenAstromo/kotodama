@@ -349,14 +349,27 @@ def mark_ranks(pairs) -> set:
     """0-based frequency rows that marked (found / suspended) words lead to
     through their spellings — the JLPT entry's alternate spellings included —
     and reading. Lets a mark made on a JLPT word reach its frequency row when
-    the two lists spell it differently (JLPT おまえ, frequency お前)."""
+    the two lists spell it differently (JLPT おまえ, frequency お前). A
+    katakana mark only reaches a katakana row: the list counts ガン as a
+    spelling of がん (cancer), タイ of 鯛, ドン of どん, so marking the
+    loanwords marked those words too (owner 2026-10-27: "6 words marked
+    found" with only the loanword button pressed)."""
     from .jlpt_data import alt_forms
+    entries = load()
     out = set()
     for d, r in pairs:
         rk = word_rank(d, r, alt_forms(d, r))
-        if rk is not None:
-            out.add(rk - 1)
+        if rk is None:
+            continue
+        if _is_katakana(d) and not _is_katakana(entries[rk - 1][0]):
+            continue
+        out.add(rk - 1)
     return out
+
+
+def _is_katakana(s: str) -> bool:
+    s = _norm(s)
+    return bool(s) and all("ァ" <= c <= "ヶ" or c in "ー・" for c in s)
 
 
 def word_rank(display: str, reading: str, alts=()) -> int | None:

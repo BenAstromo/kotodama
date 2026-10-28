@@ -94,8 +94,12 @@ class _Row(QWidget):
 
 class NakamaTab(QWidget):
 
-    def __init__(self, parent=None):
+    def __init__(self, parent=None, recount=None):
         super().__init__(parent)
+        # recount(then): the window's full recount (its Refresh), then `then`;
+        # the ⟳ button runs it first so your card has today's marks and
+        # cards (owner 2026-10-27: it sent the card from the last count).
+        self._recount = recount
         self._last_fetch = 0.0
         self._selected = None      # code
         self._preview = None       # DEBUG: rank count the shown card is previewed at
@@ -229,7 +233,7 @@ class NakamaTab(QWidget):
         self._sort.currentIndexChanged.connect(lambda _i: self._fill_list())
         row.addWidget(self._sort)
         ref = QPushButton("⟳ Refresh")
-        ref.clicked.connect(lambda: self.refresh(force=True))
+        ref.clicked.connect(self._refresh_clicked)
         row.addWidget(ref)
         v.addLayout(row)
 
@@ -447,6 +451,12 @@ class NakamaTab(QWidget):
         if hasattr(self, "_status"):
             self._status.setText(text)
             self._status.setStyleSheet(f"color: {'#e0a050' if error else '#9a9a9a'}; font-size: 12px;")
+
+    def _refresh_clicked(self):
+        if self._recount is not None and not self._busy:
+            self._recount(lambda: self.refresh(force=True))
+        else:
+            self.refresh(force=True)
 
     def refresh(self, force: bool = False):
         """Send your card if it changed, then fetch everyone's."""

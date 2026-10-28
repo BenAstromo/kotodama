@@ -3546,9 +3546,8 @@ def split_html(total: int, verb: str, cards: int, loans: int, hand: int, show_lo
 
 def _found_loans_jlpt(known_words) -> tuple[int, int]:
     """(English loanwords, other words) among a JLPT list's words marked found."""
-    from . import jlpt_data
     found = [(d, r) for d, r, nid in known_words if nid is None]
-    loans = sum(1 for d, r in found if jlpt_data.is_english_loanword(d, r))
+    loans = sum(1 for d, r in found if card_state.is_loan(d, r))
     return loans, len(found) - loans
 
 
@@ -3965,8 +3964,11 @@ class WordCell(QWidget):
     def __init__(self, display: str, reading: str, nid, level: str,
                  overrides: "Overrides", parent=None, overridable: bool = True,
                  rank: int = None, maturity: int = None, rank_est: bool = False,
-                 new_nid=None, found_row: bool = False):
+                 new_nid=None, found_row: bool = False, waiting: bool = False):
         super().__init__(parent)
+        # waiting: a marked English loanword the counts don't include yet
+        # (card_state.hold_back_loans): a missing tile with a faint ★.
+        self._waiting    = waiting
         # found_row: the frequency count has this row marked found through
         # another spelling or reading (a JLPT word's mark, freq_data's loose
         # key), so it's counted and sorted as found; show it that way too
@@ -4032,7 +4034,7 @@ class WordCell(QWidget):
     def glow_color(self) -> str:
         """Its section's glow in the Word Grid (_TileCanvas glow=True): its
         level's colour when known or marked found, a dim grey when missing."""
-        if self._known or self._is_found:
+        if self._known or (self._is_found and not self._waiting):
             return self._colors()[0]
         return MISSING_GLOW
 
@@ -4097,6 +4099,9 @@ class WordCell(QWidget):
                                 f"for the top {band:,}")
         if self._is_suspended:
             info.append("Suspended (excluded from lists)")
+        elif self._is_found and self._waiting:
+            info.append("★ Marked as found, not counted yet: English loanwords count once your "
+                        "rank reaches their frequency rank")
         elif self._is_found:
             info.append("★ Marked as found" if self._overrides.is_found(self._display, self._reading)
                         else "★ " + FOUND_ROW_TEXT)
@@ -4155,6 +4160,8 @@ class WordCell(QWidget):
             lvl_label = self._level
         if self._is_suspended:
             status = "✕ Suspended"
+        elif self._is_found and self._waiting:
+            status = "★ Marked as found, not counted yet"
         elif self._is_found:
             status = "★ Marked as found"
         elif self._known:
@@ -4216,7 +4223,9 @@ class WordCell(QWidget):
         w = h = CELL_W
 
         suspended  = self._is_suspended
-        found      = self._is_found
+        marked     = self._is_found
+        waiting    = marked and self._waiting and not suspended
+        found      = marked and not waiting      # drawn lit; a waiting one looks missing
         known      = self._known
         hov        = self._hovered
 
@@ -4301,11 +4310,11 @@ class WordCell(QWidget):
         p.setPen(text_col)
         p.drawText(QRect(0, 0, w, h), Qt.AlignmentFlag.AlignCenter, label)
 
-        # ── ★ badge for found ─────────────────────────────────────────────────
-        if found:
+        # ── ★ badge for found (faint while waiting) ───────────────────────────
+        if found or waiting:
             f2 = QFont(); f2.setPointSize(7); f2.setBold(True)
             p.setFont(f2)
-            p.setPen(QColor("#8a5a00" if gold_tile else "#ffe066"))
+            p.setPen(QColor("#8a5a00" if gold_tile else "#7a6a3a" if waiting else "#ffe066"))
             p.drawText(QRect(w - 13, 2, 11, 11), Qt.AlignmentFlag.AlignCenter, "★")
 
         # ── ✕ badge for suspended ─────────────────────────────────────────────
@@ -4666,7 +4675,9 @@ class WordGridPanel(QWidget):
     def _make_cell(self, display, reading, nid, level, rank=None):
         cell = WordCell(display, reading, nid, level, self._overrides, rank=rank,
                         maturity=self._results.get("maturity", {}).get(nid),
-                        new_nid=self._new_words().get((display, reading)) if nid is None else None)
+                        new_nid=self._new_words().get((display, reading)) if nid is None else None,
+                        waiting=nid is None and (display, reading) in
+                        (self._results.get("loans_waiting") or {}).get("pairs", ()))
         if self._on_override_changed:
             cell.override_changed.connect(self._on_override_changed)
         return cell
@@ -4831,6 +4842,7 @@ class WordGridPanel(QWidget):
         entries = entries[:self._freq_limit] if self._freq_limit else entries
         found = freq.get("found_ranks", set())
         suspended = freq.get("suspended_ranks", set())
+        waiting = (self._results.get("loans_waiting") or {}).get("ranks", set())
         # rank → nid of a never-studied card with that word (New tiles)
         new_ranks = (self._results.get("new_cards") or {}).get("ranks") or {}
 
@@ -4888,7 +4900,8 @@ class WordGridPanel(QWidget):
                 WordCell(display, reading, nid, "freq", self._overrides,
                          rank=rank, maturity=maturity.get(nid),
                          new_nid=None if nid is not None else new_ranks.get(rank),
-                         found_row=nid is None and (rank - 1) in found)
+                         found_row=nid is None and (rank - 1) in found,
+                         waiting=nid is None and (rank - 1) in waiting)
                 for rank, display, reading, nid in ordered
             ]
             if self._on_override_changed:
@@ -5114,7 +5127,7 @@ class MissingWordsPanel(QWidget):
         self._level_combo = QComboBox()
         self._level_combo.addItem("All levels", "All")
         for lvl in LEVELS:
-            n = len(self._results[lvl]["missing_words"])
+            n = len(self._missing(lvl))
             self._level_combo.addItem(f"{lvl}  ({n} missing)", lvl)
         ctrl.addWidget(self._level_combo)
         ctrl.addSpacing(16)
@@ -5170,6 +5183,12 @@ class MissingWordsPanel(QWidget):
         self._export_btn.clicked.connect(self._export)
         self._refresh()
 
+    def _missing(self, lvl: str) -> list:
+        """A level's missing words, without the marked loanwords that aren't
+        counted yet (card_state.hold_back_loans): marked, so not to learn."""
+        waiting = (self._results.get("loans_waiting") or {}).get("pairs", ())
+        return [p for p in self._results[lvl]["missing_words"] if tuple(p) not in waiting]
+
     def _collect_rows(self):
         """(rank or None, level, display, reading) in the chosen sort order."""
         # Frequency ranks are looked up once per panel build, not on every
@@ -5178,7 +5197,7 @@ class MissingWordsPanel(QWidget):
             self._ranked = [
                 (freq_data.word_rank_info(d, r, jlpt_data.alt_forms(d, r)), lvl, d, r)
                 for lvl in LEVELS
-                for d, r in self._results[lvl]["missing_words"]
+                for d, r in self._missing(lvl)
             ]
         level = self._level_combo.currentData()
         rows  = [row for row in self._ranked if level == "All" or row[1] == level]
@@ -6850,7 +6869,7 @@ class OverviewTab(QWidget):
         found_top = [r for r in freq.get("found_ranks", ()) if r < target]
         by_rank = {e[0] - 1: e for e in freq.get("entries", ())}
         loans_top = sum(1 for r in found_top
-                        if r in by_rank and freq_data.is_english_loanword(by_rank[r][1], by_rank[r][2]))
+                        if r in by_rank and card_state.is_loan(by_rank[r][1], by_rank[r][2]))
         from .history_view import delta_html
         gain = delta_html(self._results.get("history_series"), f"f{target}", "#a8e6ff", "#cccccc")
         stats = QLabel(
@@ -7331,7 +7350,7 @@ class ProgressDialog(QDialog):
         fm = analysis_inputs.get("field_mappings", [])
         ign = bool(analysis_inputs.get("ignore_suspended", False))
         # Loanwords the rank doesn't count yet: off every bar too.
-        card_state.hold_back_loans(results, deck_name, ign)
+        card_state.hold_back_loans(results, deck_name, ign, lists)
         history.record(results, deck_name, lists, fm, ign, manual=manual_snapshot)
         # The series after the record: today's snapshot is part of it.
         try:
@@ -7586,7 +7605,7 @@ class ProgressDialog(QDialog):
 
         # Nakama: friends' cards next to yours (owner 2026-10-17)
         from .nakama_view import NakamaTab
-        self._nakama_tab = NakamaTab()
+        self._nakama_tab = NakamaTab(recount=lambda then: self._do_full_refresh(on_done=then))
         self._tabs.addTab(self._nakama_tab, "Nakama 仲間")
 
         btn_row = QHBoxLayout()

@@ -933,7 +933,7 @@ def _compute_results(force: bool = False):
     # Words marked found count toward the rank.
     card_state.set_found_extra(deck_name, card_state.found_parts(results))
     # Loanwords the rank doesn't count yet: off the bars too.
-    card_state.hold_back_loans(results, deck_name, bool(cfg.get("ignore_suspended_cards", False)))
+    card_state.hold_back_loans(results, deck_name, bool(cfg.get("ignore_suspended_cards", False)), lists)
 
     # The key from before the scan: a change during it shows up next time.
     _cache["results"] = results

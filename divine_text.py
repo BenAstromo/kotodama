@@ -650,6 +650,10 @@ PATTERNS = [
     (re.compile(r"  —  Off-list  —  "), "  —  リスト外  —  "),
     (re.compile(r"✓ Known — in your deck$"), "✓ 既知 — デッキにあり"),
     (re.compile(r"★ Marked as found$"), "★ 発見済み"),
+    (re.compile(r"★ Marked as found, not counted yet$"), "★ 発見済み（まだ数えていません）"),
+    (re.compile(r"★ Marked as found, not counted yet: English loanwords count once your "
+                r"rank reaches their frequency rank"),
+     "★ 発見済み（まだ数えていません）：英語の外来語は、ランクがその頻度順位に達すると数えられます"),
     (re.compile(r"  —  Missing$"), "  —  未習得"),
     (re.compile(r"overrides\.json location: "), "overrides.json の場所："),
     (re.compile(r"Showing ([\d,]+) of ([\d,]+) found words"), r"発見済み \2 語中 \1 語を表示"),

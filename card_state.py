@@ -332,6 +332,15 @@ def found_parts(results: dict) -> dict:
     return results["found_parts"]
 
 
+def is_loan(d: str, r: str) -> bool:
+    """An English loanword by either list's test. The two lists flag words
+    separately, so one word can pass one and not the other; the button marks
+    by either, so a mark it made always counts as a loanword (owner
+    2026-10-27: only the button pressed, yet "6 words marked found")."""
+    from . import freq_data, jlpt_data
+    return jlpt_data.is_english_loanword(d, r) or freq_data.is_english_loanword(d, r)
+
+
 def _found_keys(results: dict) -> dict:
     """found_parts' words: key → (is an English loanword, rank for the schedule)."""
     from . import freq_data, jlpt_data
@@ -342,7 +351,7 @@ def _found_keys(results: dict) -> dict:
             if nid is None:
                 rk = _found_rank(d, r)
                 key = ("row", rk - 1) if rk is not None else freq_data._override_key(d, r)
-                loan = jlpt_data.is_english_loanword(d, r)
+                loan = is_loan(d, r)
                 old = keys.get(key)
                 keys[key] = ((old[0] if old else False) or loan, rk or _LEVEL_SIZE.get(lvl, 13800))
     freq = results.get("frequency") or {}
@@ -351,19 +360,22 @@ def _found_keys(results: dict) -> dict:
         by_rank = {e[0] - 1: e for e in freq.get("entries", ())}
         for rank in found:
             e = by_rank.get(rank)
-            loan = bool(e) and freq_data.is_english_loanword(e[1], e[2])
+            loan = bool(e) and is_loan(e[1], e[2])
             old = keys.get(("row", rank))
             keys[("row", rank)] = ((old[0] if old else False) or loan, rank + 1)
     return keys
 
 
-def hold_back_loans(results: dict, deck_name: str, ignore_suspended: bool):
+def hold_back_loans(results: dict, deck_name: str, ignore_suspended: bool, lists: dict = None):
     """Marked English loanwords the rank doesn't count yet come off every
     other count too (owner 2026-10-27: a Nakama card's 344 words with 850
     JLPT words beside it confused): out of the JLPT lists' known words and
     the frequency tiers, so the bars, history, goal and Nakama card grow
     with your vocabulary like the rank. The counted ones are the most
-    common first. The marks themselves stay (the tiles keep their ★)."""
+    common first. The marks themselves stay: the held ones are in
+    results["loans_waiting"] ({"pairs": JLPT (display, reading), "ranks":
+    0-based frequency rows}), drawn as missing tiles with a faint ★.
+    lists: the JLPT lists, to put them back in list order among the missing."""
     from . import freq_data
     from .jlpt_data import LEVELS
     if results.get("loans_held"):
@@ -381,6 +393,7 @@ def hold_back_loans(results: dict, deck_name: str, ignore_suspended: bool):
     held = {k for _rk, _r, k in loans[n:]}
     if not held:
         return
+    pairs = set()
     for lvl in LEVELS:
         d = results.get(lvl)
         if not d:
@@ -395,11 +408,19 @@ def hold_back_loans(results: dict, deck_name: str, ignore_suspended: bool):
                     continue
             keep.append((d_, r, nid))
         if out:
+            pairs.update(out)
+            missing = list(d.get("missing_words", [])) + out
+            order: dict = {}
+            for i, (ld, lr) in enumerate((lists or {}).get(lvl, [])):
+                order.setdefault((ld, lr), i)
+            missing.sort(key=lambda p: order.get(tuple(p), len(order)))
             d["known_words"] = keep
-            d["missing_words"] = list(d.get("missing_words", [])) + out
+            d["missing_words"] = missing
+    ranks = {k[1] for k in held if k[0] == "row"}
+    results["loans_waiting"] = {"pairs": pairs, "ranks": ranks}
     freq = results.get("frequency")
     if freq:
-        freq_data.hold_found(freq, {k[1] for k in held if k[0] == "row"})
+        freq_data.hold_found(freq, ranks)
 
 
 def loans_counted(cards: int, loans: list) -> int:

@@ -257,6 +257,13 @@ def _feathered(img: QImage, w: int, h: int) -> QImage:
     return out
 
 
+def _loans_line(loans: int, gold: bool) -> str:
+    """The marked English loanwords counted in the rank: one line, the same
+    on the share image and the Nakama card (owner 2026-10-27)."""
+    return (f"英語の外来語 {loans:,} 語" if gold
+            else f"{loans:,} English {'loanword' if loans == 1 else 'loanwords'}")
+
+
 def render(data: dict, name: str, message: str = "") -> QImage:
     info = data["info"]
     gold = bool(info.get("is_max_amaterasu"))
@@ -274,8 +281,7 @@ def render(data: dict, name: str, message: str = "") -> QImage:
     if loans:
         p.setFont(_font(13))
         p.setPen(QColor(GOLD_DARK if gold else "#aaaaaa"))
-        p.drawText(QRectF(50, y + 4, 400, 22), Qt.AlignmentFlag.AlignCenter,
-                   f"うち英語の外来語 {loans:,} 語" if gold else f"incl. {loans:,} English loanwords")
+        p.drawText(QRectF(50, y + 4, 400, 22), Qt.AlignmentFlag.AlignCenter, _loans_line(loans, gold))
     x1 = W - 60
     _draw_right(p, data, name, gold, x1)
     # ── message (Amaterasu mode only) ──
@@ -559,15 +565,12 @@ def render_profile(profile: dict, mine: dict | None, synced: str = "", framed: b
     # everyone uses) on their own line, so the hand count means something.
     found, loans = int(data.get("found") or 0), int(data.get("found_loan") or 0)
     if found:
-        lines.append(f"手動で発見済み {found:,} 語" if gold
-                     else f"{found:,} {'word' if found == 1 else 'words'} marked found by hand")
+        lines.append(f"発見済み {found:,} 語" if gold
+                     else f"{found:,} {'word' if found == 1 else 'words'} marked found")
     if loans:
-        # counted toward the rank so far (2026-10-20: they join on a
-        # schedule); older clients sent all the marked ones
-        marked = int(data.get("loan_marked") or 0)
-        of = marked if marked > loans else 0
-        lines.append((f"英語の外来語 {loans:,} 語をカウント" + (f"（{of:,} 語中）" if of else "")) if gold
-                     else f"{loans:,} English loanwords counted" + (f" (of {of:,} marked)" if of else ""))
+        # counted toward the rank so far (they join on a schedule); just
+        # the number, like the share image (owner 2026-10-27: less clutter)
+        lines.append(_loans_line(loans, gold))
     g = data.get("goal")              # "N3 2026-12-06" (goal.py); hidden once that day is over
     try:
         lvl, day = str(g).split()
