@@ -272,6 +272,14 @@ def counts(results: dict, level: str) -> dict:
     out = {}
     k = n = f = 0
     have = False
+    # Marked English loanwords still waiting for the card count to reach
+    # them (card_state.hold_back_loans): missing on the bars, but they join
+    # on their own, so they aren't words to learn (owner 2026-10-28: the
+    # goal's 12 a day became 14 when they were held back). "waiting" = how
+    # many of the goal's missing words they are.
+    held = results.get("loans_waiting") or {}
+    held_pairs, held_ranks = held.get("pairs") or set(), held.get("ranks") or set()
+    w = 0
     for l in lv:
         d = results.get(l)
         if d is None:
@@ -281,12 +289,15 @@ def counts(results: dict, level: str) -> dict:
         k += len(known)
         f += sum(1 for _d, _r, nid in known if nid is None)     # marked found, no card
         n += len(known) + len(d.get("missing_words", ()))
+        w += sum(1 for p in d.get("missing_words", ()) if (p[0], p[1]) in held_pairs)
     if have:
         out["vocab"] = (k, n, f)
+        out["waiting"] = w
     top = vocab_source(level)
     freq = results.get("frequency") or {}
     if have and top and not (freq.get("available", True) and freq.get("tiers")):
         out.pop("vocab")        # no frequency data: no N2 / N1 word number (never the lists alone)
+        out.pop("waiting")
     elif have and top:
         # Step 2: common words (top N, 0-based ranks < N) not on the lists
         # up to this level, as many as it takes to reach the size estimate.
@@ -305,6 +316,9 @@ def counts(results: dict, level: str) -> dict:
         xf = x - min(sum(1 for r in known_x if r in cards), x)
         out["steps"] = {"lists": (k, n), "common": (x, need)}
         out["vocab"] = (k + x, n + need, f + xf)
+        # waiting loanwords among step 2's still-needed words
+        waiting_x = sum(1 for r in pool if r in held_ranks and r not in cards and r not in found_r)
+        out["waiting"] = w + min(waiting_x, need - x)
     from . import kanji_data, grammar_data
     for kind, mod in (("kanji", kanji_data), ("grammar", grammar_data)):
         res = results.get(kind)
@@ -463,11 +477,14 @@ def status(results: dict, deck: str = "", record: bool = True) -> dict | None:
         # Marks (★ found, the loanword / particle buttons) move the starting
         # point, not today's progress (owner 2026-10-20): what's left counts
         # them at once, so today's number drops as soon as you mark; "today"
-        # counts only words / kanji / grammar learned from cards.
-        left_start = max(0, n - f - start[kind])
+        # counts only words / kanji / grammar learned from cards. Waiting
+        # loanwords (counts) are left out of what's left the same way: as one
+        # joins, it moves from waiting to found, and the number stays put.
+        w = now.get("waiting", 0) if kind == "vocab" else 0
+        left_start = max(0, n - f - w - start[kind])
         per_day = math.ceil(left_start / days_left) if days_left > 0 else left_start
-        kinds[kind] = {"known": k, "total": n, "left": max(0, n - k), "per_day": per_day,
-                       "today": max(0, k - f - start[kind]), "found": f}
+        kinds[kind] = {"known": k, "total": n, "left": max(0, n - k - w), "per_day": per_day,
+                       "today": max(0, k - f - start[kind]), "found": f, "waiting": w}
     if today > test:
         phase = "past"
     elif kinds and all(v["left"] == 0 for v in kinds.values()):

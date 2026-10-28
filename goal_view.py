@@ -96,6 +96,7 @@ def add_goal_card(page: QVBoxLayout, tab) -> None:
                 for kind, k in kinds.items() if k["left"]]
         if left:
             outer.addWidget(_label("Still to learn: " + " · ".join(left)))
+        _add_waiting_line(outer, kinds)
         for line in _step_lines(st):
             outer.addWidget(_label(line))
     else:
@@ -118,6 +119,7 @@ def add_goal_card(page: QVBoxLayout, tab) -> None:
         _connect_today(today_lbl, tab, lvl)
         outer.addWidget(today_lbl)
         outer.addWidget(_label("Still to learn: " + " · ".join(left), HINT_CSS))
+        _add_waiting_line(outer, kinds)
         for line in _step_lines(st):
             outer.addWidget(_label(line))
         vocab = kinds.get("vocab")
@@ -162,6 +164,15 @@ def _words_note(lvl: str) -> str:
                 f"come first. {lvl} also asks for about {top:,} words in all, so the rest comes from "
                 f"the most common words of written Japanese, which matter more at N2 and N1.")
     return f"Words: the JLPT word lists up to {lvl} (the JLPT Vocabulary bars above)."
+
+
+def _add_waiting_line(outer, kinds: dict):
+    """Under "Still to learn": the marked English loanwords it leaves out
+    (goal.counts' "waiting", owner 2026-10-28)."""
+    w = (kinds.get("vocab") or {}).get("waiting", 0)
+    if w:
+        outer.addWidget(_label(f"Not included: {w:,} English loanwords you marked found. "
+                               f"They join on their own as your card count grows.", HINT_CSS))
 
 
 def _step_lines(st: dict) -> list:
@@ -298,25 +309,27 @@ class GoalDialog(QDialog):
             traceback.print_exc()
             cs = {}
         c = cs.get("vocab")
+        # waiting English loanwords join on their own (goal.counts)
+        left = c[1] - c[0] - cs.get("waiting", 0) if c else 0
         if c is None:
             text = ""
-        elif c[1] - c[0] <= 0:
+        elif left <= 0:
             text = f"You already know every word up to {lvl}."
         elif days <= 0:
-            text = (f"{c[1] - c[0]:,} words still to learn, and the test is less than "
+            text = (f"{left:,} words still to learn, and the test is less than "
                     f"{goal.BUFFER_DAYS} days away: there's no time left before the finish line.")
         else:
-            per = -(-(c[1] - c[0]) // days)
-            text = (f"{c[1] - c[0]:,} words still to learn: about <b>{per:,}</b> a day "
+            per = -(-left // days)
+            text = (f"{left:,} words still to learn: about <b>{per:,}</b> a day "
                     f"until {goal.fmt_date(finish)}, 14 days before the test.")
             _name, line = goal.pace(per, days, finish)
             if per > goal.TIGHT_PER_DAY:
-                alt = goal.instead(c[1] - c[0], d)
+                alt = goal.instead(left, d)
                 text += f"<br><span style='color:{TIGHT_COLOR};'>{line}{' ' + alt if alt else ''}</span>"
             else:
                 text += f"<br>{line}"
         steps = cs.get("steps")
-        if text and steps and c[1] - c[0] > 0:
+        if text and steps and left > 0:
             (k1, n1), (k2, n2) = steps["lists"], steps["common"]
             text += (f"<br>Step 1, JLPT word lists: {n1 - k1:,} to go · "
                      f"step 2, common words: {n2 - k2:,} to go.")

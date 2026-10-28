@@ -168,6 +168,19 @@ r["frequency"]["known_nids"] = {i: [i] for i in range(3000)}
 st = goal.status(r, "D")
 check("N2: step 2 capped, can't replace list words", (st["steps"]["common"], st["kinds"]["vocab"]["known"]), ((1250, 1250), 2550))
 check("N2: not done while lists aren't", st["kinds"]["vocab"]["left"], 3450)
+# Waiting English loanwords (card_state.hold_back_loans) aren't words to
+# learn: left out of what's left and the per-day number (owner 2026-10-28)
+r = results(600, 400, 300); r["frequency"]["known_nids"] = {i: [i] for i in range(1000)}
+st0 = goal.status(r, "D")
+r["loans_waiting"] = {"pairs": {tuple(p) for p in r["N3"]["missing_words"][:1000]},
+                      "ranks": set(range(1000, 1150))}
+st = goal.status(r, "D")
+check("N2 waiting: 1,000 list + 150 step-2 loanwords", st["kinds"]["vocab"]["waiting"], 1150)
+check("N2 waiting: left drops by 1,150", st0["kinds"]["vocab"]["left"] - st["kinds"]["vocab"]["left"], 1150)
+check("N2 waiting: bars' known unchanged", st["kinds"]["vocab"]["known"], st0["kinds"]["vocab"]["known"])
+check("N2 waiting: per day drops", st["kinds"]["vocab"]["per_day"] < st0["kinds"]["vocab"]["per_day"], True)
+r["loans_waiting"]["ranks"] = set(range(1000, 1400))           # step 2 still needs only 250
+check("N2 waiting: capped at step 2's need", goal.status(r, "D")["kinds"]["vocab"]["waiting"], 1250)
 goal.save("N3", datetime.date(2026, 12, 6))
 check("N3 words = lists", goal.status(results(600, 400, 300), "D")["kinds"]["vocab"]["total"], 2950)
 

@@ -491,6 +491,9 @@ PATTERNS = [
     (re.compile(r"^Everything up to (N\d) is learned\. The rest is review\.$"),
      r"\1 までをすべて習得しました。あとは復習です。"),
     (re.compile(r"^(Per day|Today|Still to learn): (.*)$", re.S), _goal_counts_ja),
+    (re.compile(r"^Not included: ([\d,]+) English loanwords you marked found\. "
+                r"They join on their own as your card count grows\.$"),
+     r"含まれていないもの：発見済みにした英語の外来語 \1 語。カードが増えるにつれて自然に加わります。"),
     (re.compile(r"^You already know every word up to (N\d)\.$"), r"\1 までの単語はすべて知っています。"),
     (re.compile(r"^([\d,]+) words still to learn, and the test is less than (\d+) days away: "
                 r"there's no time left before the finish line\.$"),
