@@ -622,6 +622,7 @@ def coverage(nid_to_display: dict, nid_to_reading: dict, overrides=None) -> dict
         "notes_total":   len({real_nid(nid) for nid in nid_to_display}),
         "notes_in_top":  notes_in_top,
         "text_coverage": (pmw_known / pmw_total) if pmw_total else 0.0,
+        "pmw_total":     pmw_total,       # for hold_found
         "missing":       missing,
         "missing_lean":  missing_lean,
         "entries":       grid_entries,
@@ -635,3 +636,20 @@ def coverage(nid_to_display: dict, nid_to_reading: dict, overrides=None) -> dict
         # nid → (1-based rank, estimated) for notes outside the top 20,000
         "nid_rank_extra": nid_rank_extra,
     }
+
+
+def hold_found(freq: dict, ranks: set):
+    """Take these marked-found rows (0-based ranks) off coverage()'s counts:
+    the tiers and the text coverage (card_state.hold_back_loans). They stay
+    marked, and stay out of the missing lists."""
+    ranks = set(ranks) & set(freq.get("found_ranks") or ())
+    if not ranks:
+        return
+    freq["found_ranks"] = set(freq["found_ranks"]) - ranks
+    freq["tiers"] = [(n, k - sum(1 for r in ranks if r < n)) for n, k in freq.get("tiers", [])]
+    entries, total = load(), freq.get("pmw_total") or 0.0
+    if entries and total:
+        held = sum(entries[r][2] for r in ranks
+                   if (entries[r][0], entries[r][1]) not in SHARED_WITH
+                   and (entries[r][0], entries[r][1]) not in COMPOUNDS)
+        freq["text_coverage"] = max(0.0, freq.get("text_coverage", 0.0) - held / total)

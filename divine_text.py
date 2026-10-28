@@ -119,21 +119,33 @@ EXACT = {
     # the loanword "?" (owner 2026-10-21)
     "English loanwords (カメラ, テーブル, データ…) are words most English speakers understand after "
     "seeing them once or twice in context, so they're marked as found from the start and you don't "
-    "need cards for them. It's your choice: if you'd rather learn them like any other word, or "
-    "English isn't your first language, press the button to unmark them.":
+    "need cards for them. It's your choice: if you'd rather learn them like any other word and "
+    "create Anki cards for them, or English isn't your first language, press the button to unmark them.":
         "英語の外来語（カメラ・テーブル・データ…）は、英語を話す人なら文脈で一、二度見れば分かる語なので、"
         "最初から発見済みになっていて、カードは要りません。使うかどうかは自由です："
-        "ほかの語と同じように覚えたい人や、英語が母語でない人は、ボタンで解除してください。",
-    "<b>Your JLPT, frequency and goal numbers</b> count marked loanwords straight away, so those "
-    "bars stay accurate.":
-        "<b>JLPT・頻度・目標の数字</b>は、発見済みの外来語をすぐに数えるので、正確なままです。",
-    "<b>Your rank</b> counts them gradually, as your vocabulary reaches them. Sorted from most to "
-    "least common, each marked loanword joins once your learned cards reach its frequency rank "
-    "minus the loanwords already counted. Very common ones like テレビ count almost at once; one "
-    "ranked 8,000 counts once your rank reaches about 8,000.":
-        "<b>ランク</b>では、語彙がそこに届くにつれて少しずつ数えます。よく使われる順に、発見済みの各外来語は、"
-        "覚えたカードの数が「その語の頻度順位 − すでに数えた外来語の数」に達したときに加わります。"
-        "テレビのようにとてもよく使われる語はほぼすぐに、順位8,000の語はランクが約8,000に達したときに数えられます。",
+        "ほかの語と同じようにAnkiのカードを作って覚えたい人や、英語が母語でない人は、ボタンで解除してください。",
+    "<b>They count gradually, as your vocabulary reaches them.</b> Sorted from most to least "
+    "common, each marked loanword joins once your rank reaches its frequency rank. Very common ones like テレビ count almost at once; one ranked "
+    "8,000 counts once your rank reaches about 8,000. A loanword on a JLPT list but not in the "
+    "20,000-word frequency list takes its level's place in that order: N5 800, N4 1,500, "
+    "N3 3,900, N2 6,000, N1 13,800.":
+        "<b>語彙がそこに届くにつれて、少しずつ数えます。</b>よく使われる順に、発見済みの各外来語は、"
+        "ランクがその語の頻度順位に達したときに加わります。"
+        "テレビのようにとてもよく使われる語はほぼすぐに、順位8,000の語はランクが約8,000に達したときに数えられます。"
+        "JLPTのリストにあって頻度リスト（20,000語）にない外来語は、レベルごとの位置に並びます："
+        "N5は800、N4は1,500、N3は3,900、N2は6,000、N1は13,800。",
+    "<b>One order, everywhere.</b> A loanword either counts or doesn't yet, the same for your "
+    "rank, the JLPT bars, the frequency bars, your goal, your history and your Nakama card. Each "
+    "counts only the counted loanwords that belong to it, so the numbers differ: the rank counts "
+    "all of them, the frequency bars the ones in the top 20,000, the JLPT bars the ones on a JLPT "
+    "list (many everyday loanwords aren't on one). A word on both, like テレビ, counts on both. "
+    "Your marks stay: a loanword that doesn't count yet keeps its ★.":
+        "<b>順番はどこでも一つです。</b>外来語は「数えられている」か「まだ」のどちらかで、"
+        "ランク・JLPTバー・頻度バー・目標・履歴・仲間カードのどこでも同じです。"
+        "それぞれは数えられた外来語のうち自分に当てはまるものだけを数えるので、数字は違います："
+        "ランクはすべて、頻度バーは上位20,000語に入るもの、JLPTバーはJLPTのリストにあるもの"
+        "（日常の外来語の多くはリストにありません）。テレビのように両方にある語は両方で数えられます。"
+        "印はそのままで、まだ数えられていない外来語も★のままです。",
     "Why: marking about 2,500 loanwords at once would skip the early ranks, but you shouldn't need "
     "thousands of cards for words you already understand to reach 20,000. With every loanword "
     "marked, the last one joins at about 17,500 learned cards, exactly where marking them all at "

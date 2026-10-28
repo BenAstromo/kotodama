@@ -71,7 +71,7 @@ An Anki desktop add-on (`addons21/jlpt_progress`, menu **Kotodama**: Open Kotoda
 - Prefer verifiable data rules (JMdict, readings) over hand lists; keep hand lists small and documented.
 
 ### 2.4 Owner's learner-centric choices
-- **English loanwords** are understandable, so carding them is bloat → **Mark English Loanwords as Found** button. Test: *would an English speaker hearing it in context land on the right thing?* `COUNT_AS_ENGLISH` (always), `FALSE_FRIENDS` and `NOT_ENGLISH` (never) in `jlpt_data.py`; wasei / non-English / unguessable abbreviations excluded.
+- **English loanwords** are understandable, so carding them is bloat → **Mark English Loanwords as Found** button. Marked loanwords join **every count (rank, bars, history, goal, Nakama) gradually**, most common first, as your vocabulary reaches them (`card_state.loans_counted` / `hold_back_loans`, owner 2026-10-27); the marks stay. Test: *would an English speaker hearing it in context land on the right thing?* `COUNT_AS_ENGLISH` (always), `FALSE_FRIENDS` and `NOT_ENGLISH` (never) in `jlpt_data.py`; wasei / non-English / unguessable abbreviations excluded.
 - **Licensing:** the owner optimises for JLPT relevance and knowingly ships trimmed BCCWJ derivatives (CC BY-NC-ND; accepted risk; plan B = ship NINJAL's original file and trim at load time). Always credit every source (§12).
 - **Fewer settings**: fixed sensible behaviour over checkboxes; unlockables stay hidden until earned.
 
@@ -241,7 +241,7 @@ Deliberately not done: dropping white papers / Diet minutes (they hold N2/N1 voc
 - **Packaging:** `tools/build_package.py` (skips APP_VISION.md, docs/, tools/, server/, user_files/).
 - After anything user-visible, update `README.md`.
 
-### Baseline numbers (owner's deck, 2026-10-26, loanword button pressed)
+### Baseline numbers (owner's deck, 2026-10-26, loanword button pressed; from 2026-10-27 the bars count only the loanwords the rank counts, so these are higher than now)
 All levels 3,006 / 8,064 (2,504 from cards + 501 loanwords + 1 marked); N5 661/682, N4 570/640, N3 843/1,703, N2 412/1,827, N1 520/3,212; Off-list 735; marked found 2,594. Large unexplained swings after a change mean something broke. Script-rule check: JLPT known words whose list display has kanji but whose card has none must be 0.
 
 ---

@@ -284,14 +284,19 @@ FREQ_INFO_EN = (
 LOANWORD_INFO_EN = [
     "English loanwords (カメラ, テーブル, データ…) are words most English speakers understand after "
     "seeing them once or twice in context, so they're marked as found from the start and you don't "
-    "need cards for them. It's your choice: if you'd rather learn them like any other word, or "
-    "English isn't your first language, press the button to unmark them.",
-    "<b>Your JLPT, frequency and goal numbers</b> count marked loanwords straight away, so those "
-    "bars stay accurate.",
-    "<b>Your rank</b> counts them gradually, as your vocabulary reaches them. Sorted from most to "
-    "least common, each marked loanword joins once your learned cards reach its frequency rank "
-    "minus the loanwords already counted. Very common ones like テレビ count almost at once; one "
-    "ranked 8,000 counts once your rank reaches about 8,000.",
+    "need cards for them. It's your choice: if you'd rather learn them like any other word and "
+    "create Anki cards for them, or English isn't your first language, press the button to unmark them.",
+    "<b>They count gradually, as your vocabulary reaches them.</b> Sorted from most to least "
+    "common, each marked loanword joins once your rank reaches its frequency rank. Very common ones like テレビ count almost at once; one ranked "
+    "8,000 counts once your rank reaches about 8,000. A loanword on a JLPT list but not in the "
+    "20,000-word frequency list takes its level's place in that order: N5 800, N4 1,500, "
+    "N3 3,900, N2 6,000, N1 13,800.",
+    "<b>One order, everywhere.</b> A loanword either counts or doesn't yet, the same for your "
+    "rank, the JLPT bars, the frequency bars, your goal, your history and your Nakama card. Each "
+    "counts only the counted loanwords that belong to it, so the numbers differ: the rank counts "
+    "all of them, the frequency bars the ones in the top 20,000, the JLPT bars the ones on a JLPT "
+    "list (many everyday loanwords aren't on one). A word on both, like テレビ, counts on both. "
+    "Your marks stay: a loanword that doesn't count yet keeps its ★.",
     "Why: marking about 2,500 loanwords at once would skip the early ranks, but you shouldn't need "
     "thousands of cards for words you already understand to reach 20,000. With every loanword "
     "marked, the last one joins at about 17,500 learned cards, exactly where marking them all at "
@@ -6945,10 +6950,8 @@ class OverviewTab(QWidget):
         if rank <= 0:
             return
         bar.set_ghost(rank)
-        # Like with like: marked loanwords the rank doesn't count yet (they
-        # join on a schedule) are on the bar but not in the rank (2026-10-21).
-        pending = card_state.loans_not_yet_counted(rank, card_state.found_extra(self._deck_name))
-        common = max(0, common - pending)
+        # (Loanwords the rank doesn't count yet are off the bar already:
+        # card_state.hold_back_loans.)
         pct = min(100, round(common / rank * 100))
         outside = max(0, rank - common)
         pale = "#9fd8f2"
@@ -6964,9 +6967,7 @@ class OverviewTab(QWidget):
             "genre vocabulary ranks lower than you'd hear it. A lower share isn't worse: it shows how "
             "much of your vocabulary is written-Japanese core.\n"
             "About: the rank counts cards and marked words, this bar counts words (duplicate cards, "
-            "one card for two spellings), so the match is approximate."
-            + (f"\n{pending:,} marked English loanwords the rank doesn't count yet are left out "
-               "here (they join the rank as your vocabulary reaches them)." if pending else ""))
+            "one card for two spellings), so the match is approximate.")
         legend = QLabel(
             f"<span style='color:{FREQ_FG};'>■</span> common words you know &nbsp;&nbsp; "
             f"<span style='color:{pale};'>■</span> your rank: {rank:,} words learned")
@@ -7104,8 +7105,8 @@ class OverviewTab(QWidget):
                 f"{loans:,} of your {len(extra['loans']):,} English loanwords marked found count "
                 "toward the rank so far. They join as your vocabulary reaches them: a loanword at "
                 "frequency rank 8,000 counts once your rank reaches 8,000 (8,000 minus the "
-                "loanwords already counted, in learned cards). The JLPT and frequency bars count "
-                "them all at once.")
+                "loanwords already counted, in learned cards). The JLPT and frequency bars follow "
+                "the same order.")
         else:
             self._rank_split.setToolTip("")
         _regold(self._rank_split)          # rewritten on ±250 after the gold pass
@@ -7329,6 +7330,8 @@ class ProgressDialog(QDialog):
         card_state.set_found_extra(deck_name, card_state.found_parts(results))
         fm = analysis_inputs.get("field_mappings", [])
         ign = bool(analysis_inputs.get("ignore_suspended", False))
+        # Loanwords the rank doesn't count yet: off every bar too.
+        card_state.hold_back_loans(results, deck_name, ign)
         history.record(results, deck_name, lists, fm, ign, manual=manual_snapshot)
         # The series after the record: today's snapshot is part of it.
         try:

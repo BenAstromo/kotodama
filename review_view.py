@@ -213,7 +213,7 @@ class ReviewWindow(QDialog):
         return LEVEL_COLORS[lvl] if lvl else ALL_COLOR
 
     def _outside_line(self, lay, items: list, kind: str):
-        """"+3 words outside your N2 goal: 頻繁 N1 · …" (each one a link)."""
+        """"+3 words outside your N2 goal" (a link to them all)."""
         if not items:
             return
         n, lvl = len(items), self._data["level"]
@@ -223,24 +223,7 @@ class ReviewWindow(QDialog):
                 else f"+{n:,} {unit} on no JLPT list")
         head = _label(text, HINT_CSS)
         self._click(head, self._open(_nids(items)), "Open them all in the Browser")
-        row = QHBoxLayout()
-        row.setSpacing(6)
-        row.addWidget(head)
-        parts = []
-        for i, x in enumerate(items[:30]):
-            tag = x["level"] or ("リスト外" if _gold() else "no list")
-            tc = _c(LEVEL_COLORS.get(x["level"], "#888888"))
-            parts.append(f"<a href='{i}' style='color:{_c('#dddddd')}; text-decoration:none;'>"
-                         f"{html.escape(x['text'])}</a> <span style='color:{tc}; font-size:11px;'>"
-                         f"{tag}</span>")
-        more = " …" if len(items) > 30 else ""
-        lbl = QLabel(" &nbsp;·&nbsp; ".join(parts) + more)
-        lbl.setWordWrap(True)
-        lbl.setStyleSheet("font-size: 13px;")
-        lbl.setProperty("jlpt_gold_skip", True)
-        lbl.linkActivated.connect(lambda href: open_nids([items[int(href)]["nid"]], self))
-        row.addWidget(lbl, 1)
-        lay.addLayout(row)
+        lay.addWidget(head)
 
     def _word_row(self, x: dict) -> QLabel:
         reading = x["reading"] if x["reading"] and x["reading"] != x["text"] else ""
@@ -439,7 +422,8 @@ class ReviewWindow(QDialog):
             bar.setFixedSize(30 if wide else 12, 4 + int(56 * n / top))
             lit = n >= per if per else n > 0
             dim = DIM_GOLD if _gold() else DIM_BAR
-            bar.setStyleSheet(f"background: {_c(color) if lit else dim}; border-radius: 3px;")
+            fill = "transparent" if n == 0 else _c(color) if lit else dim
+            bar.setStyleSheet(f"background: {fill}; border-radius: 3px;")
             day = d["days"][i]
             items = [x for key in ("words", "words_out", "kanji", "kanji_out", "grammar", "grammar_out")
                      for x in review.on_day(d[key], i)]

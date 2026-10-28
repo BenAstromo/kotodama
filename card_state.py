@@ -307,9 +307,8 @@ def found_split(results: dict) -> tuple[int, int]:
 
 
 # ── English loanwords join the rank gradually (owner 2026-10-20) ──────────────
-# Marked English loanwords count on the JLPT and frequency bars at once (the
-# bars stay accurate), but toward the RANK only as your vocabulary reaches
-# them: the k-th marked loanword (by frequency rank r, k = 0, 1, …) counts
+# Marked English loanwords count only as your vocabulary reaches them, on
+# the rank and (since 2026-10-27, hold_back_loans) on every bar: the k-th marked loanword (by frequency rank r, k = 0, 1, …) counts
 # once your learned cards reach r − k ("rank 8,000 minus the loanwords
 # already counted"). Early on the rank isn't inflated by ~2,500 words at
 # once; with every loanword marked, the last one joins at 17,464 cards,
@@ -322,7 +321,19 @@ _LEVEL_SIZE = {"N5": 800, "N4": 1500, "N3": 3900, "N2": 6000, "N1": 13800}
 def found_parts(results: dict) -> dict:
     """{"hand": words marked found that aren't English loanwords, "loans":
     sorted frequency ranks of the marked English loanwords (a JLPT-only one
-    uses its level's size)} — the distinct words of found_words_in."""
+    uses its level's size)} — the distinct words of found_words_in. Kept in
+    results from the first call, so it still sees every marked loanword
+    after hold_back_loans."""
+    if results.get("found_parts") is not None:
+        return results["found_parts"]
+    keys = _found_keys(results)
+    loans = sorted(rk for is_loan, rk in keys.values() if is_loan)
+    results["found_parts"] = {"hand": len(keys) - len(loans), "loans": loans}
+    return results["found_parts"]
+
+
+def _found_keys(results: dict) -> dict:
+    """found_parts' words: key → (is an English loanword, rank for the schedule)."""
     from . import freq_data, jlpt_data
     from .jlpt_data import LEVELS
     keys: dict = {}                       # key → (is a loanword, rank for the schedule)
@@ -343,8 +354,52 @@ def found_parts(results: dict) -> dict:
             loan = bool(e) and freq_data.is_english_loanword(e[1], e[2])
             old = keys.get(("row", rank))
             keys[("row", rank)] = ((old[0] if old else False) or loan, rank + 1)
-    loans = sorted(rk for is_loan, rk in keys.values() if is_loan)
-    return {"hand": len(keys) - len(loans), "loans": loans}
+    return keys
+
+
+def hold_back_loans(results: dict, deck_name: str, ignore_suspended: bool):
+    """Marked English loanwords the rank doesn't count yet come off every
+    other count too (owner 2026-10-27: a Nakama card's 344 words with 850
+    JLPT words beside it confused): out of the JLPT lists' known words and
+    the frequency tiers, so the bars, history, goal and Nakama card grow
+    with your vocabulary like the rank. The counted ones are the most
+    common first. The marks themselves stay (the tiles keep their ★)."""
+    from . import freq_data
+    from .jlpt_data import LEVELS
+    if results.get("loans_held"):
+        return                            # once per analysis: a second pass would hold more
+    results["loans_held"] = True
+    parts = found_parts(results)          # before anything is held: every marked one
+    if not parts["loans"] or not deck_name:
+        return
+    try:
+        notes = len(mw.col.find_notes(deck_search(deck_name, ignore_suspended, True)))
+    except Exception:
+        return
+    n = loans_counted(notes, parts["loans"])
+    loans = sorted((rk, repr(k), k) for k, (is_loan, rk) in _found_keys(results).items() if is_loan)
+    held = {k for _rk, _r, k in loans[n:]}
+    if not held:
+        return
+    for lvl in LEVELS:
+        d = results.get(lvl)
+        if not d:
+            continue
+        keep, out = [], []
+        for d_, r, nid in d.get("known_words", []):
+            if nid is None:
+                rk = _found_rank(d_, r)
+                key = ("row", rk - 1) if rk is not None else freq_data._override_key(d_, r)
+                if key in held:
+                    out.append((d_, r))
+                    continue
+            keep.append((d_, r, nid))
+        if out:
+            d["known_words"] = keep
+            d["missing_words"] = list(d.get("missing_words", [])) + out
+    freq = results.get("frequency")
+    if freq:
+        freq_data.hold_found(freq, {k[1] for k in held if k[0] == "row"})
 
 
 def loans_counted(cards: int, loans: list) -> int:
