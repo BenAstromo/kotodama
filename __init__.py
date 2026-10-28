@@ -1070,6 +1070,12 @@ _menu.addAction(_open_action)
 _settings_action = QAction("Settings…", mw)
 _settings_action.triggered.connect(run_jlpt_check)
 _menu.addAction(_settings_action)
+_menu.addSeparator()
+# The credits screen (about.py; JMdict's licence asks for one reachable from a menu)
+_about_action = QAction("About Kotodama…", mw)
+from . import about
+_about_action.triggered.connect(lambda: about.show_about(mw))
+_menu.addAction(_about_action)
 mw.form.menubar.insertMenu(mw.form.menuHelp.menuAction(), _menu)
 
 mini_widget.setup()

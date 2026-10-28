@@ -165,7 +165,9 @@ When several notes are candidates, one whose reading matches (hiragana/katakana 
 Clicking a known word tile searches the Browser with `nid:<note_id>`, which always finds the exact note regardless of its field content.
 
 ## Data sources & credits
-- **JLPT lists:** [OpenJLPT](https://github.com/evanclan/OpenJLPT) (CC BY-SA 4.0), levels from [Jonathan Waller's JLPT lists](https://www.tanos.co.uk/jlpt/) (CC BY)
+The same credits are in Anki under **Kotodama → About Kotodama…**.
+
+- **JLPT lists:** [OpenJLPT](https://github.com/evanclan/OpenJLPT) (CC BY-SA 4.0), levels from [Jonathan Waller's JLPT lists](https://web.archive.org/web/20260406082505/http://www.tanos.co.uk/jlpt/) (CC BY; archived copy, the site is offline)
 - **Loanword flags and spelling mapping:** [JMdict](https://www.edrdg.org/jmdict/j_jmdict.html), Electronic Dictionary Research and Development Group (CC BY-SA 4.0)
 - **Frequency list:** BCCWJ short-unit-word frequency list v1.0, National Institute for Japanese Language and Linguistics (NINJAL) (CC BY-NC-ND 3.0)
 - **Everyday speech percentage:** CEJC (Corpus of Everyday Japanese Conversation) short-unit-word vocabulary table ver202209, NINJAL (CC BY-NC-ND 3.0)
@@ -173,8 +175,8 @@ Clicking a known word tile searches the Browser with `nid:<note_id>`, which alwa
 - **Grammar points** (patterns, meanings, formation, examples): [OpenJLPT](https://github.com/evanclan/OpenJLPT) contributors (CC BY-SA 4.0)
 - **Kanji levels, readings and meanings:** [OpenJLPT](https://github.com/evanclan/OpenJLPT) (CC BY-SA 4.0): Jonathan Waller's kanji levels (CC BY) and [KANJIDIC2](https://www.edrdg.org/wiki/KANJIDIC_Project.html), EDRDG (CC BY-SA 4.0)
 - **Meanings on hover:** [Jitendex](https://jitendex.org) by Stephen Kraus (CC BY-SA 4.0), based on JMdict
-- **Extra JLPT words:** a few words on Jonathan Waller's lists that OpenJLPT omits (via [stephenmk/yomitan-jlpt-vocab](https://github.com/stephenmk/yomitan-jlpt-vocab), which keeps Waller's levels)
-- **Community additions:** 211 words on community JLPT lists ([jamsinclair/open-anki-jlpt-decks](https://github.com/jamsinclair/open-anki-jlpt-decks), [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list)) that Waller's current lists don't have, e.g. 顔, 母, 頑張る, 当然, 仕方がない. They use those lists' levels and are flagged `community` in the list files.
+- **Extra JLPT words:** a few words on Jonathan Waller's lists that OpenJLPT omits (via [stephenmk/yomitan-jlpt-vocab](https://github.com/stephenmk/yomitan-jlpt-vocab), which keeps Waller's levels; CC BY-SA 4.0)
+- **Community additions:** 211 words on community JLPT lists ([jamsinclair/open-anki-jlpt-decks](https://github.com/jamsinclair/open-anki-jlpt-decks), [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list)) that Waller's current lists don't have, e.g. 顔, 母, 頑張る, 当然, 仕方がない. They use those lists' levels and are flagged `community` in the list files. Both lists are MIT-licensed; their notices are in `THIRD_PARTY_NOTICES.txt`.
 
 ## Supporting Kotodama
 Kotodama is free, and nothing is unlocked by money. **♥ Support** (bottom left of the window) explains how to leave a tip on [Ko-fi](https://ko-fi.com/benastromo). If you're in Nakama and put your friend code in the Ko-fi message, your Nakama card and share image say **♥ Supported Kotodama**: one plain line, the same for any amount. The Nakama server keeps only the date of your first tip with your code (no name, email or amount).
