@@ -372,15 +372,30 @@ def _is_katakana(s: str) -> bool:
     return bool(s) and all("ァ" <= c <= "ヶ" or c in "ー・" for c in s)
 
 
+_usual_kana = None   # {(kanji display, hiragana reading)} usually written in kana
+
+
+def usually_kana(display: str, reading_h: str) -> bool:
+    """A kanji word real text usually writes in kana (物 もの, 言う いう,
+    諦める あきらめる): the parser's kana_ok.txt + kana_usual.txt. Only these
+    let a kana-only spelling reach a kanji row."""
+    global _usual_kana
+    if _usual_kana is None:
+        from .sentence_parser import _kana_ok
+        _usual_kana = {(_norm(d), _kata_to_hira(_norm(r))) for d, r in _kana_ok()}
+    return (_norm(display), reading_h) in _usual_kana
+
+
 def word_rank(display: str, reading: str, alts=()) -> int | None:
     """1-based frequency rank of a word (e.g. a JLPT list entry), or None if
     it isn't in the list. Matches on any spelling (display or alts) whose
     entry also has this reading, so 汚れ よごれ and 汚れ けがれ get their own
-    ranks. A kana spelling prefers the row spelled that way, then a row whose
-    main reading it is, then a kana row it's a variant of (ずうっと → ずっと),
-    and never a kanji row that only lists it as a side form: else ほうき
-    (broom) was 放棄, やかん (kettle) 夜間, じゃ 蛇 (owner 2026-10-27). The
-    word's own spelling wins over its alts (街 is 街, not the commoner 町)."""
+    ranks. A kana spelling prefers the row spelled that way, then a kana row
+    it's a variant of (ずうっと → ずっと), and reaches a kanji row by its
+    sound only if that word is usually written in kana (もの → 物): else
+    ほうき (broom) was 放棄, やかん (kettle) 夜間, なんか 南下, と 都 (owner
+    2026-10-27). The word's own spelling wins over its alts (街 is 街, not
+    the commoner 町)."""
     global _rank_index
     if _rank_index is None:
         _rank_index = {}
@@ -403,10 +418,10 @@ def word_rank(display: str, reading: str, alts=()) -> int | None:
                 tier = 2 if alt else 0       # the row spelled this way (はし with alt 箸: 箸)
             elif not kana:
                 tier = 3 if alt else 1       # one of the row's spellings (解ける in 溶ける)
-            elif _kata_to_hira(f) == main_h:
-                tier = 5 if alt else 4       # by its sound
-            elif _is_kana(disp_h):
-                tier = 7 if alt else 6       # a kana variant of a kana row
+            elif _is_kana(disp_h) and (_is_katakana(f) or _kata_to_hira(f)[:1] == disp_h[:1]):
+                tier = 5 if alt else 4       # a kana variant of a kana row (リポート → レポート, not なんか → カボチャ)
+            elif usually_kana(disp_h, _kata_to_hira(f)):
+                tier = 7 if alt else 6       # by its sound, a usually-kana word
             else:
                 continue
             if best is None or (tier, rank) < best:
@@ -536,7 +551,9 @@ def coverage(nid_to_display: dict, nid_to_reading: dict, overrides=None) -> dict
 
     # A kana card is the frequency word spelled exactly that way (そう → そう).
     # Only if no frequency word is spelled in that kana does it fall back to
-    # the single most common kanji word with that reading (かぎ → 鍵).
+    # the most common kanji word with that reading that is usually written
+    # in kana (もの → 物, あきらめる → 諦める); never to any homophone (と was
+    # 都, なんか 南下, かぎ 鍵: owner 2026-10-27, as the JLPT bars do).
     kana_spelled = {_kata_to_hira(_norm(d)) for d, _, _, _ in entries if _is_kana(_norm(d))}
     kana_fallback_used: set[str] = set()
 
@@ -569,10 +586,11 @@ def coverage(nid_to_display: dict, nid_to_reading: dict, overrides=None) -> dict
         if _is_kana(nd_):
             nids.extend(kana_cards.get(nd_, ()))
         else:
-            rh = _kata_to_hira(_norm(reading))
-            if rh in kana_hira and rh not in kana_spelled and rh not in kana_fallback_used:
-                nids.extend(kana_hira[rh])
-                kana_fallback_used.add(rh)
+            for rh in readings:
+                if (rh in kana_hira and rh not in kana_spelled and rh not in kana_fallback_used
+                        and usually_kana(nd_, rh)):
+                    nids.extend(kana_hira[rh])
+                    kana_fallback_used.add(rh)
 
         okey = _override_key(display, reading)
         if okey in suspended_keys or rank in suspended_alias:

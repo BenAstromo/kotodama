@@ -75,12 +75,25 @@ check("katakana marks stay on katakana rows", not leaks, leaks[:10])
 
 # 3. Kana words find their own row, not a homophone or a side form.
 for (d, r), want in [(("ほうき", "ほうき"), "ほうき"), (("やかん", "やかん"), "やかん"),
-                     (("はし", "はし"), "箸"), (("街", "まち"), "街"), (("捕える", "とらえる"), "捕らえる")]:
+                     (("はし", "はし"), "箸"), (("街", "まち"), "街"), (("捕える", "とらえる"), "捕らえる"),
+                     (("せっけん", "せっけん"), "石鹸"), (("リポート", "リポート"), "レポート")]:
     rk = freq_data.word_rank(d, r, jlpt_data.alt_forms(d, r))
     check(f"{d} → {want}", rk is not None and ents[rk - 1][0] == want, rk and ents[rk - 1][:2])
-for d, r in [("じゃ", "じゃ"), ("だけ", "だけ")]:
+for d, r in [("じゃ", "じゃ"), ("だけ", "だけ"), ("と", "と"), ("なんか", "なんか"), ("すり", "すり")]:
     rk = freq_data.word_rank(d, r, jlpt_data.alt_forms(d, r))
     check(f"{d} has no unrelated row", rk is None, rk and ents[rk - 1][:2])
+
+# 3b. A kana-only card reaches only a tile spelled that way, or a kanji tile
+#     of a word usually written in kana (owner 2026-10-27: と was 都, ねこ 猫).
+kana_cards = ["と", "ねこ", "かぎ", "もの", "いう", "きょう", "そう"]
+cov = freq_data.coverage({i: w for i, w in enumerate(kana_cards, 1)}, {})
+landed = {}
+for rank, disp, rd, nid in cov["entries"]:
+    if nid:
+        landed.setdefault(kana_cards[nid - 1], disp)
+for w, want in [("と", None), ("ねこ", None), ("かぎ", None), ("もの", "物"), ("いう", "言う"),
+                ("きょう", "今日"), ("そう", "そう")]:
+    check(f"kana card {w} → {want}", landed.get(w) == want, landed.get(w))
 
 # 4. Gradual loanwords: 332 studied cards → only the counted ones anywhere.
 card_state.mw.col = types.SimpleNamespace(find_notes=lambda q: list(range(332)))
