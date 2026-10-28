@@ -963,3 +963,11 @@ Order: release-ready first (parser vocab accuracy → measured like grammar), th
 - **Duplicate-card finder** (`c071266`): `_duplicate_groups` in `analyse` (exact copies, same-word second cards, one word at two levels); rules from the owner's real deck: different kanji, no shared reading, or a kanji card that isn't the kana word's main spelling (いる / 要る) are never duplicates. Owner's deck: 35 groups. Faint ⧉ on tiles in every grid; "⧉ Words with more than one card: N — see the list" beside each grid's search box (first put inside the scroll area: hidden by the top fade); the list is non-modal (modal pushed the Browser behind everything).
 - **"♥ Supported Kotodama"** (`81e24fb`): Ko-fi webhook on the Nakama Worker, deployed by the owner 2026-10-28 (live probe: /kofi refuses a wrong token). Wrangler run from the add-on root needs `--config server/wrangler.toml`; it leaves a root `.wrangler/` cache (now gitignored).
 - Owner decisions: History chart step stays; gamification closed (no more ideas); Susanoo/Tsukuyomi dropped; to-do lists = development only.
+
+### 2026-10-27/28 (fourth session): speech percentage, goal loanwords, で → 出, mist, About screen
+- **Everyday speech percentage** (`93db516`): CEJC vocabulary table → `freq_cejc.txt` (build_freq.py spoken mode). Owner chose CEJC over Jiten (scripted, fiction-heavy) and a single line over a corpus toggle. CEJC list licence = CC BY-NC-ND 3.0 (download-page icon); the full corpus is contract-only.
+- **COVERAGE_PARTS** (`63fc0d9`): 何 なん / お母さん-type words credit their corpus rows in both percentages.
+- **Goal leaves waiting loanwords out** (`33e0ebe`): the owner's N2 goal went 12 → 14 a day when hold_back_loans landed (c127308).
+- **N3 で → 出 (で)** (`e169f55`): OpenJLPT entry linked to JMdict 1896380 but written in kana; Waller's own list has 出.
+- **Mist off UI elements** (`4b636a7`): ~15 ms scan for a 3,000-tile grid.
+- **About screen + MIT notices** (`ff9743c`); licence audit in release_drafts.md §7.
