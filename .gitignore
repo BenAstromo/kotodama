@@ -10,6 +10,7 @@ meta.json
 
 # Cloudflare's local cache for the Nakama worker (account details, builds)
 server/.wrangler/
+.wrangler/
 server/.dev.vars
 node_modules/
 
