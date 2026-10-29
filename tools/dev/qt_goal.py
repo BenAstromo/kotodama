@@ -70,6 +70,12 @@ def results(n5, n4, n3, kanji=None, grammar=None):
         r["grammar"] = {"levels": levels, "known": set(levels["N5"][:grammar[0]] + levels["N4"][:grammar[1]])}
     return r
 
+# step 2 is sized against the full bundled lists (goal._full_list_size);
+# these fake lists are smaller, so size it from them until the real-lists checks
+FAKE_SIZES = {"N5": 700, "N4": 650, "N3": 1600, "N2": 1800, "N1": 3000}
+_real_full_size = goal._full_list_size
+goal._full_list_size = lambda level: sum(FAKE_SIZES[l] for l in goal.levels_upto(level))
+
 check("no goal", goal.status(results(600, 400, 300)), None)
 goal.save("N3", datetime.date(2026, 12, 6))
 check("saved", (goal.get()["level"], goal.get()["set"]), ("N3", datetime.date(2026, 10, 20)))
@@ -187,6 +193,7 @@ check("N3 words = lists", goal.status(results(600, 400, 300), "D")["kinds"]["voc
 # Real word lists in the real results' shape (owner's crash 2026-10-20:
 # missing words are (word, reading) pairs, known ones (word, reading, nid))
 from jlpt_progress import jlpt_data
+goal._full_list_size = _real_full_size
 real = jlpt_data.build_lists({})
 RR = {l: {"known_words": [(d, r, 1) for d, r in real[l][:100]], "missing_words": [(d, r) for d, r in real[l][100:]]}
       for l in jlpt_data.LEVELS}
@@ -201,6 +208,12 @@ for lvl in ("N2", "N1"):
         # 2026-10-29): no step 2, so no steps; the total is the lists
         check("real lists N2: no steps", st.get("steps"), None)
         check("real lists N2: words = lists", st["kinds"]["vocab"]["total"], n_lists)
+        # suspended list words shrink the total but never open step 2 (owner's "Step 2: 4 / 4")
+        RS = {l: dict(RR[l]) for l in jlpt_data.LEVELS}; RS["frequency"] = RR["frequency"]
+        RS["N2"]["missing_words"] = RR["N2"]["missing_words"][4:]
+        st4 = goal.status(RS, "D", record=False)
+        check("real lists N2, 4 suspended: still no steps", st4.get("steps"), None)
+        check("real lists N2, 4 suspended: total = lists - 4", st4["kinds"]["vocab"]["total"], n_lists - 4)
         continue
     check(f"real lists {lvl}: step 1 total", st["steps"]["lists"], (100 * len(goal.levels_upto(lvl)), n_lists))
     print("    step 2 needed:", st["steps"]["common"][1])

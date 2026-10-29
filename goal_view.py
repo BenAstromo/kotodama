@@ -258,7 +258,7 @@ def _add_waiting_line(outer, kinds: dict):
 
 
 def _step_lines(st: dict) -> list:
-    """N1 (and N2 only if suspended list words open a gap):
+    """N1 only (N2's lists fill its size estimate):
     "Step 1 · JLPT word lists up to N1: 3,100 / 9,796 …" and
     "Step 2 · then common words not on the lists: 0 / 4,004 …"."""
     steps = st.get("steps")

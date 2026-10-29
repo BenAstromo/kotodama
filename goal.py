@@ -148,6 +148,16 @@ FREQ_GOALS = {"N2": 6_000, "N1": 13_800}   # word goals counted on the frequency
 
 
 _LIST_RANKS: dict = {}       # (level, list sizes, list version) → ranks of the list words
+_FULL_SIZE: dict = {}        # level → JLPT list words up to it, suspended ones included
+
+
+def _full_list_size(level: str) -> int:
+    """Every word on the bundled lists up to `level` (each word once)."""
+    if level not in _FULL_SIZE:
+        from . import jlpt_data
+        lists = jlpt_data.build_lists()
+        _FULL_SIZE[level] = sum(len(lists.get(l, ())) for l in levels_upto(level))
+    return _FULL_SIZE[level]
 
 
 def _list_ranks(results: dict, level: str) -> set:
@@ -309,7 +319,10 @@ def counts(results: dict, level: str) -> dict:
         found_r = freq.get("found_ranks") or set()
         sus = freq.get("suspended_ranks") or set()
         pool = [r for r in range(top) if (r + 1) not in listed and r not in sus]
-        need = min(len(pool), max(0, top - n))
+        # Sized against the full lists, not what's left after suspensions
+        # (owner 2026-10-29: 4 suspended N2 words opened "Step 2: 4 / 4").
+        # Suspended list words only shrink the total, as for N5–N3.
+        need = min(len(pool), max(0, top - _full_list_size(level)))
         known_x = [r for r in pool if r in cards or r in found_r]
         x = min(len(known_x), need)
         # Words from cards fill the needed count first, marks the rest: else
@@ -319,8 +332,7 @@ def counts(results: dict, level: str) -> dict:
         xf = x - min(sum(1 for r in known_x if r in cards), x)
         # No steps when the lists alone reach the size estimate (owner
         # 2026-10-29): after the Word Addition Project the lists up to N2
-        # hold 6,000 words (capped at the estimate), so N2 is just the lists. Only a
-        # lot of suspended list words brings step 2 back.
+        # hold 6,000 words (capped at the estimate), so N2 is just the lists.
         if need:
             out["steps"] = {"lists": (k, n), "common": (x, need)}
         out["vocab"] = (k + x, n + need, f + xf)
