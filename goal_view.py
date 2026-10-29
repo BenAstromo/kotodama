@@ -112,6 +112,11 @@ def add_goal_card(page: QVBoxLayout, tab) -> None:
         per, today, left = [], [], []
         from .history_view import gain_link
         text = QApplication.palette().color(QPalette.ColorRole.WindowText).name()
+        # Daily and weekly kinds mixed: each item names its own span under
+        # "Pace" / "Progress" (owner 2026-10-29: "Per day: … 4 kanji a week"
+        # read wrong). All daily keeps "Per day" / "Today".
+        mixed = any(k.get("weekly") for k in kinds.values())
+        day_s, today_s = (" a day", " today") if mixed else ("", "")
         for kind, k in kinds.items():
             c = DONE_COLOR if goal.done_today(k) else None
             if k.get("weekly"):         # under 1 a day: a week's number (goal.status)
@@ -119,15 +124,15 @@ def add_goal_card(page: QVBoxLayout, tab) -> None:
                 today.append(gain_link(f"today:{kind}", f"{_num(k['week'], c)} / {k['per_week']:,} "
                                        f"{_unit(kind, k['per_week'])} this week", text))
             else:
-                per.append(f"{_num(k['per_day'], c)} {_unit(kind, k['per_day'])}")
+                per.append(f"{_num(k['per_day'], c)} {_unit(kind, k['per_day'])}{day_s}")
                 # a link: today's new cards of this kind in the Browser
                 today.append(gain_link(f"today:{kind}", f"{_num(k['today'], c)} / {k['per_day']:,} "
-                                       f"{_unit(kind, k['per_day'])}", text))
+                                       f"{_unit(kind, k['per_day'])}{today_s}", text))
             left.append(f"{_num(k['left'])} {_unit(kind, k['left'])}")
-        per_lbl = _label("Per day: " + " · ".join(per))
+        per_lbl = _label(("Pace: " if mixed else "Per day: ") + " · ".join(per))
         per_lbl.setStyleSheet(BODY_CSS + " font-size: 15px;")
         outer.addWidget(per_lbl)
-        today_lbl = _label("Today: " + " · ".join(today))
+        today_lbl = _label(("Progress: " if mixed else "Today: ") + " · ".join(today))
         today_lbl.setToolTip("Click a number for the Progress Review: what you learned today and "
                              "this week, each card a click away.")
         _connect_today(today_lbl, tab, lvl)

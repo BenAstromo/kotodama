@@ -161,6 +161,30 @@ for tail, tr in SETS.items():
             if out[-1]["jmdict_id"] is None:
                 no_id.append(d)
 
+# N2 capped at the 6,000 estimate (owner 2026-10-29): the lists up to N2 held
+# 6,103, so the 103 of our N2 additions least likely on the N2 test move to N1,
+# rarest first among them (#5,012–5,994). Judged one by one from the rarer
+# end: hobbies / entertainment, specialised terms, trendy words, very specific
+# things, sound words, literary words. Kept at N2: notice and form words
+# (先着順, 手数料), daily-life listening words (ゴミ袋, 帰り道), classic N2
+# vocabulary-section words (戸惑う, 違和感).
+TO_N1 = set("""コンビ 落語 ミュージシャン プロデューサー 声優 キャスト 合奏 リハーサル パレード パズル バレー バトン 予選 五輪
+アトラクション 音符 歌声 爆笑 マニア 筋トレ キック ダッシュ スタミナ セッティング 変身 初代 仮面 大当たり 名言
+うつ病 喘息 背骨 ワクチン 整形 カルシウム 鉄分 カプセル 平面 銀河 幼虫 洞窟 フォント データーベース アナログ 円高
+耐震 被災 大国 北方 王国 院長 学童 時短 車線 ターミナル インチ
+癒し 相棒 だんとつ 最強 ヘルシー スペシャル クール キープ ピックアップ リピーター アウトレット リゾート リリース
+トピック ヒアリング ディスカッション テクニック インストラクター メジャー フライト ディナー ウエスト ニット
+ココア クリップ カート 海藻 鹿 雑草 酒屋 旨み 若葉 前歯 まつげ 紅白 読み聞かせ
+からから ぽろぽろ にやにや じわじわ びしょびしょ さらさら はっと
+浮かび上がる 文字通り 抱きしめる 引き寄せる""".split())
+assert len(TO_N1) == 103
+moved_n1 = 0
+for e in out:
+    if e["word"] in TO_N1 and e["level"] == "2":
+        e["level"] = "1"
+        moved_n1 += 1
+print("N2 → N1 (6,000 cap):", moved_n1)
+
 out.sort(key=lambda e: (e["level"], e["rank"] or 99999))
 json.dump(out, open(os.path.join(HERE, "word_additions.json"), "w", encoding="utf-8"),
           ensure_ascii=False, indent=0)

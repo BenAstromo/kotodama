@@ -1,4 +1,4 @@
-# JLPT N1 vocabulary list — 3698 words
+# JLPT N1 vocabulary list — 3801 words
 # Source: OpenJLPT (github.com/evanclan/OpenJLPT), CC BY-SA 4.0,
 #   levels from Jonathan Waller's JLPT lists (tanos.co.uk), CC BY.
 # Alternate spellings and loanword flags derived from JMdict (EDRDG), CC BY-SA 4.0.
@@ -3431,6 +3431,7 @@
 大名	だいみょう		ours
 幻想	げんそう		ours
 財団	ざいだん		ours
+王国	おうこく		ours
 戦場	せんじょう		ours
 下落	げらく		ours
 支障	ししょう		ours
@@ -3455,6 +3456,8 @@
 提言	ていげん		ours
 頻度	ひんど		ours
 守護	しゅご		ours	すご
+インチ	インチ	吋	ours,eng
+耐震	たいしん		ours
 参画	さんかく		ours
 反論	はんろん		ours
 留意	りゅうい		ours
@@ -3470,6 +3473,7 @@
 需給	じゅきゅう		ours
 強度	きょうど		ours
 養子	ようし		ours
+円高	えんだか		ours
 処遇	しょぐう		ours
 後継	こうけい		ours
 委ねる	ゆだねる		ours
@@ -3480,20 +3484,26 @@
 言及	げんきゅう		ours
 融合	ゆうごう		ours
 防御	ぼうぎょ	防禦	ours
+予選	よせん		ours
 選定	せんてい		ours
+被災	ひさい		ours
 因子	いんし		ours
 リース	リース		ours,eng
 閣僚	かくりょう		ours
 肝臓	かんぞう		ours
+メジャー	メジャー		ours,abbr	メージャー|メイジャー
 乳房	ちぶさ		ours	にゅうぼう
 新生	しんせい		ours
 出願	しゅつがん		ours
 活性化	かっせいか		ours
 仮説	かせつ		ours
+抱きしめる	だきしめる	抱き締める|抱締める	ours
+カルシウム	カルシウム		ours,eng
 更生	こうせい	甦生	ours
 算出	さんしゅつ		ours
 装着	そうちゃく		ours
 駆る	かる	駈る	ours
+テクニック	テクニック		ours,eng
 修復	しゅうふく	修覆	ours	しゅふく
 事業者	じぎょうしゃ		ours
 所得税	しょとくぜい		ours
@@ -3501,15 +3511,20 @@
 損傷	そんしょう		ours
 建造	けんぞう		ours
 原価	げんか	元価	ours
+データーベース	データーベース		ours,eng	データベース
 史料	しりょう		ours
+五輪	ごりん		ours
 国債	こくさい		ours
 眼差し	まなざし	目差し|目差|眼指	ours
 打ち出す	うちだす	打出す|打ちだす	ours
 下回る	したまわる	下廻る	ours
 腫瘍	しゅよう		ours
 覚醒	かくせい	覚せい	ours
+大国	たいこく		ours
+北方	ほっぽう		ours
 騎士	きし		ours
 信念	しんねん		ours
+文字通り	もじどおり	文字どおり|文字どうり	ours
 中核	ちゅうかく	仲核	ours
 称える	たたえる	讃える|讚える|賛える	ours
 名目	めいもく		ours	みょうもく
@@ -3518,12 +3533,14 @@
 凄まじい	すさまじい	凄じい	ours
 染色	せんしょく		ours
 宅地	たくち		ours
+院長	いんちょう		ours
 乳幼児	にゅうようじ		ours
 突入	とつにゅう		ours
 沙汰	さた		ours
 近隣	きんりん		ours
 均等	きんとう		ours
 刑法	けいほう		ours
+はっと	はっと		ours	ハッと
 照射	しょうしゃ		ours
 あたかも	あたかも	恰も|宛も	ours	あだかも
 特異	とくい		ours
@@ -3533,8 +3550,10 @@
 書記	しょき		ours
 相次ぐ	あいつぐ	相継ぐ	ours
 潜む	ひそむ	潛む|濳む	ours
+変身	へんしん		ours
 民事	みんじ		ours
 急性	きゅうせい		ours
+初代	しょだい		ours
 接着	せっちゃく		ours
 感性	かんせい		ours
 師匠	ししょう		ours
@@ -3543,8 +3562,11 @@
 姑	しゅうとめ		ours	しゅうと|しうとめ|しいとめ
 合戦	かっせん		ours
 朝廷	ちょうてい		ours
+ウエスト	ウエスト		ours,eng	ウェスト|ウェイスト
 坊主	ぼうず	房主	ours	ぼんず
+整形	せいけい		ours
 種子	しゅし		ours
+浮かび上がる	うかびあがる	浮かびあがる|浮び上がる|浮びあがる|浮かび上る|浮び上る|うかび上がる	ours
 在日	ざいにち		ours
 槍	やり	鎗|鑓	ours
 民主主義	みんしゅしゅぎ		ours
@@ -3555,16 +3577,20 @@
 施工	しこう		ours	せこう
 隣接	りんせつ		ours
 百姓	ひゃくしょう		ours
+ニット	ニット		ours,eng
 視界	しかい		ours
 撤退	てったい	徹退	ours
 対外	たいがい		ours
 局面	きょくめん		ours
 盛り込む	もりこむ	盛込む	ours
+クール	クール		ours,eng
+スペシャル	スペシャル		ours,eng
 自律	じりつ		ours
 都度	つど		ours
 境内	けいだい		ours
 応答	おうとう		ours
 天文	てんもん		ours
+リゾート	リゾート		ours,eng
 犯行	はんこう		ours
 不倫	ふりん		ours
 発酵	はっこう	醗酵|醱酵|はっ酵	ours
@@ -3579,6 +3605,7 @@
 言い切る	いいきる	言いきる|いい切る|言切る	ours
 聴取	ちょうしゅ		ours
 発注	はっちゅう	発註	ours
+フォント	フォント		ours,eng
 低迷	ていめい		ours
 阻害	そがい	阻礙|阻碍	ours
 無償	むしょう		ours
@@ -3589,54 +3616,80 @@
 飛躍	ひやく		ours
 戦国	せんごく		ours
 引き上げ	ひきあげ	引き揚げ|引上げ|引揚げ|引揚	ours
+仮面	かめん		ours
 宴	えん		ours
 拍子	ひょうし		ours
 異様	いよう		ours
 計測	けいそく		ours
 皇后	こうごう		ours
 高値	たかね		ours
+銀河	ぎんが		ours
 告知	こくち		ours
 抜群	ばつぐん		ours	ばっくん|バツグン
 管轄	かんかつ		ours
 類型	るいけい	類形	ours
 多発	たはつ		ours
 主力	しゅりょく		ours
+平面	へいめん		ours
 付与	ふよ	附与	ours
+うつ病	うつびょう	鬱病|ウツ病|欝病	ours
 受注	じゅちゅう	受註	ours
 早々	そうそう	早早	ours
 引きつける	ひきつける	引き付ける|ひき付ける|引付ける	ours
 ベンチャー	ベンチャー		ours,eng	ベンチャ|ヴェンチャー
 稼働	かどう	稼動	ours
+引き寄せる	ひきよせる	惹き寄せる|引寄せる|引きよせる|惹きよせる	ours
 格闘	かくとう	挌闘|格鬪	ours
 大腸	だいちょう		ours	おおわた
 装う	よそおう	粧う	ours
 身内	みうち	身うち	ours
 根元	ねもと	根本|根もと	ours
 近世	きんせい		ours
+コンビ	コンビ		ours,abbr
 宙	ちゅう		ours
 肝	きも	胆	ours	たん|キモ
 前面	ぜんめん		ours
 断層	だんそう		ours
+鹿	しか		ours	シカ
 食らう	くらう	喰らう	ours
 所詮	しょせん	所せん	ours
+最強	さいきょう		ours
 濃厚	のうこう		ours
 如何	いかん	奈何	ours
+ターミナル	ターミナル		ours,eng
+幼虫	ようちゅう		ours
 構図	こうず		ours
 病棟	びょうとう		ours
 俗	ぞく		ours	しょく
+アナログ	アナログ		ours,eng
+リリース	リリース		ours,eng
+ワクチン	ワクチン		ours,loan-ger
 不動	ふどう		ours
 形容	けいよう		ours
 補佐	ほさ	輔佐	ours
 選抜	せんばつ		ours	センバツ
 和歌	わか	倭歌	ours
 工房	こうぼう		ours
+旨み	うまみ	旨味|うま味	ours
 専務	せんむ		ours
+落語	らくご		ours
+雑草	ざっそう		ours
+キャスト	キャスト		ours,eng
 仕入れ	しいれ	仕入	ours
+プロデューサー	プロデューサー		ours,eng	プロデューサ|プロデュサー|プロデユーサー|プロデユーサ
+洞窟	どうくつ	洞くつ	ours
 土器	どき		ours	かわらけ
 石垣	いしがき	石崖	ours	いしがけ
 極力	きょくりょく		ours
+クリップ	クリップ		ours,eng
 シンポジウム	シンポジウム		ours,eng
 乳がん	にゅうがん	乳癌|乳ガン	ours
+バトン	バトン		ours,eng
+キック	キック		ours,eng
+バレー	バレー		ours,abbr
+喘息	ぜんそく	ぜん息	ours
+爆笑	ばくしょう		ours
+さらさら	さらさら		ours	サラサラ
 完結	かんけつ		ours
 やけ	やけ	自棄|焼け	ours	ヤケ
 割り切る	わりきる	割切る	ours
@@ -3644,65 +3697,115 @@
 接待	せったい	摂待	ours
 台帳	だいちょう		ours
 絡める	からめる	搦める	ours
+学童	がくどう		ours
 遠隔	えんかく		ours
+マニア	マニア		ours,eng	マニヤ
+キープ	キープ		ours,eng
+ディナー	ディナー		ours,eng
 劣化	れっか		ours
+歌声	うたごえ		ours	かせい
 弾丸	だんがん		ours
+ミュージシャン	ミュージシャン		ours,eng
+パレード	パレード		ours,eng
 跡地	あとち		ours
 囚人	しゅうじん		ours	めしゅうど|めしうど
 集い	つどい		ours
 肩書き	かたがき	肩書	ours
+カート	カート		ours,abbr
+まつげ	まつげ	まつ毛|睫毛|睫	ours
 進捗	しんちょく	進陟	ours
+癒し	いやし	癒やし	ours
+車線	しゃせん		ours
+相棒	あいぼう	合棒	ours
 試作	しさく		ours
 定例	ていれい		ours	じょうれい
 御殿	ごてん	ご殿	ours
 大口	おおくち		ours	おおぐち
+背骨	せぼね	脊骨|背ぼね	ours
+にやにや	にやにや		ours	ニヤニヤ
+フライト	フライト		ours,eng
+セッティング	セッティング		ours,eng
+トピック	トピック		ours,eng
+声優	せいゆう		ours
+紅白	こうはく		ours
 威嚇	いかく		ours
 傍聴	ぼうちょう		ours
+ピックアップ	ピックアップ		ours,eng	ピック・アップ
 永住	えいじゅう		ours
+カプセル	カプセル		ours,loan-ger
+ダッシュ	ダッシュ		ours,eng
 却下	きゃっか		ours
 骨董	こっとう		ours
 香ばしい	こうばしい	芳ばしい	ours
+ココア	ココア		ours,eng
+パズル	パズル		ours,eng
 大河	たいが		ours
 派生	はせい		ours
 開ける	ひらける		ours
+読み聞かせ	よみきかせ	読聞かせ|読みきかせ	ours
 なぞる	なぞる		ours
+海藻	かいそう		ours
 凝縮	ぎょうしゅく		ours
+大当たり	おおあたり	大当り|大あたり	ours
 高々	たかだか	高高	ours
+ヘルシー	ヘルシー		ours,eng
 まるきり	まるきり	丸きり|丸切り	ours
 発声	はっせい		ours
 搬入	はんにゅう		ours
+アトラクション	アトラクション		ours,eng
 特化	とっか		ours
+ヒアリング	ヒアリング		ours,eng	ヒヤリング
+じわじわ	じわじわ		ours	ジワジワ
 簿記	ぼき		ours
 おもむろに	おもむろに	徐に|徐ろに	ours
 さばく	さばく	捌く	ours
 満々	まんまん	満満	ours
 本題	ほんだい		ours
+リハーサル	リハーサル		ours,eng
 くだり	くだり	件|条|行	ours
 一式	いっしき	１式	ours
 今期	こんき		ours
 糧	かて	粮	ours	りょう|かりて
+筋トレ	きんとれ		ours	きんトレ
+からから	からから		ours	カラカラ|カラッカラ
 校正	こうせい	較正	ours
 換金	かんきん		ours
 いんちき	いんちき		ours	インチキ
+酒屋	さかや		ours
 改名	かいめい		ours	かいみょう
+インストラクター	インストラクター		ours,eng
+スタミナ	スタミナ		ours,eng
 石碑	せきひ		ours
+前歯	まえば		ours	ぜんし
 所帯	しょたい	世帯	ours
 ぶれる	ぶれる		ours	ブレる
 協賛	きょうさん		ours
 どうこう	どうこう	如何斯う	ours
 鉱石	こうせき	礦石	ours
 一任	いちにん		ours
+若葉	わかば	嫩葉	ours	どんよう
+アウトレット	アウトレット		ours,eng
+音符	おんぷ		ours
 ありきたり	ありきたり	在り来たり|在り来り|在りきたり	ours
+ディスカッション	ディスカッション		ours,eng
+リピーター	リピーター		ours,eng	リピータ
 染料	せんりょう		ours
 外注	がいちゅう	外註	ours
+鉄分	てつぶん		ours
 いっとき	いっとき	ひと時|一時	ours	ひととき
 撤収	てっしゅう	徹収|撒収	ours
 直近	ちょっきん		ours
+ぽろぽろ	ぽろぽろ		ours	ポロポロ
+だんとつ	だんとつ	断トツ	ours	だんトツ|ダントツ
+名言	めいげん		ours
 前倒し	まえだおし		ours
+時短	じたん		ours
+合奏	がっそう		ours
 切り捨て	きりすて	切捨て|斬り捨て|斬捨て	ours
 設営	せつえい		ours
 講評	こうひょう		ours
 深読み	ふかよみ		ours
+びしょびしょ	びしょびしょ		ours	びちょびちょ|ビショビショ|ビチョビチョ
 兼ね合い	かねあい	兼合い	ours
 ちゃっかり	ちゃっかり		ours	チャッカリ
 急患	きゅうかん		ours

@@ -450,15 +450,16 @@ def _date_ja(text: str) -> str:
 
 _GOAL_UNITS = {"word": "語", "words": "語", "kanji": "字", "grammar point": "文法", "grammar points": "文法"}
 _GOAL_HEADS = {"Per day": "1日あたり", "Today": "今日", "Still to learn": "残り",
-               "This week": "今週", "Learned": "習得済み"}
+               "This week": "今週", "Learned": "習得済み", "Pace": "ペース", "Progress": "進み具合"}
 
 
 def _goal_counts_ja(m) -> str:
     """"Per day: <b>14</b> words · <b>3</b> kanji" → "1日あたり：<b>14</b> 語 · <b>3</b> 字"."""
     body = re.sub(r"(</b>(?: / [\d,]+)?) (grammar points?|words?|kanji)\b",
                   lambda u: f"{u.group(1)} {_GOAL_UNITS[u.group(2)]}", m.group(2))
-    # a weekly kind (under 1 a day, goal_view)
+    # a weekly kind (under 1 a day, goal_view); daily ones say so when mixed ("Pace" / "Progress")
     body = body.replace(" a week", "（週あたり）").replace(" this week", "（今週）")
+    body = body.replace(" a day", "（1日あたり）").replace(" today", "（今日）")
     return f"{_GOAL_HEADS[m.group(1)]}：{body}"
 
 
@@ -502,7 +503,7 @@ PATTERNS = [
      lambda m: f"JLPT {m.group(1)} の試験（{_date_ja(m.group(2))}）はいかがでしたか？"),
     (re.compile(r"^Everything up to (N\d) is learned\. The rest is review\.$"),
      r"\1 までをすべて習得しました。あとは復習です。"),
-    (re.compile(r"^(Per day|Today|Still to learn|This week|Learned): (.*)$", re.S), _goal_counts_ja),
+    (re.compile(r"^(Per day|Today|Still to learn|This week|Learned|Pace|Progress): (.*)$", re.S), _goal_counts_ja),
     (re.compile(r"^Not included: ([\d,]+) English loanwords you marked found\. "
                 r"They join on their own as your card count grows\.$"),
      r"含まれていないもの：発見済みにした英語の外来語 \1 語。カードが増えるにつれて自然に加わります。"),

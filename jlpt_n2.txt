@@ -1,4 +1,4 @@
-# JLPT N2 vocabulary list — 2681 words
+# JLPT N2 vocabulary list — 2578 words
 # Source: OpenJLPT (github.com/evanclan/OpenJLPT), CC BY-SA 4.0,
 #   levels from Jonathan Waller's JLPT lists (tanos.co.uk), CC BY.
 # Alternate spellings and loanword flags derived from JMdict (EDRDG), CC BY-SA 4.0.
@@ -2128,7 +2128,6 @@
 処方	しょほう		ours
 キリスト教	きりすときょう	基督教	ours	キリストきょう
 運行	うんこう		ours
-王国	おうこく		ours
 キャッシュ	キャッシュ		ours,eng
 取り消し	とりけし	取消し|取消	ours
 相性	あいしょう	合性|合い性|相い性	ours
@@ -2159,8 +2158,6 @@
 大企業	だいきぎょう		ours
 週刊	しゅうかん		ours
 町内	ちょうない		ours
-インチ	インチ	吋	ours,eng
-耐震	たいしん		ours
 無意識	むいしき		ours
 カップル	カップル		ours,eng
 ちっ	ちっ		ours	チェッ|ちぇっ|チェ|ちぇ|チッ
@@ -2175,16 +2172,13 @@
 ストック	ストック		ours,eng
 アピール	アピール		ours,eng	アッピール
 ゲット	ゲット		ours,eng
-円高	えんだか		ours
 キャンペーン	キャンペーン		ours,eng
 自国	じこく		ours
 若手	わかて		ours
 所要	しょよう		ours
 アーチスト	アーチスト		ours,eng	アーティスト
 賃貸	ちんたい		ours
-予選	よせん		ours
 差し込む	さしこむ	差込む|差しこむ|さし込む	ours
-被災	ひさい		ours
 クレジット	クレジット		ours,abbr
 シフト	シフト		ours,eng
 風味	ふうみ		ours
@@ -2194,19 +2188,15 @@
 上流	じょうりゅう		ours
 振り込む	ふりこむ	振込む	ours
 前向き	まえむき		ours
-メジャー	メジャー		ours,abbr	メージャー|メイジャー
 まじ	まじ		ours	マジ|まぢ|マヂ
 言い換える	いいかえる	言い替える|言いかえる|言換える|言替える	ours
 リビング	リビング		ours,abbr
 着用	ちゃくよう		ours
-抱きしめる	だきしめる	抱き締める|抱締める	ours
-カルシウム	カルシウム		ours,eng
 ストレート	ストレート		ours,eng
 眠り	ねむり	睡り|睡	ours	ねぶり
 パフォーマンス	パフォーマンス		ours,eng	パーフォーマンス
 年々	ねんねん	年年	ours	としどし
 キーワード	キーワード		ours,eng	キイワード
-テクニック	テクニック		ours,eng
 税率	ぜいりつ		ours
 顔色	かおいろ	顔いろ	ours	がんしょく
 奇跡	きせき	奇蹟	ours
@@ -2216,18 +2206,13 @@
 ショッピング	ショッピング		ours,eng
 プレート	プレート		ours,eng
 必着	ひっちゃく		ours
-データーベース	データーベース		ours,eng	データベース
-五輪	ごりん		ours
 コラム	コラム		ours,eng
 副作用	ふくさよう		ours
-大国	たいこく		ours
 同行	どうこう		ours
-北方	ほっぽう		ours
 タグ	タグ		ours,abbr	タッグ
 総数	そうすう		ours
 吸い込む	すいこむ	吸込む|吸いこむ	ours
 前期	ぜんき		ours
-文字通り	もじどおり	文字どおり|文字どうり	ours
 貼り付ける	はりつける	張り付ける|貼付ける|貼りつける|張りつける|張付ける	ours
 少量	しょうりょう	小量	ours
 やたら	やたら	矢鱈	ours
@@ -2237,42 +2222,31 @@
 インパクト	インパクト		ours,eng
 心地よい	ここちよい	心地良い|心地いい|心地好い	ours	ここちいい
 上映	じょうえい		ours
-院長	いんちょう		ours
 飲料	いんりょう		ours
 検定	けんてい		ours
 おかしな	おかしな	可笑しな	ours
 休館	きゅうかん		ours
 ゾーン	ゾーン		ours,eng
 デザイナー	デザイナー		ours,eng
-はっと	はっと		ours	ハッと
 対象者	たいしょうしゃ		ours
 幹事	かんじ		ours
 しみ	しみ	染み	ours	シミ
 グラウンド	グラウンド		ours,eng	グランド
-変身	へんしん		ours
-初代	しょだい		ours
 坪	つぼ		ours
 クレーム	クレーム		ours,eng	クレイム
 選択肢	せんたくし		ours
 違和感	いわかん	異和感	ours
 生き残る	いきのこる		ours
 一目	ひとめ	ひと目	ours
-ウエスト	ウエスト		ours,eng	ウェスト|ウェイスト
-整形	せいけい		ours
 パスワード	パスワード		ours,eng
-浮かび上がる	うかびあがる	浮かびあがる|浮び上がる|浮びあがる|浮かび上る|浮び上る|うかび上がる	ours
 端末	たんまつ		ours
 プライド	プライド		ours,eng
 ターン	ターン		ours,eng
-ニット	ニット		ours,eng
 団子	だんご		ours	ダンゴ
-クール	クール		ours,eng
 本店	ほんてん		ours	ほんだな
-スペシャル	スペシャル		ours,eng
 アレンジ	アレンジ		ours,eng
 飼い主	かいぬし	飼主	ours
 転職	てんしょく		ours
-リゾート	リゾート		ours,eng
 ライバル	ライバル		ours,eng	ライヴァル
 浸かる	つかる	漬かる	ours
 年数	ねんすう		ours
@@ -2286,7 +2260,6 @@
 レイアウト	レイアウト		ours,eng
 ボス	ボス		ours,eng
 入国	にゅうこく		ours	にゅうごく
-フォント	フォント		ours,eng
 反面	はんめん		ours
 見当たる	みあたる	見あたる|見当る	ours
 ランク	ランク		ours,eng
@@ -2301,7 +2274,6 @@
 一員	いちいん		ours
 何者	なにもの	何もの	ours
 今頃	いまごろ	今ごろ	ours
-仮面	かめん		ours
 食生活	しょくせいかつ		ours
 全額	ぜんがく		ours
 ジェット	ジェット		ours,eng
@@ -2311,11 +2283,8 @@
 戸惑う	とまどう	途惑う	ours
 翌朝	よくあさ		ours	よくちょう
 迫力	はくりょく		ours
-銀河	ぎんが		ours
 肥満	ひまん		ours
 振替	ふりかえ	振り替え|振替え|振り替	ours
-平面	へいめん		ours
-うつ病	うつびょう	鬱病|ウツ病|欝病	ours
 きらきら	きらきら		ours	キラキラ
 会費	かいひ		ours
 キット	キット		ours,eng
@@ -2328,13 +2297,11 @@
 説教	せっきょう		ours
 そこそこ	そこそこ		ours
 カタログ	カタログ	型録	ours,eng
-引き寄せる	ひきよせる	惹き寄せる|引寄せる|引きよせる|惹きよせる	ours
 町中	まちなか	街中|街なか|町なか	ours
 店頭	てんとう		ours
 県立	けんりつ		ours
 わくわく	わくわく		ours	ワクワク|ワックワク
 センサー	センサー		ours,eng	センサ
-コンビ	コンビ		ours,abbr
 プライベート	プライベート		ours,eng
 コンパクト	コンパクト		ours,abbr
 メダル	メダル		ours,eng
@@ -2350,47 +2317,34 @@
 プレミアム	プレミアム		ours,eng
 本番	ほんばん		ours
 個室	こしつ		ours
-鹿	しか		ours	シカ
 ローカル	ローカル		ours,eng
 旬	しゅん		ours
 配信	はいしん		ours
-最強	さいきょう		ours
 エース	エース		ours,eng
 年始	ねんし		ours
 気合	きあい	気合い	ours
-ターミナル	ターミナル		ours,eng
 右足	みぎあし	右脚	ours	うそく
-幼虫	ようちゅう		ours
 リフォーム	リフォーム		ours,eng
 出来	でき		ours
 ぐるぐる	ぐるぐる		ours	グルグル
 目玉	めだま		ours
 別途	べっと		ours
-アナログ	アナログ		ours,eng
 台数	だいすう		ours
 トータル	トータル		ours,eng
-リリース	リリース		ours,eng
-ワクチン	ワクチン		ours,loan-ger
 テンション	テンション		ours,eng
 細長い	ほそながい		ours
 出店	しゅってん		ours
 ミックス	ミックス		ours,eng	ミクス
 左足	ひだりあし	左脚	ours	さそく
 フォロー	フォロー		ours,abbr
-旨み	うまみ	旨味|うま味	ours
 漬物	つけもの	漬け物|漬けもの	ours
 観戦	かんせん		ours
-落語	らくご		ours
-雑草	ざっそう		ours
 グルメ	グルメ		ours,loan-fre
 コンテンツ	コンテンツ		ours,eng
-キャスト	キャスト		ours,eng
 当分	とうぶん		ours
 ぼろぼろ	ぼろぼろ		ours	ボロボロ
 守り	まもり	護り|守	ours
 視力	しりょく		ours
-プロデューサー	プロデューサー		ours,eng	プロデューサ|プロデュサー|プロデユーサー|プロデユーサ
-洞窟	どうくつ	洞くつ	ours
 立ち上げる	たちあげる	立ちあげる|立上げる|起ち上げる|起ちあげる|たち上げる	ours
 最寄り	もより	最寄	ours
 初回	しょかい		ours
@@ -2404,33 +2358,26 @@
 煮物	にもの	煮もの	ours
 屋台	やたい	屋体|家台	ours
 足首	あしくび	足頸	ours
-クリップ	クリップ		ours,eng
 プレッシャー	プレッシャー		ours,eng
 ごろごろ	ごろごろ		ours	ゴロゴロ|ゴロンゴロン|ごろんごろん
 クッション	クッション		ours,eng
 煮込む	にこむ	煮こむ	ours
-バトン	バトン		ours,eng
 ベーコン	ベーコン		ours,eng
 買い取る	かいとる		ours
 リハビリ	リハビリ		ours,abbr	レハビリ
 ビザ	ビザ		ours,eng
 色合い	いろあい	色合	ours	いろあわい
-キック	キック		ours,eng
-バレー	バレー		ours,abbr
 鶴	つる		ours	ツル
 ズーム	ズーム		ours,eng
 通販	つうはん		ours
-喘息	ぜんそく	ぜん息	ours
 厚み	あつみ	厚味	ours
 分厚い	ぶあつい	部厚い|ぶ厚い|ブ厚い	ours
 電動	でんどう		ours
 点滴	てんてき		ours
 ぼうっと	ぼうっと		ours	ぼーっと|ボーっと|ボーッと|ぼおっと|ボウッと|ボウっと|ボオッと
 染み込む	しみこむ	沁み込む|浸み込む|滲み込む|しみ込む|染みこむ|沁みこむ|浸みこむ|滲みこむ|染込む	ours
-爆笑	ばくしょう		ours
 一人前	いちにんまえ	一人まえ	ours	ひとりまえ
 チャット	チャット		ours,eng
-さらさら	さらさら		ours	サラサラ
 ナチュラル	ナチュラル		ours,eng
 サングラス	サングラス		ours,eng
 根性	こんじょう	根情	ours
@@ -2444,40 +2391,30 @@
 行き先	いきさき	行先	ours	ゆきさき
 入れ替える	いれかえる	入れ換える|入れ代える|入れかえる|入替える|入換える	ours
 段取り	だんどり	段どり	ours
-学童	がくどう		ours
 リレー	リレー		ours,eng
 出番	でばん		ours
 買い換える	かいかえる	買い替える|買いかえる|買換える|買替える	ours
 エントリー	エントリー		ours,eng	エントリ
 手持ち	てもち	手持	ours
-マニア	マニア		ours,eng	マニヤ
 常連	じょうれん	定連	ours
 年配	ねんぱい	年輩	ours
 ゴミ箱	ごみばこ	ごみ箱|護美箱|塵箱|芥箱	ours
 機材	きざい		ours
 目線	めせん		ours
 例年	れいねん		ours
-キープ	キープ		ours,eng
 炭	すみ		ours
-ディナー	ディナー		ours,eng
 銀色	ぎんいろ		ours
 胃腸	いちょう		ours
 食感	しょっかん		ours
-歌声	うたごえ		ours	かせい
 サポーター	サポーター		ours,eng	サポータ
 セルフ	セルフ		ours,abbr
 ぬいぐるみ	ぬいぐるみ	縫いぐるみ|縫い包み	ours	ヌイグルミ
-ミュージシャン	ミュージシャン		ours,eng
-パレード	パレード		ours,eng
 フレンチ	フレンチ		ours,eng
 ばっちり	ばっちり		ours	バッチリ
 人前	ひとまえ	人まえ	ours
 だらだら	だらだら		ours	ダラダラ
 開場	かいじょう		ours
-カート	カート		ours,abbr
 ソーセージ	ソーセージ		ours,eng
-まつげ	まつげ	まつ毛|睫毛|睫	ours
-癒し	いやし	癒やし	ours
 帰り道	かえりみち	帰り路	ours
 バレエ	バレエ		ours,loan-fre	バレー
 カウント	カウント		ours,eng
@@ -2485,9 +2422,7 @@
 接客	せっきゃく		ours
 こぶ	こぶ	瘤	ours
 和食	わしょく		ours
-車線	しゃせん		ours
 シニア	シニア		ours,eng
-相棒	あいぼう	合棒	ours
 年内	ねんない		ours
 入れ替わる	いれかわる	入れ代わる|入れ替る|入れ代る|入れ換わる|入れかわる	ours
 腹筋	ふっきん		ours	ふくきん|はらすじ
@@ -2498,9 +2433,7 @@
 カリキュラム	カリキュラム		ours,eng
 ぐったり	ぐったり		ours	グッタリ|グタリ|ぐたり
 筋力	きんりょく		ours
-背骨	せぼね	脊骨|背ぼね	ours
 剥がれる	はがれる	剝がれる	ours
-にやにや	にやにや		ours	ニヤニヤ
 フィードバック	フィードバック		ours,eng
 帰省	きせい		ours
 持ち歩く	もちあるく	持歩く	ours
@@ -2509,43 +2442,31 @@
 計量	けいりょう		ours
 かき混ぜる	かきまぜる	掻き混ぜる|掻き雑ぜる|掻き交ぜる|掻きまぜる|かき交ぜる|搔き混ぜる|搔き交ぜる|搔き雑ぜる|搔きまぜる	ours
 ヒーター	ヒーター		ours,eng	ヒータ
-フライト	フライト		ours,eng
 格安	かくやす		ours
-セッティング	セッティング		ours,eng
 揺らす	ゆらす		ours
 アシスタント	アシスタント		ours,eng
-トピック	トピック		ours,eng
 直行	ちょっこう		ours
-声優	せいゆう		ours
-紅白	こうはく		ours
 気まずい	きまずい	気不味い	ours
 トースト	トースト		ours,eng
 学長	がくちょう		ours
 茶道	さどう		ours	ちゃどう
-ピックアップ	ピックアップ		ours,eng	ピック・アップ
 スパイス	スパイス		ours,eng
 夏場	なつば		ours
 改装	かいそう		ours
 ブース	ブース		ours,eng
 ワークショップ	ワークショップ		ours,eng	ワークショプ
 アスファルト	アスファルト		ours,eng
-カプセル	カプセル		ours,loan-ger
 白黒	しろくろ		ours
-ダッシュ	ダッシュ		ours,eng
 壁紙	かべがみ		ours
-ココア	ココア		ours,eng
 がたがた	がたがた		ours	ガタガタ
 鉄板	てっぱん	鉄鈑	ours	テッパン
 風呂場	ふろば	ふろ場|フロ場	ours
 本数	ほんすう		ours
-パズル	パズル		ours,eng
 内定	ないてい		ours
 口コミ	くちこみ		ours	くちコミ|クチコミ
 水色	みずいろ		ours
 アナウンス	アナウンス		ours,eng
 ブレンド	ブレンド		ours,eng
-読み聞かせ	よみきかせ	読聞かせ|読みきかせ	ours
-海藻	かいそう		ours
 気遣い	きづかい	気づかい	ours
 厨房	ちゅうぼう	ちゅう房|厨坊|廚房	ours
 ハンバーガー	ハンバーガー		ours,eng
@@ -2559,16 +2480,11 @@
 がらがら	がらがら		ours	ガラガラ
 ドキュメンタリー	ドキュメンタリー		ours,eng	ドキュメンタリ
 週休	しゅうきゅう		ours
-大当たり	おおあたり	大当り|大あたり	ours
-ヘルシー	ヘルシー		ours,eng
 面談	めんだん		ours
 漢文	かんぶん		ours
 つるつる	つるつる		ours	ツルツル
-アトラクション	アトラクション		ours,eng
-ヒアリング	ヒアリング		ours,eng	ヒヤリング
 緑茶	りょくちゃ	綠茶	ours
 エール	エール		ours,eng
-じわじわ	じわじわ		ours	ジワジワ
 用例	ようれい		ours
 火力	かりょく		ours
 どろどろ	どろどろ	泥々|泥泥	ours	ドロドロ
@@ -2581,7 +2497,6 @@
 ごちゃごちゃ	ごちゃごちゃ		ours	ごちゃ|ごっちゃ|ごちゃくちゃ|ゴチャゴチャ|ゴチャ|ゴッチャ|ゴチャクチャ
 夏季	かき		ours	なつき
 泊まり	とまり	泊り	ours
-リハーサル	リハーサル		ours,eng
 ゴージャス	ゴージャス		ours,eng
 セーブ	セーブ		ours,eng
 園長	えんちょう		ours
@@ -2595,14 +2510,11 @@
 高卒	こうそつ		ours
 人名	じんめい		ours
 夜勤	やきん		ours
-筋トレ	きんとれ		ours	きんトレ
 西口	にしぐち		ours
 バイキング	バイキング		ours,abbr	ヴァイキング
-からから	からから		ours	カラカラ|カラッカラ
 モチベーション	モチベーション		ours,eng	モティベーション
 大昔	おおむかし	大むかし	ours
 納品	のうひん		ours
-酒屋	さかや		ours
 イラストレーター	イラストレーター		ours,eng	イラストレータ
 とんかつ	とんかつ	豚カツ|豚かつ	ours	とんカツ|トンカツ
 盆踊り	ぼんおどり	盆踊	ours
@@ -2610,18 +2522,15 @@
 よだれ	よだれ	涎	ours
 辛口	からくち		ours
 バザー	バザー		ours,eng	バザール
-インストラクター	インストラクター		ours,eng
 春休み	はるやすみ	春休	ours
 揚げ物	あげもの	揚げもの|あげ物	ours
 都立	とりつ		ours
 年表	ねんぴょう		ours
-スタミナ	スタミナ		ours,eng
 パイナップル	パイナップル		ours,eng	パインアップル|パインナップル|パイナポー|パイナッポー
 やり直し	やりなおし	遣り直し|遣直	ours
 買い出し	かいだし	買出し	ours
 備品	びひん		ours
 常温	じょうおん		ours
-前歯	まえば		ours	ぜんし
 法事	ほうじ		ours
 単品	たんぴん		ours
 冬休み	ふゆやすみ		ours
@@ -2634,36 +2543,25 @@
 長文	ちょうぶん		ours
 下見	したみ		ours
 理工	りこう		ours
-若葉	わかば	嫩葉	ours	どんよう
 べたべた	べたべた		ours	ベタベタ
-アウトレット	アウトレット		ours,eng
 寝かす	ねかす		ours
-音符	おんぷ		ours
 スクラップ	スクラップ		ours,abbr
 理系	りけい		ours
 新卒	しんそつ		ours
 夏期	かき		ours
-ディスカッション	ディスカッション		ours,eng
 ヘッドホン	ヘッドホン		ours,eng	ヘッドフォン|ヘッドホーン|ヘッドフォーン
-リピーター	リピーター		ours,eng	リピータ
 オファー	オファー		ours,eng	オッファー
 年明け	としあけ		ours
 褒め言葉	ほめことば	ほめ言葉|誉め言葉|褒め詞|褒めことば|褒言葉	ours
 ぺらぺら	ぺらぺら		ours	ペラペラ
 引き継ぎ	ひきつぎ	引継ぎ|引継	ours
-鉄分	てつぶん		ours
-ぽろぽろ	ぽろぽろ		ours	ポロポロ
-だんとつ	だんとつ	断トツ	ours	だんトツ|ダントツ
-名言	めいげん		ours
 裏表	うらおもて		ours
 南口	みなみぐち		ours
 レシート	レシート		ours,eng
-時短	じたん		ours
 文系	ぶんけい		ours
 不燃	ふねん		ours
 出だし	でだし	出出し|出々し	ours
 文通	ぶんつう		ours
-合奏	がっそう		ours
 肉屋	にくや		ours
 送り迎え	おくりむかえ	送りむかえ	ours
 学内	がくない		ours
@@ -2680,7 +2578,6 @@
 食券	しょっけん		ours
 プロジェクター	プロジェクター		ours,eng	プロジェクタ
 かき氷	かきごおり	カキ氷|欠き氷|掻き氷|欠氷	ours
-びしょびしょ	びしょびしょ		ours	びちょびちょ|ビショビショ|ビチョビチョ
 洗い物	あらいもの	洗物|洗いもの|洗いもん	ours	あらいもん
 ホワイトボード	ホワイトボード		ours,eng
 山登り	やまのぼり		ours

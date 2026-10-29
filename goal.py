@@ -16,7 +16,7 @@ and from that how much to learn per day to make it.
     are the tests jobs and schools rely on; but written frequency alone
     fits the test badly (the top 6,000 holds only 45% of the N2 list; 傘 is
     #4,943). Since the Word Addition Project (2026-10-29) the lists up to
-    N2 hold ~6,100 words, so an N2 goal has no step 2 (no steps shown);
+    N2 hold 6,000 words (capped there), so an N2 goal has no step 2 (no steps shown);
     N1 (~9,800 listed) keeps both. Kanji and grammar always use the lists.
   - Finish line = 14 days before the test (owner: the last two weeks are for
     review and practice tests). Fixed, no setting.
@@ -319,7 +319,7 @@ def counts(results: dict, level: str) -> dict:
         xf = x - min(sum(1 for r in known_x if r in cards), x)
         # No steps when the lists alone reach the size estimate (owner
         # 2026-10-29): after the Word Addition Project the lists up to N2
-        # hold ~6,100 words against 6,000, so N2 is just the lists. Only a
+        # hold 6,000 words (capped at the estimate), so N2 is just the lists. Only a
         # lot of suspended list words brings step 2 back.
         if need:
             out["steps"] = {"lists": (k, n), "common": (x, need)}
