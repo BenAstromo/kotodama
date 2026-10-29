@@ -218,6 +218,7 @@ def _show_info(parent):
     add("<br>".join("• " + x for x in ms), skip=True)
     add("<b>Which words count</b>", SECTION_CSS)
     add(WORDS_EXPLAINED)                # starts "Which words count: …", shared with the goal dialog
+    add(WORDS_EXPLAINED_N1)
     add(WAITING_EXPLAINED, HINT_CSS)
     add("<b>The daily number</b>", SECTION_CSS)
     add(FINISH_LINE)
@@ -252,8 +253,9 @@ def _add_waiting_line(outer, kinds: dict):
 
 
 def _step_lines(st: dict) -> list:
-    """N2 / N1: "Step 1 · JLPT word lists up to N2: 3,100 / 4,853 …" and
-    "Step 2 · then common words not on the lists: 0 / 1,147 …"."""
+    """N1 (and N2 only if suspended list words open a gap):
+    "Step 1 · JLPT word lists up to N1: 3,100 / 9,796 …" and
+    "Step 2 · then common words not on the lists: 0 / 4,004 …"."""
     steps = st.get("steps")
     if not steps:
         return []
@@ -266,19 +268,14 @@ def _step_lines(st: dict) -> list:
             f"(the Frequency grid, most common first)"]
 
 
+# Which words count (owner 2026-10-29: short; the two steps only for N1).
 WORDS_EXPLAINED = (
-    "Which words count: for N5 to N3, the JLPT word lists (the JLPT Vocabulary bars). For N2 and "
-    "N1 the goal is the modern vocabulary size, about 6,000 words for N2 and 13,800 for N1, in two "
-    "steps: first every word on the JLPT lists up to that level, since those are the words most "
-    "likely on the test; then the rest from the most common words of written Japanese that aren't "
-    "on the lists (the Frequency grid). Any of those common words counts, not only the most common "
-    "few: immersion brings words in its own order, so a rarer word you really learned still counts, "
-    "and the Frequency grid lists them most common first for when you study on purpose. The JLPT "
-    "hasn't published word lists since 2010; ours build "
-    "on the old pre-2010 lists, which are close enough up to N3 but stop well short of N2 and N1 "
-    "(about 9,800 words up to N1). Written Japanese matters more at N2 and N1, whose reading "
-    "sections are newspaper-style articles and essays, and these are the levels employers and "
-    "schools rely on. Kanji and grammar always use the JLPT lists.")
+    "Which words count: the JLPT word lists up to your level (the JLPT Vocabulary bars). Kanji "
+    "and grammar use the JLPT lists too.")
+WORDS_EXPLAINED_N1 = (
+    "Which words count: first the JLPT word lists up to N1 (the JLPT Vocabulary bars), then "
+    "common words of written Japanese that aren't on the lists, up to 13,800 words in all (about "
+    "three-quarters of the high estimate of 18,000 words for N1).")
 
 
 def _open_dialog(tab):
@@ -334,7 +331,8 @@ class GoalDialog(QDialog):
                 self._other.setDate(QDate(od.year, od.month, od.day))
         form.setColumnStretch(1, 1)
         v.addLayout(form)
-        v.addWidget(_label(WORDS_EXPLAINED, HINT_CSS))
+        self._words = _label(WORDS_EXPLAINED, HINT_CSS)     # the N1 text when N1 is picked (_update)
+        v.addWidget(self._words)
 
         self._preview = _label("")
         v.addWidget(self._preview)
@@ -379,6 +377,7 @@ class GoalDialog(QDialog):
     def _update(self, *_):
         self._other.setVisible(self._date.currentIndex() == len(self._dates))
         lvl, d = self._level.currentText(), self._chosen()
+        self._words.setText(WORDS_EXPLAINED_N1 if lvl == "N1" else WORDS_EXPLAINED)
         finish = d - datetime.timedelta(days=goal.BUFFER_DAYS)
         days = (finish - goal._today()).days + 1
         try:
@@ -414,7 +413,7 @@ class GoalDialog(QDialog):
                      f"step 2, common words: {n2 - k2:,} to go.")
         self._preview.setText(text)
         from .progress_dialog import _regold
-        _regold(self._preview, self._other)
+        _regold(self._preview, self._words, self._other)
 
     def _save(self):
         goal.save(self._level.currentText(), self._chosen())

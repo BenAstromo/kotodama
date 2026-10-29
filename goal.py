@@ -6,16 +6,18 @@ and from that how much to learn per day to make it.
   - The test covers every level up to the goal, so an N3 goal counts
     N5 + N4 + N3 (vocab, kanji, grammar), with the same "known" as the bars.
   - Words (owner 2026-10-20): N5–N3 goals count the JLPT word lists (the
-    JLPT Vocabulary bars). N2 / N1 goals have two steps toward the modern
-    size estimate (6,000 / 13,800 words): step 1, the JLPT word lists up to
-    that level (the words most likely on the test, so they come first);
-    step 2, the rest from common words that aren't on those lists, most
-    common first (the Frequency grid: the top 6,000 / 13,800). Common
-    words count only toward step 2, never in place of list words. Why:
-    the Waller-based lists stop well short of N2 / N1 (≈ 4,850 / 8,070
-    words), and those are the tests jobs and schools rely on; but written
-    frequency alone fits the test badly (the top 6,000 holds only 45% of
-    the N2 list; 傘 is #4,943). Kanji and grammar always use the lists.
+    JLPT Vocabulary bars). N2 / N1 goals aim for the modern size estimate
+    (6,000 / 13,800 words): step 1, the JLPT word lists up to that level
+    (the words most likely on the test, so they come first); step 2, the
+    rest from common words that aren't on those lists, most common first
+    (the Frequency grid: the top 6,000 / 13,800). Common words count only
+    toward step 2, never in place of list words. Why: the Waller-based
+    lists stopped well short of N2 / N1 (≈ 4,850 / 8,070 words), and those
+    are the tests jobs and schools rely on; but written frequency alone
+    fits the test badly (the top 6,000 holds only 45% of the N2 list; 傘 is
+    #4,943). Since the Word Addition Project (2026-10-29) the lists up to
+    N2 hold ~6,100 words, so an N2 goal has no step 2 (no steps shown);
+    N1 (~9,800 listed) keeps both. Kanji and grammar always use the lists.
   - Finish line = 14 days before the test (owner: the last two weeks are for
     review and practice tests). Fixed, no setting.
   - Per day = what was still left at the start of today ÷ days left to the
@@ -315,7 +317,12 @@ def counts(results: dict, level: str) -> dict:
         # day's start dropped and "Today" jumped after unmarking (owner's
         # "Today: 359 / 16", 2026-10-21).
         xf = x - min(sum(1 for r in known_x if r in cards), x)
-        out["steps"] = {"lists": (k, n), "common": (x, need)}
+        # No steps when the lists alone reach the size estimate (owner
+        # 2026-10-29): after the Word Addition Project the lists up to N2
+        # hold ~6,100 words against 6,000, so N2 is just the lists. Only a
+        # lot of suspended list words brings step 2 back.
+        if need:
+            out["steps"] = {"lists": (k, n), "common": (x, need)}
         out["vocab"] = (k + x, n + need, f + xf)
         # waiting loanwords among step 2's still-needed words
         waiting_x = sum(1 for r in pool if r in held_ranks and r not in cards and r not in found_r)

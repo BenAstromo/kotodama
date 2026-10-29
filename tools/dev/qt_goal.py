@@ -196,6 +196,12 @@ for lvl in ("N2", "N1"):
     goal.save(lvl, datetime.date(2027, 12, 5))
     st = goal.status(RR, "D", record=False)
     n_lists = sum(len(real[l]) for l in goal.levels_upto(lvl))
+    if lvl == "N2":
+        # the lists up to N2 reach the 6,000 estimate (Word Addition Project,
+        # 2026-10-29): no step 2, so no steps; the total is the lists
+        check("real lists N2: no steps", st.get("steps"), None)
+        check("real lists N2: words = lists", st["kinds"]["vocab"]["total"], n_lists)
+        continue
     check(f"real lists {lvl}: step 1 total", st["steps"]["lists"], (100 * len(goal.levels_upto(lvl)), n_lists))
     print("    step 2 needed:", st["steps"]["common"][1])
 # a day start saved under an older counting rule starts the day over (owner's "344 / 13")

@@ -39,27 +39,10 @@ EXACT = {
     "No history yet: the review fills in as you study.": "まだ履歴がありません。学習するにつれて振り返りが埋まります。",
     "Test date:": "試験日：", "Remove goal": "目標を削除",
     "Show time with Kotodama": "言霊と過ごした時間を表示", "Show JLPT goal": "JLPT目標を表示",
-    "Which words count: for N5 to N3, the JLPT word lists (the JLPT Vocabulary bars). For N2 and "
-    "N1 the goal is the modern vocabulary size, about 6,000 words for N2 and 13,800 for N1, in two "
-    "steps: first every word on the JLPT lists up to that level, since those are the words most "
-    "likely on the test; then the rest from the most common words of written Japanese that aren't "
-    "on the lists (the Frequency grid). Any of those common words counts, not only the most common "
-    "few: immersion brings words in its own order, so a rarer word you really learned still counts, "
-    "and the Frequency grid lists them most common first for when you study on purpose. The JLPT "
-    "hasn't published word lists since 2010; ours build "
-    "on the old pre-2010 lists, which are close enough up to N3 but stop well short of N2 and N1 "
-    "(about 9,800 words up to N1). Written Japanese matters more at N2 and N1, whose reading "
-    "sections are newspaper-style articles and essays, and these are the levels employers and "
-    "schools rely on. Kanji and grammar always use the JLPT lists.":
-        "数える単語：N5〜N3はJLPT語彙リスト（JLPT語彙バー）。N2とN1の目標は現代の語彙量の推定"
-        "（N2は約6,000語、N1は約13,800語）で、2段階です。まず、そのレベルまでのJLPTリストの語を"
-        "すべて（試験に最も出やすい語なので）。次に残りを、リストにない書き言葉の最頻出語から"
-        "（頻度グリッド）。最頻出の一部だけでなく、これらの頻出語ならどれでも数えます。多読・多聴では"
-        "語が出会った順に入ってくるので、少し珍しい語でも本当に覚えたなら数えます。意識して勉強する"
-        "ときのために、頻度グリッドは頻出順に並んでいます。JLPTは2010年以降、語彙リストを公開していません。このアドオンのリストは"
-        "2010年以前の旧リストが基で、N3までは十分近いものの、N2・N1には大きく足りません"
-        "（N1までで約9,800語）。書き言葉はN2・N1でより重要になり、読解は新聞のような記事や評論です。"
-        "就職や進学で重視されるのもこのレベルです。漢字と文法は常にJLPTリストを使います。",
+    "Which words count: the JLPT word lists up to your level (the JLPT Vocabulary bars). Kanji and grammar use the JLPT lists too.":
+        "数える単語：あなたのレベルまでのJLPT語彙リスト（JLPT語彙バー）。漢字と文法もJLPTリストを使います。",
+    "Which words count: first the JLPT word lists up to N1 (the JLPT Vocabulary bars), then common words of written Japanese that aren't on the lists, up to 13,800 words in all (about three-quarters of the high estimate of 18,000 words for N1).":
+        "数える単語：まずN1までのJLPT語彙リスト（JLPT語彙バー）、次にリストにない書き言葉の頻出語で、合計13,800語まで（N1の推定の上限18,000語の約4分の3）。",
     "Taking the JLPT? Pick your level and test date, and Kotodama works out how much to learn each day.":
         "JLPTを受けますか？レベルと試験日を選ぶと、言霊が1日に覚える量を計算します。",
     "Which JLPT are you taking, and when? The test covers every level up to yours, so N3 means N5, N4 and N3.":
@@ -604,7 +587,7 @@ PATTERNS = [
      "その語数はN2・N1に必要な語彙量の現代の推定に合わせていますが、"
      "語そのものは書き言葉の最頻出語で、試験の語ではありません。試験の語は上のJLPT語彙バーで。"
      "N3まではそれが目安です。書き言葉はN2から重要になり、N2・N1の読解は新聞のような記事や評論です："
-     "N2・N1のJLPT目標は、2段階目をこれらのバーから埋めます。上位13,800は上位6,000を含みます。"
+     "N1のJLPT目標は、2段階目をこれらのバーから埋めます。上位13,800は上位6,000を含みます。"
      "ランクは覚えた語数を、ここではそれが大切な語かどうかを示します。"),
     (re.compile(r"<b>([\d,]+)</b> known = ([\d,]+) from your cards \+ ([\d,]+) marked found"
                 r" &nbsp;·&nbsp; <b>([\d,]+)</b> of your ([\d,]+) cards match a top-([\d,]+) "

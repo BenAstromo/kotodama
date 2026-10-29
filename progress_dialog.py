@@ -276,7 +276,7 @@ FREQ_INFO_EN = (
     "follow modern estimates of the vocabulary N2 and N1 ask for, but the words are the most "
     "common in written Japanese, not the test's words. For the test's words, use the JLPT "
     "Vocabulary bars above; up to N3 they're the guide. Written Japanese matters more from N2 on, "
-    "whose reading sections are newspaper-style articles and essays: an N2 or N1 JLPT goal fills "
+    "whose reading sections are newspaper-style articles and essays: an N1 JLPT goal fills "
     "its second step from these bars. The top 13,800 includes the top 6,000. The rank counts how "
     "many words you've learned; this shows whether they're the words that matter.")
 
@@ -553,7 +553,7 @@ def _show_rank_info_dialog(parent=None):
 
     # ── Body text ─────────────────────────────────────────────────────────
     level_counts = {lvl: len(jlpt_data._load_bundled(lvl)) for lvl in LEVELS}
-    upto_n2 = sum(level_counts[l] for l in LEVELS[:4])     # cumulative N5–N2 (the "fall short" line)
+    upto_n2 = sum(level_counts[l] for l in LEVELS[:4])     # cumulative N5–N2 (the "reach N2's size" line)
     level_lines = "".join(
         f"&nbsp;&nbsp;• <b>{lvl}:</b> {n:,} words<br>" for lvl, n in level_counts.items()
     )
@@ -563,17 +563,16 @@ The JLPT tracking in this add-on relies on community vocabulary lists.
 Because the JLPT organizers stopped publishing official lists in 2010, every available list is an
 educated reconstruction of the pre-2010 official lists.<br><br>
 
-The Kotodama JLPT lists (OpenJLPT, based on Jonathan Waller's JLPT lists) contain a total of
+The Kotodama JLPT lists (OpenJLPT, based on Jonathan Waller's JLPT lists, plus common words we added) contain a total of
 {sum(level_counts.values()):,} words
 <i>(discrete per-level counts — words appear in only one level)</i>:<br>
 {level_lines}<br>
 
 Up to N3, these lists cover most of the vocabulary the test asks for, since the lower levels are written for learners.
-From N2 on, these lists are still the words most relevant to the test, but they aren't enough on their own:
-the tests use real written Japanese (newspaper-style articles and essays), and if you only study the words
-on these lists, you will fall short. They hold {upto_n2:,} words up to N2 against an estimated 6,000,
-and {sum(level_counts.values()):,} up to N1 against 10,000–13,800.
-So for N2 and N1, learn these lists first, then keep going with the most common words of written Japanese
+With the common words we added, they also reach N2's size: {upto_n2:,} words up to N2 against an estimated 6,000.
+At N1 they aren't enough on their own: the test uses real written Japanese (newspaper-style articles and essays),
+and the lists hold {sum(level_counts.values()):,} words up to N1 against 10,000–13,800.
+So for N1, learn these lists first, then keep going with the most common words of written Japanese
 (the JLPT goal does this in two steps).
 At every level, vocabulary is only part of passing: grammar, reading and listening count too.<br><br>
 
@@ -610,15 +609,15 @@ Keep adding cards, keep reviewing, and watch your rank climb!
 JLPTの主催者は2010年に公式の語彙リストの公開をやめたため、手に入るリストはどれも
 2010年以前の公式リストを推定して作り直したものです。<br><br>
 
-言霊のJLPTリスト（OpenJLPT。Jonathan Waller氏のJLPTリストに基づく）は合計
+言霊のJLPTリスト（OpenJLPT。Jonathan Waller氏のJLPTリストに基づき、私たちが頻出語を加えたもの）は合計
 {sum(level_counts.values()):,} 語です
 <i>（レベルごとの語数。各語は一つのレベルにだけ入っています）</i>：<br>
 {level_lines_ja}<br>
 
 N3までは、試験が求める語彙の大部分をこのリストがカバーしています。下のレベルは学習者向けに書かれているからです。
-N2からも、このリストは試験に最も関係の深い語ですが、それだけでは足りません。
-試験には本物の書き言葉（新聞のような記事や評論）が使われ、このリストの単語だけを勉強していては届きません：リストはN2までで {upto_n2:,} 語（推定は6,000語）、N1までで {sum(level_counts.values()):,} 語（推定は10,000〜13,800語）です。
-そのためN2とN1では、まずこのリストを、次に書き言葉の最頻出語を学びましょう（JLPT目標はこの2段階です）。
+加えた頻出語により、N2の語彙量にも届きます：N2までで {upto_n2:,} 語（推定は6,000語）。
+N1ではこのリストだけでは足りません。試験には本物の書き言葉（新聞のような記事や評論）が使われ、リストはN1までで {sum(level_counts.values()):,} 語（推定は10,000〜13,800語）です。
+そのためN1では、まずこのリストを、次に書き言葉の最頻出語を学びましょう（JLPT目標はこの2段階です）。
 どのレベルでも、語彙は合格に必要なものの一部にすぎません。文法・読解・聴解も大切です。<br><br>
 
 <b style="color:#fff;">ランク制度の仕組み</b><br>
