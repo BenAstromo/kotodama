@@ -1,0 +1,38 @@
+{
+  "choices": {
+    "r1327": "other",
+    "r1770": "other",
+    "r1951": "other",
+    "r2160": "other",
+    "r2639": "other",
+    "r2789": "other",
+    "r2921": "other",
+    "r3012": "other",
+    "r3248": "other",
+    "r3577": "skip",
+    "r3610": "other",
+    "r3906": "other",
+    "r3951": "other",
+    "r4067": "other",
+    "r4107": "other",
+    "r4874": "N2",
+    "r5028": "N2"
+  },
+  "notes": {
+    "r1327": "Isn’t this a pattern word? Make sure to cross analyze what we have included and what we haven’t ",
+    "r1770": "Not sure if this would ever come up in a JLPT test",
+    "r1951": "N2 probably? Seems kinda rare for n3",
+    "r2160": "Not sure if this is relevant, I find it weird that this words frequency is so common I’ve never encountered it",
+    "r2639": "False friend I think n3 seems right maybe n2",
+    "r2789": "Also not just a pattern word? Same with the other directions? ",
+    "r2921": "Is this not too specific of a food ? Especially on n3?",
+    "r3012": "Make sure this doesn’t count as English loan word ",
+    "r3248": "Also not just a pattern word?",
+    "r3610": "Isn’t this pattern based? Also what ever decision make it for the group (right left, left arm, right arm) decide on that whole group of words ",
+    "r3906": "Same thing as table tennis not sure if it’s should be this common or relevant in n4 not sure though ",
+    "r3951": "N3 seems good for this make sure we have 洋室as well",
+    "r4067": "Same as right foot/ leg",
+    "r4107": "Again I’m just not sure about all these sports in n3"
+  },
+  "updated": "2026-10-29T03:21:10.246Z"
+}

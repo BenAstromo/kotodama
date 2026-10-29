@@ -82,7 +82,9 @@ li.row.kept{background:var(--changed)}
 select{font:600 14px var(--font-ui);padding:6px 8px;border-radius:8px;border:1px solid var(--line);
   background:var(--surface);color:var(--fg);min-width:110px}
 .l-N5{color:var(--n5)} .l-N4{color:var(--n4)} .l-N3{color:var(--n3)}
-.l-N2{color:var(--n2)} .l-N1{color:var(--n1)} .l-skip{color:var(--skip)}
+.l-N2{color:var(--n2)} .l-N1{color:var(--n1)} .l-skip{color:var(--skip)} .l-other{color:var(--accent)}
+textarea.other{grid-column:1/-1;font:16px/1.4 var(--font-ui);padding:8px 10px;border-radius:8px;border:1px solid var(--accent);
+  background:var(--surface);color:var(--fg);min-height:64px;resize:vertical;width:100%}
 .empty{color:var(--muted);padding:24px 4px}
 @media (prefers-reduced-motion:no-preference){li.row{transition:background .25s}}
 </style>
@@ -90,23 +92,24 @@ select{font:600 14px var(--font-ui);padding:6px 8px;border-radius:8px;border:1px
 <div class="wrap">
 <header>
   <h1>Word additions, everyday speech <span>言霊</span></h1>
-  <div class="tally"><span>Add <b id="t-add">–</b></span><span>Skip <b id="t-skip">–</b></span><span>Your changes <b id="t-chg">–</b></span><span id="t-lv"></span></div>
+  <div class="tally"><span>Add <b id="t-add">–</b></span><span>Skip <b id="t-skip">–</b></span><span>Other <b id="t-oth">–</b></span><span>Your changes <b id="t-chg">–</b></span><span id="t-lv"></span></div>
   <div class="sync" id="sync">Connecting to saved choices…</div>
   <div class="tabs" role="tablist" id="tabs"></div>
 </header>
 <section id="group">
   <div class="find" id="findings">
     <div class="verdict">
-      <p><b>Everyday speech, top 6,000:</b> __TOTAL__ words common in real conversation (the CEJC corpus) that no list has and earlier rounds didn't judge. Each was checked against one question: would the JLPT use it? <b>__ADD__</b> to add, <b>__SKIP__</b> to skip. Every word is pre-set; change any you disagree with and it saves automatically.</p>
+      <p><b>Everyday speech, top 6,000:</b> __TOTAL__ words common in real conversation (the CEJC corpus) that no list has and earlier rounds didn't judge. Each was checked against one question: would the JLPT use it? <b>__ADD__</b> to add, <b>__SKIP__</b> to skip. Every word is pre-set; change any you disagree with and it saves automatically. Not sure? Pick <b>Other…</b> and write what you think; Claude reads it and decides with you.</p>
     </div>
     <div>
       <h2>What gets in</h2>
       <ul>
-        <li><b class="l-N4">N4</b>: everyday things a learner meets early: common food (ピザ, 天ぷら, ヨーグルト), the home (エアコン, ゴミ箱, ティッシュ), the body, animals a child knows, shop words (本屋 N5, 花屋, レシート), スマホ.</li>
-        <li><b class="l-N3">N3</b>: daily-life Japanese: school (部活, 入試, 合宿), part-time work (時給, 店長), stations and shops (終電, 最寄り, 閉店, 半額), restaurants (居酒屋, 大盛り, 食券, 焼肉), phones and apps (アプリ, 充電, アカウント).</li>
-        <li><b class="l-N2">N2</b>: work, articles and the common onomatopoeia the test uses (就活, 内定, 部署, 経理, 通販, ぐるぐる, ばたばた, ぺらぺら).</li>
+        <li><b class="l-N4">N4</b>: everyday things a learner meets early and hears all the time (スマホ, ピザ, おにぎり, 納豆, 土日).</li>
+        <li><b class="l-N3">N3</b>: daily-life Japanese: school (部活, 入試, 合宿), shops and stations (店長, 終電, 閉店, 花屋), restaurants (居酒屋, 大盛り, 焼肉), phones and apps (アプリ, 充電, アカウント), and everyday food and home words (天ぷら, ヨーグルト, エアコン, ティッシュ, 本屋).</li>
+        <li><b class="l-N2">N2</b>: work, articles and the common onomatopoeia the test uses (就活, 内定, 部署, 時給, 通販, ぐるぐる, ばたばた), and easy words people rarely say (ゴミ箱, レシート, 冬休み).</li>
         <li><b class="l-N1">N1</b>: editorial and specialised words (進捗, 所詮, 稼働, 劣化).</li>
       </ul>
+      <p><b>Frequency rule:</b> a word has to be common enough for its level, using the same sizes as the frequency bars (N5 top 800, N4 1,500, N3 3,900, N2 6,000, N1 13,400). A word judged N4 but ranked past #1,500 in speech moves to N3, and on up until it fits; each moved word says so under its meaning.</p>
     </div>
     <div>
       <h2>Why words are skipped</h2>
@@ -123,13 +126,14 @@ const GROUPS = __GROUPS__;
 const SKIPWHY = __SKIPWHY__;
 const ORDER = ["findings"].concat(Object.keys(GROUPS));
 let choices = {};          // "r<rank>" → value, only where it differs from the pre-set level
+let notes = {};            // "r<rank>" → the owner's note when the value is "other" (Claude reads it)
 let current = "findings";
 let db = null, docRef = null, writeable = true;
 const findingsEl = document.getElementById("findings");
 
 const keyOf = r => "r" + r.rank;
 const val = r => (keyOf(r) in choices) ? choices[keyOf(r)] : r.s;
-const name = v => v === "skip" ? "Skip" : v;
+const name = v => v === "skip" ? "Skip" : v === "other" ? "Other…" : v;
 function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
 function setChoice(r, v){ const k = keyOf(r); if (v === r.s) delete choices[k]; else choices[k] = v; }
 
@@ -145,7 +149,7 @@ async function flush(){
   if (writing || !dirty || !docRef) return;
   writing = true; dirty = false;
   try {
-    await docRef.set({choices: {...choices}, updated: new Date().toISOString()});
+    await docRef.set({choices: {...choices}, notes: {...notes}, updated: new Date().toISOString()});
     setSync(dirty ? "Saving…" : "Saved");
   } catch (e) {
     if (e && e.code === "invalid_argument") { writeable = false; setSync("You can view this page but not change it.", true); }
@@ -156,9 +160,10 @@ function setSync(t, err){const s=document.getElementById("sync"); s.textContent=
 
 /* ── rendering ── */
 function tally(){
-  const vals = ROWS.map(val), add = vals.filter(v => v !== "skip");
+  const vals = ROWS.map(val), add = vals.filter(v => v !== "skip" && v !== "other");
   document.getElementById("t-add").textContent = add.length;
-  document.getElementById("t-skip").textContent = vals.length - add.length;
+  document.getElementById("t-skip").textContent = vals.filter(v => v === "skip").length;
+  document.getElementById("t-oth").textContent = vals.filter(v => v === "other").length;
   document.getElementById("t-chg").textContent = Object.keys(choices).length;
   document.getElementById("t-lv").textContent = ["N5","N4","N3","N2","N1"].map(l => `${l} ${add.filter(v => v === l).length}`).join(" · ");
   for (const t of ORDER){
@@ -179,7 +184,7 @@ function renderTabs(){
   }
 }
 function opts(r){
-  const v = val(r), list = ["N5","N4","N3","N2","N1","skip"];
+  const v = val(r), list = ["N5","N4","N3","N2","N1","skip","other"];
   return list.map(o => {
     const tag = o === r.s ? " (suggested)" : "";
     return `<option value="${o}"${o === v ? " selected" : ""}>${name(o)}${tag}</option>`;
@@ -203,15 +208,32 @@ function renderGroup(){
       ${r.why ? `<div class="mv">${esc(SKIPWHY[r.why][0])}</div>` : ""}
       ${r.note ? `<div class="note">${esc(r.note)}</div>` : ""}
       <div class="pick"><select id="pick-${r.rank}" aria-label="Level for ${esc(r.d)}" class="l-${v}">${opts(r)}</select></div>`;
+    const showNote = () => {
+      let ta = li.querySelector("textarea.other");
+      if (val(r) !== "other") { if (ta) ta.remove(); return; }
+      if (ta) return;
+      ta = document.createElement("textarea");
+      ta.className = "other"; ta.placeholder = "Your thoughts on this word: level, meaning, anything that helps Claude decide";
+      ta.setAttribute("aria-label", `Note on ${r.d}`);
+      ta.value = notes[keyOf(r)] || "";
+      ta.addEventListener("input", () => {
+        if (ta.value.trim()) notes[keyOf(r)] = ta.value; else delete notes[keyOf(r)];
+        queueSave();
+      });
+      li.appendChild(ta);
+      return ta;
+    };
+    showNote();
     li.querySelector("select").addEventListener("change", e => {
       const nv = e.target.value; setChoice(r, nv);
       e.target.className = "l-" + nv; li.className = "row" + (nv !== r.s ? " kept" : "");
+      const ta = showNote(); if (ta) ta.focus();
       tally(); queueSave();
     });
     ol.appendChild(li);
   }
   g.querySelectorAll("[data-bulk]").forEach(b => b.addEventListener("click", () => {
-    for (const r of rs) setChoice(r, r.s);
+    for (const r of rs) { setChoice(r, r.s); delete notes[keyOf(r)]; }
     renderGroup(); tally(); queueSave();
   }));
 }
@@ -227,8 +249,10 @@ renderTabs(); renderGroup(); tally();
   docRef.onSnapshot(snap => {
     if (snap.metadata.hasPendingWrites || writing || dirty) { first = false; return; }
     const d = snap.exists ? snap.data() : null;
-    choices = d && d.choices ? {...d.choices} : {};
-    renderGroup(); tally();
+    const nc = d && d.choices ? {...d.choices} : {}, nn = d && d.notes ? {...d.notes} : {};
+    const same = JSON.stringify([nc, nn]) === JSON.stringify([choices, notes]);
+    choices = nc; notes = nn;
+    if (!same) { renderGroup(); tally(); }   // our own saved write: don't redraw under the cursor
     setSync(first ? (d ? "Your saved choices are loaded" : "Ready. Changes save automatically.") : "Updated from another device");
     first = false;
   }, e => setSync("Saved choices couldn't load. Reload the page to try again.", true));

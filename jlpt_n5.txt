@@ -1,4 +1,4 @@
-# JLPT N5 vocabulary list — 688 words
+# JLPT N5 vocabulary list — 687 words
 # Source: OpenJLPT (github.com/evanclan/OpenJLPT), CC BY-SA 4.0,
 #   levels from Jonathan Waller's JLPT lists (tanos.co.uk), CC BY.
 # Alternate spellings and loanword flags derived from JMdict (EDRDG), CC BY-SA 4.0.
@@ -696,4 +696,3 @@
 日本人	にほんじん	ニッポン人	ours	にっぽんじん
 日本語	にほんご		ours	にっぽんご
 何人	なんにん		ours
-りんご	りんご	林檎	ours	リンゴ

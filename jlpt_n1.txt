@@ -1,4 +1,4 @@
-# JLPT N1 vocabulary list — 3590 words
+# JLPT N1 vocabulary list — 3698 words
 # Source: OpenJLPT (github.com/evanclan/OpenJLPT), CC BY-SA 4.0,
 #   levels from Jonathan Waller's JLPT lists (tanos.co.uk), CC BY.
 # Alternate spellings and loanword flags derived from JMdict (EDRDG), CC BY-SA 4.0.
@@ -3534,6 +3534,8 @@
 相次ぐ	あいつぐ	相継ぐ	ours
 潜む	ひそむ	潛む|濳む	ours
 民事	みんじ		ours
+急性	きゅうせい		ours
+接着	せっちゃく		ours
 感性	かんせい		ours
 師匠	ししょう		ours
 横たわる	よこたわる		ours
@@ -3559,6 +3561,7 @@
 局面	きょくめん		ours
 盛り込む	もりこむ	盛込む	ours
 自律	じりつ		ours
+都度	つど		ours
 境内	けいだい		ours
 応答	おうとう		ours
 天文	てんもん		ours
@@ -3569,6 +3572,7 @@
 創業	そうぎょう		ours
 擁護	ようご		ours
 発現	はつげん		ours
+集約	しゅうやく		ours
 顧問	こもん		ours
 塗装	とそう		ours
 習得	しゅうとく	修得	ours
@@ -3587,9 +3591,11 @@
 引き上げ	ひきあげ	引き揚げ|引上げ|引揚げ|引揚	ours
 宴	えん		ours
 拍子	ひょうし		ours
+異様	いよう		ours
 計測	けいそく		ours
 皇后	こうごう		ours
 高値	たかね		ours
+告知	こくち		ours
 抜群	ばつぐん		ours	ばっくん|バツグン
 管轄	かんかつ		ours
 類型	るいけい	類形	ours
@@ -3599,3 +3605,105 @@
 受注	じゅちゅう	受註	ours
 早々	そうそう	早早	ours
 引きつける	ひきつける	引き付ける|ひき付ける|引付ける	ours
+ベンチャー	ベンチャー		ours,eng	ベンチャ|ヴェンチャー
+稼働	かどう	稼動	ours
+格闘	かくとう	挌闘|格鬪	ours
+大腸	だいちょう		ours	おおわた
+装う	よそおう	粧う	ours
+身内	みうち	身うち	ours
+根元	ねもと	根本|根もと	ours
+近世	きんせい		ours
+宙	ちゅう		ours
+肝	きも	胆	ours	たん|キモ
+前面	ぜんめん		ours
+断層	だんそう		ours
+食らう	くらう	喰らう	ours
+所詮	しょせん	所せん	ours
+濃厚	のうこう		ours
+如何	いかん	奈何	ours
+構図	こうず		ours
+病棟	びょうとう		ours
+俗	ぞく		ours	しょく
+不動	ふどう		ours
+形容	けいよう		ours
+補佐	ほさ	輔佐	ours
+選抜	せんばつ		ours	センバツ
+和歌	わか	倭歌	ours
+工房	こうぼう		ours
+専務	せんむ		ours
+仕入れ	しいれ	仕入	ours
+土器	どき		ours	かわらけ
+石垣	いしがき	石崖	ours	いしがけ
+極力	きょくりょく		ours
+シンポジウム	シンポジウム		ours,eng
+乳がん	にゅうがん	乳癌|乳ガン	ours
+完結	かんけつ		ours
+やけ	やけ	自棄|焼け	ours	ヤケ
+割り切る	わりきる	割切る	ours
+なおかつ	なおかつ	尚且つ|尚かつ|なお且つ	ours
+接待	せったい	摂待	ours
+台帳	だいちょう		ours
+絡める	からめる	搦める	ours
+遠隔	えんかく		ours
+劣化	れっか		ours
+弾丸	だんがん		ours
+跡地	あとち		ours
+囚人	しゅうじん		ours	めしゅうど|めしうど
+集い	つどい		ours
+肩書き	かたがき	肩書	ours
+進捗	しんちょく	進陟	ours
+試作	しさく		ours
+定例	ていれい		ours	じょうれい
+御殿	ごてん	ご殿	ours
+大口	おおくち		ours	おおぐち
+威嚇	いかく		ours
+傍聴	ぼうちょう		ours
+永住	えいじゅう		ours
+却下	きゃっか		ours
+骨董	こっとう		ours
+香ばしい	こうばしい	芳ばしい	ours
+大河	たいが		ours
+派生	はせい		ours
+開ける	ひらける		ours
+なぞる	なぞる		ours
+凝縮	ぎょうしゅく		ours
+高々	たかだか	高高	ours
+まるきり	まるきり	丸きり|丸切り	ours
+発声	はっせい		ours
+搬入	はんにゅう		ours
+特化	とっか		ours
+簿記	ぼき		ours
+おもむろに	おもむろに	徐に|徐ろに	ours
+さばく	さばく	捌く	ours
+満々	まんまん	満満	ours
+本題	ほんだい		ours
+くだり	くだり	件|条|行	ours
+一式	いっしき	１式	ours
+今期	こんき		ours
+糧	かて	粮	ours	りょう|かりて
+校正	こうせい	較正	ours
+換金	かんきん		ours
+いんちき	いんちき		ours	インチキ
+改名	かいめい		ours	かいみょう
+石碑	せきひ		ours
+所帯	しょたい	世帯	ours
+ぶれる	ぶれる		ours	ブレる
+協賛	きょうさん		ours
+どうこう	どうこう	如何斯う	ours
+鉱石	こうせき	礦石	ours
+一任	いちにん		ours
+ありきたり	ありきたり	在り来たり|在り来り|在りきたり	ours
+染料	せんりょう		ours
+外注	がいちゅう	外註	ours
+いっとき	いっとき	ひと時|一時	ours	ひととき
+撤収	てっしゅう	徹収|撒収	ours
+直近	ちょっきん		ours
+前倒し	まえだおし		ours
+切り捨て	きりすて	切捨て|斬り捨て|斬捨て	ours
+設営	せつえい		ours
+講評	こうひょう		ours
+深読み	ふかよみ		ours
+兼ね合い	かねあい	兼合い	ours
+ちゃっかり	ちゃっかり		ours	チャッカリ
+急患	きゅうかん		ours
+酷評	こくひょう		ours

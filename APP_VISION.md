@@ -6,17 +6,18 @@
 
 ---
 
-## 0. Current state (updated 2026-10-28, end of sixth session)
+## 0. Current state (updated 2026-10-29, seventh session)
 
-**Everything is committed and pushed** (https://github.com/BenAstromo/kotodama, private, branch `main`; `git log` for detail). The working folder matches GitHub. Earlier sessions are logged in `docs/HISTORY.md` (grep the date; the 2026-10-28 sessions are at the end).
+**Everything is committed and pushed** (https://github.com/BenAstromo/kotodama, private, branch `main`; `git log` for detail). Earlier sessions are logged in `docs/HISTORY.md` (grep the date).
 
-**This session (not seen in Anki yet, owner to check):**
-- **Word Addition Project built:** 1,119 common words on no list added with our own levels (flag `ours`; 1,126 with the 7 older ones). Lists 8,070 → 9,189 (N5 688, N4 722, N3 1,957, N2 2,232, N1 3,590). Pipeline: `tools/missing_words/final_additions.py owner_choices_round2.json [round3.json]` → `word_additions.json` → `build_jlpt.py`. Decisions: round 2 (`confidence_rules.py` + `owner_choices_round2.json`), fit check (`fit_check.py`, 67 changes from the level-purpose research), round 3 (`round3.py`, #3,901–6,000). Rules the owner agreed: pattern words skipped (大きさ, 具体的, 考え方; 〜的 kept only when the base is rare alone: 本格的, 公的, 客観的, 合理的), katakana stand-ins and official-document terms skipped, お/ご form listed when it's the usual form (お湯, お願い; not ご協力), food N4, computer and job words N3, technical N2. Expect: JLPT bars rise (more words, mostly not yet in decks), History marks a list change (signature), goal totals grow.
-- **Parser:** `ours` words count as frequency-only for the rare-kana penalty (`_RARE_KANA`), so したこと isn't し + たこ + と.
-- UI "about 8,000 words up to N1" → 9,200 (EN + JA); README list size and an "Our additions" credit.
-- Mini widget drops under the stats in a narrow window (owner checked).
+**This session (2026-10-29; not seen in Anki yet, owner to check):**
+- **Speech round built** (owner: go ahead): 611 words from the top 6,000 of everyday conversation (CEJC) added with flag `ours`; lists 9,194 → 9,805 (N5 687, N4 706, N3 2,033, N2 2,681, N1 3,698); `ours` 1,742. Pipeline: `final_additions.py owner_choices_round2.json --speech=owner_choices_speech.json --jitendex=<jitendex-yomitan.zip>` → `word_additions.json` → `build_jlpt.py`. Owner's "Other…" notes decided in `speech_round.RESOLVED` (飲み会 / 大騒ぎ / 南口 are ordinary compounds, not pattern words; 右足 + 左足 share N2 as a pair; 長生き, 漬物 N2; 洋室 too rare to add). **Direction sets** (`final_additions.SETS`): 東西南北 + 口 / 部 / 側 all N2, the rarer members (東口, 東側, 南側, 北側) as exceptions to the frequency rule; 東口 / 東部 / 東側 / 南側 / 北側 added.
+- **Frequency rule (owner 2026-10-29):** every addition must sit inside its level's bar size (N5 800 / N4 1,500 / N3 3,900 / N2 6,000 / N1 13,400) by the better of written and speech rank, else it moves up a level at a time until it fits (`speech_round.fit_level`). Written-round words with no speech rank keep their level (CEJC short units split 日本語 / お願い apart). Moved: 75 written words (りんご N5→N4, 右手 / 左手 / 本日 / 彼氏 N4→N3, マウス / 市長 N3→N2 …), 125 speech words.
+- **Meanings:** new words' meanings merged into `meanings.json` from the owner's Downloads Jitendex (2025-11-02; older than the 2026-10-03 one used for the rest, so existing entries were left as they were; a full refresh needs a fresh download, §6). `build_meanings.GLOSS_FIX`: 和歌 = "waka; classical Japanese poem (esp. a tanka of 31 morae)".
+- UI "about 9,200 words up to N1" → 9,800 (EN + JA); README list size and "Our additions" (1,742, written + spoken, the frequency rule). Expect: JLPT bars and goal totals change, History marks a list change.
+- Speech review page: JMdict meanings for the 447 rows that had none; "Other…" option with a note box (db doc `review/speech`: `choices` + `notes`).
 
-**Tests to run after related changes:** `t_marks.py`, `t_dups.py`, `t_kofi.mjs`, `tools/dev/qt_goal.py` and `tools/dev/test_gain.py` (PyQt6 venv `%TEMP%\qtv`), `tools/dev/maint/t_scenarios.py normal` (delete its `env/` after), `tools/grammar_eval.py` + `tools/vocab_eval.py` (0 differences from baseline 2026-10-28), `tools/check_gold_text.py` after any UI text, `parse39.py` / `compat39.py` before a commit.
+**Tests to run after related changes:** `t_marks.py`, `t_dups.py`, `t_kofi.mjs`, `tools/dev/qt_goal.py` and `tools/dev/test_gain.py` (PyQt6 venv `%TEMP%\qtv`), `tools/dev/maint/t_scenarios.py normal` (delete its `env/` after), `tools/grammar_eval.py` + `tools/vocab_eval.py` (0 differences from baseline 2026-10-28, rechecked 2026-10-29 after the speech round), `tools/check_gold_text.py` after any UI text, `parse39.py` / `compat39.py` before a commit.
 
 **Git:** commit / push only when the owner asks (they usually just say "commit"). `.gitignore` keeps out `user_files/`, `meta.json`, `.wrangler/`, `server/.wrangler/` and caches. Before making the repo public: the release checklist (§11). `server/wrangler.toml`'s D1 `database_id` stays public (owner 2026-10-27: it's a label, not a secret).
 
@@ -24,8 +25,8 @@
 
 **Open (development only; owner's call unless noted):**
 - **Owner checks:** one real Ko-fi tip ("♥ Supported Kotodama"; test `node tools/dev/maint/t_kofi.mjs`; refunds: clear `supporter` by hand; wrangler from the add-on root needs `--config server/wrangler.toml`).
-- **Owner checks in Anki:** this session's list above: JLPT bars and grids with the new words, word hovers on added words (meaning + level), History after the list change, goal totals.
-- **Speech round — ON HOLD (owner 2026-10-28); resume only when the owner says.** CEJC top 6,000 not on the lists (`speech_candidates.py` → 1,637 new; 156 already judged in rounds 2–3), judged by "would the JLPT use it?" in `speech_round.py`: add 612 (N5 1, N4 45, N3 171, N2 287, N1 108), skip 1,022 (piece, sound word, slang/casual, katakana stand-in, too specific, pattern, jargon, name, not test material). Page on the Word Additions Artifact, owner's changes in db doc `review/speech`. To build: extend `final_additions.py` with the speech round (rows keyed by speech rank `r<srank>`; same word under two readings = one row), rebuild, run the evals (watch short kana words, as with たこ / いか).
+- **Owner checks in Anki:** the 2026-10-28 written additions and this session's speech words: JLPT bars and grids, word hovers on added words (meaning + level; 和歌), History after the list change, goal totals.
+- **Word Addition Project: done** (written #1–6,000 + speech #1–6,000). Speech round notes, rows keyed `r<srank>`, Artifact page via `speech_round.py <out.html>`.
 - **Word Addition Project follow-up:** rebuild `freq_extra.txt` (needs the BCCWJ LUW zip, §6; display/sorting only). No further batches past #6,000 (owner 2026-10-28). Review pages: https://claude.ai/artifact/NHt9rMw2icW5aSLuNxSLuq (db docs `review/choices`, `round2`, `round3`), fit check https://claude.ai/artifact/Niz5EFogy6r2itUmLuNyc1. Grep HISTORY for "Word Addition Project".
 - **Licence (release_drafts.md §7):** regenerate the three rank pictures copied from real people's photos (§1). Owner 2026-10-28: no NINJAL email (free add-on, credited, tip-only Ko-fi; accepted risk), no Grok credit. Done: BCCWJ + CEJC paper citations in README and About ("Corpus references"); rank pictures now "made for Kotodama" (not "by the author").
 - **Rank pictures:** new rank icons wait until the owner has Grok Pro again; most likely only Amaterasu stays animated (not final).

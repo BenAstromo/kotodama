@@ -152,6 +152,12 @@ def parse_senses(glossary) -> list[tuple[str, str]]:
     return senses
 
 
+# First-sense glosses that are too bare to help a learner (owner 2026-10-29).
+GLOSS_FIX = {
+    "和歌\tわか": "waka; classical Japanese poem (esp. a tanka of 31 morae)",
+}
+
+
 def load_jitendex(path: str):
     z = zipfile.ZipFile(path)
     title = json.loads(z.read("index.json")).get("title", "Jitendex")
@@ -301,6 +307,9 @@ def main():
             prev = pos
         meanings[str(seq)] = [len(senses), shown]
     keys = {k: s for k, s in keys.items() if str(s) in meanings}
+    for key, gloss in GLOSS_FIX.items():
+        if key in keys:
+            meanings[str(keys[key])][1][0][1] = gloss
 
     out = os.path.join(addon_dir, "meanings.json")
     with open(out, "w", encoding="utf-8") as f:

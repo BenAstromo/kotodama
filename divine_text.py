@@ -48,7 +48,7 @@ EXACT = {
     "and the Frequency grid lists them most common first for when you study on purpose. The JLPT "
     "hasn't published word lists since 2010; ours build "
     "on the old pre-2010 lists, which are close enough up to N3 but stop well short of N2 and N1 "
-    "(about 9,200 words up to N1). Written Japanese matters more at N2 and N1, whose reading "
+    "(about 9,800 words up to N1). Written Japanese matters more at N2 and N1, whose reading "
     "sections are newspaper-style articles and essays, and these are the levels employers and "
     "schools rely on. Kanji and grammar always use the JLPT lists.":
         "数える単語：N5〜N3はJLPT語彙リスト（JLPT語彙バー）。N2とN1の目標は現代の語彙量の推定"
@@ -58,7 +58,7 @@ EXACT = {
         "語が出会った順に入ってくるので、少し珍しい語でも本当に覚えたなら数えます。意識して勉強する"
         "ときのために、頻度グリッドは頻出順に並んでいます。JLPTは2010年以降、語彙リストを公開していません。このアドオンのリストは"
         "2010年以前の旧リストが基で、N3までは十分近いものの、N2・N1には大きく足りません"
-        "（N1までで約9,200語）。書き言葉はN2・N1でより重要になり、読解は新聞のような記事や評論です。"
+        "（N1までで約9,800語）。書き言葉はN2・N1でより重要になり、読解は新聞のような記事や評論です。"
         "就職や進学で重視されるのもこのレベルです。漢字と文法は常にJLPTリストを使います。",
     "Taking the JLPT? Pick your level and test date, and Kotodama works out how much to learn each day.":
         "JLPTを受けますか？レベルと試験日を選ぶと、言霊が1日に覚える量を計算します。",

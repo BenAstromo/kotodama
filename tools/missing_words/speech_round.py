@@ -162,6 +162,69 @@ def judgements():
     return out
 
 
+# Frequency rule (owner 2026-10-29): an added word must sit inside its level's
+# frequency size (the bars' cumulative sizes, §8 of the handbook); a word too
+# rare for its judged level moves up one level at a time until it fits.
+# Speech rank here (CEJC), since that's what brought these words in.
+LEVEL_CAP = {"N5": 800, "N4": 1500, "N3": 3900, "N2": 6000, "N1": 13400}
+
+
+# The owner's "Other…" notes on the page (db doc review/speech, 2026-10-29),
+# decided by speech rank. "Pattern word" here means our skip reason: built
+# regularly from listed parts (〜め, 何 + noun, school years). Ordinary
+# compounds with their own dictionary entry stay, as on the lists (出口, 右手).
+RESOLVED = {
+    1327: "N3",    # 飲み会: a set compound (宴会 N2 is listed); 〜会 isn't a pattern we skip
+    1770: "N3",    # スタンプ: point-card stamps, LINE stamps; everyday
+    1951: "N2",    # 長生き: owner leaned N2
+    2160: "N3",    # 卓球: school-club sport (テニス N4, ゴルフ N3); speech-common from club talk
+    2639: "N3",    # シール: sticker (false friend of "seal"); owner: N3 seems right
+    2789: "N3",    # 南口: station exits are signs every learner reads; 口 → ぐち (出口 N5); level set by final_additions.SETS (N2)
+    2921: "N2",    # 漬物: a food category like 煮物, which the owner set N2
+    3012: "N3",    # ピーマン: French (piment), flagged loan-fre, not counted as English
+    3248: "N3",    # 大騒ぎ: own dictionary entry, common set word
+    3610: "N2",    # 右足: pairs share a level (owner): 左足 is #4,068 → both N2; 右手 / 左手 both N3
+    3906: "N2",    # バドミントン: past N3 by rank
+    3951: "N2",    # 和室: #3,952, just past N3's 3,900; 洋室 (≈#25,600) is too rare for any level
+    4067: "N2",    # 左足: with 右足
+    4107: "N2",    # ラグビー: past N3 by rank
+}
+
+
+def fit_level(lv, rank):
+    if lv == "skip":
+        return lv, ""
+    order = list(LEVEL_CAP)
+    i = order.index(lv)
+    while rank > LEVEL_CAP[order[i]] and i < len(order) - 1:
+        i += 1
+    if order[i] == lv:
+        return lv, ""
+    return order[i], f"Judged {lv}, moved to {order[i]}: speech rank #{rank:,} is past {lv}'s top {LEVEL_CAP[lv]:,}."
+
+
+def jmdict_glosses():
+    # Fallback meanings for the review page: meanings.json only covers list +
+    # BCCWJ words, so 447 rows (スマホ, 終電 …) had none. Full JMdict from
+    # %TEMP%\data\JMdict_e.gz (§6); first 3 senses, 3 glosses each.
+    # Keys (spelling, hiragana reading), and spelling alone as a last resort.
+    import gzip, os, xml.etree.ElementTree as ET
+    hira = lambda s: "".join(chr(ord(c) - 96) if "ァ" <= c <= "ヶ" else c for c in s)
+    out = {}
+    for _, el in ET.iterparse(gzip.open(os.path.join(os.environ["TEMP"], "data", "JMdict_e.gz")), events=("end",)):
+        if el.tag != "entry":
+            continue
+        keb = [k.findtext("keb") for k in el.findall("k_ele")]
+        reb = [r.findtext("reb") for r in el.findall("r_ele")]
+        gl = "; ".join(", ".join(g.text for g in s.findall("gloss")[:3]) for s in el.findall("sense")[:3])
+        for r in reb:
+            for f in keb + [r]:
+                out.setdefault((f, hira(r)), gl)
+                out.setdefault(f, gl)
+        el.clear()
+    return lambda d, r: out.get((d, hira(r))) or out.get(d)
+
+
 if __name__ == "__main__":
     import collections, json, os, sys
     sys.stdout.reconfigure(encoding="utf-8")
@@ -181,13 +244,16 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         import html
         rows, seen_w = [], set()
+        gloss = jmdict_glosses()
         for x in cands:
             if x["d"] in seen_w:
                 continue                      # the same word under two readings: one row
             seen_w.add(x["d"])
             v, why = j[x["d"]]
+            fv, note = fit_level(v, x["srank"])
             rows.append({"rank": x["srank"], "d": x["d"], "r": "" if x["r"] == x["d"] else x["r"],
-                         "m": x["m"] or "(no dictionary meaning)", "g": v, "s": v, "why": why})
+                         "m": x["m"] or gloss(x["d"], x["r"]) or "(no dictionary meaning)", "g": fv, "s": fv, "why": why,
+                         "note": note})
         groups = {lv: [lv, f"Pre-set to {lv}. Change any word you'd put elsewhere."] for lv in LEVELS}
         groups["skip"] = ["Skip", "Pre-set to skip, with the reason under each word. Pick a level to add one after all."]
         n_skip = collections.Counter(r["why"] for r in rows if r["s"] == "skip")

@@ -1,4 +1,4 @@
-# JLPT N4 vocabulary list — 722 words
+# JLPT N4 vocabulary list — 706 words
 # Source: OpenJLPT (github.com/evanclan/OpenJLPT), CC BY-SA 4.0,
 #   levels from Jonathan Waller's JLPT lists (tanos.co.uk), CC BY.
 # Alternate spellings and loanword flags derived from JMdict (EDRDG), CC BY-SA 4.0.
@@ -661,73 +661,57 @@
 お話	おはなし	お話し|御話|御話し	ours
 野球	やきゅう		ours
 えっ	えっ		ours
-ミリメートル	ミリメートル	粍	ours,loan-fre	ミリメーター
-両手	りょうて		ours
-本日	ほんじつ		ours
-右手	みぎて		ours
 サッカー	サッカー		ours,eng
 皆様	みなさま	皆さま|みな様	ours
 ホームページ	ホームページ		ours,eng	ホーム・ページ
 ラーメン	ラーメン	拉麺|老麺|ラー麺	ours,loan-chi	らーめん|らあめん
 半年	はんとし		ours	はんねん
-彼氏	かれし		ours
 ねえ	ねえ		ours	ね|ねー|ねぇ
 お客様	おきゃくさま	お客さま|御客様|御客さま	ours
 トマト	トマト		ours,eng
-左手	ひだりて		ours
 豆腐	とうふ	豆富|豆冨	ours
-休日	きゅうじつ		ours
+りんご	りんご	林檎	ours	リンゴ
 ほら	ほら		ours	ほれ
 大根	だいこん		ours	だいこ|ダイコン
-玉ねぎ	たまねぎ	玉葱|葱頭|玉ネギ	ours	タマネギ
 お客さん	おきゃくさん	御客さん	ours
 携帯電話	けいたいでんわ		ours
 にんじん	にんじん	人参	ours	ニンジン
-アニメ	アニメ		ours,abbr
 中学生	ちゅうがくせい		ours
 チケット	チケット		ours,eng	ティケット|テケツ
 へえ	へえ		ours	へぇ|へー|へぇー
-キッチン	キッチン		ours,eng	キチン
 電話番号	でんわばんごう		ours
 豚	ぶた	豕	ours	ブタ
 バイト	バイト		ours,abbr
 アイス	アイス		ours,loan-ger
 カフェ	カフェ		ours,loan-fre	カフェー|キャフェ|カッフェ|カッフェー
 結婚式	けっこんしき		ours
-桃	もも		ours	モモ
-ミリリットル	ミリリットル	竓	ours,loan-fre
 わあ	わあ		ours	わあっ|わっ
 えび	えび	海老|蝦|蛯|鰕	ours	エビ
 芋	いも	薯|藷	ours	イモ
-片手	かたて		ours
-週末	しゅうまつ		ours
-右側	みぎがわ	右がわ|右っかわ	ours	うそく|みぎっかわ
 コンビニ	コンビニ		ours,abbr
-左側	ひだりがわ		ours	さそく|ひだりっかわ
-にんにく	にんにく	大蒜|蒜|葫	ours	ニンニク
 寿司	すし	鮨|鮓|寿し|壽司|壽し	ours
-駅前	えきまえ		ours
 お願い	おねがい	御願い	ours
 ハム	ハム		ours,eng
 ミリグラム	ミリグラム		ours,loan-fre
-じゃがいも	じゃがいも	じゃが芋|ジャガ芋|ジャガ薯|じゃが薯	ours	ジャガイモ
 お世話	おせわ	御世話	ours
 ねぎ	ねぎ	葱	ours	ネギ
-セント	セント	仙	ours,eng
 しょうが	しょうが	生姜|生薑|薑	ours	ショウガ
-キャベツ	キャベツ		ours,eng	キャベジ
 レモン	レモン	檸檬	ours,eng
-片方	かたほう		ours
 チョコレート	チョコレート		ours,eng
 お湯	おゆ	御湯	ours
 いか	いか	烏賊|柔魚|鰞	ours	イカ
-きのこ	きのこ	茸|蕈|菌	ours	たけ|キノコ
-いちご	いちご	苺|莓	ours	イチゴ
 奥様	おくさま	奥さま	ours
 チョコ	チョコ		ours,abbr
 きゅうり	きゅうり	胡瓜|黄瓜	ours	きうり|キュウリ|キウリ
-みかん	みかん	蜜柑	ours	ミカン
-かに	かに	蟹|蠏	ours	カニ
+納豆	なっとう		ours
+オーブン	オーブン		ours,eng	オーヴン
 バナナ	バナナ		ours,eng
-たこ	たこ	蛸|章魚|鮹|鱆	ours	タコ
 カラオケ	カラオケ	空オケ	ours,eng	からオケ
+土日	どにち		ours
+ギョーザ	ギョーザ	餃子	ours,loan-chi	チャオズ|ぎょうざ|ギョウザ
+コーラ	コーラ		ours,abbr
+おにぎり	おにぎり	お握り|御握り	ours
+ポテト	ポテト		ours,abbr
+ピザ	ピザ		ours,loan-ita	ピッツァ|ピッツア
+唐揚げ	からあげ	から揚げ|唐揚|空揚げ|空揚|カラ揚げ	ours
+スマホ	スマホ		ours,abbr	スマフォ

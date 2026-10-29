@@ -41,7 +41,7 @@ This tab also has the **Main screen widget** toggle (on by default) with an **In
 **Ignore cards suspended in Anki**: when ticked, notes whose cards are all suspended in Anki don't count toward the JLPT bars, the Frequency Check or the rank.
 
 ### 2. Vocabulary Lists tab
-The **Kotodama JLPT lists** cover every level (OpenJLPT plus additions, 9,189 words total). They follow Jonathan Waller's community JLPT lists — the basis of every JLPT list since official lists stopped in 2010 — with modern spellings (ありがとう rather than 有難う) and alternate spellings kept for matching. Everyone uses the same Kotodama JLPT lists, so your bars, History and Nakama numbers compare fairly. To check your coverage of some other list (a textbook's, say), paste it into **Text Check**.
+The **Kotodama JLPT lists** cover every level (OpenJLPT plus additions, 9,800 words total). They follow Jonathan Waller's community JLPT lists — the basis of every JLPT list since official lists stopped in 2010 — with modern spellings (ありがとう rather than 有難う) and alternate spellings kept for matching. Everyone uses the same Kotodama JLPT lists, so your bars, History and Nakama numbers compare fairly. To check your coverage of some other list (a textbook's, say), paste it into **Text Check**.
 
 **File format** (may be mixed within one file):
 - One word per line: `食べる`
@@ -177,7 +177,7 @@ The same credits are in Anki under **Kotodama → About Kotodama…**.
 - **Meanings on hover:** [Jitendex](https://jitendex.org) by Stephen Kraus (CC BY-SA 4.0), based on JMdict
 - **Extra JLPT words:** a few words on Jonathan Waller's lists that OpenJLPT omits (via [stephenmk/yomitan-jlpt-vocab](https://github.com/stephenmk/yomitan-jlpt-vocab), which keeps Waller's levels; CC BY-SA 4.0)
 - **Community additions:** 211 words on community JLPT lists ([jamsinclair/open-anki-jlpt-decks](https://github.com/jamsinclair/open-anki-jlpt-decks), [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list)) that Waller's current lists don't have, e.g. 顔, 母, 頑張る, 当然, 仕方がない. They use those lists' levels and are flagged `community` in the list files. Both lists are MIT-licensed; their notices are in `THIRD_PARTY_NOTICES.txt`.
-- **Our additions:** 1,126 common words that no JLPT list has, chosen from the 6,000 most common words of written Japanese (e.g. メール, 私たち, 可能性, 動画), flagged `ours` in the list files. The levels are our own: they follow the JLPT's official level descriptions and how the lists place similar words. Words built regularly from a listed word (大きさ, 具体的), katakana stand-ins for native words and official-document terms are left out.
+- **Our additions:** 1,742 common words that no JLPT list has, chosen from the 6,000 most common words of written Japanese (e.g. メール, 私たち, 可能性, 動画) and of everyday conversation (e.g. スマホ, 終電, 部活, 飲み会), flagged `ours` in the list files. The levels are our own: they follow the JLPT's official level descriptions and how the lists place similar words, and each word must be common enough for its level (within the top 800 for N5, 1,500 for N4, 3,900 for N3, 6,000 for N2, 13,400 for N1, by written or spoken frequency). Words built regularly from a listed word (大きさ, 具体的), katakana stand-ins for native words, slang and official-document terms are left out.
 
 **Corpus references.** The frequency data comes from these corpora, with thanks to NINJAL:
 

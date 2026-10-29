@@ -2185,6 +2185,20 @@
 },
 {
 "level": "1",
+"word": "急性",
+"reading": "きゅうせい",
+"jmdict_id": 1228820,
+"rank": 5721
+},
+{
+"level": "1",
+"word": "接着",
+"reading": "せっちゃく",
+"jmdict_id": 1385570,
+"rank": 5726
+},
+{
+"level": "1",
 "word": "感性",
 "reading": "かんせい",
 "jmdict_id": 1212460,
@@ -2360,6 +2374,13 @@
 },
 {
 "level": "1",
+"word": "都度",
+"reading": "つど",
+"jmdict_id": 1445020,
+"rank": 5822
+},
+{
+"level": "1",
 "word": "境内",
 "reading": "けいだい",
 "jmdict_id": 1236020,
@@ -2427,6 +2448,13 @@
 "reading": "はつげん",
 "jmdict_id": 1477340,
 "rank": 5851
+},
+{
+"level": "1",
+"word": "集約",
+"reading": "しゅうやく",
+"jmdict_id": 1333790,
+"rank": 5852
 },
 {
 "level": "1",
@@ -2556,6 +2584,13 @@
 },
 {
 "level": "1",
+"word": "異様",
+"reading": "いよう",
+"jmdict_id": 1158120,
+"rank": 5960
+},
+{
+"level": "1",
 "word": "計測",
 "reading": "けいそく",
 "jmdict_id": 1252230,
@@ -2574,6 +2609,13 @@
 "reading": "たかね",
 "jmdict_id": 1283760,
 "rank": 5969
+},
+{
+"level": "1",
+"word": "告知",
+"reading": "こくち",
+"jmdict_id": 1286050,
+"rank": 5976
 },
 {
 "level": "1",
@@ -2637,6 +2679,720 @@
 "reading": "ひきつける",
 "jmdict_id": 1601680,
 "rank": 6000
+},
+{
+"level": "1",
+"word": "ベンチャー",
+"reading": "ベンチャー",
+"jmdict_id": 1120330,
+"rank": 6098
+},
+{
+"level": "1",
+"word": "稼働",
+"reading": "かどう",
+"jmdict_id": 1590520,
+"rank": 6109
+},
+{
+"level": "1",
+"word": "格闘",
+"reading": "かくとう",
+"jmdict_id": 1205440,
+"rank": 6172
+},
+{
+"level": "1",
+"word": "大腸",
+"reading": "だいちょう",
+"jmdict_id": 1414560,
+"rank": 6186
+},
+{
+"level": "1",
+"word": "装う",
+"reading": "よそおう",
+"jmdict_id": 1402280,
+"rank": 6195
+},
+{
+"level": "1",
+"word": "身内",
+"reading": "みうち",
+"jmdict_id": 1365800,
+"rank": 6205
+},
+{
+"level": "1",
+"word": "根元",
+"reading": "ねもと",
+"jmdict_id": 2848281,
+"rank": 6289
+},
+{
+"level": "1",
+"word": "近世",
+"reading": "きんせい",
+"jmdict_id": 1242390,
+"rank": 6305
+},
+{
+"level": "1",
+"word": "宙",
+"reading": "ちゅう",
+"jmdict_id": 1956660,
+"rank": 6429
+},
+{
+"level": "1",
+"word": "肝",
+"reading": "きも",
+"jmdict_id": 1214630,
+"rank": 6464
+},
+{
+"level": "1",
+"word": "前面",
+"reading": "ぜんめん",
+"jmdict_id": 1394080,
+"rank": 6521
+},
+{
+"level": "1",
+"word": "断層",
+"reading": "だんそう",
+"jmdict_id": 1419700,
+"rank": 6524
+},
+{
+"level": "1",
+"word": "食らう",
+"reading": "くらう",
+"jmdict_id": 1592410,
+"rank": 6670
+},
+{
+"level": "1",
+"word": "所詮",
+"reading": "しょせん",
+"jmdict_id": 1343300,
+"rank": 6674
+},
+{
+"level": "1",
+"word": "濃厚",
+"reading": "のうこう",
+"jmdict_id": 1469910,
+"rank": 6730
+},
+{
+"level": "1",
+"word": "如何",
+"reading": "いかん",
+"jmdict_id": 1582850,
+"rank": 6787
+},
+{
+"level": "1",
+"word": "構図",
+"reading": "こうず",
+"jmdict_id": 1279720,
+"rank": 6895
+},
+{
+"level": "1",
+"word": "病棟",
+"reading": "びょうとう",
+"jmdict_id": 1490400,
+"rank": 6949
+},
+{
+"level": "1",
+"word": "俗",
+"reading": "ぞく",
+"jmdict_id": 1405100,
+"rank": 6960
+},
+{
+"level": "1",
+"word": "不動",
+"reading": "ふどう",
+"jmdict_id": 1494210,
+"rank": 7145
+},
+{
+"level": "1",
+"word": "形容",
+"reading": "けいよう",
+"jmdict_id": 1250420,
+"rank": 7161
+},
+{
+"level": "1",
+"word": "補佐",
+"reading": "ほさ",
+"jmdict_id": 1603460,
+"rank": 7173
+},
+{
+"level": "1",
+"word": "選抜",
+"reading": "せんばつ",
+"jmdict_id": 1392380,
+"rank": 7180
+},
+{
+"level": "1",
+"word": "和歌",
+"reading": "わか",
+"jmdict_id": 1562000,
+"rank": 7226
+},
+{
+"level": "1",
+"word": "工房",
+"reading": "こうぼう",
+"jmdict_id": 1278260,
+"rank": 7227
+},
+{
+"level": "1",
+"word": "専務",
+"reading": "せんむ",
+"jmdict_id": 1389870,
+"rank": 7262
+},
+{
+"level": "1",
+"word": "仕入れ",
+"reading": "しいれ",
+"jmdict_id": 1305300,
+"rank": 7336
+},
+{
+"level": "1",
+"word": "土器",
+"reading": "どき",
+"jmdict_id": 1445310,
+"rank": 7508
+},
+{
+"level": "1",
+"word": "石垣",
+"reading": "いしがき",
+"jmdict_id": 1382540,
+"rank": 7590
+},
+{
+"level": "1",
+"word": "極力",
+"reading": "きょくりょく",
+"jmdict_id": 1240510,
+"rank": 7647
+},
+{
+"level": "1",
+"word": "シンポジウム",
+"reading": "シンポジウム",
+"jmdict_id": 1063980,
+"rank": 7779
+},
+{
+"level": "1",
+"word": "乳がん",
+"reading": "にゅうがん",
+"jmdict_id": 1465030,
+"rank": 7789
+},
+{
+"level": "1",
+"word": "完結",
+"reading": "かんけつ",
+"jmdict_id": 1211440,
+"rank": 8147
+},
+{
+"level": "1",
+"word": "やけ",
+"reading": "やけ",
+"jmdict_id": 1317520,
+"rank": 8304
+},
+{
+"level": "1",
+"word": "割り切る",
+"reading": "わりきる",
+"jmdict_id": 1207820,
+"rank": 8308
+},
+{
+"level": "1",
+"word": "なおかつ",
+"reading": "なおかつ",
+"jmdict_id": 1349310,
+"rank": 8315
+},
+{
+"level": "1",
+"word": "接待",
+"reading": "せったい",
+"jmdict_id": 1385530,
+"rank": 8362
+},
+{
+"level": "1",
+"word": "台帳",
+"reading": "だいちょう",
+"jmdict_id": 1412720,
+"rank": 8479
+},
+{
+"level": "1",
+"word": "絡める",
+"reading": "からめる",
+"jmdict_id": 1949300,
+"rank": 8481
+},
+{
+"level": "1",
+"word": "遠隔",
+"reading": "えんかく",
+"jmdict_id": 1177950,
+"rank": 8589
+},
+{
+"level": "1",
+"word": "劣化",
+"reading": "れっか",
+"jmdict_id": 1558420,
+"rank": 8778
+},
+{
+"level": "1",
+"word": "弾丸",
+"reading": "だんがん",
+"jmdict_id": 1419440,
+"rank": 8915
+},
+{
+"level": "1",
+"word": "跡地",
+"reading": "あとち",
+"jmdict_id": 1919640,
+"rank": 8964
+},
+{
+"level": "1",
+"word": "囚人",
+"reading": "しゅうじん",
+"jmdict_id": 1330470,
+"rank": 8992
+},
+{
+"level": "1",
+"word": "集い",
+"reading": "つどい",
+"jmdict_id": 1333530,
+"rank": 9004
+},
+{
+"level": "1",
+"word": "肩書き",
+"reading": "かたがき",
+"jmdict_id": 1590360,
+"rank": 9030
+},
+{
+"level": "1",
+"word": "進捗",
+"reading": "しんちょく",
+"jmdict_id": 1366140,
+"rank": 9125
+},
+{
+"level": "1",
+"word": "試作",
+"reading": "しさく",
+"jmdict_id": 1312430,
+"rank": 9593
+},
+{
+"level": "1",
+"word": "定例",
+"reading": "ていれい",
+"jmdict_id": 1435800,
+"rank": 9678
+},
+{
+"level": "1",
+"word": "御殿",
+"reading": "ごてん",
+"jmdict_id": 1270560,
+"rank": 9718
+},
+{
+"level": "1",
+"word": "大口",
+"reading": "おおくち",
+"jmdict_id": 1643480,
+"rank": 9847
+},
+{
+"level": "1",
+"word": "威嚇",
+"reading": "いかく",
+"jmdict_id": 1156220,
+"rank": 10419
+},
+{
+"level": "1",
+"word": "傍聴",
+"reading": "ぼうちょう",
+"jmdict_id": 1518940,
+"rank": 10449
+},
+{
+"level": "1",
+"word": "永住",
+"reading": "えいじゅう",
+"jmdict_id": 1174160,
+"rank": 10618
+},
+{
+"level": "1",
+"word": "却下",
+"reading": "きゃっか",
+"jmdict_id": 1226620,
+"rank": 10928
+},
+{
+"level": "1",
+"word": "骨董",
+"reading": "こっとう",
+"jmdict_id": 1288700,
+"rank": 10936
+},
+{
+"level": "1",
+"word": "香ばしい",
+"reading": "こうばしい",
+"jmdict_id": 1578880,
+"rank": 10961
+},
+{
+"level": "1",
+"word": "大河",
+"reading": "たいが",
+"jmdict_id": 1581490,
+"rank": 11178
+},
+{
+"level": "1",
+"word": "派生",
+"reading": "はせい",
+"jmdict_id": 1471150,
+"rank": 11256
+},
+{
+"level": "1",
+"word": "開ける",
+"reading": "ひらける",
+"jmdict_id": 1202460,
+"rank": 11273
+},
+{
+"level": "1",
+"word": "なぞる",
+"reading": "なぞる",
+"jmdict_id": 1922890,
+"rank": 11302
+},
+{
+"level": "1",
+"word": "凝縮",
+"reading": "ぎょうしゅく",
+"jmdict_id": 1239190,
+"rank": 11380
+},
+{
+"level": "1",
+"word": "高々",
+"reading": "たかだか",
+"jmdict_id": 1596810,
+"rank": 11706
+},
+{
+"level": "1",
+"word": "まるきり",
+"reading": "まるきり",
+"jmdict_id": 2009840,
+"rank": 11727
+},
+{
+"level": "1",
+"word": "発声",
+"reading": "はっせい",
+"jmdict_id": 1477650,
+"rank": 11857
+},
+{
+"level": "1",
+"word": "搬入",
+"reading": "はんにゅう",
+"jmdict_id": 1481320,
+"rank": 11867
+},
+{
+"level": "1",
+"word": "特化",
+"reading": "とっか",
+"jmdict_id": 1648700,
+"rank": 11919
+},
+{
+"level": "1",
+"word": "簿記",
+"reading": "ぼき",
+"jmdict_id": 1515230,
+"rank": 12159
+},
+{
+"level": "1",
+"word": "おもむろに",
+"reading": "おもむろに",
+"jmdict_id": 1345580,
+"rank": 12469
+},
+{
+"level": "1",
+"word": "さばく",
+"reading": "さばく",
+"jmdict_id": 1299630,
+"rank": 12500
+},
+{
+"level": "1",
+"word": "満々",
+"reading": "まんまん",
+"jmdict_id": 1604381,
+"rank": 12597
+},
+{
+"level": "1",
+"word": "本題",
+"reading": "ほんだい",
+"jmdict_id": 1522970,
+"rank": 12775
+},
+{
+"level": "1",
+"word": "くだり",
+"reading": "くだり",
+"jmdict_id": 2087210,
+"rank": 12938
+},
+{
+"level": "1",
+"word": "一式",
+"reading": "いっしき",
+"jmdict_id": 1163080,
+"rank": 13053
+},
+{
+"level": "1",
+"word": "今期",
+"reading": "こんき",
+"jmdict_id": 1289080,
+"rank": 13336
+},
+{
+"level": "1",
+"word": "糧",
+"reading": "かて",
+"jmdict_id": 2017850,
+"rank": 13506
+},
+{
+"level": "1",
+"word": "校正",
+"reading": "こうせい",
+"jmdict_id": 1279560,
+"rank": 13802
+},
+{
+"level": "1",
+"word": "換金",
+"reading": "かんきん",
+"jmdict_id": 1212800,
+"rank": 13866
+},
+{
+"level": "1",
+"word": "いんちき",
+"reading": "いんちき",
+"jmdict_id": 1023340,
+"rank": 13893
+},
+{
+"level": "1",
+"word": "改名",
+"reading": "かいめい",
+"jmdict_id": 1201120,
+"rank": 14534
+},
+{
+"level": "1",
+"word": "石碑",
+"reading": "せきひ",
+"jmdict_id": 1382780,
+"rank": 15381
+},
+{
+"level": "1",
+"word": "所帯",
+"reading": "しょたい",
+"jmdict_id": 2869002,
+"rank": 15459
+},
+{
+"level": "1",
+"word": "ぶれる",
+"reading": "ぶれる",
+"jmdict_id": 1011280,
+"rank": 15482
+},
+{
+"level": "1",
+"word": "協賛",
+"reading": "きょうさん",
+"jmdict_id": 1235650,
+"rank": 15504
+},
+{
+"level": "1",
+"word": "どうこう",
+"reading": "どうこう",
+"jmdict_id": 2670710,
+"rank": 15715
+},
+{
+"level": "1",
+"word": "鉱石",
+"reading": "こうせき",
+"jmdict_id": 1282620,
+"rank": 15961
+},
+{
+"level": "1",
+"word": "一任",
+"reading": "いちにん",
+"jmdict_id": 1165550,
+"rank": 16035
+},
+{
+"level": "1",
+"word": "ありきたり",
+"reading": "ありきたり",
+"jmdict_id": 1296390,
+"rank": 16327
+},
+{
+"level": "1",
+"word": "染料",
+"reading": "せんりょう",
+"jmdict_id": 1391230,
+"rank": 16909
+},
+{
+"level": "1",
+"word": "外注",
+"reading": "がいちゅう",
+"jmdict_id": 1203950,
+"rank": 17175
+},
+{
+"level": "1",
+"word": "いっとき",
+"reading": "いっとき",
+"jmdict_id": 1162920,
+"rank": 17471
+},
+{
+"level": "1",
+"word": "撤収",
+"reading": "てっしゅう",
+"jmdict_id": 1437730,
+"rank": 17574
+},
+{
+"level": "1",
+"word": "直近",
+"reading": "ちょっきん",
+"jmdict_id": 2021790,
+"rank": 17646
+},
+{
+"level": "1",
+"word": "前倒し",
+"reading": "まえだおし",
+"jmdict_id": 1837470,
+"rank": 18100
+},
+{
+"level": "1",
+"word": "切り捨て",
+"reading": "きりすて",
+"jmdict_id": 1721570,
+"rank": 19763
+},
+{
+"level": "1",
+"word": "設営",
+"reading": "せつえい",
+"jmdict_id": 1386010,
+"rank": null
+},
+{
+"level": "1",
+"word": "講評",
+"reading": "こうひょう",
+"jmdict_id": 1282360,
+"rank": null
+},
+{
+"level": "1",
+"word": "深読み",
+"reading": "ふかよみ",
+"jmdict_id": 1952800,
+"rank": null
+},
+{
+"level": "1",
+"word": "兼ね合い",
+"reading": "かねあい",
+"jmdict_id": 1256530,
+"rank": null
+},
+{
+"level": "1",
+"word": "ちゃっかり",
+"reading": "ちゃっかり",
+"jmdict_id": 1007610,
+"rank": null
+},
+{
+"level": "1",
+"word": "急患",
+"reading": "きゅうかん",
+"jmdict_id": 1228670,
+"rank": null
+},
+{
+"level": "1",
+"word": "酷評",
+"reading": "こくひょう",
+"jmdict_id": 1287390,
+"rank": null
 },
 {
 "level": "2",
@@ -3480,6 +4236,13 @@
 },
 {
 "level": "2",
+"word": "南部",
+"reading": "なんぶ",
+"jmdict_id": 1460530,
+"rank": 3491
+},
+{
+"level": "2",
 "word": "オリジナル",
 "reading": "オリジナル",
 "jmdict_id": 1035640,
@@ -3760,6 +4523,20 @@
 },
 {
 "level": "2",
+"word": "マウス",
+"reading": "マウス",
+"jmdict_id": 1127140,
+"rank": 3937
+},
+{
+"level": "2",
+"word": "フォルダー",
+"reading": "フォルダー",
+"jmdict_id": 1110750,
+"rank": 3955
+},
+{
+"level": "2",
 "word": "里",
 "reading": "さと",
 "jmdict_id": 1550760,
@@ -3792,6 +4569,20 @@
 "reading": "たいしつ",
 "jmdict_id": 1409520,
 "rank": 4003
+},
+{
+"level": "2",
+"word": "最小",
+"reading": "さいしょう",
+"jmdict_id": 1294000,
+"rank": 4018
+},
+{
+"level": "2",
+"word": "北部",
+"reading": "ほくぶ",
+"jmdict_id": 1521260,
+"rank": 4026
 },
 {
 "level": "2",
@@ -3893,10 +4684,31 @@
 },
 {
 "level": "2",
+"word": "一口",
+"reading": "ひとくち",
+"jmdict_id": 1162370,
+"rank": 4149
+},
+{
+"level": "2",
 "word": "音声",
 "reading": "おんせい",
 "jmdict_id": 1183880,
 "rank": 4152
+},
+{
+"level": "2",
+"word": "国道",
+"reading": "こくどう",
+"jmdict_id": 1286920,
+"rank": 4181
+},
+{
+"level": "2",
+"word": "ミリリットル",
+"reading": "ミリリットル",
+"jmdict_id": 1131940,
+"rank": 4185
 },
 {
 "level": "2",
@@ -3977,6 +4789,13 @@
 },
 {
 "level": "2",
+"word": "市長",
+"reading": "しちょう",
+"jmdict_id": 1308610,
+"rank": 4262
+},
+{
+"level": "2",
 "word": "不法",
 "reading": "ふほう",
 "jmdict_id": 1494880,
@@ -4033,10 +4852,24 @@
 },
 {
 "level": "2",
+"word": "なあ",
+"reading": "なあ",
+"jmdict_id": 2029110,
+"rank": 4371
+},
+{
+"level": "2",
 "word": "自治体",
 "reading": "じちたい",
 "jmdict_id": 1317830,
 "rank": 4378
+},
+{
+"level": "2",
+"word": "蛇",
+"reading": "へび",
+"jmdict_id": 1323350,
+"rank": 4387
 },
 {
 "level": "2",
@@ -4138,6 +4971,13 @@
 },
 {
 "level": "2",
+"word": "ボリューム",
+"reading": "ボリューム",
+"jmdict_id": 1124310,
+"rank": 4535
+},
+{
+"level": "2",
 "word": "一行",
 "reading": "いっこう",
 "jmdict_id": 2833774,
@@ -4180,6 +5020,34 @@
 },
 {
 "level": "2",
+"word": "小さじ",
+"reading": "こさじ",
+"jmdict_id": 1348140,
+"rank": 4613
+},
+{
+"level": "2",
+"word": "喫煙",
+"reading": "きつえん",
+"jmdict_id": 1226390,
+"rank": 4614
+},
+{
+"level": "2",
+"word": "苦しみ",
+"reading": "くるしみ",
+"jmdict_id": 1244340,
+"rank": 4634
+},
+{
+"level": "2",
+"word": "再開",
+"reading": "さいかい",
+"jmdict_id": 1292400,
+"rank": 4644
+},
+{
+"level": "2",
 "word": "後方",
 "reading": "こうほう",
 "jmdict_id": 1270100,
@@ -4219,6 +5087,13 @@
 "reading": "けんしん",
 "jmdict_id": 2861042,
 "rank": 4668
+},
+{
+"level": "2",
+"word": "ダウンロード",
+"reading": "ダウンロード",
+"jmdict_id": 1077010,
+"rank": 4688
 },
 {
 "level": "2",
@@ -4355,10 +5230,24 @@
 },
 {
 "level": "2",
+"word": "オペラ",
+"reading": "オペラ",
+"jmdict_id": 1035200,
+"rank": 4837
+},
+{
+"level": "2",
 "word": "第三者",
 "reading": "だいさんしゃ",
 "jmdict_id": 1415380,
 "rank": 4848
+},
+{
+"level": "2",
+"word": "寝室",
+"reading": "しんしつ",
+"jmdict_id": 1360140,
+"rank": 4855
 },
 {
 "level": "2",
@@ -4376,10 +5265,24 @@
 },
 {
 "level": "2",
+"word": "セント",
+"reading": "セント",
+"jmdict_id": 1075090,
+"rank": 4872
+},
+{
+"level": "2",
 "word": "持ち出す",
 "reading": "もちだす",
 "jmdict_id": 1315600,
 "rank": 4873
+},
+{
+"level": "2",
+"word": "亀",
+"reading": "かめ",
+"jmdict_id": 1224260,
+"rank": 4877
 },
 {
 "level": "2",
@@ -4453,10 +5356,31 @@
 },
 {
 "level": "2",
+"word": "海水",
+"reading": "かいすい",
+"jmdict_id": 1201490,
+"rank": 4961
+},
+{
+"level": "2",
 "word": "駆けつける",
 "reading": "かけつける",
 "jmdict_id": 1590110,
 "rank": 4967
+},
+{
+"level": "2",
+"word": "店内",
+"reading": "てんない",
+"jmdict_id": 1440780,
+"rank": 4968
+},
+{
+"level": "2",
+"word": "投稿",
+"reading": "とうこう",
+"jmdict_id": 1447180,
+"rank": 4974
 },
 {
 "level": "2",
@@ -4523,6 +5447,13 @@
 },
 {
 "level": "2",
+"word": "キロカロリー",
+"reading": "キロカロリー",
+"jmdict_id": 2460500,
+"rank": 5030
+},
+{
+"level": "2",
 "word": "障害者",
 "reading": "しょうがいしゃ",
 "jmdict_id": 1938570,
@@ -4579,6 +5510,13 @@
 },
 {
 "level": "2",
+"word": "添付",
+"reading": "てんぷ",
+"jmdict_id": 1440880,
+"rank": 5090
+},
+{
+"level": "2",
 "word": "上部",
 "reading": "じょうぶ",
 "jmdict_id": 1354250,
@@ -4614,10 +5552,45 @@
 },
 {
 "level": "2",
+"word": "持ち物",
+"reading": "もちもの",
+"jmdict_id": 1605240,
+"rank": 5126
+},
+{
+"level": "2",
+"word": "指先",
+"reading": "ゆびさき",
+"jmdict_id": 1309890,
+"rank": 5135
+},
+{
+"level": "2",
+"word": "デジカメ",
+"reading": "デジカメ",
+"jmdict_id": 2021820,
+"rank": 5140
+},
+{
+"level": "2",
 "word": "アプリケーション",
 "reading": "アプリケーション",
 "jmdict_id": 1018210,
 "rank": 5145
+},
+{
+"level": "2",
+"word": "マナー",
+"reading": "マナー",
+"jmdict_id": 1128740,
+"rank": 5150
+},
+{
+"level": "2",
+"word": "クリニック",
+"reading": "クリニック",
+"jmdict_id": 1045000,
+"rank": 5169
 },
 {
 "level": "2",
@@ -4635,6 +5608,13 @@
 },
 {
 "level": "2",
+"word": "西側",
+"reading": "にしがわ",
+"jmdict_id": 1380980,
+"rank": 5181
+},
+{
+"level": "2",
 "word": "大企業",
 "reading": "だいきぎょう",
 "jmdict_id": 1413300,
@@ -4649,6 +5629,20 @@
 },
 {
 "level": "2",
+"word": "町内",
+"reading": "ちょうない",
+"jmdict_id": 1428800,
+"rank": 5212
+},
+{
+"level": "2",
+"word": "インチ",
+"reading": "インチ",
+"jmdict_id": 1023330,
+"rank": 5214
+},
+{
+"level": "2",
 "word": "耐震",
 "reading": "たいしん",
 "jmdict_id": 1410370,
@@ -4660,6 +5654,13 @@
 "reading": "むいしき",
 "jmdict_id": 1529600,
 "rank": 5221
+},
+{
+"level": "2",
+"word": "カップル",
+"reading": "カップル",
+"jmdict_id": 1037710,
+"rank": 5224
 },
 {
 "level": "2",
@@ -4702,6 +5703,13 @@
 "reading": "ドーム",
 "jmdict_id": 1087780,
 "rank": 5271
+},
+{
+"level": "2",
+"word": "きのこ",
+"reading": "きのこ",
+"jmdict_id": 1416010,
+"rank": 5276
 },
 {
 "level": "2",
@@ -4810,6 +5818,13 @@
 },
 {
 "level": "2",
+"word": "クレジット",
+"reading": "クレジット",
+"jmdict_id": 1045330,
+"rank": 5391
+},
+{
+"level": "2",
 "word": "シフト",
 "reading": "シフト",
 "jmdict_id": 1061100,
@@ -4821,6 +5836,13 @@
 "reading": "ふうみ",
 "jmdict_id": 1624810,
 "rank": 5400
+},
+{
+"level": "2",
+"word": "西部",
+"reading": "せいぶ",
+"jmdict_id": 1381040,
+"rank": 5403
 },
 {
 "level": "2",
@@ -4880,6 +5902,13 @@
 },
 {
 "level": "2",
+"word": "リビング",
+"reading": "リビング",
+"jmdict_id": 1142410,
+"rank": 5465
+},
+{
+"level": "2",
 "word": "着用",
 "reading": "ちゃくよう",
 "jmdict_id": 1423270,
@@ -4905,6 +5934,13 @@
 "reading": "ストレート",
 "jmdict_id": 1071450,
 "rank": 5479
+},
+{
+"level": "2",
+"word": "眠り",
+"reading": "ねむり",
+"jmdict_id": 1529370,
+"rank": 5484
 },
 {
 "level": "2",
@@ -4943,10 +5979,24 @@
 },
 {
 "level": "2",
+"word": "顔色",
+"reading": "かおいろ",
+"jmdict_id": 1217820,
+"rank": 5520
+},
+{
+"level": "2",
 "word": "奇跡",
 "reading": "きせき",
 "jmdict_id": 1591250,
 "rank": 5522
+},
+{
+"level": "2",
+"word": "手足",
+"reading": "てあし",
+"jmdict_id": 1328080,
+"rank": 5526
 },
 {
 "level": "2",
@@ -4961,6 +6011,13 @@
 "reading": "エコ",
 "jmdict_id": 2249100,
 "rank": 5534
+},
+{
+"level": "2",
+"word": "ショッピング",
+"reading": "ショッピング",
+"jmdict_id": 1062760,
+"rank": 5537
 },
 {
 "level": "2",
@@ -5069,10 +6126,31 @@
 },
 {
 "level": "2",
+"word": "少量",
+"reading": "しょうりょう",
+"jmdict_id": 1595030,
+"rank": 5625
+},
+{
+"level": "2",
 "word": "やたら",
 "reading": "やたら",
 "jmdict_id": 1537780,
 "rank": 5627
+},
+{
+"level": "2",
+"word": "プリンター",
+"reading": "プリンター",
+"jmdict_id": 1116270,
+"rank": 5629
+},
+{
+"level": "2",
+"word": "散々",
+"reading": "さんざん",
+"jmdict_id": 1593980,
+"rank": 5630
 },
 {
 "level": "2",
@@ -5083,10 +6161,24 @@
 },
 {
 "level": "2",
+"word": "インパクト",
+"reading": "インパクト",
+"jmdict_id": 1024010,
+"rank": 5639
+},
+{
+"level": "2",
 "word": "心地よい",
 "reading": "ここちよい",
 "jmdict_id": 1360830,
 "rank": 5647
+},
+{
+"level": "2",
+"word": "上映",
+"reading": "じょうえい",
+"jmdict_id": 1352650,
+"rank": 5652
 },
 {
 "level": "2",
@@ -5111,10 +6203,31 @@
 },
 {
 "level": "2",
+"word": "おかしな",
+"reading": "おかしな",
+"jmdict_id": 1612790,
+"rank": 5670
+},
+{
+"level": "2",
+"word": "休館",
+"reading": "きゅうかん",
+"jmdict_id": 1836050,
+"rank": 5671
+},
+{
+"level": "2",
 "word": "ゾーン",
 "reading": "ゾーン",
 "jmdict_id": 1075690,
 "rank": 5680
+},
+{
+"level": "2",
+"word": "デザイナー",
+"reading": "デザイナー",
+"jmdict_id": 1082880,
+"rank": 5683
 },
 {
 "level": "2",
@@ -5139,6 +6252,20 @@
 },
 {
 "level": "2",
+"word": "しみ",
+"reading": "しみ",
+"jmdict_id": 1391110,
+"rank": 5710
+},
+{
+"level": "2",
+"word": "グラウンド",
+"reading": "グラウンド",
+"jmdict_id": 1046340,
+"rank": 5715
+},
+{
+"level": "2",
 "word": "変身",
 "reading": "へんしん",
 "jmdict_id": 1511180,
@@ -5150,6 +6277,20 @@
 "reading": "しょだい",
 "jmdict_id": 1342900,
 "rank": 5724
+},
+{
+"level": "2",
+"word": "坪",
+"reading": "つぼ",
+"jmdict_id": 1433840,
+"rank": 5724
+},
+{
+"level": "2",
+"word": "クレーム",
+"reading": "クレーム",
+"jmdict_id": 1045270,
+"rank": 5731
 },
 {
 "level": "2",
@@ -5181,10 +6322,24 @@
 },
 {
 "level": "2",
+"word": "ウエスト",
+"reading": "ウエスト",
+"jmdict_id": 1026070,
+"rank": 5748
+},
+{
+"level": "2",
 "word": "整形",
 "reading": "せいけい",
 "jmdict_id": 1376150,
 "rank": 5757
+},
+{
+"level": "2",
+"word": "パスワード",
+"reading": "パスワード",
+"jmdict_id": 1101520,
+"rank": 5758
 },
 {
 "level": "2",
@@ -5202,6 +6357,13 @@
 },
 {
 "level": "2",
+"word": "プライド",
+"reading": "プライド",
+"jmdict_id": 1115390,
+"rank": 5789
+},
+{
+"level": "2",
 "word": "ターン",
 "reading": "ターン",
 "jmdict_id": 1075820,
@@ -5216,10 +6378,24 @@
 },
 {
 "level": "2",
+"word": "団子",
+"reading": "だんご",
+"jmdict_id": 1419240,
+"rank": 5797
+},
+{
+"level": "2",
 "word": "クール",
 "reading": "クール",
 "jmdict_id": 1043380,
 "rank": 5805
+},
+{
+"level": "2",
+"word": "本店",
+"reading": "ほんてん",
+"jmdict_id": 1523020,
+"rank": 5810
 },
 {
 "level": "2",
@@ -5237,10 +6413,24 @@
 },
 {
 "level": "2",
+"word": "飼い主",
+"reading": "かいぬし",
+"jmdict_id": 1589720,
+"rank": 5824
+},
+{
+"level": "2",
 "word": "転職",
 "reading": "てんしょく",
 "jmdict_id": 1441210,
 "rank": 5827
+},
+{
+"level": "2",
+"word": "リゾート",
+"reading": "リゾート",
+"jmdict_id": 1141680,
+"rank": 5828
 },
 {
 "level": "2",
@@ -5279,6 +6469,20 @@
 },
 {
 "level": "2",
+"word": "球団",
+"reading": "きゅうだん",
+"jmdict_id": 1230010,
+"rank": 5868
+},
+{
+"level": "2",
+"word": "エラー",
+"reading": "エラー",
+"jmdict_id": 1030040,
+"rank": 5874
+},
+{
+"level": "2",
 "word": "こだわり",
 "reading": "こだわり",
 "jmdict_id": 1004470,
@@ -5314,6 +6518,13 @@
 },
 {
 "level": "2",
+"word": "入国",
+"reading": "にゅうこく",
+"jmdict_id": 1466130,
+"rank": 5890
+},
+{
+"level": "2",
 "word": "フォント",
 "reading": "フォント",
 "jmdict_id": 1110890,
@@ -5342,10 +6553,31 @@
 },
 {
 "level": "2",
+"word": "通話",
+"reading": "つうわ",
+"jmdict_id": 1433610,
+"rank": 5898
+},
+{
+"level": "2",
 "word": "ギャラリー",
 "reading": "ギャラリー",
 "jmdict_id": 1043100,
 "rank": 5904
+},
+{
+"level": "2",
+"word": "添加",
+"reading": "てんか",
+"jmdict_id": 1440820,
+"rank": 5904
+},
+{
+"level": "2",
+"word": "待機",
+"reading": "たいき",
+"jmdict_id": 1410600,
+"rank": 5905
 },
 {
 "level": "2",
@@ -5370,6 +6602,13 @@
 },
 {
 "level": "2",
+"word": "足音",
+"reading": "あしおと",
+"jmdict_id": 1404770,
+"rank": 5925
+},
+{
+"level": "2",
 "word": "一員",
 "reading": "いちいん",
 "jmdict_id": 1161070,
@@ -5381,6 +6620,13 @@
 "reading": "なにもの",
 "jmdict_id": 1188980,
 "rank": 5931
+},
+{
+"level": "2",
+"word": "今頃",
+"reading": "いまごろ",
+"jmdict_id": 1289160,
+"rank": 5932
 },
 {
 "level": "2",
@@ -5412,10 +6658,24 @@
 },
 {
 "level": "2",
+"word": "振り回す",
+"reading": "ふりまわす",
+"jmdict_id": 1361170,
+"rank": 5951
+},
+{
+"level": "2",
 "word": "定番",
 "reading": "ていばん",
 "jmdict_id": 1638070,
 "rank": 5963
+},
+{
+"level": "2",
+"word": "路地",
+"reading": "ろじ",
+"jmdict_id": 1560050,
+"rank": 5967
 },
 {
 "level": "2",
@@ -5426,10 +6686,31 @@
 },
 {
 "level": "2",
+"word": "翌朝",
+"reading": "よくあさ",
+"jmdict_id": 1585000,
+"rank": 5971
+},
+{
+"level": "2",
+"word": "迫力",
+"reading": "はくりょく",
+"jmdict_id": 1475770,
+"rank": 5971
+},
+{
+"level": "2",
 "word": "銀河",
 "reading": "ぎんが",
 "jmdict_id": 1243440,
 "rank": 5975
+},
+{
+"level": "2",
+"word": "肥満",
+"reading": "ひまん",
+"jmdict_id": 1484300,
+"rank": 5979
 },
 {
 "level": "2",
@@ -5451,6 +6732,2624 @@
 "reading": "うつびょう",
 "jmdict_id": 1568440,
 "rank": 5994
+},
+{
+"level": "2",
+"word": "きらきら",
+"reading": "きらきら",
+"jmdict_id": 1003500,
+"rank": 5996
+},
+{
+"level": "2",
+"word": "会費",
+"reading": "かいひ",
+"jmdict_id": 1198860,
+"rank": 5998
+},
+{
+"level": "2",
+"word": "キット",
+"reading": "キット",
+"jmdict_id": 1041200,
+"rank": 6000
+},
+{
+"level": "2",
+"word": "書き込み",
+"reading": "かきこみ",
+"jmdict_id": 1589930,
+"rank": 6006
+},
+{
+"level": "2",
+"word": "チューブ",
+"reading": "チューブ",
+"jmdict_id": 1078140,
+"rank": 6018
+},
+{
+"level": "2",
+"word": "トーク",
+"reading": "トーク",
+"jmdict_id": 1084460,
+"rank": 6031
+},
+{
+"level": "2",
+"word": "局長",
+"reading": "きょくちょう",
+"jmdict_id": 1239650,
+"rank": 6091
+},
+{
+"level": "2",
+"word": "ノウハウ",
+"reading": "ノウハウ",
+"jmdict_id": 1093820,
+"rank": 6121
+},
+{
+"level": "2",
+"word": "先発",
+"reading": "せんぱつ",
+"jmdict_id": 1388430,
+"rank": 6125
+},
+{
+"level": "2",
+"word": "説教",
+"reading": "せっきょう",
+"jmdict_id": 1386430,
+"rank": 6128
+},
+{
+"level": "2",
+"word": "そこそこ",
+"reading": "そこそこ",
+"jmdict_id": 1006690,
+"rank": 6136
+},
+{
+"level": "2",
+"word": "カタログ",
+"reading": "カタログ",
+"jmdict_id": 1037560,
+"rank": 6141
+},
+{
+"level": "2",
+"word": "引き寄せる",
+"reading": "ひきよせる",
+"jmdict_id": 1168870,
+"rank": 6171
+},
+{
+"level": "2",
+"word": "町中",
+"reading": "まちなか",
+"jmdict_id": 1611620,
+"rank": 6229
+},
+{
+"level": "2",
+"word": "店頭",
+"reading": "てんとう",
+"jmdict_id": 1440740,
+"rank": 6232
+},
+{
+"level": "2",
+"word": "県立",
+"reading": "けんりつ",
+"jmdict_id": 1258940,
+"rank": 6245
+},
+{
+"level": "2",
+"word": "わくわく",
+"reading": "わくわく",
+"jmdict_id": 1013310,
+"rank": 6262
+},
+{
+"level": "2",
+"word": "センサー",
+"reading": "センサー",
+"jmdict_id": 1074990,
+"rank": 6280
+},
+{
+"level": "2",
+"word": "コンビ",
+"reading": "コンビ",
+"jmdict_id": 1053230,
+"rank": 6315
+},
+{
+"level": "2",
+"word": "プライベート",
+"reading": "プライベート",
+"jmdict_id": 1115430,
+"rank": 6317
+},
+{
+"level": "2",
+"word": "コンパクト",
+"reading": "コンパクト",
+"jmdict_id": 1053090,
+"rank": 6357
+},
+{
+"level": "2",
+"word": "メダル",
+"reading": "メダル",
+"jmdict_id": 1133500,
+"rank": 6374
+},
+{
+"level": "2",
+"word": "ポンド",
+"reading": "ポンド",
+"jmdict_id": 1126030,
+"rank": 6376
+},
+{
+"level": "2",
+"word": "所長",
+"reading": "しょちょう",
+"jmdict_id": 1343340,
+"rank": 6382
+},
+{
+"level": "2",
+"word": "甘味",
+"reading": "あまみ",
+"jmdict_id": 1609070,
+"rank": 6402
+},
+{
+"level": "2",
+"word": "コンセプト",
+"reading": "コンセプト",
+"jmdict_id": 1052280,
+"rank": 6428
+},
+{
+"level": "2",
+"word": "ターゲット",
+"reading": "ターゲット",
+"jmdict_id": 1075720,
+"rank": 6440
+},
+{
+"level": "2",
+"word": "経理",
+"reading": "けいり",
+"jmdict_id": 1251680,
+"rank": 6490
+},
+{
+"level": "2",
+"word": "ロゴ",
+"reading": "ロゴ",
+"jmdict_id": 1147280,
+"rank": 6503
+},
+{
+"level": "2",
+"word": "ダメージ",
+"reading": "ダメージ",
+"jmdict_id": 1077160,
+"rank": 6533
+},
+{
+"level": "2",
+"word": "部署",
+"reading": "ぶしょ",
+"jmdict_id": 1603140,
+"rank": 6555
+},
+{
+"level": "2",
+"word": "プレミアム",
+"reading": "プレミアム",
+"jmdict_id": 1116990,
+"rank": 6563
+},
+{
+"level": "2",
+"word": "本番",
+"reading": "ほんばん",
+"jmdict_id": 1523150,
+"rank": 6570
+},
+{
+"level": "2",
+"word": "個室",
+"reading": "こしつ",
+"jmdict_id": 1264750,
+"rank": 6581
+},
+{
+"level": "2",
+"word": "鹿",
+"reading": "しか",
+"jmdict_id": 1319030,
+"rank": 6595
+},
+{
+"level": "2",
+"word": "ローカル",
+"reading": "ローカル",
+"jmdict_id": 1146300,
+"rank": 6613
+},
+{
+"level": "2",
+"word": "旬",
+"reading": "しゅん",
+"jmdict_id": 1341350,
+"rank": 6658
+},
+{
+"level": "2",
+"word": "配信",
+"reading": "はいしん",
+"jmdict_id": 1639050,
+"rank": 6661
+},
+{
+"level": "2",
+"word": "最強",
+"reading": "さいきょう",
+"jmdict_id": 1293770,
+"rank": 6715
+},
+{
+"level": "2",
+"word": "エース",
+"reading": "エース",
+"jmdict_id": 1026990,
+"rank": 6744
+},
+{
+"level": "2",
+"word": "年始",
+"reading": "ねんし",
+"jmdict_id": 1468730,
+"rank": 6776
+},
+{
+"level": "2",
+"word": "気合",
+"reading": "きあい",
+"jmdict_id": 1591030,
+"rank": 6820
+},
+{
+"level": "2",
+"word": "ターミナル",
+"reading": "ターミナル",
+"jmdict_id": 1075760,
+"rank": 6832
+},
+{
+"level": "2",
+"word": "右足",
+"reading": "みぎあし",
+"jmdict_id": 1171170,
+"rank": 6835
+},
+{
+"level": "2",
+"word": "幼虫",
+"reading": "ようちゅう",
+"jmdict_id": 1545270,
+"rank": 6852
+},
+{
+"level": "2",
+"word": "リフォーム",
+"reading": "リフォーム",
+"jmdict_id": 1142520,
+"rank": 6860
+},
+{
+"level": "2",
+"word": "出来",
+"reading": "でき",
+"jmdict_id": 1340430,
+"rank": 6870
+},
+{
+"level": "2",
+"word": "ぐるぐる",
+"reading": "ぐるぐる",
+"jmdict_id": 1004140,
+"rank": 6894
+},
+{
+"level": "2",
+"word": "目玉",
+"reading": "めだま",
+"jmdict_id": 1535370,
+"rank": 6941
+},
+{
+"level": "2",
+"word": "別途",
+"reading": "べっと",
+"jmdict_id": 1510050,
+"rank": 6950
+},
+{
+"level": "2",
+"word": "アナログ",
+"reading": "アナログ",
+"jmdict_id": 1017480,
+"rank": 6991
+},
+{
+"level": "2",
+"word": "台数",
+"reading": "だいすう",
+"jmdict_id": 1412690,
+"rank": 7011
+},
+{
+"level": "2",
+"word": "トータル",
+"reading": "トータル",
+"jmdict_id": 1084560,
+"rank": 7029
+},
+{
+"level": "2",
+"word": "リリース",
+"reading": "リリース",
+"jmdict_id": 1143250,
+"rank": 7071
+},
+{
+"level": "2",
+"word": "ワクチン",
+"reading": "ワクチン",
+"jmdict_id": 1148960,
+"rank": 7120
+},
+{
+"level": "2",
+"word": "テンション",
+"reading": "テンション",
+"jmdict_id": 1080970,
+"rank": 7125
+},
+{
+"level": "2",
+"word": "細長い",
+"reading": "ほそながい",
+"jmdict_id": 1295690,
+"rank": 7126
+},
+{
+"level": "2",
+"word": "出店",
+"reading": "しゅってん",
+"jmdict_id": 2404300,
+"rank": 7137
+},
+{
+"level": "2",
+"word": "ミックス",
+"reading": "ミックス",
+"jmdict_id": 1130950,
+"rank": 7150
+},
+{
+"level": "2",
+"word": "左足",
+"reading": "ひだりあし",
+"jmdict_id": 1290970,
+"rank": 7184
+},
+{
+"level": "2",
+"word": "フォロー",
+"reading": "フォロー",
+"jmdict_id": 1110800,
+"rank": 7232
+},
+{
+"level": "2",
+"word": "旨み",
+"reading": "うまみ",
+"jmdict_id": 1310520,
+"rank": 7234
+},
+{
+"level": "2",
+"word": "漬物",
+"reading": "つけもの",
+"jmdict_id": 1433700,
+"rank": 7253
+},
+{
+"level": "2",
+"word": "観戦",
+"reading": "かんせん",
+"jmdict_id": 1214960,
+"rank": 7265
+},
+{
+"level": "2",
+"word": "落語",
+"reading": "らくご",
+"jmdict_id": 1548720,
+"rank": 7271
+},
+{
+"level": "2",
+"word": "雑草",
+"reading": "ざっそう",
+"jmdict_id": 1299460,
+"rank": 7277
+},
+{
+"level": "2",
+"word": "グルメ",
+"reading": "グルメ",
+"jmdict_id": 1047470,
+"rank": 7284
+},
+{
+"level": "2",
+"word": "コンテンツ",
+"reading": "コンテンツ",
+"jmdict_id": 1052650,
+"rank": 7316
+},
+{
+"level": "2",
+"word": "キャスト",
+"reading": "キャスト",
+"jmdict_id": 1041370,
+"rank": 7320
+},
+{
+"level": "2",
+"word": "当分",
+"reading": "とうぶん",
+"jmdict_id": 1449230,
+"rank": 7331
+},
+{
+"level": "2",
+"word": "ぼろぼろ",
+"reading": "ぼろぼろ",
+"jmdict_id": 1011900,
+"rank": 7342
+},
+{
+"level": "2",
+"word": "守り",
+"reading": "まもり",
+"jmdict_id": 1327100,
+"rank": 7381
+},
+{
+"level": "2",
+"word": "視力",
+"reading": "しりょく",
+"jmdict_id": 1312150,
+"rank": 7394
+},
+{
+"level": "2",
+"word": "プロデューサー",
+"reading": "プロデューサー",
+"jmdict_id": 1117630,
+"rank": 7401
+},
+{
+"level": "2",
+"word": "洞窟",
+"reading": "どうくつ",
+"jmdict_id": 1453860,
+"rank": 7423
+},
+{
+"level": "2",
+"word": "立ち上げる",
+"reading": "たちあげる",
+"jmdict_id": 1551380,
+"rank": 7431
+},
+{
+"level": "2",
+"word": "最寄り",
+"reading": "もより",
+"jmdict_id": 1293750,
+"rank": 7450
+},
+{
+"level": "2",
+"word": "初回",
+"reading": "しょかい",
+"jmdict_id": 1342600,
+"rank": 7453
+},
+{
+"level": "2",
+"word": "民家",
+"reading": "みんか",
+"jmdict_id": 1528620,
+"rank": 7497
+},
+{
+"level": "2",
+"word": "走り回る",
+"reading": "はしりまわる",
+"jmdict_id": 1402430,
+"rank": 7503
+},
+{
+"level": "2",
+"word": "フラッシュ",
+"reading": "フラッシュ",
+"jmdict_id": 1111330,
+"rank": 7505
+},
+{
+"level": "2",
+"word": "万が一",
+"reading": "まんがいち",
+"jmdict_id": 1525770,
+"rank": 7526
+},
+{
+"level": "2",
+"word": "常勤",
+"reading": "じょうきん",
+"jmdict_id": 1798220,
+"rank": 7527
+},
+{
+"level": "2",
+"word": "髪型",
+"reading": "かみがた",
+"jmdict_id": 1954390,
+"rank": 7533
+},
+{
+"level": "2",
+"word": "今時",
+"reading": "いまどき",
+"jmdict_id": 1289180,
+"rank": 7554
+},
+{
+"level": "2",
+"word": "煮物",
+"reading": "にもの",
+"jmdict_id": 1322630,
+"rank": 7634
+},
+{
+"level": "2",
+"word": "屋台",
+"reading": "やたい",
+"jmdict_id": 1182720,
+"rank": 7668
+},
+{
+"level": "2",
+"word": "足首",
+"reading": "あしくび",
+"jmdict_id": 1404840,
+"rank": 7673
+},
+{
+"level": "2",
+"word": "クリップ",
+"reading": "クリップ",
+"jmdict_id": 1044940,
+"rank": 7674
+},
+{
+"level": "2",
+"word": "プレッシャー",
+"reading": "プレッシャー",
+"jmdict_id": 1116860,
+"rank": 7723
+},
+{
+"level": "2",
+"word": "ごろごろ",
+"reading": "ごろごろ",
+"jmdict_id": 1005020,
+"rank": 7726
+},
+{
+"level": "2",
+"word": "クッション",
+"reading": "クッション",
+"jmdict_id": 1043810,
+"rank": 7729
+},
+{
+"level": "2",
+"word": "煮込む",
+"reading": "にこむ",
+"jmdict_id": 1322580,
+"rank": 7783
+},
+{
+"level": "2",
+"word": "バトン",
+"reading": "バトン",
+"jmdict_id": 1099340,
+"rank": 7806
+},
+{
+"level": "2",
+"word": "ベーコン",
+"reading": "ベーコン",
+"jmdict_id": 1119160,
+"rank": 7807
+},
+{
+"level": "2",
+"word": "買い取る",
+"reading": "かいとる",
+"jmdict_id": 1473640,
+"rank": 7818
+},
+{
+"level": "2",
+"word": "リハビリ",
+"reading": "リハビリ",
+"jmdict_id": 1142240,
+"rank": 7853
+},
+{
+"level": "2",
+"word": "ビザ",
+"reading": "ビザ",
+"jmdict_id": 1104720,
+"rank": 7867
+},
+{
+"level": "2",
+"word": "色合い",
+"reading": "いろあい",
+"jmdict_id": 1357710,
+"rank": 7897
+},
+{
+"level": "2",
+"word": "キック",
+"reading": "キック",
+"jmdict_id": 1041080,
+"rank": 7899
+},
+{
+"level": "2",
+"word": "バレー",
+"reading": "バレー",
+"jmdict_id": 1099950,
+"rank": 7912
+},
+{
+"level": "2",
+"word": "鶴",
+"reading": "つる",
+"jmdict_id": 1434130,
+"rank": 7934
+},
+{
+"level": "2",
+"word": "ズーム",
+"reading": "ズーム",
+"jmdict_id": 1074200,
+"rank": 7947
+},
+{
+"level": "2",
+"word": "通販",
+"reading": "つうはん",
+"jmdict_id": 1984130,
+"rank": 7967
+},
+{
+"level": "2",
+"word": "喘息",
+"reading": "ぜんそく",
+"jmdict_id": 1565360,
+"rank": 7978
+},
+{
+"level": "2",
+"word": "厚み",
+"reading": "あつみ",
+"jmdict_id": 1275600,
+"rank": 7985
+},
+{
+"level": "2",
+"word": "分厚い",
+"reading": "ぶあつい",
+"jmdict_id": 1503510,
+"rank": 8009
+},
+{
+"level": "2",
+"word": "電動",
+"reading": "でんどう",
+"jmdict_id": 1443670,
+"rank": 8016
+},
+{
+"level": "2",
+"word": "点滴",
+"reading": "てんてき",
+"jmdict_id": 1441720,
+"rank": 8086
+},
+{
+"level": "2",
+"word": "ぼうっと",
+"reading": "ぼうっと",
+"jmdict_id": 1011760,
+"rank": 8100
+},
+{
+"level": "2",
+"word": "染み込む",
+"reading": "しみこむ",
+"jmdict_id": 1391140,
+"rank": 8123
+},
+{
+"level": "2",
+"word": "爆笑",
+"reading": "ばくしょう",
+"jmdict_id": 1475850,
+"rank": 8126
+},
+{
+"level": "2",
+"word": "一人前",
+"reading": "いちにんまえ",
+"jmdict_id": 1163770,
+"rank": 8128
+},
+{
+"level": "2",
+"word": "チャット",
+"reading": "チャット",
+"jmdict_id": 1077940,
+"rank": 8136
+},
+{
+"level": "2",
+"word": "さらさら",
+"reading": "さらさら",
+"jmdict_id": 1005310,
+"rank": 8137
+},
+{
+"level": "2",
+"word": "ナチュラル",
+"reading": "ナチュラル",
+"jmdict_id": 1090340,
+"rank": 8145
+},
+{
+"level": "2",
+"word": "サングラス",
+"reading": "サングラス",
+"jmdict_id": 1058300,
+"rank": 8194
+},
+{
+"level": "2",
+"word": "根性",
+"reading": "こんじょう",
+"jmdict_id": 1290210,
+"rank": 8218
+},
+{
+"level": "2",
+"word": "半額",
+"reading": "はんがく",
+"jmdict_id": 1479050,
+"rank": 8240
+},
+{
+"level": "2",
+"word": "バリエーション",
+"reading": "バリエーション",
+"jmdict_id": 1099760,
+"rank": 8241
+},
+{
+"level": "2",
+"word": "開店",
+"reading": "かいてん",
+"jmdict_id": 1202870,
+"rank": 8273
+},
+{
+"level": "2",
+"word": "レール",
+"reading": "レール",
+"jmdict_id": 1144480,
+"rank": 8276
+},
+{
+"level": "2",
+"word": "くるくる",
+"reading": "くるくる",
+"jmdict_id": 1003960,
+"rank": 8278
+},
+{
+"level": "2",
+"word": "ばたばた",
+"reading": "ばたばた",
+"jmdict_id": 1098660,
+"rank": 8323
+},
+{
+"level": "2",
+"word": "長生き",
+"reading": "ながいき",
+"jmdict_id": 1610940,
+"rank": 8332
+},
+{
+"level": "2",
+"word": "行き先",
+"reading": "いきさき",
+"jmdict_id": 1281720,
+"rank": 8346
+},
+{
+"level": "2",
+"word": "入れ替える",
+"reading": "いれかえる",
+"jmdict_id": 1587790,
+"rank": 8347
+},
+{
+"level": "2",
+"word": "段取り",
+"reading": "だんどり",
+"jmdict_id": 1419970,
+"rank": 8443
+},
+{
+"level": "2",
+"word": "学童",
+"reading": "がくどう",
+"jmdict_id": 1207010,
+"rank": 8495
+},
+{
+"level": "2",
+"word": "リレー",
+"reading": "リレー",
+"jmdict_id": 1143320,
+"rank": 8502
+},
+{
+"level": "2",
+"word": "出番",
+"reading": "でばん",
+"jmdict_id": 1340170,
+"rank": 8511
+},
+{
+"level": "2",
+"word": "買い換える",
+"reading": "かいかえる",
+"jmdict_id": 2012810,
+"rank": 8517
+},
+{
+"level": "2",
+"word": "エントリー",
+"reading": "エントリー",
+"jmdict_id": 1031180,
+"rank": 8525
+},
+{
+"level": "2",
+"word": "手持ち",
+"reading": "てもち",
+"jmdict_id": 1327730,
+"rank": 8534
+},
+{
+"level": "2",
+"word": "マニア",
+"reading": "マニア",
+"jmdict_id": 1128750,
+"rank": 8599
+},
+{
+"level": "2",
+"word": "常連",
+"reading": "じょうれん",
+"jmdict_id": 1356200,
+"rank": 8649
+},
+{
+"level": "2",
+"word": "年配",
+"reading": "ねんぱい",
+"jmdict_id": 1469090,
+"rank": 8656
+},
+{
+"level": "2",
+"word": "ゴミ箱",
+"reading": "ごみばこ",
+"jmdict_id": 1005010,
+"rank": 8667
+},
+{
+"level": "2",
+"word": "機材",
+"reading": "きざい",
+"jmdict_id": 1220960,
+"rank": 8682
+},
+{
+"level": "2",
+"word": "目線",
+"reading": "めせん",
+"jmdict_id": 1808280,
+"rank": 8690
+},
+{
+"level": "2",
+"word": "例年",
+"reading": "れいねん",
+"jmdict_id": 1556570,
+"rank": 8714
+},
+{
+"level": "2",
+"word": "キープ",
+"reading": "キープ",
+"jmdict_id": 1040870,
+"rank": 8730
+},
+{
+"level": "2",
+"word": "炭",
+"reading": "すみ",
+"jmdict_id": 1418480,
+"rank": 8768
+},
+{
+"level": "2",
+"word": "ディナー",
+"reading": "ディナー",
+"jmdict_id": 1082120,
+"rank": 8769
+},
+{
+"level": "2",
+"word": "銀色",
+"reading": "ぎんいろ",
+"jmdict_id": 1243560,
+"rank": 8783
+},
+{
+"level": "2",
+"word": "胃腸",
+"reading": "いちょう",
+"jmdict_id": 1158610,
+"rank": 8804
+},
+{
+"level": "2",
+"word": "食感",
+"reading": "しょっかん",
+"jmdict_id": 1928680,
+"rank": 8813
+},
+{
+"level": "2",
+"word": "歌声",
+"reading": "うたごえ",
+"jmdict_id": 1607440,
+"rank": 8834
+},
+{
+"level": "2",
+"word": "サポーター",
+"reading": "サポーター",
+"jmdict_id": 1057620,
+"rank": 8835
+},
+{
+"level": "2",
+"word": "セルフ",
+"reading": "セルフ",
+"jmdict_id": 1074830,
+"rank": 8845
+},
+{
+"level": "2",
+"word": "ぬいぐるみ",
+"reading": "ぬいぐるみ",
+"jmdict_id": 1517690,
+"rank": 8878
+},
+{
+"level": "2",
+"word": "ミュージシャン",
+"reading": "ミュージシャン",
+"jmdict_id": 1131670,
+"rank": 8942
+},
+{
+"level": "2",
+"word": "パレード",
+"reading": "パレード",
+"jmdict_id": 1102920,
+"rank": 8963
+},
+{
+"level": "2",
+"word": "フレンチ",
+"reading": "フレンチ",
+"jmdict_id": 1112530,
+"rank": 8984
+},
+{
+"level": "2",
+"word": "ばっちり",
+"reading": "ばっちり",
+"jmdict_id": 1010280,
+"rank": 9007
+},
+{
+"level": "2",
+"word": "人前",
+"reading": "ひとまえ",
+"jmdict_id": 1368490,
+"rank": 9008
+},
+{
+"level": "2",
+"word": "だらだら",
+"reading": "だらだら",
+"jmdict_id": 1007510,
+"rank": 9050
+},
+{
+"level": "2",
+"word": "開場",
+"reading": "かいじょう",
+"jmdict_id": 1202790,
+"rank": 9071
+},
+{
+"level": "2",
+"word": "カート",
+"reading": "カート",
+"jmdict_id": 1036360,
+"rank": 9118
+},
+{
+"level": "2",
+"word": "ソーセージ",
+"reading": "ソーセージ",
+"jmdict_id": 1075300,
+"rank": 9120
+},
+{
+"level": "2",
+"word": "まつげ",
+"reading": "まつげ",
+"jmdict_id": 1569890,
+"rank": 9123
+},
+{
+"level": "2",
+"word": "癒し",
+"reading": "いやし",
+"jmdict_id": 2412340,
+"rank": 9147
+},
+{
+"level": "2",
+"word": "帰り道",
+"reading": "かえりみち",
+"jmdict_id": 1221260,
+"rank": 9159
+},
+{
+"level": "2",
+"word": "バレエ",
+"reading": "バレエ",
+"jmdict_id": 1099970,
+"rank": 9215
+},
+{
+"level": "2",
+"word": "カウント",
+"reading": "カウント",
+"jmdict_id": 1037000,
+"rank": 9278
+},
+{
+"level": "2",
+"word": "年少",
+"reading": "ねんしょう",
+"jmdict_id": 1468850,
+"rank": 9290
+},
+{
+"level": "2",
+"word": "接客",
+"reading": "せっきゃく",
+"jmdict_id": 1385360,
+"rank": 9338
+},
+{
+"level": "2",
+"word": "こぶ",
+"reading": "こぶ",
+"jmdict_id": 1569660,
+"rank": 9353
+},
+{
+"level": "2",
+"word": "和食",
+"reading": "わしょく",
+"jmdict_id": 1562130,
+"rank": 9369
+},
+{
+"level": "2",
+"word": "車線",
+"reading": "しゃせん",
+"jmdict_id": 1323180,
+"rank": 9417
+},
+{
+"level": "2",
+"word": "シニア",
+"reading": "シニア",
+"jmdict_id": 1060860,
+"rank": 9488
+},
+{
+"level": "2",
+"word": "相棒",
+"reading": "あいぼう",
+"jmdict_id": 1401350,
+"rank": 9509
+},
+{
+"level": "2",
+"word": "年内",
+"reading": "ねんない",
+"jmdict_id": 1469060,
+"rank": 9527
+},
+{
+"level": "2",
+"word": "入れ替わる",
+"reading": "いれかわる",
+"jmdict_id": 1587800,
+"rank": 9541
+},
+{
+"level": "2",
+"word": "腹筋",
+"reading": "ふっきん",
+"jmdict_id": 1501160,
+"rank": 9585
+},
+{
+"level": "2",
+"word": "機内",
+"reading": "きない",
+"jmdict_id": 1221120,
+"rank": 9613
+},
+{
+"level": "2",
+"word": "好物",
+"reading": "こうぶつ",
+"jmdict_id": 1277790,
+"rank": 9615
+},
+{
+"level": "2",
+"word": "和室",
+"reading": "わしつ",
+"jmdict_id": 1562110,
+"rank": 9646
+},
+{
+"level": "2",
+"word": "ラグビー",
+"reading": "ラグビー",
+"jmdict_id": 1138690,
+"rank": 9807
+},
+{
+"level": "2",
+"word": "カリキュラム",
+"reading": "カリキュラム",
+"jmdict_id": 1038770,
+"rank": 9862
+},
+{
+"level": "2",
+"word": "ぐったり",
+"reading": "ぐったり",
+"jmdict_id": 1004070,
+"rank": 9864
+},
+{
+"level": "2",
+"word": "筋力",
+"reading": "きんりょく",
+"jmdict_id": 1241840,
+"rank": 9890
+},
+{
+"level": "2",
+"word": "背骨",
+"reading": "せぼね",
+"jmdict_id": 1472750,
+"rank": 9893
+},
+{
+"level": "2",
+"word": "剥がれる",
+"reading": "はがれる",
+"jmdict_id": 1474330,
+"rank": 9934
+},
+{
+"level": "2",
+"word": "にやにや",
+"reading": "にやにや",
+"jmdict_id": 1009620,
+"rank": 9950
+},
+{
+"level": "2",
+"word": "フィードバック",
+"reading": "フィードバック",
+"jmdict_id": 1108840,
+"rank": 9963
+},
+{
+"level": "2",
+"word": "帰省",
+"reading": "きせい",
+"jmdict_id": 1221390,
+"rank": 9972
+},
+{
+"level": "2",
+"word": "持ち歩く",
+"reading": "もちあるく",
+"jmdict_id": 1315680,
+"rank": 10022
+},
+{
+"level": "2",
+"word": "定時",
+"reading": "ていじ",
+"jmdict_id": 1435590,
+"rank": 10024
+},
+{
+"level": "2",
+"word": "花束",
+"reading": "はなたば",
+"jmdict_id": 1194790,
+"rank": 10036
+},
+{
+"level": "2",
+"word": "計量",
+"reading": "けいりょう",
+"jmdict_id": 1252260,
+"rank": 10072
+},
+{
+"level": "2",
+"word": "かき混ぜる",
+"reading": "かきまぜる",
+"jmdict_id": 1589980,
+"rank": 10103
+},
+{
+"level": "2",
+"word": "ヒーター",
+"reading": "ヒーター",
+"jmdict_id": 1103540,
+"rank": 10131
+},
+{
+"level": "2",
+"word": "フライト",
+"reading": "フライト",
+"jmdict_id": 1111060,
+"rank": 10212
+},
+{
+"level": "2",
+"word": "格安",
+"reading": "かくやす",
+"jmdict_id": 1205280,
+"rank": 10220
+},
+{
+"level": "2",
+"word": "セッティング",
+"reading": "セッティング",
+"jmdict_id": 1074590,
+"rank": 10228
+},
+{
+"level": "2",
+"word": "揺らす",
+"reading": "ゆらす",
+"jmdict_id": 1545640,
+"rank": 10238
+},
+{
+"level": "2",
+"word": "アシスタント",
+"reading": "アシスタント",
+"jmdict_id": 1015740,
+"rank": 10291
+},
+{
+"level": "2",
+"word": "トピック",
+"reading": "トピック",
+"jmdict_id": 1085350,
+"rank": 10303
+},
+{
+"level": "2",
+"word": "直行",
+"reading": "ちょっこう",
+"jmdict_id": 1430960,
+"rank": 10322
+},
+{
+"level": "2",
+"word": "声優",
+"reading": "せいゆう",
+"jmdict_id": 1380570,
+"rank": 10350
+},
+{
+"level": "2",
+"word": "紅白",
+"reading": "こうはく",
+"jmdict_id": 1280790,
+"rank": 10388
+},
+{
+"level": "2",
+"word": "気まずい",
+"reading": "きまずい",
+"jmdict_id": 1222550,
+"rank": 10443
+},
+{
+"level": "2",
+"word": "トースト",
+"reading": "トースト",
+"jmdict_id": 1084540,
+"rank": 10482
+},
+{
+"level": "2",
+"word": "学長",
+"reading": "がくちょう",
+"jmdict_id": 1206990,
+"rank": 10512
+},
+{
+"level": "2",
+"word": "茶道",
+"reading": "さどう",
+"jmdict_id": 1422770,
+"rank": 10557
+},
+{
+"level": "2",
+"word": "ピックアップ",
+"reading": "ピックアップ",
+"jmdict_id": 1984890,
+"rank": 10611
+},
+{
+"level": "2",
+"word": "スパイス",
+"reading": "スパイス",
+"jmdict_id": 1072010,
+"rank": 10655
+},
+{
+"level": "2",
+"word": "夏場",
+"reading": "なつば",
+"jmdict_id": 1191510,
+"rank": 10659
+},
+{
+"level": "2",
+"word": "改装",
+"reading": "かいそう",
+"jmdict_id": 1200990,
+"rank": 10686
+},
+{
+"level": "2",
+"word": "ブース",
+"reading": "ブース",
+"jmdict_id": 1113100,
+"rank": 10781
+},
+{
+"level": "2",
+"word": "ワークショップ",
+"reading": "ワークショップ",
+"jmdict_id": 1148380,
+"rank": 10805
+},
+{
+"level": "2",
+"word": "アスファルト",
+"reading": "アスファルト",
+"jmdict_id": 1016120,
+"rank": 10806
+},
+{
+"level": "2",
+"word": "カプセル",
+"reading": "カプセル",
+"jmdict_id": 1038220,
+"rank": 10843
+},
+{
+"level": "2",
+"word": "白黒",
+"reading": "しろくろ",
+"jmdict_id": 1475160,
+"rank": 10847
+},
+{
+"level": "2",
+"word": "ダッシュ",
+"reading": "ダッシュ",
+"jmdict_id": 1077060,
+"rank": 10912
+},
+{
+"level": "2",
+"word": "壁紙",
+"reading": "かべがみ",
+"jmdict_id": 1509330,
+"rank": 10958
+},
+{
+"level": "2",
+"word": "ココア",
+"reading": "ココア",
+"jmdict_id": 1050010,
+"rank": 10962
+},
+{
+"level": "2",
+"word": "がたがた",
+"reading": "がたがた",
+"jmdict_id": 1003100,
+"rank": 10973
+},
+{
+"level": "2",
+"word": "鉄板",
+"reading": "てっぱん",
+"jmdict_id": 1437970,
+"rank": 11006
+},
+{
+"level": "2",
+"word": "風呂場",
+"reading": "ふろば",
+"jmdict_id": 1500140,
+"rank": 11020
+},
+{
+"level": "2",
+"word": "本数",
+"reading": "ほんすう",
+"jmdict_id": 1522770,
+"rank": 11040
+},
+{
+"level": "2",
+"word": "パズル",
+"reading": "パズル",
+"jmdict_id": 1101530,
+"rank": 11161
+},
+{
+"level": "2",
+"word": "内定",
+"reading": "ないてい",
+"jmdict_id": 1458920,
+"rank": 11185
+},
+{
+"level": "2",
+"word": "口コミ",
+"reading": "くちこみ",
+"jmdict_id": 1275780,
+"rank": 11195
+},
+{
+"level": "2",
+"word": "水色",
+"reading": "みずいろ",
+"jmdict_id": 1371670,
+"rank": 11235
+},
+{
+"level": "2",
+"word": "アナウンス",
+"reading": "アナウンス",
+"jmdict_id": 1017340,
+"rank": 11238
+},
+{
+"level": "2",
+"word": "ブレンド",
+"reading": "ブレンド",
+"jmdict_id": 1114830,
+"rank": 11275
+},
+{
+"level": "2",
+"word": "読み聞かせ",
+"reading": "よみきかせ",
+"jmdict_id": 2864035,
+"rank": 11289
+},
+{
+"level": "2",
+"word": "海藻",
+"reading": "かいそう",
+"jmdict_id": 1201590,
+"rank": 11355
+},
+{
+"level": "2",
+"word": "気遣い",
+"reading": "きづかい",
+"jmdict_id": 1222140,
+"rank": 11379
+},
+{
+"level": "2",
+"word": "厨房",
+"reading": "ちゅうぼう",
+"jmdict_id": 1370550,
+"rank": 11385
+},
+{
+"level": "2",
+"word": "ハンバーガー",
+"reading": "ハンバーガー",
+"jmdict_id": 1096860,
+"rank": 11406
+},
+{
+"level": "2",
+"word": "時給",
+"reading": "じきゅう",
+"jmdict_id": 1316100,
+"rank": 11420
+},
+{
+"level": "2",
+"word": "惣菜",
+"reading": "そうざい",
+"jmdict_id": 1399580,
+"rank": 11422
+},
+{
+"level": "2",
+"word": "貸し出す",
+"reading": "かしだす",
+"jmdict_id": 1411130,
+"rank": 11451
+},
+{
+"level": "2",
+"word": "反則",
+"reading": "はんそく",
+"jmdict_id": 1480650,
+"rank": 11488
+},
+{
+"level": "2",
+"word": "スカウト",
+"reading": "スカウト",
+"jmdict_id": 1067630,
+"rank": 11521
+},
+{
+"level": "2",
+"word": "ゆで卵",
+"reading": "ゆでたまご",
+"jmdict_id": 1762410,
+"rank": 11535
+},
+{
+"level": "2",
+"word": "ころころ",
+"reading": "ころころ",
+"jmdict_id": 1004840,
+"rank": 11547
+},
+{
+"level": "2",
+"word": "がらがら",
+"reading": "がらがら",
+"jmdict_id": 1003290,
+"rank": 11656
+},
+{
+"level": "2",
+"word": "ドキュメンタリー",
+"reading": "ドキュメンタリー",
+"jmdict_id": 1088080,
+"rank": 11685
+},
+{
+"level": "2",
+"word": "週休",
+"reading": "しゅうきゅう",
+"jmdict_id": 1609930,
+"rank": 11694
+},
+{
+"level": "2",
+"word": "大当たり",
+"reading": "おおあたり",
+"jmdict_id": 1785660,
+"rank": 11700
+},
+{
+"level": "2",
+"word": "ヘルシー",
+"reading": "ヘルシー",
+"jmdict_id": 1118830,
+"rank": 11726
+},
+{
+"level": "2",
+"word": "面談",
+"reading": "めんだん",
+"jmdict_id": 1612940,
+"rank": 11751
+},
+{
+"level": "2",
+"word": "漢文",
+"reading": "かんぶん",
+"jmdict_id": 1213220,
+"rank": 11761
+},
+{
+"level": "2",
+"word": "つるつる",
+"reading": "つるつる",
+"jmdict_id": 1008220,
+"rank": 11801
+},
+{
+"level": "2",
+"word": "アトラクション",
+"reading": "アトラクション",
+"jmdict_id": 1016880,
+"rank": 11907
+},
+{
+"level": "2",
+"word": "ヒアリング",
+"reading": "ヒアリング",
+"jmdict_id": 1103640,
+"rank": 11943
+},
+{
+"level": "2",
+"word": "緑茶",
+"reading": "りょくちゃ",
+"jmdict_id": 1644870,
+"rank": 11967
+},
+{
+"level": "2",
+"word": "エール",
+"reading": "エール",
+"jmdict_id": 1027050,
+"rank": 12135
+},
+{
+"level": "2",
+"word": "じわじわ",
+"reading": "じわじわ",
+"jmdict_id": 1066570,
+"rank": 12149
+},
+{
+"level": "2",
+"word": "用例",
+"reading": "ようれい",
+"jmdict_id": 1546440,
+"rank": 12162
+},
+{
+"level": "2",
+"word": "火力",
+"reading": "かりょく",
+"jmdict_id": 1194300,
+"rank": 12236
+},
+{
+"level": "2",
+"word": "どろどろ",
+"reading": "どろどろ",
+"jmdict_id": 1009310,
+"rank": 12253
+},
+{
+"level": "2",
+"word": "係長",
+"reading": "かかりちょう",
+"jmdict_id": 1249370,
+"rank": 12394
+},
+{
+"level": "2",
+"word": "チーフ",
+"reading": "チーフ",
+"jmdict_id": 1077340,
+"rank": 12402
+},
+{
+"level": "2",
+"word": "冬場",
+"reading": "ふゆば",
+"jmdict_id": 1698120,
+"rank": 12437
+},
+{
+"level": "2",
+"word": "入れ替え",
+"reading": "いれかえ",
+"jmdict_id": 1791760,
+"rank": 12445
+},
+{
+"level": "2",
+"word": "ハードル",
+"reading": "ハードル",
+"jmdict_id": 1094650,
+"rank": 12526
+},
+{
+"level": "2",
+"word": "リニューアル",
+"reading": "リニューアル",
+"jmdict_id": 1637820,
+"rank": 12574
+},
+{
+"level": "2",
+"word": "ごちゃごちゃ",
+"reading": "ごちゃごちゃ",
+"jmdict_id": 1004940,
+"rank": 12599
+},
+{
+"level": "2",
+"word": "夏季",
+"reading": "かき",
+"jmdict_id": 1589900,
+"rank": 12736
+},
+{
+"level": "2",
+"word": "泊まり",
+"reading": "とまり",
+"jmdict_id": 1897840,
+"rank": 12823
+},
+{
+"level": "2",
+"word": "リハーサル",
+"reading": "リハーサル",
+"jmdict_id": 1142230,
+"rank": 12870
+},
+{
+"level": "2",
+"word": "ゴージャス",
+"reading": "ゴージャス",
+"jmdict_id": 1054150,
+"rank": 12881
+},
+{
+"level": "2",
+"word": "セーブ",
+"reading": "セーブ",
+"jmdict_id": 1074300,
+"rank": 13038
+},
+{
+"level": "2",
+"word": "園長",
+"reading": "えんちょう",
+"jmdict_id": 1176280,
+"rank": 13056
+},
+{
+"level": "2",
+"word": "眉毛",
+"reading": "まゆげ",
+"jmdict_id": 1486330,
+"rank": 13102
+},
+{
+"level": "2",
+"word": "ポリシー",
+"reading": "ポリシー",
+"jmdict_id": 1125710,
+"rank": 13140
+},
+{
+"level": "2",
+"word": "長袖",
+"reading": "ながそで",
+"jmdict_id": 1430060,
+"rank": 13171
+},
+{
+"level": "2",
+"word": "銭湯",
+"reading": "せんとう",
+"jmdict_id": 1392420,
+"rank": 13189
+},
+{
+"level": "2",
+"word": "一人っ子",
+"reading": "ひとりっこ",
+"jmdict_id": 1727720,
+"rank": 13261
+},
+{
+"level": "2",
+"word": "ゴミ袋",
+"reading": "ごみぶくろ",
+"jmdict_id": 2106370,
+"rank": 13484
+},
+{
+"level": "2",
+"word": "手動",
+"reading": "しゅどう",
+"jmdict_id": 1328240,
+"rank": 13488
+},
+{
+"level": "2",
+"word": "高卒",
+"reading": "こうそつ",
+"jmdict_id": 1283730,
+"rank": 13540
+},
+{
+"level": "2",
+"word": "人名",
+"reading": "じんめい",
+"jmdict_id": 1369340,
+"rank": 13546
+},
+{
+"level": "2",
+"word": "夜勤",
+"reading": "やきん",
+"jmdict_id": 1536650,
+"rank": 13556
+},
+{
+"level": "2",
+"word": "筋トレ",
+"reading": "きんとれ",
+"jmdict_id": 2112490,
+"rank": 13584
+},
+{
+"level": "2",
+"word": "西口",
+"reading": "にしぐち",
+"jmdict_id": 1380950,
+"rank": 13617
+},
+{
+"level": "2",
+"word": "バイキング",
+"reading": "バイキング",
+"jmdict_id": 1097800,
+"rank": 13670
+},
+{
+"level": "2",
+"word": "からから",
+"reading": "からから",
+"jmdict_id": 1003000,
+"rank": 13710
+},
+{
+"level": "2",
+"word": "モチベーション",
+"reading": "モチベーション",
+"jmdict_id": 1135080,
+"rank": 13828
+},
+{
+"level": "2",
+"word": "大昔",
+"reading": "おおむかし",
+"jmdict_id": 1414330,
+"rank": 13897
+},
+{
+"level": "2",
+"word": "納品",
+"reading": "のうひん",
+"jmdict_id": 1470100,
+"rank": 14015
+},
+{
+"level": "2",
+"word": "酒屋",
+"reading": "さかや",
+"jmdict_id": 1329040,
+"rank": 14039
+},
+{
+"level": "2",
+"word": "イラストレーター",
+"reading": "イラストレーター",
+"jmdict_id": 1021970,
+"rank": 14159
+},
+{
+"level": "2",
+"word": "とんかつ",
+"reading": "とんかつ",
+"jmdict_id": 1457410,
+"rank": 14476
+},
+{
+"level": "2",
+"word": "盆踊り",
+"reading": "ぼんおどり",
+"jmdict_id": 1523780,
+"rank": 14521
+},
+{
+"level": "2",
+"word": "バドミントン",
+"reading": "バドミントン",
+"jmdict_id": 1099390,
+"rank": 14556
+},
+{
+"level": "2",
+"word": "よだれ",
+"reading": "よだれ",
+"jmdict_id": 1013160,
+"rank": 14634
+},
+{
+"level": "2",
+"word": "辛口",
+"reading": "からくち",
+"jmdict_id": 1609630,
+"rank": 14671
+},
+{
+"level": "2",
+"word": "バザー",
+"reading": "バザー",
+"jmdict_id": 1098360,
+"rank": 14770
+},
+{
+"level": "2",
+"word": "インストラクター",
+"reading": "インストラクター",
+"jmdict_id": 1022650,
+"rank": 14779
+},
+{
+"level": "2",
+"word": "春休み",
+"reading": "はるやすみ",
+"jmdict_id": 1341080,
+"rank": 14800
+},
+{
+"level": "2",
+"word": "揚げ物",
+"reading": "あげもの",
+"jmdict_id": 1545530,
+"rank": 14812
+},
+{
+"level": "2",
+"word": "都立",
+"reading": "とりつ",
+"jmdict_id": 1445090,
+"rank": 14953
+},
+{
+"level": "2",
+"word": "年表",
+"reading": "ねんぴょう",
+"jmdict_id": 1582890,
+"rank": 15020
+},
+{
+"level": "2",
+"word": "スタミナ",
+"reading": "スタミナ",
+"jmdict_id": 1069810,
+"rank": 15062
+},
+{
+"level": "2",
+"word": "パイナップル",
+"reading": "パイナップル",
+"jmdict_id": 1101100,
+"rank": 15115
+},
+{
+"level": "2",
+"word": "やり直し",
+"reading": "やりなおし",
+"jmdict_id": 1605610,
+"rank": 15121
+},
+{
+"level": "2",
+"word": "買い出し",
+"reading": "かいだし",
+"jmdict_id": 1473670,
+"rank": 15206
+},
+{
+"level": "2",
+"word": "備品",
+"reading": "びひん",
+"jmdict_id": 1485730,
+"rank": 15284
+},
+{
+"level": "2",
+"word": "常温",
+"reading": "じょうおん",
+"jmdict_id": 1798230,
+"rank": 15300
+},
+{
+"level": "2",
+"word": "前歯",
+"reading": "まえば",
+"jmdict_id": 1581130,
+"rank": 15441
+},
+{
+"level": "2",
+"word": "法事",
+"reading": "ほうじ",
+"jmdict_id": 1805140,
+"rank": 15485
+},
+{
+"level": "2",
+"word": "単品",
+"reading": "たんぴん",
+"jmdict_id": 1953660,
+"rank": 15513
+},
+{
+"level": "2",
+"word": "冬休み",
+"reading": "ふゆやすみ",
+"jmdict_id": 1446090,
+"rank": 15526
+},
+{
+"level": "2",
+"word": "クーポン",
+"reading": "クーポン",
+"jmdict_id": 1043290,
+"rank": 15623
+},
+{
+"level": "2",
+"word": "ぐちゃぐちゃ",
+"reading": "ぐちゃぐちゃ",
+"jmdict_id": 1004050,
+"rank": 15727
+},
+{
+"level": "2",
+"word": "払い戻し",
+"reading": "はらいもどし",
+"jmdict_id": 1902520,
+"rank": 15728
+},
+{
+"level": "2",
+"word": "北口",
+"reading": "きたぐち",
+"jmdict_id": 1520970,
+"rank": 15736
+},
+{
+"level": "2",
+"word": "空き家",
+"reading": "あきや",
+"jmdict_id": 1675850,
+"rank": 15772
+},
+{
+"level": "2",
+"word": "読解",
+"reading": "どっかい",
+"jmdict_id": 1456370,
+"rank": 15940
+},
+{
+"level": "2",
+"word": "長文",
+"reading": "ちょうぶん",
+"jmdict_id": 1797460,
+"rank": 16020
+},
+{
+"level": "2",
+"word": "下見",
+"reading": "したみ",
+"jmdict_id": 1184830,
+"rank": 16051
+},
+{
+"level": "2",
+"word": "理工",
+"reading": "りこう",
+"jmdict_id": 1549960,
+"rank": 16076
+},
+{
+"level": "2",
+"word": "若葉",
+"reading": "わかば",
+"jmdict_id": 1324460,
+"rank": 16129
+},
+{
+"level": "2",
+"word": "べたべた",
+"reading": "べたべた",
+"jmdict_id": 1011440,
+"rank": 16131
+},
+{
+"level": "2",
+"word": "アウトレット",
+"reading": "アウトレット",
+"jmdict_id": 1014900,
+"rank": 16235
+},
+{
+"level": "2",
+"word": "寝かす",
+"reading": "ねかす",
+"jmdict_id": 1359960,
+"rank": 16264
+},
+{
+"level": "2",
+"word": "音符",
+"reading": "おんぷ",
+"jmdict_id": 1184040,
+"rank": 16282
+},
+{
+"level": "2",
+"word": "スクラップ",
+"reading": "スクラップ",
+"jmdict_id": 1068420,
+"rank": 16299
+},
+{
+"level": "2",
+"word": "理系",
+"reading": "りけい",
+"jmdict_id": 1549950,
+"rank": 16322
+},
+{
+"level": "2",
+"word": "新卒",
+"reading": "しんそつ",
+"jmdict_id": 1952760,
+"rank": 16342
+},
+{
+"level": "2",
+"word": "夏期",
+"reading": "かき",
+"jmdict_id": 2656720,
+"rank": 16433
+},
+{
+"level": "2",
+"word": "ディスカッション",
+"reading": "ディスカッション",
+"jmdict_id": 1081710,
+"rank": 16453
+},
+{
+"level": "2",
+"word": "ヘッドホン",
+"reading": "ヘッドホン",
+"jmdict_id": 1118490,
+"rank": 16508
+},
+{
+"level": "2",
+"word": "リピーター",
+"reading": "リピーター",
+"jmdict_id": 1142450,
+"rank": 16771
+},
+{
+"level": "2",
+"word": "オファー",
+"reading": "オファー",
+"jmdict_id": 1034610,
+"rank": 16833
+},
+{
+"level": "2",
+"word": "年明け",
+"reading": "としあけ",
+"jmdict_id": 1469220,
+"rank": 17052
+},
+{
+"level": "2",
+"word": "褒め言葉",
+"reading": "ほめことば",
+"jmdict_id": 1517930,
+"rank": 17113
+},
+{
+"level": "2",
+"word": "ぺらぺら",
+"reading": "ぺらぺら",
+"jmdict_id": 1011580,
+"rank": 17166
+},
+{
+"level": "2",
+"word": "引き継ぎ",
+"reading": "ひきつぎ",
+"jmdict_id": 1601670,
+"rank": 17304
+},
+{
+"level": "2",
+"word": "鉄分",
+"reading": "てつぶん",
+"jmdict_id": 1438000,
+"rank": 17391
+},
+{
+"level": "2",
+"word": "ぽろぽろ",
+"reading": "ぽろぽろ",
+"jmdict_id": 1012030,
+"rank": 17751
+},
+{
+"level": "2",
+"word": "だんとつ",
+"reading": "だんとつ",
+"jmdict_id": 1077270,
+"rank": 17854
+},
+{
+"level": "2",
+"word": "名言",
+"reading": "めいげん",
+"jmdict_id": 1531450,
+"rank": 17873
+},
+{
+"level": "2",
+"word": "裏表",
+"reading": "うらおもて",
+"jmdict_id": 1550560,
+"rank": 18053
+},
+{
+"level": "2",
+"word": "南口",
+"reading": "みなみぐち",
+"jmdict_id": 1460280,
+"rank": 18421
+},
+{
+"level": "2",
+"word": "レシート",
+"reading": "レシート",
+"jmdict_id": 1145060,
+"rank": 18508
+},
+{
+"level": "2",
+"word": "時短",
+"reading": "じたん",
+"jmdict_id": 1316330,
+"rank": 18652
+},
+{
+"level": "2",
+"word": "文系",
+"reading": "ぶんけい",
+"jmdict_id": 1505280,
+"rank": 18682
+},
+{
+"level": "2",
+"word": "不燃",
+"reading": "ふねん",
+"jmdict_id": 1494510,
+"rank": 18701
+},
+{
+"level": "2",
+"word": "出だし",
+"reading": "でだし",
+"jmdict_id": 1778900,
+"rank": 18742
+},
+{
+"level": "2",
+"word": "文通",
+"reading": "ぶんつう",
+"jmdict_id": 1505550,
+"rank": 18910
+},
+{
+"level": "2",
+"word": "合奏",
+"reading": "がっそう",
+"jmdict_id": 1285070,
+"rank": 18994
+},
+{
+"level": "2",
+"word": "肉屋",
+"reading": "にくや",
+"jmdict_id": 1463540,
+"rank": 19086
+},
+{
+"level": "2",
+"word": "送り迎え",
+"reading": "おくりむかえ",
+"jmdict_id": 1709670,
+"rank": 19682
+},
+{
+"level": "2",
+"word": "学内",
+"reading": "がくない",
+"jmdict_id": 1207020,
+"rank": 19899
+},
+{
+"level": "2",
+"word": "古文",
+"reading": "こぶん",
+"jmdict_id": 1578490,
+"rank": null
+},
+{
+"level": "2",
+"word": "プレゼン",
+"reading": "プレゼン",
+"jmdict_id": 1981320,
+"rank": null
+},
+{
+"level": "2",
+"word": "打ち上げ",
+"reading": "うちあげ",
+"jmdict_id": 1408690,
+"rank": null
+},
+{
+"level": "2",
+"word": "就活",
+"reading": "しゅうかつ",
+"jmdict_id": 2033380,
+"rank": null
+},
+{
+"level": "2",
+"word": "卒論",
+"reading": "そつろん",
+"jmdict_id": 1405990,
+"rank": null
+},
+{
+"level": "2",
+"word": "朝礼",
+"reading": "ちょうれい",
+"jmdict_id": 1428580,
+"rank": null
+},
+{
+"level": "2",
+"word": "ディベート",
+"reading": "ディベート",
+"jmdict_id": 1082330,
+"rank": null
+},
+{
+"level": "2",
+"word": "どかす",
+"reading": "どかす",
+"jmdict_id": 1632230,
+"rank": null
+},
+{
+"level": "2",
+"word": "留年",
+"reading": "りゅうねん",
+"jmdict_id": 1612260,
+"rank": null
+},
+{
+"level": "2",
+"word": "書き順",
+"reading": "かきじゅん",
+"jmdict_id": 1343810,
+"rank": null
+},
+{
+"level": "2",
+"word": "食券",
+"reading": "しょっけん",
+"jmdict_id": 1358440,
+"rank": null
+},
+{
+"level": "2",
+"word": "プロジェクター",
+"reading": "プロジェクター",
+"jmdict_id": 1117200,
+"rank": null
+},
+{
+"level": "2",
+"word": "かき氷",
+"reading": "かきごおり",
+"jmdict_id": 1399920,
+"rank": null
+},
+{
+"level": "2",
+"word": "びしょびしょ",
+"reading": "びしょびしょ",
+"jmdict_id": 1010750,
+"rank": null
+},
+{
+"level": "2",
+"word": "洗い物",
+"reading": "あらいもの",
+"jmdict_id": 1609080,
+"rank": null
+},
+{
+"level": "2",
+"word": "ホワイトボード",
+"reading": "ホワイトボード",
+"jmdict_id": 1123120,
+"rank": null
+},
+{
+"level": "2",
+"word": "山登り",
+"reading": "やまのぼり",
+"jmdict_id": 1303070,
+"rank": null
+},
+{
+"level": "2",
+"word": "あぶらっこい",
+"reading": "あぶらっこい",
+"jmdict_id": 1311810,
+"rank": null
+},
+{
+"level": "2",
+"word": "東口",
+"reading": "ひがしぐち",
+"jmdict_id": 1447790,
+"rank": null
+},
+{
+"level": "2",
+"word": "東部",
+"reading": "とうぶ",
+"jmdict_id": 1448100,
+"rank": null
+},
+{
+"level": "2",
+"word": "東側",
+"reading": "ひがしがわ",
+"jmdict_id": 1582270,
+"rank": null
+},
+{
+"level": "2",
+"word": "南側",
+"reading": "みなみがわ",
+"jmdict_id": 1582610,
+"rank": null
+},
+{
+"level": "2",
+"word": "北側",
+"reading": "きたがわ",
+"jmdict_id": 1584180,
+"rank": null
 },
 {
 "level": "3",
@@ -5643,6 +9542,20 @@
 },
 {
 "level": "3",
+"word": "ミリメートル",
+"reading": "ミリメートル",
+"jmdict_id": 1131930,
+"rank": 1978
+},
+{
+"level": "3",
+"word": "両手",
+"reading": "りょうて",
+"jmdict_id": 1553660,
+"rank": 2007
+},
+{
+"level": "3",
 "word": "子育て",
 "reading": "こそだて",
 "jmdict_id": 1307790,
@@ -5769,6 +9682,13 @@
 },
 {
 "level": "3",
+"word": "本日",
+"reading": "ほんじつ",
+"jmdict_id": 1523110,
+"rank": 2330
+},
+{
+"level": "3",
 "word": "パワー",
 "reading": "パワー",
 "jmdict_id": 1102990,
@@ -5815,6 +9735,13 @@
 "reading": "わかりやすい",
 "jmdict_id": 1606550,
 "rank": 2502
+},
+{
+"level": "3",
+"word": "右手",
+"reading": "みぎて",
+"jmdict_id": 1171120,
+"rank": 2504
 },
 {
 "level": "3",
@@ -5930,6 +9857,13 @@
 },
 {
 "level": "3",
+"word": "彼氏",
+"reading": "かれし",
+"jmdict_id": 1483140,
+"rank": 2897
+},
+{
+"level": "3",
 "word": "この世",
 "reading": "このよ",
 "jmdict_id": 2002260,
@@ -5955,6 +9889,13 @@
 "reading": "ゆうしょく",
 "jmdict_id": 1542730,
 "rank": 2996
+},
+{
+"level": "3",
+"word": "左手",
+"reading": "ひだりて",
+"jmdict_id": 1290900,
+"rank": 3016
 },
 {
 "level": "3",
@@ -6046,6 +9987,13 @@
 "reading": "ううん",
 "jmdict_id": 2002400,
 "rank": 3181
+},
+{
+"level": "3",
+"word": "休日",
+"reading": "きゅうじつ",
+"jmdict_id": 1228040,
+"rank": 3208
 },
 {
 "level": "3",
@@ -6147,13 +10095,6 @@
 },
 {
 "level": "3",
-"word": "南部",
-"reading": "なんぶ",
-"jmdict_id": 1460530,
-"rank": 3491
-},
-{
-"level": "3",
 "word": "ばら",
 "reading": "ばら",
 "jmdict_id": 1571760,
@@ -6179,6 +10120,13 @@
 "reading": "ケーブル",
 "jmdict_id": 1048000,
 "rank": 3530
+},
+{
+"level": "3",
+"word": "玉ねぎ",
+"reading": "たまねぎ",
+"jmdict_id": 1240670,
+"rank": 3539
 },
 {
 "level": "3",
@@ -6235,6 +10183,13 @@
 "reading": "シェア",
 "jmdict_id": 1059930,
 "rank": 3628
+},
+{
+"level": "3",
+"word": "アニメ",
+"reading": "アニメ",
+"jmdict_id": 1017590,
+"rank": 3633
 },
 {
 "level": "3",
@@ -6308,6 +10263,13 @@
 },
 {
 "level": "3",
+"word": "キッチン",
+"reading": "キッチン",
+"jmdict_id": 1041150,
+"rank": 3771
+},
+{
+"level": "3",
 "word": "送信",
 "reading": "そうしん",
 "jmdict_id": 1402820,
@@ -6336,13 +10298,6 @@
 },
 {
 "level": "3",
-"word": "マウス",
-"reading": "マウス",
-"jmdict_id": 1127140,
-"rank": 3937
-},
-{
-"level": "3",
 "word": "熊",
 "reading": "くま",
 "jmdict_id": 1246850,
@@ -6350,31 +10305,10 @@
 },
 {
 "level": "3",
-"word": "フォルダー",
-"reading": "フォルダー",
-"jmdict_id": 1110750,
-"rank": 3955
-},
-{
-"level": "3",
 "word": "日常生活",
 "reading": "にちじょうせいかつ",
 "jmdict_id": 1464200,
 "rank": 3960
-},
-{
-"level": "3",
-"word": "最小",
-"reading": "さいしょう",
-"jmdict_id": 1294000,
-"rank": 4018
-},
-{
-"level": "3",
-"word": "北部",
-"reading": "ほくぶ",
-"jmdict_id": 1521260,
-"rank": 4026
 },
 {
 "level": "3",
@@ -6427,6 +10361,13 @@
 },
 {
 "level": "3",
+"word": "桃",
+"reading": "もも",
+"jmdict_id": 1448290,
+"rank": 4122
+},
+{
+"level": "3",
 "word": "研究者",
 "reading": "けんきゅうしゃ",
 "jmdict_id": 1258590,
@@ -6441,24 +10382,10 @@
 },
 {
 "level": "3",
-"word": "一口",
-"reading": "ひとくち",
-"jmdict_id": 1162370,
-"rank": 4149
-},
-{
-"level": "3",
 "word": "そいつ",
 "reading": "そいつ",
 "jmdict_id": 1006600,
 "rank": 4168
-},
-{
-"level": "3",
-"word": "国道",
-"reading": "こくどう",
-"jmdict_id": 1286920,
-"rank": 4181
 },
 {
 "level": "3",
@@ -6483,17 +10410,24 @@
 },
 {
 "level": "3",
-"word": "市長",
-"reading": "しちょう",
-"jmdict_id": 1308610,
-"rank": 4262
-},
-{
-"level": "3",
 "word": "絵本",
 "reading": "えほん",
 "jmdict_id": 1202380,
 "rank": 4295
+},
+{
+"level": "3",
+"word": "片手",
+"reading": "かたて",
+"jmdict_id": 1511690,
+"rank": 4304
+},
+{
+"level": "3",
+"word": "週末",
+"reading": "しゅうまつ",
+"jmdict_id": 1333520,
+"rank": 4327
 },
 {
 "level": "3",
@@ -6504,17 +10438,17 @@
 },
 {
 "level": "3",
-"word": "なあ",
-"reading": "なあ",
-"jmdict_id": 2029110,
-"rank": 4371
-},
-{
-"level": "3",
 "word": "委員会",
 "reading": "いいんかい",
 "jmdict_id": 1156110,
 "rank": 4399
+},
+{
+"level": "3",
+"word": "右側",
+"reading": "みぎがわ",
+"jmdict_id": 1576400,
+"rank": 4410
 },
 {
 "level": "3",
@@ -6529,6 +10463,13 @@
 "reading": "キャラクター",
 "jmdict_id": 1041920,
 "rank": 4440
+},
+{
+"level": "3",
+"word": "左側",
+"reading": "ひだりがわ",
+"jmdict_id": 1579180,
+"rank": 4465
 },
 {
 "level": "3",
@@ -6560,13 +10501,6 @@
 },
 {
 "level": "3",
-"word": "ボリューム",
-"reading": "ボリューム",
-"jmdict_id": 1124310,
-"rank": 4535
-},
-{
-"level": "3",
 "word": "ロボット",
 "reading": "ロボット",
 "jmdict_id": 1147870,
@@ -6595,24 +10529,17 @@
 },
 {
 "level": "3",
+"word": "にんにく",
+"reading": "にんにく",
+"jmdict_id": 1599940,
+"rank": 4603
+},
+{
+"level": "3",
 "word": "食材",
 "reading": "しょくざい",
 "jmdict_id": 1983500,
 "rank": 4610
-},
-{
-"level": "3",
-"word": "小さじ",
-"reading": "こさじ",
-"jmdict_id": 1348140,
-"rank": 4613
-},
-{
-"level": "3",
-"word": "喫煙",
-"reading": "きつえん",
-"jmdict_id": 1226390,
-"rank": 4614
 },
 {
 "level": "3",
@@ -6623,31 +10550,10 @@
 },
 {
 "level": "3",
-"word": "苦しみ",
-"reading": "くるしみ",
-"jmdict_id": 1244340,
-"rank": 4634
-},
-{
-"level": "3",
-"word": "再開",
-"reading": "さいかい",
-"jmdict_id": 1292400,
-"rank": 4644
-},
-{
-"level": "3",
 "word": "報告書",
 "reading": "ほうこくしょ",
 "jmdict_id": 1515690,
 "rank": 4650
-},
-{
-"level": "3",
-"word": "ダウンロード",
-"reading": "ダウンロード",
-"jmdict_id": 1077010,
-"rank": 4688
 },
 {
 "level": "3",
@@ -6662,6 +10568,13 @@
 "reading": "いいんちょう",
 "jmdict_id": 1156120,
 "rank": 4701
+},
+{
+"level": "3",
+"word": "駅前",
+"reading": "えきまえ",
+"jmdict_id": 1175170,
+"rank": 4728
 },
 {
 "level": "3",
@@ -6700,6 +10613,13 @@
 },
 {
 "level": "3",
+"word": "じゃがいも",
+"reading": "じゃがいも",
+"jmdict_id": 1005930,
+"rank": 4798
+},
+{
+"level": "3",
 "word": "だし",
 "reading": "だし",
 "jmdict_id": 1339160,
@@ -6714,13 +10634,6 @@
 },
 {
 "level": "3",
-"word": "オペラ",
-"reading": "オペラ",
-"jmdict_id": 1035200,
-"rank": 4837
-},
-{
-"level": "3",
 "word": "裁判官",
 "reading": "さいばんかん",
 "jmdict_id": 1296130,
@@ -6728,24 +10641,10 @@
 },
 {
 "level": "3",
-"word": "寝室",
-"reading": "しんしつ",
-"jmdict_id": 1360140,
-"rank": 4855
-},
-{
-"level": "3",
 "word": "ハート",
 "reading": "ハート",
 "jmdict_id": 1094460,
 "rank": 4859
-},
-{
-"level": "3",
-"word": "亀",
-"reading": "かめ",
-"jmdict_id": 1224260,
-"rank": 4877
 },
 {
 "level": "3",
@@ -6763,13 +10662,6 @@
 },
 {
 "level": "3",
-"word": "海水",
-"reading": "かいすい",
-"jmdict_id": 1201490,
-"rank": 4961
-},
-{
-"level": "3",
 "word": "からす",
 "reading": "からす",
 "jmdict_id": 1171450,
@@ -6777,24 +10669,17 @@
 },
 {
 "level": "3",
-"word": "店内",
-"reading": "てんない",
-"jmdict_id": 1440780,
-"rank": 4968
+"word": "キャベツ",
+"reading": "キャベツ",
+"jmdict_id": 1041870,
+"rank": 4963
 },
 {
 "level": "3",
-"word": "投稿",
-"reading": "とうこう",
-"jmdict_id": 1447180,
-"rank": 4974
-},
-{
-"level": "3",
-"word": "キロカロリー",
-"reading": "キロカロリー",
-"jmdict_id": 2460500,
-"rank": 5030
+"word": "片方",
+"reading": "かたほう",
+"jmdict_id": 1511810,
+"rank": 5007
 },
 {
 "level": "3",
@@ -6819,13 +10704,6 @@
 },
 {
 "level": "3",
-"word": "添付",
-"reading": "てんぷ",
-"jmdict_id": 1440880,
-"rank": 5090
-},
-{
-"level": "3",
 "word": "知り合う",
 "reading": "しりあう",
 "jmdict_id": 1420450,
@@ -6847,20 +10725,6 @@
 },
 {
 "level": "3",
-"word": "持ち物",
-"reading": "もちもの",
-"jmdict_id": 1605240,
-"rank": 5126
-},
-{
-"level": "3",
-"word": "指先",
-"reading": "ゆびさき",
-"jmdict_id": 1309890,
-"rank": 5135
-},
-{
-"level": "3",
 "word": "ばらばら",
 "reading": "ばらばら",
 "jmdict_id": 1010320,
@@ -6868,59 +10732,10 @@
 },
 {
 "level": "3",
-"word": "デジカメ",
-"reading": "デジカメ",
-"jmdict_id": 2021820,
-"rank": 5140
-},
-{
-"level": "3",
-"word": "マナー",
-"reading": "マナー",
-"jmdict_id": 1128740,
-"rank": 5150
-},
-{
-"level": "3",
-"word": "クリニック",
-"reading": "クリニック",
-"jmdict_id": 1045000,
-"rank": 5169
-},
-{
-"level": "3",
-"word": "西側",
-"reading": "にしがわ",
-"jmdict_id": 1380980,
-"rank": 5181
-},
-{
-"level": "3",
 "word": "タッチ",
 "reading": "タッチ",
 "jmdict_id": 1076320,
 "rank": 5202
-},
-{
-"level": "3",
-"word": "町内",
-"reading": "ちょうない",
-"jmdict_id": 1428800,
-"rank": 5212
-},
-{
-"level": "3",
-"word": "インチ",
-"reading": "インチ",
-"jmdict_id": 1023330,
-"rank": 5214
-},
-{
-"level": "3",
-"word": "カップル",
-"reading": "カップル",
-"jmdict_id": 1037710,
-"rank": 5224
 },
 {
 "level": "3",
@@ -6945,24 +10760,17 @@
 },
 {
 "level": "3",
+"word": "いちご",
+"reading": "いちご",
+"jmdict_id": 1571460,
+"rank": 5341
+},
+{
+"level": "3",
 "word": "シングル",
 "reading": "シングル",
 "jmdict_id": 1063530,
 "rank": 5381
-},
-{
-"level": "3",
-"word": "クレジット",
-"reading": "クレジット",
-"jmdict_id": 1045330,
-"rank": 5391
-},
-{
-"level": "3",
-"word": "西部",
-"reading": "せいぶ",
-"jmdict_id": 1381040,
-"rank": 5403
 },
 {
 "level": "3",
@@ -6987,20 +10795,6 @@
 },
 {
 "level": "3",
-"word": "リビング",
-"reading": "リビング",
-"jmdict_id": 1142410,
-"rank": 5465
-},
-{
-"level": "3",
-"word": "眠り",
-"reading": "ねむり",
-"jmdict_id": 1529370,
-"rank": 5484
-},
-{
-"level": "3",
 "word": "ホット",
 "reading": "ホット",
 "jmdict_id": 1122440,
@@ -7015,31 +10809,10 @@
 },
 {
 "level": "3",
-"word": "顔色",
-"reading": "かおいろ",
-"jmdict_id": 1217820,
-"rank": 5520
-},
-{
-"level": "3",
-"word": "手足",
-"reading": "てあし",
-"jmdict_id": 1328080,
-"rank": 5526
-},
-{
-"level": "3",
 "word": "警察官",
 "reading": "けいさつかん",
 "jmdict_id": 1252400,
 "rank": 5536
-},
-{
-"level": "3",
-"word": "ショッピング",
-"reading": "ショッピング",
-"jmdict_id": 1062760,
-"rank": 5537
 },
 {
 "level": "3",
@@ -7057,13 +10830,6 @@
 },
 {
 "level": "3",
-"word": "少量",
-"reading": "しょうりょう",
-"jmdict_id": 1595030,
-"rank": 5625
-},
-{
-"level": "3",
 "word": "初日",
 "reading": "しょにち",
 "jmdict_id": 1342980,
@@ -7078,10 +10844,10 @@
 },
 {
 "level": "3",
-"word": "休館",
-"reading": "きゅうかん",
-"jmdict_id": 1836050,
-"rank": 5671
+"word": "みかん",
+"reading": "みかん",
+"jmdict_id": 1528410,
+"rank": 5656
 },
 {
 "level": "3",
@@ -7113,6 +10879,13 @@
 },
 {
 "level": "3",
+"word": "かに",
+"reading": "かに",
+"jmdict_id": 1202410,
+"rank": 5711
+},
+{
+"level": "3",
 "word": "都内",
 "reading": "とない",
 "jmdict_id": 1445040,
@@ -7120,10 +10893,10 @@
 },
 {
 "level": "3",
-"word": "パスワード",
-"reading": "パスワード",
-"jmdict_id": 1101520,
-"rank": 5758
+"word": "エアコン",
+"reading": "エアコン",
+"jmdict_id": 1027180,
+"rank": 5793
 },
 {
 "level": "3",
@@ -7131,13 +10904,6 @@
 "reading": "としうえ",
 "jmdict_id": 1468870,
 "rank": 5808
-},
-{
-"level": "3",
-"word": "本店",
-"reading": "ほんてん",
-"jmdict_id": 1523020,
-"rank": 5810
 },
 {
 "level": "3",
@@ -7155,6 +10921,13 @@
 },
 {
 "level": "3",
+"word": "たこ",
+"reading": "たこ",
+"jmdict_id": 1596910,
+"rank": 5858
+},
+{
+"level": "3",
 "word": "残業",
 "reading": "ざんぎょう",
 "jmdict_id": 1304560,
@@ -7162,17 +10935,10 @@
 },
 {
 "level": "3",
-"word": "入国",
-"reading": "にゅうこく",
-"jmdict_id": 1466130,
-"rank": 5890
-},
-{
-"level": "3",
-"word": "通話",
-"reading": "つうわ",
-"jmdict_id": 1433610,
-"rank": 5898
+"word": "ラップ",
+"reading": "ラップ",
+"jmdict_id": 1139250,
+"rank": 5889
 },
 {
 "level": "3",
@@ -7190,10 +10956,10 @@
 },
 {
 "level": "3",
-"word": "足音",
-"reading": "あしおと",
-"jmdict_id": 1404770,
-"rank": 5925
+"word": "パンフレット",
+"reading": "パンフレット",
+"jmdict_id": 1103450,
+"rank": 5950
 },
 {
 "level": "3",
@@ -7211,17 +10977,682 @@
 },
 {
 "level": "3",
-"word": "翌朝",
-"reading": "よくあさ",
-"jmdict_id": 1585000,
-"rank": 5971
+"word": "カボチャ",
+"reading": "カボチャ",
+"jmdict_id": 1582580,
+"rank": 6011
 },
 {
 "level": "3",
-"word": "会費",
-"reading": "かいひ",
-"jmdict_id": 1198860,
-"rank": 5998
+"word": "裏側",
+"reading": "うらがわ",
+"jmdict_id": 1550410,
+"rank": 6039
+},
+{
+"level": "3",
+"word": "ベランダ",
+"reading": "ベランダ",
+"jmdict_id": 1119940,
+"rank": 6051
+},
+{
+"level": "3",
+"word": "鮭",
+"reading": "さけ",
+"jmdict_id": 1579300,
+"rank": 6120
+},
+{
+"level": "3",
+"word": "アイドル",
+"reading": "アイドル",
+"jmdict_id": 1014340,
+"rank": 6150
+},
+{
+"level": "3",
+"word": "フロア",
+"reading": "フロア",
+"jmdict_id": 1112730,
+"rank": 6168
+},
+{
+"level": "3",
+"word": "味付け",
+"reading": "あじつけ",
+"jmdict_id": 1526980,
+"rank": 6182
+},
+{
+"level": "3",
+"word": "充電",
+"reading": "じゅうでん",
+"jmdict_id": 1334390,
+"rank": 6192
+},
+{
+"level": "3",
+"word": "隊長",
+"reading": "たいちょう",
+"jmdict_id": 1411530,
+"rank": 6244
+},
+{
+"level": "3",
+"word": "インフルエンザ",
+"reading": "インフルエンザ",
+"jmdict_id": 1024400,
+"rank": 6304
+},
+{
+"level": "3",
+"word": "パスタ",
+"reading": "パスタ",
+"jmdict_id": 1101460,
+"rank": 6349
+},
+{
+"level": "3",
+"word": "麦",
+"reading": "むぎ",
+"jmdict_id": 1476080,
+"rank": 6362
+},
+{
+"level": "3",
+"word": "青空",
+"reading": "あおぞら",
+"jmdict_id": 1381470,
+"rank": 6422
+},
+{
+"level": "3",
+"word": "シール",
+"reading": "シール",
+"jmdict_id": 1059670,
+"rank": 6458
+},
+{
+"level": "3",
+"word": "ストレッチ",
+"reading": "ストレッチ",
+"jmdict_id": 1071500,
+"rank": 6493
+},
+{
+"level": "3",
+"word": "チキン",
+"reading": "チキン",
+"jmdict_id": 1077680,
+"rank": 6508
+},
+{
+"level": "3",
+"word": "ちらし",
+"reading": "ちらし",
+"jmdict_id": 1303440,
+"rank": 6514
+},
+{
+"level": "3",
+"word": "ジム",
+"reading": "ジム",
+"jmdict_id": 1064880,
+"rank": 6526
+},
+{
+"level": "3",
+"word": "シャンプー",
+"reading": "シャンプー",
+"jmdict_id": 1061930,
+"rank": 6608
+},
+{
+"level": "3",
+"word": "クッキー",
+"reading": "クッキー",
+"jmdict_id": 1043760,
+"rank": 6714
+},
+{
+"level": "3",
+"word": "焼肉",
+"reading": "やきにく",
+"jmdict_id": 1605420,
+"rank": 6762
+},
+{
+"level": "3",
+"word": "新年",
+"reading": "しんねん",
+"jmdict_id": 1362290,
+"rank": 6831
+},
+{
+"level": "3",
+"word": "天ぷら",
+"reading": "てんぷら",
+"jmdict_id": 1440590,
+"rank": 6885
+},
+{
+"level": "3",
+"word": "ドリンク",
+"reading": "ドリンク",
+"jmdict_id": 1089080,
+"rank": 6924
+},
+{
+"level": "3",
+"word": "大騒ぎ",
+"reading": "おおさわぎ",
+"jmdict_id": 1414410,
+"rank": 6967
+},
+{
+"level": "3",
+"word": "店長",
+"reading": "てんちょう",
+"jmdict_id": 1440730,
+"rank": 6983
+},
+{
+"level": "3",
+"word": "居酒屋",
+"reading": "いざかや",
+"jmdict_id": 1231800,
+"rank": 7009
+},
+{
+"level": "3",
+"word": "本屋",
+"reading": "ほんや",
+"jmdict_id": 1522240,
+"rank": 7052
+},
+{
+"level": "3",
+"word": "ヨーグルト",
+"reading": "ヨーグルト",
+"jmdict_id": 1137520,
+"rank": 7082
+},
+{
+"level": "3",
+"word": "すいか",
+"reading": "すいか",
+"jmdict_id": 1380890,
+"rank": 7104
+},
+{
+"level": "3",
+"word": "ドラム",
+"reading": "ドラム",
+"jmdict_id": 1088890,
+"rank": 7112
+},
+{
+"level": "3",
+"word": "スタジアム",
+"reading": "スタジアム",
+"jmdict_id": 1069570,
+"rank": 7124
+},
+{
+"level": "3",
+"word": "ボウル",
+"reading": "ボウル",
+"jmdict_id": 1123750,
+"rank": 7140
+},
+{
+"level": "3",
+"word": "かえる",
+"reading": "かえる",
+"jmdict_id": 1577460,
+"rank": 7155
+},
+{
+"level": "3",
+"word": "鳩",
+"reading": "はと",
+"jmdict_id": 1478330,
+"rank": 7198
+},
+{
+"level": "3",
+"word": "向こう側",
+"reading": "むこうがわ",
+"jmdict_id": 1604830,
+"rank": 7204
+},
+{
+"level": "3",
+"word": "外食",
+"reading": "がいしょく",
+"jmdict_id": 1203830,
+"rank": 7242
+},
+{
+"level": "3",
+"word": "くも",
+"reading": "くも",
+"jmdict_id": 1421960,
+"rank": 7296
+},
+{
+"level": "3",
+"word": "ピーマン",
+"reading": "ピーマン",
+"jmdict_id": 1106340,
+"rank": 7330
+},
+{
+"level": "3",
+"word": "国旗",
+"reading": "こっき",
+"jmdict_id": 1286290,
+"rank": 7492
+},
+{
+"level": "3",
+"word": "炭酸",
+"reading": "たんさん",
+"jmdict_id": 1418530,
+"rank": 7563
+},
+{
+"level": "3",
+"word": "葉っぱ",
+"reading": "はっぱ",
+"jmdict_id": 1611230,
+"rank": 7661
+},
+{
+"level": "3",
+"word": "入試",
+"reading": "にゅうし",
+"jmdict_id": 1466200,
+"rank": 7703
+},
+{
+"level": "3",
+"word": "スパゲッティ",
+"reading": "スパゲッティ",
+"jmdict_id": 1072080,
+"rank": 7876
+},
+{
+"level": "3",
+"word": "マヨネーズ",
+"reading": "マヨネーズ",
+"jmdict_id": 1129260,
+"rank": 7896
+},
+{
+"level": "3",
+"word": "一歩",
+"reading": "いっぽ",
+"jmdict_id": 1166460,
+"rank": 7914
+},
+{
+"level": "3",
+"word": "部活",
+"reading": "ぶかつ",
+"jmdict_id": 1622100,
+"rank": 8023
+},
+{
+"level": "3",
+"word": "ティッシュ",
+"reading": "ティッシュ",
+"jmdict_id": 1079090,
+"rank": 8038
+},
+{
+"level": "3",
+"word": "柿",
+"reading": "かき",
+"jmdict_id": 1204810,
+"rank": 8265
+},
+{
+"level": "3",
+"word": "半日",
+"reading": "はんにち",
+"jmdict_id": 1583180,
+"rank": 8360
+},
+{
+"level": "3",
+"word": "モール",
+"reading": "モール",
+"jmdict_id": 1134770,
+"rank": 8383
+},
+{
+"level": "3",
+"word": "レタス",
+"reading": "レタス",
+"jmdict_id": 1145450,
+"rank": 8449
+},
+{
+"level": "3",
+"word": "酔っ払う",
+"reading": "よっぱらう",
+"jmdict_id": 1372670,
+"rank": 8661
+},
+{
+"level": "3",
+"word": "アカウント",
+"reading": "アカウント",
+"jmdict_id": 1014970,
+"rank": 8755
+},
+{
+"level": "3",
+"word": "メロン",
+"reading": "メロン",
+"jmdict_id": 1134190,
+"rank": 8801
+},
+{
+"level": "3",
+"word": "合宿",
+"reading": "がっしゅく",
+"jmdict_id": 1284850,
+"rank": 8862
+},
+{
+"level": "3",
+"word": "きりん",
+"reading": "きりん",
+"jmdict_id": 1575200,
+"rank": 8876
+},
+{
+"level": "3",
+"word": "ミーティング",
+"reading": "ミーティング",
+"jmdict_id": 1130380,
+"rank": 8882
+},
+{
+"level": "3",
+"word": "ナビ",
+"reading": "ナビ",
+"jmdict_id": 2187000,
+"rank": 8921
+},
+{
+"level": "3",
+"word": "飲み会",
+"reading": "のみかい",
+"jmdict_id": 2016170,
+"rank": 8930
+},
+{
+"level": "3",
+"word": "ヘルメット",
+"reading": "ヘルメット",
+"jmdict_id": 1119000,
+"rank": 9537
+},
+{
+"level": "3",
+"word": "のり",
+"reading": "のり",
+"jmdict_id": 1201620,
+"rank": 9680
+},
+{
+"level": "3",
+"word": "ひき肉",
+"reading": "ひきにく",
+"jmdict_id": 1611330,
+"rank": 9683
+},
+{
+"level": "3",
+"word": "スタンプ",
+"reading": "スタンプ",
+"jmdict_id": 1070030,
+"rank": 9695
+},
+{
+"level": "3",
+"word": "パンダ",
+"reading": "パンダ",
+"jmdict_id": 1103210,
+"rank": 9979
+},
+{
+"level": "3",
+"word": "抹茶",
+"reading": "まっちゃ",
+"jmdict_id": 1525220,
+"rank": 10068
+},
+{
+"level": "3",
+"word": "閉店",
+"reading": "へいてん",
+"jmdict_id": 1508720,
+"rank": 10117
+},
+{
+"level": "3",
+"word": "ブロッコリー",
+"reading": "ブロッコリー",
+"jmdict_id": 2005660,
+"rank": 10254
+},
+{
+"level": "3",
+"word": "インスタント",
+"reading": "インスタント",
+"jmdict_id": 1022550,
+"rank": 10347
+},
+{
+"level": "3",
+"word": "わさび",
+"reading": "わさび",
+"jmdict_id": 1302710,
+"rank": 10613
+},
+{
+"level": "3",
+"word": "卓球",
+"reading": "たっきゅう",
+"jmdict_id": 1415610,
+"rank": 10638
+},
+{
+"level": "3",
+"word": "カッター",
+"reading": "カッター",
+"jmdict_id": 1037590,
+"rank": 10810
+},
+{
+"level": "3",
+"word": "イタリアン",
+"reading": "イタリアン",
+"jmdict_id": 2080340,
+"rank": 10955
+},
+{
+"level": "3",
+"word": "パーマ",
+"reading": "パーマ",
+"jmdict_id": 1100930,
+"rank": 10988
+},
+{
+"level": "3",
+"word": "手書き",
+"reading": "てがき",
+"jmdict_id": 1327830,
+"rank": 11203
+},
+{
+"level": "3",
+"word": "トレーナー",
+"reading": "トレーナー",
+"jmdict_id": 1087090,
+"rank": 11482
+},
+{
+"level": "3",
+"word": "花屋",
+"reading": "はなや",
+"jmdict_id": 1194560,
+"rank": 11531
+},
+{
+"level": "3",
+"word": "前髪",
+"reading": "まえがみ",
+"jmdict_id": 1393880,
+"rank": 11651
+},
+{
+"level": "3",
+"word": "ボウリング",
+"reading": "ボウリング",
+"jmdict_id": 1123540,
+"rank": 11904
+},
+{
+"level": "3",
+"word": "バーベキュー",
+"reading": "バーベキュー",
+"jmdict_id": 1097340,
+"rank": 12299
+},
+{
+"level": "3",
+"word": "焼き鳥",
+"reading": "やきとり",
+"jmdict_id": 1605410,
+"rank": 12301
+},
+{
+"level": "3",
+"word": "ドーナツ",
+"reading": "ドーナツ",
+"jmdict_id": 1087690,
+"rank": 12320
+},
+{
+"level": "3",
+"word": "半袖",
+"reading": "はんそで",
+"jmdict_id": 1479620,
+"rank": 12323
+},
+{
+"level": "3",
+"word": "飲み屋",
+"reading": "のみや",
+"jmdict_id": 1600440,
+"rank": 12479
+},
+{
+"level": "3",
+"word": "墓参り",
+"reading": "はかまいり",
+"jmdict_id": 1584020,
+"rank": 12949
+},
+{
+"level": "3",
+"word": "ペンギン",
+"reading": "ペンギン",
+"jmdict_id": 1121410,
+"rank": 13320
+},
+{
+"level": "3",
+"word": "すき焼き",
+"reading": "すきやき",
+"jmdict_id": 1474440,
+"rank": 13758
+},
+{
+"level": "3",
+"word": "折り紙",
+"reading": "おりがみ",
+"jmdict_id": 1589450,
+"rank": 13865
+},
+{
+"level": "3",
+"word": "大盛り",
+"reading": "おおもり",
+"jmdict_id": 1414280,
+"rank": 14198
+},
+{
+"level": "3",
+"word": "ファミレス",
+"reading": "ファミレス",
+"jmdict_id": 1924790,
+"rank": 16657
+},
+{
+"level": "3",
+"word": "アプリ",
+"reading": "アプリ",
+"jmdict_id": 1018190,
+"rank": 18372
+},
+{
+"level": "3",
+"word": "味見",
+"reading": "あじみ",
+"jmdict_id": 1722300,
+"rank": 18704
+},
+{
+"level": "3",
+"word": "しょっぱい",
+"reading": "しょっぱい",
+"jmdict_id": 1178620,
+"rank": 19775
+},
+{
+"level": "3",
+"word": "タブレット",
+"reading": "タブレット",
+"jmdict_id": 1076410,
+"rank": null
+},
+{
+"level": "3",
+"word": "班長",
+"reading": "はんちょう",
+"jmdict_id": 1481650,
+"rank": null
+},
+{
+"level": "3",
+"word": "終電",
+"reading": "しゅうでん",
+"jmdict_id": 1332960,
+"rank": null
+},
+{
+"level": "3",
+"word": "お好み焼き",
+"reading": "おこのみやき",
+"jmdict_id": 1001890,
+"rank": null
 },
 {
 "level": "4",
@@ -7309,34 +11740,6 @@
 },
 {
 "level": "4",
-"word": "ミリメートル",
-"reading": "ミリメートル",
-"jmdict_id": 1131930,
-"rank": 1978
-},
-{
-"level": "4",
-"word": "両手",
-"reading": "りょうて",
-"jmdict_id": 1553660,
-"rank": 2007
-},
-{
-"level": "4",
-"word": "本日",
-"reading": "ほんじつ",
-"jmdict_id": 1523110,
-"rank": 2330
-},
-{
-"level": "4",
-"word": "右手",
-"reading": "みぎて",
-"jmdict_id": 1171120,
-"rank": 2504
-},
-{
-"level": "4",
 "word": "サッカー",
 "reading": "サッカー",
 "jmdict_id": 1056700,
@@ -7372,13 +11775,6 @@
 },
 {
 "level": "4",
-"word": "彼氏",
-"reading": "かれし",
-"jmdict_id": 1483140,
-"rank": 2897
-},
-{
-"level": "4",
 "word": "ねえ",
 "reading": "ねえ",
 "jmdict_id": 2029080,
@@ -7400,13 +11796,6 @@
 },
 {
 "level": "4",
-"word": "左手",
-"reading": "ひだりて",
-"jmdict_id": 1290900,
-"rank": 3016
-},
-{
-"level": "4",
 "word": "豆腐",
 "reading": "とうふ",
 "jmdict_id": 1450070,
@@ -7414,10 +11803,10 @@
 },
 {
 "level": "4",
-"word": "休日",
-"reading": "きゅうじつ",
-"jmdict_id": 1228040,
-"rank": 3208
+"word": "りんご",
+"reading": "りんご",
+"jmdict_id": 1555480,
+"rank": 3172
 },
 {
 "level": "4",
@@ -7432,13 +11821,6 @@
 "reading": "だいこん",
 "jmdict_id": 1413730,
 "rank": 3446
-},
-{
-"level": "4",
-"word": "玉ねぎ",
-"reading": "たまねぎ",
-"jmdict_id": 1240670,
-"rank": 3539
 },
 {
 "level": "4",
@@ -7463,13 +11845,6 @@
 },
 {
 "level": "4",
-"word": "アニメ",
-"reading": "アニメ",
-"jmdict_id": 1017590,
-"rank": 3633
-},
-{
-"level": "4",
 "word": "中学生",
 "reading": "ちゅうがくせい",
 "jmdict_id": 1423660,
@@ -7488,13 +11863,6 @@
 "reading": "へえ",
 "jmdict_id": 2019590,
 "rank": 3712
-},
-{
-"level": "4",
-"word": "キッチン",
-"reading": "キッチン",
-"jmdict_id": 1041150,
-"rank": 3771
 },
 {
 "level": "4",
@@ -7540,20 +11908,6 @@
 },
 {
 "level": "4",
-"word": "桃",
-"reading": "もも",
-"jmdict_id": 1448290,
-"rank": 4122
-},
-{
-"level": "4",
-"word": "ミリリットル",
-"reading": "ミリリットル",
-"jmdict_id": 1131940,
-"rank": 4185
-},
-{
-"level": "4",
 "word": "わあ",
 "reading": "わあ",
 "jmdict_id": 2087950,
@@ -7575,27 +11929,6 @@
 },
 {
 "level": "4",
-"word": "片手",
-"reading": "かたて",
-"jmdict_id": 1511690,
-"rank": 4304
-},
-{
-"level": "4",
-"word": "週末",
-"reading": "しゅうまつ",
-"jmdict_id": 1333520,
-"rank": 4327
-},
-{
-"level": "4",
-"word": "右側",
-"reading": "みぎがわ",
-"jmdict_id": 1576400,
-"rank": 4410
-},
-{
-"level": "4",
 "word": "コンビニ",
 "reading": "コンビニ",
 "jmdict_id": 1053280,
@@ -7603,31 +11936,10 @@
 },
 {
 "level": "4",
-"word": "左側",
-"reading": "ひだりがわ",
-"jmdict_id": 1579180,
-"rank": 4465
-},
-{
-"level": "4",
-"word": "にんにく",
-"reading": "にんにく",
-"jmdict_id": 1599940,
-"rank": 4603
-},
-{
-"level": "4",
 "word": "寿司",
 "reading": "すし",
 "jmdict_id": 1595650,
 "rank": 4653
-},
-{
-"level": "4",
-"word": "駅前",
-"reading": "えきまえ",
-"jmdict_id": 1175170,
-"rank": 4728
 },
 {
 "level": "4",
@@ -7652,13 +11964,6 @@
 },
 {
 "level": "4",
-"word": "じゃがいも",
-"reading": "じゃがいも",
-"jmdict_id": 1005930,
-"rank": 4798
-},
-{
-"level": "4",
 "word": "お世話",
 "reading": "おせわ",
 "jmdict_id": 2144410,
@@ -7673,13 +11978,6 @@
 },
 {
 "level": "4",
-"word": "セント",
-"reading": "セント",
-"jmdict_id": 1075090,
-"rank": 4872
-},
-{
-"level": "4",
 "word": "しょうが",
 "reading": "しょうが",
 "jmdict_id": 1379620,
@@ -7687,24 +11985,10 @@
 },
 {
 "level": "4",
-"word": "キャベツ",
-"reading": "キャベツ",
-"jmdict_id": 1041870,
-"rank": 4963
-},
-{
-"level": "4",
 "word": "レモン",
 "reading": "レモン",
 "jmdict_id": 1146020,
 "rank": 4972
-},
-{
-"level": "4",
-"word": "片方",
-"reading": "かたほう",
-"jmdict_id": 1511810,
-"rank": 5007
 },
 {
 "level": "4",
@@ -7729,20 +12013,6 @@
 },
 {
 "level": "4",
-"word": "きのこ",
-"reading": "きのこ",
-"jmdict_id": 1416010,
-"rank": 5276
-},
-{
-"level": "4",
-"word": "いちご",
-"reading": "いちご",
-"jmdict_id": 1571460,
-"rank": 5341
-},
-{
-"level": "4",
 "word": "奥様",
 "reading": "おくさま",
 "jmdict_id": 1179630,
@@ -7764,17 +12034,17 @@
 },
 {
 "level": "4",
-"word": "みかん",
-"reading": "みかん",
-"jmdict_id": 1528410,
-"rank": 5656
+"word": "納豆",
+"reading": "なっとう",
+"jmdict_id": 1470070,
+"rank": 5740
 },
 {
 "level": "4",
-"word": "かに",
-"reading": "かに",
-"jmdict_id": 1202410,
-"rank": 5711
+"word": "オーブン",
+"reading": "オーブン",
+"jmdict_id": 1032930,
+"rank": 5752
 },
 {
 "level": "4",
@@ -7785,17 +12055,66 @@
 },
 {
 "level": "4",
-"word": "たこ",
-"reading": "たこ",
-"jmdict_id": 1596910,
-"rank": 5858
-},
-{
-"level": "4",
 "word": "カラオケ",
 "reading": "カラオケ",
 "jmdict_id": 1038660,
 "rank": 5912
+},
+{
+"level": "4",
+"word": "土日",
+"reading": "どにち",
+"jmdict_id": 1898600,
+"rank": 6378
+},
+{
+"level": "4",
+"word": "ギョーザ",
+"reading": "ギョーザ",
+"jmdict_id": 1574430,
+"rank": 6622
+},
+{
+"level": "4",
+"word": "コーラ",
+"reading": "コーラ",
+"jmdict_id": 1049330,
+"rank": 6710
+},
+{
+"level": "4",
+"word": "おにぎり",
+"reading": "おにぎり",
+"jmdict_id": 1001620,
+"rank": 7295
+},
+{
+"level": "4",
+"word": "ポテト",
+"reading": "ポテト",
+"jmdict_id": 1125400,
+"rank": 7339
+},
+{
+"level": "4",
+"word": "ピザ",
+"reading": "ピザ",
+"jmdict_id": 1106620,
+"rank": 7361
+},
+{
+"level": "4",
+"word": "唐揚げ",
+"reading": "からあげ",
+"jmdict_id": 1590640,
+"rank": 11145
+},
+{
+"level": "4",
+"word": "スマホ",
+"reading": "スマホ",
+"jmdict_id": 2641300,
+"rank": null
 },
 {
 "level": "5",
@@ -7824,12 +12143,5 @@
 "reading": "なんにん",
 "jmdict_id": 1189100,
 "rank": 2646
-},
-{
-"level": "5",
-"word": "りんご",
-"reading": "りんご",
-"jmdict_id": 1555480,
-"rank": 3172
 }
 ]
