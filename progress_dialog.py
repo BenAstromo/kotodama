@@ -4879,12 +4879,18 @@ class WordGridPanel(QWidget):
         """(display, reading) → nid of a never-studied card with that word."""
         return (self._results.get("new_cards") or {}).get("words") or {}
 
-    def _split_new(self, missing) -> tuple[list, list]:
-        """Missing words → (in a new card, not in the deck): New tiles go
-        right after the known ones."""
+    def _split_new(self, missing) -> tuple[list, list, list]:
+        """Missing words → (in a new card, marked loanwords waiting to join,
+        not in the deck). New tiles go right after the known ones, then the
+        waiting loanwords (faint ★) as one group (owner 2026-10-29), then the
+        rest."""
         new = self._new_words()
-        return ([m for m in missing if tuple(m) in new],
-                [m for m in missing if tuple(m) not in new])
+        wait = (self._results.get("loans_waiting") or {}).get("pairs", ())
+        waiting = [m for m in missing if tuple(m) in wait]
+        rest = [m for m in missing if tuple(m) not in wait]
+        return ([m for m in rest if tuple(m) in new],
+                waiting,
+                [m for m in rest if tuple(m) not in new])
 
     def _make_cell(self, display, reading, nid, level, rank=None):
         cell = WordCell(display, reading, nid, level, self._overrides, rank=rank,
@@ -4967,7 +4973,7 @@ class WordGridPanel(QWidget):
             order = QLabel(
                 f"Known words are shown level by level; within each level they're grouped "
                 f"{GROUPING_TEXT} (★ marked found last), most common first in each group. "
-                "New words (dashed: in your deck, not studied yet), then missing words, follow."
+                "New words (dashed: in your deck, not studied yet), then marked English loanwords not counted yet (faint ★), then missing words, follow."
             )
             order.setWordWrap(True)
             order.setStyleSheet(HINT_CSS)
@@ -4993,9 +4999,10 @@ class WordGridPanel(QWidget):
             cells = []
             for _, lvl, disp, read, nid in known_all:
                 cells.append(self._make_cell(disp, read, nid, lvl))
-            # New (in a never-studied card) next, then missing, each by level.
+            # New (in a never-studied card) next, then waiting loanwords, then
+            # missing, each by level.
             split = {lvl: self._split_new(self._results[lvl]["missing_words"]) for lvl in LEVELS}
-            for part in (0, 1):
+            for part in (0, 1, 2):
                 for lvl in LEVELS:
                     for disp, read in split[lvl][part]:
                         cells.append(self._make_cell(disp, read, None, lvl))
@@ -5007,7 +5014,7 @@ class WordGridPanel(QWidget):
             order = QLabel(
                 f"Known words are grouped {GROUPING_TEXT} (★ marked found last), "
                 "most common first in each group. New words (dashed: in your deck, not studied yet), "
-                "then missing words, follow."
+                "then marked English loanwords not counted yet (faint ★), then missing words, follow."
             )
             # Wrapped: unwrapped, its width pushed the tiles past the grid
             # window's right edge (owner 2026-10-22).
@@ -5027,8 +5034,8 @@ class WordGridPanel(QWidget):
                 cells = []
                 for disp, read, nid in known:
                     cells.append(self._make_cell(disp, read, nid, lvl))
-                new, rest = self._split_new(missing)
-                for disp, read in new + rest:
+                new, waiting, rest = self._split_new(missing)
+                for disp, read in new + waiting + rest:
                     cells.append(self._make_cell(disp, read, None, lvl))
                 self._all_cells.extend(cells)
                 vbox.addWidget(_TileCanvas(cells, glow=True))
@@ -5079,7 +5086,7 @@ class WordGridPanel(QWidget):
         leg.addStretch()
         vbox.addLayout(leg)
         hint = QLabel(f"Known words first, grouped {GROUPING_TEXT} (★ marked found last), "
-                      "most common first in each group; then new words (dashed) and missing words in frequency order. "
+                      "most common first in each group; then new words (dashed), marked English loanwords not counted yet (faint ★) and missing words in frequency order. "
                       "Hover: meaning and rank  ·  Shift+Click: Jisho  ·  "
                       "Middle-click: mark as found  ·  Ctrl+Middle-click: suspend (left out of "
                       "the counts). Marks are shared with the JLPT lists; Refresh updates the bars.")
@@ -5111,10 +5118,17 @@ class WordGridPanel(QWidget):
             # Known words first, grouped by maturity (rank order inside each
             # group; marked found last), then missing words in rank order.
             maturity = self._results.get("maturity", {})
+            # Known, then new, then the marked loanwords still waiting to join
+            # (faint ★; held out of found_ranks) as one group (owner
+            # 2026-10-29), then missing.
+            def is_waiting(e):
+                return e[3] is None and (e[0] - 1) in waiting
+            rest = [e for e in band if not is_known(e) and not is_waiting(e)]
             ordered = (sorted((e for e in band if is_known(e)),
                               key=lambda e: (maturity_group(maturity, e[3]), e[0]))
-                       + [e for e in band if not is_known(e) and e[0] in new_ranks]
-                       + [e for e in band if not is_known(e) and e[0] not in new_ranks])
+                       + [e for e in rest if e[0] in new_ranks]
+                       + [e for e in band if not is_known(e) and is_waiting(e)]
+                       + [e for e in rest if e[0] not in new_ranks])
             cells = [
                 WordCell(display, reading, nid, "freq", self._overrides,
                          rank=rank, maturity=maturity.get(nid),
