@@ -179,6 +179,12 @@ The same credits are in Anki under **Kotodama → About Kotodama…**.
 - **Community additions:** 211 words on community JLPT lists ([jamsinclair/open-anki-jlpt-decks](https://github.com/jamsinclair/open-anki-jlpt-decks), [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list)) that Waller's current lists don't have, e.g. 顔, 母, 頑張る, 当然, 仕方がない. They use those lists' levels and are flagged `community` in the list files. Both lists are MIT-licensed; their notices are in `THIRD_PARTY_NOTICES.txt`.
 - **Our additions:** 1,126 common words that no JLPT list has, chosen from the 6,000 most common words of written Japanese (e.g. メール, 私たち, 可能性, 動画), flagged `ours` in the list files. The levels are our own: they follow the JLPT's official level descriptions and how the lists place similar words. Words built regularly from a listed word (大きさ, 具体的), katakana stand-ins for native words and official-document terms are left out.
 
+**Corpus references.** The frequency data comes from these corpora, with thanks to NINJAL:
+
+- Maekawa, K., Yamazaki, M., Ogiso, T., Maruyama, T., Ogura, H., Kashino, W., Koiso, H., Yamaguchi, M., Tanaka, M., & Den, Y. (2014). Balanced corpus of contemporary written Japanese. *Language Resources and Evaluation*, 48(2), 345–371. https://doi.org/10.1007/s10579-013-9261-0
+- Koiso, H., Amatani, H., Den, Y., Iseki, Y., Ishimoto, Y., Kashino, W., Kawabata, Y., Nishikawa, K., Tanaka, Y., Watanabe, Y., & Usuda, Y. (2022). Design and Evaluation of the Corpus of Everyday Japanese Conversation. *Proceedings of LREC 2022*, 5587–5594.
+- 小磯花絵・天谷晴香・居關友里子・臼田泰如・柏野和佳子・川端良子・田中弥生・伝康晴・西川賢哉・渡邊友香 (2023)「『日本語日常会話コーパス』設計と構築」『国立国語研究所論集』24, 153–168.
+
 ## Supporting Kotodama
 Kotodama is free, and nothing is unlocked by money. **♥ Support** (bottom left of the window) explains how to leave a tip on [Ko-fi](https://ko-fi.com/benastromo). If you're in Nakama and put your friend code in the Ko-fi message, your Nakama card and share image say **♥ Supported Kotodama**: one plain line, the same for any amount. The Nakama server keeps only the date of your first tip with your code (no name, email or amount).
 
@@ -191,4 +197,4 @@ Copyright (C) 2026 BenAstromo.
 
 Kotodama's code is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version. It is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License (the LICENSE file) for more details.
 
-The bundled data keeps its own licences (see Data sources & credits): the derived word, kanji, grammar and meaning files are shared under CC BY-SA 4.0, and the frequency files (freq_bccwj.txt, freq_extra.txt, freq_cejc.txt, freq_splits.py) remain under NINJAL's CC BY-NC-ND 3.0 terms. The rank pictures are by the author; the animated Amaterasu was made in Wallpaper Engine.
+The bundled data keeps its own licences (see Data sources & credits): the derived word, kanji, grammar and meaning files are shared under CC BY-SA 4.0, and the frequency files (freq_bccwj.txt, freq_extra.txt, freq_cejc.txt, freq_splits.py) remain under NINJAL's CC BY-NC-ND 3.0 terms. The rank pictures were made for Kotodama; the animated Amaterasu was made in Wallpaper Engine.

@@ -46,8 +46,20 @@ CREDITS = """
  table ver202209, <a href="https://www2.ninjal.ac.jp/conversation/cejc.html">NINJAL</a>
  (CC BY-NC-ND 3.0).</li>
 </ul>
+<h3 style="margin-bottom:2px;">Corpus references</h3>
+<ul style="margin-top:0;">
+<li>Maekawa, K., Yamazaki, M., Ogiso, T., Maruyama, T., Ogura, H., Kashino, W., Koiso, H., Yamaguchi, M.,
+ Tanaka, M., &amp; Den, Y. (2014). Balanced corpus of contemporary written Japanese.
+ <i>Language Resources and Evaluation</i>, 48(2), 345–371.
+ <a href="https://doi.org/10.1007/s10579-013-9261-0">doi:10.1007/s10579-013-9261-0</a></li>
+<li>Koiso, H., Amatani, H., Den, Y., Iseki, Y., Ishimoto, Y., Kashino, W., Kawabata, Y., Nishikawa, K.,
+ Tanaka, Y., Watanabe, Y., &amp; Usuda, Y. (2022). Design and Evaluation of the Corpus of Everyday
+ Japanese Conversation. <i>Proceedings of LREC 2022</i>, 5587–5594.</li>
+<li>小磯花絵・天谷晴香・居關友里子・臼田泰如・柏野和佳子・川端良子・田中弥生・伝康晴・西川賢哉・渡邊友香 (2023)
+ 「『日本語日常会話コーパス』設計と構築」『国立国語研究所論集』24, 153–168.</li>
+</ul>
 <p>The derived word, kanji, grammar and meaning files are shared under CC BY-SA 4.0; the frequency
-files keep NINJAL's CC BY-NC-ND 3.0 terms. The rank pictures are by the author.</p>
+files keep NINJAL's CC BY-NC-ND 3.0 terms. The rank pictures were made for Kotodama.</p>
 """
 
 
