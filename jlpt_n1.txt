@@ -1,4 +1,4 @@
-# JLPT N1 vocabulary list — 3213 words
+# JLPT N1 vocabulary list — 3590 words
 # Source: OpenJLPT (github.com/evanclan/OpenJLPT), CC BY-SA 4.0,
 #   levels from Jonathan Waller's JLPT lists (tanos.co.uk), CC BY.
 # Alternate spellings and loanword flags derived from JMdict (EDRDG), CC BY-SA 4.0.
@@ -3222,3 +3222,380 @@
 断つ	たつ	絶つ|斷つ	ours
 修める	おさめる		ours
 創る	つくる	作る|造る	ours
+法人	ほうじん		ours
+債務	さいむ		ours
+諸国	しょこく		ours
+保全	ほぜん		ours
+証券	しょうけん	證券	ours
+何ら	なんら	何等	ours	なにら
+執行	しっこう		ours	しゅぎょう|しゅうぎょう|しぎょう
+施策	しさく		ours
+給付	きゅうふ		ours
+理事	りじ		ours
+療法	りょうほう		ours
+入札	にゅうさつ		ours
+部隊	ぶたい		ours
+将軍	しょうぐん		ours
+帝国	ていこく	帝國	ours
+藩	はん		ours
+監査	かんさ	鑑査	ours
+要件	ようけん		ours
+株主	かぶぬし		ours
+幕府	ばくふ		ours
+適正	てきせい		ours
+策定	さくてい		ours
+旨	むね	宗	ours
+発する	はっする		ours
+著作	ちょさく		ours
+講じる	こうじる		ours
+助成	じょせい		ours
+海軍	かいぐん		ours
+保有	ほゆう		ours
+答弁	とうべん	答辯	ours
+編成	へんせい		ours
+陥る	おちいる	落ち入る	ours
+疾患	しっかん		ours
+放つ	はなつ		ours
+見出す	みいだす	見いだす|見出だす|見い出す	ours	みだす
+排出	はいしゅつ		ours
+当局	とうきょく		ours
+いかなる	いかなる	如何なる	ours
+行使	こうし		ours
+指数	しすう		ours
+司令	しれい		ours
+認知	にんち		ours
+晒す	さらす	曝す	ours
+条例	じょうれい	条令	ours
+理念	りねん		ours
+制御	せいぎょ	制禦|制馭	ours
+関数	かんすう	函数	ours
+際する	さいする		ours
+締結	ていけつ		ours
+連結	れんけつ		ours
+次元	じげん		ours
+集落	しゅうらく	聚落	ours	じゅらく
+巨人	きょじん		ours
+被告	ひこく		ours
+皇帝	こうてい		ours
+表明	ひょうめい		ours
+米軍	べいぐん		ours
+指標	しひょう		ours
+復帰	ふっき		ours
+定着	ていちゃく		ours
+陸軍	りくぐん		ours
+披露	ひろう		ours
+創設	そうせつ		ours
+担保	たんぽ		ours
+金融機関	きんゆうきかん		ours
+保安	ほあん		ours
+倫理	りんり		ours
+追求	ついきゅう		ours
+摂取	せっしゅ	接取	ours
+同年	どうねん		ours
+苦笑	くしょう		ours
+搭載	とうさい		ours
+消滅	しょうめつ		ours
+挿入	そうにゅう	插入	ours
+保持	ほじ		ours
+民営	みんえい		ours
+一貫	いっかん		ours
+動脈	どうみゃく		ours
+民衆	みんしゅう		ours
+己	おのれ	己れ	ours
+投与	とうよ		ours
+特例	とくれい		ours
+銘柄	めいがら		ours
+加盟	かめい		ours
+検察	けんさつ	檢察	ours
+配当	はいとう		ours
+検証	けんしょう		ours
+粒子	りゅうし		ours
+受給	じゅきゅう		ours
+懸念	けねん		ours	けんねん
+広域	こういき		ours
+納税	のうぜい		ours
+おおむね	おおむね	概ね|大旨	ours
+笑み	えみ		ours
+法令	ほうれい		ours
+指針	ししん		ours
+半身	はんしん		ours
+子宮	しきゅう		ours
+売却	ばいきゃく		ours
+振るう	ふるう	揮う|振う	ours
+任意	にんい		ours
+考察	こうさつ		ours
+出資	しゅっし		ours
+民法	みんぽう		ours
+解明	かいめい		ours
+枠組み	わくぐみ	枠組	ours
+景観	けいかん		ours
+借り入れ	かりいれ	借入れ|借入	ours
+土壌	どじょう		ours
+侵害	しんがい		ours
+省庁	しょうちょう		ours
+闘争	とうそう	斗争|鬪爭	ours
+遂行	すいこう		ours
+税制	ぜいせい		ours
+解析	かいせき	解折	ours
+移植	いしょく	移殖	ours
+実証	じっしょう		ours
+遺族	いぞく		ours
+回避	かいひ		ours
+一族	いちぞく		ours
+一環	いっかん		ours
+オーナー	オーナー		ours,eng	オーナ
+ハード	ハード		ours,abbr
+水質	すいしつ		ours
+生成	せいせい		ours
+浸透	しんとう	滲透	ours
+臨床	りんしょう		ours
+品目	ひんもく		ours	しなめ
+付加	ふか	附加	ours
+除去	じょきょ		ours
+奴隷	どれい		ours
+艦隊	かんたい		ours
+療養	りょうよう		ours
+他者	たしゃ		ours
+公益	こうえき		ours
+古墳	こふん		ours
+認可	にんか		ours
+補正	ほせい		ours
+収録	しゅうろく	收錄	ours
+いささか	いささか	些か|聊か|些|聊	ours
+馴染む	なじむ		ours
+葬儀	そうぎ		ours
+歩行	ほこう		ours
+通商	つうしょう		ours
+小児	しょうに		ours	しょうじ
+薬剤	やくざい		ours
+破綻	はたん	破たん	ours
+当面	とうめん		ours
+出土	しゅつど		ours
+開示	かいじ		ours
+分泌	ぶんぴつ		ours	ぶんぴ
+増殖	ぞうしょく		ours
+代替	だいたい	代替え	ours	だいがえ
+上場	じょうじょう		ours
+陛下	へいか		ours
+某	ぼう		ours
+野郎	やろう		ours
+薬物	やくぶつ		ours
+見込む	みこむ		ours
+馴染み	なじみ	馴染|馴じみ	ours
+実務	じつむ		ours
+遺言	ゆいごん		ours
+同社	どうしゃ		ours
+欲求	よっきゅう		ours
+卸売	おろしうり	卸売り|卸し売り	ours
+明記	めいき		ours
+検挙	けんきょ		ours
+浄化	じょうか		ours
+生態	せいたい		ours
+提起	ていき		ours
+判明	はんめい		ours
+解する	かいする		ours
+負荷	ふか		ours
+申し立て	もうしたて	申立|申立て	ours
+乗り出す	のりだす	乗りだす|のり出す|乗出す	ours
+示唆	しさ		ours
+手形	てがた		ours
+買収	ばいしゅう		ours
+検出	けんしゅつ		ours
+解体	かいたい		ours
+立地	りっち		ours
+新設	しんせつ		ours
+総裁	そうさい		ours
+もとより	もとより	元より|固より|素より	ours
+当事者	とうじしゃ		ours
+形状	けいじょう		ours
+潜在	せんざい		ours
+名義	めいぎ	名儀	ours
+殺害	さつがい		ours	せつがい|せちがい
+工程	こうてい		ours
+癒す	いやす	癒やす	ours
+事実上	じじつじょう		ours
+あほう	あほう	阿呆|阿房	ours	アホ|あほ|アホウ
+表記	ひょうき		ours
+脅威	きょうい		ours
+親族	しんぞく		ours
+継承	けいしょう		ours
+信託	しんたく		ours
+啓発	けいはつ		ours
+変形	へんけい		ours
+喪失	そうしつ		ours
+酵素	こうそ		ours
+客観的	きゃっかんてき		ours	かっかんてき
+支所	ししょ		ours
+顕著	けんちょ	顯著	ours
+源泉	げんせん	原泉	ours
+大名	だいみょう		ours
+幻想	げんそう		ours
+財団	ざいだん		ours
+戦場	せんじょう		ours
+下落	げらく		ours
+支障	ししょう		ours
+慢性	まんせい		ours
+大将	たいしょう	大將	ours	だいしょう
+主流	しゅりゅう		ours
+包括	ほうかつ		ours
+決済	けっさい		ours
+参入	さんにゅう		ours
+着実	ちゃくじつ		ours
+一向	いっこう		ours
+適合	てきごう		ours
+出荷	しゅっか		ours
+変数	へんすう		ours
+集積	しゅうせき		ours
+系列	けいれつ		ours
+推計	すいけい		ours
+入所	にゅうしょ		ours
+流動	りゅうどう		ours
+部位	ぶい		ours
+鑑定	かんてい		ours
+提言	ていげん		ours
+頻度	ひんど		ours
+守護	しゅご		ours	すご
+参画	さんかく		ours
+反論	はんろん		ours
+留意	りゅうい		ours
+広大	こうだい	宏大|弘大	ours
+表彰	ひょうしょう	表賞	ours
+奉行	ぶぎょう		ours
+法定	ほうてい		ours
+囚われる	とらわれる	捕らわれる|捕われる|捉われる	ours
+遺体	いたい		ours
+麻薬	まやく	痲薬	ours
+代謝	たいしゃ		ours
+メカニズム	メカニズム		ours,eng
+需給	じゅきゅう		ours
+強度	きょうど		ours
+養子	ようし		ours
+処遇	しょぐう		ours
+後継	こうけい		ours
+委ねる	ゆだねる		ours
+戦車	せんしゃ		ours
+甲斐	かい	詮|効	ours
+仕草	しぐさ	仕種|為種	ours
+急増	きゅうぞう		ours
+言及	げんきゅう		ours
+融合	ゆうごう		ours
+防御	ぼうぎょ	防禦	ours
+選定	せんてい		ours
+因子	いんし		ours
+リース	リース		ours,eng
+閣僚	かくりょう		ours
+肝臓	かんぞう		ours
+乳房	ちぶさ		ours	にゅうぼう
+新生	しんせい		ours
+出願	しゅつがん		ours
+活性化	かっせいか		ours
+仮説	かせつ		ours
+更生	こうせい	甦生	ours
+算出	さんしゅつ		ours
+装着	そうちゃく		ours
+駆る	かる	駈る	ours
+修復	しゅうふく	修覆	ours	しゅふく
+事業者	じぎょうしゃ		ours
+所得税	しょとくぜい		ours
+抽出	ちゅうしゅつ		ours
+損傷	そんしょう		ours
+建造	けんぞう		ours
+原価	げんか	元価	ours
+史料	しりょう		ours
+国債	こくさい		ours
+眼差し	まなざし	目差し|目差|眼指	ours
+打ち出す	うちだす	打出す|打ちだす	ours
+下回る	したまわる	下廻る	ours
+腫瘍	しゅよう		ours
+覚醒	かくせい	覚せい	ours
+騎士	きし		ours
+信念	しんねん		ours
+中核	ちゅうかく	仲核	ours
+称える	たたえる	讃える|讚える|賛える	ours
+名目	めいもく		ours	みょうもく
+発症	はっしょう		ours
+周知	しゅうち		ours
+凄まじい	すさまじい	凄じい	ours
+染色	せんしょく		ours
+宅地	たくち		ours
+乳幼児	にゅうようじ		ours
+突入	とつにゅう		ours
+沙汰	さた		ours
+近隣	きんりん		ours
+均等	きんとう		ours
+刑法	けいほう		ours
+照射	しょうしゃ		ours
+あたかも	あたかも	恰も|宛も	ours	あだかも
+特異	とくい		ours
+潜める	ひそめる	濳める	ours
+妄想	もうそう	盲想	ours	ぼうそう
+実体	じったい		ours
+書記	しょき		ours
+相次ぐ	あいつぐ	相継ぐ	ours
+潜む	ひそむ	潛む|濳む	ours
+民事	みんじ		ours
+感性	かんせい		ours
+師匠	ししょう		ours
+横たわる	よこたわる		ours
+復元	ふくげん	復原	ours
+姑	しゅうとめ		ours	しゅうと|しうとめ|しいとめ
+合戦	かっせん		ours
+朝廷	ちょうてい		ours
+坊主	ぼうず	房主	ours	ぼんず
+種子	しゅし		ours
+在日	ざいにち		ours
+槍	やり	鎗|鑓	ours
+民主主義	みんしゅしゅぎ		ours
+即	そく		ours
+採取	さいしゅ		ours
+再編	さいへん		ours
+窒素	ちっそ		ours
+施工	しこう		ours	せこう
+隣接	りんせつ		ours
+百姓	ひゃくしょう		ours
+視界	しかい		ours
+撤退	てったい	徹退	ours
+対外	たいがい		ours
+局面	きょくめん		ours
+盛り込む	もりこむ	盛込む	ours
+自律	じりつ		ours
+境内	けいだい		ours
+応答	おうとう		ours
+天文	てんもん		ours
+犯行	はんこう		ours
+不倫	ふりん		ours
+発酵	はっこう	醗酵|醱酵|はっ酵	ours
+培養	ばいよう		ours
+創業	そうぎょう		ours
+擁護	ようご		ours
+発現	はつげん		ours
+顧問	こもん		ours
+塗装	とそう		ours
+習得	しゅうとく	修得	ours
+言い切る	いいきる	言いきる|いい切る|言切る	ours
+聴取	ちょうしゅ		ours
+発注	はっちゅう	発註	ours
+低迷	ていめい		ours
+阻害	そがい	阻礙|阻碍	ours
+無償	むしょう		ours
+曰く	いわく	曰	ours
+露出	ろしゅつ		ours
+不能	ふのう		ours
+欲	よく	慾	ours
+飛躍	ひやく		ours
+戦国	せんごく		ours
+引き上げ	ひきあげ	引き揚げ|引上げ|引揚げ|引揚	ours
+宴	えん		ours
+拍子	ひょうし		ours
+計測	けいそく		ours
+皇后	こうごう		ours
+高値	たかね		ours
+抜群	ばつぐん		ours	ばっくん|バツグン
+管轄	かんかつ		ours
+類型	るいけい	類形	ours
+多発	たはつ		ours
+主力	しゅりょく		ours
+付与	ふよ	附与	ours
+受注	じゅちゅう	受註	ours
+早々	そうそう	早早	ours
+引きつける	ひきつける	引き付ける|ひき付ける|引付ける	ours

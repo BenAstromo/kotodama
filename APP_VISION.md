@@ -6,15 +6,15 @@
 
 ---
 
-## 0. Current state (updated 2026-10-28, end of fifth session)
+## 0. Current state (updated 2026-10-28, end of sixth session)
 
-**Everything is committed and pushed** (https://github.com/BenAstromo/kotodama, private, branch `main`; `git log` for detail). The working folder matches GitHub. Earlier sessions are logged in `docs/HISTORY.md` (grep the date; the 2026-10-28 fourth and fifth sessions are at the end).
+**Everything is committed; the Word Addition build is not pushed yet** (https://github.com/BenAstromo/kotodama, private, branch `main`; `git log` for detail; push when the owner says). Earlier sessions are logged in `docs/HISTORY.md` (grep the date; the 2026-10-28 sessions are at the end).
 
-**This session (none of it seen in Anki yet — owner to check):**
-- **+N today / week / month** links open those cards in the Browser (the Progress Review opens only from the goal card's "Today" and its daily pop-up); hovering any number explains it (`history.gain_parts` → "+35 today: 30 learned from cards, 5 marked English loanwords joined").
-- **JLPT goal card:** a "?" window (`goal_view._show_info`: N5–N1 milestones shared with the rank window via `progress_dialog.MILESTONES_EN/JA`, which words count, the daily number); a "Learned: k / total" line. Pace from `goal.daily_share`: per day rounded to the nearest; kanji / grammar at ≤ 6 a week show a weekly number over the past 7 days (green: one today, or the week reached); words never weekly.
-- **Progress Review:** level on word hover, kanji / grammar in the bars' colours, "Needed in N days" for words, kanji and grammar.
-- **Removed** the "★ Mark basic particles as found" button (the parser finds them); kanji legend only on the grids; sparks 75 % (`rain.SPARK_SCALE`); kinder Off-list wording; README Text Check accuracy line.
+**This session (not seen in Anki yet, owner to check):**
+- **Word Addition Project built:** 1,119 common words on no list added with our own levels (flag `ours`; 1,126 with the 7 older ones). Lists 8,070 → 9,189 (N5 688, N4 722, N3 1,957, N2 2,232, N1 3,590). Pipeline: `tools/missing_words/final_additions.py owner_choices_round2.json [round3.json]` → `word_additions.json` → `build_jlpt.py`. Decisions: round 2 (`confidence_rules.py` + `owner_choices_round2.json`), fit check (`fit_check.py`, 67 changes from the level-purpose research), round 3 (`round3.py`, #3,901–6,000). Rules the owner agreed: pattern words skipped (大きさ, 具体的, 考え方; 〜的 kept only when the base is rare alone: 本格的, 公的, 客観的, 合理的), katakana stand-ins and official-document terms skipped, お/ご form listed when it's the usual form (お湯, お願い; not ご協力), food N4, computer and job words N3, technical N2. Expect: JLPT bars rise (more words, mostly not yet in decks), History marks a list change (signature), goal totals grow.
+- **Parser:** `ours` words count as frequency-only for the rare-kana penalty (`_RARE_KANA`), so したこと isn't し + たこ + と.
+- UI "about 8,000 words up to N1" → 9,200 (EN + JA); README list size and an "Our additions" credit.
+- Mini widget drops under the stats in a narrow window (owner checked).
 
 **Tests to run after related changes:** `t_marks.py`, `t_dups.py`, `t_kofi.mjs`, `tools/dev/qt_goal.py` and `tools/dev/test_gain.py` (PyQt6 venv `%TEMP%\qtv`), `tools/dev/maint/t_scenarios.py normal` (delete its `env/` after), `tools/grammar_eval.py` + `tools/vocab_eval.py` (0 differences from baseline 2026-10-28), `tools/check_gold_text.py` after any UI text, `parse39.py` / `compat39.py` before a commit.
 
@@ -23,8 +23,9 @@
 **Accuracy state:** grammar fresh recall 91 % (tuning stopped); precision A 99 % / N3 94 % / N2 98 % / N1 97 %; `tools/grammar_cases.json` 4,859 rulings, 0 failures; vocab recall 99.4 % / precision 99.3 %.
 
 **Open (development only; owner's call unless noted):**
-- **Owner checks in Anki:** this session's list above (goal "?" and Learned line, weekly kanji / grammar, +N hovers and Browser links, review hovers / colours, sparks, no particles button). **From the fourth session, still unchecked:** the speech percentage, the goal's "Not included" loanword line, the mist staying off UI elements, rank 342 で without 〔出〕, Kotodama → About Kotodama…, one real Ko-fi tip ("♥ Supported Kotodama"; test `node tools/dev/maint/t_kofi.mjs`; refunds: clear `supporter` by hand; wrangler from the add-on root needs `--config server/wrangler.toml`).
-- **Word Addition Project — on hold: the owner is still reviewing round 2; don't build until they say so.** 589 candidates in the frequency top 3,900 with no JLPT entry → rules in `tools/missing_words/confidence_rules.py` add 453 (N5 5, N4 40, N3 119, N2 190, N1 99), skip 136. Phone review Artifact https://claude.ai/artifact/NHt9rMw2icW5aSLuNxSLuq (ArtifactData `review/choices` = round 1, 52 decisions; `review/round2`). Then: add the words in `tools/build_jlpt.py` with flag `ours`, rebuild, run the evals; the #3,901–6,000 batch (`wa_candidates.json`, db doc `review/round3`); afterwards rebuild `freq_extra.txt` (needs the LUW zip, §6). Grep HISTORY for "Word Addition Project".
+- **Owner checks:** one real Ko-fi tip ("♥ Supported Kotodama"; test `node tools/dev/maint/t_kofi.mjs`; refunds: clear `supporter` by hand; wrangler from the add-on root needs `--config server/wrangler.toml`).
+- **Owner checks in Anki:** this session's list above: JLPT bars and grids with the new words, word hovers on added words (meaning + level), History after the list change, goal totals.
+- **Word Addition Project follow-up:** rebuild `freq_extra.txt` (needs the BCCWJ LUW zip, §6; display/sorting only). Further batches (#6,001+) only if the owner asks. Review pages: https://claude.ai/artifact/NHt9rMw2icW5aSLuNxSLuq (db docs `review/choices`, `round2`, `round3`), fit check https://claude.ai/artifact/Niz5EFogy6r2itUmLuNyc1. Grep HISTORY for "Word Addition Project".
 - **Licence (release_drafts.md §7):** owner sends the NINJAL email (NC + ND for BCCWJ and CEJC); README: add the CEJC citation; owner decides the Grok credit (xAI brand guidelines ask "Created with Grok"; earlier decision was no credit) or redraws; regenerate the three rank pictures copied from real people's photos (§1).
 - **Rank pictures:** new rank icons wait until the owner has Grok Pro again; most likely only Amaterasu stays animated (not final).
 - **Release prep (§11):** testing on other PCs, GitHub page + screenshots (owner: when features feel complete), version bump (3.0.0 now).

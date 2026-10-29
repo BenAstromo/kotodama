@@ -1,0 +1,261 @@
+<title>Kotodama Word Fit Check</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap">
+<style>
+/* Layout: same look as the Word Additions page. Findings tab first, then one tab per kind of suggestion. */
+:root{
+  --bg:#f5f3ee; --surface:#ffffff; --fg:#1d1b17; --muted:#6c675d; --line:#e2ddd2;
+  --accent:#a77a0c; --changed:#fbf1d3;
+  --n5:#3c9a40; --n4:#6aa22b; --n3:#d9730d; --n2:#d23a35; --n1:#8e2fa5; --skip:#8a857b;
+  --pattern:#5b6fb0; --digital:#0f8a8a; --food:#6aa22b; --pairs:#b8660b; --register:#8a857b;
+  --font-jp:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic UI",Meiryo,sans-serif;
+  --font-ui:"IBM Plex Sans",system-ui,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#13120f; --surface:#1c1a16; --fg:#ece8df; --muted:#a19b8e; --line:#2f2c26;
+  --accent:#d4a017; --changed:#3a3113;
+  --n5:#66c46a; --n4:#9ccc55; --n3:#f39a3c; --n2:#f0625c; --n1:#c27ad6; --skip:#9a958a;
+  --pattern:#8fa2e6; --digital:#4fc4c4; --food:#9ccc55; --pairs:#f0a345; --register:#a39d90; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#13120f; --surface:#1c1a16; --fg:#ece8df; --muted:#a19b8e; --line:#2f2c26;
+  --accent:#d4a017; --changed:#3a3113;
+  --n5:#66c46a; --n4:#9ccc55; --n3:#f39a3c; --n2:#f0625c; --n1:#c27ad6; --skip:#9a958a;
+  --pattern:#8fa2e6; --digital:#4fc4c4; --food:#9ccc55; --pairs:#f0a345; --register:#a39d90; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 var(--font-ui);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:820px;margin:0 auto;padding-block:16px 64px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);
+  padding-block:12px 10px;border-bottom:1px solid var(--line);display:grid;gap:10px}
+h1{font:600 19px/1.25 var(--font-ui);margin:0;text-wrap:balance}
+h1 span{font-family:var(--font-jp);color:var(--accent);font-weight:700}
+.tally{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted)}
+.tally b{color:var(--fg);font-variant-numeric:tabular-nums;font-weight:600}
+.sync{font-size:12px;color:var(--muted)}
+.sync.err{color:var(--n2)}
+.tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.tab{flex:0 0 auto;font:500 14px var(--font-ui);border:1px solid var(--line);background:var(--surface);
+  color:var(--fg);border-radius:999px;padding:6px 14px;cursor:pointer;display:flex;gap:7px;align-items:center}
+.tab .dot{width:8px;height:8px;border-radius:50%}
+.tab .c{color:var(--muted);font-variant-numeric:tabular-nums;font-size:13px}
+.tab[aria-selected="true"]{border-color:var(--fg);box-shadow:inset 0 0 0 1px var(--fg)}
+.tab:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* findings */
+.find{display:grid;gap:18px;padding-block:16px}
+.find h2{font:600 16px/1.3 var(--font-ui);margin:0 0 6px;text-wrap:balance}
+.find p,.find li{margin:0;max-width:65ch;font-size:14.5px}
+.find ul{margin:6px 0 0;padding-left:20px;display:grid;gap:6px}
+.find .jp{font-family:var(--font-jp);font-weight:500}
+.verdict{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:14px 16px;display:grid;gap:8px}
+.verdict p{font-size:15px}
+.lvls{display:grid;gap:8px}
+.lvl{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;align-items:baseline}
+.lvl b{font:700 15px var(--font-ui)}
+.lvl span{font-size:14px;min-width:0}
+.src{font-size:13px;color:var(--muted)}
+.src a{color:var(--muted)}
+
+/* suggestion rows */
+.group-head{display:grid;gap:8px;padding-block:14px 6px}
+.group-head p{margin:0;color:var(--muted);font-size:13.5px;max-width:65ch}
+.bulk{display:flex;flex-wrap:wrap;gap:8px}
+button.b{font:500 13px var(--font-ui);border:1px solid var(--line);background:var(--surface);color:var(--fg);
+  border-radius:8px;padding:6px 12px;cursor:pointer}
+button.b:hover{border-color:var(--accent)}
+ol.rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+li.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;
+  padding:10px 4px;border-bottom:1px solid var(--line)}
+li.row.kept{background:var(--changed)}
+.word{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;min-width:0}
+.word .d{font:700 21px/1.2 var(--font-jp)}
+.word .r{font:500 13px var(--font-jp);color:var(--muted)}
+.word .k{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.m{grid-column:1/2;font-size:13px;color:var(--muted);min-width:0;overflow-wrap:anywhere}
+.mv{grid-column:1/2;font-size:13px;min-width:0}
+.mv .l{font-weight:600}
+.note{grid-column:1/2;font-size:12.5px;color:var(--pairs);min-width:0;overflow-wrap:anywhere}
+.pick{grid-row:1/4;grid-column:2;display:grid;justify-items:end;gap:2px}
+select{font:600 14px var(--font-ui);padding:6px 8px;border-radius:8px;border:1px solid var(--line);
+  background:var(--surface);color:var(--fg);min-width:110px}
+.l-N5{color:var(--n5)} .l-N4{color:var(--n4)} .l-N3{color:var(--n3)}
+.l-N2{color:var(--n2)} .l-N1{color:var(--n1)} .l-skip{color:var(--skip)}
+.empty{color:var(--muted);padding:24px 4px}
+@media (prefers-reduced-motion:no-preference){li.row{transition:background .25s}}
+</style>
+
+<div class="wrap">
+<header>
+  <h1>Word fit check <span>言霊</span></h1>
+  <div class="tally"><span>Suggestions <b id="t-all">–</b></span><span>Accepted <b id="t-acc">–</b></span><span>Kept as before <b id="t-keep">–</b></span></div>
+  <div class="sync" id="sync">Connecting to saved choices…</div>
+  <div class="tabs" role="tablist" id="tabs"></div>
+</header>
+<section id="group">
+  <div class="find" id="findings">
+    <div class="verdict">
+      <p><b>Short answer:</b> most of the 453 additions fit. Adding modern everyday words is what the real test intends; the old lists are just too small and too old. About 70 words don't match how the lists work, and they fall into five kinds. Each kind has its own tab with a suggestion per word. Every suggestion is pre-set; switch any word back to its current level if you disagree.</p>
+    </div>
+
+    <div>
+      <h2>What each level is for (official)</h2>
+      <div class="lvls">
+        <div class="lvl"><b class="l-N5">N5</b><span>Some basic Japanese from the classroom: set phrases and short, slow conversations about yourself, school and shopping.</span></div>
+        <div class="lvl"><b class="l-N4">N4</b><span>Basic Japanese: short texts on familiar daily topics, everyday conversations spoken a little slowly.</span></div>
+        <div class="lvl"><b class="l-N3">N3</b><span>The bridge. Everyday Japanese to a certain degree: concrete everyday texts, newspaper headlines, notices at school or work, near-natural conversation.</span></div>
+        <div class="lvl"><b class="l-N2">N2</b><span>Everyday Japanese plus a wider range: newspaper and magazine articles on general topics, plain commentary, news reports, polite letters and requests from business partners.</span></div>
+        <div class="lvl"><b class="l-N1">N1</b><span>Japanese in a wide range of situations: editorials and critiques, abstract and logically complex texts, lectures and news at natural speed.</span></div>
+      </div>
+    </div>
+
+    <div>
+      <h2>How the real word list was built</h2>
+      <ul>
+        <li>JLPT has published no word lists since 2010. Its FAQ says a list wouldn't fit a test of what you can do with the language. Every list online, ours included, is Waller's adaptation of the pre-2010 lists.</li>
+        <li>The test makers did build a new internal table. A 2008 Japan Foundation report describes it: words picked mainly by frequency, then judged by experienced teachers, with the old list as a reference. Spoken words, onomatopoeia and loanwords got their own passes.</li>
+        <li>They aimed at <b>10,000–18,000 words</b> in total, about twice the size of our lists. So filling the gap with common modern words fits the test's intent.</li>
+        <li>Their sample levels put everyday modern words low: <span class="jp">うどん</span>, <span class="jp">エアコン</span>, <span class="jp">朝ごはん</span> at N5; <span class="jp">ATM</span>, <span class="jp">アンケート</span>, <span class="jp">一時停止</span> at N4; <span class="jp">駅ビル</span>, <span class="jp">いじめ</span>, <span class="jp">オープン</span> at N3. Waller has <span class="jp">アンケート</span> at N1, so his katakana levels are a poor guide.</li>
+        <li>Affixes are entries of their own, marked with 〜 (<span class="jp">〜的</span>). Specialist terms "ordinary people don't need" are left out.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>What our lists themselves show</h2>
+      <ul>
+        <li>Affixes are listed once (<span class="jp">的, 性, 不, 全, 昨, 方</span>), and predictable derivatives are mostly absent: only 8 <span class="jp">〜的</span> words, 2 <span class="jp">〜さ</span> words and no <span class="jp">〜たち</span> words in 8,000.</li>
+        <li>Prefix words are listed freely (<span class="jp">最高, 不便, 全国, 前者, 今回</span>, all N4–N3), and so are many <span class="jp">〜者 / 〜家 / 〜員</span> words (<span class="jp">記者, 作家, 店員</span>). Those additions fit.</li>
+        <li>Computer words sit at N4 (<span class="jp">コンピューター, パソコン, ソフト</span>) and N3 (<span class="jp">情報, 通信, 操作</span>). Job titles sit at N4–N3. Food sits at N5–N4.</li>
+        <li>History, war and religion aren't avoided: <span class="jp">軍隊, 宗教, 神, 城</span> N3; <span class="jp">武士, 天皇</span> N2. The N1 history and military additions fit.</li>
+        <li>Rough or spoken words are there too (<span class="jp">お前, おい, あら, まあ</span> N3), so <span class="jp">あいつ, あんた, わし</span> and the interjections fit.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2>What fits as it is</h2>
+      <p>Modern everyday words (<span class="jp">メール, チケット, 彼氏, お客様</span>), news and society words at N2 (<span class="jp">年金, 支援, 震災, 株価</span>), editorial and abstract words at N1 (<span class="jp">理念, 次元, 倫理, 陥る</span>), interjections, and the history and military words. These match both the official level descriptions and how the lists treat similar words.</p>
+    </div>
+
+    <p class="src">Sources: JLPT <a href="https://www.jlpt.jp/e/about/levelsummary.html" target="_blank" rel="noopener">level summary</a>, <a href="https://www.jlpt.jp/e/about/candolist.html" target="_blank" rel="noopener">Can-do lists</a>, <a href="https://www.jlpt.jp/e/faq/index.html" target="_blank" rel="noopener">FAQ</a>; 押尾ほか「新しい日本語能力試験のための語彙表作成にむけて」, <a href="https://www.jlpt.jp/reference/pdf/2008_010.pdf" target="_blank" rel="noopener">国際交流基金 日本語教育紀要 4 (2008)</a>; <a href="https://www.tanos.co.uk/jlpt/jlpt3/" target="_blank" rel="noopener">tanos.co.uk</a> on how Waller's N3 was made; our own N5–N1 files.</p>
+  </div>
+</section>
+</div>
+
+<script>
+const ROWS = __ROWS__;
+const GROUPS = __GROUPS__;
+const ORDER = ["findings"].concat(Object.keys(GROUPS));
+let choices = {};          // "r<rank>" → value, only where it differs from the suggestion
+let current = "findings";
+let db = null, docRef = null, writeable = true;
+const findingsEl = document.getElementById("findings");
+
+const keyOf = r => "r" + r.rank;
+const val = r => (keyOf(r) in choices) ? choices[keyOf(r)] : r.s;
+const name = v => v === "skip" ? "Skip" : v;
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+function setChoice(r, v){ const k = keyOf(r); if (v === r.s) delete choices[k]; else choices[k] = v; }
+
+/* ── saving: one document, coalesced, one write at a time ── */
+let dirty = false, writing = false, timer = null;
+function queueSave(){
+  dirty = true;
+  if (!db) { setSync("Not saved: this view has no storage. Open the page on claude.ai.", true); return; }
+  clearTimeout(timer); timer = setTimeout(flush, 500);
+  setSync("Saving…");
+}
+async function flush(){
+  if (writing || !dirty || !docRef) return;
+  writing = true; dirty = false;
+  try {
+    await docRef.set({choices: {...choices}, updated: new Date().toISOString()});
+    setSync(dirty ? "Saving…" : "Saved");
+  } catch (e) {
+    if (e && e.code === "invalid_argument") { writeable = false; setSync("You can view this page but not change it.", true); }
+    else { dirty = true; setSync("Couldn't save just now. It will retry on your next change.", true); }
+  } finally { writing = false; if (dirty && writeable) timer = setTimeout(flush, 800); }
+}
+function setSync(t, err){const s=document.getElementById("sync"); s.textContent=t; s.className="sync"+(err?" err":"");}
+
+/* ── rendering ── */
+function tally(){
+  const acc = ROWS.filter(r => val(r) === r.s).length;
+  document.getElementById("t-all").textContent = ROWS.length;
+  document.getElementById("t-acc").textContent = acc;
+  document.getElementById("t-keep").textContent = ROWS.filter(r => val(r) === r.now).length;
+  for (const t of ORDER){
+    const el = document.querySelector(`[data-g="${t}"] .c`);
+    if (el) el.textContent = ROWS.filter(r => r.g === t).length;
+  }
+}
+function renderTabs(){
+  const tabs = document.getElementById("tabs"); tabs.innerHTML = "";
+  for (const t of ORDER){
+    const b = document.createElement("button");
+    b.className = "tab"; b.role = "tab"; b.dataset.g = t; b.id = "tab-" + t;
+    b.setAttribute("aria-selected", t === current);
+    b.innerHTML = t === "findings" ? "Findings"
+      : `<span class="dot" style="background:var(--${t})"></span>${esc(GROUPS[t][0])} <span class="c"></span>`;
+    b.addEventListener("click", () => { current = t; renderTabs(); renderGroup(); tally(); window.scrollTo({top:0}); });
+    tabs.appendChild(b);
+  }
+}
+function opts(r){
+  const v = val(r), list = ["N5","N4","N3","N2","N1","skip"];
+  return list.map(o => {
+    const tag = o === r.s ? " (suggested)" : o === r.now ? " (now)" : "";
+    return `<option value="${o}"${o === v ? " selected" : ""}>${name(o)}${tag}</option>`;
+  }).join("");
+}
+function renderGroup(){
+  const g = document.getElementById("group");
+  if (current === "findings"){ g.replaceChildren(findingsEl); return; }
+  const rs = ROWS.filter(r => r.g === current);
+  g.innerHTML = `<div class="group-head"><p>${esc(GROUPS[current][1])}</p><div class="bulk">
+      <button class="b" data-bulk="s" id="bulk-s">Accept all in this tab</button>
+      <button class="b" data-bulk="now" id="bulk-now">Keep all as before</button></div></div>
+    <ol class="rows"></ol>`;
+  const ol = g.querySelector("ol");
+  if (!rs.length) ol.innerHTML = `<li class="empty">Nothing in this group.</li>`;
+  for (const r of rs){
+    const v = val(r), li = document.createElement("li");
+    li.className = "row" + (v !== r.s ? " kept" : "");
+    li.innerHTML = `<div class="word"><span class="d">${esc(r.d)}</span>${r.r ? `<span class="r">${esc(r.r)}</span>` : ""}
+        <span class="k">#${r.rank.toLocaleString()}</span></div>
+      <div class="m">${esc(r.m)}</div>
+      <div class="mv">now <span class="l l-${r.now}">${name(r.now)}</span> → suggested <span class="l l-${r.s}">${name(r.s)}</span></div>
+      ${r.note ? `<div class="note">${esc(r.note)}</div>` : ""}
+      <div class="pick"><select id="pick-${r.rank}" aria-label="Level for ${esc(r.d)}" class="l-${v}">${opts(r)}</select></div>`;
+    li.querySelector("select").addEventListener("change", e => {
+      const nv = e.target.value; setChoice(r, nv);
+      e.target.className = "l-" + nv; li.className = "row" + (nv !== r.s ? " kept" : "");
+      tally(); queueSave();
+    });
+    ol.appendChild(li);
+  }
+  g.querySelectorAll("[data-bulk]").forEach(b => b.addEventListener("click", () => {
+    for (const r of rs) setChoice(r, b.dataset.bulk === "s" ? r.s : r.now);
+    renderGroup(); tally(); queueSave();
+  }));
+}
+
+renderTabs(); renderGroup(); tally();
+
+/* ── storage ── */
+(async () => {
+  try { db = window.claude ? await window.claude.use("db") : null; } catch (e) { db = null; }
+  if (!db){ setSync("Choices can't be saved in this view. Open the page on claude.ai.", true); return; }
+  docRef = db.doc("fit/choices");
+  let first = true;
+  docRef.onSnapshot(snap => {
+    if (snap.metadata.hasPendingWrites || writing || dirty) { first = false; return; }
+    const d = snap.exists ? snap.data() : null;
+    choices = d && d.choices ? {...d.choices} : {};
+    renderGroup(); tally();
+    setSync(first ? (d ? "Your saved choices are loaded" : "Ready. Changes save automatically.") : "Updated from another device");
+    first = false;
+  }, e => setSync("Saved choices couldn't load. Reload the page to try again.", true));
+})();
+</script>

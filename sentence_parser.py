@@ -243,7 +243,10 @@ def lexicon() -> dict:
         # words usually written in kana (物 もの, 言う いう …) may match their
         # kana spelling although they're listed with kanji (kana_ok.txt)
         kanji_word = _has_kanji(display) and (display, reading) not in kana_ok
-        if (display, reading) not in level and all(0x3041 <= ord(c) <= 0x309F for c in display):
+        # Our own list additions count as frequency-list words here: listing
+        # たこ / いか / だし made したこと read し + たこ + と (2026-10-28).
+        if ((display, reading) not in level or "ours" in jlpt_data.FLAGS.get((display, reading), ())) \
+                and all(0x3041 <= ord(c) <= 0x309F for c in display):
             _RARE_KANA.add((display, reading))
         prio = (level.get((display, reading), 9),
                 0 if PREFERRED_READING.get(display) == reading else 1,
@@ -315,8 +318,8 @@ _LEVEL_RANK = {0: 800, 1: 1500, 2: 3900, 3: 6000, 4: 13400}   # N5 … N1 → fr
 # 住 + 人たち; 大学生活 is 大学 + 生活, not 大学生 + 活.
 _COMPOUND_KEYS: set = set()
 
-# Hiragana-only words from the frequency list alone (たこ, とが, たが, かに,
-# はむ): they cost more per character, so したことがある is した + こと + が,
+# Hiragana-only words from the frequency list alone or our own list
+# additions (たこ, とが, たが, かに, はむ): they cost more per character, so したことがある is した + こと + が,
 # not し + たこ + とが, and 妹はもう is は + もう (accuracy test 3, 2026-10-14).
 _RARE_KANA: set = set()
 # kanji words whose kana reading must never stand for them (filled from the evals)

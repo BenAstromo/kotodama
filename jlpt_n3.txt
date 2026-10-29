@@ -1,4 +1,4 @@
-# JLPT N3 vocabulary list — 1704 words
+# JLPT N3 vocabulary list — 1957 words
 # Source: OpenJLPT (github.com/evanclan/OpenJLPT), CC BY-SA 4.0,
 #   levels from Jonathan Waller's JLPT lists (tanos.co.uk), CC BY.
 # Alternate spellings and loanword flags derived from JMdict (EDRDG), CC BY-SA 4.0.
@@ -1713,3 +1713,256 @@
 末	まつ		community
 異	い		community
 捕らえる	とらえる	捉える|捕える	ours
+可能性	かのうせい		ours
+思い	おもい	想い|念い	ours
+高齢	こうれい		ours
+ブログ	ブログ		ours,eng
+クリック	クリック		ours,eng
+最大	さいだい		ours
+国内	こくない		ours
+ちなみに	ちなみに	因みに|因に	ours
+サイト	サイト		ours,eng
+チェック	チェック		ours,eng
+画像	がぞう		ours
+画面	がめん		ours
+多数	たすう		ours
+前年	ぜんねん		ours
+昨年	さくねん		ours
+ライン	ライン		ours,eng
+あんた	あんた	貴方	ours
+社員	しゃいん		ours
+入力	にゅうりょく		ours
+男女	だんじょ		ours	なんにょ
+大量	たいりょう		ours
+検索	けんさく		ours
+キー	キー		ours,eng
+若者	わかもの		ours	わかもん
+後半	こうはん		ours
+イベント	イベント		ours,eng	イヴェント|エベント
+会長	かいちょう		ours
+子育て	こそだて		ours
+スタッフ	スタッフ		ours,eng	スタフ
+大型	おおがた	大形	ours
+間違いない	まちがいない	間違い無い	ours
+プレー	プレー		ours,abbr	プレイ
+主な	おもな		ours
+ボランティア	ボランティア		ours,eng	ボランテア|ボランテァ
+高齢者	こうれいしゃ		ours
+翌日	よくじつ		ours
+デジタル	デジタル		ours,eng	ディジタル
+つい	つい		ours
+アドレス	アドレス		ours,eng
+ボックス	ボックス		ours,eng
+親子	おやこ		ours	しんし
+地上	ちじょう		ours
+まだまだ	まだまだ	未だ未だ	ours
+ウイルス	ウイルス		ours,loan-lat	ウィルス
+各国	かっこく		ours	かくこく
+パワー	パワー		ours,eng
+シーン	シーン		ours,eng
+アドバイス	アドバイス		ours,eng	アドヴァイス
+アクセス	アクセス		ours,eng
+我が家	わがや	わが家|我家	ours	わがいえ
+不可能	ふかのう		ours
+わかりやすい	わかりやすい	分かりやすい|分かり易い|分りやすい|分り易い	ours
+仕方ない	しかたない	仕方無い	ours
+人数	にんずう		ours	にんず|にんじゅ
+おい	おい		ours	オイ
+ゴルフ	ゴルフ		ours,eng
+ケア	ケア		ours,eng
+ライブ	ライブ		ours,eng	ライヴ
+あいつ	あいつ	彼奴	ours
+ライト	ライト		ours,eng
+リスト	リスト		ours,eng
+上記	じょうき		ours
+モード	モード		ours,eng
+ツアー	ツアー		ours,eng
+バイク	バイク		ours,abbr
+リンク	リンク		ours,eng
+前回	ぜんかい		ours
+前半	ぜんはん		ours	ぜんぱん
+この世	このよ	此の世	ours
+帰国	きこく		ours
+内側	うちがわ	内がわ	ours	ないそく
+夕食	ゆうしょく		ours
+ウェブ	ウェブ		ours,eng	ウェッブ|ウエブ|ウエッブ
+ルート	ルート		ours,eng
+パック	パック		ours,eng
+専門家	せんもんか		ours
+ヒット	ヒット		ours,eng
+小型	こがた	小形	ours
+弁護士	べんごし		ours
+大さじ	おおさじ	大匙	ours
+不要	ふよう		ours
+こいつ	こいつ	此奴	ours	こやつ
+最新	さいしん		ours
+政治家	せいじか		ours
+ううん	ううん		ours	うーん|ウーン
+室内	しつない		ours
+前日	ぜんじつ		ours	まえび
+市内	しない		ours
+受信	じゅしん		ours
+ステップ	ステップ		ours,eng
+大声	おおごえ		ours	たいせい
+メリット	メリット		ours,eng
+鶏	にわとり	鷄|雞	ours	とり|かけ|くたかけ|ニワトリ
+カウンター	カウンター		ours,eng	カウンタ
+ごま	ごま	胡麻	ours	ゴマ
+ランキング	ランキング		ours,eng
+ブロック	ブロック		ours,abbr
+アート	アート		ours,eng
+得	とく		ours
+南部	なんぶ		ours
+ばら	ばら	薔薇	ours	しょうび|そうび|バラ
+下記	かき		ours
+早め	はやめ	速め|早目|速目	ours
+ケーブル	ケーブル		ours,abbr
+翌年	よくねん		ours	よくとし
+シンプル	シンプル		ours,eng
+サポート	サポート		ours,eng
+プレーヤー	プレーヤー		ours,eng	プレイヤー|プレイヤ|プレーヤ
+関わり	かかわり	係わり	ours
+何事	なにごと	何ごと	ours
+ファッション	ファッション		ours,eng
+シェア	シェア		ours,eng
+リサイクル	リサイクル		ours,eng
+年末	ねんまつ		ours
+朝食	ちょうしょく		ours
+アイテム	アイテム		ours,eng
+昨夜	さくや		ours
+麺	めん	麵|麪	ours
+悲しみ	かなしみ	哀しみ|愛しみ	ours
+インストール	インストール		ours,eng
+体調	たいちょう		ours
+デビュー	デビュー		ours,loan-fre	デビュウ
+送信	そうしん		ours
+ストーリー	ストーリー		ours,eng	ストーリ|ストリー
+ダイエット	ダイエット		ours,eng
+人間関係	にんげんかんけい		ours
+マウス	マウス		ours,eng
+熊	くま		ours	クマ
+フォルダー	フォルダー		ours,eng	フォルダ|フォールダー|フォールダ
+日常生活	にちじょうせいかつ		ours
+最小	さいしょう		ours
+北部	ほくぶ		ours
+オリンピック	オリンピック		ours,eng
+エリア	エリア		ours,eng	エリヤ|エアリア
+外側	そとがわ	外がわ	ours	がいそく
+最悪	さいあく		ours
+本社	ほんしゃ		ours	ほんじゃ
+次回	じかい		ours
+ペース	ペース		ours,eng
+研究者	けんきゅうしゃ		ours
+ジャケット	ジャケット		ours,eng	ジャケツ
+一口	ひとくち	ひと口|１口	ours
+そいつ	そいつ	其奴	ours	そやつ|すやつ
+国道	こくどう		ours
+手作り	てづくり	手造り|手づくり	ours
+動画	どうが		ours
+仲良く	なかよく	仲よく|仲好く	ours
+市長	しちょう		ours
+絵本	えほん		ours
+チェーン	チェーン		ours,eng	チェイン
+なあ	なあ		ours	な|なー|なぁ|な〜|なあー
+委員会	いいんかい		ours
+順位	じゅんい		ours
+キャラクター	キャラクター		ours,eng	キャラクタ
+ボトル	ボトル		ours,eng
+やる気	やるき	ヤル気|遣る気	ours
+参加費	さんかひ		ours
+キャラ	キャラ		ours,abbr
+ボリューム	ボリューム		ours,eng	ヴォリューム|ボリウム
+ロボット	ロボット		ours,eng
+マネージャー	マネージャー		ours,eng	マネジャー|マネージャ
+バージョン	バージョン		ours,eng	ヴァージョン
+イラスト	イラスト		ours,abbr
+食材	しょくざい		ours
+小さじ	こさじ	小匙	ours
+喫煙	きつえん	喫烟	ours
+レシピ	レシピ		ours,eng	レシピー
+苦しみ	くるしみ		ours
+再開	さいかい		ours
+報告書	ほうこくしょ		ours
+ダウンロード	ダウンロード		ours,eng
+マット	マット		ours,eng
+委員長	いいんちょう		ours
+初心者	しょしんしゃ		ours
+やばい	やばい		ours	ヤバい|ヤバイ
+アレルギー	アレルギー		ours,loan-ger
+毎回	まいかい		ours
+大豆	だいず		ours	ダイズ
+だし	だし	出し|出汁	ours	ダシ
+参加者	さんかしゃ		ours
+オペラ	オペラ		ours,loan-ita
+裁判官	さいばんかん		ours
+寝室	しんしつ		ours
+ハート	ハート		ours,eng
+亀	かめ	龜	ours	カメ
+見た目	みため	見ため	ours
+いじめ	いじめ	虐め|苛め	ours	イジメ
+海水	かいすい		ours
+からす	からす	烏|鴉	ours	カラス
+店内	てんない		ours
+投稿	とうこう		ours
+キロカロリー	キロカロリー		ours,eng
+交通事故	こうつうじこ		ours
+チャレンジ	チャレンジ		ours,eng
+不安定	ふあんてい		ours
+添付	てんぷ	添附	ours
+知り合う	しりあう	知合う|知りあう|しり合う|識り合う	ours
+録画	ろくが		ours
+不十分	ふじゅうぶん	不充分	ours
+持ち物	もちもの	持物|持ちもの|持ちもん	ours
+指先	ゆびさき		ours
+ばらばら	ばらばら	薔薇薔薇	ours	バラバラ
+デジカメ	デジカメ		ours,abbr	ディジカメ
+マナー	マナー		ours,eng
+クリニック	クリニック		ours,eng
+西側	にしがわ		ours
+タッチ	タッチ		ours,eng
+町内	ちょうない		ours
+インチ	インチ	吋	ours,eng
+カップル	カップル		ours,eng
+市役所	しやくしょ		ours
+ラッキー	ラッキー		ours,eng	ラッキィ
+繰り返し	くりかえし	くり返し|繰返し|繰りかえし	ours
+シングル	シングル		ours,abbr
+クレジット	クレジット		ours,abbr
+西部	せいぶ		ours
+お尻	おしり	御尻	ours	オシリ
+グッズ	グッズ		ours,eng	グッツ
+リラックス	リラックス		ours,eng
+リビング	リビング		ours,abbr
+眠り	ねむり	睡り|睡	ours	ねぶり
+ホット	ホット		ours,abbr
+きつね	きつね	狐	ours	けつね|きつ|キツネ
+顔色	かおいろ	顔いろ	ours	がんしょく
+手足	てあし		ours	しゅそく
+警察官	けいさつかん		ours
+ショッピング	ショッピング		ours,eng
+持ち帰る	もちかえる	持帰る	ours
+キャンセル	キャンセル		ours,eng
+少量	しょうりょう	小量	ours
+初日	しょにち		ours	しょじつ
+メイン	メイン		ours,abbr	メーン
+休館	きゅうかん		ours
+羊	ひつじ		ours	ヒツジ
+昆布	こんぶ		ours	こぶ|コンブ
+レンタル	レンタル		ours,eng
+いまいち	いまいち	今一|今いち|今イチ	ours	イマイチ
+都内	とない		ours
+パスワード	パスワード		ours,eng
+年上	としうえ		ours
+本店	ほんてん		ours	ほんだな
+一人暮らし	ひとりぐらし	１人暮らし|独り暮らし|ひとり暮らし|一人暮し|ひとり暮し|独り暮し	ours
+返信	へんしん		ours
+残業	ざんぎょう		ours
+入国	にゅうこく		ours	にゅうごく
+通話	つうわ		ours
+保育園	ほいくえん		ours
+担任	たんにん		ours
+足音	あしおと	跫音|跫	ours
+観光客	かんこうきゃく		ours
+ライオン	ライオン		ours,eng
+翌朝	よくあさ		ours	よくちょう
+会費	かいひ		ours

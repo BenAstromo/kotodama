@@ -276,7 +276,7 @@ WORDS_EXPLAINED = (
     "and the Frequency grid lists them most common first for when you study on purpose. The JLPT "
     "hasn't published word lists since 2010; ours build "
     "on the old pre-2010 lists, which are close enough up to N3 but stop well short of N2 and N1 "
-    "(about 8,000 words up to N1). Written Japanese matters more at N2 and N1, whose reading "
+    "(about 9,200 words up to N1). Written Japanese matters more at N2 and N1, whose reading "
     "sections are newspaper-style articles and essays, and these are the levels employers and "
     "schools rely on. Kanji and grammar always use the JLPT lists.")
 

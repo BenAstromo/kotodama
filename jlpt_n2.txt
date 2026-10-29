@@ -1,4 +1,4 @@
-# JLPT N2 vocabulary list — 1830 words
+# JLPT N2 vocabulary list — 2232 words
 # Source: OpenJLPT (github.com/evanclan/OpenJLPT), CC BY-SA 4.0,
 #   levels from Jonathan Waller's JLPT lists (tanos.co.uk), CC BY.
 # Alternate spellings and loanword flags derived from JMdict (EDRDG), CC BY-SA 4.0.
@@ -1839,3 +1839,405 @@
 生む	うむ	産む	ours
 捉える	とらえる	捕らえる|捕える	ours
 薦める	すすめる	勧める|奨める	ours
+我が	わが	我|吾が	ours
+支援	しえん		ours
+年金	ねんきん		ours
+自体	じたい		ours
+層	そう		ours
+落札	らくさつ		ours
+取得	しゅとく		ours
+時点	じてん		ours
+推移	すいい		ours
+防災	ぼうさい		ours
+戦後	せんご		ours
+戦略	せんりゃく		ours
+ネットワーク	ネットワーク		ours,eng
+私ども	わたくしども	私共|私供	ours	わたしども
+あり得る	ありえる	有り得る|有りえる	ours
+コスト	コスト		ours,eng
+わし	わし	儂|私	ours	ワシ
+遺伝	いでん		ours
+初期	しょき		ours
+リスク	リスク		ours,eng
+総理	そうり	綜理	ours
+視線	しせん		ours
+当初	とうしょ		ours
+講座	こうざ		ours
+ブランド	ブランド		ours,eng
+近年	きんねん		ours
+更新	こうしん		ours
+人権	じんけん		ours
+機器	きき	器機	ours
+引き続く	ひきつづく	引続く|ひき続く|引きつづく	ours
+連携	れんけい		ours
+そもそも	そもそも	抑|抑々|抑抑|抑も	ours
+取り組み	とりくみ	取組|取組み|取り組|とり組み	ours
+あり方	ありかた	在り方|有り方	ours
+オークション	オークション		ours,eng
+車両	しゃりょう	車輌|車輛	ours
+認定	にんてい		ours
+新規	しんき		ours
+事例	じれい		ours
+件数	けんすう		ours
+プロジェクト	プロジェクト		ours,eng
+金利	きんり		ours
+構築	こうちく		ours
+同じく	おなじく		ours
+生み出す	うみだす	産み出す|生みだす|産みだす|うみ出す|生出す|産出す	ours
+ユーザー	ユーザー		ours,eng	ユーザ
+消費者	しょうひしゃ		ours
+解消	かいしょう		ours
+特性	とくせい		ours
+数値	すうち		ours
+たんぱく	たんぱく	蛋白	ours	タンパク
+口調	くちょう		ours
+労働者	ろうどうしゃ	労動者	ours
+顧客	こきゃく		ours	こかく
+市町村	しちょうそん		ours
+在住	ざいじゅう		ours
+被害者	ひがいしゃ		ours
+人員	じんいん		ours
+口座	こうざ		ours
+ツール	ツール		ours,eng
+公的	こうてき		ours
+共有	きょうゆう		ours
+救急	きゅうきゅう		ours
+仏教	ぶっきょう	佛教	ours
+早期	そうき		ours
+両者	りょうしゃ		ours
+まちづくり	まちづくり	街づくり|町づくり|街作り|町作り|街造り|町造り	ours
+日米	にちべい		ours
+想定	そうてい		ours
+総額	そうがく		ours
+作り出す	つくりだす	創り出す|造り出す|つくり出す|作りだす|創りだす|造りだす	ours
+分割	ぶんかつ		ours
+大手	おおて		ours
+店舗	てんぽ	店鋪	ours
+見直し	みなおし		ours
+プロセス	プロセス		ours,eng
+広報	こうほう	弘報|廣報	ours
+路線	ろせん		ours
+リーダー	リーダー		ours,eng	リーダ
+株価	かぶか		ours
+リーグ	リーグ		ours,eng
+発送	はっそう		ours
+ニーズ	ニーズ		ours,eng
+今や	いまや		ours
+後期	こうき		ours
+初心	しょしん		ours
+死者	ししゃ		ours
+ローン	ローン		ours,eng
+出品者	しゅっぴんしゃ		ours
+調達	ちょうたつ		ours
+拠点	きょてん		ours
+ロック	ロック		ours,abbr
+受診	じゅしん		ours
+こなす	こなす	熟す	ours
+本格的	ほんかくてき		ours
+テロ	テロ		ours,abbr
+都道府県	とどうふけん		ours
+業種	ぎょうしゅ		ours
+海上	かいじょう		ours	かいしょう
+起動	きどう		ours
+役員	やくいん		ours
+関節	かんせつ		ours
+受講	じゅこう		ours
+思い切る	おもいきる	思いきる	ours
+見守る	みまもる	見戍る|目戍る	ours
+保険料	ほけんりょう		ours
+開設	かいせつ		ours
+概要	がいよう		ours
+保護者	ほごしゃ		ours
+変換	へんかん		ours
+中小企業	ちゅうしょうきぎょう		ours
+ホルモン	ホルモン		ours,loan-ger
+やりとり	やりとり	やり取り|遣り取り	ours
+全面	ぜんめん		ours
+疑い	うたがい		ours
+数多く	かずおおく		ours
+持ち込む	もちこむ	持ちこむ|持込む	ours
+母子	ぼし		ours	ははこ|おやこ
+問題点	もんだいてん		ours
+双方	そうほう		ours
+オリジナル	オリジナル		ours,eng
+利用者	りようしゃ		ours
+裁判所	さいばんしょ		ours
+コミュニティー	コミュニティー		ours,eng	コミュニティ
+ねた	ねた		ours	ネタ
+由来	ゆらい		ours
+既存	きそん		ours	きぞん
+回線	かいせん		ours
+メモリー	メモリー		ours,eng	メモリ
+ブラック	ブラック		ours,eng
+数量	すうりょう		ours
+サーバー	サーバー		ours,eng	サーバ
+投手	とうしゅ		ours
+違法	いほう		ours
+オプション	オプション		ours,eng
+経営者	けいえいしゃ		ours
+前方	ぜんぽう		ours
+容量	ようりょう		ours
+業界	ぎょうかい		ours
+前年度	ぜんねんど		ours
+接種	せっしゅ	接取	ours
+出力	しゅつりょく		ours
+再度	さいど		ours
+関係者	かんけいしゃ		ours
+遺産	いさん		ours
+視聴	しちょう		ours	してい
+長年	ながねん	永年	ours
+受賞	じゅしょう		ours
+機種	きしゅ		ours
+欠かす	かかす		ours
+周年	しゅうねん		ours
+震災	しんさい		ours
+免疫	めんえき		ours
+ディスク	ディスク		ours,eng
+検診	けんしん		ours
+押し付ける	おしつける	押しつける|押付ける	ours
+マシン	マシン		ours,eng	マシーン
+幅広い	はばひろい		ours
+届け出	とどけで	届出	ours
+パネル	パネル		ours,eng
+里	さと	郷	ours
+クリア	クリア		ours,eng	クリアー|クリヤー|クリヤ
+最適	さいてき		ours
+作り上げる	つくりあげる	創り上げる|造り上げる|作りあげる|創りあげる|造りあげる|つくり上げる	ours
+体質	たいしつ		ours
+バブル	バブル		ours,abbr
+物件	ぶっけん		ours
+巻き込む	まきこむ	捲き込む|巻込む|巻きこむ|まき込む	ours
+レーザー	レーザー		ours,eng	レーザ
+まとも	まとも	正面|真面|真正面	ours
+在宅	ざいたく		ours
+文庫	ぶんこ		ours
+虐待	ぎゃくたい		ours
+市販	しはん		ours
+黒人	こくじん		ours
+落札者	らくさつしゃ		ours
+ふれあい	ふれあい	触れ合い|ふれ合い|触合い	ours
+リアル	リアル		ours,abbr
+両国	りょうこく		ours	りょうごく
+音声	おんせい		ours
+取り込む	とりこむ	取込む|取りこむ|摂り込む|摂りこむ	ours
+東南	とうなん		ours	ひがしみなみ
+戦前	せんぜん		ours
+大規模	だいきぼ		ours
+価値観	かちかん		ours
+一覧	いちらん		ours
+フィールド	フィールド		ours,eng
+容疑	ようぎ		ours
+入り込む	はいりこむ	入りこむ|這入り込む	ours	いりこむ
+半数	はんすう		ours
+社内	しゃない		ours
+不法	ふほう		ours
+略	りゃく		ours
+収納	しゅうのう		ours
+メーク	メーク		ours,abbr	メイク
+リング	リング		ours,eng
+ピーク	ピーク		ours,eng
+振込	ふりこみ	振込み|振り込み	ours
+変わり	かわり	変り	ours
+自治体	じちたい		ours
+ヘクタール	ヘクタール		ours,loan-fre
+書き込む	かきこむ	書きこむ	ours
+歌詞	かし		ours
+読み取る	よみとる	読みとる|読取る	ours
+発信	はっしん		ours
+グローバル	グローバル		ours,eng
+パーツ	パーツ		ours,eng
+名乗る	なのる	名告る|名のる	ours
+体内	たいない		ours
+見回す	みまわす	見廻す|見まわす	ours
+遺伝子	いでんし		ours
+同期	どうき		ours
+レート	レート		ours,eng	レイト
+乗り越える	のりこえる	乗りこえる|乗越える	ours
+一行	いっこう		ours
+天使	てんし		ours
+フレーム	フレーム		ours,eng
+持ち主	もちぬし	持主	ours
+大地	だいち		ours
+学園	がくえん	學園	ours
+後方	こうほう		ours
+連載	れんさい		ours
+入金	にゅうきん		ours
+セミナー	セミナー		ours,eng	セミナ
+マネージメント	マネージメント		ours,eng	マネジメント|メネジメント
+健診	けんしん		ours
+覗き込む	のぞきこむ	覗きこむ|のぞき込む	ours
+陸上	りくじょう		ours
+アクション	アクション		ours,eng
+現役	げんえき		ours
+不快	ふかい		ours
+軍人	ぐんじん		ours
+指名	しめい		ours
+ぎりぎり	ぎりぎり		ours	ギリギリ
+数々	かずかず	数数	ours
+スポット	スポット		ours,abbr
+セキュリティー	セキュリティー		ours,eng	セキュリティ
+指導者	しどうしゃ		ours
+有害	ゆうがい		ours
+スムーズ	スムーズ		ours,eng	スムース
+探偵	たんてい		ours
+開業	かいぎょう		ours
+エピソード	エピソード		ours,eng
+中期	ちゅうき		ours
+引き継ぐ	ひきつぐ	引継ぐ|引きつぐ	ours
+第三者	だいさんしゃ	第３者	ours
+自社	じしゃ		ours
+通報	つうほう		ours
+持ち出す	もちだす	持出す	ours
+ミサイル	ミサイル		ours,eng
+白人	はくじん		ours
+マニュアル	マニュアル		ours,eng	マニアル
+糖	とう		ours
+タンク	タンク		ours,eng
+ほう	ほう		ours	ほー|ホー
+支部	しぶ		ours
+パートナー	パートナー		ours,eng	パートナ
+久々	ひさびさ	久久	ours
+備考	びこう		ours
+駆けつける	かけつける	駆け付ける|駈け付ける|駆付ける|駈けつける|駈付ける	ours
+見張る	みはる	見はる|瞠る	ours
+飲食	いんしょく		ours	おんじき
+処方	しょほう		ours
+キリスト教	きりすときょう	基督教	ours	キリストきょう
+運行	うんこう		ours
+王国	おうこく		ours
+キャッシュ	キャッシュ		ours,eng
+取り消し	とりけし	取消し|取消	ours
+相性	あいしょう	合性|合い性|相い性	ours
+障害者	しょうがいしゃ	障がい者|障碍者|しょうがい者|障礙者	ours
+内外	ないがい		ours	うちそと
+目撃	もくげき		ours
+木造	もくぞう		ours
+ログ	ログ		ours,abbr
+死後	しご		ours
+頼り	たより		ours
+私的	してき		ours
+上部	じょうぶ		ours
+合理的	ごうりてき		ours
+早朝	そうちょう		ours
+ばれる	ばれる		ours	バレる
+ゆったり	ゆったり		ours
+アプリケーション	アプリケーション		ours,eng	アプリケイション
+入居	にゅうきょ		ours
+製造業	せいぞうぎょう		ours
+大企業	だいきぎょう		ours
+週刊	しゅうかん		ours
+耐震	たいしん		ours
+無意識	むいしき		ours
+ちっ	ちっ		ours	チェッ|ちぇっ|チェ|ちぇ|チッ
+サロン	サロン		ours,loan-fre
+そうそう	そうそう	然う然う	ours
+高額	こうがく		ours
+次男	じなん	二男	ours
+ドーム	ドーム		ours,eng
+日数	にっすう		ours	ひかず
+送付	そうふ	送附	ours
+ストック	ストック		ours,eng
+アピール	アピール		ours,eng	アッピール
+ゲット	ゲット		ours,eng
+円高	えんだか		ours
+キャンペーン	キャンペーン		ours,eng
+自国	じこく		ours
+若手	わかて		ours
+所要	しょよう		ours
+アーチスト	アーチスト		ours,eng	アーティスト
+賃貸	ちんたい		ours
+予選	よせん		ours
+差し込む	さしこむ	差込む|差しこむ|さし込む	ours
+被災	ひさい		ours
+シフト	シフト		ours,eng
+風味	ふうみ		ours
+ふん	ふん		ours	ふーん|ふうん|フン|フーン
+庭園	ていえん		ours
+上流	じょうりゅう		ours
+振り込む	ふりこむ	振込む	ours
+前向き	まえむき		ours
+メジャー	メジャー		ours,abbr	メージャー|メイジャー
+まじ	まじ		ours	マジ|まぢ|マヂ
+言い換える	いいかえる	言い替える|言いかえる|言換える|言替える	ours
+着用	ちゃくよう		ours
+抱きしめる	だきしめる	抱き締める|抱締める	ours
+カルシウム	カルシウム		ours,eng
+ストレート	ストレート		ours,eng
+パフォーマンス	パフォーマンス		ours,eng	パーフォーマンス
+年々	ねんねん	年年	ours	としどし
+キーワード	キーワード		ours,eng	キイワード
+テクニック	テクニック		ours,eng
+税率	ぜいりつ		ours
+奇跡	きせき	奇蹟	ours
+無理やり	むりやり	無理矢理|無理遣り	ours	ムリヤリ
+エコ	エコ		ours,abbr
+プレート	プレート		ours,eng
+必着	ひっちゃく		ours
+データーベース	データーベース		ours,eng	データベース
+五輪	ごりん		ours
+コラム	コラム		ours,eng
+副作用	ふくさよう		ours
+大国	たいこく		ours
+同行	どうこう		ours
+北方	ほっぽう		ours
+タグ	タグ		ours,abbr	タッグ
+総数	そうすう		ours
+吸い込む	すいこむ	吸込む|吸いこむ	ours
+前期	ぜんき		ours
+文字通り	もじどおり	文字どおり|文字どうり	ours
+貼り付ける	はりつける	張り付ける|貼付ける|貼りつける|張りつける|張付ける	ours
+やたら	やたら	矢鱈	ours
+淡い	あわい		ours
+心地よい	ここちよい	心地良い|心地いい|心地好い	ours	ここちいい
+院長	いんちょう		ours
+飲料	いんりょう		ours
+検定	けんてい		ours
+ゾーン	ゾーン		ours,eng
+はっと	はっと		ours	ハッと
+対象者	たいしょうしゃ		ours
+幹事	かんじ		ours
+変身	へんしん		ours
+初代	しょだい		ours
+選択肢	せんたくし		ours
+違和感	いわかん	異和感	ours
+生き残る	いきのこる		ours
+一目	ひとめ	ひと目	ours
+整形	せいけい		ours
+浮かび上がる	うかびあがる	浮かびあがる|浮び上がる|浮びあがる|浮かび上る|浮び上る|うかび上がる	ours
+端末	たんまつ		ours
+ターン	ターン		ours,eng
+ニット	ニット		ours,eng
+クール	クール		ours,eng
+スペシャル	スペシャル		ours,eng
+アレンジ	アレンジ		ours,eng
+転職	てんしょく		ours
+ライバル	ライバル		ours,eng	ライヴァル
+浸かる	つかる	漬かる	ours
+年数	ねんすう		ours
+後日	ごじつ		ours	ごにち
+月額	げつがく		ours
+こだわり	こだわり	拘り|拘わり	ours
+パッケージ	パッケージ		ours,eng
+手数料	てすうりょう		ours
+レイアウト	レイアウト		ours,eng
+ボス	ボス		ours,eng
+フォント	フォント		ours,eng
+反面	はんめん		ours
+見当たる	みあたる	見あたる|見当る	ours
+ランク	ランク		ours,eng
+ギャラリー	ギャラリー		ours,eng
+オーダー	オーダー		ours,eng	オーダ
+ラウンド	ラウンド		ours,eng
+先着順	せんちゃくじゅん		ours
+一員	いちいん		ours
+何者	なにもの	何もの	ours
+仮面	かめん		ours
+食生活	しょくせいかつ		ours
+全額	ぜんがく		ours
+ジェット	ジェット		ours,eng
+定番	ていばん		ours
+戸惑う	とまどう	途惑う	ours
+銀河	ぎんが		ours
+振替	ふりかえ	振り替え|振替え|振り替	ours
+平面	へいめん		ours
+うつ病	うつびょう	鬱病|ウツ病|欝病	ours
