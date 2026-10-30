@@ -33,7 +33,7 @@ Avoid: the old picture's three-quarter turn with the head tilted, the diagonal s
 
 Avoid: hairspray, both hands raised to the head, and any product. The new pose should read as an ordinary daily routine, not an advert.
 
-### Naijin (内人): replaces the man in the dark kimono with steepled hands
+### Naijin (内人): replaces the man in the dark kimono with steepled hands (NOT DOING: owner 2026-10-30 keeps the current picture)
 > Warm digital illustration, 3:2 landscape. A friendly Western man in his late twenties with an invented face, not resembling any real person, sits relaxed on the engawa (wooden veranda) of a traditional Japanese house in the evening. He wears a simple indigo yukata with a subtle white pattern, holds a cup of green tea and smiles as he talks with an elderly Japanese neighbour, who is partly visible at the edge of the frame. Behind them are paper shoji screens glowing with lamplight, a small garden with a stone lantern, and a sunset sky. The mood is that he belongs here, at home in the community. Soft painterly lighting, no text.
 
 Avoid: standing front-on with steepled hands, the red-polka-dot robe, a tatami room with tables, and anything that echoes the "weeb" meme. The rank means "an integrated foreigner", so show belonging, not costume.
