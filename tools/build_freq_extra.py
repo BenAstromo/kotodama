@@ -34,7 +34,31 @@ KEEP = ("名詞-普通名詞", "動詞", "形容詞", "形状詞-一般", "形�
 EXCLUDED_REGISTERS = ("OL",)
 JP = re.compile(r"[぀-ヿ一-鿿㐀-䶿々〆]+")
 KANJI = re.compile(r"[一-鿿㐀-䶿々〆]")
+HIRA = re.compile(r"[ぁ-ゖー]+")
 UK = "word usually written using kana alone"
+# The rest follows build_freq.py's later rules, so the x rows continue its list
+# exactly: dropped list bullets, じる for ずる verbs, part-of-speech fit for
+# hiragana lemmas, the 町 / 街 splits.
+DROP_LEMMAS = {"ウ", "ア"}
+POS_FITS = {"感動詞": ("interjection",), "副詞": ("adverb",), "代名詞": ("pronoun",),
+            "接続詞": ("conjunction",), "連体詞": ("pre-noun adjectival", "acting prenominally"),
+            "動詞": ("verb",), "形容詞": ("adjective (keiyoushi)",),
+            "形状詞": ("adjectival nouns", "'taru' adjective"), "名詞": ("noun",)}
+import importlib.util as _ilu
+_spec = _ilu.spec_from_file_location("freq_splits", A + "/freq_splits.py")
+_fs = _ilu.module_from_spec(_spec); _spec.loader.exec_module(_fs)
+SPLIT, SPLIT_GROUP = {}, {}
+for _g in _fs.KIND1_SPLITS:
+    for _lem, _disp in _g.items():
+        SPLIT[_lem] = _disp
+        SPLIT_GROUP[_lem] = {x for l, d in _g.items() if l != _lem for x in (l, d)}
+
+
+def _pos_fits(bpos, jpos):
+    for head, words in POS_FITS.items():
+        if bpos.startswith(head):
+            return any(w in jpos for w in words)
+    return False
 
 
 def read_tsv(path):
@@ -45,8 +69,12 @@ def read_tsv(path):
     return open(path, encoding="utf-8")
 
 
+ZURU = {}
+
+
 def aggregate(path):
-    """{(lemma, reading): frequency} for content words, and the corpus total."""
+    """{(lemma, reading): [frequency, pos of its most frequent row]} for
+    content words, and the corpus total."""
     agg = collections.OrderedDict(); total = 0
     with read_tsv(path) as f:
         for row in csv.DictReader(f, delimiter="\t"):
@@ -55,41 +83,61 @@ def aggregate(path):
             if not row["pos"].startswith(KEEP):
                 continue
             lemma = row["lemma"]; rd = k2h(row["lForm"])
-            if not lemma or not rd or not JP.fullmatch(lemma):
+            if lemma in DROP_LEMMAS or not lemma or not rd or not JP.fullmatch(lemma):
                 continue
-            agg[(lemma, rd)] = agg.get((lemma, rd), 0) + freq
+            if lemma.endswith("ずる") and rd.endswith("ずる") and lemma[:-2] + "じる" in byk:
+                ZURU[lemma[:-2] + "じる"] = lemma
+                lemma, rd = lemma[:-2] + "じる", rd[:-2] + "じる"
+            agg.setdefault((lemma, rd), [0, row["pos"]])[0] += freq
     return agg, total
 
 
-def map_entry(lemma, rd):
+def map_entry(lemma, rd, pos):
     """(display, reading, forms, seq) via JMdict, as in build_freq.py; None if
     the word has no dictionary entry."""
     cands = [s for s in set(byk.get(lemma, []) + byr.get(lemma, []))
              if rd in [k2h(r) for r in J[s]["reb"]]]
     if not cands:
         return None
+    hira = bool(HIRA.fullmatch(lemma))
     def _rpos(s):
         rs = [k2h(r) for r in J[s]["reb"]]
         return rs.index(rd) if rd in rs else 99
-    cands.sort(key=lambda s: (0 if lemma in J[s]["keb"] else 1, _rpos(s), s))
+    def _pos_miss(s):
+        return 0 if not hira or any(_pos_fits(pos, p) for p in J[s].get("pos", ())) else 1
+    def _kanji_word(s):
+        e = J[s]
+        return 0 if not hira or not e["keb"] or (e["misc"] and UK in (e["misc"][0] or [])) else 1
+    cands.sort(key=lambda s: (0 if lemma in J[s]["keb"] else 1, _pos_miss(s), _kanji_word(s), _rpos(s), s))
     e = J[cands[0]]
     is_kana = not KANJI.search(lemma)
     uk = bool(e["misc"]) and UK in (e["misc"][0] or [])
     display = (lemma if is_kana else rd) if (is_kana or uk or not e["keb"]) else e["keb"][0]
     forms = [lemma]
-    for x in e["keb"] + e["reb"]:
-        if x not in forms:
-            forms.append(x)
+    if not _pos_miss(cands[0]) or not e["keb"]:
+        for x in e["keb"] + e["reb"]:
+            if x not in forms:
+                forms.append(x)
     if display not in forms:
         forms.insert(0, display)
+    if lemma in ZURU and ZURU[lemma] not in forms:
+        forms.append(ZURU[lemma])
+    if lemma in SPLIT:
+        display = SPLIT[lemma]
+        own = set(KANJI.findall(display + lemma)); others = SPLIT_GROUP[lemma]
+        own_rd = lemma if is_kana else rd
+        forms = [display] + [x for x in forms if x != display and x not in others and (
+            bool(set(KANJI.findall(x)) & own) if KANJI.search(x) else k2h(x) == own_rd)]
+        if lemma not in forms:
+            forms.append(lemma)
     return display, (lemma if is_kana else rd), forms, cands[0]
 
 
 # ── SUW: the full ranking (the first 20,000 are freq_bccwj.txt) ─────────────
 suw, total = aggregate(SUW_PATH)
 suw_mapped = []
-for (lemma, rd), fr in sorted(suw.items(), key=lambda kv: -kv[1]):
-    m = map_entry(lemma, rd)
+for (lemma, rd), (fr, pos) in sorted(suw.items(), key=lambda kv: -kv[1][0]):
+    m = map_entry(lemma, rd, pos)
     if m:
         suw_mapped.append((m, fr / total * 1e6))
 print("SUW mapped words:", len(suw_mapped), file=sys.stderr)
@@ -109,8 +157,8 @@ for rank, (m, pmw) in enumerate(suw_mapped[20_000:CAP], start=20_001):
 # ── LUW: compounds and phrases the SUW list never ranks ─────────────────────
 luw, _ = aggregate(LUW_PATH)
 by_seq = {}
-for (lemma, rd), fr in luw.items():
-    m = map_entry(lemma, rd)
+for (lemma, rd), (fr, pos) in luw.items():
+    m = map_entry(lemma, rd, pos)
     if not m or m[3] in covered:
         continue
     pmw = fr / total * 1e6                            # same scale as the SUW list
