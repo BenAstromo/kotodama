@@ -75,7 +75,6 @@ Every source below was checked against the code and bundled files (2026-10-17).
 - **Meanings on hover:** [Jitendex](https://jitendex.org) by Stephen Kraus (CC BY-SA 4.0), based on JMdict
 - **Frequency list and rank:** BCCWJ short-unit-word frequency list v1.0, National Institute for Japanese Language and Linguistics (NINJAL) (CC BY-NC-ND 3.0). **Estimated ranks for compounds (≈):** BCCWJ long-unit-word frequency list v1.0, NINJAL (CC BY-NC-ND 3.0).
 - **Usually-kana word list and accuracy testing:** sentences from [Tatoeba](https://tatoeba.org) (CC BY 2.0 FR) were used to measure the parser and to find words usually written in kana. No Tatoeba sentences are included.
-- **Rank pictures:** made for Kotodama. The animated Amaterasu was made in Wallpaper Engine.
 - **Star sounds:** synthesised by the author from the Sun's measured oscillation spectrum (helioseismology), sped up into hearing range.
 
 Derived data files (jlpt_n*.txt, kanji_jlpt.txt, grammar_jlpt.json, meanings.json, kinds_fix.txt, kana_ok.txt, kana_usual.txt) are shared under CC BY-SA 4.0. The frequency files (freq_bccwj.txt, freq_extra.txt, freq_splits.py) remain under NINJAL's CC BY-NC-ND 3.0 terms. The add-on's code is licensed under the GNU Affero General Public License v3.0 or later (AGPL-3.0-or-later), see LICENSE.

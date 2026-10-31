@@ -59,7 +59,7 @@ CREDITS = """
  「『日本語日常会話コーパス』設計と構築」『国立国語研究所論集』24, 153–168.</li>
 </ul>
 <p>The derived word, kanji, grammar and meaning files are shared under CC BY-SA 4.0; the frequency
-files keep NINJAL's CC BY-NC-ND 3.0 terms. The rank pictures were made for Kotodama.</p>
+files keep NINJAL's CC BY-NC-ND 3.0 terms.</p>
 """
 
 

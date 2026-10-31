@@ -39,7 +39,6 @@ MANUAL = [
     "rebuild the friend packages",
     "'unofficial lists, not affiliated with the Japan Foundation / JEES' line",
     "decide on the rank name 'gaijin'",
-    "regenerate the three rank pictures made from real people's photos (to-do (0b))",
     "Grok credit in README / §12",
     "check AnkiWeb's upload size limit",
 ]
