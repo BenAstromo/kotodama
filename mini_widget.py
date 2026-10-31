@@ -258,11 +258,13 @@ def _rank_html(info: dict, show_art: bool = False) -> str:
     if show_art:
         divine = " jlpt-divine" if info.get("is_max_amaterasu") else ""
         img = f'<img class="jlpt-mini-art" src="{art}" alt="" draggable="false">' if art else ''
-        video = _loop_url(info["rank_name_en"]) if divine and art else ""
+        # Animated like the Overview: every rank with a loop clip (Nihonjin
+        # and up, owner 2026-10-31), Amaterasu only in Amaterasu mode
+        # (owner 2026-10-16); the still picture is the poster until it
+        # plays, and stays if it can't.
+        moves = info["rank_name_en"] != "Amaterasu" or info.get("is_max_amaterasu")
+        video = _loop_url(info["rank_name_en"]) if moves and art else ""
         if video:
-            # Animated in Amaterasu mode only (owner 2026-10-16), like the
-            # Overview; the still picture is the poster until it plays, and
-            # stays if it can't.
             img = (f'<video class="jlpt-mini-art" src="{video}" poster="{art}" '
                    f'autoplay loop muted playsinline disablepictureinpicture></video>')
         if divine and art:

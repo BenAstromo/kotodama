@@ -11,7 +11,8 @@ QVideoSink, so the badge shows the frames in its own picture label and the
 divine overlay still draws on top. Without Qt Multimedia, or if a file won't
 play, the badge just keeps its still picture.
 
-Only Amaterasu has clips so far; the other ranks are being remade.
+Nihonjin and up are animated (owner 2026-10-31); any rank with a loop clip
+plays it. Ranks without an intro just loop.
 """
 
 from __future__ import annotations

@@ -315,11 +315,35 @@ def render(data: dict, name: str, message: str = "") -> QImage:
     return img
 
 
-def _draw_frame(p: QPainter, info: dict, gold: bool, H: int, framed: bool = True):
+ART_RECT = QRectF(50, 70, 400, 267)     # the rank picture's spot on the card
+
+
+def draw_art(p: QPainter, info: dict, gold: bool, art: QImage):
+    """The rank picture in its spot: feathered in gold mode, else rounded
+    with the rank's outline. The Nakama tab redraws it for every frame of
+    an animated picture."""
+    art_rect = ART_RECT
+    if gold:
+        p.drawImage(art_rect, _feathered(art, int(art_rect.width()), int(art_rect.height())))
+    else:
+        path = QPainterPath()
+        path.addRoundedRect(art_rect, 10, 10)
+        p.save()
+        p.setClipPath(path)
+        p.drawImage(art_rect, art)
+        p.restore()
+        p.setPen(QPen(_outline(info), 2))
+        p.setBrush(Qt.BrushStyle.NoBrush)
+        p.drawRoundedRect(art_rect, 10, 10)
+
+
+def _draw_frame(p: QPainter, info: dict, gold: bool, H: int, framed: bool = True,
+                with_art: bool = True):
     """Background, rank picture, rank name, belt and count (the left half),
-    shared by the share image and the Nakama profile card."""
-    art = _art(info)
-    art_rect = QRectF(50, 70, 400, 267)
+    shared by the share image and the Nakama profile card. with_art False:
+    the picture's spot is left empty (the caller draws it with draw_art)."""
+    art = _art(info) if with_art else None
+    art_rect = ART_RECT
     bun = QPointF(art_rect.x() + art_rect.width() * 0.494, art_rect.y() + art_rect.height() * 0.19)
 
     # ── background ──
@@ -362,18 +386,7 @@ def _draw_frame(p: QPainter, info: dict, gold: bool, H: int, framed: bool = True
 
     # ── rank picture ──
     if art is not None:
-        if gold:
-            p.drawImage(art_rect, _feathered(art, int(art_rect.width()), int(art_rect.height())))
-        else:
-            path = QPainterPath()
-            path.addRoundedRect(art_rect, 10, 10)
-            p.save()
-            p.setClipPath(path)
-            p.drawImage(art_rect, art)
-            p.restore()
-            p.setPen(QPen(_outline(info), 2))
-            p.setBrush(Qt.BrushStyle.NoBrush)
-            p.drawRoundedRect(art_rect, 10, 10)
+        draw_art(p, info, gold, art)
 
     # ── rank name, English name, belt, count ──
     y = art_rect.bottom() + 14
@@ -526,12 +539,14 @@ def _pair(v):
         return None
 
 
-def render_profile(profile: dict, mine: dict | None, synced: str = "", framed: bool = True) -> QImage:
+def render_profile(profile: dict, mine: dict | None, synced: str = "", framed: bool = True,
+                   with_art: bool = True) -> QImage:
     """A Nakama member's card (nakama.py): the share image's left half and,
     on the right, separate bars for JLPT vocab (per level), the top 20,000
     frequency words, JLPT kanji and JLPT grammar. mine (your own snapshot,
     None on your own card): a tick on every bar where you are, and the
-    difference beside it ("you +40")."""
+    difference beside it ("you +40"). with_art False: no rank picture
+    (the Nakama tab draws it, animated)."""
     data = profile.get("data") or {}
     count = int(data.get("rank") or 0)
     info = rank_data.get_rank_info(count)
@@ -567,7 +582,7 @@ def render_profile(profile: dict, mine: dict | None, synced: str = "", framed: b
     p.setRenderHint(QPainter.RenderHint.Antialiasing)
     p.setRenderHint(QPainter.RenderHint.TextAntialiasing)
     p.setRenderHint(QPainter.RenderHint.SmoothPixmapTransform)
-    y = _draw_frame(p, info, gold, H, framed) + 8
+    y = _draw_frame(p, info, gold, H, framed, with_art) + 8
 
     # under the rank: this week / month, synced, marked found
     dim = QColor(GOLD_DARK if gold else "#aaaaaa")

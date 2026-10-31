@@ -658,6 +658,7 @@ N1、そしてその先までの進み具合を現実的に示すため、ここ
 
     # ── Rank cards ────────────────────────────────────────────────────────
     # For each rank: coloured band with rank name + threshold + art if available
+    videos = []                          # rank_video.RankVideo per animated picture
     for i, name_en in enumerate(rank_data.MAIN_RANKS_EN):
         name_jp     = rank_data.MAIN_RANKS_JP[i]
         col_a, col_b = rank_data.RANK_COLORS[name_en]
@@ -752,7 +753,8 @@ N1、そしてその先までの進み具合を現実的に示すため、ここ
             px.loadFromData(art_bytes, "JPEG")
             if not px.isNull():
                 scaled = px.scaledToHeight(80, Qt.TransformationMode.SmoothTransformation)
-                if name_en == rank_data.MAIN_RANKS_EN[-1] and user_count < threshold:
+                mystery = name_en == rank_data.MAIN_RANKS_EN[-1] and user_count < threshold
+                if mystery:
                     scaled = _mystery_pixmap(scaled)
                     card_widget.setToolTip("Reach this rank to reveal it")
                 art_lbl = QLabel()
@@ -760,6 +762,11 @@ N1、そしてその先までの進み具合を現実的に示すため、ここ
                 art_lbl.setStyleSheet("background: transparent; border: none;")
                 art_lbl.setAlignment(Qt.AlignmentFlag.AlignVCenter | Qt.AlignmentFlag.AlignRight)
                 card_layout.addWidget(art_lbl)
+                # Animated like the badge (owner 2026-10-31): every rank with
+                # a loop clip, Amaterasu only in Amaterasu mode; the still
+                # picture stays until the first frame (or if it can't play).
+                if not mystery and (name_en != "Amaterasu" or _GOLD_MODE["on"]):
+                    _rank_info_video(dlg, art_lbl, name_en, scaled.size(), videos)
 
         vbox.addWidget(card_widget)
 
@@ -786,6 +793,31 @@ N1、そしてその先までの進み具合を現実的に示すため、ここ
     attach_sky(dlg)                      # stars behind, like every Kotodama window
     attach_rain(dlg)                     # rain on the glass, like every Kotodama window
     dlg.exec()
+    for video in videos:
+        video.stop()
+
+
+def _rank_info_video(dlg, art_lbl, rank_en: str, size, videos: list):
+    """Play a rank's loop clip in its All Ranks thumbnail (size: the still's)."""
+    try:
+        from . import rank_video
+        if rank_video.clip(rank_en, "loop") is None:
+            return
+        video = rank_video.RankVideo(rank_en, dlg)
+    except Exception:
+        return
+    if not video.ok:
+        video.deleteLater()
+        return
+
+    def show(img: QImage):
+        art_lbl.setPixmap(QPixmap.fromImage(img.scaled(
+            size, Qt.AspectRatioMode.IgnoreAspectRatio,
+            Qt.TransformationMode.SmoothTransformation)))
+
+    video.frame.connect(show)
+    video.play_loop()
+    videos.append(video)
 
 
 # Seconds into the Amaterasu intro (7.5 s clip; her light peaks at 0.55 s)

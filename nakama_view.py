@@ -58,10 +58,11 @@ class _Row(QWidget):
         data = profile.get("data") or {}
         count = int(data.get("rank") or 0)
         info = rank_data.get_rank_info(count)
+        self.info = info
         h = QHBoxLayout(self)
         h.setContentsMargins(6, 4, 8, 4)
         h.setSpacing(10)
-        art = QLabel()
+        art = self.art = QLabel()
         art.setFixedSize(54, 36)
         pm = _thumb(count)
         if pm is not None:
@@ -105,6 +106,13 @@ class NakamaTab(QWidget):
         self._preview = None       # DEBUG: rank count the shown card is previewed at
         self._busy = False
         self._img = None
+        self._card_base = None     # the shown card without its rank picture
+        self._card_info = None     # its rank (rank_data.get_rank_info)
+        # Animated rank pictures (owner 2026-10-31): one RankVideo per rank,
+        # shared by the list thumbnails and the card; _targets[rank] =
+        # {key: draw(frame)} for whatever shows that rank right now.
+        self._videos = {}
+        self._targets = {}
         self._root = QVBoxLayout(self)
         self._root.setContentsMargins(10, 10, 10, 10)
         self._body = None
@@ -181,14 +189,12 @@ class NakamaTab(QWidget):
         mine = nakama.state().get("mine")
         if not mine:
             self._img = None
+            self._unwatch("card")
             self._card.setText("<span style='color:#9a9a9a;'>Your card appears here once your "
                                "bars are counted.</span>")
             return
         data = dict(mine, rank=self._preview) if self._preview is not None else mine
-        from . import share_card
-        self._img = share_card.render_profile(
-            {"name": self._name.text().strip() or "Nakama", "data": data}, None, "", framed=False)
-        self._show_img()
+        self._set_card({"name": self._name.text().strip() or "Nakama", "data": data}, None, "")
 
     def _build_member(self, body):
         s = nakama.state()
@@ -370,6 +376,9 @@ class NakamaTab(QWidget):
         members = sorted(self._members(),
                          key=lambda m: (bool(m[1].get("missing")), -_metric(m[1].get("data") or {}, key)))
         self._list.blockSignals(True)
+        for t in self._targets.values():          # the old rows go with clear()
+            for k in [k for k in t if k != "card"]:
+                del t[k]
         self._list.clear()
         sel_row = 0
         names = [(m[1].get("name") or "").strip().lower() for m in members]
@@ -381,6 +390,9 @@ class NakamaTab(QWidget):
             it.setSizeHint(QSize(0, 48))
             self._list.addItem(it)
             self._list.setItemWidget(it, w)
+            self._watch(("row", i), w.info, lambda img, a=w.art: a.setPixmap(QPixmap.fromImage(
+                img.scaled(54, 36, Qt.AspectRatioMode.KeepAspectRatio,
+                           Qt.TransformationMode.SmoothTransformation))))
             if code == self._selected:
                 sel_row = i
         self._list.blockSignals(False)
@@ -405,18 +417,87 @@ class NakamaTab(QWidget):
         me = self._selected == nakama.state().get("id")
         if prof.get("missing") or not prof.get("data"):
             self._img = None
+            self._unwatch("card")
             self._card.setText("<span style='color:#9a9a9a;'>"
                                + ("Nobody uses this code (any more)." if prof.get("missing")
                                   else "No card yet: press ⟳ Refresh.") + "</span>")
             return
         if self._preview is not None:      # DEBUG preview: this card at that rank
             prof = dict(prof, data=dict(prof["data"], rank=self._preview))
+        self._set_card(prof, None if me else nakama.state().get("mine"),
+                       nakama.synced_text(prof.get("updated")) if not me or prof.get("updated") else "")
+
+    def _set_card(self, profile: dict, mine: dict | None, synced: str):
+        """Show a member's card; its rank picture is drawn on separately, so
+        an animated one only redraws the picture (_card_frame)."""
         from . import share_card
-        self._img = share_card.render_profile(
-            prof, None if me else nakama.state().get("mine"),
-            nakama.synced_text(prof.get("updated")) if not me or prof.get("updated") else "",
-            framed=False)
+        self._card_info = rank_data.get_rank_info(int((profile.get("data") or {}).get("rank") or 0))
+        self._card_base = share_card.render_profile(profile, mine, synced, framed=False,
+                                                    with_art=False)
+        self._card_frame(share_card._art(self._card_info))
+        self._watch("card", self._card_info, self._card_frame)
+
+    def _card_frame(self, art: QImage | None):
+        if self._card_base is None:
+            return
+        img = self._card_base.copy()
+        if art is not None and not art.isNull():
+            from . import share_card
+            p = QPainter(img)
+            p.setRenderHint(QPainter.RenderHint.Antialiasing)
+            p.setRenderHint(QPainter.RenderHint.SmoothPixmapTransform)
+            share_card.draw_art(p, self._card_info, bool(self._card_info.get("is_max_amaterasu")), art)
+            p.end()
+        self._img = img
         self._show_img()
+
+    # ── animated rank pictures ───────────────────────────────────────────────
+
+    def _unwatch(self, key):
+        for t in self._targets.values():
+            t.pop(key, None)
+
+    def _watch(self, key, info: dict, draw):
+        """Call draw(frame) for every frame of the rank's animated picture,
+        if it has one: Nihonjin and up, Amaterasu only in Amaterasu mode,
+        like the Overview. Replaces what `key` watched before."""
+        self._unwatch(key)
+        rank = info["rank_name_en"]
+        if rank == "Amaterasu" and not info.get("is_max_amaterasu"):
+            return
+        video = self._videos.get(rank)
+        if video is None:
+            try:
+                from . import rank_video
+                if rank_video.clip(rank, "loop") is None:
+                    return
+                video = rank_video.RankVideo(rank, self)
+            except Exception:
+                return
+            if not video.ok:
+                video.deleteLater()
+                return
+            video.frame.connect(lambda img, r=rank: self._on_frame(r, img))
+            self._videos[rank] = video
+        self._targets.setdefault(rank, {})[key] = draw
+        if self.isVisible():
+            video.resume()
+
+    def _on_frame(self, rank: str, img: QImage):
+        targets = self._targets.get(rank)
+        if not targets:
+            self._videos[rank].pause()            # nothing shows this rank any more
+            return
+        for key, draw in list(targets.items()):
+            try:
+                draw(img)
+            except RuntimeError:                  # its widget was deleted (view rebuilt)
+                targets.pop(key, None)
+
+    def hideEvent(self, e):
+        super().hideEvent(e)
+        for video in self._videos.values():
+            video.pause()
 
     def _show_img(self):
         if self._img is None:
@@ -444,6 +525,9 @@ class NakamaTab(QWidget):
                 pass
         self._render_own()
         self.refresh()
+        for rank, video in self._videos.items():
+            if self._targets.get(rank):
+                video.resume()
 
     # ── actions ──────────────────────────────────────────────────────────────
 
