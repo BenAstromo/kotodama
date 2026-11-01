@@ -110,45 +110,72 @@ What `user_files/` holds, for reference: `history.json` (daily progress snapshot
 
 ---
 
-## 6. AnkiWeb page draft
+## 6. AnkiWeb page draft (rewritten 2026-11-01 from the new README)
 
-AnkiWeb add-on descriptions accept a limited set of HTML tags (`<b>`, `<i>`, `<a>`, `<img>`, line breaks). Keep it short with images. Screenshots must be hosted elsewhere (e.g. imgur or the GitHub repo) and linked with `<img src>`.
+Same text as the README, shortened to what AnkiWeb allows (`<b>`, `<i>`, `<a>`, `<img>`, line breaks). The images load from the GitHub repo, so they only show once the repo is **public**. Swap `rank.png`, `nakama.png` and `main-screen.png` for the GIFs when they exist, and fill in the AnkiWeb code in the README after uploading.
 
 ```html
 <b>Kotodama 言霊: see how much Japanese your Anki deck really covers.</b>
 
-Kotodama reads your deck and shows your progress through every JLPT level, N5 to N1, in <b>vocabulary, kanji and grammar</b>. It also gives you a rank on a 20,000-word frequency ladder, from Gaijin to Amaterasu.
+Kotodama reads the deck you already have and shows your progress through every JLPT level, N5 to N1, in <b>vocabulary, kanji and grammar</b>. It finds the grammar in your cards' example sentences, so mined sentence cards count too. You don't need a separate grammar deck. Free, offline.
 
-[SCREENSHOT: Overview]
+<img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/vocabulary.png">
 
-<b>What it does</b>
-• <b>JLPT vocabulary bars</b> for N5–N1 (8,070 words; community lists, since there is no official JLPT list). Click a missing word to copy it, Shift+click to look it up on Jisho.
-• <b>Kanji</b>: a heatmap of every JLPT kanji, coloured by how well you know it.
-• <b>Grammar</b>: an automatic parser finds the JLPT grammar points used in your cards' example sentences, so mined sentences count. No grammar deck needed.
-• <b>Frequency rank</b>: how many of the 20,000 most common words (BCCWJ corpus) you know, with ranks, belts and a top-rank surprise.
-• <b>Text Check</b>: paste any Japanese text (an article, a song, a chapter) to see what share of its words you already know and which ones to learn next.
-• <b>Share image</b>: a picture of your rank and bars to post.
-• <b>History</b>: your progress over time, and a small widget on Anki's main screen.
+<b>JLPT vocabulary, N5 → N1</b>
+One bar per level, about 9,800 words. Click a bar for a grid of every word: known words lit up, missing ones dark. Hover for the meaning, click to copy, Shift+click for Jisho.
 
-[SCREENSHOT: Kanji & Grammar] [SCREENSHOT: Text Check] [GIF: rank-up]
+<img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/word-grid-n4.webp">
 
-Words count as "known" when you can recognise them in your deck (young or mature cards). Kotodama measures recognition, not production. Any grammar point it misses can be marked by hand in one click.
+<b>Kanji and grammar, from your own cards</b>
+All 2,383 JLPT kanji, coloured by how well you know each one. A built-in parser finds the 526 JLPT grammar points in your example sentences, conjugated forms included. Anything it misses can be marked found in one click.
 
-<b>Setup</b>
-Kotodama menu → Settings: pick your deck and the field that holds the Japanese word (and optionally the example sentence). That's it.
+<img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/kanji-grammar.png">
+
+<b>Kotodama Japanese Rank</b>
+Every card you've studied counts toward 20,000 words, the vocabulary of native-like fluency. Ten ranks from Gaijin (外人) up, eight belts each. The top rank stays secret until you reach it.
+
+<img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/rank.png">
+
+<b>Frequency Check</b>
+Compares your deck with the 20,000 most common words of written Japanese: what share of everyday text and speech you can follow, and the most common words you're missing.
+
+<img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/frequency.png">
+
+<b>JLPT Goal</b>
+Pick your level and test date, and Kotodama works out how much to learn each day to be ready two weeks early. No streaks, nothing lost for a missed day.
+
+<img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/goal.png">
+
+<b>Text Check</b>
+Paste any Japanese text or open subtitles: see what share of its words you know, its kanji and grammar, and which words to learn first.
+
+<b>History</b>
+Your progress over time, rebuilt from your review history.
+
+<img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/history.png">
 
 <b>Nakama 仲間</b>
-Swap friend codes and see your friends' bars next to yours, updated when they sync. Friends only: no global leaderboard.
+Swap friend codes and see your friends' bars next to yours. Friends only: no search, no public list. Optional.
+
+<img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/nakama.png">
+
+<b>Main screen widget and share image</b>
+Your bars, today's goal and your rank next to the deck list, and a picture of your progress to post.
+
+<img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/main-screen.png">
+
+<b>Setup</b>
+Kotodama menu → Settings: pick your deck and the field with the Japanese word (optionally the reading and example sentence). That's it.
 
 <b>Privacy</b>
-Works offline. Only if you join Nakama are your name and bar numbers sent (never your cards or words), and only friends with your code can see them. Leave at any time: your name and numbers are removed from the server.
+Works offline. Only if you join Nakama are your name and bar numbers sent (never your cards, words or deck names), and only friends with your code can see them. Leaving removes them from the server.
 
 <b>Free</b>
-Kotodama is free and always will be. If it helps you, you can buy me a coffee: <a href="https://ko-fi.com/benastromo">♥ Support on Ko-fi</a>.
+Kotodama is free, and nothing is unlocked by money. If it helps you: <a href="https://ko-fi.com/benastromo">♥ Support on Ko-fi</a>.
 
-Bugs and ideas: <a href="[GITHUB ISSUES LINK]">[GitHub]</a>
+Bugs, ideas and the full guide: <a href="https://github.com/BenAstromo/kotodama">GitHub</a>
 
-<i>Requires Anki 2.1.50 or newer (desktop). Not affiliated with the Japan Foundation, JEES or Anki. Data: OpenJLPT, Jonathan Waller's JLPT lists, JMdict / KANJIDIC2 (EDRDG), Jitendex, BCCWJ (NINJAL). Full credits and licences in the add-on's README.</i>
+<i>Requires Anki 2.1.50 or newer (desktop). An independent fan project, not affiliated with the Japan Foundation, JEES or Anki; there is no official JLPT list, the levels come from community lists. Data: OpenJLPT, Jonathan Waller's JLPT lists, JMdict / KANJIDIC2 (EDRDG), Jitendex, BCCWJ and CEJC (NINJAL). Full credits and licences on GitHub.</i>
 ```
 
 Measured accuracy: documented here only, NOT published on the page (owner 2026-10-20). If it's ever quoted, use only fresh measurements, never tuned ones:

@@ -441,8 +441,8 @@ class ConfigDialog(QDialog):
         self.kanji_fields_rb.toggled.connect(self._kanji_fields_box.setEnabled)
 
         hint = QLabel(
-            "Every kanji in the chosen text counts. A kanji is <b>known</b> once a young or "
-            "mature card contains it; its colour shows <b>how well</b> you know it: the average "
+            "Every kanji in the chosen text counts. A kanji is <b>known</b> once a card you've "
+            "studied contains it; its colour shows <b>how well</b> you know it: the average "
             "strength of those cards (FSRS stability, difficulty and lapses). Suspended cards "
             "don't count. Kanji don't affect your rank or the word counts.")
         hint.setWordWrap(True)
