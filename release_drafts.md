@@ -130,6 +130,8 @@ One bar per level, about 9,800 words. Click a bar for a grid of every word: know
 All 2,383 JLPT kanji, coloured by how well you know each one. A built-in parser finds the 526 JLPT grammar points in your example sentences, conjugated forms included. Anything it misses can be marked found in one click.
 
 <img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/kanji-grammar.png">
+<img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/grammar-grid.png">
+<img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/kanji-grid.png">
 
 <b>Kotodama Japanese Rank</b>
 Every card you've studied counts toward 20,000 words, the vocabulary of native-like fluency. Ten ranks from Gaijin (外人) up, eight belts each. The top rank stays secret until you reach it.

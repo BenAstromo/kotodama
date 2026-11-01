@@ -23,6 +23,13 @@ One glowing bar per level, about 9,800 words in all, plus an All Levels bar and 
 
 ![Kanji and grammar bars](docs/screenshots/kanji-grammar.png)
 
+Click a bar to open its grid. Tiles are coloured from weak (red) to strong (teal), and points that are in your cards but not studied yet get a dashed outline.
+
+<p>
+<img src="docs/screenshots/grammar-grid.png" alt="Grammar grid" width="49%">
+<img src="docs/screenshots/kanji-grid.png" alt="Kanji grid" width="49%">
+</p>
+
 ### Kotodama Japanese Rank
 Every card you've studied counts toward 20,000 words, the vocabulary size associated with native-like fluency. Climb through ten ranks, from Gaijin (外人) up, each split into eight karate-style belts. The top rank stays secret until you reach it. A small message pops up during review when you earn a new belt.
 
