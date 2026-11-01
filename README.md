@@ -46,8 +46,9 @@ Pick your level and test date. Kotodama works out how many words, kanji and gram
 ![JLPT Goal](docs/screenshots/goal.png)
 
 ### Text Check
-<!-- screenshot: docs/screenshots/text-check.png -->
 Paste any Japanese text (an article, a chapter, subtitles) or open a .txt / .srt / .vtt / .ass file. Kotodama shows what share of its words you already know, with a verdict from "comfortable" to "hard", the kanji and grammar points it uses, and the unknown words worth learning first.
+
+![Text Check](docs/screenshots/text-check.png)
 
 ### History
 A chart of your progress over time, rebuilt from your review history back to your first card, with your best week and an **On track** line toward your goal.

@@ -149,6 +149,8 @@ Pick your level and test date, and Kotodama works out how much to learn each day
 <b>Text Check</b>
 Paste any Japanese text or open subtitles: see what share of its words you know, its kanji and grammar, and which words to learn first.
 
+<img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/text-check.png">
+
 <b>History</b>
 Your progress over time, rebuilt from your review history.
 
