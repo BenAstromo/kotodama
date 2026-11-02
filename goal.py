@@ -19,7 +19,7 @@ and from that how much to learn per day to make it.
     N2 hold 6,000 words (capped there), so an N2 goal is just the lists:
     no step 2 at all (owner 2026-11-02: it stayed alive for the last 4 words
     and counted every common non-list word, N1-list words too, in "Today").
-    N1 (~9,800 listed) keeps both. Kanji and grammar always use the lists.
+    N1 (~9,200 listed) keeps both. Kanji and grammar always use the lists.
   - Finish line = 14 days before the test (owner: the last two weeks are for
     review and practice tests). Fixed, no setting.
   - Per day = what was still left at the start of today ÷ days left to the

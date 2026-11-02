@@ -122,7 +122,7 @@ Kotodama reads the deck you already have and shows your progress through every J
 <img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/vocabulary.png">
 
 <b>JLPT vocabulary, N5 → N1</b>
-One bar per level, about 9,800 words. Click a bar for a grid of every word: known words lit up, missing ones dark. Hover for the meaning, click to copy, Shift+click for Jisho.
+One bar per level, about 9,200 words. Click a bar for a grid of every word: known words lit up, missing ones dark. Hover for the meaning, click to copy, Shift+click for Jisho.
 
 <img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/word-grid-n4.webp">
 
