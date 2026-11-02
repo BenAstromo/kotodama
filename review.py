@@ -8,7 +8,8 @@ today / this week / this month" numbers count.
 
 With a JLPT goal, the goal's words / kanji / grammar come first (the very
 items behind the goal card's "Today", goal.today_parts) and the rest is
-"outside your goal", each with its level. Without a goal every JLPT item
+"outside your goal", each with its level: list words above the goal only
+(off-list words never; owner 2026-11-02). Without a goal every JLPT item
 counts, and words on no list are the extra.
 
 review_view.py shows it. It opens by itself the first time the main window
@@ -129,7 +130,7 @@ def build(results: dict, deck: str, days_back: int = 7) -> dict | None:
             target.append({"text": d, "reading": r, "level": lvl,
                            "nid": card_state.real_nid(nid), "day": day})
 
-    # N2 / N1 goals, step 2: the common words not on the lists.
+    # N1 goals, step 2: the common words not on the lists.
     top = goal.vocab_source(level) if level else None
     if top:
         listed = goal._list_ranks(results, level)
@@ -144,11 +145,14 @@ def build(results: dict, deck: str, days_back: int = 7) -> dict | None:
             out["words"].append({"text": d, "reading": r, "level": None, "rank": rank + 1,
                                  "nid": card_state.real_nid(nid), "day": day})
 
-    # Words on no list: the notes first studied in the period (the rank's
-    # gains) whose word is off-list. Parsed sentence words are left out:
-    # a sentence's every off-list word would flood the list.
+    # Words on no list, only without a goal: the notes first studied in the
+    # period (the rank's gains) whose word is off-list. With a goal, "outside"
+    # is list words above it only (owner 2026-11-02: 性癖 counted as "+1
+    # outside your N2 goal"); an N1 goal's common words are step 2, above.
+    # Parsed sentence words are left out: a sentence's every off-list word
+    # would flood the list.
     off = {}
-    for d, r, nid in (results.get("unlisted") or {}).get("known_words", ()):
+    for d, r, nid in (() if level else (results.get("unlisted") or {}).get("known_words", ())):
         if nid is not None and nid < card_state.PSEUDO_BASE:
             off.setdefault(nid, []).append((d, r))
     for day, nid, _item in period("rank"):

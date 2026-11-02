@@ -16,7 +16,9 @@ and from that how much to learn per day to make it.
     are the tests jobs and schools rely on; but written frequency alone
     fits the test badly (the top 6,000 holds only 45% of the N2 list; 傘 is
     #4,943). Since the Word Addition Project (2026-10-29) the lists up to
-    N2 hold 6,000 words (capped there), so an N2 goal has no step 2 (no steps shown);
+    N2 hold 6,000 words (capped there), so an N2 goal is just the lists:
+    no step 2 at all (owner 2026-11-02: it stayed alive for the last 4 words
+    and counted every common non-list word, N1-list words too, in "Today").
     N1 (~9,800 listed) keeps both. Kanji and grammar always use the lists.
   - Finish line = 14 days before the test (owner: the last two weeks are for
     review and practice tests). Fixed, no setting.
@@ -144,7 +146,7 @@ KINDS = ("vocab", "kanji", "grammar")
 # goal_days.json: 2 = card counts (marks left out); 3 = N2 / N1 words in two
 # steps. Bump whenever what a count means changes.
 DAYS_VERSION = 3
-FREQ_GOALS = {"N2": 6_000, "N1": 13_800}   # word goals counted on the frequency list (freq_data.TIERS)
+FREQ_GOALS = {"N1": 13_800}   # word goals counted on the frequency list (freq_data.TIERS); N2 = the lists
 
 
 _LIST_RANKS: dict = {}       # (level, list sizes, list version) → ranks of the list words
@@ -184,8 +186,8 @@ def _list_ranks(results: dict, level: str) -> set:
 
 
 def vocab_source(level: str) -> int | None:
-    """The frequency tier an N2 / N1 goal's words are counted on, or None
-    (N5–N3: the JLPT word lists)."""
+    """The frequency tier an N1 goal's words are counted on, or None
+    (N5–N2: the JLPT word lists)."""
     return FREQ_GOALS.get(level)
 
 _HERE = os.path.dirname(os.path.abspath(__file__))

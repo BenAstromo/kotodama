@@ -165,28 +165,29 @@ check("N1 words: lists first, total = 13,800", (st["kinds"]["vocab"]["known"], s
 check("N1 steps", st["steps"], {"lists": (1300, 7750), "common": (0, 6050)})
 check("N1 kanji still lists", st["kinds"]["kanji"]["total"], 500)
 goal.save("N2", datetime.date(2027, 12, 5))
+# N2 = just the lists, no step 2 (owner 2026-11-02)
 st = goal.status(results(600, 400, 300), "D")
-check("N2 steps", st["steps"], {"lists": (1300, 4750), "common": (0, 1250)})
+check("N2: no steps", st.get("steps"), None)
+check("N2: words = lists", st["kinds"]["vocab"]["total"], 4750)
 r = results(600, 400, 300); r["frequency"]["known_nids"] = {i: [i] for i in range(1000)}
 st = goal.status(r, "D")
-check("N2: 1,000 common words count toward step 2", st["steps"]["common"], (1000, 1250))
-r["frequency"]["known_nids"] = {i: [i] for i in range(3000)}
-st = goal.status(r, "D")
-check("N2: step 2 capped, can't replace list words", (st["steps"]["common"], st["kinds"]["vocab"]["known"]), ((1250, 1250), 2550))
-check("N2: not done while lists aren't", st["kinds"]["vocab"]["left"], 3450)
+check("N2: common words don't count", (st.get("steps"), st["kinds"]["vocab"]["known"]), (None, 1300))
+check("N2: today's parts = the lists only", [k for k, _ in goal.today_parts(r, "N2", "vocab")], ["N5", "N4", "N3", "N2"])
 # Waiting English loanwords (card_state.hold_back_loans) aren't words to
 # learn: left out of what's left and the per-day number (owner 2026-10-28)
-r = results(600, 400, 300); r["frequency"]["known_nids"] = {i: [i] for i in range(1000)}
+r = results(600, 400, 300)
 st0 = goal.status(r, "D")
 r["loans_waiting"] = {"pairs": {tuple(p) for p in r["N3"]["missing_words"][:1000]},
                       "ranks": set(range(1000, 1150))}
 st = goal.status(r, "D")
-check("N2 waiting: 1,000 list + 150 step-2 loanwords", st["kinds"]["vocab"]["waiting"], 1150)
-check("N2 waiting: left drops by 1,150", st0["kinds"]["vocab"]["left"] - st["kinds"]["vocab"]["left"], 1150)
+check("N2 waiting: 1,000 list loanwords (no step 2)", st["kinds"]["vocab"]["waiting"], 1000)
+check("N2 waiting: left drops by 1,000", st0["kinds"]["vocab"]["left"] - st["kinds"]["vocab"]["left"], 1000)
 check("N2 waiting: bars' known unchanged", st["kinds"]["vocab"]["known"], st0["kinds"]["vocab"]["known"])
 check("N2 waiting: per day drops", st["kinds"]["vocab"]["per_day"] < st0["kinds"]["vocab"]["per_day"], True)
-r["loans_waiting"]["ranks"] = set(range(1000, 1400))           # step 2 still needs only 250
-check("N2 waiting: capped at step 2's need", goal.status(r, "D")["kinds"]["vocab"]["waiting"], 1250)
+goal.save("N1", datetime.date(2027, 12, 5))
+r = results(600, 400, 300, (90, 50, 10), (40, 20)); r["frequency"]["known_nids"] = {i: [i] for i in range(1000)}
+r["loans_waiting"] = {"pairs": set(), "ranks": set(range(1000, 1150))}
+check("N1 waiting: step-2 loanwords count", goal.status(r, "D")["kinds"]["vocab"]["waiting"], 150)
 goal.save("N3", datetime.date(2026, 12, 6))
 check("N3 words = lists", goal.status(results(600, 400, 300), "D")["kinds"]["vocab"]["total"], 2950)
 
@@ -287,7 +288,10 @@ st = goal.status(mini_r, "D3")["kinds"]
 check("level switch, mini afterwards: same as the window", (st["vocab"]["today"], st["kanji"]["today"]), (2, 1))
 goal.save("N2", datetime.date(2027, 7, 4))      # what the next checks expect
 r2 = results(600, 400, 300); r2.pop("frequency")
-check("N2 without frequency data: no word number", "vocab" in goal.status(r2, "D2")["kinds"], False)
+check("N2 without frequency data: the lists still count", "vocab" in goal.status(r2, "D2")["kinds"], True)
+goal.save("N1", datetime.date(2027, 7, 4))
+check("N1 without frequency data: no word number", "vocab" in goal.status(r2, "D2")["kinds"], False)
+goal.save("N2", datetime.date(2027, 7, 4))
 goal.save("N3", datetime.date(2026, 12, 6))
 
 # ── Japanese for the built texts ──
