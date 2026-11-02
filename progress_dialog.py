@@ -2989,6 +2989,28 @@ class _NightSky(QWidget):
             p.setBrush(QBrush(g))
             p.drawEllipse(QPointF(x, y), r, r)
 
+    def _bokeh_clip(self, rect):
+        """The bare background only: the bokeh stays off the section cards,
+        the History chart, tables, text boxes and controls, which are
+        see-through (owner 2026-11-02: discs showed on the chart)."""
+        from aqt.qt import QRegion, QAbstractItemView, QTextEdit, QPlainTextEdit, \
+            QLineEdit, QComboBox, QAbstractButton
+        solid = (QAbstractItemView, QTextEdit, QPlainTextEdit, QLineEdit, QComboBox, QAbstractButton)
+        region = QRegion(rect)
+        todo = [self._win]
+        while todo:                      # a matched widget's children aren't visited (grids: thousands of tiles)
+            for w in todo.pop().children():
+                if not isinstance(w, QWidget) or w is self or not w.isVisible() or w.isWindow():
+                    continue
+                if w.objectName() == "kcard" or isinstance(w, solid) or type(w).__name__ == "HistoryChart":
+                    # only the part on screen: a card half scrolled out
+                    # mustn't blank the background above its scroller
+                    o = w.mapTo(self._win, QPoint(0, 0))
+                    region = region.subtracted(w.visibleRegion().translated(o.x(), o.y()))
+                else:
+                    todo.append(w)
+        return region
+
     def eventFilter(self, obj, event):
         if event.type() == QEvent.Type.Resize:
             self.setGeometry(obj.rect())
@@ -3039,7 +3061,10 @@ class _NightSky(QWidget):
             p.setRenderHint(QPainter.RenderHint.Antialiasing)
             p.setPen(Qt.PenStyle.NoPen)
             if _fx("fx_bokeh"):
+                p.save()
+                p.setClipRegion(self._bokeh_clip(event.rect()))
                 self._paint_bokeh(p, event.rect())
+                p.restore()
             # stars and moon: always, no switch (owner 2026-10-26)
             if self._pm is None or self._pm.size() != self.size():
                 self._pm = self._render()

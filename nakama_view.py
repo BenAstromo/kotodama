@@ -367,6 +367,7 @@ class NakamaTab(QWidget):
                      "updated": (s["cache"].get(me) or {}).get("updated")}, True)]
         for c in s["friends"]:
             out.append((c, s["cache"].get(c) or {"id": c, "name": nakama.show_code(c)}, False))
+        out += [(p["id"], p, False) for p in nakama.demo_members()]
         return out
 
     def _fill_list(self):

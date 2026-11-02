@@ -217,6 +217,22 @@ def parked_code() -> str | None:
     return (state().get("parked") or {}).get("id") or None
 
 
+_DEMO_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "user_files", "nakama_demo.json")
+
+
+def demo_members() -> list:
+    """Screenshot-only friends (owner 2026-11-02; made by
+    tools/dev/nakama_demo.py): profiles in user_files/nakama_demo.json,
+    listed after your friends. Never sent, fetched or synced; deleting the
+    file removes them."""
+    try:
+        with open(_DEMO_PATH, encoding="utf-8") as f:
+            got = json.load(f)
+        return [p for p in got if isinstance(p, dict) and p.get("id")] if isinstance(got, list) else []
+    except Exception:
+        return []
+
+
 def joined() -> bool:
     s = state()
     return bool(s.get("id") and s.get("key"))

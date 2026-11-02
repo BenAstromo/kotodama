@@ -29,6 +29,14 @@ Rebuilt past
 Merging: a recorded day replaces the rebuilt value when it was taken with
 the same word lists and settings (JLPT/frequency) or the same
 ignore-suspended setting (rank/mature); otherwise the rebuilt value is used.
+
+Marked English loanwords on the chart (owner 2026-11-02): each snapshot
+keeps how many loanwords its numbers included ("loans"), and the chart
+swaps that part for what the current marks give that day (loans_on_chart):
+from the day the button was pressed ("loans_since"), none at all once
+unmarked. So unmarking looks as if it was never pressed (no drop, no left-
+over bump) and marking shows as a jump on its day. Gains ignore marks
+anyway (build_series).
 """
 
 from __future__ import annotations
@@ -107,6 +115,38 @@ def _save(data: dict):
 def recorded_days(deck_name: str) -> dict:
     """{"YYYY-MM-DD": snapshot} recorded for this deck."""
     return _load()["decks"].get(deck_name, {}).get("days", {})
+
+
+def loans_since(deck_name: str) -> str | None:
+    """Since when the English-loanword marks count on the chart: "YYYY-MM-DD",
+    "start" (marked before this was kept: from the first day), or None (none
+    marked)."""
+    return _load()["decks"].get(deck_name, {}).get("loans_since")
+
+
+def loan_counts(results: dict, rank: int) -> dict:
+    """{key: marked English loanwords the counts include now} for the
+    snapshot: per JLPT level, all levels, each frequency tier and the rank."""
+    fk = card_state._found_keys(results)
+    out = {}
+    for lvl in LEVELS:
+        n = sum(1 for d, r, nid in results.get(lvl, {}).get("known_words", ())
+                if nid is None and fk.get(card_state.found_key(d, r), (False,))[0])
+        if n:
+            out[lvl] = n
+    if any(out.get(l) for l in LEVELS):
+        out["jlpt"] = sum(out.get(l, 0) for l in LEVELS)
+    freq = results.get("frequency") or {}
+    if freq.get("available"):
+        rows = [r for r in freq.get("found_ranks", ()) if fk.get(("row", r), (False,))[0]]
+        for n in freq_data.TIERS:
+            c = sum(1 for r in rows if r < n)
+            if c:
+                out[f"f{n}"] = c
+    loans = card_state.cards_for_rank(rank, card_state.found_parts(results))[1]
+    if loans:
+        out["rank"] = loans
+    return out
 
 
 def signature(lists: dict, field_mappings: list, ignore_suspended: bool) -> str:
@@ -189,6 +229,7 @@ def snapshot_values(results: dict, deck_name: str, ignore_suspended: bool) -> di
     if kg:
         vals.update(kg)
         vals["kg_sig"] = kg_signature(results)
+    vals["loans"] = loan_counts(results, vals["rank"])
     return vals
 
 
@@ -213,7 +254,21 @@ def record(results: dict, deck_name: str, lists: dict, field_mappings: list,
     snap["src"] = "manual" if manual else "auto"
 
     data = _load()
-    days = data["decks"].setdefault(deck_name, {}).setdefault("days", {})
+    deck = data["decks"].setdefault(deck_name, {})
+    days = deck.setdefault("days", {})
+    # When the loanword marks started counting on the chart (module doc):
+    # marks from before this was kept count from the first day, as before.
+    since = deck.get("loans_since")
+    marked = bool(card_state.found_parts(results)["loans"])
+    if "loans_v" not in deck:
+        deck["loans_v"] = 1
+        if marked:
+            deck["loans_since"] = "start"
+    elif marked and since is None:
+        deck["loans_since"] = day
+    elif not marked:
+        deck.pop("loans_since", None)
+    since_changed = deck.get("loans_since") != since
     old = days.get(day)
     if old is not None and "kg_sig" in old and "kg_sig" not in snap:
         # the deck-list snapshot doesn't analyse kanji / grammar: keep
@@ -222,8 +277,10 @@ def record(results: dict, deck_name: str, lists: dict, field_mappings: list,
             if k in old:
                 snap[k] = old[k]
     unchanged = (old is not None
-                 and all(old.get(k) == snap.get(k) for k in ALL_KEYS + ["sig", "ignore_suspended", "kg_sig"]))
+                 and all(old.get(k) == snap.get(k) for k in ALL_KEYS + ["sig", "ignore_suspended", "kg_sig", "loans"]))
     if unchanged and not manual:
+        if since_changed:
+            _save(data)
         _last_recorded[deck_name] = day
         return old
     days[day] = snap
@@ -425,6 +482,7 @@ def rebuild(results: dict, deck_name: str, ignore_suspended: bool) -> dict:
     # The counted loanwords on each day: those whose place is below that
     # day's count (it drops if cards are reset). All of them today: today's
     # count is the real one, the replayed cards can fall a little short.
+    loans = {"rank": joined}            # key → loanwords in each day's value
     if loan_incs:
         import bisect
         places: dict[str, list[int]] = {}
@@ -433,11 +491,11 @@ def rebuild(results: dict, deck_name: str, ignore_suspended: bool) -> dict:
                 places.setdefault(key, []).append(place)
         for key, ps in places.items():
             ps.sort()
-            for i in range(n_days - 1):
-                values[key][i] += bisect.bisect_left(ps, joined[i])
-            values[key][-1] += len(ps)
+            loans[key] = [bisect.bisect_left(ps, joined[i]) for i in range(n_days - 1)] + [len(ps)]
+            for i in range(n_days):
+                values[key][i] += loans[key][i]
 
-    return {"days": days, "values": values, "gained": gained}
+    return {"days": days, "values": values, "gained": gained, "loans": loans}
 
 
 def build_series(results: dict, deck_name: str, lists: dict,
@@ -480,7 +538,32 @@ def build_series(results: dict, deck_name: str, lists: dict,
                     used = True
         recorded[i] = used
     data["recorded"] = recorded
+    loans_on_chart(data, deck_name)
     return data
+
+
+def loans_on_chart(data: dict, deck_name: str):
+    """Each chart value with today's loanword marks (module doc): its own
+    loanwords out (the snapshot's "loans", or the rebuilt day's), the current
+    marks' share for that day in, from loans_since on."""
+    loans, values, days = data.get("loans") or {}, data["values"], data["days"]
+    since = loans_since(deck_name)
+    snaps = recorded_days(deck_name)
+    for key, now in loans.items():
+        if key not in values:
+            continue
+        for i, day in enumerate(days):
+            snap = snaps.get(day.isoformat()) if data["recorded"][i] else None
+            v = values[key][i]
+            if snap is None or snap.get(key) != v:
+                had = now[i]                   # a rebuilt value: today's marks on their schedule
+            elif "loans" in snap:
+                had = snap["loans"].get(key, 0)
+            else:
+                # Recorded before snapshots kept this: nearer to with or without?
+                had = now[i] if abs(v - (data["gains"][key][i])) <= abs(v - (data["gains"][key][i] - now[i])) else 0
+            shown = now[i] if since and (since == "start" or day.isoformat() >= since) else 0
+            values[key][i] = max(0, v - had + shown)
 
 
 def _gain_values(series: dict, key: str):

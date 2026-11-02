@@ -202,37 +202,91 @@ def _struggle(pat, end, n, j):
     return _normalise(buf, 0.7)
 
 
-def render_spark(seed) -> list:
+# Kinds of spark (owner 2026-11-02: one recipe sounded the same every time).
+SPARK_KINDS = ("crackle", "snap", "double", "fizzle", "zap")
+SPARK_PEAK = {"crackle": 0.75, "snap": 0.7, "double": 0.72, "fizzle": 0.55, "zap": 0.65}
+
+
+def _crackle(buf, rnd, seed, t0, until, amp):
+    """Small clicks from t0, thinning out towards `until`."""
+    t = t0
+    while t < until:
+        _click(buf, t, rnd.uniform(0.25, 0.7) * amp * (1 - (t - t0) / (until - t0 + 0.02)),
+               rnd.uniform(1800, 4200), rnd.uniform(0.8, 1.8), int(t * 10007) + seed)
+        t += rnd.uniform(0.006, 0.02) + (t - t0) * 0.12
+
+
+def _hiss(buf, seed, decay_s, amp, start=0.0, hp=0.9, lp=0.75):
+    i0 = int(start * SR)
+    nz = _noise(len(buf) - i0, 300 + seed % 7, hp, lp)
+    for i, x in enumerate(nz):
+        buf[i0 + i] += x * math.exp(-i / (SR * decay_s)) * amp
+
+
+def render_spark(seed, kind: str = None) -> list:
     """A spark off a tube (rain.py, owner 2026-10-22: "can't hear the
-    sparks"): a sharp crack, a fast crackle that thins out, a short sizzle."""
+    sparks"), one of SPARK_KINDS: crackle (a sharp crack, a fast crackle
+    that thins out, a short sizzle), snap (one dry crack), double (two
+    cracks close together), fizzle (a soft sizzle with a few ticks, no
+    crack) or zap (a crack with a short electric buzz)."""
     rnd = random.Random(seed)
-    n = int(SR * 0.55)
-    buf = [0.0] * n
-    _click(buf, 0.0, 1.0, rnd.uniform(2200, 3200), 2.2, seed)            # the crack
-    nz = _noise(n, 300 + seed % 7, 0.9, 0.75)
-    hiss = [nz[i] * math.exp(-i / (SR * 0.09)) * 0.55 for i in range(n)]
-    buf = [a + b for a, b in zip(buf, hiss)]
-    t = 0.004
-    while t < 0.32:                                                       # crackle, thinning out
-        _click(buf, t, rnd.uniform(0.25, 0.7) * (1 - t / 0.34), rnd.uniform(1800, 4200),
-               rnd.uniform(0.8, 1.8), int(t * 10007) + seed)
-        t += rnd.uniform(0.006, 0.02) + t * 0.12
-    return _normalise(buf, 0.75)
+    kind = kind or rnd.choice(SPARK_KINDS)
+    if kind == "crackle":
+        buf = [0.0] * int(SR * rnd.uniform(0.45, 0.6))
+        _click(buf, 0.0, 1.0, rnd.uniform(2200, 3200), 2.2, seed)
+        _hiss(buf, seed, rnd.uniform(0.07, 0.11), 0.55)
+        _crackle(buf, rnd, seed, 0.004, rnd.uniform(0.26, 0.34), 1.0)
+    elif kind == "snap":
+        buf = [0.0] * int(SR * 0.25)
+        _click(buf, 0.0, 1.0, rnd.uniform(2600, 3600), rnd.uniform(1.4, 2.0), seed)
+        _hiss(buf, seed, rnd.uniform(0.025, 0.04), 0.4)
+        for _ in range(rnd.randint(1, 3)):
+            _click(buf, rnd.uniform(0.02, 0.09), rnd.uniform(0.15, 0.35), rnd.uniform(2500, 4500), 0.9,
+                   rnd.randrange(1 << 20))
+    elif kind == "double":
+        buf = [0.0] * int(SR * 0.45)
+        gap = rnd.uniform(0.04, 0.1)
+        _click(buf, 0.0, 1.0, rnd.uniform(2200, 3200), 2.0, seed)
+        _click(buf, gap, rnd.uniform(0.55, 0.8), rnd.uniform(2400, 3600), 1.8, seed + 1)
+        _hiss(buf, seed, 0.06, 0.45)
+        _crackle(buf, rnd, seed, gap + 0.01, gap + rnd.uniform(0.12, 0.2), 0.7)
+    elif kind == "fizzle":
+        buf = [0.0] * int(SR * rnd.uniform(0.5, 0.7))
+        _click(buf, 0.0, 0.35, rnd.uniform(2000, 3000), 1.2, seed)
+        _hiss(buf, seed, rnd.uniform(0.15, 0.22), 0.8, hp=0.95, lp=0.6)
+        t = 0.03
+        while t < len(buf) / SR - 0.1:
+            _click(buf, t, rnd.uniform(0.1, 0.3), rnd.uniform(3000, 5000), 0.7, int(t * 7919) + seed)
+            t += rnd.uniform(0.03, 0.09)
+    else:                                                     # zap
+        buf = [0.0] * int(SR * 0.4)
+        _click(buf, 0.0, 1.0, rnd.uniform(2400, 3400), 1.8, seed)
+        n = int(SR * rnd.uniform(0.06, 0.11))
+        hum = _hum(n, rnd.choice((100, 120)), 3.0, (1, 0.6, 0.45, 0.3))
+        nz = _noise(n, seed % 13, 0.8, 0.9)
+        for i in range(n):
+            buf[i] += (0.32 * hum[i] + 0.25 * nz[i]) * (1 - i / n) ** 1.5
+        _hiss(buf, seed, 0.04, 0.35, start=n / SR)
+    return _normalise(buf, SPARK_PEAK[kind])
 
 
 SPARK_VOLUME = 0.05             # × the Settings level (the intro is 0.25); 0.2 → 0.12 → 0.05 (owner 2026-10-22: "still really loud")
+SPARK_SPREAD = 0.3              # each spark plays up to this much quieter, at random (no two alike)
+SPARK_FILES = 10                # variants rendered per session, every kind at least once
 _SPARKS: list = []              # rendered spark files, this session
+_last_spark = {"path": None}
 
 
-def prepare_sparks(k: int = 3) -> list:
+def prepare_sparks(k: int = SPARK_FILES) -> list:
     """Render k spark variants into user_files (no Qt: worker-thread safe);
-    fixed names, rewritten each session."""
+    fixed names, rewritten each session. The kinds take turns, so every
+    kind is there."""
     try:
         os.makedirs(_DIR, exist_ok=True)
         out = []
         for i in range(k):
             path = os.path.join(_DIR, f"neon_spark_{i}.wav")
-            _write(path, render_spark(random.randrange(1 << 30)))
+            _write(path, render_spark(random.randrange(1 << 30), SPARK_KINDS[i % len(SPARK_KINDS)]))
             out.append(path)
         _SPARKS[:] = out
         return out
@@ -241,9 +295,13 @@ def prepare_sparks(k: int = 3) -> list:
 
 
 def play_spark():
-    """One of the rendered sparks (nothing if they aren't ready yet)."""
+    """One of the rendered sparks, never the same file twice in a row, a
+    little quieter or not (nothing if they aren't ready yet)."""
     if _SPARKS:
-        play_file(random.choice(_SPARKS), SPARK_VOLUME, window=True)
+        choices = [p for p in _SPARKS if p != _last_spark["path"]] or _SPARKS
+        path = random.choice(choices)
+        _last_spark["path"] = path
+        play_file(path, SPARK_VOLUME * (1 - random.uniform(0, SPARK_SPREAD)), window=True)
 
 
 def stop_window_sounds():
