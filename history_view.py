@@ -693,6 +693,20 @@ class HistoryTab(QWidget):
             f_now = fv[-1] or 0
             past = [p + (min(n2, round(k2 * fv[i] / f_now)) if f_now else 0)
                     for i, p in enumerate(past)]
+        elif steps:
+            # N5–N2: step 2 = the most common harder-list words; their gains
+            # are dated per word, marks (no date) count from the first day.
+            k2, n2 = steps["common"]
+            harder = goal.harder_words(self._results_fn(), st["level"])
+            add = [0] * len(all_days)
+            for l in goal.LEVELS[goal.LEVELS.index(st["level"]) + 1:]:
+                for i, nid, item in (s.get("gained") or {}).get(l, ()):
+                    if item in harder and 0 <= i < len(add):
+                        add[i] += 1
+            run, marks = 0, max(0, k2 - sum(add))
+            for i, a in enumerate(add):
+                run += a
+                past[i] += min(n2, run + marks)
         today = days[-1]
         extra = max(0, (st["date"] - today).days)
         for k in range(1, extra + 1):
@@ -713,11 +727,11 @@ class HistoryTab(QWidget):
                 track.append(None if j < si else round(v0 + (total - v0) * min(1.0, (j - si) / (fi - si))))
         else:
             track = [None] * len(days)
-        label = f"Goal words ({st['level']})" if top else f"Words up to {st['level']}"
+        label = f"Goal words ({st['level']})" if steps else f"Words up to {st['level']}"
         on_track = "On track"
         # painted on the chart: Japanese in Amaterasu mode (the legend chips
         # below are translated by divine_text)
-        lines.append(((f"目標の単語（{st['level']}）" if top else f"{st['level']} までの単語") if gold else label,
+        lines.append(((f"目標の単語（{st['level']}）" if steps else f"{st['level']} までの単語") if gold else label,
                       col, col, False, mine))
         lines.append(("予定ライン" if gold else on_track, track_col, track_col, True, track))
         legend.append(f"<span style='color:{col};'>■</span> {label}")

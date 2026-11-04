@@ -451,43 +451,18 @@ print(f"Word Grid: CPU with rain {on_g * 100:.1f} %  without {off_g * 100:.1f} %
 grab_rain("rain_grid.png")
 dlg._tabs.setCurrentIndex(0); pump(1.0)
 grab_rain("rain_overview.png")
-# focus lost: every sound of the window goes quiet (owner 2026-10-22)
-from jlpt_progress import neon_sound as _ns3, ambience as _amb
-class _FakeFx:
-    _kotodama_window = True
-    stopped = False
-    def stop(self): self.stopped = True
-class _MiniFx(_FakeFx):
-    _kotodama_window = False
-fx_w, fx_m = _FakeFx(), _MiniFx()
-_ns3._keep[:] = [fx_w, fx_m]
-dlg.activateWindow(); pump(0.3)
-check("Kotodama in front", pd.kotodama_in_front())
-other = QtWidgets.QWidget(); other.resize(200, 100); other.show(); other.activateWindow(); pump(0.4)
-print("active window now:", type(QtWidgets.QApplication.activeWindow()).__name__)
-check("another Anki window in front: still counts", pd.kotodama_in_front())
-check("another Anki window in front: the window's sounds keep playing", not fx_w.stopped)
-check("another Anki window in front: the star's sound not paused", not _amb.get()._away)
-# another app in front: no active window of ours (offscreen can't switch apps)
-_real_aw = QtWidgets.QApplication.activeWindow
-QtWidgets.QApplication.activeWindow = staticmethod(lambda: None)
-pd._on_focus_changed(None); pump(0.1)
-check("focus elsewhere: not in front", not pd.kotodama_in_front())
-check("focus elsewhere: the window's sounds stopped", fx_w.stopped)
-check("focus elsewhere: the mini widget's sound left alone", not fx_m.stopped)
-check("focus elsewhere: the star's sound paused", _amb.get()._away)
+# no focus mute (owner 2026-11-03: removed; it kept silencing the window's
+# sounds as it opened): a spark plays with no active window too
+from jlpt_progress import neon_sound as _ns3
 heard2 = []
 _pf1 = _ns3.play_file
-_ns3.play_file = lambda path, volume=_ns3._VOLUME, level=None, window=False: heard2.append(volume)
+_ns3.play_file = lambda path, volume=_ns3._VOLUME, level=None: heard2.append(volume)
+_real_aw = QtWidgets.QApplication.activeWindow
+QtWidgets.QApplication.activeWindow = staticmethod(lambda: None)
 rain._spark_fn(); pump(0.05)
-check("focus elsewhere: a spark makes no sound", heard2 == [])
+check("no active window: a spark is still heard", heard2 == [_ns3.SPARK_VOLUME])
 QtWidgets.QApplication.activeWindow = _real_aw
-dlg.activateWindow(); pd._on_focus_changed(dlg.windowHandle()); pump(0.4)
-check("back in front: the star's sound may play again", not _amb.get()._away)
-rain._spark_fn()
-check("back in front: a spark is heard", heard2 == [_ns3.SPARK_VOLUME])
 _ns3.play_file = _pf1
-other.close()
 # a bar that has just flickered on sparks half the time (owner 2026-10-22)
 import random as _rnd
 bar = next(w for _r, _c, _k, w in pd.neon_lights(dlg) if isinstance(w, pd.LevelBar))

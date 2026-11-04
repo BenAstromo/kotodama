@@ -5,21 +5,17 @@ and from that how much to learn per day to make it.
 
   - The test covers every level up to the goal, so an N3 goal counts
     N5 + N4 + N3 (vocab, kanji, grammar), with the same "known" as the bars.
-  - Words (owner 2026-10-20): N5–N3 goals count the JLPT word lists (the
-    JLPT Vocabulary bars). N2 / N1 goals aim for the modern size estimate
-    (6,000 / 13,800 words): step 1, the JLPT word lists up to that level
-    (the words most likely on the test, so they come first); step 2, the
-    rest from common words that aren't on those lists, most common first
-    (the Frequency grid: the top 6,000 / 13,800). Common words count only
-    toward step 2, never in place of list words. Why: the Waller-based
-    lists stopped well short of N2 / N1 (≈ 4,850 / 8,070 words), and those
-    are the tests jobs and schools rely on; but written frequency alone
-    fits the test badly (the top 6,000 holds only 45% of the N2 list; 傘 is
-    #4,943). Since the Word Addition Project (2026-10-29) the lists up to
-    N2 hold 6,000 words (capped there), so an N2 goal is just the lists:
-    no step 2 at all (owner 2026-11-02: it stayed alive for the last 4 words
-    and counted every common non-list word, N1-list words too, in "Today").
-    N1 (~9,200 listed) keeps both. Kanji and grammar always use the lists.
+  - Words, in two steps (owner 2026-11-03): step 1, the JLPT word lists up
+    to the goal (the JLPT Vocabulary bars: the words most likely on the
+    test, so they come first); step 2 tops them up to the level's modern
+    size estimate (LEVEL_SIZE: N5 800, N4 1,500, N3 3,900, N2 6,000,
+    N1 13,800). For N5–N2, step 2 is the most common words of the harder
+    lists (harder_words: a fixed set, most common first, as many as the gap;
+    the lists are Waller's only since 2026-11-03, and Waller's harder
+    words do turn up on the easier tests). For N1, which has no harder list,
+    it's any common written words off the lists, up to the gap (the
+    Frequency grid's top 13,800). Step-2 words count only toward step 2,
+    never in place of list words. Kanji and grammar always use the lists.
   - Finish line = 14 days before the test (owner: the last two weeks are for
     review and practice tests). Fixed, no setting.
   - Per day = what was still left at the start of today ÷ days left to the
@@ -144,12 +140,15 @@ def instead(left: int, test: datetime.date) -> str | None:
 
 KINDS = ("vocab", "kanji", "grammar")
 # goal_days.json: 2 = card counts (marks left out); 3 = N2 / N1 words in two
-# steps. Bump whenever what a count means changes.
-DAYS_VERSION = 3
-FREQ_GOALS = {"N1": 13_800}   # word goals counted on the frequency list (freq_data.TIERS); N2 = the lists
+# steps; 4 = every level in two steps (harder-list words). Bump whenever
+# what a count means changes.
+DAYS_VERSION = 4
+FREQ_GOALS = {"N1": 13_800}   # word goals counted on the frequency list (freq_data.TIERS)
+LEVEL_SIZE = {"N5": 800, "N4": 1_500, "N3": 3_900, "N2": 6_000, "N1": 13_800}   # = freq_data.TIERS
 
 
 _LIST_RANKS: dict = {}       # (level, list sizes, list version) → ranks of the list words
+_HARDER: dict = {}           # (level, list sizes, list version) → step-2 words of an N5–N2 goal
 _FULL_SIZE: dict = {}        # level → JLPT list words up to it, suspended ones included
 
 
@@ -183,6 +182,42 @@ def _list_ranks(results: dict, level: str) -> set:
         _LIST_RANKS.clear()
         _LIST_RANKS[key] = ranks
     return _LIST_RANKS[key]
+
+
+def harder_words(results: dict, level: str) -> set:
+    """An N5–N2 goal's step 2: {(word, reading)} of the most common words on
+    the harder lists (frequency-ranked ones only, most common first), as
+    many as the lists up to `level` fall short of LEVEL_SIZE. Sized against
+    the full lists, like N1's step 2 (suspended words only shrink the
+    total); suspended harder words are left out. Empty for N1."""
+    from . import freq_data, jlpt_data
+    if level not in LEVELS or level == LEVELS[-1]:
+        return set()
+    harder = LEVELS[LEVELS.index(level) + 1:]
+    sizes = tuple(len(results.get(l, {}).get("known_words", ())) + len(results.get(l, {}).get("missing_words", ()))
+                  for l in LEVELS)
+    key = (level, sizes, freq_data.LIST_VERSION)
+    if key not in _HARDER:
+        need = max(0, LEVEL_SIZE[level] - _full_list_size(level))
+        ranked = []
+        for l in harder:
+            d = results.get(l) or {}
+            for w in list(d.get("known_words", ())) + list(d.get("missing_words", ())):
+                disp, read = w[0], w[1]
+                r = freq_data.word_rank(disp, read, jlpt_data.alt_forms(disp, read))
+                if r:
+                    ranked.append((r, disp, read))
+        ranked.sort()
+        out, seen = set(), set()
+        for _r, disp, read in ranked:
+            if len(out) >= need:
+                break
+            if (disp, read) not in seen:
+                seen.add((disp, read))
+                out.add((disp, read))
+        _HARDER.clear()
+        _HARDER[key] = out
+    return _HARDER[key]
 
 
 def vocab_source(level: str) -> int | None:
@@ -281,8 +316,9 @@ def counts(results: dict, level: str) -> dict:
     parts the results have (the deck-list count has no kanji / grammar).
     found = known only through a mark (★ found, the English-loanword or
     basic-particle buttons), with no card: they count as known, but they
-    aren't today's study (see status). N2 / N1 also give "steps":
-    {"lists": (known, total), "common": (known, needed)}."""
+    aren't today's study (see status). Words also give "steps":
+    {"lists": (known, total), "common": (known, needed), "kind": "harder"
+    (N5–N2: harder-list words) or "common" (N1: common words off the lists)}."""
     lv = levels_upto(level)
     out = {}
     k = n = f = 0
@@ -308,6 +344,21 @@ def counts(results: dict, level: str) -> dict:
     if have:
         out["vocab"] = (k, n, f)
         out["waiting"] = w
+        # Step 2 of an N5–N2 goal: the most common harder-list words.
+        extra = harder_words(results, level)
+        if extra:
+            xk = xf = xw = 0
+            for l in LEVELS[LEVELS.index(level) + 1:]:
+                d = results.get(l) or {}
+                for wd, rd, nid in d.get("known_words", ()):
+                    if (wd, rd) in extra:
+                        xk += 1
+                        xf += nid is None
+                xw += sum(1 for p in d.get("missing_words", ())
+                          if (p[0], p[1]) in extra and (p[0], p[1]) in held_pairs)
+            out["steps"] = {"lists": (k, n), "common": (xk, len(extra)), "kind": "harder"}
+            out["vocab"] = (k + xk, n + len(extra), f + xf)
+            out["waiting"] = w + xw
     top = vocab_source(level)
     freq = results.get("frequency") or {}
     if have and top and not (freq.get("available", True) and freq.get("tiers")):
@@ -336,7 +387,7 @@ def counts(results: dict, level: str) -> dict:
         # 2026-10-29): after the Word Addition Project the lists up to N2
         # hold 6,000 words (capped at the estimate), so N2 is just the lists.
         if need:
-            out["steps"] = {"lists": (k, n), "common": (x, need)}
+            out["steps"] = {"lists": (k, n), "common": (x, need), "kind": "common"}
         out["vocab"] = (k + x, n + need, f + xf)
         # waiting loanwords among step 2's still-needed words
         waiting_x = sum(1 for r in pool if r in held_ranks and r not in cards and r not in found_r)
@@ -367,10 +418,13 @@ def counts(results: dict, level: str) -> dict:
 def today_parts(results: dict, level: str, kind: str) -> list:
     """[(history key, keep filter), …] behind a kind's "Today" number, for
     history_view.open_gained: the words of the lists up to `level` (plus the
-    step-2 common words), the kanji / grammar of those levels."""
+    step-2 words), the kanji / grammar of those levels."""
     lv = levels_upto(level)
     if kind == "vocab":
         parts = [(l, None) for l in lv]
+        extra = harder_words(results, level)
+        if extra:
+            parts += [(l, lambda it, e=extra: it in e) for l in LEVELS[LEVELS.index(level) + 1:]]
         top = vocab_source(level)
         if top:
             listed = _list_ranks(results, level)

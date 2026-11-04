@@ -39,10 +39,10 @@ EXACT = {
     "No history yet: the review fills in as you study.": "まだ履歴がありません。学習するにつれて振り返りが埋まります。",
     "Test date:": "試験日：", "Remove goal": "目標を削除",
     "Show time with Kotodama": "言霊と過ごした時間を表示", "Show JLPT goal": "JLPT目標を表示",
-    "Which words count: the JLPT word lists up to your level (the JLPT Vocabulary bars). Kanji and grammar use the JLPT lists too.":
-        "数える単語：あなたのレベルまでのJLPT語彙リスト（JLPT語彙バー）。漢字と文法もJLPTリストを使います。",
-    "Which words count: first the JLPT word lists up to N1 (the JLPT Vocabulary bars), then common words of written Japanese that aren't on the lists, up to 13,800 words in all (about three-quarters of the high estimate of 18,000 words for N1).":
-        "数える単語：まずN1までのJLPT語彙リスト（JLPT語彙バー）、次にリストにない書き言葉の頻出語で、合計13,800語まで（N1の推定の上限18,000語の約4分の3）。",
+    "Which words count: step 1 is every word on the JLPT lists up to your level. The lists fall a little short of what each level needs, so step 2 tops them up with the most common words from the harder levels, up to your level's size (N5 800, N4 1,500, N3 3,900, N2 6,000 words). Real tests use some of these words too. Kanji and grammar use the JLPT lists.":
+        "数える単語：ステップ1は、あなたのレベルまでのJLPTリストのすべての単語です。リストは各レベルに必要な語数より少し少ないので、ステップ2で上のレベルの頻出語を加え、レベルの語数（N5 800、N4 1,500、N3 3,900、N2 6,000語）まで補います。実際の試験にもこうした単語が出ます。漢字と文法はJLPTリストを使います。",
+    "Which words count: step 1 is every word on the JLPT lists up to N1. N1 has no harder level, so step 2 tops them up with the most common words of written Japanese that aren't on the lists, up to 13,800 words in all (about three-quarters of the high estimate of 18,000 words for N1).":
+        "数える単語：ステップ1は、N1までのJLPTリストのすべての単語です。N1より上のレベルはないので、ステップ2ではリストにない書き言葉の頻出語を加え、合計13,800語まで補います（N1の推定の上限18,000語の約4分の3）。",
     "Taking the JLPT? Pick your level and test date, and Kotodama works out how much to learn each day.":
         "JLPTを受けますか？レベルと試験日を選ぶと、言霊が1日に覚える量を計算します。",
     "Which JLPT are you taking, and when? The test covers every level up to yours, so N3 means N5, N4 and N3.":
@@ -524,12 +524,14 @@ PATTERNS = [
                 + "|".join(_PACE_NAMES_LOWER) + r")\)\."),
      lambda m: f"{_date_ja(m.group(1))}の試験にすれば：1日約 {m.group(2)} 語（{_PACE_NAMES_LOWER[m.group(3)]}）。"),
     (re.compile(r"^" + _DATE_RX + r"$"), lambda m: _date_ja(m.group(0))),          # the date list
-    (re.compile(r"^Step 1 · JLPT word lists up to (N\d): (.+) / ([\d,]+) \(the JLPT Vocabulary bars and grids\)$"),
-     r"ステップ1 · \1 までのJLPT語彙リスト：\2 / \3（JLPT語彙バーとグリッド）"),
-    (re.compile(r"^Step 2 · then common words not on the lists: (.+) / ([\d,]+) \(the Frequency grid, most common first\)$"),
-     r"ステップ2 · 次にリストにない頻出語：\1 / \2（頻度グリッド、頻出順）"),
-    (re.compile(r"<br>Step 1, JLPT word lists: ([\d,]+) to go · step 2, common words: ([\d,]+) to go\."),
-     r"<br>ステップ1（JLPT語彙リスト）：残り \1 · ステップ2（頻出語）：残り \2。"),
+    (re.compile(r"^Step 1 · Lists up to (N\d): (.+) / ([\d,]+)$"),
+     r"ステップ1 · \1 までのリスト：\2 / \3"),
+    (re.compile(r"^Step 2 · Top-up to ([\d,]+) \(the modern estimate for (N\d)\): (.+) / ([\d,]+)$"),
+     r"ステップ2 · \1 語まで補う（\2の現代の推定）：\3 / \4"),
+    (re.compile(r"^Top-up: the most common words from the harder levels\.$"), "補う語：上のレベルの頻出語。"),
+    (re.compile(r"^Top-up: the most common words of written Japanese that aren't on the lists\.$"), "補う語：リストにない書き言葉の頻出語。"),
+    (re.compile(r"<br>Step 1, lists: ([\d,]+) to go · step 2, top-up: ([\d,]+) to go\."),
+     r"<br>ステップ1（リスト）：残り \1 · ステップ2（補う語）：残り \2。"),
     (re.compile(r"Goal words \((N\d)\)"), r"目標の単語（\1）"),                      # History legend (N2 / N1 goal)
     # Progress Review (review_view.py, owner 2026-10-27)
     (re.compile(r"^(Words|Kanji|Grammar) · ([\d,]+)$"),

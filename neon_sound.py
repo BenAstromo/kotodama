@@ -301,18 +301,7 @@ def play_spark():
         choices = [p for p in _SPARKS if p != _last_spark["path"]] or _SPARKS
         path = random.choice(choices)
         _last_spark["path"] = path
-        play_file(path, SPARK_VOLUME * (1 - random.uniform(0, SPARK_SPREAD)), window=True)
-
-
-def stop_window_sounds():
-    """The Kotodama window lost the focus: silence its sounds now (the
-    flicker buzz, a spark, a stutter); the mini widget's carry on."""
-    for fx in list(_keep):
-        if getattr(fx, "_kotodama_window", False):
-            try:
-                fx.stop()
-            except Exception:
-                pass
+        play_file(path, SPARK_VOLUME * (1 - random.uniform(0, SPARK_SPREAD)))
 
 
 def render(patterns, seed) -> list:
@@ -438,7 +427,7 @@ def preview(level: float):
         pass
 
 
-def play_file(path, volume: float = _VOLUME, level: float = None, window: bool = False):
+def play_file(path, volume: float = _VOLUME, level: float = None):
     """Play a WAV from prepare() (main thread) at `volume` × the Settings
     level (effects.py; `level` overrides it). Never raises."""
     try:
@@ -453,7 +442,6 @@ def play_file(path, volume: float = _VOLUME, level: float = None, window: bool =
             fx = QSoundEffect()
             fx.setSource(QUrl.fromLocalFile(path))
             fx.setVolume(volume)
-            fx._kotodama_window = window          # stop_window_sounds()
             fx.play()
             # Kept alive while it plays; a few at once, so a batch lit by
             # scrolling doesn't cut the one before it off (2026-10-22).

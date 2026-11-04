@@ -42,8 +42,6 @@ class _Ambience(QObject):
         self._fades = []
         self._gen = 0               # bumped on every start/stop: stale timers do nothing
         self.running = False
-        self._away = False          # the Kotodama window lost the focus: silent (set_away)
-        self._paused = []           # players paused for that, resumed when it's back
 
     def _player(self, name: str, loop: bool):
         if name not in self._players:
@@ -56,10 +54,6 @@ class _Ambience(QObject):
         return self._players[name]
 
     def _play(self, name: str, loop: bool, fade_ms: int = 0):
-        if self._away:                          # starts when the window is back
-            if name not in self._paused:
-                self._paused.append(name)
-            return
         player, out = self._player(name, loop)
         player.stop()
         player.setPosition(0)
@@ -133,37 +127,8 @@ class _Ambience(QObject):
         except Exception:
             self.running = False
 
-    def set_away(self, away: bool):
-        """The Kotodama window lost the focus (away) or got it back (owner
-        2026-10-22: "make all sound muted if focus of kotodama window is
-        lost"): a quick fade and pause, then a fade back in where it was."""
-        if away == self._away:
-            return
-        self._away = away
-        try:
-            from PyQt6.QtMultimedia import QMediaPlayer
-            from . import effects
-            if away:
-                for name, (player, out) in self._players.items():
-                    if player.playbackState() == QMediaPlayer.PlaybackState.PlayingState:
-                        self._paused.append(name)
-                        self._fade(out, out.volume(), 0.0, 250, then=player.pause)
-            else:
-                names, self._paused = self._paused, []
-                if not self.running:
-                    return
-                vol = VOLUME * effects.volume()
-                for name in names:
-                    player, out = self._player(name, name != "ignition")
-                    out.setVolume(0.0)
-                    player.play()
-                    self._fade(out, 0.0, vol, 600)
-        except Exception:
-            pass
-
     def leave(self, fade_ms: int = 1500):
         """Amaterasu mode off or the window closed: fade everything out."""
-        self._paused = []
         if not self.running:
             return
         self.running = False

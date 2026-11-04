@@ -162,10 +162,11 @@ if os.path.exists(goal._DAYS_PATH):
 goal.save("N1", datetime.date(2027, 12, 5))
 st = goal.status(results(600, 400, 300, (90, 50, 10), (40, 20)), "D")
 check("N1 words: lists first, total = 13,800", (st["kinds"]["vocab"]["known"], st["kinds"]["vocab"]["total"]), (1300, 13800))
-check("N1 steps", st["steps"], {"lists": (1300, 7750), "common": (0, 6050)})
+check("N1 steps", st["steps"], {"lists": (1300, 7750), "common": (0, 6050), "kind": "common"})
 check("N1 kanji still lists", st["kinds"]["kanji"]["total"], 500)
 goal.save("N2", datetime.date(2027, 12, 5))
-# N2 = just the lists, no step 2 (owner 2026-11-02)
+# These results have no N1 list, so no harder words: N2 is the lists alone,
+# and common words off the lists never count (only N1's step 2 uses them)
 st = goal.status(results(600, 400, 300), "D")
 check("N2: no steps", st.get("steps"), None)
 check("N2: words = lists", st["kinds"]["vocab"]["total"], 4750)
@@ -200,24 +201,41 @@ RR = {l: {"known_words": [(d, r, 1) for d, r in real[l][:100]], "missing_words":
       for l in jlpt_data.LEVELS}
 RR["frequency"] = {"available": True, "tiers": [(n, 0) for n in (800, 1500, 3900, 6000, 13800, 20000)],
                    "tier_totals": {}, "known_nids": {}, "found_ranks": set(), "suspended_ranks": set()}
-for lvl in ("N2", "N1"):
+from jlpt_progress import freq_data
+for lvl in ("N5", "N4", "N3", "N2", "N1"):
     goal.save(lvl, datetime.date(2027, 12, 5))
     st = goal.status(RR, "D", record=False)
     n_lists = sum(len(real[l]) for l in goal.levels_upto(lvl))
+    check(f"real lists {lvl}: step 1 total", st["steps"]["lists"], (100 * len(goal.levels_upto(lvl)), n_lists))
+    print(f"    {lvl} step 2 needed:", st["steps"]["common"][1])
+    if lvl == "N1":
+        continue
+    # N5–N2 (owner 2026-11-03): step 2 = the most common harder-list words,
+    # up to the level's size estimate
+    size = goal.LEVEL_SIZE[lvl]
+    harder = goal.LEVELS[goal.LEVELS.index(lvl) + 1:]
+    check(f"real lists {lvl}: step 2 = harder-list words", st["steps"]["kind"], "harder")
+    check(f"real lists {lvl}: total = size estimate", st["kinds"]["vocab"]["total"], size)
+    ex = goal.harder_words(RR, lvl)
+    rk = lambda p: freq_data.word_rank(p[0], p[1], jlpt_data.alt_forms(*p))
+    on_harder = {tuple(p[:2]) for l in harder for p in RR[l]["known_words"] + RR[l]["missing_words"]}
+    worst = max(rk(p) for p in ex)
+    left_out = [p for p in on_harder - ex if (rk(p) or 10**9) < worst]
+    check(f"real lists {lvl}: step 2 = the most common harder words", (ex <= on_harder, left_out), (True, []))
+    known_x = sum(1 for l in harder for d, r, _n in RR[l]["known_words"] if (d, r) in ex)
+    check(f"real lists {lvl}: step 2 known = known harder words in it", st["steps"]["common"][0], known_x)
+    check(f"real lists {lvl}: today's parts add the harder levels",
+          [k for k, _ in goal.today_parts(RR, lvl, "vocab")], goal.levels_upto(lvl) + harder)
+    keep = dict(goal.today_parts(RR, lvl, "vocab"))[harder[-1]]
+    inside = next(iter(ex))
+    outside = next(p for p in on_harder - ex)
+    check(f"real lists {lvl}: today's filter keeps step-2 words only", (keep(inside), keep(outside)), (True, False))
     if lvl == "N2":
-        # the lists up to N2 reach the 6,000 estimate (Word Addition Project,
-        # 2026-10-29): no step 2, so no steps; the total is the lists
-        check("real lists N2: no steps", st.get("steps"), None)
-        check("real lists N2: words = lists", st["kinds"]["vocab"]["total"], n_lists)
-        # suspended list words shrink the total but never open step 2 (owner's "Step 2: 4 / 4")
+        # suspended list words shrink the total; step 2 stays sized on the full lists (owner's "Step 2: 4 / 4")
         RS = {l: dict(RR[l]) for l in jlpt_data.LEVELS}; RS["frequency"] = RR["frequency"]
         RS["N2"]["missing_words"] = RR["N2"]["missing_words"][4:]
         st4 = goal.status(RS, "D", record=False)
-        check("real lists N2, 4 suspended: still no steps", st4.get("steps"), None)
-        check("real lists N2, 4 suspended: total = lists - 4", st4["kinds"]["vocab"]["total"], n_lists - 4)
-        continue
-    check(f"real lists {lvl}: step 1 total", st["steps"]["lists"], (100 * len(goal.levels_upto(lvl)), n_lists))
-    print("    step 2 needed:", st["steps"]["common"][1])
+        check("real lists N2, 4 suspended: total = 6,000 - 4", st4["kinds"]["vocab"]["total"], size - 4)
 # a day start saved under an older counting rule starts the day over (owner's "344 / 13")
 import json as _json
 goal.save("N2", datetime.date(2027, 7, 4))
@@ -313,9 +331,12 @@ samples = [
     "<span style='color:#ffc107;'>■</span> Words up to N3",
     "<span style='color:#bdbdbd;'>┅</span> On track",
     FINISH_LINE, WAITING_EXPLAINED, TODAY_EXPLAINED,
-    "Step 1 · JLPT word lists up to N2: <b>3,100</b> / 4,853 (the JLPT Vocabulary bars and grids)",
-    "Step 2 · then common words not on the lists: <b style='color:#7bd88f;'>1,147</b> / 1,147 (the Frequency grid, most common first)",
-    "1,650 words still to learn: about <b>49</b> a day until November 22, 2026, 14 days before the test.<br>Step 1, JLPT word lists: 1,200 to go · step 2, common words: 450 to go.",
+    "Step 1 · Lists up to N2: <b>3,100</b> / 4,766",
+    "Step 2 · Top-up to 6,000 (the modern estimate for N2): <b style='color:#7bd88f;'>1,234</b> / 1,234",
+    "Top-up: the most common words from the harder levels.",
+    "Step 2 · Top-up to 13,800 (the modern estimate for N1): <b>40</b> / 5,952",
+    "Top-up: the most common words of written Japanese that aren't on the lists.",
+    "1,650 words still to learn: about <b>49</b> a day until November 22, 2026, 14 days before the test.<br>Step 1, lists: 1,200 to go · step 2, top-up: 450 to go.",
     "<span style='color:#64ffda;'>■</span> Goal words (N2)", "Top<br><span style='font-size:9px;'>3,900</span>", "Most Common Words — Top 3,900",
     "<span style='color:#46b6e8;'>■</span> Top 3,900",
     "<span style='color:#64ffda;'>■</span> Top 13,800 words",

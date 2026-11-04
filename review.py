@@ -119,14 +119,15 @@ def build(results: dict, deck: str, days_back: int = 7) -> dict | None:
             if nid is not None:
                 pending.setdefault((lvl, nid), []).append((d, r))
     seen = set()
+    extra = goal.harder_words(results, level) if level else set()     # step 2 of an N5–N2 goal
     for lvl in LEVELS:
-        target = out["words"] if lvl in in_goal else out["words_out"]
         for day, nid, _item in period(lvl):
             left = pending.get((lvl, nid))
             if not left:
                 continue
             d, r = left.pop(0)
             seen.add(d)
+            target = out["words"] if lvl in in_goal or (d, r) in extra else out["words_out"]
             target.append({"text": d, "reading": r, "level": lvl,
                            "nid": card_state.real_nid(nid), "day": day})
 

@@ -367,7 +367,8 @@ def rebuild(results: dict, deck_name: str, ignore_suspended: bool) -> dict:
                     loan_incs += [(loan_order[k], lvl, None), (loan_order[k], "jlpt", None)]
                     continue
             day = note_day(nid) if nid else None   # None = marked found
-            increments.append((day, lvl, nid, None))
+            # the word as the item: a goal's step 2 picks harder-list words (goal.harder_words)
+            increments.append((day, lvl, nid, (_d, _r)))
             increments.append((day, "jlpt", nid, None))
     freq = results.get("frequency") or {}
     if freq.get("available"):

@@ -569,7 +569,7 @@ The Kotodama JLPT lists (OpenJLPT, based on Jonathan Waller's JLPT lists) contai
 {level_lines}<br>
 
 Up to N3, these lists cover most of the vocabulary the test asks for, since the lower levels are written for learners.
-They hold {upto_n2:,} words up to N2, against an estimated 6,000.
+They hold {upto_n2:,} words up to N2, against an estimated 6,000: a JLPT goal tops them up with the most common N1 words.
 At N1 they aren't enough on their own: the test uses real written Japanese (newspaper-style articles and essays),
 and the lists hold {sum(level_counts.values()):,} words up to N1 against 10,000–13,800.
 So for N1, learn these lists first, then keep going with the most common words of written Japanese
@@ -615,7 +615,7 @@ JLPTの主催者は2010年に公式の語彙リストの公開をやめたため
 {level_lines_ja}<br>
 
 N3までは、試験が求める語彙の大部分をこのリストがカバーしています。下のレベルは学習者向けに書かれているからです。
-N2までで {upto_n2:,} 語です（推定は6,000語）。
+N2までで {upto_n2:,} 語です（推定は6,000語）。JLPT目標では、N1の頻出語でその差を補います。
 N1ではこのリストだけでは足りません。試験には本物の書き言葉（新聞のような記事や評論）が使われ、リストはN1までで {sum(level_counts.values()):,} 語（推定は10,000〜13,800語）です。
 そのためN1では、まずこのリストを、次に書き言葉の最頻出語を学びましょう（JLPT目標はこの2段階です）。
 どのレベルでも、語彙は合格に必要なものの一部にすぎません。文法・読解・聴解も大切です。<br><br>
@@ -1056,7 +1056,7 @@ def _ascend(parent: QWidget):
             except RuntimeError:
                 pass
             _AscensionFlash(win, center)
-            if not sound["ok"] and kotodama_in_front():
+            if not sound["ok"]:
                 from . import chime
                 chime.play()                 # quiet bell (no ambience)
 
@@ -1827,53 +1827,6 @@ def _neon_stutter(w):
     _neon_wake()
 
 
-def kotodama_in_front() -> bool:
-    """Anki has the focus: a Kotodama window (the main one or one it opened)
-    or any other Anki window. Every sound of the window plays only then
-    (owner 2026-10-22: "mute if focus is not on kotodama or on anki");
-    another app in front → no active window of ours. The application's
-    state too: while one Anki window hands the focus to another (the
-    window just opening) there's briefly no active window, and a sound
-    checked then was dropped (2026-11-03: hum and buzz silent, sparks fine)."""
-    if QApplication.activeWindow() is not None:
-        return True
-    try:
-        return QApplication.applicationState() == getattr(Qt, "ApplicationState", Qt).ApplicationActive
-    except Exception:
-        return False
-
-
-_FOCUS = {"watching": False, "away": None}
-
-
-def _on_focus_changed(*_args):
-    """Focus moved: silence the window's sounds when it's no longer in front
-    (and let the star's sound back in when it is)."""
-    try:
-        away = not kotodama_in_front()
-        if away == _FOCUS["away"]:
-            return
-        _FOCUS["away"] = away
-        from . import neon_sound, ambience
-        if away:
-            neon_sound.stop_window_sounds()
-        ambience.get().set_away(away)
-    except Exception:
-        pass
-
-
-def _watch_focus():
-    """Once per session: follow which window has the focus."""
-    if _FOCUS["watching"]:
-        return
-    try:
-        QApplication.instance().focusWindowChanged.connect(_on_focus_changed)
-        QApplication.instance().applicationStateChanged.connect(_on_focus_changed)
-        _FOCUS["watching"] = True
-    except Exception:
-        pass
-
-
 def attach_rain(window):
     """Rain on this window's glass (rain.py), not in Amaterasu mode."""
     try:
@@ -1884,7 +1837,7 @@ def attach_rain(window):
             threading.Thread(target=neon_sound.prepare_sparks, daemon=True).start()
         window._rain = RainGlass(window, lambda: neon_lights(window), _neon_stutter,
                                  off_fn=lambda: _GOLD_MODE["on"] or not _NEON["on"],
-                                 spark_fn=lambda: kotodama_in_front() and neon_sound.play_spark(),
+                                 spark_fn=neon_sound.play_spark,
                                  rain_fn=effects.rain_on, fx_fn=effects.fx)
     except Exception:
         import traceback
@@ -2054,11 +2007,10 @@ def _neon_batch_ready(b, now) -> bool:
         return True
     if not b["thread"].is_alive():
         from . import neon_sound
-        if kotodama_in_front():                  # muted while the window isn't focused
-            if b.get("volume") is not None:
-                neon_sound.play_file(b["path"], b["volume"], window=True)
-            else:
-                neon_sound.play_file(b["path"], window=True)
+        if b.get("volume") is not None:
+            neon_sound.play_file(b["path"], b["volume"])
+        else:
+            neon_sound.play_file(b["path"])
         return True
     return now - b["since"] >= b["wait"]
 
@@ -7694,7 +7646,6 @@ class ProgressDialog(QDialog):
 
     def showEvent(self, event):
         super().showEvent(event)
-        _watch_focus()                      # its sounds go quiet when it loses the focus
         if not getattr(self, "_fitted", False):
             self._fitted = True
             from . import theme
