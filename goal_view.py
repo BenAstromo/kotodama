@@ -258,9 +258,9 @@ def _add_waiting_line(outer, kinds: dict):
 
 
 def _step_lines(st: dict) -> list:
-    """[(text, css)]: "Step 1 · Lists up to N3: 1,200 / 2,986", "Step 2 ·
-    Top-up to 3,900 (the modern estimate for N3): 40 / 914" and a hint line
-    on what the top-up is (owner 2026-11-03: Lists / Top-up)."""
+    """[(text, css)]: "Lists up to N3: 1,200 / 2,986", "Top-up to 3,900 (the
+    modern estimate for N3): 40 / 914" and a hint line on what the top-up is
+    (owner 2026-11-04: Lists / Top-up, no "Step 1 / 2")."""
     steps = st.get("steps")
     if not steps:
         return []
@@ -270,23 +270,23 @@ def _step_lines(st: dict) -> list:
     lvl = st["level"]
     what = ("the most common words from the harder levels" if steps.get("kind") == "harder"
             else "the most common words of written Japanese that aren't on the lists")
-    return [(f"Step 1 · Lists up to {lvl}: {_num(k1, c1)} / {n1:,}", BODY_CSS),
-            (f"Step 2 · Top-up to {goal.LEVEL_SIZE[lvl]:,} (the modern estimate for {lvl}): "
+    return [(f"Lists up to {lvl}: {_num(k1, c1)} / {n1:,}", BODY_CSS),
+            (f"Top-up to {goal.LEVEL_SIZE[lvl]:,} (the modern estimate for {lvl}): "
              f"{_num(k2, c2)} / {n2:,}", BODY_CSS),
             (f"Top-up: {what}.", HINT_CSS)]
 
 
-# Which words count (owner 2026-11-03: every level in two steps; plain words).
+# Which words count (owner 2026-11-04: the lists, then a top-up; plain words).
 WORDS_EXPLAINED = (
-    "Which words count: step 1 is every word on the JLPT lists up to your level. The lists fall "
-    "a little short of what each level needs, so step 2 tops them up with the most common words "
-    "from the harder levels, up to your level's size (N5 800, N4 1,500, N3 3,900, N2 6,000 "
-    "words). Real tests use some of these words too. Kanji and grammar use the JLPT lists.")
+    "Which words count: first every word on the JLPT lists up to your level. The lists fall "
+    "a little short of what each level needs, so a top-up adds the most common words from the "
+    "harder levels, up to your level's size (N5 800, N4 1,500, N3 3,900, N2 6,000 words). "
+    "Real tests use some of these words too. Kanji and grammar use the JLPT lists.")
 WORDS_EXPLAINED_N1 = (
-    "Which words count: step 1 is every word on the JLPT lists up to N1. N1 has no harder "
-    "level, so step 2 tops them up with the most common words of written Japanese that aren't "
-    "on the lists, up to 13,800 words in all (about three-quarters of the high estimate of "
-    "18,000 words for N1).")
+    "Which words count: first every word on the JLPT lists up to N1. N1 has no harder level, "
+    "so the top-up adds the most common words of written Japanese that aren't on the lists, "
+    "up to 13,800 words in all (about three-quarters of the high estimate of 18,000 words "
+    "for N1).")
 
 
 def _open_dialog(tab):
@@ -420,8 +420,7 @@ class GoalDialog(QDialog):
         steps = cs.get("steps")
         if text and steps and left > 0:
             (k1, n1), (k2, n2) = steps["lists"], steps["common"]
-            text += (f"<br>Step 1, lists: {n1 - k1:,} to go · "
-                     f"step 2, top-up: {n2 - k2:,} to go.")
+            text += f"<br>Lists: {n1 - k1:,} to go · top-up: {n2 - k2:,} to go."
         self._preview.setText(text)
         from .progress_dialog import _regold
         _regold(self._preview, self._words, self._other)

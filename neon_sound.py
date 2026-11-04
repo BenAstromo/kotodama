@@ -32,7 +32,9 @@ _VOLUME = 0.25          # …then a quarter on top (owner 2026-10-22: "very slig
                         # 0.37, 0.33, 0.30, then "set … to 0.25")
 MAX_BARS = 6            # the main layer follows a handful of bars, like the drafts
 _STRUGGLE_LEVELS = (0.3, 0.45, 0.6)
-_keep = []              # the playing sound object must stay alive
+_keep = []              # [(sound object, started)]: each must stay alive until it's done
+KEEP_MIN_S = 3.0        # held at least this long (loading a fresh WAV takes a moment)
+KEEP_MAX = 40           # safety cap
 
 
 def sound_effect_classes():
@@ -427,6 +429,14 @@ def preview(level: float):
         pass
 
 
+def _busy(fx) -> bool:
+    """Still loading or playing (so still needed)."""
+    try:
+        return fx.isPlaying() or fx.status() == getattr(type(fx), "Status", type(fx)).Loading
+    except Exception:
+        return False
+
+
 def play_file(path, volume: float = _VOLUME, level: float = None):
     """Play a WAV from prepare() (main thread) at `volume` × the Settings
     level (effects.py; `level` overrides it). Never raises."""
@@ -443,10 +453,14 @@ def play_file(path, volume: float = _VOLUME, level: float = None):
             fx.setSource(QUrl.fromLocalFile(path))
             fx.setVolume(volume)
             fx.play()
-            # Kept alive while it plays; a few at once, so a batch lit by
-            # scrolling doesn't cut the one before it off (2026-10-22).
-            _keep.append(fx)
-            del _keep[:-4]
+            # Kept alive until it's done. It was the last 4 only: the window's
+            # first bars spark as they light (half of them, sparks load at
+            # once), so 4 sparks dropped the intro's buzz while its fresh WAV
+            # was still loading, and it never played (owner 2026-11-04).
+            import time
+            now = time.monotonic()
+            _keep[:] = [(f, t) for f, t in _keep if now - t < KEEP_MIN_S or _busy(f)][-KEEP_MAX:]
+            _keep.append((fx, now))
             return
         except Exception:
             pass
