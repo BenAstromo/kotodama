@@ -32,10 +32,6 @@ CREDITS = """
  based on JMdict.</li>
 <li><b>Extra JLPT words:</b> words on Waller's lists that OpenJLPT omits, via
  <a href="https://github.com/stephenmk/yomitan-jlpt-vocab">yomitan-jlpt-vocab</a> (CC BY-SA 4.0).</li>
-<li><b>Community additions:</b> words from
- <a href="https://github.com/jamsinclair/open-anki-jlpt-decks">open-anki-jlpt-decks</a>
- (© 2020 Jamie Sinclair) and <a href="https://github.com/elzup/jlpt-word-list">jlpt-word-list</a>
- (© 2020 Jamie Sinclair, © 2020 elzup), MIT License: see THIRD_PARTY_NOTICES.txt.</li>
 </ul>
 <h3 style="margin-bottom:2px;">Frequency data</h3>
 <ul style="margin-top:0;">

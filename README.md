@@ -13,7 +13,7 @@ Free, works offline, nothing to install besides the add-on. Version 3.0.0.
 ## What it does
 
 ### JLPT vocabulary, N5 → N1
-One glowing bar per level, about 9,200 words in all, plus an All Levels bar and your gains today, this week and this month. Click a bar to open that level's **word grid**: every word as a tile, known words lit in the level's colour (brighter as the card matures), missing words dark. Hover a tile for its meaning, click a missing word to copy it, Shift+click to look it up on Jisho.
+One glowing bar per level, about 7,850 words in all, plus an All Levels bar and your gains today, this week and this month. Click a bar to open that level's **word grid**: every word as a tile, known words lit in the level's colour (brighter as the card matures), missing words dark. Hover a tile for its meaning, click a missing word to copy it, Shift+click to look it up on Jisho.
 
 ![Word grid](docs/screenshots/word-grid-n4.webp)
 
@@ -132,8 +132,6 @@ The same credits are in Anki under **Kotodama → About Kotodama…**.
 - **Kanji levels, readings and meanings:** [OpenJLPT](https://github.com/evanclan/OpenJLPT) (CC BY-SA 4.0): Jonathan Waller's kanji levels (CC BY) and [KANJIDIC2](https://www.edrdg.org/wiki/KANJIDIC_Project.html), EDRDG (CC BY-SA 4.0)
 - **Meanings on hover:** [Jitendex](https://jitendex.org) by Stephen Kraus (CC BY-SA 4.0), based on JMdict
 - **Extra JLPT words:** a few words on Jonathan Waller's lists that OpenJLPT omits (via [stephenmk/yomitan-jlpt-vocab](https://github.com/stephenmk/yomitan-jlpt-vocab), which keeps Waller's levels; CC BY-SA 4.0)
-- **Community additions:** 211 words on community JLPT lists ([jamsinclair/open-anki-jlpt-decks](https://github.com/jamsinclair/open-anki-jlpt-decks), [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list)) that Waller's current lists don't have, e.g. 顔, 母, 頑張る, 当然, 仕方がない. They use those lists' levels and are flagged `community` in the list files. Both lists are MIT-licensed; their notices are in `THIRD_PARTY_NOTICES.txt`.
-- **Our additions:** 1,092 common words that no JLPT list has, chosen from the 6,000 most common words of written Japanese (e.g. 私たち, 可能性, 子育て, 取り組み) and of everyday conversation (e.g. 終電, 部活, 飲み会), flagged `ours` in the list files. Each must be common enough for its level: both its written and its spoken frequency rank must fall within that level's estimated vocabulary size (N5 800, N4 1,500, N3 3,900, N2 6,000, N1 13,800 words), or it moves to a harder level (a word too rare for every level sits at N1); a compound the conversation corpus splits into parts goes by its written rank alone. Katakana words, specific foods and animals, slang and words built regularly from a listed word (大きさ, 具体的) are left out.
 - **Parser testing (development tools only, not shipped):** sentences from [Tatoeba](https://tatoeba.org) (CC BY 2.0 FR) were used to measure the parser and to find words usually written in kana. The add-on itself contains no Tatoeba sentences.
 
 **Corpus references.** The frequency data comes from these corpora, with thanks to NINJAL:

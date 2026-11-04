@@ -438,7 +438,7 @@ MILESTONES_EN = [
     '<b>800 Words (about N5):</b> Simple everyday Japanese: introducing yourself, shopping, times and dates. The N5 word list covers this level well.',
     '<b>1,500 Words (about N4):</b> Daily-life basics: short conversations and simple texts about everyday things. The N4 word list covers this level well.',
     '<b>3,900 Words (about N3):</b> Everyday Japanese starts to open up: casual conversation, simple articles, easier manga and games. The JLPT lists still cover most of what N3 asks for.',
-    '<b>6,000 Words (about N2):</b> Real written Japanese: newspaper-style articles and essays, plus most manga, games and light novels. N2 tests authentic texts; the JLPT lists up to N2 (with the common words we added) are this size.',
+    '<b>6,000 Words (about N2):</b> Real written Japanese: newspaper-style articles and essays, plus most manga, games and light novels. N2 tests authentic texts; the JLPT lists up to N2 hold about 4,800 of these words.',
     '<b>13,800 Words (about N1):</b> The entry point for the highest rank. Editorials, novels and work documents, with room to spare at N1. The lists fall well short here; the most common written words (the Top 13,800 bar) fill the gap.',
     '<b>20,000 Words (Max Rank / Near-Native):</b> The ceiling of the rank: roughly the active vocabulary of an average Japanese adult (the words they use themselves). Most words in everyday reading (news, novels, the web) are familiar. Native speakers recognise far more, often 40,000 or more, so specialist fields and literary Japanese still bring new words.',
 ]
@@ -447,7 +447,7 @@ MILESTONES_JA = [
     '<b>800語（N5相当）：</b>簡単な日常の日本語：自己紹介、買い物、時刻や日付。このレベルはN5の語彙リストで十分カバーできます。',
     '<b>1,500語（N4相当）：</b>日常生活の基本：身の回りのことについての短い会話や簡単な文章。このレベルはN4の語彙リストで十分カバーできます。',
     '<b>3,900語（N3相当）：</b>日常の日本語が開けてくる段階：くだけた会話、簡単な記事、易しめの漫画やゲーム。N3が求める語彙の大部分は、まだJLPTリストでカバーできます。',
-    '<b>6,000語（N2相当）：</b>本物の書き言葉：新聞のような記事や評論、そして多くの漫画・ゲーム・ライトノベル。N2では本物の文章が出ます。N2までのJLPTリスト（私たちが加えた頻出語を含む）がこの語数です。',
+    '<b>6,000語（N2相当）：</b>本物の書き言葉：新聞のような記事や評論、そして多くの漫画・ゲーム・ライトノベル。N2では本物の文章が出ます。N2までのJLPTリストには、そのうち約4,800語が入っています。',
     '<b>13,800語（N1相当）：</b>最高ランクの入口。社説、小説、仕事の文書。N1にも余裕を持って臨めます。ここではリストだけでは大きく足りず、書き言葉の最頻出語（上位13,800のバー）がその差を埋めます。',
     '<b>20,000語（最高ランク・ネイティブ級）：</b>ランクの頂点：平均的な日本人の大人が自分で使う語彙（使用語彙）のおよその量です。日常の読み物（ニュース・小説・ネット）の語はほとんど見覚えがあります。ネイティブが理解できる語（理解語彙）はさらに多く、4万語以上とも言われるので、専門分野や文学的な日本語ではまだ新しい語に出会います。',
 ]
@@ -563,13 +563,13 @@ The JLPT tracking in this add-on relies on community vocabulary lists.
 Because the JLPT organizers stopped publishing official lists in 2010, every available list is an
 educated reconstruction of the pre-2010 official lists.<br><br>
 
-The Kotodama JLPT lists (OpenJLPT, based on Jonathan Waller's JLPT lists, plus common words we added) contain a total of
+The Kotodama JLPT lists (OpenJLPT, based on Jonathan Waller's JLPT lists) contain a total of
 {sum(level_counts.values()):,} words
 <i>(discrete per-level counts — words appear in only one level)</i>:<br>
 {level_lines}<br>
 
 Up to N3, these lists cover most of the vocabulary the test asks for, since the lower levels are written for learners.
-With the common words we added, they hold {upto_n2:,} words up to N2, against an estimated 6,000.
+They hold {upto_n2:,} words up to N2, against an estimated 6,000.
 At N1 they aren't enough on their own: the test uses real written Japanese (newspaper-style articles and essays),
 and the lists hold {sum(level_counts.values()):,} words up to N1 against 10,000–13,800.
 So for N1, learn these lists first, then keep going with the most common words of written Japanese
@@ -609,13 +609,13 @@ Keep adding cards, keep reviewing, and watch your rank climb!
 JLPTの主催者は2010年に公式の語彙リストの公開をやめたため、手に入るリストはどれも
 2010年以前の公式リストを推定して作り直したものです。<br><br>
 
-言霊のJLPTリスト（OpenJLPT。Jonathan Waller氏のJLPTリストに基づき、私たちが頻出語を加えたもの）は合計
+言霊のJLPTリスト（OpenJLPT。Jonathan Waller氏のJLPTリストに基づくもの）は合計
 {sum(level_counts.values()):,} 語です
 <i>（レベルごとの語数。各語は一つのレベルにだけ入っています）</i>：<br>
 {level_lines_ja}<br>
 
 N3までは、試験が求める語彙の大部分をこのリストがカバーしています。下のレベルは学習者向けに書かれているからです。
-加えた頻出語を含めて、N2までで {upto_n2:,} 語です（推定は6,000語）。
+N2までで {upto_n2:,} 語です（推定は6,000語）。
 N1ではこのリストだけでは足りません。試験には本物の書き言葉（新聞のような記事や評論）が使われ、リストはN1までで {sum(level_counts.values()):,} 語（推定は10,000〜13,800語）です。
 そのためN1では、まずこのリストを、次に書き言葉の最頻出語を学びましょう（JLPT目標はこの2段階です）。
 どのレベルでも、語彙は合格に必要なものの一部にすぎません。文法・読解・聴解も大切です。<br><br>

@@ -1,13 +1,10 @@
-# JLPT N4 vocabulary list — 641 words
+# JLPT N4 vocabulary list — 632 words
 # Source: OpenJLPT (github.com/evanclan/OpenJLPT), CC BY-SA 4.0,
 #   levels from Jonathan Waller's JLPT lists (tanos.co.uk), CC BY.
 # Alternate spellings and loanword flags derived from JMdict (EDRDG), CC BY-SA 4.0.
 # Format: word<TAB>reading<TAB>alternate spellings (|)<TAB>flags (,)<TAB>alternate readings (|)
 # Flags: eng = English loanword, wasei = wasei-eigo, abbr = abbreviated loanword,
-#        loan-xxx = loanword from another language (ISO 639-2 code),
-#        community = not on Waller's lists; added from community JLPT lists
-#        ours = on no list; added by this add-on with a level we chose
-#        (jamsinclair/open-anki-jlpt-decks, elzup/jlpt-word-list), their level
+#        loan-xxx = loanword from another language (ISO 639-2 code)
 
 あ	あ			あっ|アッ|アっ|ア
 ああ	ああ
@@ -641,12 +638,3 @@
 割れる	われる	破れる
 やめる	やめる	止める|已める|廃める
 君	くん
-専門	せんもん	專門|専問|專問	community
-頑張る	がんばる		community
-スーパー	スーパー		community,abbr	スーパ
-パパ	パパ		community,eng
-正月	しょうがつ		community
-失礼	しつれい		community	しつらい|しちらい
-お子さん	おこさん	御子さん	community
-ハンバーグ	ハンバーグ		community,abbr
-いろんな	いろんな	色んな	ours

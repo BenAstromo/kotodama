@@ -1,13 +1,10 @@
-# JLPT N5 vocabulary list — 686 words
+# JLPT N5 vocabulary list — 678 words
 # Source: OpenJLPT (github.com/evanclan/OpenJLPT), CC BY-SA 4.0,
 #   levels from Jonathan Waller's JLPT lists (tanos.co.uk), CC BY.
 # Alternate spellings and loanword flags derived from JMdict (EDRDG), CC BY-SA 4.0.
 # Format: word<TAB>reading<TAB>alternate spellings (|)<TAB>flags (,)<TAB>alternate readings (|)
 # Flags: eng = English loanword, wasei = wasei-eigo, abbr = abbreviated loanword,
-#        loan-xxx = loanword from another language (ISO 639-2 code),
-#        community = not on Waller's lists; added from community JLPT lists
-#        ours = on no list; added by this add-on with a level we chose
-#        (jamsinclair/open-anki-jlpt-decks, elzup/jlpt-word-list), their level
+#        loan-xxx = loanword from another language (ISO 639-2 code)
 
 会う	あう	逢う|遭う|遇う
 青	あお	蒼|碧
@@ -687,11 +684,3 @@
 一日	ついたち	１日|朔日|朔
 キロメートル	キロメートル	粁|キロ米	loan-fre	キロメーター|キロ・メートル
 キログラム	キログラム	瓩	loan-fre	キロ・グラム
-ない	ない	無い	community
-顔	かお	貌|顏	community
-母	はは		community
-父	ちち		community
-もしもし	もしもし		community
-私たち	わたしたち	私達|わたし達|ワタシ達|わたくし達	ours	わたくしたち
-日本人	にほんじん	ニッポン人	ours	にっぽんじん
-日本語	にほんご		ours	にっぽんご

@@ -245,7 +245,11 @@ def lexicon() -> dict:
         kanji_word = _has_kanji(display) and (display, reading) not in kana_ok
         # Our own list additions count as frequency-list words here: listing
         # たこ / いか / だし made したこと read し + たこ + と (2026-10-28).
+        # ない stays a real word although Waller doesn't list it (it came
+        # with the community words, removed 2026-11-03): as a rare kana word,
+        # なくて lost its くて (じゃなくて, 何もすることがなくて).
         if ((display, reading) not in level or "ours" in jlpt_data.FLAGS.get((display, reading), ())) \
+                and (display, reading) != ("ない", "ない") \
                 and all(0x3041 <= ord(c) <= 0x309F for c in display):
             _RARE_KANA.add((display, reading))
         prio = (level.get((display, reading), 9),

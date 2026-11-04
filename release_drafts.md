@@ -68,7 +68,7 @@ Every source below was checked against the code and bundled files (2026-10-17).
 
 ```markdown
 ## Data sources & credits
-- **JLPT vocabulary lists:** [OpenJLPT](https://github.com/evanclan/OpenJLPT) (CC BY-SA 4.0), levels from [Jonathan Waller's JLPT lists](https://www.tanos.co.uk/jlpt/) (CC BY). A few Waller words OpenJLPT omits come via [stephenmk/yomitan-jlpt-vocab](https://github.com/stephenmk/yomitan-jlpt-vocab). 211 community additions come from [jamsinclair/open-anki-jlpt-decks](https://github.com/jamsinclair/open-anki-jlpt-decks) and [elzup/jlpt-word-list](https://github.com/elzup/jlpt-word-list), flagged `community` in the list files.
+- **JLPT vocabulary lists:** [OpenJLPT](https://github.com/evanclan/OpenJLPT) (CC BY-SA 4.0), levels from [Jonathan Waller's JLPT lists](https://www.tanos.co.uk/jlpt/) (CC BY). A few Waller words OpenJLPT omits come via [stephenmk/yomitan-jlpt-vocab](https://github.com/stephenmk/yomitan-jlpt-vocab).
 - **Grammar points** (patterns, meanings, formation, examples): [OpenJLPT](https://github.com/evanclan/OpenJLPT) contributors (CC BY-SA 4.0)
 - **Kanji levels, readings and meanings:** [OpenJLPT](https://github.com/evanclan/OpenJLPT) (CC BY-SA 4.0): Jonathan Waller's kanji levels (CC BY) and [KANJIDIC2](https://www.edrdg.org/wiki/KANJIDIC_Project.html), EDRDG (CC BY-SA 4.0)
 - **Dictionary data** (word kinds for the parser, loanword flags, spelling mapping): [JMdict](https://www.edrdg.org/jmdict/j_jmdict.html), Electronic Dictionary Research and Development Group (CC BY-SA 4.0)
@@ -122,7 +122,7 @@ Kotodama reads the deck you already have and shows your progress through every J
 <img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/vocabulary.png">
 
 <b>JLPT vocabulary, N5 → N1</b>
-One bar per level, about 9,200 words. Click a bar for a grid of every word: known words lit up, missing ones dark. Hover for the meaning, click to copy, Shift+click for Jisho.
+One bar per level, about 7,850 words. Click a bar for a grid of every word: known words lit up, missing ones dark. Hover for the meaning, click to copy, Shift+click for Jisho.
 
 <img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/word-grid-n4.webp">
 
@@ -200,7 +200,7 @@ Each source's own terms page was read on 2026-10-28 unless noted.
 | Jitendex, Stephen Kraus (meanings.json) | CC BY-SA 4.0 (jitendex.org) | OK | Also name it on the Credits screen. |
 | Jonathan Waller's levels (via OpenJLPT, yomitan-jlpt-vocab) | CC BY (stated by yomitan-jlpt-vocab's README and others; tanos.co.uk itself no longer resolves) | OK, link dead | Point the README link at an archive.org copy of tanos.co.uk/jlpt/. |
 | stephenmk/yomitan-jlpt-vocab (extra Waller words) | CC BY-SA 4.0 | Credit OK | Say "CC BY-SA 4.0" in the README line. |
-| jamsinclair/open-anki-jlpt-decks, elzup/jlpt-word-list (211 community words) | **MIT** | Small gap | MIT asks to keep the copyright + permission notice with "substantial portions": add both notices to a THIRD_PARTY_NOTICES file (cheap, removes doubt). |
+| jamsinclair/open-anki-jlpt-decks, elzup/jlpt-word-list | MIT | **None now** | Their community words were removed 2026-11-03, so nothing of theirs is bundled; THIRD_PARTY_NOTICES.txt deleted. |
 | BCCWJ SUW/LUW lists, NINJAL (freq_bccwj.txt, freq_extra.txt, freq_splits.py) | Website: "free for research and education" (no licence named); our 2026-10-08 download record: CC BY-NC-ND 3.0 (repository record 3234; down today, not re-read) | **Open (NC + ND)** | Ask NINJAL (email below). |
 | CEJC vocabulary table, NINJAL (freq_cejc.txt) | Download page: CC BY-NC-ND 3.0 icon. Guideline: corpus data (audio, transcripts, annotations) may not be redistributed; vocab tables not addressed; publications must say they use CEJC and cite its papers. | **Open (NC + ND)**, low risk (a word list can't rebuild conversations) | Same email; add the CEJC citation to the README credits. |
 | Tatoeba (tools/ only: grammar_examples.json, accuracy samples) | CC BY 2.0 FR (well known; terms page timed out today) | Not shipped in the add-on | If the GitHub repo goes public, add a Tatoeba credit line for tools/. |

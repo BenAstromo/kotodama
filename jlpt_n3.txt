@@ -1,13 +1,10 @@
-# JLPT N3 vocabulary list — 1772 words
+# JLPT N3 vocabulary list — 1677 words
 # Source: OpenJLPT (github.com/evanclan/OpenJLPT), CC BY-SA 4.0,
 #   levels from Jonathan Waller's JLPT lists (tanos.co.uk), CC BY.
 # Alternate spellings and loanword flags derived from JMdict (EDRDG), CC BY-SA 4.0.
 # Format: word<TAB>reading<TAB>alternate spellings (|)<TAB>flags (,)<TAB>alternate readings (|)
 # Flags: eng = English loanword, wasei = wasei-eigo, abbr = abbreviated loanword,
-#        loan-xxx = loanword from another language (ISO 639-2 code),
-#        community = not on Waller's lists; added from community JLPT lists
-#        ours = on no list; added by this add-on with a level we chose
-#        (jamsinclair/open-anki-jlpt-decks, elzup/jlpt-word-list), their level
+#        loan-xxx = loanword from another language (ISO 639-2 code)
 
 愛	あい
 挨拶	あいさつ
@@ -1686,98 +1683,3 @@
 下	しも
 下	げ
 無	ぶ	不
-表示	ひょうじ	標示	community
-当然	とうぜん	当前	community
-件	けん		community
-イメージ	イメージ		community,eng
-生涯	しょうがい		community
-迷う	まよう	紕う	community
-体重	たいじゅう		community
-出場	しゅつじょう		community
-菌	きん		community
-意	い		community
-経緯	けいい		community
-正体	しょうたい		community
-苦	く		community
-めくる	めくる	捲る	community
-狩り	かり	狩|猟	community	がり
-医院	いいん	醫院	community
-供	とも	伴|侶	community
-摘む	つむ	抓む	community
-抱く	だく		community
-精算	せいさん		community
-優	ゆう		community
-童謡	どうよう		community
-隊	たい		community
-対	つい		community
-末	まつ		community
-異	い		community
-可能性	かのうせい		ours
-思い	おもい	想い|念い	ours
-高齢	こうれい		ours
-最大	さいだい		ours
-ちなみに	ちなみに	因みに|因に	ours
-画像	がぞう		ours
-画面	がめん		ours
-昨年	さくねん		ours
-社員	しゃいん		ours
-入力	にゅうりょく		ours
-男女	だんじょ		ours	なんにょ
-大量	たいりょう		ours
-検索	けんさく		ours
-若者	わかもの		ours	わかもん
-後半	こうはん		ours
-会長	かいちょう		ours
-両手	りょうて		ours
-間違いない	まちがいない	間違い無い	ours
-高齢者	こうれいしゃ		ours
-翌日	よくじつ		ours
-つい	つい		ours
-親子	おやこ		ours	しんし
-まだまだ	まだまだ	未だ未だ	ours
-本日	ほんじつ		ours
-不可能	ふかのう		ours
-わかりやすい	わかりやすい	分かりやすい|分かり易い|分りやすい|分り易い	ours
-右手	みぎて		ours
-仕方ない	しかたない	仕方無い	ours
-人数	にんずう		ours	にんず|にんじゅ
-あいつ	あいつ	彼奴	ours
-前回	ぜんかい		ours
-前半	ぜんはん		ours	ぜんぱん
-彼氏	かれし		ours
-内側	うちがわ	内がわ	ours	ないそく
-左手	ひだりて		ours
-専門家	せんもんか		ours
-弁護士	べんごし		ours
-最新	さいしん		ours
-政治家	せいじか		ours
-ううん	ううん		ours	うーん|ウーン
-休日	きゅうじつ		ours
-前日	ぜんじつ		ours	まえび
-得	とく		ours
-早め	はやめ	速め|早目|速目	ours
-年末	ねんまつ		ours
-朝食	ちょうしょく		ours
-体調	たいちょう		ours
-人間関係	にんげんかんけい		ours
-日常生活	にちじょうせいかつ		ours
-外側	そとがわ	外がわ	ours	がいそく
-最悪	さいあく		ours
-本社	ほんしゃ		ours	ほんじゃ
-次回	じかい		ours
-研究者	けんきゅうしゃ		ours
-お店	おみせ	御店	ours
-お話	おはなし	お話し|御話|御話し	ours
-野球	やきゅう		ours
-えっ	えっ		ours
-皆様	みなさま	皆さま|みな様	ours
-半年	はんとし		ours	はんねん
-お客様	おきゃくさま	お客さま|御客様|御客さま	ours
-ほら	ほら		ours	ほれ
-お客さん	おきゃくさん	御客さん	ours
-携帯電話	けいたいでんわ		ours
-中学生	ちゅうがくせい		ours
-へえ	へえ		ours	へぇ|へー|へぇー
-電話番号	でんわばんごう		ours
-結婚式	けっこんしき		ours
-何人	なんにん		ours
