@@ -1616,8 +1616,10 @@ from .theme import NEON_OFF_FILL, NEON_OFF_TEXT, flicker_pattern as _flicker_pat
 _INTRO = {"run": 0}
 _NEON = {"on": False, "items": [], "clock": 0.0, "last": None, "timer": None,
          "batches": [], "quiet": 0, "seq": 0, "seen_pages": set(), "lights": []}
-SOUND_WAIT = 0.6            # s the first batch waits for its sound
-SOUND_WAIT_LATER = 0.3      # s a batch scrolled into view waits (snappier)
+SOUND_WAIT = 1.2            # s the first batch waits at most for its sound (it lights as
+                            # soon as the sound is ready, ~0.15 s; 0.6 went silent when
+                            # Anki was busy after reviewing, 2026-11-03)
+SOUND_WAIT_LATER = 0.5      # s a batch scrolled into view waits at most (snappier)
 REVEAL_PX = 40              # this much on screen (or half of a smaller element) lights it
 LATER_DELAY = 0.15          # s of dark before the first spark, after the window's first look
 SOUND_GAP = 0.8             # s after a batch's sound in which later batches stay silent
@@ -1829,8 +1831,16 @@ def kotodama_in_front() -> bool:
     """Anki has the focus: a Kotodama window (the main one or one it opened)
     or any other Anki window. Every sound of the window plays only then
     (owner 2026-10-22: "mute if focus is not on kotodama or on anki");
-    another app in front → no active window of ours."""
-    return QApplication.activeWindow() is not None
+    another app in front → no active window of ours. The application's
+    state too: while one Anki window hands the focus to another (the
+    window just opening) there's briefly no active window, and a sound
+    checked then was dropped (2026-11-03: hum and buzz silent, sparks fine)."""
+    if QApplication.activeWindow() is not None:
+        return True
+    try:
+        return QApplication.applicationState() == getattr(Qt, "ApplicationState", Qt).ApplicationActive
+    except Exception:
+        return False
 
 
 _FOCUS = {"watching": False, "away": None}
@@ -1858,6 +1868,7 @@ def _watch_focus():
         return
     try:
         QApplication.instance().focusWindowChanged.connect(_on_focus_changed)
+        QApplication.instance().applicationStateChanged.connect(_on_focus_changed)
         _FOCUS["watching"] = True
     except Exception:
         pass
