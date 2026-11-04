@@ -209,7 +209,7 @@ SPARK_KINDS = ("crackle", "snap", "double", "fizzle", "zap")
 SPARK_PEAK = {"crackle": 0.75, "snap": 0.7, "double": 0.72, "fizzle": 0.55, "zap": 0.65}
 
 
-def _crackle(buf, rnd, seed, t0, until, amp):
+def _spark_clicks(buf, rnd, seed, t0, until, amp):
     """Small clicks from t0, thinning out towards `until`."""
     t = t0
     while t < until:
@@ -237,7 +237,7 @@ def render_spark(seed, kind: str = None) -> list:
         buf = [0.0] * int(SR * rnd.uniform(0.45, 0.6))
         _click(buf, 0.0, 1.0, rnd.uniform(2200, 3200), 2.2, seed)
         _hiss(buf, seed, rnd.uniform(0.07, 0.11), 0.55)
-        _crackle(buf, rnd, seed, 0.004, rnd.uniform(0.26, 0.34), 1.0)
+        _spark_clicks(buf, rnd, seed, 0.004, rnd.uniform(0.26, 0.34), 1.0)
     elif kind == "snap":
         buf = [0.0] * int(SR * 0.25)
         _click(buf, 0.0, 1.0, rnd.uniform(2600, 3600), rnd.uniform(1.4, 2.0), seed)
@@ -251,7 +251,7 @@ def render_spark(seed, kind: str = None) -> list:
         _click(buf, 0.0, 1.0, rnd.uniform(2200, 3200), 2.0, seed)
         _click(buf, gap, rnd.uniform(0.55, 0.8), rnd.uniform(2400, 3600), 1.8, seed + 1)
         _hiss(buf, seed, 0.06, 0.45)
-        _crackle(buf, rnd, seed, gap + 0.01, gap + rnd.uniform(0.12, 0.2), 0.7)
+        _spark_clicks(buf, rnd, seed, gap + 0.01, gap + rnd.uniform(0.12, 0.2), 0.7)
     elif kind == "fizzle":
         buf = [0.0] * int(SR * rnd.uniform(0.5, 0.7))
         _click(buf, 0.0, 0.35, rnd.uniform(2000, 3000), 1.2, seed)
