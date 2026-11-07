@@ -314,7 +314,8 @@ def _rankup_html(info: dict, new_rank: bool) -> str:
 
 def _widget_html(results: dict, deck_name: str = "", ignore_suspended: bool = False,
                  show_rank: bool = True, rankup=None, show_art: bool = False,
-                 neon: bool = False, neon_hold: bool = False) -> str:
+                 neon: bool = False, neon_hold: bool = False,
+                 corner: str = "tr") -> str:
     # Black Belt Amaterasu global override: when the configured deck has
     # reached 20,000 learned words, every JLPT bar in the mini widget
     # turns bright gold, matching the main Overview tab's rank bars.
@@ -641,6 +642,18 @@ def _widget_html(results: dict, deck_name: str = "", ignore_suspended: bool = Fa
         white-space: nowrap;
         pointer-events: none;
       }}
+      /* Corners (owner 2026-11-07): drag the widget and it snaps to the
+         corner of the quarter you drop it in. The top ones scroll with the
+         page as before; the bottom ones stay at the window's bottom edge. */
+      #jlpt-mini-widget.jlpt-c-tl {{ right: auto; left: 0; }}
+      #jlpt-mini-widget.jlpt-c-bl, #jlpt-mini-widget.jlpt-c-br {{
+        position: fixed; top: auto; bottom: 0;
+      }}
+      #jlpt-mini-widget.jlpt-c-bl {{ right: auto; left: 0; }}
+      #jlpt-mini-widget.jlpt-mini-dragging {{
+        position: fixed; right: auto; bottom: auto;
+        z-index: 1000; cursor: grabbing; opacity: 0.85;
+      }}
       /* Narrow window (owner 2026-10-28): the corner widget would cover the
          deck list, so it drops into the page under the stats instead. */
       #jlpt-mini-widget.jlpt-mini-docked {{
@@ -649,8 +662,8 @@ def _widget_html(results: dict, deck_name: str = "", ignore_suspended: bool = Fa
       }}
       {neon_css}
     </style>
-    <a id="jlpt-mini-widget" href="#"{' class="jlpt-divine-aura"' if force_max_gold else ''}
-       onclick="pycmd('jlpt_open_progress'); return false;"
+    <a id="jlpt-mini-widget" href="#" class="jlpt-c-{corner}{' jlpt-divine-aura' if force_max_gold else ''}"
+       onclick="if (!window.jlptMiniDragged) pycmd('jlpt_open_progress'); return false;"
        draggable="false" ondragstart="return false;"
        title="Open Kotodama">
       {rows_html}
@@ -663,11 +676,65 @@ def _widget_html(results: dict, deck_name: str = "", ignore_suspended: bool = Fa
         if (!w || !t) return;
         w.classList.remove('jlpt-mini-docked');
         var a = w.getBoundingClientRect(), b = t.getBoundingClientRect();
-        if (a.left < b.right && a.top < b.bottom && b.top < a.bottom)
+        // the bottom corners stay put while the list scrolls under them,
+        // so any sideways overlap counts there
+        var bottom = /jlpt-c-b/.test(w.className);
+        if (a.left < b.right && b.left < a.right
+            && (bottom || (a.top < b.bottom && b.top < a.bottom)))
           w.classList.add('jlpt-mini-docked');
       }}
       fit();
       window.addEventListener('resize', fit);
+
+      // Drag to another corner: a press that moves more than a few pixels
+      // drags (and doesn't open the window); the drop picks the quarter of
+      // the window the widget's centre is in.
+      var w = document.getElementById('jlpt-mini-widget');
+      if (!w) return;
+      var drag = null;
+      w.addEventListener('pointerdown', function(e){{
+        if (e.button !== 0 || w.classList.contains('jlpt-mini-docked')) return;
+        var r = w.getBoundingClientRect();
+        drag = {{x: e.clientX, y: e.clientY, dx: e.clientX - r.left,
+                 dy: e.clientY - r.top, on: false}};
+        window.jlptMiniDragged = false;
+      }});
+      document.addEventListener('pointermove', function(e){{
+        if (!drag) return;
+        if (!drag.on) {{
+          if (Math.abs(e.clientX - drag.x) + Math.abs(e.clientY - drag.y) < 6) return;
+          drag.on = true;
+          w.classList.add('jlpt-mini-dragging');
+        }}
+        var m = 12;   // keep it inside the window
+        var x = Math.max(-m, Math.min(window.innerWidth - w.offsetWidth - m, e.clientX - drag.dx - m));
+        var y = Math.max(-8, Math.min(window.innerHeight - w.offsetHeight - 8, e.clientY - drag.dy - 8));
+        w.style.left = x + 'px'; w.style.top = y + 'px';
+      }});
+      function drop(e){{
+        if (!drag) return;
+        var was = drag.on; drag = null;
+        if (!was) return;
+        window.jlptMiniDragged = true;   // the click that follows is the drop
+        setTimeout(function(){{ window.jlptMiniDragged = false; }}, 0);
+        var r = w.getBoundingClientRect();
+        var c = (r.top + r.height / 2 < window.innerHeight / 2 ? 't' : 'b')
+              + (r.left + r.width / 2 < window.innerWidth / 2 ? 'l' : 'r');
+        w.classList.remove('jlpt-mini-dragging', 'jlpt-c-tl', 'jlpt-c-tr', 'jlpt-c-bl', 'jlpt-c-br');
+        w.style.left = ''; w.style.top = '';
+        w.classList.add('jlpt-c-' + c);
+        // glide from where it was dropped into the corner
+        var n = w.getBoundingClientRect();
+        w.style.transition = 'none';
+        w.style.transform = 'translate(' + (r.left - n.left) + 'px,' + (r.top - n.top) + 'px)';
+        w.getBoundingClientRect();
+        w.style.transition = 'transform 0.18s ease-out';
+        w.style.transform = '';
+        setTimeout(function(){{ w.style.transition = ''; fit(); }}, 200);
+        pycmd('{CORNER_MSG}' + c);
+      }}
+      document.addEventListener('pointerup', drop);
+      document.addEventListener('pointercancel', drop);
     }})();</script>
     """
 
@@ -705,6 +772,8 @@ _NEON_FOLLOWERS = ("jlpt-mini-text", "jlpt-mini-goal-fill")
 # class jlpt-neon-wait; the sound waits for the first animationstart, so it
 # waits too) until the main window is activated (_ActivationWatch).
 NEON_WAIT_CLASS = "jlpt-neon-wait"
+# Message the widget sends when it's dropped in another corner ("tl" … "br").
+CORNER_MSG = "jlpt_mini_corner:"
 _WAKE = {"pending": False, "watch": None}
 
 
@@ -1095,22 +1164,34 @@ def _on_deck_browser_will_render_content(deck_browser, content):
         show_rank=bool(cfg.get("mini_widget_show_rank", True)),
         rankup=rank_toast.peek_unseen(),
         show_art=bool(cfg.get("mini_widget_show_rank_art", True)),
-        neon=neon, neon_hold=hold)
+        neon=neon, neon_hold=hold,
+        corner=cfg.get("mini_widget_corner", "tr") if cfg.get("mini_widget_corner") in _CORNERS else "tr")
 
 
 _OUR_MESSAGES = ("jlpt_open_progress", "jlpt_dismiss_rankup")
+_CORNERS = ("tl", "tr", "bl", "br")
 
 
 # Anki passes every webview message through this filter: other add-ons' and
 # Anki's own messages must get `handled` back untouched, ours count as
 # handled even if opening the window fails.
 @hook_guard(fallback=lambda handled, message, context:
-            (True, None) if message in _OUR_MESSAGES or str(message).startswith(NEON_SOUND_MSG)
+            (True, None) if message in _OUR_MESSAGES
+            or str(message).startswith((NEON_SOUND_MSG, CORNER_MSG))
             else handled)
 def _on_webview_did_receive_js_message(handled, message, context):
     if isinstance(message, str) and message.startswith(NEON_SOUND_MSG):
         from . import neon_sound
         neon_sound.play_queued(int(message[len(NEON_SOUND_MSG):]))
+        return True, None
+    if isinstance(message, str) and message.startswith(CORNER_MSG):
+        corner = message[len(CORNER_MSG):]
+        if corner in _CORNERS:
+            from . import _cfg, _save
+            cfg = _cfg()
+            if cfg.get("mini_widget_corner") != corner:
+                cfg["mini_widget_corner"] = corner
+                _save(cfg)
         return True, None
     if message == "jlpt_open_progress":
         from . import open_progress_dialog_direct, rank_toast
