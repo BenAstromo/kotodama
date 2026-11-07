@@ -4174,6 +4174,9 @@ class WordCell(QWidget):
       Middle-click      → toggle marked-as-found
       Ctrl+Middle-click → toggle suspended
     """
+    # Set once on the tiles' _TileCanvas, not on every tile: a style sheet
+    # per tile cost ~25 MB on the 7,850-tile All grid (2026-11-07).
+    TOOLTIP_CSS = "QToolTip { font-size: 18px; padding: 8px; }"
 
     # Emitted so the parent dialog can refresh the Marked & Suspended tab
     override_changed = pyqtSignal()
@@ -4220,7 +4223,7 @@ class WordCell(QWidget):
         self.setFixedSize(CELL_W, CELL_H)
         self.setCursor(Qt.CursorShape.PointingHandCursor)
         self._refresh_tooltip()
-        self.setStyleSheet("QToolTip { font-size: 18px; padding: 8px; }")
+        # (tooltip size: TOOLTIP_CSS, set once on the _TileCanvas)
 
     # ── state helpers ─────────────────────────────────────────────────────────
 
@@ -4662,6 +4665,9 @@ class _TileCanvas(QWidget):
         self._outside = None         # cached: everything but the tiles' shape
         self._lit = set()            # tiles whose zone has lit (kept over a re-flow)
         self._quiet = bool(_NEON["quiet"])     # built by a refresh (_neon_quiet)
+        css = getattr(cells[0], "TOOLTIP_CSS", None) if cells else None
+        if css:
+            self.setStyleSheet(css)  # the tiles' tooltip size, once for all
         for c in cells:
             c.setParent(self)
             c.show()

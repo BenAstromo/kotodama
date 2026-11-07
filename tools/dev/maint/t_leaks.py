@@ -29,14 +29,14 @@ class PMC(ctypes.Structure):
                 ("PrivateUsage", ctypes.c_size_t)]
 
 
-def private_mb():
+def private_mb(peak=False):
     from ctypes import wintypes
     k32 = ctypes.WinDLL("kernel32", use_last_error=True)
     k32.GetCurrentProcess.restype = wintypes.HANDLE
     k32.K32GetProcessMemoryInfo.argtypes = [wintypes.HANDLE, ctypes.c_void_p, wintypes.DWORD]
     c = PMC(); c.cb = ctypes.sizeof(c)
     k32.K32GetProcessMemoryInfo(k32.GetCurrentProcess(), ctypes.byref(c), c.cb)
-    return c.PrivateUsage / 2**20
+    return (c.PeakPagefileUsage if peak else c.PrivateUsage) / 2**20
 
 
 def settle():
@@ -76,7 +76,8 @@ def snapshot():
             "neon_items": len(pd._NEON["items"]), "neon_lights": len(pd._NEON["lights"]),
             "hl_cells": len(pd._HL_CELLS), "hooks": sum(hooks.values()),
             "focus_receivers": E.app.receivers(E.app.focusWindowChanged) if hasattr(E.app, "receivers") else -1,
-            "gc_objects": len(gc.get_objects()), "mb": round(private_mb(), 1)}
+            "gc_objects": len(gc.get_objects()), "mb": round(private_mb(), 1),
+            "peak_mb": round(private_mb(peak=True), 1)}
 
 
 def one_round(i):
@@ -123,7 +124,15 @@ for k in ("toplevel", "dialogs", "qobjects", "py_qtimers", "active_timers", "neo
     E.check(f"{k}: {base[k]} → {end[k]} over {rounds} rounds", grow <= 1)
 gc_grow = (end["gc_objects"] - base["gc_objects"]) / rounds
 mb_grow = (end["mb"] - base["mb"]) / rounds
-print(f"python objects +{gc_grow:.0f} / round, memory +{mb_grow:.2f} MB / round")
+# from halfway: the first rounds still fill Qt's and the heap's caches
+peak_grow = (end["peak_mb"] - mid["peak_mb"]) / (N - 1 - N // 2)
+print(f"python objects +{gc_grow:.0f} / round, memory now +{mb_grow:.2f} MB / round, "
+      f"peak +{peak_grow:.2f} MB / round")
 E.check("python objects don't grow per round (< 300)", gc_grow < 300)
-E.check("memory doesn't grow per round (< 1.5 MB)", mb_grow < 1.5)
+# The peak, not the level after closing (2026-11-07): Windows keeps freed
+# memory for reuse some rounds and returns it in others, so the level after
+# a round swings by 200 MB (the All grid's ~7,850 tile widgets) with no
+# leak; the peak stays flat unless something really is kept. A kept grid
+# window would add 100+ MB a round.
+E.check("peak memory doesn't grow per round (< 3 MB)", peak_grow < 3)
 E.finish()

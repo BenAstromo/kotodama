@@ -147,6 +147,7 @@ def _open_jisho_kanji(char: str):
 # ── tile ──────────────────────────────────────────────────────────────────────
 
 class KanjiCell(QWidget):
+    TOOLTIP_CSS = "QToolTip { font-size: 18px; padding: 8px; }"   # on the _TileCanvas
     override_changed = pyqtSignal()
 
     def __init__(self, char: str, level: str, kres: dict, overrides, parent=None):
@@ -166,7 +167,7 @@ class KanjiCell(QWidget):
         self._hovered = self._highlighted = False
         self.setFixedSize(CELL_W, CELL_H)
         self.setCursor(Qt.CursorShape.PointingHandCursor)
-        self.setStyleSheet("QToolTip { font-size: 18px; padding: 8px; }")
+        # (tooltip size: TOOLTIP_CSS, set once on the _TileCanvas)
         self._refresh_tooltip()
 
     # ── state ────────────────────────────────────────────────────────────────
@@ -510,6 +511,7 @@ class GrammarCell(QWidget):
     """A grammar point: as tall as a word tile, as wide as its pattern. The
     pattern's first form is the label; an English hint (〜で（means）) goes
     on a small second line."""
+    TOOLTIP_CSS = "QToolTip { font-size: 16px; padding: 8px; }"   # on the _TileCanvas
     override_changed = pyqtSignal()
 
     def __init__(self, gid: str, gres: dict, overrides, parent=None):
@@ -536,7 +538,7 @@ class GrammarCell(QWidget):
             w = max(w, QFontMetrics(f2).horizontalAdvance(self._hint) + 12)
         self.setFixedSize(max(CELL_W, w), CELL_H)
         self.setCursor(Qt.CursorShape.PointingHandCursor)
-        self.setStyleSheet("QToolTip { font-size: 16px; padding: 8px; }")
+        # (tooltip size: TOOLTIP_CSS, set once on the _TileCanvas)
         self._refresh_tooltip()
 
     @property
