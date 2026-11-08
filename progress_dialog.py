@@ -296,7 +296,8 @@ LOANWORD_INFO_EN = [
     "counts only the counted loanwords that belong to it, so the numbers differ: the rank counts "
     "all of them, the frequency bars the ones in the top 20,000, the JLPT bars the ones on a JLPT "
     "list (many everyday loanwords aren't on one). A word on both, like テレビ, counts on both. "
-    "Your marks stay: a loanword that doesn't count yet keeps its ★.",
+    "Your marks stay: a loanword that doesn't count yet keeps its ★. Middle-click a faint ★ "
+    "to count that word now, like any word you mark; middle-click again to unmark it.",
     "Why: marking about 2,500 loanwords at once would skip the early ranks, but you shouldn't need "
     "thousands of cards for words you already understand to reach 20,000. With every loanword "
     "marked, the last one joins at about 17,500 learned cards, exactly where marking them all at "
@@ -4171,7 +4172,9 @@ class WordCell(QWidget):
       Left-click        → open in browser (known), copy the word (missing),
                           or Jisho (marked found with no card)
       Shift+Click       → Jisho (any tile, e.g. to read a known word's full entry)
-      Middle-click      → toggle marked-as-found
+      Middle-click      → toggle marked-as-found; an English loanword cycles
+                          not found → found (waits for its place) → found
+                          and counted now → not found (_middle_loan)
       Ctrl+Middle-click → toggle suspended
     """
     # Set once on the tiles' _TileCanvas, not on every tile: a style sheet
@@ -4189,6 +4192,7 @@ class WordCell(QWidget):
         # waiting: a marked English loanword the counts don't include yet
         # (card_state.hold_back_loans): a missing tile with a faint ★.
         self._waiting    = waiting
+        self._was_waiting = waiting   # marked again after unmarking: waits again
         # found_row: the frequency count has this row marked found through
         # another spelling or reading (a JLPT word's mark, freq_data's loose
         # key), so it's counted and sorted as found; show it that way too
@@ -4325,6 +4329,8 @@ class WordCell(QWidget):
         elif self._is_found and self._waiting:
             info.append("★ Marked as found, not counted yet: English loanwords count once your "
                         "rank reaches their frequency rank")
+        elif self._is_found and self._overrides.is_counted(self._display, self._reading):
+            info.append("★ Marked as found, counted now")
         elif self._is_found:
             info.append("★ Marked as found" if self._overrides.is_found(self._display, self._reading)
                         else "★ " + FOUND_ROW_TEXT)
@@ -4347,7 +4353,8 @@ class WordCell(QWidget):
         hints = ["Shift+Click: look up on Jisho",
                  "Ctrl+Click: search this word's text in Browser"]
         if self._can_override:
-            hints.append("Middle-click: toggle marked as found")
+            hints.append("Middle-click: count it now" if self._is_found and self._waiting
+                         else "Middle-click: toggle marked as found")
             hints.append("Ctrl+Middle-click: toggle suspended")
         blocks.append("<span style='color:#9a9a9a; font-size:14px;'>"
                       + "<br>".join(hints) + "</span>")
@@ -4390,6 +4397,8 @@ class WordCell(QWidget):
             status = "✕ Suspended"
         elif self._is_found and self._waiting:
             status = "★ Marked as found, not counted yet"
+        elif self._is_found and self._overrides.is_counted(self._display, self._reading):
+            status = "★ Marked as found, counted now"
         elif self._is_found:
             status = "★ Marked as found"
         elif self._known:
@@ -4407,6 +4416,27 @@ class WordCell(QWidget):
             reading_part += f"  〔{kanji}〕"
         return f"{self._display}{reading_part}  —  {lvl_label}  —  {status}"
 
+    def _middle_loan(self):
+        """An English loanword's middle-click (owner 2026-11-08): marked but
+        not counted yet (faint ★) → counted now, like any marked word;
+        counted (now or by its place) → unmarked; unmarked → marked, waiting
+        for its place again. With the loanwords not marked by the button,
+        just two states: unmarked ↔ marked and counted."""
+        ov, d, r = self._overrides, self._display, self._reading
+        if not ov.is_found(d, r):
+            if ov.loans_waiting_on():
+                ov.toggle_found(d, r)
+                self._waiting = self._was_waiting
+            else:
+                ov.set_counted(d, r)
+                self._waiting = False
+        elif self._waiting and not ov.is_counted(d, r):
+            ov.set_counted(d, r)
+            self._waiting = False
+        else:
+            ov.toggle_found(d, r)        # unmark (counted goes with it)
+            self._waiting = False
+
     def mousePressEvent(self, event):
         if event.button() == Qt.MouseButton.MiddleButton:
             if not self._can_override:
@@ -4420,6 +4450,8 @@ class WordCell(QWidget):
                 return
             if mods & Qt.KeyboardModifier.ControlModifier:
                 self._overrides.toggle_suspended(self._display, self._reading)
+            elif card_state.is_loan(self._display, self._reading):
+                self._middle_loan()
             else:
                 self._overrides.toggle_found(self._display, self._reading)
             self._refresh_tooltip()

@@ -710,6 +710,8 @@ def analyse(display_index, reading_index, nid_to_display, nid_to_reading,
     # Frequency-dictionary comparison for the rank section (independent of
     # the JLPT lists; found/suspended marks apply to it too).
     results["frequency"] = freq_data.coverage(nid_to_display, nid_to_reading, overrides)
+    # Marked loanwords that count at once, off the schedule (card_state).
+    results["loans_now"] = overrides.counted_pairs() if overrides else []
     return results
 
 

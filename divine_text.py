@@ -168,13 +168,15 @@ EXACT = {
     "counts only the counted loanwords that belong to it, so the numbers differ: the rank counts "
     "all of them, the frequency bars the ones in the top 20,000, the JLPT bars the ones on a JLPT "
     "list (many everyday loanwords aren't on one). A word on both, like テレビ, counts on both. "
-    "Your marks stay: a loanword that doesn't count yet keeps its ★.":
+    "Your marks stay: a loanword that doesn't count yet keeps its ★. Middle-click a faint ★ "
+    "to count that word now, like any word you mark; middle-click again to unmark it.":
         "<b>順番はどこでも一つです。</b>外来語は「数えられている」か「まだ」のどちらかで、"
         "ランク・JLPTバー・頻度バー・目標・履歴・仲間カードのどこでも同じです。"
         "それぞれは数えられた外来語のうち自分に当てはまるものだけを数えるので、数字は違います："
         "ランクはすべて、頻度バーは上位20,000語に入るもの、JLPTバーはJLPTのリストにあるもの"
         "（日常の外来語の多くはリストにありません）。テレビのように両方にある語は両方で数えられます。"
-        "印はそのままで、まだ数えられていない外来語も★のままです。",
+        "印はそのままで、まだ数えられていない外来語も★のままです。"
+        "薄い★を中クリックすると、ほかの発見済みの語と同じようにすぐ数えます。もう一度中クリックで印を外します。",
     "Why: marking about 2,500 loanwords at once would skip the early ranks, but you shouldn't need "
     "thousands of cards for words you already understand to reach 20,000. With every loanword "
     "marked, the last one joins at about 17,500 learned cards, exactly where marking them all at "
@@ -700,6 +702,7 @@ PATTERNS = [
     (re.compile(r"  —  Off-list  —  "), "  —  リスト外  —  "),
     (re.compile(r"✓ Known — in your deck$"), "✓ 既知 — デッキにあり"),
     (re.compile(r"★ Marked as found$"), "★ 発見済み"),
+    (re.compile(r"★ Marked as found, counted now"), "★ 発見済み（もう数えています）"),
     (re.compile(r"★ Marked as found, not counted yet$"), "★ 発見済み（まだ数えていません）"),
     (re.compile(r"★ Marked as found, not counted yet: English loanwords count once your "
                 r"rank reaches their frequency rank"),

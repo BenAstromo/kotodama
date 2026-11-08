@@ -10,6 +10,10 @@ is copied there once, plus a backup copy, and the original is left alone.
                 (treated identically to deck-matched words in the analysis)
   "suspended" : words the user wants excluded from all JLPT lists
                 (removed from both known and missing counts)
+  "counted"   : marked English loanwords that count at once, like any other
+                marked word, instead of joining on the loanword schedule
+                (card_state); always a subset of "found" (owner 2026-11-08:
+                middle-click a loanword marked found but not counted yet)
 
 Keys are "display\treading" strings so the file is human-readable.
 
@@ -86,12 +90,13 @@ def _load(path: str = _PATH) -> dict:
         return {
             "found":     _normalise(data.get("found", [])),
             "suspended": _normalise(data.get("suspended", [])),
+            "counted":   _normalise(data.get("counted", [])),
         }
     except FileNotFoundError:
         pass
     except Exception:
         keep_unreadable(path)
-    return {"found": set(), "suspended": set()}
+    return {"found": set(), "suspended": set(), "counted": set()}
 
 
 def _save(data: dict, path: str = _PATH):
@@ -105,6 +110,7 @@ def _save(data: dict, path: str = _PATH):
                 {
                     "found":     sorted(data["found"]),
                     "suspended": sorted(data["suspended"]),
+                    "counted":   sorted(data.get("counted", ()) & data["found"]),
                 },
                 f,
                 ensure_ascii=False,
@@ -143,9 +149,11 @@ class Overrides:
         d = _load(path)
         self.found:     set = d["found"]
         self.suspended: set = d["suspended"]
+        self.counted:   set = d["counted"] & self.found
 
     def _save(self):
-        _save({"found": self.found, "suspended": self.suspended}, self.path)
+        _save({"found": self.found, "suspended": self.suspended,
+               "counted": self.counted}, self.path)
 
     def reload(self):
         """Re-read overrides.json from disk. Called on Refresh so that a file
@@ -153,6 +161,7 @@ class Overrides:
         d = _load(self.path)
         self.found     = d["found"]
         self.suspended = d["suspended"]
+        self.counted   = d["counted"] & self.found
 
     # ── queries ───────────────────────────────────────────────────────────────
 
@@ -161,6 +170,17 @@ class Overrides:
 
     def is_suspended(self, display: str, reading: str) -> bool:
         return key(display, reading) in self.suspended
+
+    def is_counted(self, display: str, reading: str) -> bool:
+        return key(display, reading) in self.counted
+
+    def loans_waiting_on(self) -> bool:
+        """Marked English loanwords join on their schedule: some loanword is
+        marked found without counting at once ("Mark English Loanwords as
+        Found" on). Off, a loanword marked by hand just counts, like any
+        other word."""
+        from .card_state import is_loan
+        return any(k not in self.counted and is_loan(*parse_key(k)) for k in self.found)
 
     # ── mutations (each one saves immediately) ────────────────────────────────
     # Copy-on-write: each change puts a NEW set in place instead of changing
@@ -173,6 +193,8 @@ class Overrides:
             self.found = found
         if suspended is not None:
             self.suspended = suspended
+        if not self.counted <= self.found:    # unmarked: no longer counted either
+            self.counted = self.counted & self.found
         self._save()
 
     def toggle_found(self, display: str, reading: str) -> bool:
@@ -190,6 +212,13 @@ class Overrides:
         self._set(suspended=(self.suspended | {k}) if now else (self.suspended - {k}),
                   found=self.found - {k})                  # can't be both
         return now
+
+    def set_counted(self, display: str, reading: str):
+        """Mark found and count at once (an English loanword off its schedule)."""
+        k = key(display, reading)
+        self._set(found=self.found | {k}, suspended=self.suspended - {k})
+        self.counted = self.counted | {k}
+        self._save()
 
     def remove_found(self, display: str, reading: str):
         self._set(found=self.found - {key(display, reading)})
@@ -228,6 +257,9 @@ class Overrides:
 
     def suspended_pairs(self) -> list:
         return [parse_key(k) for k in self.suspended]
+
+    def counted_pairs(self) -> list:
+        return [parse_key(k) for k in self.counted]
 
 
 def apply_loanword_default(lists: dict, get_cfg, save_cfg, overrides=None) -> int:

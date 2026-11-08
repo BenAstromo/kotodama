@@ -323,7 +323,8 @@ def found_split(results: dict) -> tuple[int, int]:
 # once; with every loanword marked, the last one joins at 17,464 cards,
 # exactly where marking them all at once would reach 20,000. Marking stays a
 # choice (not everyone thinks loanwords are learned on sight, not everyone
-# speaks English); words marked by hand that aren't loanwords count at once.
+# speaks English); words marked by hand that aren't loanwords count at once,
+# as do loanwords middle-clicked to count now (overrides "counted").
 _LEVEL_SIZE = {"N5": 800, "N4": 1500, "N3": 3900, "N2": 6000, "N1": 13800}
 
 
@@ -372,6 +373,12 @@ def _found_keys(results: dict) -> dict:
             loan = bool(e) and is_loan(e[1], e[2])
             old = keys.get(("row", rank))
             keys[("row", rank)] = ((old[0] if old else False) or loan, rank + 1)
+    # Loanwords marked to count at once (overrides "counted", owner
+    # 2026-11-08): counted like any other marked word, off the schedule.
+    for d, r in results.get("loans_now", ()):
+        k = found_key(d, r)
+        if k in keys:
+            keys[k] = (False, keys[k][1])
     return keys
 
 
