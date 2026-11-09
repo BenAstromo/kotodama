@@ -62,10 +62,12 @@ EXACT = {
         "合わせた、ランクと同じ節目です。",
     "<b>Which words count</b>": "<b>数える単語</b>",
     "<b>The daily number</b>": "<b>1日の量</b>",
-    "English loanwords you mark as found join your known words gradually, as your card count "
-    "grows. Until one joins, the goal leaves it out of what's still to learn, so the daily number "
-    "doesn't ask you to study a word you already know.":
-        "見つけた印を付けた英語の外来語は、カードが増えるにつれて少しずつ既知語に加わります。"
+    "English loanwords you mark as found count at once on the JLPT lists; among the common words "
+    "off the lists they join gradually, as your card count grows. Until one joins, the goal leaves "
+    "it out of what's still to learn, so the daily number doesn't ask you to study a word you "
+    "already know.":
+        "見つけた印を付けた英語の外来語は、JLPTのリストではすぐに数えます。リスト外のよく使われる語には、"
+        "カードが増えるにつれて少しずつ加わります。"
         "加わるまでは目標の「残り」から外すので、もう知っている語を1日の量で求めることはありません。",
     "When kanji or grammar need 6 or fewer a week, they show a number for the week instead, counted over "
     "the past 7 days. It turns green when you learn one today, or when the past 7 days already "
@@ -153,39 +155,39 @@ EXACT = {
         "英語の外来語（カメラ・テーブル・データ…）は、英語を話す人なら文脈で一、二度見れば分かる語なので、"
         "最初から発見済みになっていて、カードは要りません。使うかどうかは自由です："
         "ほかの語と同じようにAnkiのカードを作って覚えたい人や、英語が母語でない人は、ボタンで解除してください。",
-    "<b>They count gradually, as your vocabulary reaches them.</b> Sorted from most to least "
-    "common, each marked loanword joins once your rank reaches its frequency rank. Very common ones like テレビ count almost at once; one ranked "
-    "8,000 counts once your rank reaches about 8,000. A loanword on a JLPT list but not in the "
-    "20,000-word frequency list takes its level's place in that order: N5 800, N4 1,500, "
+    "<b>On the JLPT bars they count at once:</b> a marked loanword on a JLPT list is a word on "
+    "that list you know. <b>For your rank and the frequency bars they count gradually, as your "
+    "vocabulary reaches them.</b> Sorted from most to least common, each marked loanword joins "
+    "once your rank reaches its frequency rank. Very common ones like テレビ count almost at once; "
+    "one ranked 8,000 counts once your rank reaches about 8,000. A loanword on a JLPT list but not "
+    "in the 20,000-word frequency list takes its level's place in that order: N5 800, N4 1,500, "
     "N3 3,900, N2 6,000, N1 13,800.":
-        "<b>語彙がそこに届くにつれて、少しずつ数えます。</b>よく使われる順に、発見済みの各外来語は、"
+        "<b>JLPTバーではすぐに数えます：</b>JLPTのリストにある発見済みの外来語は、そのリストで知っている語です。"
+        "<b>ランクと頻度バーでは、語彙がそこに届くにつれて少しずつ数えます。</b>よく使われる順に、発見済みの各外来語は、"
         "ランクがその語の頻度順位に達したときに加わります。"
         "テレビのようにとてもよく使われる語はほぼすぐに、順位8,000の語はランクが約8,000に達したときに数えられます。"
         "JLPTのリストにあって頻度リスト（20,000語）にない外来語は、レベルごとの位置に並びます："
         "N5は800、N4は1,500、N3は3,900、N2は6,000、N1は13,800。",
-    "<b>One order, everywhere.</b> A loanword either counts or doesn't yet, the same for your "
-    "rank, the JLPT bars, the frequency bars, your goal, your history and your Nakama card. Each "
-    "counts only the counted loanwords that belong to it, so the numbers differ: the rank counts "
-    "all of them, the frequency bars the ones in the top 20,000, the JLPT bars the ones on a JLPT "
-    "list (many everyday loanwords aren't on one). A word on both, like テレビ, counts on both. "
-    "Your marks stay: a loanword that doesn't count yet keeps its ★. Middle-click a faint ★ "
-    "to count that word now, like any word you mark; middle-click again to unmark it.":
-        "<b>順番はどこでも一つです。</b>外来語は「数えられている」か「まだ」のどちらかで、"
-        "ランク・JLPTバー・頻度バー・目標・履歴・仲間カードのどこでも同じです。"
-        "それぞれは数えられた外来語のうち自分に当てはまるものだけを数えるので、数字は違います："
-        "ランクはすべて、頻度バーは上位20,000語に入るもの、JLPTバーはJLPTのリストにあるもの"
-        "（日常の外来語の多くはリストにありません）。テレビのように両方にある語は両方で数えられます。"
-        "印はそのままで、まだ数えられていない外来語も★のままです。"
+    "<b>One order for the rank and the frequency bars.</b> A loanword either counts for both or "
+    "doesn't yet: the rank counts all the counted ones, the frequency bars the ones in the top "
+    "20,000. Your marks stay: a loanword that doesn't count yet keeps a faint ★ in the frequency "
+    "grid. Middle-click a faint ★ to count that word now, like any word you mark; middle-click "
+    "again to unmark it.":
+        "<b>ランクと頻度バーの順番は一つです。</b>外来語は両方で「数えられている」か「まだ」のどちらかです："
+        "ランクは数えられた外来語すべて、頻度バーは上位20,000語に入るものを数えます。"
+        "印はそのままで、まだ数えられていない外来語は頻度のグリッドで薄い★のままです。"
         "薄い★を中クリックすると、ほかの発見済みの語と同じようにすぐ数えます。もう一度中クリックで印を外します。",
     "Why: marking about 2,500 loanwords at once would skip the early ranks, but you shouldn't need "
     "thousands of cards for words you already understand to reach 20,000. With every loanword "
     "marked, the last one joins at about 17,500 learned cards, exactly where marking them all at "
     "once would have reached 20,000. It also keeps ranks fair to compare: the share image and your "
-    "Nakama card say how many loanwords are counted.":
+    "Nakama card say how many loanwords are counted. The JLPT bars don't need this: they show how "
+    "much of a list you know, not a number people compare.":
         "理由：約2,500語を一度に数えると序盤のランクを飛ばしてしまいますが、分かっている語のために何千枚もの"
         "カードを作らなくても20,000に届くべきです。すべて発見済みにした場合、最後の外来語は覚えたカード約17,500枚で"
         "加わり、一度に数えたときに20,000に届くのとちょうど同じ地点です。ランクを公平に比べられるよう、"
-        "共有画像と仲間カードには数えている外来語の数が表示されます。",
+        "共有画像と仲間カードには数えている外来語の数が表示されます。"
+        "JLPTバーにはこれは要りません：人と比べる数字ではなく、リストのどれだけを知っているかを示すからです。",
     "Left out: wasei-eigo (サラリーマン), false friends (マンション), Japanese-made shortenings "
     "(パソコン) and loanwords from other languages (パン, アルバイト).":
         "対象外：和製英語（サラリーマン）、意味の違う語（マンション）、日本で作られた略語（パソコン）、"

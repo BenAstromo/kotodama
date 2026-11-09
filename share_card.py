@@ -100,6 +100,7 @@ def gather(results: dict, info: dict, kanji_overrides=None, grammar_overrides=No
     return {"levels": levels, "freq": (fk, fn), "info": info,
             "date": datetime.date.today(), "loyal": loyalty.shown_months(), "sun": loyalty.shown_sun(),
             "goal": g, "loans": loans, "supporter": supporter,
+            "jlpt_loans": 0 if card_state.DEBUG_FULL["on"] else card_state.jlpt_loans(results),
             # the share pop-up's checkboxes (owner 2026-10-20), remembered
             "show_loyal": c.get("share_show_loyalty", True), "show_goal": c.get("share_show_goal", True)}
 
@@ -260,6 +261,16 @@ def _feathered(img: QImage, w: int, h: int) -> QImage:
         p.fillRect(QRectF(0, 0, w, h), QBrush(g))
     p.end()
     return out
+
+
+def _jlpt_loans_text(n: int, gold: bool) -> str:
+    """After the JLPT heading on the share image and Nakama card: how many of
+    the JLPT words are marked English loanwords (they count there at once,
+    owner 2026-11-09), so a big JLPT number beside a small rank reads right."""
+    if not n:
+        return ""
+    return (f" · うち英語の外来語 {n:,} 語" if gold
+            else f" · incl. {n:,} English {'loanword' if n == 1 else 'loanwords'}")
 
 
 def _loans_line(loans: int, gold: bool) -> str:
@@ -491,7 +502,8 @@ def _draw_right(p: QPainter, data: dict, name: str, gold: bool, x1: float):
                else f"JLPT progress · {d.strftime('%B %d, %Y').replace(' 0', ' ')}")
     p.setFont(_font(12, bold=True))
     p.drawText(QRectF(510, 156, x1 - 510, 22), Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter,
-               "JLPT · 語彙・漢字・文法" if gold else "JLPT · vocab + kanji + grammar")
+               ("JLPT · 語彙・漢字・文法" if gold else "JLPT · vocab + kanji + grammar")
+               + _jlpt_loans_text(int(data.get("jlpt_loans") or 0), gold))
     by = 188
     for lvl, k, n in data["levels"]:
         _bar(p, QRectF(x0, by, x1 - x0, 30), k, n, LEVEL_FG[lvl], gold, lvl)
@@ -557,7 +569,8 @@ def render_profile(profile: dict, mine: dict | None, synced: str = "", framed: b
     for lvl in LEVELS:
         pr = _pair(jl.get(lvl))
         if pr:
-            section = None if rows else ("JLPT 語彙" if gold else "JLPT vocabulary")
+            section = None if rows else (("JLPT 語彙" if gold else "JLPT vocabulary")
+                                         + _jlpt_loans_text(int(data.get("jlpt_loans") or 0), gold))
             rows.append((section, lvl, pr, _pair(mjl.get(lvl)), LEVEL_FG[lvl]))
     fr = _pair(data.get("freq"))
     if fr:

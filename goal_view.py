@@ -183,9 +183,10 @@ FINISH_LINE = ("The finish line is 14 days before the test: the last two weeks a
                "and practice tests. Per day is what's left at the start of today, divided by the "
                "days to the finish line: fall behind and the daily number goes up; get ahead and "
                "it goes down.")
-WAITING_EXPLAINED = ("English loanwords you mark as found join your known words gradually, as your "
-                     "card count grows. Until one joins, the goal leaves it out of what's still to "
-                     "learn, so the daily number doesn't ask you to study a word you already know.")
+WAITING_EXPLAINED = ("English loanwords you mark as found count at once on the JLPT lists; among the "
+                     "common words off the lists they join gradually, as your card count grows. "
+                     "Until one joins, the goal leaves it out of what's still to learn, so the "
+                     "daily number doesn't ask you to study a word you already know.")
 WEEKLY_EXPLAINED = ("When kanji or grammar need 6 or fewer a week, they show a number for the week instead, "
                     "counted over the past 7 days. It turns green when you learn one today, or when "
                     "the past 7 days already reach the week's number.")

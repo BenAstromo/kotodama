@@ -289,7 +289,8 @@ def _word_parts(results: dict, deck_name: str, ignore_suspended: bool) -> dict:
             "sun": loyalty.sun_reached(),                   # Amaterasu reached once (Sun Diamond)
             "found": hand, "found_loan": loans,     # marked by hand / English loanwords counted
             "goal": _goal(),                        # "N3 2026-12-06" or None (share pop-up's checkbox)
-            "jlpt": jlpt, "freq": [fk, fn]}
+            "jlpt": jlpt, "freq": [fk, fn],
+            "jlpt_loans": card_state.jlpt_loans(results)}   # marked loanwords in the JLPT numbers
 
 
 def _goal():

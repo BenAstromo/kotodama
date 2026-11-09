@@ -95,22 +95,22 @@ for w, want in [("と", None), ("ねこ", None), ("かぎ", None), ("もの", "�
                 ("きょう", "今日"), ("そう", "そう")]:
     check(f"kana card {w} → {want}", landed.get(w) == want, landed.get(w))
 
-# 4. Gradual loanwords: 332 studied cards → only the counted ones anywhere.
+# 4. Gradual loanwords: 332 studied cards → only the counted ones on the rank
+# and frequency bars; the JLPT bars keep every marked one (2026-11-09).
 card_state.mw.col = types.SimpleNamespace(find_notes=lambda q: list(range(332)))
 res = analysis()
+jl_all = sum(len(res[l]["known_words"]) for l in jlpt_data.LEVELS)
 card_state.hold_back_loans(res, "deck", False, lists)
 card_state.hold_back_loans(res, "deck", False, lists)          # must change nothing
 parts = card_state.found_parts(res)
 n = card_state.loans_counted(332, parts["loans"])
 jl = sum(len(res[l]["known_words"]) for l in jlpt_data.LEVELS)
 check("full marked list kept after holding back", len(parts["loans"]) == len(keys) - len(hand))
-check("JLPT bars count at most the counted loanwords", jl <= n, (jl, n))
+check("JLPT bars keep every marked loanword", jl == jl_all and jl > n, (jl, jl_all, n))
+check("no JLPT words held back", not res["loans_waiting"]["pairs"])
 check("frequency bar counts at most the counted loanwords", dict(res["frequency"]["tiers"])[20000] <= n)
-order = {tuple(x): i for i, x in enumerate(lists["N5"])}
-m = [order[tuple(x)] for x in res["N5"]["missing_words"]]
-check("held-back words keep list order", m == sorted(m))
 
-# 5. History: each loanword joins on the day the cards reached it.
+# 5. History: on the JLPT line every marked loanword counts from day one.
 DAYS, PER = 30, 12
 now = time.time()
 card_nid, revlog, cid = {}, [], 1
@@ -142,7 +142,8 @@ today_jl = sum(len(res[l]["known_words"]) for l in jlpt_data.LEVELS)
 check("history ends at today's JLPT count", v["jlpt"][-1] == today_jl, (v["jlpt"][-1], today_jl))
 check("history ends at today's top-20k count",
       v["f20000"][-1] == dict(res["frequency"]["tiers"])[20000])
-check("loanwords don't count from day one", v["jlpt"][0] == 0, v["jlpt"][0])
+check("JLPT loanwords count from day one", v["jlpt"][0] >= card_state.jlpt_loans(res) > 0,
+      (v["jlpt"][0], card_state.jlpt_loans(res)))
 check("history never drops without resets", all(a <= b for a, b in zip(v["jlpt"], v["jlpt"][1:])))
 
 print("\nall passed" if not fails else f"\n{len(fails)} failed")

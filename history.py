@@ -347,10 +347,10 @@ def rebuild(results: dict, deck_name: str, ignore_suspended: bool) -> dict:
             d = day_of(nid / 1000, rollover)
         return min(d, end)
 
-    # Marked English loanwords the counts include (card_state.hold_back_loans
-    # left only these): each joins on the day the learned cards reached it,
-    # as for the rank, not from the first day (2026-10-27). key → its place
-    # in the order they join.
+    # Marked English loanwords on the JLPT lines: all of them on every day
+    # since 2026-11-09 (they joined on the rank's schedule 2026-10-27 to
+    # 11-09), kept apart so loans_on_chart can show them from the day they
+    # were marked. key → its place in the order they join the rank.
     fkeys = card_state._found_keys(results)
     loan_order = {k: i for i, (_rk, _r, k) in enumerate(sorted(
         (rk, repr(k), k) for k, (is_loan, rk) in fkeys.items() if is_loan))}
@@ -485,14 +485,15 @@ def rebuild(results: dict, deck_name: str, ignore_suspended: bool) -> dict:
     # count is the real one, the replayed cards can fall a little short.
     loans = {"rank": joined}            # key → loanwords in each day's value
     if loan_incs:
-        import bisect
         places: dict[str, list[int]] = {}
         for place, key, _item in loan_incs:
             if key in values and key not in RANK_KEYS:
                 places.setdefault(key, []).append(place)
         for key, ps in places.items():
-            ps.sort()
-            loans[key] = [bisect.bisect_left(ps, joined[i]) for i in range(n_days - 1)] + [len(ps)]
+            # The JLPT lines count every marked loanword (owner 2026-11-09),
+            # like any marked word: from the first day, never a gain.
+            # loans_on_chart still dates them to when they were marked.
+            loans[key] = [len(ps)] * n_days
             for i in range(n_days):
                 values[key][i] += loans[key][i]
 

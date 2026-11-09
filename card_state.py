@@ -383,15 +383,15 @@ def _found_keys(results: dict) -> dict:
 
 
 def hold_back_loans(results: dict, deck_name: str, ignore_suspended: bool, lists: dict = None):
-    """Marked English loanwords the rank doesn't count yet come off every
-    other count too (owner 2026-10-27: a Nakama card's 344 words with 850
-    JLPT words beside it confused): out of the JLPT lists' known words and
-    the frequency tiers, so the bars, history, goal and Nakama card grow
-    with your vocabulary like the rank. The counted ones are the most
-    common first. The marks themselves stay: the held ones are in
-    results["loans_waiting"] ({"pairs": JLPT (display, reading), "ranks":
-    0-based frequency rows}), drawn as missing tiles with a faint ★.
-    lists: the JLPT lists, to put them back in list order among the missing."""
+    """Marked English loanwords the rank doesn't count yet come off the
+    frequency tiers too (owner 2026-10-27), so the frequency bars grow with
+    your vocabulary like the rank. The JLPT bars count every marked one at
+    once (owner 2026-11-09: they ask whether you know a list's words; the
+    gradual joining protects the rank people compare). The counted ones are
+    the most common first. The marks themselves stay: the held ones are in
+    results["loans_waiting"] ({"pairs": always empty since 2026-11-09,
+    "ranks": 0-based frequency rows}), drawn as missing tiles with a faint ★.
+    lists: unused since 2026-11-09 (kept for the callers)."""
     from . import freq_data
     from .jlpt_data import LEVELS
     if results.get("loans_held"):
@@ -409,32 +409,24 @@ def hold_back_loans(results: dict, deck_name: str, ignore_suspended: bool, lists
     held = {k for _rk, _r, k in loans[n:]}
     if not held:
         return
-    pairs = set()
-    for lvl in LEVELS:
-        d = results.get(lvl)
-        if not d:
-            continue
-        keep, out = [], []
-        for d_, r, nid in d.get("known_words", []):
-            if nid is None:
-                if found_key(d_, r) in held:
-                    out.append((d_, r))
-                    continue
-            keep.append((d_, r, nid))
-        if out:
-            pairs.update(out)
-            missing = list(d.get("missing_words", [])) + out
-            order: dict = {}
-            for i, (ld, lr) in enumerate((lists or {}).get(lvl, [])):
-                order.setdefault((ld, lr), i)
-            missing.sort(key=lambda p: order.get(tuple(p), len(order)))
-            d["known_words"] = keep
-            d["missing_words"] = missing
+    # The JLPT bars keep every marked loanword (owner 2026-11-09): they ask
+    # "do I know this list's words", and you do. "pairs" stays empty.
+    pairs: set = set()
     ranks = {k[1] for k in held if k[0] == "row"}
     results["loans_waiting"] = {"pairs": pairs, "ranks": ranks}
     freq = results.get("frequency")
     if freq:
         freq_data.hold_found(freq, ranks)
+
+
+def jlpt_loans(results: dict) -> int:
+    """Marked English loanwords among the JLPT lists' known words (all of
+    them count there at once, owner 2026-11-09): the "incl. N English
+    loanwords" on the share image and Nakama card."""
+    from .jlpt_data import LEVELS
+    return sum(1 for lvl in LEVELS
+               for d, r, nid in (results.get(lvl) or {}).get("known_words", ())
+               if nid is None and is_loan(d, r))
 
 
 def loans_counted(cards: int, loans: list) -> int:

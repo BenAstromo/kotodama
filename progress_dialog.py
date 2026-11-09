@@ -286,23 +286,24 @@ LOANWORD_INFO_EN = [
     "seeing them once or twice in context, so they're marked as found from the start and you don't "
     "need cards for them. It's your choice: if you'd rather learn them like any other word and "
     "create Anki cards for them, or English isn't your first language, press the button to unmark them.",
-    "<b>They count gradually, as your vocabulary reaches them.</b> Sorted from most to least "
-    "common, each marked loanword joins once your rank reaches its frequency rank. Very common ones like テレビ count almost at once; one ranked "
-    "8,000 counts once your rank reaches about 8,000. A loanword on a JLPT list but not in the "
-    "20,000-word frequency list takes its level's place in that order: N5 800, N4 1,500, "
+    "<b>On the JLPT bars they count at once:</b> a marked loanword on a JLPT list is a word on "
+    "that list you know. <b>For your rank and the frequency bars they count gradually, as your "
+    "vocabulary reaches them.</b> Sorted from most to least common, each marked loanword joins "
+    "once your rank reaches its frequency rank. Very common ones like テレビ count almost at once; "
+    "one ranked 8,000 counts once your rank reaches about 8,000. A loanword on a JLPT list but not "
+    "in the 20,000-word frequency list takes its level's place in that order: N5 800, N4 1,500, "
     "N3 3,900, N2 6,000, N1 13,800.",
-    "<b>One order, everywhere.</b> A loanword either counts or doesn't yet, the same for your "
-    "rank, the JLPT bars, the frequency bars, your goal, your history and your Nakama card. Each "
-    "counts only the counted loanwords that belong to it, so the numbers differ: the rank counts "
-    "all of them, the frequency bars the ones in the top 20,000, the JLPT bars the ones on a JLPT "
-    "list (many everyday loanwords aren't on one). A word on both, like テレビ, counts on both. "
-    "Your marks stay: a loanword that doesn't count yet keeps its ★. Middle-click a faint ★ "
-    "to count that word now, like any word you mark; middle-click again to unmark it.",
+    "<b>One order for the rank and the frequency bars.</b> A loanword either counts for both or "
+    "doesn't yet: the rank counts all the counted ones, the frequency bars the ones in the top "
+    "20,000. Your marks stay: a loanword that doesn't count yet keeps a faint ★ in the frequency "
+    "grid. Middle-click a faint ★ to count that word now, like any word you mark; middle-click "
+    "again to unmark it.",
     "Why: marking about 2,500 loanwords at once would skip the early ranks, but you shouldn't need "
     "thousands of cards for words you already understand to reach 20,000. With every loanword "
     "marked, the last one joins at about 17,500 learned cards, exactly where marking them all at "
     "once would have reached 20,000. It also keeps ranks fair to compare: the share image and your "
-    "Nakama card say how many loanwords are counted.",
+    "Nakama card say how many loanwords are counted. The JLPT bars don't need this: they show how "
+    "much of a list you know, not a number people compare.",
     "Left out: wasei-eigo (サラリーマン), false friends (マンション), Japanese-made shortenings "
     "(パソコン) and loanwords from other languages (パン, アルバイト).",
 ]
