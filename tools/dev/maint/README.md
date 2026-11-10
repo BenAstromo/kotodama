@@ -10,7 +10,7 @@ Delete `env/` afterwards (it holds a 27 MB copy).
 - `t_nakama_offline.py <refused|timeout>`: Nakama with no server (never the real Worker).
 - `t_userfile_safety.py`, `t_override_race.py`, `t_deck_query.py`, `t_decode.py`, `t_rank_math.py`, `t_sun_debug.py`: the regressions for the fixes in maintenance_log.md.
 - `t_migrate.py` (plain Python): migrate.py in temp folders.
-- `t_marks.py` (plain Python, any folder): marks reach only their own word (the loanword button's marks are all loanwords, katakana marks stay on katakana rows, kana words find their own row), and marked loanwords join the bars and history gradually. Python: `%LOCALAPPDATA%\Python\pythoncore-3.14-64\python.exe` (the `python` on PATH is a Store stub).
+- `t_marks.py` (plain Python, any folder): marks reach only their own word (the loanword button's marks are all loanwords, katakana marks stay on katakana rows, kana words find their own row), marked loanwords join the rank and frequency bars gradually, and the JLPT bars and history lines count them at once (2026-11-09). Python: `%LOCALAPPDATA%\Python\pythoncore-3.14-64\python.exe` (the `python` on PATH is a Store stub).
 - `parse39.py` / `compat39.py <addon dir>` (plain Python): Python 3.9 syntax and runtime hazards.
 - `data_check.py <addon dir>`: bundled data file integrity.
 - `invariants.py` / `hist_check.py <harness dir>`: counting and history invariants on a collection copy; put them next to tools/harness.py's copy and `col_copy.anki2` (see APP_VISION §9).
