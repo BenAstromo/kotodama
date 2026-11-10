@@ -31,10 +31,10 @@ from . import rank_data
 from .jlpt_data import LEVELS, LEVEL_COLORS as LEVEL_FG
 from .progress_dialog import (
     CELL_W, CELL_H, CELL_R, UNLISTED_FG, MISSING_GLOW, LevelBar, WordGridPanel, _TileCanvas, DivineOverlay,
-    _GOLD_MODE, MISSING_GOLD, _gold_item, _gold_hover,
+    _GOLD_MODE, MISSING_GOLD, _gold_item, _Tile,
     _hl_register, _paint_gold_highlight, _regold,
     _copy_word, count_deck_notes, MATURITY_LABELS, _copy_to_clipboard, _fill_table,
-    _quiet_button_style, _paint_in_deck, _section_card, set_empty_hint,
+    _quiet_button_style, _paint_in_deck, _section_card, set_empty_hint, _ButtonColumn,
 )
 
 # Weak → strong heatmap (score 0 … 1). Red → orange → yellow → green → teal,
@@ -146,12 +146,11 @@ def _open_jisho_kanji(char: str):
 
 # ── tile ──────────────────────────────────────────────────────────────────────
 
-class KanjiCell(QWidget):
-    TOOLTIP_CSS = "QToolTip { font-size: 18px; padding: 8px; }"   # on the _TileCanvas
-    override_changed = pyqtSignal()
+class KanjiCell(_Tile):
+    """A kanji tile, painted on its grid's _TileCanvas (not a widget)."""
 
     def __init__(self, char: str, level: str, kres: dict, overrides, parent=None):
-        super().__init__(parent)
+        super().__init__()
         self._char      = char
         self._level     = level        # "N5".."N1" or "offlist"
         self._info      = kanji_data.data().get(char, {})
@@ -164,11 +163,8 @@ class KanjiCell(QWidget):
         # learned yet" tile, like grammar's (owner 2026-10-17).
         self._in_deck   = not self._known and bool(self._stat.get("pending"))
         self._overrides = overrides
-        self._hovered = self._highlighted = False
-        self.setFixedSize(CELL_W, CELL_H)
-        self.setCursor(Qt.CursorShape.PointingHandCursor)
-        # (tooltip size: TOOLTIP_CSS, set once on the _TileCanvas)
-        self._refresh_tooltip()
+        self._highlighted = False
+        # (the tooltip is built on first hover: _Tile.toolTip)
 
     # ── state ────────────────────────────────────────────────────────────────
 
@@ -284,13 +280,7 @@ class KanjiCell(QWidget):
         mean = ", ".join(self._info.get("meanings", [])[:2])
         return f"{self._char}  {mean}  —  {lvl}  —  {st}"
 
-    # ── events ───────────────────────────────────────────────────────────────
-
-    def enterEvent(self, e):
-        self._hovered = True
-        _gold_hover(self)
-        self.update()
-    def leaveEvent(self, e):  self._hovered = False; self.update()
+    # ── events (from the _TileCanvas) ────────────────────────────────────────
 
     def mousePressEvent(self, event):
         if event.button() == Qt.MouseButton.MiddleButton:
@@ -311,9 +301,8 @@ class KanjiCell(QWidget):
 
     # ── paint ────────────────────────────────────────────────────────────────
 
-    def paintEvent(self, event):
-        p = QPainter(self)
-        p.setRenderHint(QPainter.RenderHint.Antialiasing)
+    def paint(self, p: QPainter):
+        """Paint the tile; p's origin is its top-left corner."""
         w = h = CELL_W
         suspended, found, known, hov = (self._is_suspended, self._is_found,
                                         self._known, self._hovered)
@@ -380,7 +369,6 @@ class KanjiCell(QWidget):
             p.setBrush(Qt.BrushStyle.NoBrush)
             p.setPen(QPen(QColor(BRONZE if gold else "#ffffff"), 3))
             p.drawRoundedRect(1, 1, w - 2, h - 2, CELL_R, CELL_R)
-        p.end()
 
 
 # ── grid ──────────────────────────────────────────────────────────────────────
@@ -507,15 +495,14 @@ class KanjiGridPanel(WordGridPanel):
 
 # ── grammar tile ──────────────────────────────────────────────────────────────
 
-class GrammarCell(QWidget):
+class GrammarCell(_Tile):
     """A grammar point: as tall as a word tile, as wide as its pattern. The
     pattern's first form is the label; an English hint (〜で（means）) goes
-    on a small second line."""
+    on a small second line. Painted on its grid's _TileCanvas."""
     TOOLTIP_CSS = "QToolTip { font-size: 16px; padding: 8px; }"   # on the _TileCanvas
-    override_changed = pyqtSignal()
 
     def __init__(self, gid: str, gres: dict, overrides, parent=None):
-        super().__init__(parent)
+        super().__init__()
         self._gid = gid
         self._p = grammar_data.data()[gid]
         self._stat = gres["stats"].get(gid) or {}
@@ -526,7 +513,7 @@ class GrammarCell(QWidget):
         # tile look, so you can see it's coming (owner 2026-10-17).
         self._in_deck = not self._known and bool(self._stat.get("words"))
         self._overrides = overrides
-        self._hovered = self._highlighted = False
+        self._highlighted = False
         first = re.split(r"\s+/\s+", self._p["pattern"])[0]
         self._hint = grammar_data._hint(first)
         self._label = re.sub(r"\s*[（(][^）)]*[）)]\s*$", "", first) if self._hint else first
@@ -537,9 +524,7 @@ class GrammarCell(QWidget):
             f2 = QFont(); f2.setPointSize(7)
             w = max(w, QFontMetrics(f2).horizontalAdvance(self._hint) + 12)
         self.setFixedSize(max(CELL_W, w), CELL_H)
-        self.setCursor(Qt.CursorShape.PointingHandCursor)
-        # (tooltip size: TOOLTIP_CSS, set once on the _TileCanvas)
-        self._refresh_tooltip()
+        # (the tooltip is built on first hover: _Tile.toolTip)
 
     @property
     def _can_override(self) -> bool:
@@ -634,12 +619,6 @@ class GrammarCell(QWidget):
             st = "Not learned"
         return f"{p['pattern']}  {p['meaning'][:40]}  —  {p['level']}  —  {st}"
 
-    def enterEvent(self, e):
-        self._hovered = True
-        _gold_hover(self)
-        self.update()
-    def leaveEvent(self, e):  self._hovered = False; self.update()
-
     def mousePressEvent(self, event):
         if event.button() == Qt.MouseButton.MiddleButton:
             if not self._can_override:
@@ -668,9 +647,8 @@ class GrammarCell(QWidget):
             else:
                 search_grammar_in_deck(self._gid, self.window())
 
-    def paintEvent(self, event):
-        p = QPainter(self)
-        p.setRenderHint(QPainter.RenderHint.Antialiasing)
+    def paint(self, p: QPainter):
+        """Paint the tile; p's origin is its top-left corner."""
         w, h = self.width(), self.height()
         suspended, found, known, hov = (self._is_suspended, self._is_found,
                                         self._known, self._hovered)
@@ -739,7 +717,6 @@ class GrammarCell(QWidget):
             p.setBrush(Qt.BrushStyle.NoBrush)
             p.setPen(QPen(QColor(BRONZE if gold else "#ffffff"), 3))
             p.drawRoundedRect(1, 1, w - 2, h - 2, CELL_R, CELL_R)
-        p.end()
 
 
 def _grammar_source_text(gres: dict) -> str:
@@ -1377,15 +1354,14 @@ class KGMissingPanel(QWidget):
                          + [(x, "#aaa") for x in extra])
         _fill_table(self._table, [c + [("", None)] for c in cells],
                     tooltips=[_kg_tip(self._kind, k) for _, k in self._shown])
-        col = self._table.columnCount() - 1
-        for i, (_lvl, key) in enumerate(self._shown):
-            btn = QPushButton("★ Found")
-            btn.setFixedHeight(22)
-            btn.setToolTip("Mark as found (counts as known)")
-            btn.setStyleSheet("font-size: 12px; padding: 1px 6px; color: #ffe066; "
-                              "background: #333; border: 1px solid #665a1f; border-radius: 3px;")
-            btn.clicked.connect(lambda _=False, k=key: self._mark_found(k))
-            self._table.setCellWidget(i, col, btn)
+        # ★ Found buttons, painted (_ButtonColumn: one template, not a
+        # button per row)
+        shown = self._shown
+        _ButtonColumn.on(self._table, self._table.columnCount() - 1, "★ Found",
+                         "font-size: 12px; padding: 1px 6px; color: #ffe066; "
+                         "background: #333; border: 1px solid #665a1f; border-radius: 3px;",
+                         lambda row: self._mark_found(shown[row][1]),
+                         tooltip="Mark as found (counts as known)")
 
     def _on_click(self, item):
         key = self._shown[item.row()][1]
@@ -1479,6 +1455,11 @@ class KGOverridesPanel(QWidget):
             hdr.setText(f"<b style='color:{color};'>{'★ Marked found' if found else '✕ Suspended'}"
                         f"</b> <span style='color:gray;'>({len(items):,})</span>")
             table.setRowCount(len(items))
+            # Revert buttons, painted (_ButtonColumn)
+            _ButtonColumn.on(table, 3, "Revert",
+                             "font-size: 12px; padding: 1px 6px; color: #ccc; "
+                             "background: #333; border: 1px solid #555; border-radius: 3px;",
+                             lambda row, items=items, f=found: self._revert(items[row], f))
             for i, key in enumerate(items):
                 lvl, label, meaning, _x = _kg_item(self._kind, key)
                 for c, (text, col) in enumerate(((lvl, LEVEL_FG.get(lvl, "#888")),
@@ -1489,13 +1470,7 @@ class KGOverridesPanel(QWidget):
                         _gold_item(it)
                     it.setToolTip(_kg_tip(self._kind, key))
                     table.setItem(i, c, it)
-                btn = QPushButton("Revert")
-                btn.setFixedHeight(22)
-                btn.setStyleSheet("font-size: 12px; padding: 1px 6px; color: #ccc; "
-                                  "background: #333; border: 1px solid #555; border-radius: 3px;")
-                btn.clicked.connect(lambda _=False, k=key, f=found: self._revert(k, f))
-                table.setCellWidget(i, 3, btn)
-        _regold(self)          # header and Revert buttons were just rewritten
+        _regold(self)          # the headers were just rewritten
 
     def _revert(self, key: str, found: bool):
         if found:

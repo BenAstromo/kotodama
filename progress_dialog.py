@@ -1441,13 +1441,6 @@ def _gold_item(item):
         divine_text.tint_item(item, True)
 
 
-def _gold_hover(widget):
-    """On hovering a tile: its tooltip goes gold in gold mode (or back)."""
-    if _GOLD_MODE["on"] or widget.property("jlpt_tip_gold") is not None:
-        from . import divine_text
-        divine_text.gold_tooltip(widget, _GOLD_MODE["on"])
-
-
 def _gold_tile_edge(p: QPainter, w: int, h: int):
     """Gold mode: a thin gold inner edge on a known / found tile. Part of
     the tile's normal paint, so it costs nothing extra (grids stay fast)."""
@@ -2981,6 +2974,8 @@ class _NightSky(QWidget):
             self.setGeometry(obj.rect())
             self._pm = None
             self.lower()
+        elif event.type() == QEvent.Type.Hide and obj.isWindow():
+            self._pm = None          # a kept-hidden grid window: drawn again on show
         return False
 
     def _render(self):
@@ -4157,9 +4152,102 @@ def _level_size(lvl: str) -> int:
     return {"N1": freq_data.N1_VOCAB_TARGET}.get(lvl, 6_000)
 
 
+# ── Painted tiles ─────────────────────────────────────────────────────────────
+# A grid's tiles are not widgets (2026-11-10): one QWidget per tile cost
+# ~16 KB each (the All grid ~128 MB while open, Top 20,000 ~200 MB) and
+# made opening and scrolling slow. Each tile is a plain object that knows
+# its place on its _TileCanvas and paints itself with the canvas's painter;
+# the canvas does hit-testing, hover, tooltips, the cursor and clicks.
+
+class _TileSignal:
+    """override_changed without a QObject: connect() / emit()."""
+    __slots__ = ("_fns",)
+
+    def __init__(self):
+        self._fns = None
+
+    def connect(self, fn):
+        if self._fns is None:
+            self._fns = []
+        self._fns.append(fn)
+
+    def emit(self):
+        for fn in self._fns or ():
+            fn()
+
+
+class _Tile:
+    """What the grids and helpers use of a tile, as the QWidget had it:
+    width / height / move / pos / geometry (in its canvas), update (its
+    rectangle on the canvas), the tooltip text, window(). Subclasses paint
+    in paint(p) with p's origin at the tile's top-left corner."""
+    TOOLTIP_CSS = "QToolTip { font-size: 18px; padding: 8px; }"   # on the _TileCanvas
+
+    def __init__(self):
+        self._canvas = None
+        self._x = self._y = 0
+        self._w, self._h = CELL_W, CELL_H
+        self._tip = None             # built on first hover (_refresh_tooltip)
+        self._hovered = False
+        self.override_changed = _TileSignal()
+
+    def setFixedSize(self, w: int, h: int):
+        self._w, self._h = w, h
+
+    def width(self) -> int:
+        return self._w
+
+    def height(self) -> int:
+        return self._h
+
+    def move(self, x: int, y: int):
+        self._x, self._y = x, y
+
+    def pos(self) -> QPoint:
+        return QPoint(self._x, self._y)
+
+    def geometry(self) -> QRect:
+        return QRect(self._x, self._y, self._w, self._h)
+
+    def update(self):
+        """Repaint this tile (RuntimeError once its canvas is gone)."""
+        if self._canvas is not None:
+            self._canvas.update(self._x, self._y, self._w, self._h)
+
+    def setToolTip(self, text: str):
+        self._tip = text
+
+    def toolTip(self) -> str:
+        """The hover text, built when first asked for (2026-11-10: built for
+        every tile up front, it was ~1 KB a tile, 8 MB on the All grid)."""
+        if self._tip is None:
+            self._refresh_tooltip()
+        return self._tip
+
+    def _refresh_tooltip(self):
+        self._tip = ""
+
+    def window(self):
+        return self._canvas.window() if self._canvas is not None else None
+
+
+def _mouse_pos(event) -> QPoint:
+    """A mouse event's position in its widget (Qt5 builds of Anki: pos())."""
+    return event.position().toPoint() if hasattr(event, "position") else event.pos()
+
+
+def _ensure_tile_visible(scroll: QScrollArea, tile, xmargin: int = 60, ymargin: int = 100):
+    """Scroll so a painted tile shows, with margins (as ensureWidgetVisible)."""
+    c = tile._canvas
+    if c is None:
+        return
+    mid = c.mapTo(scroll.widget(), QPoint(tile._x + tile._w // 2, tile._y + tile._h // 2))
+    scroll.ensureVisible(mid.x(), mid.y(), xmargin + tile._w // 2, ymargin + tile._h // 2)
+
+
 # ── Word cell ─────────────────────────────────────────────────────────────────
 
-class WordCell(QWidget):
+class WordCell(_Tile):
     """
     A single vocabulary tile.
 
@@ -4178,18 +4266,15 @@ class WordCell(QWidget):
                           and counted now → not found (_middle_loan)
       Ctrl+Middle-click → toggle suspended
     """
-    # Set once on the tiles' _TileCanvas, not on every tile: a style sheet
-    # per tile cost ~25 MB on the 7,850-tile All grid (2026-11-07).
-    TOOLTIP_CSS = "QToolTip { font-size: 18px; padding: 8px; }"
-
-    # Emitted so the parent dialog can refresh the Marked & Suspended tab
-    override_changed = pyqtSignal()
+    # The tooltip size (TOOLTIP_CSS) is set once on the tiles' _TileCanvas.
+    # override_changed (a _TileSignal) tells the parent dialog to refresh the
+    # Marked & Suspended tab.
 
     def __init__(self, display: str, reading: str, nid, level: str,
                  overrides: "Overrides", parent=None, overridable: bool = True,
                  rank: int = None, maturity: int = None, rank_est: bool = False,
                  new_nid=None, found_row: bool = False, waiting: bool = False):
-        super().__init__(parent)
+        super().__init__()
         # waiting: a marked English loanword the counts don't include yet
         # (card_state.hold_back_loans): a missing tile with a faint ★.
         self._waiting    = waiting
@@ -4209,7 +4294,6 @@ class WordCell(QWidget):
         # "New" tile (not counted anywhere; owner 2026-10-17).
         self._new_nid    = new_nid if nid is None else None
         self._overrides  = overrides
-        self._hovered     = False
         self._highlighted = False
         self._overridable = overridable
         self._rank        = rank   # frequency rank, for "freq" tiles
@@ -4224,11 +4308,7 @@ class WordCell(QWidget):
         # Every note that is this word, when there's more than one card
         # (the duplicate finder, owner 2026-10-27): faint ⧉, click opens all.
         self._dups        = _DUP_OF.get(nid) if nid is not None else None
-
-        self.setFixedSize(CELL_W, CELL_H)
-        self.setCursor(Qt.CursorShape.PointingHandCursor)
-        self._refresh_tooltip()
-        # (tooltip size: TOOLTIP_CSS, set once on the _TileCanvas)
+        # (the tooltip is built on first hover: _Tile.toolTip)
 
     # ── state helpers ─────────────────────────────────────────────────────────
 
@@ -4361,14 +4441,6 @@ class WordCell(QWidget):
                       + "<br>".join(hints) + "</span>")
         self.setToolTip("<br><br>".join(blocks))
 
-    # ── events ────────────────────────────────────────────────────────────────
-
-    def enterEvent(self, e):
-        self._hovered = True
-        _gold_hover(self)
-        self.update()
-    def leaveEvent(self, e):  self._hovered = False; self.update()
-
     # ── search support ───────────────────────────────────────────────────────
 
     def set_highlighted(self, val: bool):
@@ -4447,7 +4519,7 @@ class WordCell(QWidget):
                     and not self._overrides.is_found(self._display, self._reading)):
                 pos = (event.globalPosition().toPoint() if hasattr(event, "globalPosition")
                        else event.globalPos())          # Qt5 builds of Anki
-                QToolTip.showText(pos, FOUND_ROW_TEXT, self)
+                QToolTip.showText(pos, FOUND_ROW_TEXT, self._canvas)
                 return
             if mods & Qt.KeyboardModifier.ControlModifier:
                 self._overrides.toggle_suspended(self._display, self._reading)
@@ -4480,9 +4552,9 @@ class WordCell(QWidget):
 
     # ── painting ──────────────────────────────────────────────────────────────
 
-    def paintEvent(self, event):
-        p = QPainter(self)
-        p.setRenderHint(QPainter.RenderHint.Antialiasing)
+    def paint(self, p: QPainter):
+        """Paint the tile; p's origin is its top-left corner (_TileCanvas
+        saves and restores the painter around it)."""
         w = h = CELL_W
 
         suspended  = self._is_suspended
@@ -4602,8 +4674,6 @@ class WordCell(QWidget):
             p.setPen(QPen(self._highlight_color(), 3))
             p.drawRoundedRect(1, 1, w - 2, h - 2, CELL_R, CELL_R)
 
-        p.end()
-
 
 # ── Tile canvas ───────────────────────────────────────────────────────────────
 
@@ -4681,7 +4751,12 @@ class _TileCanvas(QWidget):
     the N5 … N1 / frequency / missing runs of the Word Grid); "blend": each
     row in its tiles' average colour (the kanji / grammar heatmaps); a
     colour string: one colour. The rows are split into _NeonZone pieces that
-    flicker on as they come into view."""
+    flicker on as they come into view.
+
+    The tiles (_Tile: WordCell, KanjiCell, GrammarCell) are painted here,
+    not widgets of their own (2026-11-10): this canvas finds the tile under
+    the mouse for hover, the tooltip (gold in gold mode), the cursor and
+    clicks, and repaints one tile's rectangle when it changes."""
 
     # (spread px, alpha) from the faint outside in; the pad leaves it room
     _GLOW = ((13, 14), (10, 24), (7, 38), (4, 60), (2, 95))
@@ -4694,16 +4769,19 @@ class _TileCanvas(QWidget):
         self._glow = glow
         self._pad = self._GLOW_PAD if glow else 8
         self._rows = []              # [y, x0, x1, first tile, end] per row
+        self._row_ys = []            # each row's y, for bisect
         self._zones = []
         self._outside = None         # cached: everything but the tiles' shape
         self._lit = set()            # tiles whose zone has lit (kept over a re-flow)
         self._quiet = bool(_NEON["quiet"])     # built by a refresh (_neon_quiet)
-        css = getattr(cells[0], "TOOLTIP_CSS", None) if cells else None
-        if css:
-            self.setStyleSheet(css)  # the tiles' tooltip size, once for all
+        self._hover = None           # the tile under the mouse
+        self._css = getattr(cells[0], "TOOLTIP_CSS", "") if cells else ""
+        if self._css:
+            self.setStyleSheet(self._css)    # the tiles' tooltip size
+        self._tip_gold = False
         for c in cells:
-            c.setParent(self)
-            c.show()
+            c._canvas = self
+        self.setMouseTracking(True)
         self.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
 
     def _reflow(self, available_width: int):
@@ -4716,11 +4794,11 @@ class _TileCanvas(QWidget):
         rows  = []
         for i, cell in enumerate(self._cells):
             # Word and kanji tiles are CELL_W wide; grammar tiles are wider.
-            cw = cell.width()
+            cw = cell._w
             if x + cw > max_x and x > pad:
                 x  = pad
                 y += CELL_H + CELL_GAP
-            cell.move(x, y)
+            cell._x, cell._y = x, y
             if not rows or rows[-1][0] != y:
                 rows.append([y, x, x + cw, i, i + 1])
             else:
@@ -4728,7 +4806,111 @@ class _TileCanvas(QWidget):
                 rows[-1][4] = i + 1
             x += cw + CELL_GAP
         self._rows = rows
+        self._row_ys = [r[0] for r in rows]
         return y + CELL_H + pad
+
+    # ── tiles: finding, painting, mouse ──────────────────────────────────────
+
+    def _tiles_in(self, r: QRect):
+        """The tiles that meet rectangle r (canvas coordinates)."""
+        import bisect
+        ys = self._row_ys
+        first = bisect.bisect_right(ys, r.top() - CELL_H)
+        last = bisect.bisect_right(ys, r.bottom())
+        left, right = r.left(), r.right()
+        cells = self._cells
+        for k in range(first, last):
+            y, x0, x1, a, b = self._rows[k]
+            if x1 <= left or x0 > right:
+                continue
+            for i in range(a, b):
+                c = cells[i]
+                if c._x + c._w > left and c._x <= right:
+                    yield c
+
+    def _tile_at(self, pt: QPoint):
+        import bisect
+        k = bisect.bisect_right(self._row_ys, pt.y()) - 1
+        if k < 0:
+            return None
+        y, x0, x1, a, b = self._rows[k]
+        if pt.y() >= y + CELL_H or not x0 <= pt.x() < x1:
+            return None
+        for i in range(a, b):
+            c = self._cells[i]
+            if c._x <= pt.x() < c._x + c._w:
+                return c
+        return None
+
+    def tile_region(self, within: QRegion) -> QRegion:
+        """The tiles' own area inside `within` (rain.ui_region: the mist stays
+        off the tiles but not the gaps between them)."""
+        reg = QRegion()
+        for c in self._tiles_in(within.boundingRect()):
+            reg = reg.united(c.geometry())
+        return reg.intersected(within)
+
+    def _set_hover(self, tile):
+        old = self._hover
+        if old is tile:
+            return
+        self._hover = tile
+        if old is not None:
+            old._hovered = False
+            old.update()
+        if tile is not None:
+            tile._hovered = True
+            tile.update()
+            self.setCursor(Qt.CursorShape.PointingHandCursor)
+        else:
+            self.unsetCursor()
+
+    def _rehover(self):
+        """The tiles moved under a still mouse (a wheel scroll)."""
+        try:
+            pos = self.mapFromGlobal(QCursor.pos())
+            self._set_hover(self._tile_at(pos) if self.rect().contains(pos) else None)
+        except RuntimeError:
+            pass
+
+    def mouseMoveEvent(self, event):
+        self._set_hover(self._tile_at(_mouse_pos(event)))
+        super().mouseMoveEvent(event)
+
+    def leaveEvent(self, event):
+        self._set_hover(None)
+        super().leaveEvent(event)
+
+    def wheelEvent(self, event):
+        super().wheelEvent(event)              # ignored: the scroll area scrolls
+        QTimer.singleShot(0, self._rehover)
+
+    def mousePressEvent(self, event):
+        tile = self._tile_at(_mouse_pos(event))
+        if tile is None:
+            event.ignore()
+            return
+        tile.mousePressEvent(event)
+
+    def event(self, e):
+        if e.type() == QEvent.Type.ToolTip:
+            tile = self._tile_at(e.pos())
+            text = tile.toolTip() if tile is not None else ""
+            if not text:
+                QToolTip.hideText()
+                e.ignore()
+                return True
+            gold = _GOLD_MODE["on"]
+            if gold != self._tip_gold:        # the tooltip's look follows the mode
+                from . import divine_text
+                self._tip_gold = gold
+                self.setStyleSheet(self._css + (divine_text.TOOLTIP_GOLD_CSS if gold else ""))
+            if gold:
+                from . import divine_text
+                text = divine_text.gold_tip(text)
+            QToolTip.showText(e.globalPos(), text, self, tile.geometry())
+            return True
+        return super().event(e)
 
     def _tile_color(self, cell) -> str:
         if self._glow is True or self._glow == "blend":
@@ -4797,18 +4979,26 @@ class _TileCanvas(QWidget):
         return self._inside_rows
 
     def paintEvent(self, event):
-        if not self._zones:
-            return
-        # A repaint well inside the tiles (the rain's drops, a hovered tile)
-        # has no glow in it: skip the glow's costly clipping.
-        if event.region().subtracted(self._inside()).isEmpty():
-            return
-        gold = _GOLD_MODE["on"]
         p = QPainter(self)
         p.setRenderHint(QPainter.RenderHint.Antialiasing)
+        # A repaint well inside the tiles (the rain's drops, a hovered tile)
+        # has no glow in it: skip the glow's costly clipping.
+        if self._zones and not event.region().subtracted(self._inside()).isEmpty():
+            self._paint_glow(p, QRectF(event.rect()))
+        # The tiles on top, each clipped to its own rectangle as the old
+        # tile widgets were (a 2.5 px border's outer edge stays inside).
+        for c in self._tiles_in(event.rect()):
+            p.save()
+            p.translate(c._x, c._y)
+            p.setClipRect(0, 0, c._w, c._h)
+            c.paint(p)
+            p.restore()
+        p.end()
+
+    def _paint_glow(self, p: QPainter, er: QRectF):
+        gold = _GOLD_MODE["on"]
         p.setPen(Qt.PenStyle.NoPen)
         outside = self._outside_path()
-        er = QRectF(event.rect())
         for z in self._zones:
             top, bot = z.band
             t, b = max(top, er.top() - 1), min(bot, er.bottom() + 1)
@@ -4827,7 +5017,6 @@ class _TileCanvas(QWidget):
                 p.setBrush(c)
                 p.drawPath(path)
             p.restore()
-        p.end()
 
     def resizeEvent(self, event):
         old = [r[:] for r in self._rows]
@@ -5265,7 +5454,7 @@ class WordGridPanel(QWidget):
         else:
             self._search_match_idx = (self._search_match_idx + 1) % len(matches)
         target = matches[self._search_match_idx]
-        self._scroll.ensureWidgetVisible(target, 60, 100)
+        _ensure_tile_visible(self._scroll, target)
         n = len(matches)
         self._set_status(f"Match {self._search_match_idx + 1} / {n}: {target.status_text()}")
 
@@ -5299,7 +5488,7 @@ class WordGridPanel(QWidget):
         else:
             self._set_status(f"{len(matches)} matches — first: {first.status_text()}")
 
-        self._scroll.ensureWidgetVisible(first, 60, 100)
+        _ensure_tile_visible(self._scroll, first)
 
 
 # ── Missing words table ───────────────────────────────────────────────────────
@@ -5389,6 +5578,118 @@ def _fill_table(table: QTableWidget, rows: list, tooltips: list = None):
             table.resizeColumnToContents(c)
             header.setSectionResizeMode(c, QHeaderView.ResizeMode.ResizeToContents)
         table.setUpdatesEnabled(True)
+
+
+_REVERT_CSS = "font-size: 12px; padding: 1px 6px; "
+_REVERT_LOOK = {False: "color: #ccc; background: #333; border: 1px solid #555; border-radius: 3px;",
+                True: "color: #f5c518; background: #2a2410; border: 1px solid #6b5a1a; border-radius: 3px;"}
+
+
+class _ButtonColumn(QStyledItemDelegate):
+    """A table column of small push buttons (Revert, ★ Found) painted by one
+    hidden template button, not a QPushButton per row (2026-11-10: the
+    owner's ~2,600 marked words built ~2,600 styled buttons, ~0.5 s and
+    ~25 MB). Looks the same by construction: the template has the buttons'
+    style sheet, sits where they sat (the delegate's own editor geometry,
+    as setCellWidget placed them) and renders itself there. Like the
+    buttons it eats left clicks (no row selection), fires on a release over
+    the button it was pressed on, and has its own tooltip; other buttons'
+    clicks (right-click …) reach the table. Each button's own style sheet
+    beats the theme's :hover / :pressed rules, so there are no hover looks
+    to copy. Gold mode: Japanese text and the gold sheet (gold_text /
+    gold_css, else divine_text's translation and gold sheet)."""
+
+    HEIGHT = 22
+
+    def __init__(self, table: QTableWidget, column: int, text: str, css: str, on_click,
+                 tooltip: str = None, gold_text: str = None, gold_css: str = None):
+        super().__init__(table)
+        self._table, self._col = table, column
+        self._looks = {False: (text, css), True: (gold_text, gold_css)}
+        self._on_click = on_click            # (row) → None
+        self._tip = tooltip
+        self._rects = {}                     # row → button rect, as last painted
+        self._down = None                    # row pressed, until the release
+        btn = self._btn = QPushButton(table.viewport())
+        btn.setFixedHeight(self.HEIGHT)
+        btn.setProperty("jlpt_gold_skip", True)    # divine_text: its look is set here
+        btn.hide()
+        self._look(False)
+        table.setItemDelegateForColumn(column, self)
+        table.viewport().installEventFilter(self)
+
+    @classmethod
+    def on(cls, table: QTableWidget, column: int, text: str, css: str, on_click, **kw):
+        """The table's button column (made the first time; a refill gives it
+        the new rows' click handler)."""
+        d = table.itemDelegateForColumn(column)
+        if isinstance(d, cls):
+            d._on_click = on_click
+            d._rects.clear()
+            d._down = None
+            return d
+        return cls(table, column, text, css, on_click, **kw)
+
+    def _look(self, gold: bool = None):
+        gold = _GOLD_MODE["on"] if gold is None else gold
+        text, css = self._looks[False]
+        if gold:
+            from . import divine_text
+            gt, gc = self._looks[True]
+            text = gt or divine_text.translate(text)
+            css = gc or divine_text._gold_ss(css, "QPushButton")
+        if self._btn.text() != text:
+            self._btn.setText(text)
+        if self._btn.styleSheet() != css:
+            self._btn.setStyleSheet(css)
+        # Hidden, it isn't polished by itself: unpolished, its size hint is
+        # the plain style's (~80 px wide) and the column came out too wide.
+        self._btn.ensurePolished()
+
+    def sizeHint(self, option, index):
+        self._look()
+        return super().sizeHint(option, index).expandedTo(self._btn.sizeHint())
+
+    def paint(self, painter, option, index):
+        super().paint(painter, option, index)
+        self._look()
+        self.updateEditorGeometry(self._btn, option, index)     # where setCellWidget put it
+        r = self._btn.geometry()
+        self._rects[index.row()] = r
+        self._btn.render(painter, r.topLeft(), QRegion(), QWidget.RenderFlag.DrawChildren)
+
+    def _row_at(self, pos):
+        idx = self._table.indexAt(pos)
+        if not idx.isValid() or idx.column() != self._col:
+            return None
+        r = self._rects.get(idx.row())
+        return idx.row() if r is not None and r.contains(pos) else None
+
+    def eventFilter(self, obj, e):
+        t = e.type()
+        try:
+            if t in (QEvent.Type.MouseButtonPress, QEvent.Type.MouseButtonDblClick):
+                if e.button() == Qt.MouseButton.LeftButton:
+                    row = self._row_at(_mouse_pos(e))
+                    if row is not None:
+                        self._down = row
+                        return True
+            elif t == QEvent.Type.MouseMove and self._down is not None:
+                return True
+            elif t == QEvent.Type.MouseButtonRelease and self._down is not None:
+                if e.button() == Qt.MouseButton.LeftButton:
+                    row, self._down = self._down, None
+                    if self._row_at(_mouse_pos(e)) == row:
+                        self._on_click(row)
+                    return True
+            elif t == QEvent.Type.ToolTip and self._tip:
+                row = self._row_at(e.pos())
+                if row is not None:
+                    QToolTip.showText(e.globalPos(), self._tip, obj, self._rects[row])
+                    return True
+        except RuntimeError:
+            pass                              # table deleted mid-click
+        return False
 
 
 class MissingWordsPanel(QWidget):
@@ -5962,29 +6263,19 @@ class MarkedSuspendedPanel(QWidget):
             table.setItem(i, 1, di)
             table.setItem(i, 2, ri)
 
-            # Gold mode: born Japanese and gold (thousands of rows — cheaper
-            # than re-walking them after every refill).
-            gold = _GOLD_MODE["on"]
-            btn = QPushButton("元に戻す" if gold else "Revert")
-            btn.setFixedHeight(22)
-            btn.setStyleSheet(
-                "font-size: 12px; padding: 1px 6px; "
-                + ("color: #f5c518; background: #2a2410; border: 1px solid #6b5a1a;"
-                   if gold else "color: #ccc; background: #333; border: 1px solid #555;")
-                + " border-radius: 3px;"
-            )
-            # capture loop vars
-            def _make_revert(d, r, found):
-                def _revert():
-                    if found:
-                        self._overrides.remove_found(d, r)
-                    else:
-                        self._overrides.remove_suspended(d, r)
-                    self.changed.emit()
-                return _revert
+        # The Revert buttons: painted (_ButtonColumn), Japanese and gold in
+        # gold mode.
+        def _revert(row):
+            d, r, _rank = rows[row]
+            if is_found:
+                self._overrides.remove_found(d, r)
+            else:
+                self._overrides.remove_suspended(d, r)
+            self.changed.emit()
 
-            btn.clicked.connect(_make_revert(display, reading, is_found))
-            table.setCellWidget(i, table.columnCount() - 1, btn)
+        _ButtonColumn.on(
+            table, table.columnCount() - 1, "Revert", _REVERT_CSS + _REVERT_LOOK[False],
+            _revert, gold_text="元に戻す", gold_css=_REVERT_CSS + _REVERT_LOOK[True])
 
 
 # ── Off-list words panel (deck cards on no Kotodama JLPT list) ──────────────────────────────────────────────────────

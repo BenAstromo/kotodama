@@ -397,12 +397,14 @@ check("spark in its tube's colour", sp is not None and sp["color"].rgb() in cols
 pump(0.06); grab_rain("rain_spark.png")
 # the spark's sound (owner: "can't hear the sparks"), and its doubled size
 from jlpt_progress import neon_sound as _ns2
-check("spark sounds rendered", len(_ns2._SPARKS) == 3 and all(os.path.getsize(f) > 10000 for f in _ns2._SPARKS))
+check("spark sounds rendered", len(_ns2._SPARKS) == _ns2.SPARK_FILES and all(os.path.getsize(f) > 10000 for f in _ns2._SPARKS))
 _pf0, heard = _ns2.play_file, []
 _ns2.play_file = lambda path, volume=_ns2._VOLUME, level=None, window=False: heard.append((os.path.basename(path), volume))
 rain._next["spark"] = 0; pump(0.05)
 _ns2.play_file = _pf0
-check("a spark plays its crackle", heard and heard[-1][0].startswith("neon_spark_") and heard[-1][1] == _ns2.SPARK_VOLUME)
+# each spark a little quieter or not (SPARK_SPREAD), never louder
+spark_vol = lambda v: _ns2.SPARK_VOLUME * (1 - _ns2.SPARK_SPREAD) - 1e-9 <= v <= _ns2.SPARK_VOLUME + 1e-9
+check("a spark plays its crackle", heard and heard[-1][0].startswith("neon_spark_") and spark_vol(heard[-1][1]))
 check("a spark has 18-32 pieces", rain._sparks and 18 <= len(rain._sparks[-1]["parts"]) <= 32)
 pump(0.1); grab_rain("rain_spark2.png")
 # the rare stutter: one lit tube flickers again, with a quiet sound
@@ -460,7 +462,7 @@ _ns3.play_file = lambda path, volume=_ns3._VOLUME, level=None: heard2.append(vol
 _real_aw = QtWidgets.QApplication.activeWindow
 QtWidgets.QApplication.activeWindow = staticmethod(lambda: None)
 rain._spark_fn(); pump(0.05)
-check("no active window: a spark is still heard", heard2 == [_ns3.SPARK_VOLUME])
+check("no active window: a spark is still heard", len(heard2) == 1 and spark_vol(heard2[0]))
 QtWidgets.QApplication.activeWindow = _real_aw
 _ns3.play_file = _pf1
 # a bar that has just flickered on sparks half the time (owner 2026-10-22)

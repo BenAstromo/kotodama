@@ -17,7 +17,7 @@ class _Any:
 
 aqt = types.ModuleType("aqt"); aqt.mw = _Any(); aqt.gui_hooks = _Any()
 qt = types.ModuleType("aqt.qt")
-for n in ["QAction", "QMenu", "QObject", "QDialog", "QWidget", "QGroupBox", "QColor", "pyqtSignal", "QFont", "QLabel"]:
+for n in ["QAction", "QMenu", "QObject", "QDialog", "QWidget", "QGroupBox", "QColor", "pyqtSignal", "QFont", "QStyledItemDelegate", "QLabel"]:
     setattr(qt, n, _Any)
 qt.__all__ = [n for n in dir(qt) if n[0] == "Q" or n == "pyqtSignal"]
 utils = types.ModuleType("aqt.utils"); utils.showWarning = print; utils.tooltip = print

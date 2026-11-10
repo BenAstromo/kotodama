@@ -1005,29 +1005,15 @@ def _apply_table(t: QTableWidget, on: bool):
             tint_item(t.item(r, c), on)
 
 
-def gold_tooltip(w: QWidget, on: bool):
-    """Tile tooltips in gold mode: gold text on near-black, colours turned
-    gold (level name, part of speech, hints). Called on hover, so it always
-    reflects the current tooltip and mode."""
-    cur = w.toolTip()
-    if on:
-        if w.property("jlpt_tip_gold") == cur:
-            return
-        w.setProperty("jlpt_tip_src", cur)
-        gold = _recolor(cur)
-        w.setToolTip(gold)
-        w.setProperty("jlpt_tip_gold", gold)
-        if w.property("jlpt_tip_ss") is None:
-            w.setProperty("jlpt_tip_ss", w.styleSheet())
-            w.setStyleSheet((w.styleSheet() or "") +
-                            f" QToolTip {{ color: {GOLD}; background-color: #14110a;"
-                            f" border: 1px solid {GOLD}; }}")
-    elif w.property("jlpt_tip_gold") is not None:
-        if w.property("jlpt_tip_gold") == cur:
-            w.setToolTip(w.property("jlpt_tip_src") or "")
-        w.setStyleSheet(w.property("jlpt_tip_ss") or "")
-        for k in ("jlpt_tip_src", "jlpt_tip_gold", "jlpt_tip_ss"):
-            w.setProperty(k, None)
+# Tile tooltips in gold mode (_TileCanvas): gold text on near-black, the
+# tooltip's own colours (level name, part of speech, hints) turned gold.
+TOOLTIP_GOLD_CSS = (f" QToolTip {{ color: {GOLD}; background-color: #14110a;"
+                    f" border: 1px solid {GOLD}; }}")
+
+
+def gold_tip(text: str) -> str:
+    """A tile tooltip's HTML with its colours turned gold."""
+    return _recolor(text)
 
 
 def gold_titlebar(window: QWidget, on: bool, _tries: int = 0):

@@ -56,7 +56,7 @@ aqt.gui_hooks = types.SimpleNamespace(deck_browser_will_render_content=[], webvi
                                       reviewer_will_answer_card=[], reviewer_did_answer_card=[],
                                       webview_will_set_content=[])
 qt = types.ModuleType("aqt.qt")
-names = ["QAction","QMenu","QObject","QDialog","QWidget","QGroupBox","QColor","pyqtSignal","QFont","QLabel"]
+names = ["QAction","QMenu","QObject","QDialog","QWidget","QGroupBox","QColor","pyqtSignal","QFont","QStyledItemDelegate","QLabel"]
 for n in names: setattr(qt, n, _Any)
 qt.__all__ = names
 utils = types.ModuleType("aqt.utils"); utils.showWarning = print; utils.tooltip = print

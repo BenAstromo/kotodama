@@ -103,6 +103,12 @@ def ui_region(win) -> QRegion:
             if isinstance(c, QLabel) and not c.text() and (c.pixmap() is None or c.pixmap().isNull()) \
                     and c.movie() is None:
                 continue                       # an empty label: spacing
+            tiles = getattr(c, "tile_region", None)
+            if tiles is not None:              # a grid canvas: its painted tiles, not the gaps
+                vr = c.visibleRegion()
+                if not vr.isEmpty():
+                    rects.append(tiles(vr).translated(c.mapTo(win, QPoint(0, 0))))
+                continue
             leaf = not any(isinstance(k, QWidget) and not k.isWindow() and k.isVisible()
                            for k in c.children())
             if isinstance(c, _UI_TYPES) or (leaf and type(c) not in (QWidget, QFrame)):
@@ -236,6 +242,11 @@ class RainGlass(QWidget):
             elif et == QEvent.Type.Hide:
                 self._pause()
                 self.hide()
+                # A closed grid window is kept hidden for reuse: let go of
+                # its window-sized images (made again on the next paint).
+                self._vignette = None
+                self._mist = self._mist_orig = None
+                self._mist_wiped = QRect()
             elif et == QEvent.Type.WindowDeactivate:
                 self._pause()
                 self._poll.start()             # a missed WindowActivate can't strand it

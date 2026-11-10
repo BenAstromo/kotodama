@@ -15,3 +15,10 @@ Delete `env/` afterwards (it holds a 27 MB copy).
 - `data_check.py <addon dir>`: bundled data file integrity.
 - `invariants.py` / `hist_check.py <harness dir>`: counting and history invariants on a collection copy; put them next to tools/harness.py's copy and `col_copy.anki2` (see APP_VISION §9).
 - `mk_corpus.py <parse_cache.json> <out.tsv>`: a stand-in Tatoeba-format corpus from your deck's sentences (qt_neon.py / speed_test.py need one).
+
+Grid canvas and performance (2026-11-10). `KT_SRC=<folder>` makes stubenv copy that folder instead of the add-on (an old version: `git archive <rev> | tar -x -C <folder>` + config.json), `KT_ENV` puts the copy elsewhere, so old and new can run side by side.
+- `t_tiles_look.py render <dir>` / `compare <dirA> <dirB> [diffdir]`: every word / kanji / grammar tile state (each level, maturity, found, waiting ★, counted, suspended, New dashed, ⧉, hover, search match), normal and gold, on a real `_TileCanvas` with its glow; compare is pixel by pixel. Render the old version and the new, then compare: must print ALL SAME.
+- `t_buttons_look.py <dir>`: the tables with a button per row (Marked & Suspended Revert, kanji / grammar Missing ★ Found and Marked Revert), normal and gold, for the same compare (`KT_NO_REFRESH=1` grabs them as first built), plus the painted buttons' clicks and tooltip.
+- `t_tiles_use.py`: every interaction through the canvas (hit-testing, hover, cursor, tooltips normal / gold, every click and modifier, search + scroll-to-match + Enter, the rain mist region, a Refresh).
+- `t_perf.py <out.json> [rounds] [grid,…|base]` (deck: `perfdeck.py`) and `t_perf_all.ps1 <out.json> [rounds]` (one fresh process per grid, merged): startup, deck-list widget, main window, tabs, Refresh; per grid window open, scroll, search, hover, and `mb_marginal` (memory one more open copy costs: the only memory number that isn't skewed by Windows reusing freed heap).
+- `t_prof.py <out.txt> [widget,open,tabs,refresh,grid]`: cProfile of those. `t_mem.py <out.txt>`: Python heap (tracemalloc) per step; its private-memory totals include tracemalloc's own overhead.

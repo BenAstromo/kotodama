@@ -104,7 +104,7 @@ aqt.gui_hooks = types.SimpleNamespace(deck_browser_will_render_content=[], webvi
                                       profile_did_open=[], state_did_change=[], state_will_change=[], reviewer_will_answer_card=[],
                                       reviewer_did_answer_card=[], webview_will_set_content=[])
 qt = types.ModuleType("aqt.qt")
-for n in ["QAction", "QMenu", "QObject", "QDialog", "QWidget", "QGroupBox", "QColor", "pyqtSignal", "QFont", "QLabel"]:
+for n in ["QAction", "QMenu", "QObject", "QDialog", "QWidget", "QGroupBox", "QColor", "pyqtSignal", "QFont", "QStyledItemDelegate", "QLabel"]:
     setattr(qt, n, _Any)
 utils = types.ModuleType("aqt.utils"); utils.showWarning = print; utils.tooltip = print
 anki = types.ModuleType("anki"); anki_utils = types.ModuleType("anki.utils")

@@ -2,7 +2,8 @@
 
 Copies the add-on (code + data, NOT user_files / media / meta.json) into
 <scratch>/env/addons21/jlpt_progress, so every write a test causes lands in
-the copy. Stubs aqt / anki around real PyQt6. Import this first:
+the copy. Stubs aqt / anki around real PyQt6. KT_SRC: copy that folder instead (an old version, to
+compare); KT_ENV: put the copy there. Import this first:
 
     import stubenv as E
     pd = E.load("progress_dialog")
@@ -14,7 +15,7 @@ os.environ["KOTODAMA_NAKAMA_URL"] = "http://127.0.0.1:9"     # nothing listens: 
 sys.stdout.reconfigure(encoding="utf-8")
 sys.stderr.reconfigure(encoding="utf-8")
 
-REAL = r"C:\Users\benne\AppData\Roaming\Anki2\addons21\jlpt_progress"
+REAL = os.environ.get("KT_SRC") or r"C:\Users\benne\AppData\Roaming\Anki2\addons21\jlpt_progress"
 HERE = os.path.dirname(os.path.abspath(__file__))
 ENV = os.environ.get("KT_ENV") or os.path.join(HERE, "env", "addons21")
 ADDON = os.path.join(ENV, "jlpt_progress")
@@ -24,7 +25,7 @@ def fresh_copy(with_user_files=False):
     if os.path.exists(ADDON):
         shutil.rmtree(ADDON)
     def ignore(d, names):
-        skip = {"__pycache__", "tools", "server", ".claude", "meta.json"}
+        skip = {"__pycache__", "tools", "server", ".claude", ".git", "docs", "meta.json"}
         if os.path.normpath(d) == os.path.normpath(REAL):
             skip |= {"media"} if os.environ.get("KT_NO_MEDIA") else set()
             if not with_user_files:
