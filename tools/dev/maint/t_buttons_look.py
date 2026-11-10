@@ -130,7 +130,11 @@ if isinstance(d, getattr(pd, "_ButtonColumn", ())):
     ks.combo.setCurrentIndex(1); E.pump(0.3)
     kp = ks.stack.currentWidget()
     kt = [x for x in kp.findChildren(QtWidgets.QTableWidget) if x.isVisible()][0]
-    # (the Kun column can push the buttons past the right edge: scroll to them)
+    hh = kt.horizontalHeader()
+    right = hh.sectionViewportPosition(kt.columnCount() - 1) + hh.sectionSize(kt.columnCount() - 1)
+    E.check("kanji Missing: ★ Found inside the table (On / Kun capped)",
+            right <= kt.viewport().width() and hh.sectionSize(4) <= kp.CAPPED_PX,
+            ([hh.sectionSize(c) for c in range(kt.columnCount())], kt.viewport().width()))
     kt.horizontalScrollBar().setValue(kt.horizontalScrollBar().maximum())
     E.pump(0.05)
     kt.viewport().grab()                  # the painted buttons know their places once drawn

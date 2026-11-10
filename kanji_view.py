@@ -1208,6 +1208,8 @@ def _kg_tip(kind: str, key: str) -> str:
                 f"<br>On: {esc('、'.join(info.get('on', [])))}<br>Kun: {esc('、'.join(info.get('kun', [])))}")
     p = grammar_data.data().get(key, {})
     tip = f"<b>{esc(p.get('pattern', ''))}</b><br>{esc(p.get('meaning', ''))}"
+    if p.get("formation"):           # its table column can be cut short ("…")
+        tip += f"<br><span style='color:#9a9a9a;'>Formation:</span> {esc(p['formation'])}"
     if p.get("ex_ja"):
         tip += f"<br><br>{esc(p['ex_ja'])}<br><i>{esc(p.get('ex_en', ''))}</i>"
     return tip
@@ -1231,6 +1233,7 @@ class KGMissingPanel(QWidget):
     """Missing kanji (no learned card, not marked found) or grammar points,
     each with a ★ Found button."""
     changed = pyqtSignal()
+    CAPPED_PX = 220          # widest the On / Kun / Formation columns get by themselves
 
     def __init__(self, kind: str, res: dict, overrides, parent=None):
         super().__init__(parent)
@@ -1279,8 +1282,14 @@ class KGMissingPanel(QWidget):
         self._table.setHorizontalHeaderLabels(headers)
         set_empty_hint(self._table, "Nothing missing to show (or nothing matches the filter).")
         hh = self._table.horizontalHeader()
+        # On / Kun (kanji) and Formation (grammar) fit their text only up to
+        # CAPPED_PX (owner 2026-11-10: a long kun list made its column ~870 px
+        # and pushed ★ Found off the right edge); longer text ends in "…",
+        # the row's hover has all of it, and the column can be dragged wider.
+        self._capped = (3, 4) if kind == "kanji" else (3,)
         for c in range(len(headers)):
             hh.setSectionResizeMode(c, QHeaderView.ResizeMode.Stretch if c == 2
+                                    else QHeaderView.ResizeMode.Interactive if c in self._capped
                                     else QHeaderView.ResizeMode.ResizeToContents)
         self._table.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
         self._table.setSelectionBehavior(QAbstractItemView.SelectionBehavior.SelectRows)
@@ -1354,6 +1363,8 @@ class KGMissingPanel(QWidget):
                          + [(x, "#aaa") for x in extra])
         _fill_table(self._table, [c + [("", None)] for c in cells],
                     tooltips=[_kg_tip(self._kind, k) for _, k in self._shown])
+        for c in self._capped:
+            self._table.setColumnWidth(c, min(self._table.sizeHintForColumn(c), self.CAPPED_PX))
         # ★ Found buttons, painted (_ButtonColumn: one template, not a
         # button per row)
         shown = self._shown
