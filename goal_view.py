@@ -48,7 +48,6 @@ def add_goal_card(page: QVBoxLayout, tab) -> None:
     from .theme import SECTION_CSS
     title.setStyleSheet(SECTION_CSS)
     head.addWidget(title)
-    head.addStretch()
     try:
         st = goal.status(tab._results, tab._deck_name)
     except Exception:
@@ -69,6 +68,9 @@ def add_goal_card(page: QVBoxLayout, tab) -> None:
         info.clicked.connect(lambda: _show_info(tab))
         head.addWidget(info)
     head.addWidget(btn)
+    # "?" and "Change…" right after the title, like the Rank card's
+    # (owner 2026-11-10; they sat at the far right).
+    head.addStretch()
     outer.addLayout(head)
     card = outer
     outer = QVBoxLayout()               # the lines below sit closer together than the card's sections
