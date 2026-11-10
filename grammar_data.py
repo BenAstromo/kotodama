@@ -325,9 +325,9 @@ _GODAN_TAILS = {"う": "(?:[わいうえお]|っ)", "く": "(?:[かきくけこ]
 # Hand-tuned on the owner's 3,373 sentences (2026-10-09). Keyed by the
 # pattern text without 〜 (the "core").
 _NOT_AFTER = {          # lookbehind: what may not come right before the core
-    "として": ("う", "落", "がん", "頑", "閑散", "堂々", "平然", "呆然", "毅然", "悠然", "漠然", "断固", "依然", "っ"),   # + 依然として (still; fresh sample 8)
+    "として": ("う", "落", "がん", "頑", "閑散", "堂々", "平然", "呆然", "毅然", "悠然", "漠然", "断固", "依然", "[っッ]"),   # + 依然として (still; fresh sample 8)
     # ようとしている (〜ようとする), 落として (drop), がんとして / 閑散として (adverbs; Gemini final);
-    # っとして: すらっとして / ぬめっとしてる (mimetic + とする; recall test 5)
+    # っとして: すらっとして / ぬめっとしてる (mimetic + とする; recall test 5); グッとして (katakana ッ, 2026-11-10)
     "ばかりだ": "[ただ]",           # 〜たばかり
     "ところに": "の", "ところへ": "の", "ところを": "の", "ところだ": "の",   # 友達のところ (a place)
     "わりに": "[終代変替かまお]", "わりには": "[終代変替かまお]",   # + (か)わりに, (ま)わりに (Gemini batch 8)                     # 終わりに
@@ -371,7 +371,7 @@ _NOT_AFTER = {          # lookbehind: what may not come right before the core
     "っぽい": "ち",                 # ちっぽけ
     "気味": "い",                   # いい気味だ (serves them right)
     "てしょうがない": "[ただ]っ", "てしかたがない": "[ただ]っ",   # 行ったって / したって + しょうがない
-    "としたら": ("[っこ]", "落"), "とすれば": ("[っこ]", "落"),   # ひょっとしたら, こんなこと + したら; 落としたら (drop; precision test 6)
+    "としたら": ("[っッこ]", "落"), "とすれば": ("[っッこ]", "落"),   # ひょっとしたら, こんなこと + したら; 落としたら (drop; precision test 6); グッとすれば (mimetic + する, owner 2026-11-10)
     "としても": "[何ん]",           # 何としても / なんとしても (by all means)
     "ていく": "なく",               # 書かなくて(は)いけない
     "うと思う": "だろ",             # だろうと思った (conjecture, not a plan)

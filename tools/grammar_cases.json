@@ -28289,7 +28289,9 @@
   },
   {
    "text": "電車に乗ってウトッとしてたら、駅を寝過ごしてしまった。",
-   "absent": [],
+   "absent": [
+    "to-shite"
+   ],
    "present": [
     "te-iru"
    ]
@@ -36910,6 +36912,20 @@
    "text": "成るべく",
    "absent": [
     "beku"
+   ],
+   "present": []
+  },
+  {
+   "text": "内側はさ、まず液体で、外側はグッとすればこんくらいだから。そうだね",
+   "absent": [
+    "to-sureba-to-shitara"
+   ],
+   "present": []
+  },
+  {
+   "text": "ドアをグッとしたら開いた。",
+   "absent": [
+    "to-sureba-to-shitara"
    ],
    "present": []
   }
