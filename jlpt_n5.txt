@@ -1,4 +1,4 @@
-# JLPT N5 vocabulary list — 678 words
+# JLPT N5 vocabulary list — 677 words
 # Source: OpenJLPT (github.com/evanclan/OpenJLPT), CC BY-SA 4.0,
 #   levels from Jonathan Waller's JLPT lists (tanos.co.uk), CC BY.
 # Alternate spellings and loanword flags derived from JMdict (EDRDG), CC BY-SA 4.0.
@@ -333,7 +333,6 @@
 背	せ	脊
 生徒	せいと
 セーター	セーター		eng	スエーター|スウェーター
-せっけん	せっけん	節倹
 背広	せびろ	脊広		セビロ
 狭い	せまい
 ゼロ	ゼロ	０|〇|零	eng
@@ -643,7 +642,7 @@
 昨夜	ゆうべ	昨夕		ゆんべ|よべ
 有名	ゆうめい
 雪	ゆき
-ゆっくりと	ゆっくりと			ゆっくり
+ゆっくり	ゆっくり			ゆっくりと
 八日	ようか	８日
 洋服	ようふく
 よく	よく	良く|善く|能く|好く|克く

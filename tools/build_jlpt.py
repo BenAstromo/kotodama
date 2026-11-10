@@ -3,7 +3,9 @@
 Usage (from the folder containing data/ and ojlpt/):
     python data/build_jlpt.py <addon_dir>
 """
-import json, pickle, re, collections, sys
+import json, os, pickle, re, collections, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import jlpt_owner_fixes
 
 A = sys.argv[1]
 J = pickle.load(open("data/jmdict.pkl", "rb"))
@@ -143,7 +145,9 @@ for l in "54321":
             kata_words.append((w, "N" + l, flags[-1]))
         for f in flags: stats[f] += 1
         rows.append((w, r, alts, flags, alt_reads))
-    out["N" + l] = rows
+    # The owner's corrections (tools/jlpt_owner_fixes.py): removed words and
+    # words listed under another form of themselves.
+    out["N" + l] = jlpt_owner_fixes.apply("N" + l, rows)
 
 print("flags:", dict(stats), "| JMdict spellings added:", added, "| readings added:", added_r)
 print("listed in kana (usually-kana words):", len(to_kana))
