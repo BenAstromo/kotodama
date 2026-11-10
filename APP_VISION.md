@@ -16,7 +16,9 @@
 
 **Accuracy state:** grammar fresh recall 91 % (tuning stopped); precision A 99 % / N3 94 % / N2 98 % / N1 97 %; `tools/grammar_cases.json` 4,861 rulings, 0 failures; vocab recall 99.4 % / precision 99.3 %.
 
-**JLPT data:** the bars are Waller only (OpenJLPT + the Waller words it drops): N5 677 · N4 632 · N3 1,677 · N2 1,783 · N1 3,082 (7,851). Every goal = the lists up to the level, then a top-up to `goal.LEVEL_SIZE` (800 / 1,500 / 3,900 / 6,000 / 13,800): N5–N2 with the most common harder-list words, N1 with common off-list words. Card wording "Lists" / "Top-up", never "Step".
+**JLPT data:** the bars are Waller only (OpenJLPT + the Waller words it drops): N5 677 · N4 632 · N3 1,677 · N2 1,783 · N1 3,082 (7,851). Owner corrections on top of the build: `tools/jlpt_owner_fixes.py` (add new ones there, then run it). Every goal = the lists up to the level, then a top-up to `goal.LEVEL_SIZE` (800 / 1,500 / 3,900 / 6,000 / 13,800): N5–N2 with the most common harder-list words, N1 with common off-list words. Card wording "Lists" / "Top-up", never "Step".
+
+**Eleventh session (2026-11-10, all pushed; details in HISTORY):** grid tiles are painted `_Tile`s on their `_TileCanvas` (pixel-identical; the canvas does hover, tooltips, cursor, clicks), tooltips built on first hover, table buttons one painted `_ButtonColumn` per table, closed grid windows free their sky / rain images: All grid 2.1 → 0.24 s and 110 → 20 MB, Top 20,000 5.2 → 0.37 s and 316 → 35 MB, Refresh 5.4 → 2.9 s. Owner's JLPT list corrections (`tools/jlpt_owner_fixes.py`); kanji / grammar Missing columns capped at 220 px; goal card's "?" / "Change…" after the title.
 
 **Open (launch, owner's part):**
 - Read through the README and the AnkiWeb text (release_drafts.md §6) by hand.
@@ -25,7 +27,7 @@
 - Demo video (owner narrates), AnkiWeb upload (fill `[ANKIWEB CODE]`), make the repo public (turn on Issues), version bump (3.0.0 now). Launch posts: Anki Forums → r/Anki → r/LearnJapanese → r/JLPT / r/LearnJapaneseNovice; TheMoeWay Discord later. Organic only, no accuracy numbers.
 
 **Open (development):**
-- **Grid canvas + performance pass (2026-11-10, done).** Grid tiles (`WordCell`, `KanjiCell`, `GrammarCell`) are painted `_Tile`s on their `_TileCanvas`, not widgets (pixel-identical; the canvas does hover, tooltips, cursor, clicks); tooltips are built on first hover; the Revert / ★ Found table buttons are one painted `_ButtonColumn` per table; closed (kept-hidden) grid windows free their sky / rain images. Old → new on the test deck: All grid open 2.1 → 0.24 s and 110 → 20 MB, Top 20,000 5.2 → 0.37 s and 316 → 35 MB, scrolling ~3× faster, Missing / Marked tabs 1.1 / 1.2 → 0.5 / 0.24 s, Refresh 5.4 → 2.9 s, main window with every tab 536 → 303 MB. Whole suite passes (t_leaks' object count is noisy, no leak). Note: the Revert column is now always the first-open width (old code squeezed it to 52 px after any refresh).
+- **No NEXT task set** (the grid canvas rewrite is done): ask the owner.
 - **`freq_extra.txt` rebuild** (§6; display/sorting only) + **parser words past #20,000** (owner wants ~60,000; rare words only fill gaps, re-run both evals). Both wait on NINJAL (records 3228 + 3234): down for maintenance since 2026-10-28, still 503 on 2026-11-10. `tools/build_freq_extra.py` already follows build_freq.py's newer mapping (untested).
 - Known small issues: renaming a mapped field keeps a stale field index until a note changes or Anki restarts; the mini widget can't see the past 7 days (only matters for weekly kinds, which it never shows).
 - **Memory (checked 2026-11-07 and 11-10): no leak.** Peak memory per open/close round is flat (t_leaks); the level after closing swings ~200 MB because Windows keeps freed memory for reuse, so compare grids with `t_perf`'s `mb_marginal`. Not measurable offscreen: the deck-list widget's redraw cost (it needs Anki's real backend).
