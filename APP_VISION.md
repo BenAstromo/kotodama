@@ -29,7 +29,7 @@
 **Open (development):**
 - **No NEXT task set** (the grid canvas rewrite is done): ask the owner.
 - **`freq_extra.txt` rebuild** (§6; display/sorting only) + **parser words past #20,000** (owner wants ~60,000; rare words only fill gaps, re-run both evals). Both wait on NINJAL (records 3228 + 3234): down for maintenance since 2026-10-28, still 503 on 2026-11-10. `tools/build_freq_extra.py` already follows build_freq.py's newer mapping (untested).
-- Known small issues: renaming a mapped field keeps a stale field index until a note changes or Anki restarts; the mini widget can't see the past 7 days (only matters for weekly kinds, which it never shows).
+- Known small issue: the mini widget can't see the past 7 days (only matters for weekly kinds, which it never shows).
 - **Memory (checked 2026-11-07 and 11-10): no leak.** Peak memory per open/close round is flat (t_leaks); the level after closing swings ~200 MB because Windows keeps freed memory for reuse, so compare grids with `t_perf`'s `mb_marginal`. Not measurable offscreen: the deck-list widget's redraw cost (it needs Anki's real backend).
 - Owner's AnkiConnect (mining) stopped after the Anki 26.09.4 update: its meta.json says `max_point_version` 260800. Told the owner: open Anki → Tools → Add-ons → Check for Updates; not confirmed fixed.
 

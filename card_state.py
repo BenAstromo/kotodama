@@ -140,7 +140,11 @@ def deck_notes(deck_name: str, seen_only: bool = True) -> dict[int, DeckNote]:
         return {}
     ids = ids2str(nids)
     count, mods = mw.col.db.first(f"select count(), sum(mod) from notes where id in {ids}") or (0, 0)
-    key = (deck_name, count, mods, hash(tuple(sorted(nids))))
+    # Note types' change times too: renaming a field changes no note, but
+    # the field-name → index maps below must be rebuilt.
+    mids = [r[0] for r in mw.col.db.all(f"select distinct mid from notes where id in {ids}")]
+    nt_mods = tuple(sorted((mid, (mw.col.models.get(mid) or {}).get("mod", 0)) for mid in mids))
+    key = (deck_name, count, mods, hash(tuple(sorted(nids))), nt_mods)
     memo = _notes_memo.setdefault(seen_only, {"key": None, "notes": {}})
     if memo["key"] == key:
         return memo["notes"]
