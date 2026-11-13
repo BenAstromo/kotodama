@@ -23,6 +23,7 @@ note on no list is Off-list unless it duplicates a counted JLPT word.
 
 from __future__ import annotations
 
+import html as _html
 import re
 import unicodedata
 from collections import Counter
@@ -93,6 +94,7 @@ def _norm(s: str) -> str:
 
 def _extract_words(raw: str) -> list[str]:
     s = re.sub(r"<[^>]+>", "", raw)
+    s = _html.unescape(s)            # 猫&nbsp; (Anki's editor adds them) → 猫
     s = re.sub(r"\[.*?\]", "", s)
     s = re.sub(r"[（(].*?[)）]", "", s)
     parts = re.split(r"[/／、,，・\s]+", s)
@@ -127,8 +129,9 @@ def _extract_reading(raw: str) -> str:
 
     s = re.sub(r"<ruby>.*?</ruby>", _ruby_to_kana, s, flags=re.IGNORECASE | re.DOTALL)
 
-    # Strip any remaining HTML tags (e.g. <b>, <span>, etc.)
+    # Strip any remaining HTML tags (e.g. <b>, <span>, etc.) and entities
     s = re.sub(r"<[^>]+>", "", s)
+    s = _norm(_html.unescape(s))
 
     # ── format 2: Anki bracket furigana "漢字[かんじ]"
     # Strategy: walk through the string, collecting kana characters as-is and
@@ -848,6 +851,10 @@ def _open_progress_dialog(cfg: dict) -> bool:
     if not field_mappings:
         showWarning("Please add at least one vocab field in Settings.")
         return False
+    if not card_state.deck_exists(deck_name):
+        showWarning(f"Kotodama can't find the deck “{deck_name}”. It may have been "
+                    "renamed or deleted. Choose your deck again in Kotodama → Settings.")
+        return False
 
     lists = jlpt_data.build_lists(lists_cfg)
     if not any(lists.values()):
@@ -966,8 +973,12 @@ def prepare_dialog():
     the next click on the widget opens it at once. Called after the mini
     widget's own recount (the deck list after reviews, a closed window,
     Anki's start); does nothing if that count is still current."""
+    if getattr(mw, "state", "deckBrowser") != "deckBrowser":
+        return                       # reviewing: never queue ahead of answers
     cfg = _cfg()
     if not cfg.get("deck_name") or not cfg.get("field_mappings"):
+        return
+    if not card_state.deck_exists(cfg["deck_name"]):
         return
     # Not while the main window is open (its intro and sounds need the
     # main thread; closing it redraws the deck list, which asks again).
@@ -1058,7 +1069,8 @@ def open_progress_dialog_direct():
     if not cfg.get("deck_name") or not cfg.get("field_mappings"):
         run_jlpt_check()
         return
-    _open_progress_dialog(cfg)
+    if not _open_progress_dialog(cfg):   # e.g. the deck is gone: choose it again
+        run_jlpt_check()
 
 
 # ── menu ───────────────────────────────────────────────────────────────────────
@@ -1078,7 +1090,19 @@ _about_action = QAction("About Kotodama…", mw)
 from . import about
 _about_action.triggered.connect(lambda: about.show_about(mw))
 _menu.addAction(_about_action)
+# macOS would move "Settings…" / "About…" into the application menu by their
+# text (Qt's TextHeuristicRole); keep all three in the Kotodama menu.
+for _a in (_open_action, _settings_action, _about_action):
+    try:
+        _a.setMenuRole(QAction.MenuRole.NoRole)
+    except Exception:
+        pass
 mw.form.menubar.insertMenu(mw.form.menuHelp.menuAction(), _menu)
+# Tools → Add-ons → Config opens Kotodama's own Settings, not raw JSON.
+try:
+    mw.addonManager.setConfigAction(__name__, run_jlpt_check)
+except Exception:
+    pass
 
 mini_widget.setup()
 rank_toast.setup()

@@ -140,9 +140,11 @@ class NakamaTab(QWidget):
         v.addWidget(title)
         about = QLabel(
             "Join to get a friend code. Anyone you give it to can add you and see your card: "
-            "your name and the numbers on your bars (rank, JLPT words, top 20k words, kanji and "
-            "grammar). No cards, words or deck names are sent. Your card updates after Anki "
-            "syncs. You can leave at any time: your card is removed, and your code is kept for you.")
+            "your name and the numbers on your card (rank, bars, words marked found, time with "
+            "Kotodama and, if you choose, your JLPT goal). No cards, words or deck names are sent. "
+            "Your card updates after Anki syncs. Your code and friends list are kept in your "
+            "collection, so they follow your AnkiWeb sync. You can leave at any time: your card "
+            "is removed, and your code is kept for you.")
         about.setWordWrap(True)
         about.setStyleSheet("color: #bbbbbb; padding: 6px 0;")
         v.addWidget(about)
@@ -366,7 +368,7 @@ class NakamaTab(QWidget):
         out = [(me, {"id": me, "name": s.get("name"), "data": s.get("mine") or {},
                      "updated": (s["cache"].get(me) or {}).get("updated")}, True)]
         for c in s["friends"]:
-            out.append((c, s["cache"].get(c) or {"id": c, "name": nakama.show_code(c)}, False))
+            out.append((c, nakama.clean_profile(s["cache"].get(c)) or {"id": c, "name": nakama.show_code(c)}, False))
         out += [(p["id"], p, False) for p in nakama.demo_members()]
         return out
 
@@ -386,8 +388,18 @@ class NakamaTab(QWidget):
         for i, (code, prof, me) in enumerate(members):
             it = QListWidgetItem()
             it.setData(Qt.ItemDataRole.UserRole, code)
-            w = _Row(dict(prof, id=prof.get("id") or code), me, key,
-                     show_code=names.count(names[i]) > 1 and bool(names[i]))
+            try:
+                w = _Row(dict(prof, id=prof.get("id") or code), me, key,
+                         show_code=names.count(names[i]) > 1 and bool(names[i]))
+            except Exception:
+                # one odd card never stops the list (it can still be removed)
+                it.setText("Can't show this card")
+                it.setForeground(QColor("#7a7a7a"))
+                it.setSizeHint(QSize(0, 48))
+                self._list.addItem(it)
+                if code == self._selected:
+                    sel_row = i
+                continue
             it.setSizeHint(QSize(0, 48))
             self._list.addItem(it)
             self._list.setItemWidget(it, w)
@@ -425,8 +437,13 @@ class NakamaTab(QWidget):
             return
         if self._preview is not None:      # DEBUG preview: this card at that rank
             prof = dict(prof, data=dict(prof["data"], rank=self._preview))
-        self._set_card(prof, None if me else nakama.state().get("mine"),
-                       nakama.synced_text(prof.get("updated")) if not me or prof.get("updated") else "")
+        try:
+            self._set_card(prof, None if me else nakama.state().get("mine"),
+                           nakama.synced_text(prof.get("updated")) if not me or prof.get("updated") else "")
+        except Exception:
+            self._img = None
+            self._unwatch("card")
+            self._card.setText("<span style='color:#9a9a9a;'>Can't show this card</span>")
 
     def _set_card(self, profile: dict, mine: dict | None, synced: str):
         """Show a member's card; its rank picture is drawn on separately, so

@@ -107,7 +107,7 @@ mw.addonManager = types.SimpleNamespace(
     getConfig=lambda *a: CFG, writeConfig=lambda name, c: CFG.update(c),
     setWebExports=lambda *a: None, addonFromModule=lambda m: "jlpt_progress",
     addonsFolder=lambda *a: ENV, toggleEnabled=lambda *a, **k: None,
-    isEnabled=lambda *a: True)
+    isEnabled=lambda *a: True, setConfigAction=lambda *a: LOG.setdefault("config_action", a))
 mw.form = types.SimpleNamespace(menubar=QtWidgets.QMenuBar(mw), menuHelp=QtWidgets.QMenu("Help", mw),
                                 menuTools=QtWidgets.QMenu("Tools", mw))
 mw.deckBrowser = types.SimpleNamespace(refresh=lambda: LOG.__setitem__("refreshes", LOG["refreshes"] + 1))

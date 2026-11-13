@@ -155,3 +155,6 @@ class _Decks:
 
     def all_names_and_ids(self):
         return [type("D", (), {"name": n, "id": i})() for n, i in self._c._decks.items()]
+
+    def id_for_name(self, name):
+        return self._c._decks.get(name)

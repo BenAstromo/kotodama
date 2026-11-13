@@ -67,11 +67,17 @@ def sentence_texts(deck_name: str, field_mappings: list, sentence_only: bool = F
             if m.get("note_type") and m["note_type"] != model:
                 continue
             sf = m.get("sentence_field", "")
-            if sf and sf in note and not (sentence_only and m.get("field")):
-                text = clean(note[sf])
-                if text:
-                    out[nid] = text
-            break
+            if sf and sf in note:
+                if not (sentence_only and m.get("field")):
+                    text = clean(note[sf])
+                    if text:
+                        out[nid] = text
+                break
+            # An "(all note types)" row whose sentence field this note lacks
+            # doesn't apply: try the next row. A row naming this note type
+            # ends the search (a deliberate "no sentence field").
+            if m.get("note_type"):
+                break
     return out
 
 

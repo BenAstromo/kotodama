@@ -220,6 +220,85 @@ def parked_code() -> str | None:
 _DEMO_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "user_files", "nakama_demo.json")
 
 
+def _nonneg(v, cap=None) -> int:
+    try:
+        n = max(0, int(v or 0))
+    except Exception:
+        return 0
+    return min(n, cap) if cap is not None else n
+
+
+def _int_or_none(v):
+    if v is None:
+        return None
+    try:
+        return int(v)
+    except Exception:
+        return None
+
+
+def _pair_or_none(v):
+    try:
+        if isinstance(v, (list, tuple)) and len(v) >= 2:
+            return [int(v[0]), int(v[1])]
+    except Exception:
+        pass
+    return None
+
+
+def _pairs(v) -> dict:
+    if not isinstance(v, dict):
+        return {}
+    out = {}
+    for lvl in LEVELS + ["All"]:
+        p = _pair_or_none(v.get(lvl))
+        if p is not None:
+            out[lvl] = p
+    return out
+
+
+def clean_profile(p) -> dict:
+    """A profile from the server (or the cache, or the demo file) with every
+    value the add-on reads in the shape it expects, so one odd card (made by
+    hand, or by a newer version) can't break the Nakama tab. Unknown keys are
+    kept as they are."""
+    if not isinstance(p, dict):
+        return {}
+    out = dict(p)
+    if out.get("id") is not None:
+        out["id"] = str(out["id"])
+    name = out.get("name")
+    out["name"] = str(name)[:32] if name is not None else None
+    if "updated" in out:
+        try:
+            out["updated"] = float(out["updated"]) if out["updated"] else None
+        except Exception:
+            out["updated"] = None
+    data = out.get("data")
+    data = dict(data) if isinstance(data, dict) else {}
+    for k in ("found", "found_loan", "loan_marked", "jlpt_loans", "loyal"):
+        if k in data:
+            data[k] = _nonneg(data[k])
+    if "rank" in data:
+        data["rank"] = _nonneg(data["rank"], 20_000)
+    for k in ("week", "month"):
+        if k in data:
+            data[k] = _int_or_none(data[k])
+    if "jlpt" in data:
+        data["jlpt"] = _pairs(data["jlpt"])
+    if "freq" in data:
+        data["freq"] = _pair_or_none(data["freq"])
+    for k in ("kanji", "grammar"):
+        if k in data:
+            data[k] = _pairs(data[k])
+    if "goal" in data:
+        data["goal"] = str(data["goal"]) if data["goal"] is not None else None
+    if "sun" in data:
+        data["sun"] = bool(data["sun"])
+    out["data"] = data
+    return out
+
+
 def demo_members() -> list:
     """Screenshot-only friends (owner 2026-11-02; made by
     tools/dev/nakama_demo.py): profiles in user_files/nakama_demo.json,
@@ -228,7 +307,7 @@ def demo_members() -> list:
     try:
         with open(_DEMO_PATH, encoding="utf-8") as f:
             got = json.load(f)
-        return [p for p in got if isinstance(p, dict) and p.get("id")] if isinstance(got, list) else []
+        return [clean_profile(p) for p in got if isinstance(p, dict) and p.get("id")] if isinstance(got, list) else []
     except Exception:
         return []
 
@@ -396,7 +475,12 @@ def _in_background(work, done):
             def result(self): return self.f()
         finished(_F(work))
         return
-    tm.run_in_background(work, finished)
+    # The request never touches the collection: keep it off Anki's
+    # collection queue, or a slow server holds up answering cards.
+    try:
+        tm.run_in_background(work, finished, uses_collection=False)
+    except TypeError:            # older Anki: no such argument
+        tm.run_in_background(work, finished)
 
 
 def join(name: str, done):
@@ -477,10 +561,11 @@ def fetch_friends(done):
         if error:
             done(error)
             return
-        got = {p["id"]: p for p in res.get("profiles", [])}
+        got = {p["id"]: p for p in res.get("profiles", [])
+               if isinstance(p, dict) and p.get("id")}
         for c in codes:
             if c in got:
-                s["cache"][c] = got[c]
+                s["cache"][c] = clean_profile(got[c])
             else:
                 s["cache"].setdefault(c, {"id": c})["missing"] = True
         # Your card on the server isn't what you last sent (someone else's

@@ -306,7 +306,7 @@ def _arrow_rules(c: dict, a: str) -> str:
     for d in ("left", "right"):
         img = _arrow_image(d, c["tab"])
         if img:
-            rules += (f"QDialog#kotodama QTabBar QToolButton::{d}-arrow {{ image: url({img}); "
+            rules += (f"QDialog#kotodama QTabBar QToolButton::{d}-arrow {{ image: url(\"{img}\"); "
                       f"width: 14px; height: 14px; }}\n")
     return rules
 

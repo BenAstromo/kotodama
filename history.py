@@ -650,6 +650,8 @@ def _on_deck_browser_will_render_content(deck_browser, content):
         if not deck or not cfg.get("field_mappings") or recorded_today(deck):
             return
         from . import mini_widget, card_state
+        if not card_state.deck_exists(deck):
+            return
         # Current results, or None while a background recount runs (that
         # recount records today's snapshot itself).
         results = mini_widget.cached_results()

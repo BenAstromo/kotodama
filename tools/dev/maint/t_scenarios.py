@@ -3,7 +3,11 @@ Drives the real add-on (copy in the scratch env): the deck-list widget, the
 main window (every tab, grids), Refresh, close. Any traceback = FAIL."""
 import io, os, sys, time, traceback
 SC = sys.argv[1]
+QT_MSGS = []
 if SC == "unicode":
+    # guide item 15: a non-ASCII path must not break the style sheet
+    _QC = __import__(("PyQt5" if os.environ.get("KT_QT") == "5" else "PyQt6") + ".QtCore", fromlist=["QtCore"])
+    _QC.qInstallMessageHandler(lambda _t, _c, m: QT_MSGS.append(m))
     os.environ["KT_ENV"] = os.path.join(os.path.dirname(os.path.abspath(__file__)), "環境 ü ベン", "addons21")
 import stubenv as E
 import mkcol
@@ -51,10 +55,17 @@ elif SC == "baddeck":
     deck = 'Core_2k "best"*'
     col = mkcol.Col(nts, [deck, "Core 2k \"best\"x"], [(deck, *n[1:]) for n in notes]
                     + [("Core 2k \"best\"x", "Vocab", {"Word": "猫", "Reading": "ねこ"}, (2, 2, 30))])
+elif SC == "tworows":
+    # guide item 8: two "(all note types)" rows, different field names
+    col = mkcol.Col({"A": ["Word", "Sentence"], "B": ["Expression", "SentenceJP"]}, [deck],
+                    [(deck, "A", {"Word": "学校", "Sentence": SENTS[0]}, (2, 2, 30)),
+                     (deck, "B", {"Expression": "水", "SentenceJP": SENTS[2]}, (2, 2, 30))])
+    maps = [{"note_type": "", "field": "Word", "reading_field": "", "sentence_field": "Sentence"},
+            {"note_type": "", "field": "Expression", "reading_field": "", "sentence_field": "SentenceJP"}]
 elif SC == "nodeck":
     col = mkcol.Col(nts, ["Other"], [])
     deck = "Deleted deck"
-else:                       # normal, corrupt, unicode, oldcfg
+else:                       # normal, corrupt, unicode, oldcfg, fail
     col = mkcol.Col(nts, [deck], notes)
 
 E.mw.col = col
@@ -98,8 +109,57 @@ if SC not in ("fresh",):
     E.check(f"[{SC}] widget has content", bool(html) or SC in ("nodeck",))
 
 if SC == "fresh":
+    E.check("[fresh] Add-ons → Config opens Settings", bool(E.LOG.get("config_action")))
+    E.check("[fresh] deck list shows the set-up card",
+            "Click to set up" in html and "jlpt_open_progress" in html)
     pkg._open_progress_dialog(dict(E.CFG))
     E.check("[fresh] asks for a deck", any("deck" in str(w).lower() for w in E.LOG["warnings"]))
+    E.finish()
+
+if SC == "normal":
+    # guide item 3: no precount once the user has gone to review
+    E.mw.state = "review"
+    pkg._prep["key"] = pkg._prep["out"] = None
+    pkg.prepare_dialog()
+    E.check("[normal] prepare_dialog starts nothing while reviewing", pkg._prep["running"] is None)
+    E.mw.state = "deckBrowser"
+
+if SC == "fail":
+    # guide item 16: a failing count shows a warning with the traceback
+    def boom(*a, **k):
+        raise IndexError("list index out of range")
+    pkg._dialog_work = boom
+    E.LOG["warnings"].clear()
+    pkg._prep["key"] = pkg._prep["out"] = None
+    pkg._open_progress_dialog(dict(E.CFG))
+    E.pump(2.0)
+    E.check("[fail] warning names the report address and holds the traceback",
+            any("Traceback" in str(w) and "issues" in str(w) for w in E.LOG["warnings"]))
+    E.check("[fail] a second click can open again", not pkg._opening["busy"])
+    E.finish()
+
+if SC == "tworows":
+    sp = E.load("sentence_parser")
+    texts = sp.sentence_texts(deck, maps)
+    E.check("[tworows] both rows' sentences are read", sorted(texts.values()) == sorted([SENTS[0], SENTS[2]]))
+
+if SC == "nodeck":
+    # guide item 7: no zero snapshot recorded, a warning instead of a window
+    E.check("[nodeck] widget shows nothing", not html)
+    hp = os.path.join(uf, "history.json")
+    snap = False
+    if os.path.exists(hp):
+        import json
+        try:
+            snap = deck in json.dumps(json.load(open(hp, encoding="utf-8")), ensure_ascii=False)
+        except Exception:
+            snap = False
+    E.check("[nodeck] no snapshot written for the missing deck", not snap)
+    ok = pkg._open_progress_dialog(dict(E.CFG))
+    E.check("[nodeck] window refused", ok is False)
+    E.check("[nodeck] warns that the deck can't be found",
+            any("can't find the deck" in str(w) for w in E.LOG["warnings"]))
+    E.check("[nodeck] no errors", not ERRS)
     E.finish()
 
 ok = pkg._open_progress_dialog(dict(E.CFG))
@@ -116,6 +176,15 @@ if dlg is None:
     print("warnings:", E.LOG["warnings"])
     E.finish()
 E.pump(1.0)
+_texts = [w.text() for w in dlg.findChildren(E.QtWidgets.QLabel)]
+_read_none = any("read no words from your" in t for t in _texts)
+_no_study = any("No studied cards in this deck yet" in t for t in _texts)
+if SC == "nofield":
+    E.check("[nofield] says no words were read and points to Settings", _read_none)
+elif SC == "empty":
+    E.check("[empty] says nothing has been studied yet", _no_study)
+else:
+    E.check(f"[{SC}] no empty-deck hint", not _read_none and not _no_study)
 for i in range(dlg._tabs.count()):
     dlg._tabs.setCurrentIndex(i)
     E.pump(0.6)
@@ -138,6 +207,9 @@ dlg.reject()
 E.pump(1.0)
 widget(); E.pump(2.0); widget()
 E.check(f"[{SC}] closed, widget redrawn, no errors", not ERRS)
+if SC == "unicode":
+    bad = [m for m in QT_MSGS if "Could not parse stylesheet" in m]
+    E.check("[unicode] every style sheet parsed", not bad)
 if SC == "corrupt":
     for name in ("overrides.json", "history.json"):
         p = os.path.join(uf, name)

@@ -29,7 +29,7 @@ nk.join("Tester", lambda ok, err: got.__setitem__("join", (ok, err)))
 E.check(f"[{mode}] join returns at once (background)", time.monotonic() - t0 < 0.5)
 # the main thread keeps running while it waits: count event-loop turns
 turns = [0]
-from PyQt6.QtCore import QTimer
+QTimer = E.QtCore.QTimer
 tick = QTimer(); tick.timeout.connect(lambda: turns.__setitem__(0, turns[0] + 1)); tick.start(20)
 took = wait("join", limit)
 tick.stop()

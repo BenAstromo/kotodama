@@ -92,10 +92,10 @@ Requires Anki 2.1.50 or newer, desktop only (AnkiDroid and AnkiMobile don't supp
 
 ## Setup (one minute)
 
-Open **Kotodama → Settings…** on Anki's menu bar:
+Open **Kotodama → Settings…** on Anki's menu bar (or click the **Click to set up** card on the main screen, or Tools → Add-ons → Kotodama → Config):
 
 1. Pick your Japanese deck (sub-decks are included).
-2. For each note type, choose the field with the Japanese word (e.g. `Expression`). Optionally add a reading field and an example-sentence field. The sentence field is what the grammar parser reads.
+2. For each note type, pick the field with the Japanese word from the list (e.g. `Expression`). Optionally add a reading field and an example-sentence field. The sentence field is what the grammar parser reads.
 3. Press OK. Open Kotodama from the menu or by clicking the widget on the main screen.
 
 ![Settings](docs/screenshots/settings.png)
@@ -108,7 +108,7 @@ The **[full guide](docs/GUIDE.md)** explains every tab, setting and click in det
 
 ## Privacy
 
-Kotodama works offline. It connects to the internet only if you join **Nakama**. Then your chosen name and the numbers on your bars are sent to Kotodama's small server after Anki syncs, and your friends' cards are fetched when you open the tab. No cards, words, sentences or deck names are ever sent. Only people you give your friend code to can see your card. Leaving Nakama removes your name and numbers from the server. Everything else stays on your computer, in the add-on's `user_files` folder.
+Kotodama works offline. It connects to the internet only if you join **Nakama**. Then your chosen name and the numbers on your card (rank, bars, words marked found, time with Kotodama and, if you choose, your JLPT goal) are sent to Kotodama's small server after Anki syncs, and your friends' cards are fetched when you open the tab. No cards, words, sentences or deck names are ever sent. Only people you give your friend code to can see your card. Leaving Nakama removes your name and numbers from the server. Your friend code and friends list are also saved in your Anki collection, so they follow your AnkiWeb sync. Everything else stays on your computer, in the add-on's `user_files` folder.
 
 ## Support Kotodama
 

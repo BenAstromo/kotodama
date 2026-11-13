@@ -76,7 +76,9 @@ def _sentence(nid: int, gid: str, fallback: str) -> tuple[str, list]:
                     spans: dict = {}
                     grammar_data.sentence_ids(text, spans)
                     return text, sorted(set(spans.get(gid, ())))
-            break
+                break
+            if m.get("note_type"):       # an all-types row that doesn't fit: next row
+                break
     except Exception:
         pass
     return fallback, []

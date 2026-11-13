@@ -15,7 +15,7 @@ tab's tiles; a Refresh rebuilds the grids without errors.
 import io, os, sys, time, traceback
 import stubenv as E
 import mkcol
-from PyQt6 import QtCore, QtGui, QtWidgets
+QtCore, QtGui, QtWidgets = E.QtCore, E.QtGui, E.QtWidgets
 Qt = QtCore.Qt
 
 ERRS = []
@@ -345,8 +345,8 @@ E.pump(1.0)
 pd._GOLD_MODE["on"] = True
 pd._hl_tick()
 pd._GOLD_MODE["on"] = False
-from PyQt6 import sip
-QtCore.QCoreApplication.sendPostedEvents(None, QtCore.QEvent.Type.DeferredDelete.value)
+sip = __import__(E._MM + ".sip", fromlist=["sip"])
+QtCore.QCoreApplication.sendPostedEvents(None, getattr(QtCore.QEvent.Type.DeferredDelete, "value", QtCore.QEvent.Type.DeferredDelete))
 gone = sip.isdeleted(some._canvas)
 pd._GOLD_MODE["on"] = True
 pd._hl_tick()

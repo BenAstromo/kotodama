@@ -7010,6 +7010,25 @@ class OverviewTab(QWidget):
             QWidget().setLayout(old_layout)
         self._build()
 
+    def _empty_hint(self) -> str:
+        """The line shown when the count read no words from any card: the
+        field names are wrong, or nothing has been studied yet."""
+        r = self._results
+        if any(nid is not None for l in LEVELS for _d, _r, nid in r[l]["known_words"]):
+            return ""
+        if (r.get("unlisted") or {}).get("known_words"):
+            return ""
+        try:
+            from . import _cfg
+            n = len(mw.col.find_notes(card_state.deck_search(
+                self._deck_name, bool(_cfg().get("ignore_suspended_cards", False)))))
+        except Exception:
+            return ""
+        if n > 0:
+            return (f"Kotodama read no words from your {n:,} studied "
+                    f"{'note' if n == 1 else 'notes'}. Check the field names in Kotodama → Settings.")
+        return "No studied cards in this deck yet. Words count once you've studied their card."
+
     def _build(self):
         # The overview can be taller than the window — wrap everything in a
         # scroll area so the user can scroll down to the rank section.
@@ -7073,6 +7092,15 @@ class OverviewTab(QWidget):
         # Force Amaterasu / +250 into 20,000 is a crossing too (it was None
         # here, and None → max didn't count: owner 2026-10-16).
         self._rank_debug_prev_was_max = force_max_gold
+
+        # Nothing read from the cards (guide item 1): say so, or the bars'
+        # loanword marks look like real numbers.
+        empty_hint = self._empty_hint()
+        if empty_hint:
+            eh = QLabel(empty_hint)
+            eh.setWordWrap(True)
+            eh.setStyleSheet(HINT_CSS + " color: #e0a050;")
+            outer.addWidget(eh)
 
         all_known = sum(len(self._results[l]["known_words"]) for l in LEVELS)
         all_total = sum(

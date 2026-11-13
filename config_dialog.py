@@ -22,32 +22,76 @@ def _remove_button() -> QPushButton:
     return btn
 
 
+ALL_NOTE_TYPES = "(all note types)"
+
+
+def _field_combo(text: str, placeholder: str) -> QComboBox:
+    """An editable drop-down of the note type's field names (guide item 1:
+    a typed `expression` for `Expression` silently read nothing). Typing
+    any name still works; the first entry is empty (no such field)."""
+    box = QComboBox()
+    box.setEditable(True)
+    box.setInsertPolicy(QComboBox.InsertPolicy.NoInsert)
+    box.setSizeAdjustPolicy(QComboBox.SizeAdjustPolicy.AdjustToMinimumContentsLengthWithIcon)
+    box.setMinimumContentsLength(8)
+    box.lineEdit().setPlaceholderText(placeholder)
+    box.addItem("")
+    box.setEditText(text)
+    return box
+
+
+def _set_field_names(box: QComboBox, names: list):
+    """Refill a field drop-down, keeping whatever is typed in it."""
+    text = box.currentText()
+    box.blockSignals(True)
+    box.clear()
+    box.addItem("")
+    box.addItems(names)
+    box.setEditText(text)
+    box.blockSignals(False)
+
+
+def _note_fields() -> dict:
+    """note type name → its field names, in the note type's order."""
+    out = {}
+    try:
+        for m in mw.col.models.all():
+            out[m["name"]] = [f["name"] for f in m.get("flds", [])]
+    except Exception:
+        pass
+    return out
+
+
+def fields_for(note_fields: dict, note_type: str) -> list:
+    """The field names a row can use: that note type's, or for "(all note
+    types)" every field name in the collection, sorted, each once."""
+    if note_type and note_type != ALL_NOTE_TYPES:
+        return list(note_fields.get(note_type, []))
+    return sorted({f for fl in note_fields.values() for f in fl}, key=str.lower)
+
+
 # ── Field mapping row ─────────────────────────────────────────────────────────
 
 class FieldMappingRow(QWidget):
     removed = pyqtSignal(object)
 
     def __init__(self, note_types, note_type="", field="", reading_field="",
-                 sentence_field="", parent=None):
+                 sentence_field="", parent=None, note_fields=None):
         super().__init__(parent)
         layout = QHBoxLayout(self)
         layout.setContentsMargins(0, 2, 0, 2)
+        self._note_fields = note_fields if note_fields is not None else _note_fields()
 
         self.note_combo = QComboBox()
-        self.note_combo.addItem("(all note types)")
+        self.note_combo.addItem(ALL_NOTE_TYPES)
         for nt in note_types:
             self.note_combo.addItem(nt)
         if note_type and note_type in note_types:
             self.note_combo.setCurrentText(note_type)
 
-        self.field_edit = QLineEdit(field)
-        self.field_edit.setPlaceholderText("Kanji spelling field  e.g. Expression")
-
-        self.reading_edit = QLineEdit(reading_field)
-        self.reading_edit.setPlaceholderText("Reading field  e.g. Reading")
-
-        self.sentence_edit = QLineEdit(sentence_field)
-        self.sentence_edit.setPlaceholderText("Sentence field  e.g. Sentence")
+        self.field_edit = _field_combo(field, "Word field  e.g. Expression")
+        self.reading_edit = _field_combo(reading_field, "Reading field  e.g. Reading")
+        self.sentence_edit = _field_combo(sentence_field, "Sentence field  e.g. Sentence")
         self.sentence_edit.setToolTip(
             "The card's example sentence. Used by the auto parser for kanji and grammar "
             "(Kanji and Grammar below). With no word field, the vocab is parsed from it too.")
@@ -60,18 +104,30 @@ class FieldMappingRow(QWidget):
         layout.addWidget(self.reading_edit, 2)
         layout.addWidget(self.sentence_edit, 2)
         layout.addWidget(btn, 0)
+        self._refill()
+        self.note_combo.currentTextChanged.connect(lambda _t: self._refill())
+
+    def _refill(self):
+        names = fields_for(self._note_fields, self.note_combo.currentText())
+        for box in (self.field_edit, self.reading_edit, self.sentence_edit):
+            _set_field_names(box, names)
+
+    def boxes(self):
+        """(column name, drop-down) for the check on OK."""
+        return [("Word field", self.field_edit), ("Reading field", self.reading_edit),
+                ("Sentence field", self.sentence_edit)]
 
     def get_mapping(self):
         nt = self.note_combo.currentText()
         m = {
-            "note_type":     "" if nt == "(all note types)" else nt,
-            "field":         self.field_edit.text().strip(),
-            "reading_field": self.reading_edit.text().strip(),
+            "note_type":     "" if nt == ALL_NOTE_TYPES else nt,
+            "field":         self.field_edit.currentText().strip(),
+            "reading_field": self.reading_edit.currentText().strip(),
         }
         # Only stored when set, so existing mappings (and the history
         # signature built from them) don't change.
-        if self.sentence_edit.text().strip():
-            m["sentence_field"] = self.sentence_edit.text().strip()
+        if self.sentence_edit.currentText().strip():
+            m["sentence_field"] = self.sentence_edit.currentText().strip()
         return m
 
 
@@ -79,28 +135,37 @@ class SimpleFieldRow(QWidget):
     """Note type + one field (kanji source, later grammar)."""
     removed = pyqtSignal(object)
 
-    def __init__(self, note_types, note_type="", field="", placeholder="", parent=None):
+    def __init__(self, note_types, note_type="", field="", placeholder="", parent=None,
+                 note_fields=None):
         super().__init__(parent)
         layout = QHBoxLayout(self)
         layout.setContentsMargins(0, 2, 0, 2)
+        self._note_fields = note_fields if note_fields is not None else _note_fields()
         self.note_combo = QComboBox()
-        self.note_combo.addItem("(all note types)")
+        self.note_combo.addItem(ALL_NOTE_TYPES)
         for nt in note_types:
             self.note_combo.addItem(nt)
         if note_type and note_type in note_types:
             self.note_combo.setCurrentText(note_type)
-        self.field_edit = QLineEdit(field)
-        self.field_edit.setPlaceholderText(placeholder)
+        self.field_edit = _field_combo(field, placeholder)
         btn = _remove_button()
         btn.clicked.connect(lambda: self.removed.emit(self))
         layout.addWidget(self.note_combo, 2)
         layout.addWidget(self.field_edit, 2)
         layout.addWidget(btn, 0)
+        self._refill()
+        self.note_combo.currentTextChanged.connect(lambda _t: self._refill())
+
+    def _refill(self):
+        _set_field_names(self.field_edit, fields_for(self._note_fields, self.note_combo.currentText()))
+
+    def boxes(self):
+        return [("Field", self.field_edit)]
 
     def get_mapping(self):
         nt = self.note_combo.currentText()
-        return {"note_type": "" if nt == "(all note types)" else nt,
-                "field": self.field_edit.text().strip()}
+        return {"note_type": "" if nt == ALL_NOTE_TYPES else nt,
+                "field": self.field_edit.currentText().strip()}
 
 
 # ── Main config dialog ────────────────────────────────────────────────────────
@@ -125,6 +190,7 @@ class ConfigDialog(QDialog):
         self._cfg          = cfg
         self._rows         = []
         self._note_types   = sorted(m["name"] for m in mw.col.models.all())
+        self._note_fields  = _note_fields()
         self._build_ui()
         # as tall as its content (the page scrolls, so ask for it), then
         # fit_on_screen keeps it above the taskbar once shown
@@ -164,7 +230,7 @@ class ConfigDialog(QDialog):
         ml = QVBoxLayout(map_grp)
         hint = QLabel(
             "Add one row per note type.  "
-            "<b>Kanji spelling field</b>: the field with kanji or kana (e.g. Expression).  "
+            "<b>Word field</b>: the field with the Japanese word, in kanji or kana (e.g. Expression).  "
             "<b>Reading field</b>: a separate kana-only field (e.g. Reading).  "
             "Adding the reading field helps match words like めがね ↔ 眼鏡 and avoids "
             "false positives from homophones (家庭 vs 課程 are both かてい but stay separate "
@@ -179,9 +245,9 @@ class ConfigDialog(QDialog):
 
         # Column headers
         hdr = QHBoxLayout()
-        for txt, stretch in [("Note type", 2), ("Kanji spelling field", 2), ("Reading field", 2), ("Sentence field", 2), ("", 0)]:
+        for txt, stretch in [("Note type", 2), ("Word field", 2), ("Reading field", 2), ("Sentence field", 2), ("", 0)]:
             lbl = QLabel(f"<b>{txt}</b>")
-            lbl.setStyleSheet("font-size: 10px; color: #aaa;")
+            lbl.setStyleSheet("font-size: 10px; color: gray;")     # readable on light themes too
             hdr.addWidget(lbl, stretch)
         ml.addLayout(hdr)
 
@@ -501,7 +567,7 @@ class ConfigDialog(QDialog):
 
     def _add_kanji_row(self, note_type="", field=""):
         row = SimpleFieldRow(self._note_types, note_type, field,
-                             "Field with the kanji  e.g. kanji")
+                             "Field with the kanji  e.g. kanji", note_fields=self._note_fields)
         row.removed.connect(self._remove_kanji_row)
         self._kanji_rows_vbox.addWidget(row)
         self._kanji_rows.append(row)
@@ -513,7 +579,7 @@ class ConfigDialog(QDialog):
 
     def _add_grammar_row(self, note_type="", field=""):
         row = SimpleFieldRow(self._note_types, note_type, field,
-                             "Field with the grammar pattern  e.g. Grammar")
+                             "Field with the grammar pattern  e.g. Grammar", note_fields=self._note_fields)
         row.removed.connect(self._remove_grammar_row)
         self._grammar_rows_vbox.addWidget(row)
         self._grammar_rows.append(row)
@@ -525,7 +591,7 @@ class ConfigDialog(QDialog):
 
     def _add_row(self, note_type="", field="", reading_field="", sentence_field=""):
         row = FieldMappingRow(self._note_types, note_type, field, reading_field,
-                              sentence_field, self._rows_widget)
+                              sentence_field, self._rows_widget, note_fields=self._note_fields)
         row.removed.connect(self._remove_row)
         self._rows_vbox.addWidget(row)
         self._rows.append(row)
@@ -534,6 +600,47 @@ class ConfigDialog(QDialog):
         self._rows_vbox.removeWidget(row)
         self._rows.remove(row)
         row.deleteLater()
+
+    def _bad_field(self):
+        """The first row naming a field its note type doesn't have:
+        (message, drop-down, right spelling or None), or None if all fit."""
+        groups = [("Vocab", self._rows)]
+        if self.kanji_fields_rb.isChecked():
+            groups.append(("Kanji", self._kanji_rows))
+        if self.grammar_fields_rb.isChecked():
+            groups.append(("Grammar", self._grammar_rows))
+        for group, rows in groups:
+            for i, row in enumerate(rows, 1):
+                nt = row.note_combo.currentText()
+                names = fields_for(self._note_fields, nt)
+                for col, box in row.boxes():
+                    typed = box.currentText().strip()
+                    if not typed or typed in names:
+                        continue
+                    where = ("any note type" if nt == ALL_NOTE_TYPES else f"the note type “{nt}”")
+                    same = [n for n in names if n.lower() == typed.lower()]
+                    msg = (f"{group} row {i}, {col}: “{typed}” isn't a field of {where}, "
+                           "so Kotodama would read nothing from it.")
+                    if same:
+                        return msg + f"\n\nField names are case-sensitive. Use “{same[0]}”?", box, same[0]
+                    return msg + "\n\nPick the field from the drop-down list.", box, None
+        return None
+
+    def accept(self):
+        bad = self._bad_field()
+        if bad is not None:
+            msg, box, fix = bad
+            if fix is not None:
+                from aqt.utils import askUser
+                if askUser(msg, parent=self, title="Kotodama — Settings"):
+                    box.setEditText(fix)
+                    return self.accept()          # check the other rows too
+            else:
+                from aqt.utils import showWarning
+                showWarning(msg, parent=self, title="Kotodama — Settings")
+            box.setFocus()
+            return                                # keep the dialog open
+        super().accept()
 
     def get_config(self) -> dict:
         mappings = [m for m in (r.get_mapping() for r in self._rows)

@@ -5,7 +5,8 @@ Run with the PyQt6 venv: `%TEMP%\qtv\Scripts\python.exe -X utf8 <test>.py` from 
 around real PyQt6, so tests never touch your real files. `mkcol.py` = a small fake collection.
 Delete `env/` afterwards (it holds a 27 MB copy).
 
-- `t_scenarios.py <fresh|empty|nofield|baddeck|nodeck|corrupt|unicode|oldcfg|normal>`: widget, window, every tab, grids, Refresh, close.
+- `t_scenarios.py <fresh|empty|nofield|baddeck|nodeck|corrupt|unicode|oldcfg|normal|tworows|fail>`: widget, window, every tab, grids, Refresh, close. Since 2026-11-12 also: fresh = the set-up card and Add-ons → Config; nofield / empty = the Vocabulary tab's "read no words" / "no studied cards" line; nodeck = a missing deck records nothing and warns; unicode = every style sheet parses; normal = no precount while reviewing; tworows = two all-types rows both read their sentences; fail = a failing count shows the traceback.
+- `t_settings_fields.py`: Settings' field drop-downs (same mapping dicts back from get_config, refill on note type change, OK refuses unknown / wrong-case field names). `t_nakama_bad.py`: odd friend cards through `nakama.clean_profile`, the list rows, the card image and the whole Nakama tab. `t_review_click.py`: a Progress Review click (run with `KT_QT=5` too).
 - `t_leaks.py [rounds]`: open/close the window N times, counts windows / Qt objects / timers / hooks / memory.
 - `t_nakama_offline.py <refused|timeout>`: Nakama with no server (never the real Worker).
 - `t_userfile_safety.py`, `t_override_race.py`, `t_deck_query.py`, `t_decode.py`, `t_rank_math.py`, `t_sun_debug.py`: the regressions for the fixes in maintenance_log.md.

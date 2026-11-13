@@ -88,6 +88,17 @@ def deck_query(deck_name: str) -> str:
     return f'"deck:{name}"'
 
 
+def deck_exists(deck_name: str) -> bool:
+    """Whether the chosen deck is in this collection (it may have been
+    renamed, deleted, or belong to another Anki profile). Anki's own lookup,
+    so case / Unicode form follow Anki. True on any error: a failed check
+    never hides the widget or the window."""
+    try:
+        return mw.col.decks.id_for_name(deck_name) is not None
+    except Exception:
+        return True
+
+
 def deck_search(deck_name: str, ignore_suspended: bool = False,
                 seen_only: bool = True) -> str:
     # Only cards you've studied at least once count (owner 2026-10-10: a
@@ -190,6 +201,20 @@ def run_in_background(parent, work, done, label: str | None = None, quiet: bool 
             print("Kotodama: background analysis failed:", repr(exc))
             traceback.print_exception(type(exc), exc, exc.__traceback__)
         q = q.failure(failed)
+    else:
+        def failed_loud(exc):
+            # Anki's default shows only str(exc) ("list index out of range"):
+            # give the user something they can copy into a report.
+            text = "".join(traceback.format_exception(type(exc), exc, exc.__traceback__))
+            print("Kotodama: count failed:", text)
+            try:
+                from aqt.utils import showWarning
+                showWarning("Kotodama couldn't count your deck. Please report this at "
+                            "github.com/BenAstromo/kotodama/issues with the text below.\n\n" + text,
+                            title="Kotodama")
+            except Exception:
+                pass
+        q = q.failure(failed_loud)
     if label:
         q = q.with_progress(label)
     q.run_in_background()

@@ -4,64 +4,59 @@ Everything Kotodama does, tab by tab. For the overview, screenshots and install 
 
 ## Setup
 
-### 1. Deck & Fields tab
-Select the deck you want to analyse (sub-decks are included) and map your note types to the field that contains the Japanese target word (e.g. `Expression`, `Word`). Optionally add a **reading field** (e.g. `Reading`) — it helps match kana-only cards and tells homophones apart. Add one row per note type.
+Open **Kotodama → Settings…** (or Tools → Add-ons → Kotodama → **Config**). Until a deck and a field are saved, the main screen shows a small **Kotodama 言霊 · Click to set up** card in the widget's corner; clicking it opens Settings too. Settings is one scrolling page, top to bottom:
 
-**Sentence field** (optional, e.g. `Sentence`): the card's example sentence. The **auto parser** reads it to find kanji and grammar (see the Kanji & Grammar tab). A row with a sentence field but **no word field** is a sentence card: every dictionary word in its sentence counts as its vocab, so people who mine plain sentence cards get JLPT, frequency, kanji and grammar progress too.
+**1. Deck to analyse.** The deck you want counted; its sub-decks are included. The choice is saved by name, so if you rename or delete the deck (or open another Anki profile), Kotodama says it can't find it and asks you to choose it again.
+
+**2. Vocab — which fields hold your words?** One row per note type: the **note type**, its **word field** (the field with the Japanese word, in kanji or kana, e.g. `Expression`, `Word`), an optional **reading field** (e.g. `Reading`: it helps match kana-only cards and tells homophones apart) and an optional **sentence field**. Each field box is a drop-down of that note type's fields (for "(all note types)", every field in your collection); you can still type a name. Field names are case-sensitive: if a name isn't a field of that note type, **OK** says so (and offers the right spelling when only the case differs) instead of saving settings that would read nothing. If the window then finds no words in your studied cards, the Vocabulary tab says so at the top.
+
+**Sentence field** (optional, e.g. `Sentence`): the card's example sentence. The **auto parser** reads it to find kanji and grammar. A row with a sentence field but **no word field** is a sentence card: every dictionary word in its sentence counts as its vocab, so people who mine plain sentence cards get JLPT, frequency, kanji and grammar progress too.
 
 How the auto parser reads a sentence (pure Python, nothing to install):
 - **Words**: the sentence is split into the words of our JLPT and frequency lists, undoing conjugations (食べなかった → 食べる, 使えます → 使う), with the split that explains the most text winning. Particles and endings (です, だった, んだ) are skipped. Kana only matches words written in kana (はし is never 橋); a conjugated form only matches a word of the right kind (食べた needs an Ichidan verb); a single kanji stuck to other kanji (家 in 建築家) isn't counted; when one spelling is several words, the lowest JLPT level wins (時 → とき). Common compounds on the frequency list are read whole (可能性, 日本語, 考え方, お客様, 私たち), except kana-only ones like なので and ですが, which would hide the grammar inside them. The same word in many sentences counts once.
 - **Kanji**: every kanji in the sentence.
 - **Grammar**: OpenJLPT's patterns, letting their endings conjugate (ことにする finds ことにした); when one pattern sits inside a longer one (〜ことに in 〜ことになる), only the longer one counts. Short particles and endings (は, を, です, ます, た, たい …) are found from the parser's split of the sentence, so は inside はし or こんにちは doesn't count. Forms with several meanings (に: time / destination / place / target / frequency; で; が; か; と; から …) only count where the sentence makes the meaning clear (3時に → time, 学校に行く → destination, 電話で → means, 硬いですが、 → but); the rest can be marked found by hand.
 
-This tab also has the **Main screen widget** toggle (on by default) with an **Include rank** option (on by default) and a **Rank picture** option (on by default: a mini version of your rank's picture on its badge background, as on the Overview tab), which shows a small set of N5–N1 bars, your rank and belt, and two thin bars (overall rank progress and current-belt progress) next to your deck list. Clicking it opens the main window.
+The word lists are always the **Kotodama JLPT lists** (OpenJLPT plus the Waller words it omits, about 7,850 words). They follow Jonathan Waller's community JLPT lists — the basis of every JLPT list since official lists stopped in 2010 — with modern spellings (ありがとう rather than 有難う) and alternate spellings kept for matching. The JLPT doesn't publish an official vocabulary list, so no list is authoritative. Everyone uses the same lists, so your bars, History and Nakama numbers compare fairly. To check your coverage of some other list (a textbook's, say), paste it into **Text Check**.
 
-**Sound effects** (same tab): one **Volume** slider for every sound the add-on makes — the quiet neon buzz as the bars flicker on (the main screen widget's is quieter still) and the rest. Moving it plays a sample; it starts at 50%, and 0% turns them all off. Untick **Mini widget sounds** to keep the main screen widget silent while the Kotodama window keeps its sounds.
+**3. Kanji — where do your kanji come from?**
+- **From my vocab words** (default): every kanji in the words found through the field rows above. Sentence cards (no word field) give the kanji of their whole sentence.
+- **From my sentence fields**: every kanji in the sentence fields set above.
+- **From a field in another deck**: e.g. a kanji deck's `kanji` field (choose the deck, then one row per note type + field). Every kanji in that field counts.
 
-**Animations** (same tab): **Neon flicker** — the bars and grids flicker on when you first see them (off: lit at once); **Rain** — drops on the window's glass that catch the neon light, with the odd spark. Both on by default. **Night look** (same tab): each of the window's night effects on its own switch — light spill, stars and moon, bokeh, vignette, condensation, puddle reflection; all on by default, none in Amaterasu mode.
+**4. Grammar — where does your grammar come from?**
+- **Parse my sentence fields** (default): the auto parser finds grammar in the sentence fields set above.
+- **From a grammar deck's field**: the field holds the pattern, e.g. `〜がてら`, `がてら` or `〜がてら (while)`; ～, spaces and romaji don't matter. A few points share a form (で: place of action / means): add the English meaning (`で (means)`) to tell them apart, or the card won't count. Cards that don't match are listed under the grammar grid.
+
+**5. Suspended cards.** **Ignore cards suspended in Anki**: when ticked, notes whose cards are all suspended in Anki don't count toward the JLPT bars, the Frequency Check or the rank.
+
+**6. Main screen widget** (on by default), with **Include rank** (on by default) and **Rank picture** (on by default: a mini version of your rank's picture on its badge background, as on the Vocabulary tab). It shows a small set of N5–N1 bars, your rank and belt, and two thin bars (overall rank progress and current-belt progress) next to your deck list. Clicking it opens the main window; drag it to move it to another corner.
+
+**7. Sound effects.** One **Volume** slider for every sound the add-on makes — the quiet neon buzz as the bars flicker on (the main screen widget's is quieter still) and the rest. Moving it plays a sample; it starts at 50%, and 0% turns them all off. Untick **Mini widget sounds** to keep the main screen widget silent while the Kotodama window keeps its sounds.
+
+**8. Animations.** **Neon flicker** — the bars and grids flicker on when you first see them (off: lit at once); **Rain** — drops on the window's glass that catch the neon light, with the odd spark. Both on by default.
+
+**9. Night look.** Each of the window's night effects on its own switch — light spill, stars and moon, bokeh, vignette, condensation, puddle reflection; all on by default, none in the top rank's gold mode.
 
 **Neon street look:** the bars, grids and the N5–N1 signs flicker on like neon signs as they come into view, and you see them through a rainy window: drops on the glass catch the colour of the nearest lit tube, now and then a drop runs down, a spark comes off a bar, or one tube stutters with a very quiet buzz. It only runs while the window is in front (it stops in the background and when minimised).
 
-**Top rank extras:** a soft sound when you reach the top rank, which stays as a quiet ambience while the window is open (deliberately soft), and a seal on the review screen, which you can switch on in Settings once you've reached it (off by default).
+**Top rank extras:** a soft sound when you reach the top rank, which stays as a quiet ambience while the window is open (deliberately soft), and a seal on the review screen. Their switches appear in Settings once you've reached it (the seal is off by default).
 
-**Share image…** (Overview, next to the rank's "?"): makes a picture of your progress to save as PNG or copy — your name, your rank picture, rank and belt, one bar per JLPT level combining vocab, kanji and grammar, and the 20,000-word frequency bar.
-
-**Ignore cards suspended in Anki**: when ticked, notes whose cards are all suspended in Anki don't count toward the JLPT bars, the Frequency Check or the rank.
-
-### 2. Vocabulary Lists tab
-The **Kotodama JLPT lists** cover every level (OpenJLPT plus the Waller words it omits, about 7,850 words total). They follow Jonathan Waller's community JLPT lists — the basis of every JLPT list since official lists stopped in 2010 — with modern spellings (ありがとう rather than 有難う) and alternate spellings kept for matching. Everyone uses the same Kotodama JLPT lists, so your bars, History and Nakama numbers compare fairly. To check your coverage of some other list (a textbook's, say), paste it into **Text Check**.
-
-**File format** (may be mixed within one file):
-- One word per line: `食べる`
-- Word + reading (TSV): `食べる\tたべる`
-- Word + reading (CSV): `食べる,たべる`
-- Optional extra TSV columns: alternate spellings (`|`-separated) and flags, e.g. `いちばん	いちばん	一番`
-
-Lines starting with `#` are treated as comments. The JLPT does not publish an official vocabulary list, so no list is authoritative.
-
-### 3. Kanji & Grammar tab
-Where your kanji come from:
-- **From my vocab words** (default): every kanji in the words found through the Deck & Fields tab. Sentence cards (no word field) give the kanji of their whole sentence.
-- **From my sentence fields**: every kanji in the sentence fields set on the Deck & Fields tab.
-- **From a field in another deck**: e.g. a kanji deck's `kanji` field (choose the deck, then one row per note type + field). Every kanji in that field counts.
-
-Where your grammar comes from:
-- **Parse my sentence fields** (default): the auto parser finds grammar in the sentence fields set on the Deck & Fields tab.
-- **From a grammar deck's field**: the field holds the pattern, e.g. `〜がてら`, `がてら` or `〜がてら (while)`; ～, spaces and romaji don't matter. A few points share a form (で: place of action / means): add the English meaning (`で (means)`) to tell them apart, or the card won't count. Cards that don't match are listed under the grammar grid.
+**Share image…** (Vocabulary tab, next to the rank's "?"): makes a picture of your progress to save as PNG or copy — your name, your rank picture, rank and belt, one bar per JLPT level combining vocab, kanji and grammar, and the 20,000-word frequency bar.
 
 
 ---
 
 ## Features
 
-### Overview tab
+### Vocabulary tab
 - Progress bar for **each JLPT level** showing known / total words, plus an **All N Levels Combined** bar
 - Click any bar → opens that level's word grid in a separate window
 - **⟳ Refresh** re-scans the deck and re-applies your found/suspended overrides
 - **JLPT Goal** — pick the level you're taking and the test date (the next ones are listed: the first Sunday of July and December, or any other date), and the card under the bars works out how many **words, kanji and grammar points to learn per day**. The test covers every level up to yours (N3 = N5 + N4 + N3). The finish line is **14 days before the test**, leaving the last two weeks for review and practice tests. It's worked out fresh every day: fall behind and the number goes up, get ahead and it goes down; there are no streaks and nothing is lost for a missed day. Words, kanji and grammar marked found count as known and lower what's left at once (marked English loanwords as they join), but never count as "today's" study.
   - **Which words count:** first every word on the JLPT lists up to your level (the JLPT bars), the words most likely on the test. The lists are a little smaller than what each level really needs (the modern estimates: N5 800, N4 1,500, N3 3,900, N2 6,000, N1 13,800 words), so a **top-up** adds words until you reach that size: for N5–N2, the most common words from the harder lists (an N3 goal adds about 900 of the most common N2 and N1 words; real tests do use some of them); for N1, which has no harder list, the most common words of written Japanese that aren't on the lists. The goal card shows both: **Lists up to N3** and **Top-up to 3,900**. The JLPT hasn't published word lists since 2010, and the community lists stop short of these sizes. Kanji and grammar always use the JLPT lists.
   - Also shown: **"Today: 9 / 14 words"** on the main-screen widget, an **On track** line on the History chart (running on to the test day), and optionally **"Aiming for JLPT N3 · December 2026"** on the share image and your Nakama card (a checkbox in the share window, next to "Show time with Kotodama")
-- **Kotodama 言霊 Japanese Rank** — counts every note in the selected deck with a **card you've studied** (learning, young or mature) (JLPT-listed or not, any note type) toward a 20,000-note "native-like fluency" target, plus every word you've **marked as found** (words you know without a card; counted once even if they're on both the JLPT and frequency lists). **English loanwords marked found join gradually**, as your vocabulary reaches them: a loanword at frequency rank 8,000 counts once your rank reaches 8,000. This holds everywhere: the rank, the JLPT and frequency bars, your goal, the History tab and your Nakama card. So marking them doesn't jump you past the early ranks, and with all of them marked you still reach 20,000 at the same point. The share image and Nakama card say how many are counted; a marked loanword that doesn't count yet shows a faint ★ in the grids. New cards count once you study them; relearning cards still count. Marks made in the grids reach the rank after a Refresh.
+- **Kotodama 言霊 Japanese Rank** — counts every note in the selected deck with a **card you've studied** (learning, young or mature) (JLPT-listed or not, any note type) toward a 20,000-note "native-like fluency" target, plus every word you've **marked as found** (words you know without a card; counted once even if they're on both the JLPT and frequency lists). **English loanwords marked found join gradually**, as your vocabulary reaches them: a loanword at frequency rank 8,000 counts once your rank reaches 8,000. This holds for the rank and the frequency bars, so marking them doesn't jump you past the early ranks, and with all of them marked you still reach 20,000 at the same point. The **JLPT bars count them at once** (they ask whether you know the list's words), and so do the History tab's JLPT lines. The share image and Nakama card say how many are counted; a marked loanword that doesn't count yet shows a faint ★ in the grids. New cards count once you study them; relearning cards still count. Marks made in the grids reach the rank after a Refresh.
   - While reviewing, a small **rank-up message** appears at the bottom-left of Anki's window when a newly studied card moves you to a new belt or rank. It's repeated as a banner at the top of the main-screen widget when you go back to the deck list, in case you missed it; the banner stays until you click its ✕, open the add-on, or start reviewing again.
   - 10 main ranks (Gaijin → Amaterasu) × 8 karate-style belts (White → Black). A higher main rank always outranks every belt of a lower rank.
   - Belt sizes grow by about 5% per belt: the first belt takes 21 notes, later belts several hundred.
@@ -121,7 +116,7 @@ Where your grammar comes from:
 ### Text Check tab
 - Paste Japanese text (an article, a chapter, a web page) or **Open file…** (.txt, or .srt / .vtt / .ass subtitles; timestamps and styling are dropped) and **Check text**
 - **Coverage**: the share of the text's words you know, counted every time a word appears, the same way the bars count words (a learned card or a found mark for its JLPT entry or frequency tile). Particles and endings aren't counted; a stretch no list word covers (names, rare words) counts as one unknown piece. Plus a verdict: 98%+ comfortable, 95–98% good for immersion, 90–95% challenging, below that hard
-- **Kanji and grammar** (Show: Vocab / Kanji / Grammar): every kanji in the text (how often, JLPT level, known or not, the text's words that use it) and every grammar point found in it (level, known or not, how often; hover a row for the sentences it's in, the trigger highlighted). Basic particles (は, が, を…) are left out of this list, since nearly every text has them; they still count toward your grammar. A summary line gives the share of the text's kanji you know and how many of its grammar points you haven't learned yet. Grammar detection finds about 9 in 10 points, and about 99% of what it finds is right; most misses are points only the meaning of the sentence can tell apart, like telling に “to a person” from に “to a place”, or で meaning “because”. The add-on doesn’t try to understand meaning.
+- **Kanji and grammar** (Show: Vocab / Kanji / Grammar): every kanji in the text (how often, JLPT level, known or not, the text's words that use it) and every grammar point found in it (level, known or not, how often; hover a row for the sentences it's in, the trigger highlighted). Basic particles (は, が, を…) are left out of this list, since nearly every text has them; they still count toward your grammar. A summary line gives the share of the text's kanji you know and how many of its grammar points you haven't learned yet. Grammar detection finds most points; the ones it misses are mostly points only the meaning of the sentence can tell apart, like telling に “to a person” from に “to a place”, or で meaning “because”. The add-on doesn’t try to understand meaning.
 - The text is split by the same parser as sentence fields, so its limits apply (an occasional misread split)
 - **Word list**: the unknown words (or all words, known ones in green), sorted by how often they appear in the text or by how common they are in Japanese, with rank, JLPT level and meaning on hover. Click → copy, Shift+Click → Jisho; **Copy unknown words** copies them all (word TAB reading). Below it, the pieces not on our lists
 

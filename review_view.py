@@ -74,7 +74,7 @@ class _Hover(QObject):
             obj.style().unpolish(obj)
             obj.style().polish(obj)
         elif (t == QEvent.Type.MouseButtonRelease and ev.button() == Qt.MouseButton.LeftButton
-              and obj.rect().contains(ev.position().toPoint())):
+              and obj.rect().contains(ev.position().toPoint() if hasattr(ev, "position") else ev.pos())):
             fn = getattr(obj, "_rv_click", None)
             if fn:
                 fn()

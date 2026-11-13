@@ -334,12 +334,16 @@ EXACT = {
     "<span style='font-size:18px;'><b>Nakama 仲間</b></span>":
         "<span style='font-size:18px;'><b>仲間</b></span>",
     "Join to get a friend code. Anyone you give it to can add you and see your card: "
-    "your name and the numbers on your bars (rank, JLPT words, top 20k words, kanji and "
-    "grammar). No cards, words or deck names are sent. Your card updates after Anki "
-    "syncs. You can leave at any time: your card is removed, and your code is kept for you.":
+    "your name and the numbers on your card (rank, bars, words marked found, time with "
+    "Kotodama and, if you choose, your JLPT goal). No cards, words or deck names are sent. "
+    "Your card updates after Anki syncs. Your code and friends list are kept in your "
+    "collection, so they follow your AnkiWeb sync. You can leave at any time: your card "
+    "is removed, and your code is kept for you.":
         "参加するとフレンドコードがもらえます。コードを渡した人はあなたを追加して、"
-        "あなたのカード（名前とバーの数字：ランク・JLPT語彙・上位2万語・漢字・文法）を見られます。"
-        "カード・単語・デッキ名は送られません。カードはAnkiの同期後に更新されます。"
+        "あなたのカード（名前とカードの数字：ランク・バー・発見済みの単語・言霊との時間、"
+        "選んだ場合はJLPT目標）を見られます。カード・単語・デッキ名は送られません。"
+        "カードはAnkiの同期後に更新されます。コードと友達リストはコレクションに保存されるので、"
+        "Ankiの同期で引き継がれます。"
         "いつでも退会でき、カードは削除されますが、コードはあなたのために残ります。",
     "Join Nakama": "仲間に参加",
     "Leave Nakama": "仲間を退会",
@@ -358,6 +362,12 @@ EXACT = {
         "<span style='color:#9a9a9a;'>このコードは（もう）使われていません。</span>",
     "<span style='color:#9a9a9a;'>No card yet: press ⟳ Refresh.</span>":
         "<span style='color:#9a9a9a;'>カードはまだありません：⟳ 更新を押してください。</span>",
+    "<span style='color:#9a9a9a;'>Can't show this card</span>":
+        "<span style='color:#9a9a9a;'>このカードは表示できません</span>",
+    "Can't show this card": "このカードは表示できません",
+    # Overview: nothing read from the cards (guide item 1)
+    "No studied cards in this deck yet. Words count once you've studied their card.":
+        "このデッキにはまだ学習済みのカードがありません。カードを学習すると単語が数えられます。",
     "Type the name your friends will see first.": "まず友達に表示される名前を入力してください。",
     "Your bars aren't counted yet: wait for the count to finish.":
         "バーがまだ数えられていません：集計が終わるまでお待ちください。",
@@ -498,6 +508,9 @@ _REVIEW_KINDS = {"Words": "単語", "Kanji": "漢字", "Grammar": "文法", "wor
 _JA_WEEKDAYS = dict(zip(["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"], "月火水木金土日"))
 
 PATTERNS = [
+    (re.compile(r"^Kotodama read no words from your ([\d,]+) studied notes?\. "
+                r"Check the field names in Kotodama → Settings\.$"),
+     r"言霊はあなたの学習済みノート \1 件から単語を読み取れませんでした。言霊 → 設定 でフィールド名を確認してください。"),
     # JLPT goal (goal_view.py)
     (re.compile(r"^(<b style='color:#\w+;'>JLPT N\d</b>) · (" + _DATE_RX + r") · <b>([\d,]+)</b> days? left to learn$"),
      lambda m: f"{m.group(1)} · {_date_ja(m.group(2))} · 学習期間 あと <b>{m.group(3)}</b> 日"),

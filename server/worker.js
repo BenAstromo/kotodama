@@ -110,6 +110,19 @@ async function checkKey(env, id, key) {
   return row.key_hash === (await sha256(key)) ? row : null;
 }
 
+// Reads and changes per address (guide item 17): someone hammering the public
+// address would use up the free plan's daily allowance for everyone. Normal
+// use is a handful of requests a day. No binding (tests, wrangler dev) = no limit.
+async function limited(env, binding, request) {
+  const lim = env[binding];
+  if (!lim) return false;
+  const ip = request.headers.get("cf-connecting-ip") || "unknown";
+  const { success } = await lim.limit({ key: ip });
+  return !success;
+}
+
+const TOO_MANY = "Too many requests. Try again in a minute.";
+
 async function create(request, env) {
   if (env.CREATE_LIMIT) {
     const ip = request.headers.get("cf-connecting-ip") || "unknown";
@@ -213,11 +226,15 @@ export default {
     const url = new URL(request.url);
     const parts = url.pathname.split("/").filter(Boolean);
     try {
-      if (parts[0] === "profiles" && parts.length === 1 && request.method === "GET") return await list(url, env);
+      if (parts[0] === "profiles" && parts.length === 1 && request.method === "GET") {
+        if (await limited(env, "READ_LIMIT", request)) return err(TOO_MANY, 429);
+        return await list(url, env);
+      }
       if (parts[0] === "kofi" && parts.length === 1 && request.method === "POST") return await kofi(request, env);
       if (parts[0] === "profile") {
         if (parts.length === 1 && request.method === "POST") return await create(request, env);
         const id = cleanCode(parts[1]);
+        if (id && parts.length <= 3 && await limited(env, "WRITE_LIMIT", request)) return err(TOO_MANY, 429);
         if (parts.length === 3 && id && parts[2] === "leave" && request.method === "POST") return await leave(request, env, id);
         if (parts.length === 2 && id) {
           if (request.method === "PUT") return await update(request, env, id);

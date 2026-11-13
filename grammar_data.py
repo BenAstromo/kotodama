@@ -3266,7 +3266,9 @@ def word_card_ids(deck: str, mappings: list, seen_only: bool = True) -> dict[int
                 if (ids and key not in _WORD_CARD_NOT_GRAMMAR
                         and any(0x3041 <= ord(c) <= 0x30FF for c in key)):
                     out[nid] = (word[:40], list(ids))
-            break
+                break
+            if m.get("note_type"):       # an all-types row that doesn't fit: next row
+                break
     return out
 
 

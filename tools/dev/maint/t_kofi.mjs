@@ -26,4 +26,12 @@ check("code inside a longer word not taken", (await hook({ verification_token: "
 const lr = await (await worker.fetch(new Request("https://x/profiles?ids=ABCD2345,WXYZ6789"), env)).json();
 check("list carries supporter", lr.profiles.find((p) => p.id === "ABCD2345").supporter === first && lr.profiles.find((p) => p.id === "WXYZ6789").supporter === null);
 check("bad body → 400", (await worker.fetch(new Request("https://x/kofi", { method: "POST", body: "garbage" }), env)).status === 400);
+// rate limits (guide item 17): over the limit → 429 with a readable message; under → normal
+const no = { limit: async () => ({ success: false }) }, yes = { limit: async () => ({ success: true }) };
+const r429 = await worker.fetch(new Request("https://x/profiles?ids=ABCD2345"), { ...env, READ_LIMIT: no });
+check("list over the read limit → 429", r429.status === 429 && /Too many requests/.test((await r429.json()).error || ""));
+check("list under the read limit works", (await worker.fetch(new Request("https://x/profiles?ids=ABCD2345"), { ...env, READ_LIMIT: yes })).status === 200);
+check("update over the write limit → 429", (await worker.fetch(new Request("https://x/profile/ABCD2345", { method: "PUT", body: "{}" }), { ...env, WRITE_LIMIT: no })).status === 429);
+check("leave over the write limit → 429", (await worker.fetch(new Request("https://x/profile/ABCD2345/leave", { method: "POST", body: "{}" }), { ...env, WRITE_LIMIT: no })).status === 429);
+check("kofi isn't held by the read/write limits", (await hook({ verification_token: "tok-123", message: "x" })) === 200);
 console.log(fails ? fails + " failed" : "all passed");

@@ -312,6 +312,22 @@ def _rankup_html(info: dict, new_rank: bool) -> str:
     """
 
 
+# The widget's box. Over Anki's light theme the dark theme's 55 % box is mid
+# grey and its pale text was hard to read (guide item 14, ~2.5:1): a
+# darker box there.
+BOX_DARK  = ("rgba(20,20,20,0.55)", "rgba(35,35,35,0.7)")
+BOX_LIGHT = ("rgba(20,20,20,0.88)", "rgba(35,35,35,0.94)")
+
+
+def _box_colors() -> tuple:
+    """(background, hover background) for Anki's current theme."""
+    try:
+        from aqt.theme import theme_manager
+        return BOX_DARK if theme_manager.night_mode else BOX_LIGHT
+    except Exception:
+        return BOX_DARK
+
+
 def _widget_html(results: dict, deck_name: str = "", ignore_suspended: bool = False,
                  show_rank: bool = True, rankup=None, show_art: bool = False,
                  neon: bool = False, neon_hold: bool = False,
@@ -350,6 +366,7 @@ def _widget_html(results: dict, deck_name: str = "", ignore_suspended: bool = Fa
     rows_html, neon_css = ''.join(rows), ""
     if neon and not force_max_gold and _flicker_on():
         rows_html, neon_css = _neon(rows_html, hold=neon_hold)
+    box_bg, box_hover = _box_colors()
 
     return f"""
     <style>
@@ -367,7 +384,7 @@ def _widget_html(results: dict, deck_name: str = "", ignore_suspended: bool = Fa
         width: 220px;
         margin: 8px 12px;
         padding: 10px 12px;
-        background: rgba(20,20,20,0.55);
+        background: {box_bg};
         border: 1px solid rgba(255,255,255,0.08);
         border-radius: 8px;
         font-family: inherit;
@@ -384,7 +401,7 @@ def _widget_html(results: dict, deck_name: str = "", ignore_suspended: bool = Fa
         transition: background 0.15s ease, border-color 0.15s ease;
       }}
       #jlpt-mini-widget:hover {{
-        background: rgba(35,35,35,0.7);
+        background: {box_hover};
         border-color: rgba(255,255,255,0.18);
       }}
       .jlpt-mini-row {{
@@ -1001,6 +1018,10 @@ def _compute_results(force: bool = False):
 
     if not deck_name or not field_mappings:
         return None
+    # A renamed / deleted deck or another profile's: show nothing, and record
+    # no zero snapshot (History) or zero Nakama card.
+    if not card_state.deck_exists(deck_name):
+        return None
 
     lists = jlpt_data.build_lists(lists_cfg)
     if not any(lists.values()):
@@ -1109,6 +1130,11 @@ def _prepare_dialog():
 
 
 def _prepare_now():
+    # Only while the deck list is still showing: a count started once the
+    # user is reviewing would queue ahead of their answers (Anki runs both on
+    # one collection thread). The next deck-list draw re-arms the timer.
+    if getattr(mw, "state", "deckBrowser") != "deckBrowser":
+        return
     try:
         from . import prepare_dialog
         prepare_dialog()
@@ -1132,6 +1158,10 @@ def _on_deck_browser_will_render_content(deck_browser, content):
 
     cfg = _cfg()
     if not cfg.get("mini_widget_enabled", True):
+        return
+    corner = cfg.get("mini_widget_corner", "tr") if cfg.get("mini_widget_corner") in _CORNERS else "tr"
+    if not cfg.get("deck_name") or not cfg.get("field_mappings"):
+        content.stats += _setup_html(corner)     # a new install: where to start
         return
 
     results = cached_results()
@@ -1164,8 +1194,62 @@ def _on_deck_browser_will_render_content(deck_browser, content):
         show_rank=bool(cfg.get("mini_widget_show_rank", True)),
         rankup=rank_toast.peek_unseen(),
         show_art=bool(cfg.get("mini_widget_show_rank_art", True)),
-        neon=neon, neon_hold=hold,
-        corner=cfg.get("mini_widget_corner", "tr") if cfg.get("mini_widget_corner") in _CORNERS else "tr")
+        neon=neon, neon_hold=hold, corner=corner)
+
+
+def _setup_html(corner: str = "tr") -> str:
+    """Before setup (no deck or no field yet): a small card in the widget's
+    corner and style, so a new install shows where Kotodama is (guide
+    item 6). Its click opens Settings (open_progress_dialog_direct falls
+    back to them while unconfigured). No bars, no neon, no sound."""
+    box_bg, box_hover = _box_colors()
+    return f"""
+    <style>
+      #jlpt-mini-widget, #jlpt-mini-widget * {{ -webkit-user-drag: none; user-select: none; }}
+      #jlpt-mini-widget {{
+        position: absolute; top: 0; right: 0; width: 220px;
+        margin: 8px 12px; padding: 10px 12px;
+        background: {box_bg};
+        border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;
+        font-family: inherit; cursor: pointer; box-sizing: border-box;
+        z-index: 10; text-decoration: none; display: block; text-align: left;
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }}
+      #jlpt-mini-widget:hover {{
+        background: {box_hover}; border-color: rgba(255,255,255,0.18);
+      }}
+      #jlpt-mini-widget.jlpt-c-tl {{ right: auto; left: 0; }}
+      #jlpt-mini-widget.jlpt-c-bl, #jlpt-mini-widget.jlpt-c-br {{
+        position: fixed; top: auto; bottom: 0;
+      }}
+      #jlpt-mini-widget.jlpt-c-bl {{ right: auto; left: 0; }}
+      #jlpt-mini-widget.jlpt-mini-docked {{ position: static; margin: 16px auto 8px; }}
+      .jlpt-setup-title {{ font-size: 13px; font-weight: bold; color: #fff;
+                           text-shadow: 0 1px 1px rgba(0,0,0,0.8); }}
+      .jlpt-setup-sub {{ font-size: 11px; color: #cfcfcf; margin-top: 2px; }}
+    </style>
+    <a id="jlpt-mini-widget" href="#" class="jlpt-c-{corner}"
+       onclick="pycmd('jlpt_open_progress'); return false;"
+       draggable="false" ondragstart="return false;" title="Set up Kotodama">
+      <div class="jlpt-setup-title">Kotodama 言霊</div>
+      <div class="jlpt-setup-sub">Click to set up</div>
+    </a>
+    <script>(function(){{
+      function fit(){{
+        var w = document.getElementById('jlpt-mini-widget');
+        var t = document.getElementById('decktable') || document.querySelector('table');
+        if (!w || !t) return;
+        w.classList.remove('jlpt-mini-docked');
+        var a = w.getBoundingClientRect(), b = t.getBoundingClientRect();
+        var bottom = /jlpt-c-b/.test(w.className);
+        if (a.left < b.right && b.left < a.right
+            && (bottom || (a.top < b.bottom && b.top < a.bottom)))
+          w.classList.add('jlpt-mini-docked');
+      }}
+      fit();
+      window.addEventListener('resize', fit);
+    }})();</script>
+    """
 
 
 _OUR_MESSAGES = ("jlpt_open_progress", "jlpt_dismiss_rankup")
