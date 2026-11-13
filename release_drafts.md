@@ -237,3 +237,57 @@ Each source's own terms page was read on 2026-10-28 unless noted.
 
 ### Order of work
 1. Send the NINJAL email (owner). 2. Credits / About screen in the add-on (JMdict's requirement; also Jitendex, OpenJLPT, NINJAL, Waller, MIT notices). 3. README: CEJC citation, archive link for Waller, licence names for the community lists, Grok decision. 4. THIRD_PARTY_NOTICES with the two MIT notices. 5. Grok credit or redraw; regenerate the three rank pictures.
+
+---
+
+## 8. Demo video script (draft 2026-11-10)
+
+About 80 seconds at a relaxed pace (~200 words of voice-over). Your voice, first person. Show the payoff first, setup last. The "Shot" lines are what's on screen; the quoted lines are what you say. Cut fast: one idea per shot, no dead mouse travel.
+
+**0:00–0:06 · Hook**
+Shot: the Kotodama window opens on your deck; the five JLPT bars fill.
+> "This is how much Japanese my Anki deck actually covers. Every JLPT level, N5 to N1."
+
+**0:06–0:16 · Vocab grid**
+Shot: click the N4 bar → the word grid. Hover a dark tile (meaning pops up), then a lit one.
+> "Click a level and you see every word on it. The ones I know light up, the dark ones are what I'm missing. Hover for the meaning, click to copy."
+
+**0:16–0:34 · Grammar (the part nobody else does — give it the most time)**
+Shot: Kanji & Grammar tab → the grammar grid. Hover a found point ("Your cards:" list), click it → Anki's browser opens on those sentence cards.
+> "And this is the part I'm proudest of. Kotodama reads the example sentences on my cards and finds the grammar in them, conjugated forms too. Click a grammar point and it shows me the exact cards where I've seen it. My mined sentences count. No separate grammar deck."
+
+**0:34–0:40 · Kanji**
+Shot: the kanji grid, coloured by how well you know each one; a slow pan.
+> "Same for all the JLPT kanji, coloured by how well I know each one."
+
+**0:40–0:52 · Rank and Goal**
+Shot: the rank card with your rank picture and belt. Then the Goal card: pick N3 (or your level) and the test date; today's number appears.
+> "Every word I study moves me up the Japanese rank. And if I've got a test coming, I set the level and the date, and it tells me how much to learn each day to be ready two weeks early."
+
+**0:52–1:02 · Text Check**
+Shot: paste a paragraph (a news article or an anime subtitle file) into Text Check; the "% of words you know" and the list of words to learn first appear.
+> "I can paste any Japanese text, or open a subtitle file, and see how much of it I'd understand, and which words to learn first."
+
+**1:02–1:10 · Nakama and the share image**
+Shot: the Nakama tab with two or three friends (use the demo friends); then the share image.
+> "Swap codes with friends to see their bars next to yours, or post a picture of your progress."
+
+**1:10–1:20 · Setup and close**
+Shot: Settings: pick the deck, pick the word field, OK. End card: "Kotodama 言霊 · free on AnkiWeb" + the AnkiWeb code + GitHub link.
+> "Setup is two choices: your deck and the field with the Japanese word. It's free, it works offline. Kotodama, on AnkiWeb. Link below."
+
+### Before recording
+- Debug row off; the window at a size that reads on a phone (record at 1920×1080, Anki's zoom up a notch so the text stays legible when the video is small).
+- Demo friends: `tools/dev/nakama_demo.py`, then `--clear` afterwards.
+- **Never show the top rank** (the rank legend's last row, gold mode): it stays a surprise.
+- No accuracy numbers on screen or in the voice-over.
+- Pick a Text Check text without ruby readings, so the % looks like a normal text.
+- Record the voice separately (cleaner, and you can redo a line without re-recording the screen); quiet music under it at most.
+
+### Cuts from the same footage
+- **30-second Short / TikTok (vertical, later phase):** hook (0:00–0:06) → grammar click into the browser (0:16–0:34, trimmed) → end card. Crop to the grid; big captions, since most people watch muted.
+- **GIFs for the AnkiWeb page / README:** the bars filling, the N4 grid hover, the grammar click into the browser, the Goal card.
+
+### Title and description (YouTube)
+- Title: "Kotodama: see how much Japanese your Anki deck really covers (JLPT N5–N1)"
+- Description: two lines from the AnkiWeb page's first paragraph, then the AnkiWeb link, the GitHub link and the Ko-fi link.

@@ -6,7 +6,7 @@
 
 ---
 
-## 0. Current state (updated 2026-11-10, eleventh session)
+## 0. Current state (updated 2026-11-12, twelfth session)
 
 **Everything is committed and pushed** (https://github.com/BenAstromo/kotodama, private, branch `main`; `git log` for detail). Earlier sessions are logged in `docs/HISTORY.md` (grep the date; the eleventh session has every measurement).
 
@@ -18,7 +18,7 @@
 
 **JLPT data:** the bars are Waller only (OpenJLPT + the Waller words it drops): N5 677 · N4 632 · N3 1,677 · N2 1,783 · N1 3,082 (7,851). Owner corrections on top of the build: `tools/jlpt_owner_fixes.py` (add new ones there, then run it). Every goal = the lists up to the level, then a top-up to `goal.LEVEL_SIZE` (800 / 1,500 / 3,900 / 6,000 / 13,800): N5–N2 with the most common harder-list words, N1 with common off-list words. Card wording "Lists" / "Top-up", never "Step".
 
-**Eleventh session (2026-11-10, all pushed; details in HISTORY):** grid tiles are painted `_Tile`s on their `_TileCanvas` (pixel-identical; the canvas does hover, tooltips, cursor, clicks), tooltips built on first hover, table buttons one painted `_ButtonColumn` per table, closed grid windows free their sky / rain images: All grid 2.1 → 0.24 s and 110 → 20 MB, Top 20,000 5.2 → 0.37 s and 316 → 35 MB, Refresh 5.4 → 2.9 s. Owner's JLPT list corrections (`tools/jlpt_owner_fixes.py`); kanji / grammar Missing columns capped at 220 px; goal card's "?" / "Change…" after the title.
+**Twelfth session (2026-11-10 to 11-12, all pushed):** `card_state.deck_notes` rebuilds its field-name maps when a note type changes (a renamed mapped field was stale until a note changed). **Launch plan** (memory `advertising-plan`): live before the JLPT on Sun 2026-12-06; blockers → soft launch ~Nov 18 (AnkiWeb, repo public, Anki Forums) → Reddit before Dec 6 → Shorts + YouTubers last. Demo video script: `release_drafts.md` §8 (owner reads it aloud and edits). Launch posts not drafted yet. **Pre-launch review (Fable 5.2, read-only): `docs/IMPLEMENTATION_GUIDE.md`**: 12 must-fix items, 6 for 3.0.x, 3 ideas, and what was checked; its prompt is `docs/fable_review_prompt.md`. Nothing from it is implemented yet. Eleventh session (grid canvas rewrite, measurements): HISTORY.
 
 **Open (launch, owner's part):**
 - Read through the README and the AnkiWeb text (release_drafts.md §6) by hand.
@@ -27,11 +27,11 @@
 - Demo video (owner narrates), AnkiWeb upload (fill `[ANKIWEB CODE]`), make the repo public (turn on Issues), version bump (3.0.0 now). Launch posts: Anki Forums → r/Anki → r/LearnJapanese → r/JLPT / r/LearnJapaneseNovice; TheMoeWay Discord later. Organic only, no accuracy numbers.
 
 **Open (development):**
-- **No NEXT task set** (the grid canvas rewrite is done): ask the owner.
+- **NEXT: `docs/IMPLEMENTATION_GUIDE.md`**, one item at a time, each after the owner's yes (verify the finding in the code first). Waiting on the owner's answers: rename "Kanji spelling field" → "Word field"? a "Click to set up" card on the deck list? remove the debug row or ship it hidden? reinstall PyQt5 for a Qt5 test (the `%TEMP%\qt5v` venv is gone) or drop the README's Qt5 promise? drop the accuracy sentence from GUIDE.md? and the owner's check in Anki of guide item 3 (open a big deck within 5 s of the deck list, answer at once: does it hang?). Items needing no decision: 2, 4, 5, 7, 8, 9.
+- The PyQt6 venv's python.exe is gone too: run tests with the real Python and `PYTHONPATH=%TEMP%\qtv\Lib\site-packages` (worked 2026-11-12); `KT_ENV=<scratch>` keeps stubenv's copy out of the repo.
+- Launch posts (Anki Forums, r/Anki, r/LearnJapanese, r/JLPT) and a reply FAQ: to draft.
 - **`freq_extra.txt` rebuild** (§6; display/sorting only) + **parser words past #20,000** (owner wants ~60,000; rare words only fill gaps, re-run both evals). Both wait on NINJAL (records 3228 + 3234): down for maintenance since 2026-10-28, still 503 on 2026-11-10. `tools/build_freq_extra.py` already follows build_freq.py's newer mapping (untested).
-- Known small issue: the mini widget can't see the past 7 days (only matters for weekly kinds, which it never shows).
 - **Memory (checked 2026-11-07 and 11-10): no leak.** Peak memory per open/close round is flat (t_leaks); the level after closing swings ~200 MB because Windows keeps freed memory for reuse, so compare grids with `t_perf`'s `mb_marginal`. Not measurable offscreen: the deck-list widget's redraw cost (it needs Anki's real backend).
-- Owner's AnkiConnect (mining) stopped after the Anki 26.09.4 update: its meta.json says `max_point_version` 260800. Told the owner: open Anki → Tools → Add-ons → Check for Updates; not confirmed fixed.
 
 **Decided, keep as is:** no NINJAL email, no Grok credit, no rank-picture credit line; real author name, `C:\Users\benne` paths and deck sentences stay in the public repo; animated ranks from Nihonjin up (`media/<rank>_loop.webm`, recipe in HISTORY "eighth session"); no focus mute (removed 2026-11-03); never reuse a function name in neon_sound.py (a shadowed `_crackle` silenced half the buzzes).
 
