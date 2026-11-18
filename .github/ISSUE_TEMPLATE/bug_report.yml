@@ -1,0 +1,28 @@
+name: Bug report
+description: Something in Kotodama doesn't work or looks wrong.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, and what went wrong? A screenshot helps a lot (paste it here).
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Error text (if Anki showed an error window)
+      description: Click "Copy Debug Info" in the error window and paste it here.
+      render: text
+  - type: input
+    id: anki
+    attributes:
+      label: Anki version
+      description: Help → About in Anki shows it.
+      placeholder: e.g. 25.09.2
+  - type: dropdown
+    id: os
+    attributes:
+      label: Computer
+      options: [Windows, Mac, Linux]
