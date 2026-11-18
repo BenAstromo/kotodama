@@ -81,7 +81,7 @@ A small widget next to your deck list shows your N5–N1 bars, today's goal and 
 
 ## Install
 
-**From AnkiWeb (recommended):** in Anki, go to **Tools → Add-ons → Get Add-ons…**, paste the code **`[ANKIWEB CODE]`**, then restart Anki.
+**From AnkiWeb (recommended):** in Anki, go to **Tools → Add-ons → Get Add-ons…**, paste the code **`1830630516`**, then restart Anki.
 
 **By hand:** copy the `jlpt_progress` folder into your Anki add-ons folder, then restart Anki:
 - **Windows:** `%APPDATA%\Anki2\addons21\`

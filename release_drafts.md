@@ -296,7 +296,7 @@ Shot: Settings: pick the deck, pick the word field, OK. End card: "Kotodama 言�
 
 ## 9. Launch posts and reply FAQ (draft 2026-11-18)
 
-Write them in your own voice before posting; these are starting points. No accuracy numbers anywhere. Links: `[ANKIWEB LINK]` = `https://ankiweb.net/shared/info/<code>` once uploaded. Attach the share image or a GIF to every post: a picture does more than any sentence.
+Write them in your own voice before posting; these are starting points. No accuracy numbers anywhere. AnkiWeb link: https://ankiweb.net/shared/info/1830630516 (code 1830630516). Attach the share image or a GIF to every post: a picture does more than any sentence.
 
 **Rules checked 2026-11-18 (only through search and mirror sites; Reddit itself was blocked here, so read each sub's sidebar yourself before posting):**
 - **r/LearnJapanese:** self-promotion only in the **Wednesday "Materials Recs & Self-Promo"** thread; a separate post needs a mod's OK first (ask in the Daily Thread after a good reception in the Wednesday thread). Recommending AI as a teaching tool is banned: Kotodama uses no AI, so say so if asked.
@@ -320,7 +320,7 @@ Title: **[Add-on] Kotodama: JLPT N5–N1 progress in vocab, kanji and grammar, f
 >
 > It never changes your cards or scheduling, works offline, and it's free. There's an optional friends tab if you want to compare bars with study buddies.
 >
-> AnkiWeb: [ANKIWEB LINK]
+> AnkiWeb: https://ankiweb.net/shared/info/1830630516
 >
 > It's brand new, so I'd really like to hear if anything breaks or looks wrong with your deck. I'll fix things here as quickly as I can.
 
@@ -341,11 +341,11 @@ Title: **I made a free add-on that shows how much of each JLPT level your deck c
 >
 > [AI line]
 >
-> AnkiWeb: [ANKIWEB LINK]. Happy to answer questions, and bug reports are very welcome.
+> AnkiWeb: https://ankiweb.net/shared/info/1830630516. Happy to answer questions, and bug reports are very welcome.
 
 ### 9c. r/LearnJapanese (Wednesday self-promo thread; before Dec 6)
 
-> With the JLPT on Dec 6: if you use Anki, I made a free add-on that shows how ready your deck is for each level. Vocab bars N5–N1, all the JLPT kanji, and the grammar points it finds in your cards' example sentences. It also works out how much per day you'd need for a given test date. Works with any deck, offline, no AI. [ANKIWEB LINK] [share image]
+> With the JLPT on Dec 6: if you use Anki, I made a free add-on that shows how ready your deck is for each level. Vocab bars N5–N1, all the JLPT kanji, and the grammar points it finds in your cards' example sentences. It also works out how much per day you'd need for a given test date. Works with any deck, offline, no AI. https://ankiweb.net/shared/info/1830630516 [share image]
 
 If that gets a good reception, ask in the Daily Thread (tagging a mod) whether a standalone post is OK, then post a "How ready is your Anki deck for Dec 6?" version of 9b.
 
