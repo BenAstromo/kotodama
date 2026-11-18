@@ -177,12 +177,15 @@ Works offline. Only if you join Nakama are your name and card numbers sent (rank
 <b>Free</b>
 Kotodama is free, and nothing is unlocked by money. If it helps you: <a href="https://ko-fi.com/benastromo">♥ Support on Ko-fi</a>.
 
-<b>Found a bug? Please tell me</b><br>
-Kotodama is new, and bug reports are the most helpful thing you can send. <a href="https://benastromo.github.io/kotodama/report/">Report a bug here</a>, no account needed: say what you did, what happened, and your Anki version. If Anki showed an error window, paste its text too. Please report bugs there rather than in a review, so I can ask questions and tell you when it's fixed.
-
 Ideas and the full guide: <a href="https://github.com/BenAstromo/kotodama">GitHub</a>
 
 <i>Requires Anki 2.1.50 or newer (desktop). An independent fan project, not affiliated with the Japan Foundation, JEES or Anki; there is no official JLPT list, the levels come from community lists. Data: OpenJLPT, Jonathan Waller's JLPT lists, JMdict / KANJIDIC2 (EDRDG), Jitendex, BCCWJ and CEJC (NINJAL). Full credits and licences on GitHub.</i>
+
+## Found a bug? Please let me know!
+
+### 👉 <a href="https://benastromo.github.io/kotodama/report/">Report a bug here</a> (no account needed)
+
+Say what you did, what happened, and your Anki version. If Anki showed an error window, paste its text too. Please report bugs there rather than in a review, so I can ask questions and tell you when it's fixed.
 ```
 
 Measured accuracy: documented here only, NOT published on the page (owner 2026-10-20). If it's ever quoted, use only fresh measurements, never tuned ones:
