@@ -181,7 +181,7 @@ Ideas and the full guide: <a href="https://github.com/BenAstromo/kotodama">GitHu
 
 <i>Requires Anki 2.1.50 or newer (desktop). An independent fan project, not affiliated with the Japan Foundation, JEES or Anki; there is no official JLPT list, the levels come from community lists. Data: OpenJLPT, Jonathan Waller's JLPT lists, JMdict / KANJIDIC2 (EDRDG), Jitendex, BCCWJ and CEJC (NINJAL). Full credits and licences on GitHub.</i>
 
-## Found a bug? Please let me know!
+## Found a bug? Please let me know! I will fix within a day
 
 ### 👉 <a href="https://benastromo.github.io/kotodama/report/">Report a bug here</a> (no account needed)
 
