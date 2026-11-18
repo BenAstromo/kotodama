@@ -112,7 +112,7 @@ What `user_files/` holds, for reference: `history.json` (daily progress snapshot
 
 ## 6. AnkiWeb page draft (rewritten 2026-11-01 from the new README)
 
-Same text as the README, shortened to what AnkiWeb allows (`<b>`, `<i>`, `<a>`, `<img>`, line breaks). The images load from the GitHub repo, so they only show once the repo is **public**. Swap `rank.png`, `nakama.png` and `main-screen.png` for the GIFs when they exist, and fill in the AnkiWeb code in the README after uploading.
+Same text as the README, shortened to what AnkiWeb allows (`<b>`, `<i>`, `<a>`, `<img>`, line breaks). The images load from the GitHub repo, so they only show once the repo is **public**. Fill in the AnkiWeb code in the README after uploading.
 
 ```html
 <b>Kotodama 言霊: see how much Japanese your Anki deck really covers.</b>
@@ -136,7 +136,7 @@ All 2,383 JLPT kanji, coloured by how well you know each one. A built-in parser 
 <b>Kotodama Japanese Rank</b>
 Every card you've studied counts toward 20,000 words, the vocabulary of native-like fluency. Ten ranks from Gaijin (外人) up, eight belts each. The top rank stays secret until you reach it.
 
-<img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/rank.png">
+<img src="https://raw.githubusercontent.com/BenAstromo/kotodama/main/docs/screenshots/rank.webp">
 
 <b>Frequency Check</b>
 Compares your deck with the 20,000 most common words of written Japanese: what share of everyday text and speech you can follow, and the most common words you're missing.
@@ -277,7 +277,7 @@ Shot: Settings: pick the deck, pick the word field, OK. End card: "Kotodama 言�
 > "Setup is two choices: your deck and the field with the Japanese word. It's free, it works offline. Kotodama, on AnkiWeb. Link below."
 
 ### Before recording
-- Debug row off; the window at a size that reads on a phone (record at 1920×1080, Anki's zoom up a notch so the text stays legible when the video is small).
+- The window at a size that reads on a phone (record at 1920×1080, Anki's zoom up a notch so the text stays legible when the video is small).
 - Demo friends: `tools/dev/nakama_demo.py`, then `--clear` afterwards.
 - **Never show the top rank** (the rank legend's last row, gold mode): it stays a surprise.
 - No accuracy numbers on screen or in the voice-over.
@@ -291,3 +291,80 @@ Shot: Settings: pick the deck, pick the word field, OK. End card: "Kotodama 言�
 ### Title and description (YouTube)
 - Title: "Kotodama: see how much Japanese your Anki deck really covers (JLPT N5–N1)"
 - Description: two lines from the AnkiWeb page's first paragraph, then the AnkiWeb link, the GitHub link and the Ko-fi link.
+
+---
+
+## 9. Launch posts and reply FAQ (draft 2026-11-18)
+
+Write them in your own voice before posting; these are starting points. No accuracy numbers anywhere. Links: `[ANKIWEB LINK]` = `https://ankiweb.net/shared/info/<code>` once uploaded. Attach the share image or a GIF to every post: a picture does more than any sentence.
+
+**Rules checked 2026-11-18 (only through search and mirror sites; Reddit itself was blocked here, so read each sub's sidebar yourself before posting):**
+- **r/LearnJapanese:** self-promotion only in the **Wednesday "Materials Recs & Self-Promo"** thread; a separate post needs a mod's OK first (ask in the Daily Thread after a good reception in the Wednesday thread). Recommending AI as a teaching tool is banned: Kotodama uses no AI, so say so if asked.
+- **r/Anki:** self-promotion is Rule 3; since Feb 2026 AI-related self-promotion gets extra scrutiny, and the mods said "to people building add-ons: keep going". Disclose AI help openly (line below).
+- **Anki Forums:** add-ons are announced in the Add-ons category, usually with "[Add-on]" in the title. Answer in the same thread rather than making new ones (mods merge repeated posts).
+- **r/JLPT, r/LearnJapaneseNovice:** not checked; read the sidebar first.
+
+**AI line (optional, recommended for r/Anki):** "Full disclosure: I'm not a professional developer and I built this with a lot of help from an AI coding assistant. The add-on itself uses no AI: the grammar finder is a rule-based parser with dictionaries, and everything runs offline on your computer."
+
+### 9a. Anki Forums (Add-ons category), soft launch
+
+Title: **[Add-on] Kotodama: JLPT N5–N1 progress in vocab, kanji and grammar, from the deck you already have**
+
+> Hi all, I've been learning Japanese with Anki for a couple of years, and I kept wondering how close my deck actually was to each JLPT level. So I made an add-on that answers that.
+>
+> **Kotodama** reads your existing deck (any note type, you just pick the field with the Japanese word) and shows:
+> - a bar per JLPT level, N5 to N1, with a grid of every word: known ones lit up, missing ones dark
+> - all 2,383 JLPT kanji, coloured by how well you know them (from your FSRS stats)
+> - **grammar**: it finds the JLPT grammar points in your cards' example sentences, conjugated forms included, so sentence cards count without a separate grammar deck
+> - a 20,000-word rank with belts, a JLPT goal planner (how much per day to be ready two weeks before the test), a text check for any article or subtitle file, and a progress history rebuilt from your reviews
+>
+> It never changes your cards or scheduling, works offline, and it's free. There's an optional friends tab if you want to compare bars with study buddies.
+>
+> AnkiWeb: [ANKIWEB LINK]
+>
+> It's brand new, so I'd really like to hear if anything breaks or looks wrong with your deck. I'll fix things here as quickly as I can.
+
+### 9b. r/Anki (a few days after the soft launch)
+
+Title: **I made a free add-on that shows how much of each JLPT level your deck covers, including grammar from your example sentences**
+
+> [share image or GIF]
+>
+> I wanted to know how ready my deck was for the JLPT. Kotodama works with whatever deck you already use: pick your deck and the field with the Japanese word, and it shows:
+>
+> - **Vocab bars N5–N1**, click one for a grid of every word in that level (hover for the meaning, click a missing word to copy it)
+> - **Kanji** coloured by how well you know each one, from your FSRS stability and lapses
+> - **Grammar** found automatically in your example sentences, so mined sentence cards count
+> - a **rank** toward 20,000 words, a **JLPT goal** planner, a **text check** for articles and subtitles, and a **history** chart rebuilt from your reviews
+>
+> Read-only (never touches your cards or scheduling), offline, free, desktop Anki 2.1.50+.
+>
+> [AI line]
+>
+> AnkiWeb: [ANKIWEB LINK]. Happy to answer questions, and bug reports are very welcome.
+
+### 9c. r/LearnJapanese (Wednesday self-promo thread; before Dec 6)
+
+> With the JLPT on Dec 6: if you use Anki, I made a free add-on that shows how ready your deck is for each level. Vocab bars N5–N1, all the JLPT kanji, and the grammar points it finds in your cards' example sentences. It also works out how much per day you'd need for a given test date. Works with any deck, offline, no AI. [ANKIWEB LINK] [share image]
+
+If that gets a good reception, ask in the Daily Thread (tagging a mod) whether a standalone post is OK, then post a "How ready is your Anki deck for Dec 6?" version of 9b.
+
+### 9d. r/JLPT / r/LearnJapaneseNovice (after reading their rules)
+
+Title: **How ready is your Anki deck for the JLPT? I made a free add-on that checks vocab, kanji and grammar per level**
+
+Body: 9b, with the goal planner moved to the top ("pick your level and test date, and it tells you how much per day"), since that's what test-takers want most.
+
+### 9e. Reply FAQ
+
+- **Does it work on my phone?** No: AnkiDroid and AnkiMobile don't run add-ons. It runs on desktop Anki; your reviews from the phone count once they sync to the desktop.
+- **Does it work with Kaishi / Core 2k-6k / my own mined deck?** Yes, any deck and note type. In Settings you pick the field that holds the Japanese word (and optionally the reading and an example sentence). Sentence-only cards work too: leave the word field empty and set the sentence field.
+- **Does it change my cards or scheduling?** No. It only reads your cards. It keeps its own data in its own folder, plus two small settings in your collection (time with Kotodama and, if you join, your Nakama friends list) so they follow your sync.
+- **Where do the JLPT lists come from?** There's no official list since 2010. Word and kanji levels come from Jonathan Waller's lists (via OpenJLPT), grammar from OpenJLPT's 526 points. They're community lists, so treat the levels as a close guide, not the official test.
+- **How does it find grammar? Is it AI?** No AI. It's a rule-based parser with dictionaries that runs offline. It finds most points; ones that only the meaning of a sentence can tell apart can be missed, and you can mark those found in one click.
+- **When does a word count as known?** Once you've studied its card. Kotodama measures recognition: the words you'd understand while reading or listening.
+- **Why are English loanwords counted?** Words like カメラ or テーブル you'd understand on sight. You can mark them known in one click so you don't need cards for them. The JLPT bars count them at once; the rank counts them gradually, so marking them doesn't jump you up the ranks.
+- **Is my data sent anywhere?** Only if you join Nakama (the friends tab): your chosen name and the numbers on your card. Never your cards, words or deck names. Leaving removes them.
+- **Is it really free?** Yes, everything. There's a Ko-fi tip link; a tip adds one "♥ Supported Kotodama" line to your Nakama card, nothing else.
+- **I found a bug / a word is wrong.** [Where to report: GitHub Issues once the repo is public; until then this thread / a DM.] A screenshot and your Anki version help a lot.
+- **Old Anki / Qt5?** Anki 2.1.50 and newer. On the Qt5 builds everything works except the top rank's animated picture.

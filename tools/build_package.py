@@ -34,7 +34,6 @@ SKIP_FILES = {"meta.json", "overrides.json", "overrides1.json", "APP_VISION.md",
 SKIP_DIRS = {"user_files", "tools", ".claude", "__pycache__", ".git", "server", "docs"}
 # release items in to-do (4) that no file check can answer
 MANUAL = [
-    "decide on the debug row",
     "rebuild freq_extra.txt from the BCCWJ LUW zip (ranks past #7,421 are 1–2 too high)",
     "rebuild the friend packages",
     "'unofficial lists, not affiliated with the Japan Foundation / JEES' line",

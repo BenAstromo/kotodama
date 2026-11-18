@@ -33,12 +33,12 @@ Click a bar to open its grid. Tiles are coloured from weak (red) to strong (teal
 ### Kotodama Japanese Rank
 Every card you've studied counts toward 20,000 words, the vocabulary size associated with native-like fluency. Climb through ten ranks, from Gaijin (外人) up, each split into eight karate-style belts. The top rank stays secret until you reach it. A small message pops up during review when you earn a new belt.
 
-![Rank](docs/screenshots/rank.png)
+![Rank](docs/screenshots/rank.webp)
 
 <details>
 <summary>All the ranks</summary>
 
-![All ranks](docs/screenshots/ranks.png)
+![All ranks](docs/screenshots/ranks.webp)
 
 </details>
 

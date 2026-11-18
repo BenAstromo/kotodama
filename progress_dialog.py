@@ -1582,7 +1582,7 @@ def _divine_pulse(widget=None) -> float:
 # DEBUG (Overview's "Force Amaterasu" button): every LevelBar draws full,
 # here and on the Kanji & Grammar tab (and the mini widget). In memory only.
 _DEBUG_FULL = card_state.DEBUG_FULL
-# Whether the Overview's debug row is shown (toggled by an invisible button).
+# The debug row was removed before release (2026-11-18); kept off for dev scripts.
 _DEBUG_ROW = {"shown": False}
 
 
@@ -7226,97 +7226,6 @@ class OverviewTab(QWidget):
             warn.setStyleSheet("color: #ff6b6b; font-size: 12px; font-weight: bold;")
             outer.addWidget(warn)
 
-        # DEBUG nudge buttons: hidden until the invisible switch at the left
-        # of this row is clicked (owner 2026-10-10). Stays as set until restart.
-        debug_line = QHBoxLayout()
-        debug_line.setSpacing(0)
-        secret = QPushButton()
-        secret.setFixedSize(28, 22)
-        secret.setFlat(True)
-        secret.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        secret.setStyleSheet("QPushButton, QPushButton:hover, QPushButton:pressed "
-                             "{ background: transparent; border: none; }")
-        secret.setProperty("jlpt_gold_skip", True)   # no gold border in Amaterasu mode
-        debug_line.addWidget(secret)
-        debug_box = QWidget()
-        debug_box.setVisible(_DEBUG_ROW["shown"])
-        debug_line.addWidget(debug_box, 1)
-
-        def _toggle_debug():
-            _DEBUG_ROW["shown"] = not _DEBUG_ROW["shown"]
-            debug_box.setVisible(_DEBUG_ROW["shown"])
-        secret.clicked.connect(_toggle_debug)
-
-        debug_row = QHBoxLayout(debug_box)
-        debug_row.setContentsMargins(0, 0, 0, 0)
-        debug_lbl = QLabel("Debug preview:")
-        debug_lbl.setStyleSheet(HINT_CSS)
-        debug_row.addWidget(debug_lbl)
-        left_btn = QPushButton("◀ -250")
-        left_btn.setToolTip("Preview 250 fewer cards (display only)")
-        left_btn.setMinimumWidth(80)
-        left_btn.clicked.connect(lambda: self._nudge_rank(-250))
-        debug_row.addWidget(left_btn)
-        right_btn = QPushButton("+250 ▶")
-        right_btn.setToolTip("Preview 250 more cards (display only)")
-        right_btn.setMinimumWidth(80)
-        right_btn.clicked.connect(lambda: self._nudge_rank(250))
-        debug_row.addWidget(right_btn)
-        loyal_btn = QPushButton("Loyalty ▶")
-        loyal_btn.setToolTip("Preview the next 'time with Kotodama' tier: real → 1 month → … → "
-                             "5 years → real (display only; the share image and your own "
-                             "Nakama card follow it, nothing is sent)")
-        loyal_btn.clicked.connect(self._cycle_loyalty)
-        debug_row.addWidget(loyal_btn)
-        mark_btn = QPushButton("★ Mark All JLPT Found")
-        mark_btn.setToolTip(
-            "DEBUG: instantly mark every word, kanji and grammar point on the JLPT lists "
-            "as 'found' via the overrides system. Useful for previewing "
-            "the fully-complete grids and progress bars."
-        )
-        mark_btn.setStyleSheet(
-            "color: #ffe066; font-size: 10px; padding: 2px 8px;"
-        )
-        mark_btn.clicked.connect(self._mark_all_jlpt_found)
-        debug_row.addWidget(mark_btn)
-        all_btn = QPushButton("Count all notes")
-        all_btn.setCheckable(True)
-        all_btn.setChecked(count_all)
-        all_btn.setToolTip(
-            "DEBUG: the rank counts every note in the deck, not only learned "
-            "(young / mature) ones, so a test deck of 20,000 new cards shows "
-            "Amaterasu mode. Applies to the Overview, the main-screen widget "
-            "and rank-up toasts; saved until you turn it off. Progress history "
-            "always uses the real count.")
-        all_btn.setStyleSheet(
-            "QPushButton { font-size: 10px; padding: 2px 8px; }"
-            "QPushButton:checked { color: #ff6b6b; border: 1px solid #ff6b6b; font-weight: bold; }")
-        all_btn.toggled.connect(self._set_count_all)
-        debug_row.addWidget(all_btn)
-        force_btn = QPushButton("☀ Force Amaterasu")
-        force_btn.setCheckable(True)
-        force_btn.setChecked(_DEBUG_FULL["on"])
-        force_btn.setToolTip(
-            "DEBUG: preview Amaterasu mode with every bar full (JLPT, frequency, "
-            "kanji and grammar). Display only; nothing is saved, and it turns off "
-            "when Anki restarts.")
-        force_btn.setStyleSheet(
-            "QPushButton { font-size: 10px; padding: 2px 8px; }"
-            "QPushButton:checked { color: #ffd700; border: 1px solid #ffd700; font-weight: bold; }")
-        force_btn.toggled.connect(self._set_force_amaterasu)
-        debug_row.addWidget(force_btn)
-        for label, to_rank in (("Test belt-up toast", False), ("Test rank-up toast", True)):
-            toast_btn = QPushButton(label)
-            toast_btn.setToolTip(
-                "DEBUG: show the review-time rank-up message as if a card "
-                "had just been studied past the next "
-                + ("rank" if to_rank else "belt") + " (uses the previewed count).")
-            toast_btn.setStyleSheet("font-size: 10px; padding: 2px 8px;")
-            toast_btn.clicked.connect(lambda _=False, r=to_rank: self._test_rank_toast(r))
-            debug_row.addWidget(toast_btn)
-        debug_row.addStretch()
-        outer.addLayout(debug_line)
-
         # ── Rank progress bars ABOVE the badge ───────────────────────────
         self._rank_bar = RankBar(info)
         outer.addWidget(self._rank_bar)
@@ -7675,74 +7584,6 @@ class OverviewTab(QWidget):
             from . import divine_text
             divine_text.apply(self._loyal_lbl, True)
 
-    def _cycle_loyalty(self):
-        """Debug row: preview the next loyalty tier (display only)."""
-        from . import loyalty
-        loyalty.cycle_preview()
-        self._update_loyalty()
-
-    def _nudge_rank(self, delta: int):
-        """Shift the previewed card count by `delta` (±250) and repaint
-        every bar live. Uses the same edge-triggered crossing logic as the
-        real card count, so nudging through 20,000 fires the Amaterasu popup
-        just like actually reaching 20,000 cards — and nudging back below and
-        then above again re-fires it, which is exactly what you want for QA."""
-        self._rank_debug_offset += delta
-        total_cards = max(0, self._rank_real_total + self._rank_debug_offset)
-        info = rank_data.get_rank_info(total_cards)
-        force_max_gold = info["is_max_amaterasu"]
-
-        self._rank_badge.update_info(info)
-        self._rank_bar.update_info(info)
-        self._belt_bar.update_info(info)
-        self._set_rank_split(info["count"])
-        self._all_bar.set_force_max_gold(force_max_gold)
-        for bar in self._level_bars + self._freq_bars:
-            bar.set_force_max_gold(force_max_gold)
-        self._set_level_label_gold(force_max_gold)
-        self._inscription.setVisible(force_max_gold)
-        # Only on a gold flip: the dialog's gold pass restyles the whole
-        # window (~1.2 s), which made every ±250 click lag (owner 2026-10-24).
-        if force_max_gold != self.gold:
-            self.gold = force_max_gold
-            self.gold_preview.emit(force_max_gold)
-
-        # Fire popup on the crossing edge (debug track, independent of real).
-        self._check_amaterasu_crossing(
-            info["is_max_amaterasu"], is_debug=True
-        )
-
-    def _mark_all_jlpt_found(self):
-        """DEBUG: mark every word across all JLPT level lists as 'found' via
-        the overrides system, so you can preview the fully-complete state of
-        the word grid and progress bars without having 20,000 real cards.
-
-        This does exactly what middle-clicking every tile would do, writing
-        to overrides.json immediately. Hit Refresh afterward to recompute
-        results and see the bars update."""
-        # OverviewTab doesn't hold a direct reference to overrides or lists —
-        # walk up to the parent ProgressDialog to get them.
-        dlg = self.parent()
-        while dlg is not None and not hasattr(dlg, "_overrides"):
-            dlg = dlg.parent()
-        if dlg is None:
-            return
-        overrides = dlg._overrides
-        lists     = dlg._lists
-        overrides.add_found_many(
-            pair for lvl in LEVELS for pair in lists.get(lvl, [])
-        )
-        # … and every JLPT kanji and grammar point (owner 2026-10-09), so the
-        # Kanji & Grammar tab can be previewed complete too.
-        from . import grammar_data
-        kres = (dlg._results or {}).get("kanji") or {}
-        dlg._kanji_overrides.add_found_many(
-            (ch, "") for lvl in LEVELS for ch in kres.get("levels", {}).get(lvl, []))
-        dlg._grammar_overrides.add_found_many(
-            (gid, "") for ids in grammar_data.level_ids().values() for gid in ids)
-        # Trigger a full refresh so the UI picks up the changes immediately.
-        self.refresh_requested.emit()
-
     def _set_rank_split(self, total: int):
         """"3,411 counted = 3,160 from your cards + 251 English loanwords + 0
         marked found" (split_html; the debug ±250 offset shows up on the cards
@@ -7765,47 +7606,6 @@ class OverviewTab(QWidget):
     def set_inscription(self, message: str):
         """A new share message was saved: engrave it (built-in one if empty)."""
         self._inscription.set_text(message or _AMATERASU_MESSAGE_JP)
-
-    def _set_count_all(self, on: bool):
-        """DEBUG: switch the rank between learned notes and every note
-        (card_state.debug_count_all), then rebuild this tab and the main
-        screen widget so both show the new count."""
-        from . import _cfg, _save
-        cfg = _cfg()
-        cfg["debug_rank_count_all"] = bool(on)
-        _save(cfg)
-        self.refresh_requested.emit()
-        if mw.state == "deckBrowser":
-            mw.deckBrowser.refresh()
-
-    def _set_force_amaterasu(self, on: bool):
-        """DEBUG: jump the previewed count to exactly 20,000 (or back to the
-        real count) and draw every bar full, everywhere in the window."""
-        _DEBUG_FULL["on"] = bool(on)
-        target = rank_data.MAX_CARDS if on else self._rank_real_total
-        self._nudge_rank(target - (self._rank_real_total + self._rank_debug_offset))
-        for bar in self.window().findChildren(LevelBar):
-            bar.update()
-        if mw.state == "deckBrowser":          # the main-screen widget too
-            mw.deckBrowser.refresh()
-
-    def _test_rank_toast(self, to_rank: bool):
-        """DEBUG: show the rank-up toast for the next belt (or next main
-        rank) above the currently previewed count, without reviewing."""
-        from . import rank_toast
-        count  = max(0, self._rank_real_total + self._rank_debug_offset)
-        before = rank_data.get_rank_info(count)
-        if before["is_max"]:
-            target = rank_data.MAX_CARDS
-        elif to_rank:
-            nxt = (before["rank_index"] + 1) * rank_data.BELTS_PER_RANK
-            target = (rank_data.BELT_THRESHOLDS[nxt]
-                      if nxt < len(rank_data.BELT_THRESHOLDS) else rank_data.MAX_CARDS)
-        else:
-            target = before["belt_end"]
-        after = rank_data.get_rank_info(target)
-        rank_toast.show_toast(after, new_rank=after["rank_index"] > before["rank_index"],
-                              parent=self.window())
 
     def _check_amaterasu_crossing(self, is_now_max: bool, is_debug: bool):
         """Fire the Amaterasu popup when the card count crosses INTO max.

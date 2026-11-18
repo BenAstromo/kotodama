@@ -340,7 +340,10 @@ class HistoryChart(QWidget):
             p.drawText(QRectF(r.left() + 6, y - 18, 200, 14),
                        Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter, "天照  20,000")
 
-        # JLPT goal: a faint vertical line at the finish line and the test day
+        # JLPT goal: a faint vertical line at the finish line and the test day.
+        # Labels that would overlap (a finish line close to the test day) go
+        # one line lower.
+        placed = []
         for i, label, col in self._markers:
             x = self._x(i, r)
             c = QColor(col)
@@ -349,7 +352,12 @@ class HistoryChart(QWidget):
             p.drawLine(QPointF(x, r.top()), QPointF(x, r.bottom()))
             p.setPen(QColor(col))
             w = fm.horizontalAdvance(label)
-            p.drawText(QPointF(max(r.left() + 2, min(x + 4, r.right() - w)), r.top() + 10), label)
+            lx = max(r.left() + 2, min(x + 4, r.right() - w))
+            y = r.top() + 10
+            while any(lx < px + pw + 6 and px < lx + w + 6 and py == y for px, pw, py in placed):
+                y += fm.height()
+            placed.append((lx, w, y))
+            p.drawText(QPointF(lx, y), label)
 
         # Lines: a soft glow under a crisp line, like the bars
         for label, color, glow, dashed, vals in self._lines:

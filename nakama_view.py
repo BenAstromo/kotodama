@@ -103,7 +103,6 @@ class NakamaTab(QWidget):
         self._recount = recount
         self._last_fetch = 0.0
         self._selected = None      # code
-        self._preview = None       # DEBUG: rank count the shown card is previewed at
         self._busy = False
         self._img = None
         self._card_base = None     # the shown card without its rank picture
@@ -171,7 +170,6 @@ class NakamaTab(QWidget):
         self._status.setStyleSheet("color: #e0a050;")
         self._status.setWordWrap(True)
         v.addWidget(self._status)
-        v.addLayout(self._debug_row())
         # Your own card before joining: what friends will see.
         prev = QLabel("Your card, as your friends will see it:")
         prev.setStyleSheet(HINT_CSS)
@@ -184,8 +182,7 @@ class NakamaTab(QWidget):
         self._render_own()
 
     def _render_own(self):
-        """Join view: your card from your last count (with the debug
-        preview's rank, if any)."""
+        """Join view: your card from your last count."""
         if nakama.joined() or not hasattr(self, "_card"):
             return
         mine = nakama.state().get("mine")
@@ -195,8 +192,7 @@ class NakamaTab(QWidget):
             self._card.setText("<span style='color:#9a9a9a;'>Your card appears here once your "
                                "bars are counted.</span>")
             return
-        data = dict(mine, rank=self._preview) if self._preview is not None else mine
-        self._set_card({"name": self._name.text().strip() or "Nakama", "data": data}, None, "")
+        self._set_card({"name": self._name.text().strip() or "Nakama", "data": mine}, None, "")
 
     def _build_member(self, body):
         s = nakama.state()
@@ -248,7 +244,6 @@ class NakamaTab(QWidget):
         self._status = QLabel("")
         self._status.setStyleSheet(HINT_CSS)
         v.addWidget(self._status)
-        v.addLayout(self._debug_row())
 
         split = QSplitter(Qt.Orientation.Horizontal)
         self._list = QListWidget()
@@ -268,97 +263,6 @@ class NakamaTab(QWidget):
         split.setSizes([340, 660])
         v.addWidget(split, 1)
         self._fill_list()
-
-    # ── DEBUG: preview the shown card at any rank ────────────────────────────
-    # Hidden like the Overview's debug row (same invisible switch at the
-    # row's left, same shown/hidden state). Only the picture changes: nothing
-    # is uploaded, no count changes (owner 2026-10-18).
-
-    def _debug_row(self) -> QHBoxLayout:
-        from .progress_dialog import _DEBUG_ROW
-        line = QHBoxLayout()
-        line.setSpacing(0)
-        secret = QPushButton()
-        secret.setFixedSize(28, 22)
-        secret.setFlat(True)
-        secret.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        secret.setStyleSheet("QPushButton, QPushButton:hover, QPushButton:pressed "
-                             "{ background: transparent; border: none; }")
-        secret.setProperty("jlpt_gold_skip", True)
-        line.addWidget(secret)
-        box = QWidget()
-        box.setVisible(_DEBUG_ROW["shown"])
-        line.addWidget(box, 1)
-        self._debug_box = box          # follows the Overview's switch on every show
-
-        def toggle():
-            _DEBUG_ROW["shown"] = not _DEBUG_ROW["shown"]
-            box.setVisible(_DEBUG_ROW["shown"])
-        secret.clicked.connect(toggle)
-        row = QHBoxLayout(box)
-        row.setContentsMargins(0, 0, 0, 0)
-        lbl = QLabel("Debug preview:")
-        lbl.setStyleSheet(HINT_CSS)
-        row.addWidget(lbl)
-        for text, kind, step in (("◀◀ Rank", "rank", -1), ("◀ Belt", "belt", -1),
-                                 ("Belt ▶", "belt", 1), ("Rank ▶▶", "rank", 1)):
-            b = QPushButton(text)
-            b.clicked.connect(lambda _c=False, k=kind, s=step: self._debug_step(k, s))
-            row.addWidget(b)
-        reset = QPushButton("Reset")
-        reset.clicked.connect(lambda: self._debug_set(None))
-        row.addWidget(reset)
-        self._debug_lbl = QLabel("")
-        self._debug_lbl.setStyleSheet(HINT_CSS)
-        row.addWidget(self._debug_lbl)
-        row.addStretch()
-        return line
-
-    @staticmethod
-    def _belt_starts() -> list[int]:
-        """Every count where a belt or Amaterasu degree starts, plus 20,000."""
-        return sorted(set(rank_data.BELT_THRESHOLDS[:-1]) | set(rank_data.DEGREE_THRESHOLDS)
-                      | {rank_data.MAX_CARDS})
-
-    def _shown_count(self) -> int:
-        if self._preview is not None:
-            return self._preview
-        if not nakama.joined():
-            return int((nakama.state().get("mine") or {}).get("rank") or 0)
-        prof = next((m for c, m, _me in self._members() if c == self._selected), None)
-        return int(((prof or {}).get("data") or {}).get("rank") or 0)
-
-    def _debug_step(self, kind: str, step: int):
-        starts = self._belt_starts()
-        cur = self._shown_count()
-        if kind == "rank":
-            idx = rank_data.get_rank_info(cur)["rank_index"]
-            ranks = {}
-            for s in starts:               # the first count of every rank
-                ranks.setdefault(rank_data.get_rank_info(s)["rank_index"], s)
-            target = ranks.get(max(0, min(max(ranks), idx + step)))
-            if step < 0 and cur > ranks.get(idx, 0):
-                target = ranks[idx]        # back to the start of this rank first
-            elif step > 0 and target <= cur:
-                target = rank_data.MAX_CARDS   # past the last rank's start: 20,000 (gold card)
-        else:
-            later = [s for s in starts if s > cur]
-            earlier = [s for s in starts if s < cur]
-            target = (later[0] if later else cur) if step > 0 else (earlier[-1] if earlier else 0)
-        self._debug_set(target)
-
-    def _debug_set(self, count):
-        self._preview = count
-        if count is None:
-            self._debug_lbl.setText("")
-        else:
-            info = rank_data.get_rank_info(count)
-            self._debug_lbl.setText(f"{info['rank_name_en']} · {info['belt_display_name']} belt "
-                                    f"({count:,})")
-        if nakama.joined():
-            self._on_select(self._list.currentItem(), None)
-        else:
-            self._render_own()
 
     # ── list and card ────────────────────────────────────────────────────────
 
@@ -435,8 +339,6 @@ class NakamaTab(QWidget):
                                + ("Nobody uses this code (any more)." if prof.get("missing")
                                   else "No card yet: press ⟳ Refresh.") + "</span>")
             return
-        if self._preview is not None:      # DEBUG preview: this card at that rank
-            prof = dict(prof, data=dict(prof["data"], rank=self._preview))
         try:
             self._set_card(prof, None if me else nakama.state().get("mine"),
                            nakama.synced_text(prof.get("updated")) if not me or prof.get("updated") else "")
@@ -534,13 +436,6 @@ class NakamaTab(QWidget):
         super().showEvent(e)
         if nakama.adopt_collection():                 # membership arrived with a sync
             self._build()
-        from .progress_dialog import _DEBUG_ROW
-        box = getattr(self, "_debug_box", None)
-        if box is not None:
-            try:
-                box.setVisible(_DEBUG_ROW["shown"])   # opened on the Overview → shown here too
-            except RuntimeError:                       # its view was rebuilt
-                pass
         self._render_own()
         self.refresh()
         for rank, video in self._videos.items():
