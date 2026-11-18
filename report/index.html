@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report a bug · Kotodama</title>
+<meta name="description" content="Report a bug in Kotodama, the JLPT progress add-on for Anki. No account needed.">
+<style>
+  :root {
+    --bg: #f6f4f1; --card: #ffffff; --text: #1d1b19; --muted: #5f5a54;
+    --line: #e2ddd6; --red: #c8102e; --red-ink: #ffffff; --soft: #f0ece6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121214; --card: #1c1c20; --text: #ecebe8; --muted: #a29e98;
+      --line: #2e2e34; --red: #e0283f; --red-ink: #ffffff; --soft: #26262b;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Yu Gothic UI", sans-serif;
+  }
+  main { max-width: 620px; margin: 0 auto; padding: 48px 16px 64px; }
+  .brand { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 15px; }
+  .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--red); flex: none; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 14px 0 8px; }
+  .lead { color: var(--muted); margin: 0 0 28px; }
+  .choice {
+    display: block; text-decoration: none; color: inherit;
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 20px 22px; margin-bottom: 14px; transition: border-color .15s, transform .15s;
+  }
+  .choice:hover, .choice:focus-visible { border-color: var(--red); transform: translateY(-1px); outline: none; }
+  .choice h2 { font-size: 19px; margin: 0 0 4px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .choice p { margin: 0; color: var(--muted); }
+  .tag {
+    font-size: 12.5px; font-weight: 600; padding: 2px 9px; border-radius: 999px;
+    background: var(--red); color: var(--red-ink);
+  }
+  .tag.plain { background: var(--soft); color: var(--muted); }
+  .go { margin-top: 12px; font-weight: 600; color: var(--red); }
+  .tips {
+    margin-top: 30px; padding: 18px 22px; border-radius: 14px; background: var(--soft);
+  }
+  .tips h3 { margin: 0 0 8px; font-size: 16px; }
+  .tips ul { margin: 0; padding-left: 20px; }
+  .tips li { margin: 4px 0; }
+  footer { margin-top: 28px; color: var(--muted); font-size: 14px; }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand"><span class="dot" aria-hidden="true"></span>Kotodama 言霊 · JLPT progress for Anki</div>
+  <h1>Report a bug</h1>
+  <p class="lead">Thank you! Kotodama is new, and every report helps. Pick whichever is easier for you:</p>
+
+  <a class="choice" href="https://docs.google.com/forms/d/e/1FAIpQLSee5oEv5NkNRlvkVFd7dpVbFeR0Xl2dCYfjKqjoh8MNObzGgw/viewform">
+    <h2>Quick form <span class="tag">No account needed</span></h2>
+    <p>A short Google Form: what happened, your Anki version, done. Leave an email only if you'd like a reply.</p>
+    <div class="go">Open the form →</div>
+  </a>
+
+  <a class="choice" href="https://github.com/BenAstromo/kotodama/issues/new?template=bug_report.yml">
+    <h2>GitHub <span class="tag plain">Free account needed</span></h2>
+    <p>Open an issue: you can add screenshots, talk it through, and get notified when it's fixed.</p>
+    <div class="go">Open GitHub →</div>
+  </a>
+
+  <div class="tips">
+    <h3>What helps most</h3>
+    <ul>
+      <li>What you did, and what went wrong.</li>
+      <li>If Anki showed an error window: click <b>Copy Debug Info</b> and paste it in.</li>
+      <li>Your Anki version: <b>Help → About</b> in Anki.</li>
+    </ul>
+  </div>
+
+  <footer>
+    Ideas and the full guide: <a href="https://github.com/BenAstromo/kotodama">Kotodama on GitHub</a> ·
+    <a href="https://ankiweb.net/shared/info/1830630516">AnkiWeb page</a>
+  </footer>
+</main>
+</body>
+</html>
