@@ -158,6 +158,12 @@ for rank, (m, pmw) in enumerate(suw_mapped[20_000:CAP], start=20_001):
 luw, _ = aggregate(LUW_PATH)
 by_seq = {}
 for (lemma, rd), (fr, pos) in luw.items():
+    # Not compounds: one-kana lemmas (す, ち, て, そ, ん: fragments of speech
+    # or old forms; one-kanji ones like 私 あたし and 何 なん are real words)
+    # and words the SUW list itself has (こん). They would otherwise map to
+    # odd entries and show up as top-6,000 tiles.
+    if (len(lemma) == 1 and not KANJI.match(lemma)) or (lemma, rd) in suw:
+        continue
     m = map_entry(lemma, rd, pos)
     if not m or m[3] in covered:
         continue
