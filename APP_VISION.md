@@ -24,6 +24,7 @@
 - Read through the README and the AnkiWeb text (release_drafts.md §6) by hand.
 - Screenshots: settings / vocabulary / history retaken 2026-11-18; retake after the JLPT-loanword change (bars count loanwords at once; share image says "incl. N English loanwords"); rank.webp + ranks.webp (animated, Samurai via the old debug preview), text-check / nakama / main-screen retaken 2026-11-18 too. Fake Nakama friends: `tools/dev/nakama_demo.py`, `--clear` after.
 - Test on other PCs (the ESAN friend's copy counts); one real Ko-fi tip ("♥ Supported Kotodama"; refunds: clear `supporter` by hand; wrangler from the add-on root needs `--config server/wrangler.toml`).
+- Anki Forums post is up (2026-11-18): https://forums.ankiweb.net/t/74597 . The new forum account could not post links, so it went up without links or the screenshot; edit it to add the AnkiWeb / GitHub / report-page links and the screenshot once the account is allowed links (the full text is release_drafts §9a).
 - Soft launch now (2026-11-18): AnkiWeb + the Anki Forums post (§9a) + friends only, so a few test users find the obvious bugs first. When the owner feels ready (JLPT is 2026-12-06): Reddit (§9b–9d: r/Anki → r/LearnJapanese → r/JLPT / r/LearnJapaneseNovice), short feature demos for Instagram Reels / YouTube Shorts, and one long YouTube full demo (owner narrates) that also goes in the README. TheMoeWay Discord later. Organic only, no accuracy numbers.
 
 **Open (development):**
