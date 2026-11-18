@@ -178,7 +178,7 @@ Works offline. Only if you join Nakama are your name and card numbers sent (rank
 Kotodama is free, and nothing is unlocked by money. If it helps you: <a href="https://ko-fi.com/benastromo">♥ Support on Ko-fi</a>.
 
 <b>Found a bug? Please tell me</b><br>
-Kotodama is new, and bug reports are the most helpful thing you can send. <a href="https://github.com/BenAstromo/kotodama/issues/new">Report a bug on GitHub</a> (a free GitHub account is needed): say what you did, what happened, and your Anki version. If Anki showed an error window, paste its text too. Please report bugs there rather than in a review, so I can ask questions and tell you when it's fixed.
+Kotodama is new, and bug reports are the most helpful thing you can send. <a href="https://benastromo.github.io/kotodama/report/">Report a bug here</a>, no account needed: say what you did, what happened, and your Anki version. If Anki showed an error window, paste its text too. Please report bugs there rather than in a review, so I can ask questions and tell you when it's fixed.
 
 Ideas and the full guide: <a href="https://github.com/BenAstromo/kotodama">GitHub</a>
 

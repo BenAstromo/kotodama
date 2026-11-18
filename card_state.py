@@ -210,7 +210,7 @@ def run_in_background(parent, work, done, label: str | None = None, quiet: bool 
             try:
                 from aqt.utils import showWarning
                 showWarning("Kotodama couldn't count your deck. Please report this at "
-                            "github.com/BenAstromo/kotodama/issues with the text below.\n\n" + text,
+                            "benastromo.github.io/kotodama/report (no account needed) with the text below.\n\n" + text,
                             title="Kotodama")
             except Exception:
                 pass

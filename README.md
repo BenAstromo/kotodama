@@ -116,7 +116,7 @@ Kotodama is free, and nothing is unlocked by money. If it helps you, you can lea
 
 ## Bugs and ideas
 
-Please open an issue: **[GitHub Issues](https://github.com/BenAstromo/kotodama/issues)**.
+**[Report a bug](https://benastromo.github.io/kotodama/report/)**: a short form, no account needed (or a GitHub issue, if you have an account). Ideas are welcome on [GitHub Issues](https://github.com/BenAstromo/kotodama/issues) too.
 
 ---
 

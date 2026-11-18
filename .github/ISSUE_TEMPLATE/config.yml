@@ -1,1 +1,5 @@
 blank_issues_enabled: true
+contact_links:
+  - name: No GitHub account? Use the quick form
+    url: https://docs.google.com/forms/d/e/1FAIpQLSee5oEv5NkNRlvkVFd7dpVbFeR0Xl2dCYfjKqjoh8MNObzGgw/viewform
+    about: Report a bug without signing in.
