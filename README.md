@@ -4,7 +4,7 @@
 
 Kotodama reads the deck you already have and shows your progress through every JLPT level, N5 to N1, in **vocabulary, kanji and grammar**. It also finds the grammar in your cards' example sentences, so mined sentence cards count too. You don't need a separate grammar deck.
 
-Free, works offline, nothing to install besides the add-on. Version 3.0.0.
+Free, works offline, nothing to install besides the add-on. Version 3.0.1.
 
 ![JLPT vocabulary bars](docs/screenshots/vocabulary.png)
 

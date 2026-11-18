@@ -1,5 +1,5 @@
 """
-Kotodama 言霊 — JLPT Progress & Rank Tracker (Anki add-on)  v3.0.0
+Kotodama 言霊 — JLPT Progress & Rank Tracker (Anki add-on)  v3.0.1
 
 Matching strategy:
   Step 1. Exact match on display form in card's primary field (or one of
